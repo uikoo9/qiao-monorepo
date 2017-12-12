@@ -19,6 +19,6 @@
   },
   "license": "MIT",
   "dependencies": {
-
+    "ali-oss": "^4.11.2"
   }
 }
