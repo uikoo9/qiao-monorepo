@@ -1,6 +1,6 @@
 {
   "name": "qiao.ext.oss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "oss upload tool",
   "scripts": {},
@@ -20,5 +20,9 @@
   "license": "MIT",
   "dependencies": {
     "ali-oss": "^4.11.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao.ext.oss.git"
+  },
 }

@@ -45,6 +45,8 @@ nodejs ali oss upload tool
 2. 添加npmignore
 3. 更新readme文件
 4. exports
+5. upload file
+6. upload folder
 
 ### 0.0.1.20171212
 1. 初始化项目
