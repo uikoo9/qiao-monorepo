@@ -1,6 +1,6 @@
 {
   "name": "qiao.ext.oss",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "private": false,
   "description": "oss upload tool",
   "scripts": {},
