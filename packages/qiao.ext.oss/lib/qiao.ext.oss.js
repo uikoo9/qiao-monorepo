@@ -1,6 +1,7 @@
 'use strict';
 
 var co	= require('co');
+var fs	= require('fs');
 var OSS = require('ali-oss');
 
 /**
@@ -39,11 +40,67 @@ exports.listBuckets = function(client, cb){
 	});
 };
 
-exports.addFile = function(client){
+/**
+ * uploadFile
+ * 上传文件
+ * 	client
+ * 	dest，目标路径
+ * 	source，待上传文件路径
+ * 	cb
+ */
+exports.uploadFile = function(client, dest, source, cb){
 	co(function* () {
-		var result = yield client.put('file', 'd:/test.js');
-		console.log(result);
+		var result = yield client.put(dest, source);
+		
+		if(cb) cb(null, result);
 	}).catch(function (err) {
-		console.log(err);
+		if(cb) cb(err);
 	});
 };
+
+/**
+ * uploadFolder
+ * 上传文件夹
+ * 	client
+ * 	destFolder，目标路径，末尾不要添加/
+ * 	sourceFolder，待上传的文件夹，末尾不要加/
+ * 	cb
+ */
+exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
+	var paths = [];
+	try{
+		getPathsFromFolder(sourceFolder, paths);
+	}catch(e){
+		if(cb) cb(e);
+	}
+
+	co(function* () {
+		var rs = [];
+		for(var i=0; i<paths.length; i++){
+			var path = paths[i];
+			var dest = destFolder + path.substr(sourceFolder.length);
+			
+			var result = yield client.put(dest, path);
+			rs.push(result);
+		}
+		
+		if(cb) cb(null, rs);
+	}).catch(function (err) {
+		if(cb) cb(err);
+	});
+};
+
+// get paths from folder
+function getPathsFromFolder(root, list){
+	var paths = fs.readdirSync(root);
+	
+	for(var i=0; i<paths.length; i++){
+		var path = root + '/'  + paths[i];
+
+		if(fs.statSync(path).isDirectory()){
+			getPathsFromFolder(path, list);
+		}else{
+			list.push(path);
+		}
+	}
+}
