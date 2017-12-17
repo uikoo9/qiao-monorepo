@@ -100,6 +100,12 @@ npm install qiao.ext.oss
 	
 # version
 ---
+### 0.0.3.20171217
+1. upload file async
+2. upload file sync
+3. upload folder async
+4. upload folder sync
+
 ### 0.0.2.20171213
 1. 删除无关文件
 2. 添加npmignore
