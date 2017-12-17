@@ -17,6 +17,7 @@
     "email": "npm@insistime.com",
     "url": "http://insistime.com"
   },
+  "homepage": "http://insistime.com/",
   "license": "MIT",
   "dependencies": {
     "ali-oss": "^4.11.2"

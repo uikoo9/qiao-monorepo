@@ -2,6 +2,10 @@
 ---
 nodejs ali oss upload tool
 
+# install
+---
+npm install qiao.ext.oss
+
 # config.json
 ---
     {
@@ -11,9 +15,58 @@ nodejs ali oss upload tool
 		"bucket"			: "your bucket"
 	}
 
-# upload file and upload folder demo
+# upload file sync
 ---
-	var qiaoExtOss 			= require('qiao.ext.oss');
+	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOssConfig	= require('./config.json');
+	
+	var client = qiaoExtOss.client(qiaoExtOssConfig);
+	
+	/**
+	 * upload file demo
+	 * upload d:/test.js to your bucket's test/test.js
+	 */
+	var test = async function(){
+		try{
+			var rs1 = await qiaoExtOss.uploadFileSync(client, 'test/test.js', 'd:/test.js');
+			console.log(rs1);
+	
+			var rs2 = await qiaoExtOss.uploadFileSync(client, 'test/test.js', 'd:/test.js');
+			console.log(rs2);
+		}catch(e){
+			console.log(e);
+		}
+	};
+	
+	test();
+
+# upload folder sync
+	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOssConfig	= require('./config.json');
+	
+	var client = qiaoExtOss.client(qiaoExtOssConfig);
+	
+	/**
+	 * upload folder
+	 * upload d:/test folder's files to your bucket's test folder
+	 */
+	var test = async function(){
+		try{
+			var rs1 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
+			console.log(rs1);
+	
+			var rs2 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
+			console.log(rs2);
+		}catch(e){
+			console.log(e);
+		}
+	};
+	
+	test();
+
+# upload file async
+---
+	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
 	var qiaoExtOssConfig	= require('./config.json');
 	
 	var client = qiaoExtOss.client(qiaoExtOssConfig);
@@ -27,6 +80,13 @@ nodejs ali oss upload tool
 		
 		console.log(rs);
 	});
+
+# upload folder async
+---
+	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOssConfig	= require('./config.json');
+	
+	var client = qiaoExtOss.client(qiaoExtOssConfig);
 	
 	/**
 	 * upload folder
@@ -37,7 +97,7 @@ nodejs ali oss upload tool
 		
 		console.log(rs);
 	});
-
+	
 # version
 ---
 ### 0.0.2.20171213

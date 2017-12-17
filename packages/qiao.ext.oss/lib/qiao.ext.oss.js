@@ -28,7 +28,7 @@ exports.client = function(config){
  * listBuckets
  * 列出buckets
  * 	client
- * 	cb
+ * 	cb，回调函数
  */
 exports.listBuckets = function(client, cb){
 	co(function* () {
@@ -46,7 +46,7 @@ exports.listBuckets = function(client, cb){
  * 	client
  * 	dest，目标路径
  * 	source，待上传文件路径
- * 	cb
+ * 	cb，回调函数
  */
 exports.uploadFile = function(client, dest, source, cb){
 	co(function* () {
@@ -59,12 +59,29 @@ exports.uploadFile = function(client, dest, source, cb){
 };
 
 /**
+ * uploadFileSync
+ * 上传文件，同步方式
+ * 	client
+ * 	dest，目标路径
+ * 	source，待上传文件路径
+ * 
+ * return rs
+ */
+exports.uploadFileSync = function(client, dest, source){
+	return new Promise(function(resolve, reject){
+		exports.uploadFile(client, dest, source, function(err, rs){
+			return err ? reject(err) : resolve(rs);
+		});
+	});
+};
+
+/**
  * uploadFolder
  * 上传文件夹
  * 	client
  * 	destFolder，目标路径，末尾不要添加/
  * 	sourceFolder，待上传的文件夹，末尾不要加/
- * 	cb
+ * 	cb，回调函数
  */
 exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
 	var paths = [];
@@ -87,6 +104,23 @@ exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
 		if(cb) cb(null, rs);
 	}).catch(function (err) {
 		if(cb) cb(err);
+	});
+};
+
+/**
+ * uploadFolderSync
+ * 上传文件夹，同步方式
+ * 	client
+ * 	destFolder，目标路径，末尾不要添加/
+ * 	sourceFolder，待上传的文件夹，末尾不要加/
+ * 
+ * return rs
+ */
+exports.uploadFolderSync = function(client, destFolder, sourceFolder){
+	return new Promise(function(resolve, reject){
+		exports.uploadFolder(client, destFolder, sourceFolder, function(err, rs){
+			return err ? reject(err) : resolve(rs);
+		});
 	});
 };
 

@@ -12,13 +12,3 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 	
 	console.log(rs);
 });
-
-/**
- * upload folder
- * upload d:/test folder's files to your bucket's test folder
- */
-qiaoExtOss.uploadFolder(client, 'test', 'd:/test', function(err, rs){
-	if(err) throw err;
-	
-	console.log(rs);
-});
