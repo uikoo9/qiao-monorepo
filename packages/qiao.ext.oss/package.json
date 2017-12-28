@@ -1,27 +1,26 @@
 {
   "name": "qiao.ext.oss",
   "version": "0.1.3",
-  "private": false,
+  "license": "MIT",
   "description": "oss upload tool",
-  "scripts": {},
-  "preferGlobal": false,
-  "bin": {},
-  "main": "index.js",
   "keywords": [
     "oss",
     "upload",
     "tool"
   ],
+  "main": "index.js",
+  "scripts": {
+  
+  },
+  "dependencies": {
+    "ali-oss": "^4.11.2"
+  },
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
     "url": "http://insistime.com"
   },
   "homepage": "http://insistime.com/",
-  "license": "MIT",
-  "dependencies": {
-    "ali-oss": "^4.11.2"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao.ext.oss.git"
