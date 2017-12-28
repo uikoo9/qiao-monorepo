@@ -100,6 +100,9 @@ npm install qiao.ext.oss
 	
 # version
 ---
+### 0.0.4.20171228
+1. test js use strict
+
 ### 0.0.3.20171217
 1. upload file async
 2. upload file sync
