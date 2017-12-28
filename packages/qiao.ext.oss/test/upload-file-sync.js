@@ -1,3 +1,5 @@
+'use strict';
+
 var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
 var qiaoExtOssConfig	= require('./config.json');
 
