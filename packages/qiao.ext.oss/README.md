@@ -17,7 +17,7 @@ npm install qiao.ext.oss
 
 # upload file sync
 ---
-	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
 	var client = qiaoExtOss.client(qiaoExtOssConfig);
@@ -41,7 +41,7 @@ npm install qiao.ext.oss
 	test();
 
 # upload folder sync
-	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
 	var client = qiaoExtOss.client(qiaoExtOssConfig);
@@ -66,7 +66,7 @@ npm install qiao.ext.oss
 
 # upload file async
 ---
-	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
 	var client = qiaoExtOss.client(qiaoExtOssConfig);
@@ -83,7 +83,7 @@ npm install qiao.ext.oss
 
 # upload folder async
 ---
-	var qiaoExtOss 			= require('../lib/qiao.ext.oss.js');
+	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
 	var client = qiaoExtOss.client(qiaoExtOssConfig);
