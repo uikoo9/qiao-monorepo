@@ -17,6 +17,8 @@ npm install qiao.ext.oss
 
 # upload file sync
 ---
+	'use strict';
+	
 	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
@@ -41,6 +43,8 @@ npm install qiao.ext.oss
 	test();
 
 # upload folder sync
+	'use strict';
+	
 	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
@@ -66,6 +70,8 @@ npm install qiao.ext.oss
 
 # upload file async
 ---
+	'use strict';
+	
 	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
@@ -83,6 +89,8 @@ npm install qiao.ext.oss
 
 # upload folder async
 ---
+	'use strict';
+	
 	var qiaoExtOss 			= require('qiao.ext.oss');
 	var qiaoExtOssConfig	= require('./config.json');
 	
@@ -100,6 +108,9 @@ npm install qiao.ext.oss
 	
 # version
 ---
+### 0.0.5.20171229
+1. 修改readme.md的示例代码
+
 ### 0.0.4.20171228
 1. test js use strict
 2. update package.json
