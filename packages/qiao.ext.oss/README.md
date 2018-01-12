@@ -1,13 +1,10 @@
 # qiao.ext.oss
----
 nodejs ali oss upload tool
 
 # install
----
 npm install qiao.ext.oss
 
 # config.json
----
     {
 		"region"			: "your region",
 		"accessKeyId"		: "your access key id",
@@ -16,7 +13,6 @@ npm install qiao.ext.oss
 	}
 
 # upload file sync
----
 	'use strict';
 	
 	var qiaoExtOss 			= require('qiao.ext.oss');
@@ -69,7 +65,6 @@ npm install qiao.ext.oss
 	test();
 
 # upload file async
----
 	'use strict';
 	
 	var qiaoExtOss 			= require('qiao.ext.oss');
@@ -88,7 +83,6 @@ npm install qiao.ext.oss
 	});
 
 # upload folder async
----
 	'use strict';
 	
 	var qiaoExtOss 			= require('qiao.ext.oss');
@@ -105,9 +99,20 @@ npm install qiao.ext.oss
 		
 		console.log(rs);
 	});
+
+# also in cli
+	npm install -g qiao.ext.oss
 	
+	and put config.json file into your-path
+	cd your-path
+	
+	qiao-ext-oss file test/test.js d:/test.js
+	qiao-ext-oss folder test d:/test
+
 # version
----
+### 0.0.6.20180112
+1. add qiao-ext-oss
+
 ### 0.0.5.20171229
 1. 修改readme.md的示例代码
 
