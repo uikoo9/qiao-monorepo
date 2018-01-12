@@ -106,12 +106,13 @@ npm install qiao.ext.oss
 	and put config.json file into your-path
 	cd your-path
 	
-	qiao-ext-oss file test/test.js d:/test.js
-	qiao-ext-oss folder test d:/test
+	qiao-ext-oss file test/test.js d:/test.js [info]
+	qiao-ext-oss folder test d:/test [info]
 
 # version
 ### 0.0.6.20180112
 1. add qiao-ext-oss
+2. modify markdown
 
 ### 0.0.5.20171229
 1. 修改readme.md的示例代码
