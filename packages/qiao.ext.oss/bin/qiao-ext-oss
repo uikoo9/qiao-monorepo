@@ -60,14 +60,14 @@ var uploadFolder = async function(path1, path2){
 		var rs = await qiaoExtOss.uploadFolderSync(client, path1, path2);
 		
 		console.log();
-		console.log('upload file to alioss success !');
+		console.log('upload folder to alioss success !');
 		console.log();
 		
 		if(args.length == 4 && args[3] == 'info')
 			for(var i=0; i<rs.length; i++) console.log(rs[i].url);
 	}catch(e){
 		console.log();
-		console.log('upload file to alioss fail!');
+		console.log('upload folder to alioss fail!');
 		console.log();
 		console.log(e);
 	}
