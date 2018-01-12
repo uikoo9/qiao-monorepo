@@ -113,6 +113,7 @@ npm install qiao.ext.oss
 ### 0.0.6.20180112
 1. add qiao-ext-oss
 2. modify markdown
+3. file --> folder
 
 ### 0.0.5.20171229
 1. 修改readme.md的示例代码
