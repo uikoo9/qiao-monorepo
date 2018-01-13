@@ -15,10 +15,8 @@ npm install qiao.ext.oss
 # upload file sync
 	'use strict';
 	
-	var qiaoExtOss 			= require('qiao.ext.oss');
-	var qiaoExtOssConfig	= require('./config.json');
-	
-	var client = qiaoExtOss.client(qiaoExtOssConfig);
+	var qiaoExtOss 	= require('qiao.ext.oss.js');
+	var client		= qiaoExtOss.client(require('./config.json'));
 	
 	/**
 	 * upload file demo
@@ -41,10 +39,8 @@ npm install qiao.ext.oss
 # upload folder sync
 	'use strict';
 	
-	var qiaoExtOss 			= require('qiao.ext.oss');
-	var qiaoExtOssConfig	= require('./config.json');
-	
-	var client = qiaoExtOss.client(qiaoExtOssConfig);
+	var qiaoExtOss 	= require('qiao.ext.oss.js');
+	var client		= qiaoExtOss.client(require('./config.json'));
 	
 	/**
 	 * upload folder
@@ -67,10 +63,8 @@ npm install qiao.ext.oss
 # upload file async
 	'use strict';
 	
-	var qiaoExtOss 			= require('qiao.ext.oss');
-	var qiaoExtOssConfig	= require('./config.json');
-	
-	var client = qiaoExtOss.client(qiaoExtOssConfig);
+	var qiaoExtOss 	= require('qiao.ext.oss.js');
+	var client		= qiaoExtOss.client(require('./config.json'));
 	
 	/**
 	 * upload file demo
@@ -85,10 +79,8 @@ npm install qiao.ext.oss
 # upload folder async
 	'use strict';
 	
-	var qiaoExtOss 			= require('qiao.ext.oss');
-	var qiaoExtOssConfig	= require('./config.json');
-	
-	var client = qiaoExtOss.client(qiaoExtOssConfig);
+	var qiaoExtOss 	= require('qiao.ext.oss.js');
+	var client		= qiaoExtOss.client(require('./config.json'));
 	
 	/**
 	 * upload folder

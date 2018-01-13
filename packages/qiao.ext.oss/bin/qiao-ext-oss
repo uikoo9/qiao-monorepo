@@ -28,8 +28,7 @@ if(cmd != 'file' && cmd != 'folder'){
 // client
 var client;
 try{
-	var config = require(process.cwd() + '/config.json');	
-	client = qiaoExtOss.client(config);
+	client = qiaoExtOss.client(require(process.cwd() + '/config.json'));
 }catch(e){
 	console.log('you need put config.json into this path');
 	
