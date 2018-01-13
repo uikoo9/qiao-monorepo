@@ -102,6 +102,9 @@ npm install qiao.ext.oss
 	qiao-ext-oss folder test d:/test [info]
 
 # version
+### 0.0.7.20180113
+1. 代码优化
+
 ### 0.0.6.20180112
 1. add qiao-ext-oss
 2. modify markdown
