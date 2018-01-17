@@ -38,17 +38,20 @@ try{
 // upload file
 var uploadFile = async function(path1, path2){
 	try{
-		console.log('upload file ' + path2);
-		console.log("to oss bucket's " + path1);
+		console.log("upload file " + path2 + " to oss bucket's " + path1);
 		console.log();
 		
 		console.log('please wait a moment...');
 		console.log();
 		
+		console.time('total use');
 		var rs = await qiaoExtOss.uploadFileSync(client, path1, path2);
 		
 		console.log('upload success, url is:');
 		console.log('	' + rs.url);
+		console.log();
+		
+		console.timeEnd('total use');
 	}catch(e){
 		console.log('upload file to alioss fail!');
 		console.log();
@@ -60,18 +63,20 @@ var uploadFile = async function(path1, path2){
 // upload folder
 var uploadFolder = async function(path1, path2){
 	try{
-		console.log('upload folder ' + path2);
-		console.log("to oss bucket's " + path1);
+		console.log("upload folder " + path2 + " to oss bucket's " + path1);
 		console.log();
 		
 		console.log('please wait a moment...');
 		console.log();
 		
+		console.time('total use');
 		var rs = await qiaoExtOss.uploadFolderSync(client, path1, path2);
 		
-		console.log('upload ' + rs.suc.length + ' files successfully!');
+		console.log('	upload ' + rs.suc.length + ' files successfully!');
+		console.log('	upload ' + rs.fail.length + ' files failed!');
 		console.log();
-		console.log('upload ' + rs.fail.length + ' files failed!');
+
+		console.timeEnd('total use');
 		console.log();
 		
 		if(args.length == 4 && args[3] == 'info') console.log(rs);

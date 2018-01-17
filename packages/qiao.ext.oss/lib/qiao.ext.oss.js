@@ -88,7 +88,6 @@ exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
 		var paths = [];
 		getPathsFromFolder(sourceFolder, paths);
 		console.log('begin upload ' + paths.length + ' files');
-		console.log();
 		
 		var allFiles = [];
 		var sucFiles = [];
