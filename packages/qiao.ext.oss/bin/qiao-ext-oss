@@ -38,13 +38,17 @@ try{
 // upload file
 var uploadFile = async function(path1, path2){
 	try{
+		console.log('upload file ' + path2);
+		console.log("to oss bucket's " + path1);
+		
+		console.log()
+		console.log('please wait a moment...');
+		
 		var rs = await qiaoExtOss.uploadFileSync(client, path1, path2);
 		
 		console.log();
-		console.log('upload file to alioss success !');
-		console.log();
-	
-		if(args.length == 4 && args[3] == 'info') console.log(rs.url);
+		console.log('upload success, url is:');
+		console.log('	' + rs.url);
 	}catch(e){
 		console.log();
 		console.log('upload file to alioss fail!');
