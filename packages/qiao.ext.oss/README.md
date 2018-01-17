@@ -102,6 +102,9 @@ npm install qiao.ext.oss
 	qiao-ext-oss folder	test		d:/test		[info]
 
 # version
+### 0.0.8.20180117
+1. add log
+
 ### 0.0.7.20180113
 1. 代码优化
 2. 0.2.0
