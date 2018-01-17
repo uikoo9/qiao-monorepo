@@ -104,6 +104,7 @@ npm install qiao.ext.oss
 # version
 ### 0.0.8.20180117
 1. add log
+2. add time
 
 ### 0.0.7.20180113
 1. 代码优化
