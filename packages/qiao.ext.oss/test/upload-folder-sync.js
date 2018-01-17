@@ -9,11 +9,22 @@ var client		= qiaoExtOss.client(require('./config.json'));
  */
 var test = async function(){
 	try{
-		var rs1 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
-		console.log(rs1);
+		var destPath		= 'test';
+		var sourceFolder	= 'd:/test';
+		
+		console.log('upload folder ' + sourceFolder);
+		console.log("to oss bucket's " + destPath);
+		
+		console.log()
+		console.log('please wait a moment...');
+		
+		var rs = await qiaoExtOss.uploadFolderSync(client, destPath, sourceFolder);
 
-		var rs2 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
-		console.log(rs2);
+		console.log();
+		console.log('upload success!');
+
+		console.log();
+		console.log(rs);
 	}catch(e){
 		console.log(e);
 	}

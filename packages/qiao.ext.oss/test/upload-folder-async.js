@@ -7,8 +7,25 @@ var client		= qiaoExtOss.client(require('./config.json'));
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
-qiaoExtOss.uploadFolder(client, 'test', 'd:/test', function(err, rs){
-	if(err) throw err;
+var test = function(){
+	var destPath		= 'test';
+	var sourceFolder	= 'd:/test';
 	
-	console.log(rs);
-});
+	console.log('upload folder ' + sourceFolder);
+	console.log("to oss bucket's " + destPath);
+	
+	console.log()
+	console.log('please wait a moment...');
+	
+	qiaoExtOss.uploadFolder(client, destPath, sourceFolder, function(err, rs){
+		if(err) throw err;
+		
+		console.log();
+		console.log('upload success!');
+
+		console.log();
+		console.log(rs);
+	});
+};
+
+test();

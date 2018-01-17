@@ -60,14 +60,21 @@ var uploadFile = async function(path1, path2){
 // upload folder
 var uploadFolder = async function(path1, path2){
 	try{
+		console.log('upload folder ' + path2);
+		console.log("to oss bucket's " + path1);
+		
+		console.log()
+		console.log('please wait a moment...');
+		
 		var rs = await qiaoExtOss.uploadFolderSync(client, path1, path2);
 		
 		console.log();
-		console.log('upload folder to alioss success !');
-		console.log();
+		console.log('upload success!');
 		
-		if(args.length == 4 && args[3] == 'info')
-			for(var i=0; i<rs.length; i++) console.log(rs[i].url);
+		if(args.length == 4 && args[3] == 'info'){
+			console.log();
+			console.log(rs);
+		}
 	}catch(e){
 		console.log();
 		console.log('upload folder to alioss fail!');
