@@ -13,17 +13,19 @@ var test = function(){
 	
 	console.log('upload folder ' + sourceFolder);
 	console.log("to oss bucket's " + destPath);
+	console.log();
 	
-	console.log()
 	console.log('please wait a moment...');
+	console.log();
 	
 	qiaoExtOss.uploadFolder(client, destPath, sourceFolder, function(err, rs){
 		if(err) throw err;
 		
+		console.log('upload ' + rs.suc.length + ' files successfully!');
 		console.log();
-		console.log('upload success!');
+		console.log('upload ' + rs.fail.length + ' files failed!');
+		console.log();
 
-		console.log();
 		console.log(rs);
 	});
 };

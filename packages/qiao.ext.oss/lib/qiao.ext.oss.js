@@ -84,27 +84,44 @@ exports.uploadFileSync = function(client, dest, source){
  * 	cb，回调函数
  */
 exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
-	var paths = [];
 	try{
+		var paths = [];
 		getPathsFromFolder(sourceFolder, paths);
+		console.log('begin upload ' + paths.length + ' files');
+		console.log();
+		
+		var allFiles = [];
+		var sucFiles = [];
+		var failFiles= [];
+		
+		co(function* () {
+			for(var i=0; i<paths.length; i++){
+				var path = paths[i];
+				var dest = destFolder + path.substr(sourceFolder.length);
+				
+				var result = yield client.put(dest, path);
+				allFiles.push(result);
+
+				if(result && result.res && result.res.status == 200){
+					sucFiles.push(result);
+				}else{
+					failFiles.push(result);
+				}
+			}
+			
+			var obj = {};
+			obj.paths 	= paths;
+			obj.all		= allFiles;
+			obj.suc		= sucFiles;
+			obj.fail	= failFiles;
+			
+			if(cb) cb(null, obj);
+		}).catch(function (err) {
+			if(cb) cb(err);
+		});
 	}catch(e){
 		if(cb) cb(e);
 	}
-
-	co(function* () {
-		var rs = [];
-		for(var i=0; i<paths.length; i++){
-			var path = paths[i];
-			var dest = destFolder + path.substr(sourceFolder.length);
-			
-			var result = yield client.put(dest, path);
-			rs.push(result);
-		}
-		
-		if(cb) cb(null, rs);
-	}).catch(function (err) {
-		if(cb) cb(err);
-	});
 };
 
 /**
