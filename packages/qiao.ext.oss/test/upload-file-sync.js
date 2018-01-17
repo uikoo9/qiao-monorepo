@@ -14,13 +14,13 @@ var test = async function(){
 		
 		console.log('upload file ' + sourceFile);
 		console.log("to oss bucket's " + destPath);
+		console.log();
 		
-		console.log()
 		console.log('please wait a moment...');
+		console.log();
 		
 		var rs = await qiaoExtOss.uploadFileSync(client, destPath, sourceFile);
 		
-		console.log();
 		console.log('upload success, url is:');
 		console.log('	' + rs.url);
 	}catch(e){

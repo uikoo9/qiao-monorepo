@@ -14,16 +14,18 @@ var test = async function(){
 		
 		console.log('upload folder ' + sourceFolder);
 		console.log("to oss bucket's " + destPath);
+		console.log();
 		
-		console.log()
 		console.log('please wait a moment...');
+		console.log();
 		
 		var rs = await qiaoExtOss.uploadFolderSync(client, destPath, sourceFolder);
 
+		console.log('upload ' + rs.suc.length + ' files successfully!');
 		console.log();
-		console.log('upload success!');
+		console.log('upload ' + rs.fail.length + ' files failed!');
+		console.log();
 
-		console.log();
 		console.log(rs);
 	}catch(e){
 		console.log(e);
