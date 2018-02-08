@@ -1,6 +1,6 @@
 {
   "name": "qiao.ext.oss",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MIT",
   "description": "oss upload tool",
   "keywords": [
@@ -24,6 +24,6 @@
   "homepage": "http://insistime.com/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uikoo9/qiao.ext.oss.git"
+    "url": "git+https://github.com/insistime/qiao.ext.oss.git"
   }
 }

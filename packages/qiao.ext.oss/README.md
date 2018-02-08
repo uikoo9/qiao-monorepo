@@ -102,6 +102,9 @@ npm install qiao.ext.oss
 	qiao-ext-oss folder	test		d:/test		[info]
 
 # version
+### 0.0.9.20180208
+1. update git url
+
 ### 0.0.8.20180117
 1. add log
 2. add time
