@@ -1,0 +1,28 @@
+{
+  "name": "qiao.plugin.request",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "ajax on browser and http request on nodejs",
+  "keywords": [
+  	"nodejs",
+  	"http",
+  	"request",
+  	"browser",
+  	"ajax",
+  	"xhr",
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "http://insistime.com"
+  },
+  "homepage": "http://insistime.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.plugin.request.git"
+  }
+}
