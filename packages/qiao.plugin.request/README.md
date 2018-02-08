@@ -101,3 +101,4 @@ npm install qiao.plugin.request
 1. init project
 2. request get
 3. request post
+4. modify index.js
