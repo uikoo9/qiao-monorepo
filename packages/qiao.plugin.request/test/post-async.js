@@ -4,7 +4,7 @@ var qiaoPluginRequest = require('../lib/qiao.plugin.request');
 
 var test = function(){
 	var url = 'http://www.baidu.com';
-	qiaoPluginRequest.get({
+	qiaoPluginRequest.post({
 		url	: url,
 		qs	: {
 			test : 'test'

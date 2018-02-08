@@ -69,8 +69,8 @@ exports.getSync = function(options){
  * 	callback
  */
 exports.post = function(options, callback){
-	request.post(options, function(){
-		if(callback) callback();
+	request.post(options, function(err, rs, body){
+		if(callback) callback(err, rs, body);
 	});
 };
 
