@@ -105,6 +105,7 @@ test();
 # version
 ### 0.0.2.20180210
 1. delete reqwest
+2. highlight md
 
 ### 0.0.1.20180208
 1. init project
