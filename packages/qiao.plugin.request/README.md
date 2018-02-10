@@ -11,6 +11,7 @@ npm install qiao.plugin.request
 1. request, https://www.npmjs.com/package/request
 
 # request get sync
+	```javascript
 	'use strict';
 	
 	var qiaoPluginRequest = require('qiao.plugin.request');
@@ -32,6 +33,7 @@ npm install qiao.plugin.request
 	};
 	
 	test();
+	```
 
 # request post sync
 	'use strict';
