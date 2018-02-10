@@ -11,29 +11,29 @@ npm install qiao.plugin.request
 1. request, https://www.npmjs.com/package/request
 
 # request get sync
-	```javascript
-	'use strict';
-	
-	var qiaoPluginRequest = require('qiao.plugin.request');
-	
-	var test = async function(){
-		try{
-			var url = 'http://www.baidu.com';
-			var res = await qiaoPluginRequest.getSync({
-				url	: url,
-				qs	: {
-					test : 'test'
-				}
-			});
-			
-			console.log(res);
-		}catch(e){
-			console.log(e);
-		}
-	};
-	
-	test();
-	```
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var url = 'http://www.baidu.com';
+		var res = await qiaoPluginRequest.getSync({
+			url	: url,
+			qs	: {
+				test : 'test'
+			}
+		});
+		
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
 
 # request post sync
 	'use strict';
