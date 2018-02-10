@@ -2,21 +2,16 @@
   "name": "qiao.plugin.request",
   "version": "0.0.3",
   "license": "MIT",
-  "description": "ajax on browser and http request on nodejs",
+  "description": "http request on nodejs",
   "keywords": [
     "nodejs",
     "http",
-    "request",
-    "browser",
-    "ajax",
-    "xhr"
+    "request"
   ],
   "main": "index.js",
   "scripts": {},
   "dependencies": {
-    "request": "^2.83.0",
-    "reqwest": "^2.0.5",
-    "xhr2": "^0.1.4"
+    "request": "^2.83.0"
   },
   "author": {
     "name": "qiaowenbin",
