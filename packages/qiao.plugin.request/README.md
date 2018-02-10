@@ -1,16 +1,14 @@
 # qiao.plugin.request
-ajax on browser and http request on nodejs
+http request on nodejs
 
 # install
 npm install qiao.plugin.request
 
 # dependencies
-1. ajax by reqwest
-2. http request by request
+1. http request by request
 
 # documentation
-1. ajax, https://www.npmjs.com/package/reqwest
-2. request, https://www.npmjs.com/package/request
+1. request, https://www.npmjs.com/package/request
 
 # request get sync
 	'use strict';
@@ -97,6 +95,9 @@ npm install qiao.plugin.request
 	test();
 
 # version
+### 0.0.2.20180210
+1. delete reqwest
+
 ### 0.0.1.20180208
 1. init project
 2. request get
