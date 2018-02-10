@@ -6,12 +6,12 @@ npm install qiao.ext.oss
 
 # config.json
 ```json
-    {
-		"region"		: "your region",
-		"accessKeyId"		: "your access key id",
-		"accessKeySecret"	: "your access secret",
-		"bucket"		: "your bucket"
-	}
+{
+	"region"		: "your region",
+	"accessKeyId"	: "your access key id",
+	"accessKeySecret"	: "your access secret",
+	"bucket"		: "your bucket"
+}
 ```
 
 # upload file sync
