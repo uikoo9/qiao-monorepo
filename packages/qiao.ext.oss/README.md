@@ -8,7 +8,7 @@ npm install qiao.ext.oss
 ```json
 {
 	"region"		: "your region",
-	"accessKeyId"	: "your access key id",
+	"accessKeyId"		: "your access key id",
 	"accessKeySecret"	: "your access secret",
 	"bucket"		: "your bucket"
 }
@@ -41,69 +41,77 @@ test();
 ```
 
 # upload folder sync
-	'use strict';
-	
-	var qiaoExtOss	= require('qiao.ext.oss.js');
-	var client	= qiaoExtOss.client(require('./config.json'));
-	
-	/**
-	 * upload folder
-	 * upload d:/test folder's files to your bucket's test folder
-	 */
-	var test = async function(){
-		try{
-			var rs1 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
-			console.log(rs1);
-	
-			var rs2 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
-			console.log(rs2);
-		}catch(e){
-			console.log(e);
-		}
-	};
-	
-	test();
+```javascript
+'use strict';
+
+var qiaoExtOss	= require('qiao.ext.oss.js');
+var client	= qiaoExtOss.client(require('./config.json'));
+
+/**
+ * upload folder
+ * upload d:/test folder's files to your bucket's test folder
+ */
+var test = async function(){
+	try{
+		var rs1 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
+		console.log(rs1);
+
+		var rs2 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
+		console.log(rs2);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
 
 # upload file async
-	'use strict';
+```javascript
+'use strict';
+
+var qiaoExtOss	= require('qiao.ext.oss.js');
+var client	= qiaoExtOss.client(require('./config.json'));
+
+/**
+ * upload file demo
+ * upload d:/test.js to your bucket's test/test.js
+ */
+qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
+	if(err) throw err;
 	
-	var qiaoExtOss	= require('qiao.ext.oss.js');
-	var client	= qiaoExtOss.client(require('./config.json'));
-	
-	/**
-	 * upload file demo
-	 * upload d:/test.js to your bucket's test/test.js
-	 */
-	qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
-		if(err) throw err;
-		
-		console.log(rs);
-	});
+	console.log(rs);
+});
+```
 
 # upload folder async
-	'use strict';
+```javascript
+'use strict';
+
+var qiaoExtOss	= require('qiao.ext.oss.js');
+var client	= qiaoExtOss.client(require('./config.json'));
+
+/**
+ * upload folder
+ * upload d:/test folder's files to your bucket's test folder
+ */
+qiaoExtOss.uploadFolder(client, 'test', 'd:/test', function(err, rs){
+	if(err) throw err;
 	
-	var qiaoExtOss	= require('qiao.ext.oss.js');
-	var client	= qiaoExtOss.client(require('./config.json'));
-	
-	/**
-	 * upload folder
-	 * upload d:/test folder's files to your bucket's test folder
-	 */
-	qiaoExtOss.uploadFolder(client, 'test', 'd:/test', function(err, rs){
-		if(err) throw err;
-		
-		console.log(rs);
-	});
+	console.log(rs);
+});
+```
 
 # also in cli
-	npm install -g qiao.ext.oss
-	
-	and put config.json file into your-path
-	cd your-path
-	
-	qiao-ext-oss file 	test/test.js	d:/test.js	[info]
-	qiao-ext-oss folder	test		d:/test		[info]
+```shell
+npm install -g qiao.ext.oss
+
+and put config.json file into your-path
+cd your-path
+
+qiao-ext-oss file 	test/test.js	d:/test.js	[info]
+qiao-ext-oss folder	test		d:/test		[info]
+```
 
 # version
 ### 0.0.9.20180208
