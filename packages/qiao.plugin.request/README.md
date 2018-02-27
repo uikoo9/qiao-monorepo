@@ -32,7 +32,7 @@ var test = async function(){
 	}
 };
 
-test();
+test(); 
 ```
 
 # request post sync
