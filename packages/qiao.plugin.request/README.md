@@ -103,6 +103,9 @@ test();
 ```
 
 # version
+### 0.0.3.20180511
+1. npm audit
+
 ### 0.0.2.20180210
 1. delete reqwest
 2. highlight md
