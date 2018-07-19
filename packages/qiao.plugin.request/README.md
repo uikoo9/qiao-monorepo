@@ -1,16 +1,25 @@
-# qiao.plugin.request
-http request on nodejs
+# urls
+## homepage
+[http://code.insistime.com/qiao.plugin.request](http://code.insistime.com/qiao.plugin.request)
 
-# install
+## github
+[https://github.com/insistime/qiao.plugin.request](https://github.com/insistime/qiao.plugin.request)
+
+## npm
+[https://www.npmjs.com/package/qiao.plugin.request](https://www.npmjs.com/package/qiao.plugin.request)
+
+# started
+## install
 npm install qiao.plugin.request
 
-# dependencies
+## dependencies
 1. http request by request
 
-# documentation
+## documentation
 1. request, https://www.npmjs.com/package/request
 
-# request get sync
+# api
+## request get sync
 ```javascript
 'use strict';
 
@@ -35,7 +44,7 @@ var test = async function(){
 test(); 
 ```
 
-# request post sync
+## request post sync
 ```javascript
 'use strict';
 
@@ -60,7 +69,7 @@ var test = async function(){
 test();
 ```
 
-# request get async
+## request get async
 ```javascript
 'use strict';
 
@@ -81,7 +90,7 @@ var test = function(){
 test();
 ```
 
-# request post async
+## request post async
 ```javascript
 'use strict';
 
@@ -103,17 +112,20 @@ test();
 ```
 
 # version
-### 0.0.4.20180523
+## 0.0.5.20180719
+1. modify readme.md
+
+## 0.0.4.20180523
 1. npm audit
 
-### 0.0.3.20180511
+## 0.0.3.20180511
 1. npm audit
 
-### 0.0.2.20180210
+## 0.0.2.20180210
 1. delete reqwest
 2. highlight md
 
-### 0.0.1.20180208
+## 0.0.1.20180208
 1. init project
 2. request get
 3. request post
