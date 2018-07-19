@@ -1,10 +1,8 @@
-# qiao.ext.oss
-nodejs ali oss upload tool
-
-# install
+# started
+## install
 npm install qiao.ext.oss
 
-# config.json
+## config.json
 ```json
 {
 	"region"		: "your region",
@@ -14,7 +12,8 @@ npm install qiao.ext.oss
 }
 ```
 
-# upload file sync
+# api
+## upload file sync
 ```javascript
 'use strict';
 
@@ -40,7 +39,7 @@ var test = async function(){
 test();
 ```
 
-# upload folder sync
+## upload folder sync
 ```javascript
 'use strict';
 
@@ -66,7 +65,7 @@ var test = async function(){
 test();
 ```
 
-# upload file async
+## upload file async
 ```javascript
 'use strict';
 
@@ -84,7 +83,7 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 });
 ```
 
-# upload folder async
+## upload folder async
 ```javascript
 'use strict';
 
@@ -114,40 +113,40 @@ qiao-ext-oss folder	test		d:/test		[info]
 ```
 
 # version
-### 0.1.0.20180210
+## 0.1.0.20180210
 1. highlight md
 
-### 0.0.9.20180208
+## 0.0.9.20180208
 1. update git url
 
-### 0.0.8.20180117
+## 0.0.8.20180117
 1. add log
 2. add time
 
-### 0.0.7.20180113
+## 0.0.7.20180113
 1. 代码优化
 2. 0.2.0
 3. 0.2.1
 
-### 0.0.6.20180112
+## 0.0.6.20180112
 1. add qiao-ext-oss
 2. modify markdown
 3. file --> folder
 
-### 0.0.5.20171229
+## 0.0.5.20171229
 1. 修改readme.md的示例代码
 
-### 0.0.4.20171228
+## 0.0.4.20171228
 1. test js use strict
 2. update package.json
 
-### 0.0.3.20171217
+## 0.0.3.20171217
 1. upload file async
 2. upload file sync
 3. upload folder async
 4. upload folder sync
 
-### 0.0.2.20171213
+## 0.0.2.20171213
 1. 删除无关文件
 2. 添加npmignore
 3. 更新readme文件
@@ -155,6 +154,6 @@ qiao-ext-oss folder	test		d:/test		[info]
 5. upload file
 6. upload folder
 
-### 0.0.1.20171212
+## 0.0.1.20171212
 1. 初始化项目
 2. 添加gitignore文件
