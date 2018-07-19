@@ -1,4 +1,7 @@
 # started
+## homepage
+[http://code.insistime.com/qiao.ext.oss](http://code.insistime.com/qiao.ext.oss)
+
 ## install
 npm install qiao.ext.oss
 
@@ -115,6 +118,7 @@ qiao-ext-oss folder	test		d:/test		[info]
 # version
 ## 0.1.1.20180719
 1. modify readme.md
+2. readme.md add homepage
 
 ## 0.1.0.20180210
 1. highlight md
