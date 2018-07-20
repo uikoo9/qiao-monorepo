@@ -1,6 +1,6 @@
 # urls
 ## homepage
-[http://code.insistime.com/qiao.ext.oss](http://code.insistime.com/qiao.ext.oss)
+[https://code.insistime.com/qiao.ext.oss](https://code.insistime.com/qiao.ext.oss)
 
 ## github
 [https://github.com/insistime/qiao.ext.oss](https://github.com/insistime/qiao.ext.oss)
@@ -123,6 +123,9 @@ qiao-ext-oss folder	test		d:/test		[info]
 ```
 
 # version
+## 0.1.2.20180720
+1. https homepage
+
 ## 0.1.1.20180719
 1. modify readme.md
 2. readme.md add homepage
