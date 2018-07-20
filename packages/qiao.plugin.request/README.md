@@ -1,6 +1,6 @@
 # urls
 ## homepage
-[http://code.insistime.com/qiao.plugin.request](http://code.insistime.com/qiao.plugin.request)
+[https://code.insistime.com/qiao.plugin.request](https://code.insistime.com/qiao.plugin.request)
 
 ## github
 [https://github.com/insistime/qiao.plugin.request](https://github.com/insistime/qiao.plugin.request)
@@ -112,6 +112,9 @@ test();
 ```
 
 # version
+## 0.0.6.20180720
+1. https homepage
+
 ## 0.0.5.20180719
 1. modify readme.md
 
