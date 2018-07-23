@@ -1,6 +1,6 @@
 {
   "name": "qiao.ext.oss",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "license": "MIT",
   "description": "oss upload tool",
   "keywords": [
@@ -19,9 +19,9 @@
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
-    "url": "http://insistime.com"
+    "url": "https://insistime.com"
   },
-  "homepage": "http://insistime.com/",
+  "homepage": "https://code.insistime.com/qiao.ext.oss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/insistime/qiao.ext.oss.git"
