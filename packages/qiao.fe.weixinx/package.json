@@ -1,0 +1,25 @@
+{
+  "name": "qiao.ext.weixinx",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "tools for wechat small program",
+  "keywords": [
+    "wechat",
+    "weixin",
+    "small program",
+    "xiaochengxu",
+    "tools"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.ext.weixinx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.ext.weixinx.git"
+  }
+}
