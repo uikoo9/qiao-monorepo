@@ -26,8 +26,6 @@
  * 	25.exports.com
  * 	26.exports.screen
  */
-console.log('======qiao.weixinx.js', '0.2.2');
-
 // modal options
 var _modalOptions = {
 	title		: 'title',
