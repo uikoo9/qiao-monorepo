@@ -364,6 +364,7 @@ console.log(flag);
 # version
 ## 0.2.3.20180724
 1. readme.md
+2. npm publish
 
 ## 0.2.2.20180723
 1. init
