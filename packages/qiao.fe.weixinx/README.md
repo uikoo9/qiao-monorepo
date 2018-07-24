@@ -13,11 +13,10 @@
 npm install qiao.ext.weixinx
 
 # api
-## require
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
 ## alert
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // alert, without callback
 qiaoWeixinx.alert('alert');
 
@@ -47,6 +46,8 @@ qiaoWeixinx.alert({
 
 ## confirm
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // confirm, without callback
 qiaoWeixinx.confirm('confirm');
 
@@ -86,6 +87,8 @@ qiaoWeixinx.confirm({
 
 ## suc
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // tip for success
 qiaoWeixinx.suc('success message');
 
@@ -99,6 +102,8 @@ qiaoWeixinx.suc({
 
 ## tip
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // tip
 qiaoWeixinx.tip('tips');
 
@@ -112,6 +117,8 @@ qiaoWeixinx.tip({
 
 ## loading
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // default loading
 qiaoWeixinx.loading();
 
@@ -121,12 +128,16 @@ qiaoWeixinx.loading('custom loading');
 
 ## hideLoading
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // hide loading
 qiaoWeixinx.hideLoading();
 ```
 
 ## sheet
 ```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
 // sheet
 qiaoWeixinx.sheet(['1', '2'], function(index){
 	// index : 0,1
@@ -135,8 +146,211 @@ qiaoWeixinx.sheet(['1', '2'], function(index){
 
 ## ajax
 ```javascript
-// ajax
-qiaoWeixinx.ajax();
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// ajax with url
+// default data {}
+// default method post
+qiaoWeixinx.ajax({
+	url : url
+}, function(data){
+	// success
+}, function(data){
+	// fail
+});
+
+// ajax with url, data, method, headers
+qiaoWeixinx.ajax({
+	url 	: url,
+	data	: {
+		// data
+	},
+	method	: 'POST',
+	headers	: {
+		// headers
+	}
+}, function(data){
+	// success
+}, function(data){
+	// fail
+});
+```
+
+## set
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// set data to localstorage
+qiaoWeixinx.set(key, value);
+```
+
+## get
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get data from localstorage
+qiaoWeixinx.get(key);
+```
+
+## del
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// del data from localstorage
+qiaoWeixinx.del(key);
+```
+
+## clear
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// clear data from localstorage
+qiaoWeixinx.clear();
+```
+
+## version
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get weixin version
+var weixinVersion = qiaoWeixinx.version();
+console.log(weixinVersion);
+```
+
+## sversion
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get weixin sdk version
+var weixinSDKVersion = qiaoWeixinx.sversion();
+console.log(weixinSDKVersion);
+```
+
+## higherThan
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// compare weixin sdk version higher than
+var flag = qiaoWeixinx.higherThan('0.9.90');
+console.log(flag);
+```
+
+## to
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// navigate to
+qiaoWeixinx.to(url, function(){
+	// success
+}, function(){
+	// fail
+});
+```
+
+## rto
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// redirect to
+qiaoWeixinx.rto(url, function(){
+	// success
+}, function(){
+	// fail
+});
+```
+
+## tab
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// switch tab
+qiaoWeixinx.tab(url, function(){
+	// success
+}, function(){
+	// fail
+});
+```
+
+## back
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// navigate back
+qiaoWeixinx.back(page);
+```
+
+## checkAuth
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// check auth
+qiaoWeixinx.checkAuth('scope.camera', 'need camera auth', function(){
+	// success
+});
+
+## showImg
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// show img with url
+qiaoWeixinx.showImg(url);
+
+// show img with urls
+qiaoWeixinx.showImg(url, urls);
+```
+
+## isAndroid
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// is android
+var isAndroid = qiaoWeixinx.isAndroid();
+console.log(isAndroid);
+```
+
+## isIos
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// is ios
+var isIos = qiaoWeixinx.isIos();
+console.log(isIos);
+```
+
+## net
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// net
+qiaoWeixinx.net(function(type){
+	// type : wifi/2g/3g/4g/unknown/none
+});
+```
+
+## screen
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get screen
+qiaoWeixinx.screen(null, function(v){
+	// success
+}, function(){
+	// fail
+});
+
+// set screen keep on
+qiaoWeixinx.screen('on', function(){
+	// success
+}, function(){
+	// fail
+});
+
+// set screen 0-1
+qiaoWeixinx.screen(0, function(){
+	// success
+}, function(){
+	// fail
+});
 ```
 
 # version
