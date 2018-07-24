@@ -1,4 +1,4 @@
-console.log('======qiao.weixinx.js', '0.2.4');
+console.log('======qiao.ext.weixinx', '0.2.5');
 
 /**
  * exports.ajax
