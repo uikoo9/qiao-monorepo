@@ -12,7 +12,40 @@
 ## install
 npm install qiao.ext.weixinx
 
-# api
+# api for ajax
+## ajax
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// ajax with url
+// default data {}
+// default method post
+qiaoWeixinx.ajax({
+	url : url
+}, function(data){
+	// success
+}, function(data){
+	// fail
+});
+
+// ajax with url, data, method, headers
+qiaoWeixinx.ajax({
+	url 	: url,
+	data	: {
+		// data
+	},
+	method	: 'POST',
+	headers	: {
+		// headers
+	}
+}, function(data){
+	// success
+}, function(data){
+	// fail
+});
+```
+
+# api for tips
 ## alert
 ```javascript
 var qiaoWeixinx = require('qiao.ext.weixinx');
@@ -144,97 +177,7 @@ qiaoWeixinx.sheet(['1', '2'], function(index){
 });
 ```
 
-## ajax
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// ajax with url
-// default data {}
-// default method post
-qiaoWeixinx.ajax({
-	url : url
-}, function(data){
-	// success
-}, function(data){
-	// fail
-});
-
-// ajax with url, data, method, headers
-qiaoWeixinx.ajax({
-	url 	: url,
-	data	: {
-		// data
-	},
-	method	: 'POST',
-	headers	: {
-		// headers
-	}
-}, function(data){
-	// success
-}, function(data){
-	// fail
-});
-```
-
-## set
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// set data to localstorage
-qiaoWeixinx.set(key, value);
-```
-
-## get
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// get data from localstorage
-qiaoWeixinx.get(key);
-```
-
-## del
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// del data from localstorage
-qiaoWeixinx.del(key);
-```
-
-## clear
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// clear data from localstorage
-qiaoWeixinx.clear();
-```
-
-## version
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// get weixin version
-var weixinVersion = qiaoWeixinx.version();
-console.log(weixinVersion);
-```
-
-## sversion
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// get weixin sdk version
-var weixinSDKVersion = qiaoWeixinx.sversion();
-console.log(weixinSDKVersion);
-```
-
-## higherThan
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// compare weixin sdk version higher than
-var flag = qiaoWeixinx.higherThan('0.9.90');
-console.log(flag);
-```
-
+# api for navigate
 ## to
 ```javascript
 var qiaoWeixinx = require('qiao.ext.weixinx');
@@ -279,26 +222,40 @@ var qiaoWeixinx = require('qiao.ext.weixinx');
 qiaoWeixinx.back(page);
 ```
 
-## checkAuth
+# api for localstorage
+## set
 ```javascript
 var qiaoWeixinx = require('qiao.ext.weixinx');
 
-// check auth
-qiaoWeixinx.checkAuth('scope.camera', 'need camera auth', function(){
-	// success
-});
-
-## showImg
-```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
-
-// show img with url
-qiaoWeixinx.showImg(url);
-
-// show img with urls
-qiaoWeixinx.showImg(url, urls);
+// set data to localstorage
+qiaoWeixinx.set(key, value);
 ```
 
+## get
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get data from localstorage
+qiaoWeixinx.get(key);
+```
+
+## del
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// del data from localstorage
+qiaoWeixinx.del(key);
+```
+
+## clear
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// clear data from localstorage
+qiaoWeixinx.clear();
+```
+
+# api for device
 ## isAndroid
 ```javascript
 var qiaoWeixinx = require('qiao.ext.weixinx');
@@ -351,6 +308,57 @@ qiaoWeixinx.screen(0, function(){
 }, function(){
 	// fail
 });
+```
+
+# api for img
+## showImg
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// show img with url
+qiaoWeixinx.showImg(url);
+
+// show img with urls
+qiaoWeixinx.showImg(url, urls);
+```
+
+# api for auth
+## checkAuth
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// check auth
+qiaoWeixinx.checkAuth('scope.camera', 'need camera auth', function(){
+	// success
+});
+```
+
+# api for version
+## version
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get weixin version
+var weixinVersion = qiaoWeixinx.version();
+console.log(weixinVersion);
+```
+
+## sversion
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// get weixin sdk version
+var weixinSDKVersion = qiaoWeixinx.sversion();
+console.log(weixinSDKVersion);
+```
+
+## higherThan
+```javascript
+var qiaoWeixinx = require('qiao.ext.weixinx');
+
+// compare weixin sdk version higher than
+var flag = qiaoWeixinx.higherThan('0.9.90');
+console.log(flag);
 ```
 
 # version

@@ -1,31 +1,35 @@
+console.log('======qiao.weixinx.js', '0.2.4');
+
 /**
- * 	1.exports.alert
- * 	2.exports.confirm
- * 	3.exports.suc
- * 	4.exports.tip
- * 	5.exports.loading
- * 	6.exports.hideLoading
- * 	7.exports.sheet
- * 	8.exports.ajax
- * 	9.exports.set
- * 	10.exports.get
- * 	11.exports.del
- * 	12.exports.clear
- * 	13.exports.version
- * 	14.exports.sversion
- * 	15.exports.higherThan
- * 	16.exports.to
- * 	17.exports.rto
- * 	18.exports.back
- * 	19.exports.tab
- * 	20.exports.checkAuth
- * 	21.exports.showImg
- * 	22.exports.isAndroid
- * 	23.exports.isIos
- * 	24.exports.net
- * 	25.exports.com
- * 	26.exports.screen
+ * exports.ajax
+ * 	options，配置项
+ * 	suc，成功回调
+ * 	fail，失败回调
  */
+exports.ajax = function(options, suc, fail){
+	var url 	= options.url;
+	var data 	= options.data || {};
+	var method 	= options.method || 'POST';
+	var headers	= options.headers || {};
+
+	wx.request({
+		url		: url,
+		data	: data,
+		method	: method,
+		header	: headers,
+		success	: function(res){
+			if(typeof suc == 'function') suc(res.data);
+		},
+		fail	: function(res){
+			if(typeof fail == 'function'){
+				fail(res.data);
+			}else{
+				exports.alert('加载失败，请重试！');
+			}
+		}
+	});
+};
+
 // modal options
 var _modalOptions = {
 	title		: 'title',
@@ -189,139 +193,6 @@ exports.sheet = function(options, success){
 };
 
 /**
- * exports.ajax
- * 	options，配置项
- * 	suc，成功回调
- * 	fail，失败回调
- */
-exports.ajax = function(options, suc, fail){
-	var url 	= options.url;
-	var data 	= options.data || {};
-	var method 	= options.method || 'POST';
-	var headers	= options.headers || {};
-
-	wx.request({
-		url		: url,
-		data	: data,
-		method	: method,
-		header	: headers,
-		success	: function(res){
-			if(typeof suc == 'function') suc(res.data);
-		},
-		fail	: function(res){
-			if(typeof fail == 'function'){
-				fail(res.data);
-			}else{
-				exports.alert('加载失败，请重试！');
-			}
-		}
-	});
-};
-
-/**
- * exports.set
- * 	key
- * 	value
- */
-exports.set = function(key, value){
-	try{
-		wx.setStorageSync(key, value);
-	}catch(e){
-		console.log(e);
-	}
-};
-
-/**
- * exports.get
- */
-exports.get = function (key) {
-	try {
-		return wx.getStorageSync(key);
-	} catch (e) {
-		console.log(e);
-		return null;
-	}
-};
-
-/**
- * exports.del
- */
-exports.del = function(key){
-	try{
-		wx.removeStorageSync(key);
-	}catch(e){
-		console.log(e);
-	}
-};
-
-/**
- * exports.clear
- */
-exports.clear = function(){
-	try{
-		wx.clearStorageSync();
-	}catch(e){
-		console.log(e);
-	}
-};
-
-/**
- * exports.version
- */
-exports.version = function(){
-	try{
-		return wx.getSystemInfoSync().version;
-	}catch(e){
-		console.log(e);
-		return null;
-	}
-};
-
-/**
- * exports.sversion
- */
-exports.sversion = function(){
-	try{
-		return wx.getSystemInfoSync().SDKVersion;
-	}catch(e){
-		console.log(e);
-		return null;
-	}
-};
-
-/**
- * exports.higherThan
- */
-exports.higherThan = function(v2){
-	var s = _CompareVersion(exports.sversion(), v2);
-	
-	return s < 0 ? false : true;
-};
-
-// compare version
-function _CompareVersion(v1, v2){
-	v1 = v1.split('.');
-	v2 = v2.split('.');
-	var len = Math.max(v1.length, v2.length);
-	
-	while(v1.length < len) v1.push('0');
-	while(v2.length < len) v2.push('0');
-	
-	for(var i = 0; i < len; i++){
-		var num1 = parseInt(v1[i]);
-		var num2 = parseInt(v2[i]);
-		
-		if(num1 > num2){
-			return 1;
-		}else if(num1 < num2){
-			return -1;
-		}
-	}
-	
-	return 0;
-};
-
-/**
  * exports.to
  * 	url，navigateTo的页面
  * 	suc，成功的回调
@@ -416,56 +287,50 @@ exports.back = function(page){
 };
 
 /**
- * exports.checkAuth
- * 	auth 
- * 	tip
- * 	success
+ * exports.set
+ * 	key
+ * 	value
  */
-exports.checkAuth = function(auth, tip, success){
-	wx.getSetting({
-	    success: function(res){
-	    	if(res.authSetting[auth]){
-	    		if(success) success();
-	    		return;
-	    	}
-	    	
-	    	wx.authorize({
-	    		scope: auth,
-	    		success: function(){
-	    			if(success) success();
-	    		},
-	    		fail: function(e){
-	    			var msg = tip || ('需要授权：' + auth);
-	    			exports.alert(msg, function(){
-	    				wx.openSetting({
-	    					fail: function(){
-	    						exports.tip('wx.openSetting fail');
-	    					}
-	    				});
-	    			});
-	    		}
-	    	});
-	    },
-	    fail: function(){
-	    	exports.tip('get wx setting fail');
-	    }
-	});
+exports.set = function(key, value){
+	try{
+		wx.setStorageSync(key, value);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 /**
- * exports.showImg
- * 图片预览
- * 	url，当前图片地址
- * 	urls，其他图片地址，选填
+ * exports.get
  */
-exports.showImg = function(url, urls){
-	if(!url) return;
-	
-	var imgUrls = urls ? urls : [url];
-	wx.previewImage({
-		current	: url, 
-		urls	: imgUrls
-	});
+exports.get = function (key) {
+	try {
+		return wx.getStorageSync(key);
+	} catch (e) {
+		console.log(e);
+		return null;
+	}
+};
+
+/**
+ * exports.del
+ */
+exports.del = function(key){
+	try{
+		wx.removeStorageSync(key);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+/**
+ * exports.clear
+ */
+exports.clear = function(){
+	try{
+		wx.clearStorageSync();
+	}catch(e){
+		console.log(e);
+	}
 };
 
 /**
@@ -595,4 +460,113 @@ exports.screen = function(value, suc, fail){
 			}
 		}
 	});
+};
+
+/**
+ * exports.showImg
+ * 图片预览
+ * 	url，当前图片地址
+ * 	urls，其他图片地址，选填
+ */
+exports.showImg = function(url, urls){
+	if(!url) return;
+	
+	var imgUrls = urls ? urls : [url];
+	wx.previewImage({
+		current	: url, 
+		urls	: imgUrls
+	});
+};
+
+/**
+ * exports.checkAuth
+ * 	auth 
+ * 	tip
+ * 	success
+ */
+exports.checkAuth = function(auth, tip, success){
+	wx.getSetting({
+	    success: function(res){
+	    	if(res.authSetting[auth]){
+	    		if(success) success();
+	    		return;
+	    	}
+	    	
+	    	wx.authorize({
+	    		scope: auth,
+	    		success: function(){
+	    			if(success) success();
+	    		},
+	    		fail: function(e){
+	    			var msg = tip || ('需要授权：' + auth);
+	    			exports.alert(msg, function(){
+	    				wx.openSetting({
+	    					fail: function(){
+	    						exports.tip('wx.openSetting fail');
+	    					}
+	    				});
+	    			});
+	    		}
+	    	});
+	    },
+	    fail: function(){
+	    	exports.tip('get wx setting fail');
+	    }
+	});
+};
+
+/**
+ * exports.version
+ */
+exports.version = function(){
+	try{
+		return wx.getSystemInfoSync().version;
+	}catch(e){
+		console.log(e);
+		return null;
+	}
+};
+
+/**
+ * exports.sversion
+ */
+exports.sversion = function(){
+	try{
+		return wx.getSystemInfoSync().SDKVersion;
+	}catch(e){
+		console.log(e);
+		return null;
+	}
+};
+
+/**
+ * exports.higherThan
+ */
+exports.higherThan = function(v2){
+	var s = _CompareVersion(exports.sversion(), v2);
+	
+	return s < 0 ? false : true;
+};
+
+// compare version
+function _CompareVersion(v1, v2){
+	v1 = v1.split('.');
+	v2 = v2.split('.');
+	var len = Math.max(v1.length, v2.length);
+	
+	while(v1.length < len) v1.push('0');
+	while(v2.length < len) v2.push('0');
+	
+	for(var i = 0; i < len; i++){
+		var num1 = parseInt(v1[i]);
+		var num2 = parseInt(v2[i]);
+		
+		if(num1 > num2){
+			return 1;
+		}else if(num1 < num2){
+			return -1;
+		}
+	}
+	
+	return 0;
 };
