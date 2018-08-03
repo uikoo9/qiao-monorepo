@@ -72,4 +72,5 @@ test();
 
 # version
 ## 0.0.1.20180803
-1.init project
+1. init project
+2. modify md
