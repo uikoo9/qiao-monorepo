@@ -1,41 +1,45 @@
 # urls
 ## homepage
-[https://code.insistime.com/qiao.plugin.request](https://code.insistime.com/qiao.plugin.request)
+[https://code.insistime.com/qiao.plugin.mysql](https://code.insistime.com/qiao.plugin.mysql)
 
 ## github
-[https://github.com/insistime/qiao.plugin.request](https://github.com/insistime/qiao.plugin.request)
+[https://github.com/insistime/qiao.plugin.mysql](https://github.com/insistime/qiao.plugin.mysql)
 
 ## npm
-[https://www.npmjs.com/package/qiao.plugin.request](https://www.npmjs.com/package/qiao.plugin.request)
+[https://www.npmjs.com/package/qiao.plugin.mysql](https://www.npmjs.com/package/qiao.plugin.mysql)
 
 # started
 ## install
-npm install qiao.plugin.request
+npm install qiao.plugin.mysql
 
 ## dependencies
-1. http request by request
+1. mysql
 
 ## documentation
-1. request, https://www.npmjs.com/package/request
+1. mysql, https://www.npmjs.com/package/mysql
 
 # api
-## request get sync
+## init
+### init mysql pool
 ```javascript
 'use strict';
 
-var qiaoPluginRequest = require('qiao.plugin.request');
+var qiaoPluginMysql = require('qiao.plugin.mysql');
+
+qiaoPluginMysql.init(require('your path to config.json'));
+```
+
+## con
+### get mysql connection
+```javascript
+'use strict';
+
+var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
 	try{
-		var url = 'http://www.baidu.com';
-		var res = await qiaoPluginRequest.getSync({
-			url	: url,
-			qs	: {
-				test : 'test'
-			}
-		});
-		
-		console.log(res);
+		var connection = await qiaoPluginMysql.con();
+		console.log(connection);
 	}catch(e){
 		console.log(e);
 	}
@@ -44,92 +48,28 @@ var test = async function(){
 test(); 
 ```
 
-## request post sync
+## query
+### query sql
 ```javascript
 'use strict';
 
-var qiaoPluginRequest = require('qiao.plugin.request');
+var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
 	try{
-		var url = 'http://www.baidu.com';
-		var res = await qiaoPluginRequest.postSync({
-			url	: url,
-			qs	: {
-				test : 'test'
-			}
-		});
-		
-		console.log(res);
+		var sql = 'select * from t_blog where id=?';
+		var params = [1];
+	
+		var rows = await qiaoPluginMysql(sql, params);
+		console.log(rows);
 	}catch(e){
 		console.log(e);
 	}
 };
 
-test();
-```
-
-## request get async
-```javascript
-'use strict';
-
-var qiaoPluginRequest = require('qiao.plugin.request');
-
-var test = function(){
-	var url = 'http://www.baidu.com';
-	qiaoPluginRequest.get({
-		url	: url,
-		qs	: {
-			test : 'test'
-		}
-	}, function(err, rs, body){
-		console.log(err, body);
-	});
-};
-
-test();
-```
-
-## request post async
-```javascript
-'use strict';
-
-var qiaoPluginRequest = require('qiao.plugin.request');
-
-var test = function(){
-	var url = 'http://www.baidu.com';
-	qiaoPluginRequest.post({
-		url	: url,
-		qs	: {
-			test : 'test'
-		}
-	}, function(err, rs, body){
-		console.log(err, body);
-	});
-};
-
-test();
+test(); 
 ```
 
 # version
-## 0.0.6.20180720
-1. https homepage
-
-## 0.0.5.20180719
-1. modify readme.md
-
-## 0.0.4.20180523
-1. npm audit
-
-## 0.0.3.20180511
-1. npm audit
-
-## 0.0.2.20180210
-1. delete reqwest
-2. highlight md
-
-## 0.0.1.20180208
-1. init project
-2. request get
-3. request post
-4. modify index.js
+## 0.0.1.20180803
+1.init project
