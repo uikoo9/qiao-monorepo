@@ -14,6 +14,7 @@
     "qiao-plugin-zip": "./bin/qiao-plugin-coder"
   },
   "dependencies": {
+    "art-template": "^4.13.1"
   },
   "author": {
     "name": "qiaowenbin",
