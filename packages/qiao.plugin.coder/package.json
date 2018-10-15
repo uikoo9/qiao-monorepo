@@ -1,6 +1,6 @@
 {
   "name": "qiao.plugin.coder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "generate file based on template",
   "keywords": [
