@@ -6,10 +6,8 @@ var model	= require('../model/{{className1}}Model.js');
  */
 exports.{{className2}}List = async function(req, res){
 	// vars
-	{{each params}}
-	var {{$value.name2}} = req.body.{{$value.name2}};
+	{{each params}}var {{$value.name2}} = req.body.{{$value.name2}};
 	{{/each}}
-		
 	// sql and params
 	var sqlcount	= [model.sql.{{className2}}ListCount];
 	var paramscount	= [];
@@ -18,8 +16,7 @@ exports.{{className2}}List = async function(req, res){
 	var paramsquery	= [];
 	
 	// query
-	{{each params}}
-	if({{$value.name2}}){
+	{{each params}}if({{$value.name2}}){
 		sqlcount.push(' and t.{{$value.name1}} = ?');
 		paramscount.push({{$value.name2}});
 		
@@ -27,7 +24,6 @@ exports.{{className2}}List = async function(req, res){
 		paramsquery.push({{$value.name2}});
 	}
 	{{/each}}
-	
 	// page
 	var pagesize	= parseInt(req.body.pagesize || 10);
 	var pagenumber	= parseInt(req.body.pagenumber || 1);
@@ -88,39 +84,30 @@ exports.{{className2}}Save = async function(req, res){
 		res.send(qiao.j.danger('缺少参数！'));
 		return;
 	}
-	
-	{{each params}}
-	if(!req.body.{{$value.name2}}){
+	{{each params}}if(!req.body.{{$value.name2}}){
 		res.send(qiao.j.danger('缺少参数{{$value.name2}}！'));
 		return;
 	}
 	{{/each}}
-	
 	// vars
 	var id = req.body.id;
-	{{each params}}
-	var {{$value.name2}} = req.body.{{$value.name2}};
+	{{each params}}var {{$value.name2}} = req.body.{{$value.name2}};
 	{{/each}}
-	
 	// db
 	try{
 		var params = [];
 		
 		if(!id){
-			{{each params}}
-			params.push({{$value.name2}});
-			{{/each}}
-			params.push(2);
+			{{each params}}params.push({{$value.name2}});
+			{{/each}}params.push(2);
 			params.push('admin');
 			params.push(2);
 			params.push('admin');
 			
 			await model.{{className2}}Add(params);
 		}else{
-			{{each params}}
-			params.push({{$value.name2}});
-			{{/each}}
-			params.push(2);
+			{{each params}}params.push({{$value.name2}});
+			{{/each}}params.push(2);
 			params.push('admin');
 			params.push(id);
 			

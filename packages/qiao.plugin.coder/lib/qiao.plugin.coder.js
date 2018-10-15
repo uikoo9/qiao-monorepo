@@ -78,9 +78,11 @@ exports.genFileByData = function(templateFile, templateData, destFile){
 
 /**
  * gen server code
- * 	tableName : table name, t_blog_type
+ * 	destFolder	: dest folder
+ * 	tableName 	: table name, like t_blog_type
+ * 	params		: params
  */
-exports.genServerCode = function(destFolder, tableName){
+exports.genServerCode = function(destFolder, tableName, params){
 	var className	= qiaoUtilString.underScoreCaseToCamelCase(tableName);
 	var className1 	= className.substr(1, className.length);
 	var className2 	= qiaoUtilString.firstLetterLower(className1);
@@ -88,10 +90,11 @@ exports.genServerCode = function(destFolder, tableName){
 	var tableName2 	= tableName.split('_')[2];
 	
 	var data = {
-		className1 : className1,
-		className2 : className2,
-		tableName1 : tableName1,
-		tableName2 : tableName2
+		className1 	: className1,
+		className2 	: className2,
+		tableName1 	: tableName1,
+		tableName2 	: tableName2,
+		params		: params
 	};
 	console.log(data);
 	
@@ -106,7 +109,7 @@ exports.genServerCode = function(destFolder, tableName){
 	exports.genFileByData(modelTemp, data, modelDest);
 
 	// gen service
-//	var serviceTemp = path.resolve(__dirname, '../temp/service.art');
-//	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
-//	exports.genFileByData(serviceTemp, data, serviceDest);
+	var serviceTemp = path.resolve(__dirname, '../temp/service.art');
+	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
+	exports.genFileByData(serviceTemp, data, serviceDest);
 };

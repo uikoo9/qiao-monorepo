@@ -15,7 +15,6 @@ var test = async function(){
 	
 	// params
 	var columns = await qiaoPluginMysql.getColumns(tableName);
-	console.log(columns);
 	for(var i=0; i<columns.length; i++){
 		var item = columns[i];
 		
@@ -29,7 +28,7 @@ var test = async function(){
 		
 		// obj
 		var obj 	= {};
-		obj.type	= item.Type;
+		obj.type	= qiaoPluginMysql.getTypes(item.Type);
 		obj.name1 	= name1;
 		obj.name2 	= name2;
 		
@@ -39,7 +38,7 @@ var test = async function(){
 	
 	console.log(params);
 	
-//	qiaoPluginCoder.genServerCode(destFolder, tableName);
+	qiaoPluginCoder.genServerCode(destFolder, tableName, params);
 };
 
 // not in
