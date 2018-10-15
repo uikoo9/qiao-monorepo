@@ -24,6 +24,7 @@ npm install qiao.plugin.coder
 4. qiao.util.string.js
 5. add template
 6. controller model service template ok
+7. del bin
 
 ## 0.0.1.20181012
 1. init
