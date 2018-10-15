@@ -12,11 +12,13 @@ exports.pool = null;
  * 	config
  */
 exports.init = function(config){
+	// check config
 	if(!config){
 		console.log('need config to init');
 		return;
 	}
 	
+	// pool
 	return exports.pool ? exports.pool : exports.pool = mysql.createPool(config);
 };
 
@@ -24,11 +26,13 @@ exports.init = function(config){
  * con
  */
 exports.con = function(){
+	// check pool
 	if(!exports.pool){
 		console.log('need init mysql pool');
 		return;
 	}
 	
+	// connection
 	return new Promise(function(resolve, reject){
 		exports.pool.getConnection(function(error, connection){
 			return error ? reject(error) : resolve(connection);
@@ -40,11 +44,13 @@ exports.con = function(){
  * query
  */
 exports.query = function(sql, params){
+	// check pool
 	if(!exports.pool){
 		console.log('need init mysql pool');
 		return;
 	}
 	
+	// query
 	return new Promise(function(resolve, reject){
 		exports.pool.query(sql, params || [], function(error, results){
 			return error ? reject(error) : resolve(results);
@@ -57,10 +63,18 @@ exports.query = function(sql, params){
  * 	tableName : table name
  */
 exports.getColumns = function(tableName){
+	// check pool
+	if(!exports.pool){
+		console.log('need init mysql pool');
+		return;
+	}
+	
+	// check table name
 	if(!tableName){
 		console.log('need table name!');
 		return;
 	}
 	
+	// columns
 	return exports.query('SHOW COLUMNS FROM ?', mysql.raw(tableName));
 };

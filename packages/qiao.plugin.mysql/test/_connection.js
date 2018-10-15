@@ -3,7 +3,7 @@
 var qiaoPluginMysql = require('../lib/qiao.plugin.mysql');
 
 var test = async function(){
-	qiaoPluginMysql.init(require('./config.json'));
+	qiaoPluginMysql.init(require('./_config.json'));
 	
 	var con = await qiaoPluginMysql.con();
 	console.log(con);
