@@ -2,17 +2,10 @@
   "name": "qiao.plugin.coder",
   "version": "0.0.3",
   "license": "MIT",
-  "description": "generate file based on template",
-  "keywords": [
-    "generate",
-    "file",
-    "template"
-  ],
+  "description": "qiao.plugin.coder",
+  "keywords": [],
   "main": "index.js",
   "scripts": {},
-  "bin": {
-    "qiao-plugin-zip": "./bin/qiao-plugin-coder"
-  },
   "dependencies": {
     "art-template": "^4.13.1",
     "qiao.plugin.mysql": "0.0.3"

@@ -14,41 +14,7 @@ npm install qiao.plugin.coder
 
 ## dependencies
 1. art-template
-
-# api
-## gen file by data
-```javascript
-'use strict';
-
-var qiaoPluginCoder = require('qiao.plugin.coder');
-
-var test = function(){
-	var templateFile 	= 'd:/test/test.art';
-	var templateData	= {name : 'test'};
-	var destFile		= 'd:/test/test.html';
-	
-	qiaoPluginCoder.genFileByData(templateFile, templateData, destFile);
-};
-
-test();
-```
-
-## gen file by file
-```javascript
-'use strict';
-
-var qiaoPluginCoder = require('../lib/qiao.plugin.coder');
-
-var test = function(){
-	var templateFile 		= 'd:/test/test.art';
-	var templateDataFile	= 'd:/test/test.json';
-	var destFile			= 'd:/test/test.html';
-	
-	qiaoPluginCoder.genFileByFile(templateFile, templateDataFile, destFile);
-};
-
-test();
-```
+2. qiao.plugin.mysql
 
 # version
 ## 0.0.2.20181015
