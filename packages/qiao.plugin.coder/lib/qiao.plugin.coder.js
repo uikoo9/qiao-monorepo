@@ -4,6 +4,30 @@ var fs			= require('fs');
 var template	= require('art-template');
 
 /**
+ * tableNameToClassName
+ * 	tableName : table name
+ */
+exports.tableNameToClassName = function(tableName){
+	if(!tableName){
+		console.log('need table name!');
+		return;
+	}
+	
+	var res		= [];
+	var strs 	= tableName.split('_');
+	for(var i=0; i<strs.length; i++){
+		if(i == 0) continue;
+		
+		var str = strs[i];
+		var strLower = str.toLowerCase();
+		
+		res.push(strLower.charAt(0).toUpperCase() + strLower.substr(1, strLower.length));
+	}
+	
+	return res.join('');
+};
+
+/**
  * genFileByFile
  * 	templateFile : template file path
  * 	templateData : template data json file path
