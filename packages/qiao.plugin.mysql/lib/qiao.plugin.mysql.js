@@ -78,3 +78,23 @@ exports.getColumns = function(tableName){
 	// columns
 	return exports.query('SHOW COLUMNS FROM ?', mysql.raw(tableName));
 };
+
+/**
+ * getTypes
+ * 	mysqlType : mysql type
+ */
+exports.getTypes = function(mysqlType){
+	// check
+	if(!mysqlType) return 'string';
+	
+	// char, varchar
+	if(mysqlType.indexOf('char') > -1) return 'string';
+	
+	// int
+	if(mysqlType.indexOf('int') > -1) return 'number';
+	
+	// date, datetime
+	if(mysqlType.indexOf('date') > -1) return 'date';
+
+	return 'string';
+};
