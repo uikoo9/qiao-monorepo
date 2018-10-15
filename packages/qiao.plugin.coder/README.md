@@ -55,6 +55,9 @@ test();
 1. add art-template
 2. gen file by data
 3. gen file by file
+4. qiao.util.string.js
+5. add template
+6. controller model service template ok
 
 ## 0.0.1.20181012
 1. init
