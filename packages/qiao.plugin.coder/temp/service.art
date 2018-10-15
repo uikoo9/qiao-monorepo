@@ -1,0 +1,151 @@
+var qiao	= require('../../../util/qiao.sutil.js');
+var model	= require('../model/BlogTypeModel.js');
+
+/**
+ * blog type list
+ */
+exports.blogTypeList = async function(req, res){
+	// vars
+	var name = req.body.name;
+		
+	// sql and params
+	var sqlcount	= [model.sql.blogTypeListCount];
+	var paramscount	= [];
+	
+	var sqlquery	= [model.sql.blogTypeListQuery];
+	var paramsquery	= [];
+	
+	// query
+	if(name){
+		sqlcount.push(' and t.blog_type_name = ?');
+		paramscount.push(gradeId);
+		
+		sqlquery.push(" and t.blog_type_name = ?");
+		paramsquery.push(gradeId);
+	} 
+	
+	// page
+	var pagesize	= parseInt(req.body.pagesize || 10);
+	var pagenumber	= parseInt(req.body.pagenumber || 1);
+	var start		= (pagenumber - 1) * pagesize;
+	sqlquery.push(' order by t.udate desc limit ?,?');
+	paramsquery.push(start);
+	paramsquery.push(pagesize);
+	
+	// db
+	try{
+		var rs 		= await qiao.db.mysql.query(sqlcount.join(''), paramscount);
+		var rows 	= await qiao.db.mysql.query(sqlquery.join(''), paramsquery);
+		
+		// result
+		var result = {};
+		result.count 		= rs[0]['tcount'];
+		result.rows 		= rows;
+		result.sumpage 		= Math.ceil(result.count / pagesize);
+		result.pagenumber 	= pagenumber;
+		result.pagesize		= pagesize;
+		
+		res.send(qiao.j.success('query success', result));
+	}catch(e){
+		res.send(qiao.j.danger('query failed', {e:e}));
+	}
+};
+
+/**
+ * blog type get
+ */
+exports.blogTypeGet = async function(req, res){
+	// check
+	if(!req.body){
+		res.send(qiao.j.danger('缺少参数！'));
+		return;
+	}
+	if(!req.body.id){
+		res.send(qiao.j.danger('缺少参数id！'));
+		return;
+	}
+	
+	// db
+	try{
+		var rows = await model.blogTypeGetById(req.body.id);
+		
+		res.send(qiao.j.success('query success', {rows:rows}));
+	}catch(e){
+		res.send(qiao.j.danger('query failed', {e:e}));
+	}
+};
+
+/**
+ * blog type save
+ */
+exports.blogTypeSave = async function(req, res){
+	// check
+	if(!req.body){
+		res.send(qiao.j.danger('缺少参数！'));
+		return;
+	}
+	if(!req.body.blogTypeSn){
+		res.send(qiao.j.danger('缺少参数blogTypeSn！'));
+		return;
+	}
+	if(!req.body.blogTypeName){
+		res.send(qiao.j.danger('缺少参数blogTypeName！'));
+		return;
+	}
+	
+	// vars
+	var id				= req.body.id;
+	var blogTypeSn		= req.body.blogTypeSn;
+	var blogTypeName	= req.body.blogTypeName;
+	
+	// db
+	try{
+		var params = [];
+		
+		if(!id){
+			params.push(blogTypeSn);
+			params.push(blogTypeName);
+			params.push(2);
+			params.push('admin');
+			params.push(2);
+			params.push('admin');
+			
+			await model.blogTypeAdd(params);
+		}else{
+			params.push(blogTypeSn);
+			params.push(blogTypeName);
+			params.push(2);
+			params.push('admin');
+			params.push(id);
+			
+			await model.blogTypeEdit(params);
+		}
+		
+		res.send(qiao.j.success('save success'));
+	}catch(e){
+		res.send(qiao.j.danger('save failed', {e:e}));
+	}
+};
+
+/**
+ * blog type del
+ */
+exports.blogTypeDel = async function(req, res){
+	// check
+	if(!req.body){
+		res.send(qiao.j.danger('缺少参数！'));
+		return;
+	}
+	if(!req.body.ids){
+		res.send(qiao.j.danger('缺少参数ids！'));
+		return;
+	}
+	
+	// db
+	try{
+		await model.blogTypeDel(req.body.ids.split(','));
+		res.send(qiao.j.success('del success'));
+	}catch(e){
+		res.send(qiao.j.danger('del failed', {e:e}));
+	}
+};

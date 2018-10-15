@@ -1,0 +1,40 @@
+var qiao = require('../../../util/qiao.sutil.js');
+
+/**
+ * blog type sql
+ */
+exports.sql = require('../../../server-sql.json');
+
+/**
+ * blog type get by id
+ */
+exports.blogTypeGetById = function(id){
+	var params = [];
+	params.push(id);
+
+	return qiao.db.mysql.query(exports.sql.blogTypeGetById, params);
+};
+
+/**
+ * blog type add
+ */
+exports.blogTypeAdd = function(params){
+	return qiao.db.mysql.query(exports.sql.blogTypeAdd, params);
+};
+
+/**
+ * blog type edit
+ */
+exports.blogTypeEdit = function(params){
+	return qiao.db.mysql.query(exports.sql.blogTypeEdit, params);
+};
+
+/**
+ * blog type del
+ */
+exports.blogTypeDel = function(ids){
+	var params = [];
+	params.push(ids);
+	
+	return qiao.db.mysql.query(exports.sql.blogTypeDel, params);
+};
