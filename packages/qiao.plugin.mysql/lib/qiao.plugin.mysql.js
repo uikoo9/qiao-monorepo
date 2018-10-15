@@ -51,3 +51,16 @@ exports.query = function(sql, params){
 		});
 	});
 };
+
+/**
+ * getColumns
+ * 	tableName : table name
+ */
+exports.getColumns = function(tableName){
+	if(!tableName){
+		console.log('need table name!');
+		return;
+	}
+	
+	return exports.query('SHOW COLUMNS FROM ?', mysql.raw(tableName));
+};
