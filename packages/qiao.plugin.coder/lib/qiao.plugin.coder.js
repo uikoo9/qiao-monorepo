@@ -1,7 +1,9 @@
 'use strict';
 
-var fs			= require('fs');
-var template	= require('art-template');
+var fs				= require('fs');
+var path			= require('path');
+var template		= require('art-template');
+var qiaoUtilString 	= require('./qiao.util.string.js');
 
 /**
  * genFileByFile
@@ -76,8 +78,35 @@ exports.genFileByData = function(templateFile, templateData, destFile){
 
 /**
  * gen server code
- * 	tableName : table name
+ * 	tableName : table name, t_blog_type
  */
-exports.genServerCode = function(tableName){
+exports.genServerCode = function(destFolder, tableName){
+	var className	= qiaoUtilString.underScoreCaseToCamelCase(tableName);
+	var className1 	= className.substr(1, className.length);
+	var className2 	= qiaoUtilString.firstLetterLower(className1);
+	var tableName1 	= tableName.split('_')[1];
+	var tableName2 	= tableName.split('_')[2];
 	
+	var data = {
+		className1 : className1,
+		className2 : className2,
+		tableName1 : tableName1,
+		tableName2 : tableName2
+	};
+	console.log(data);
+	
+	// gen controller
+	var controllerTemp 	= path.resolve(__dirname, '../temp/controller.art');
+	var controllerDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/controller/' + className1 + 'Controller.js');
+	exports.genFileByData(controllerTemp, data, controllerDest);
+	
+	// gen model
+	var modelTemp 	= path.resolve(__dirname, '../temp/model.art');
+	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
+	exports.genFileByData(modelTemp, data, modelDest);
+
+	// gen service
+//	var serviceTemp = path.resolve(__dirname, '../temp/service.art');
+//	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
+//	exports.genFileByData(serviceTemp, data, serviceDest);
 };

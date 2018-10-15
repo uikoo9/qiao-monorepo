@@ -1,40 +1,40 @@
 var qiao = require('../../../util/qiao.sutil.js');
 
 /**
- * blog type sql
+ * {{tableName1}} {{tableName2}} sql
  */
 exports.sql = require('../../../server-sql.json');
 
 /**
- * blog type get by id
+ * {{tableName1}} {{tableName2}} get by id
  */
-exports.blogTypeGetById = function(id){
+exports.{{className2}}GetById = function(id){
 	var params = [];
 	params.push(id);
 
-	return qiao.db.mysql.query(exports.sql.blogTypeGetById, params);
+	return qiao.db.mysql.query(exports.sql.{{className2}}GetById, params);
 };
 
 /**
- * blog type add
+ * {{tableName1}} {{tableName2}} add
  */
-exports.blogTypeAdd = function(params){
-	return qiao.db.mysql.query(exports.sql.blogTypeAdd, params);
+exports.{{className2}}Add = function(params){
+	return qiao.db.mysql.query(exports.sql.{{className2}}Add, params);
 };
 
 /**
- * blog type edit
+ * {{tableName1}} {{tableName2}} edit
  */
-exports.blogTypeEdit = function(params){
-	return qiao.db.mysql.query(exports.sql.blogTypeEdit, params);
+exports.{{className2}}Edit = function(params){
+	return qiao.db.mysql.query(exports.sql.{{className2}}Edit, params);
 };
 
 /**
- * blog type del
+ * {{tableName1}} {{tableName2}} del
  */
-exports.blogTypeDel = function(ids){
+exports.{{className2}}Del = function(ids){
 	var params = [];
 	params.push(ids);
 	
-	return qiao.db.mysql.query(exports.sql.blogTypeDel, params);
+	return qiao.db.mysql.query(exports.sql.{{className2}}Del, params);
 };

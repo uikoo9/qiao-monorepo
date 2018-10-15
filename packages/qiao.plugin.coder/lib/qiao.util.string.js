@@ -2,6 +2,7 @@
 
 /**
  * firstLetterUpper
+ * 	str : word
  */
 exports.firstLetterUpper = function(str){
 	// check empty
@@ -23,24 +24,45 @@ exports.firstLetterUpper = function(str){
 };
 
 /**
- * tableNameToClassName
- * 	tableName : table name
+ * firstLetterLower
+ * 	str : word
  */
-exports.tableNameToClassName = function(tableName){
-	if(!tableName){
-		console.log('need table name!');
+exports.firstLetterLower = function(str){
+	// check empty
+	if(!str){
+		console.log('need str');
+		return null;
+	}
+	
+	// check string
+	if(typeof str != 'string'){
+		console.log('need string');
+		return null;
+	}
+	
+	var firstLetter = str.charAt(0).toLowerCase();
+	var strLength	= str.length;
+	
+	return strLength == 1 ? firstLetter : firstLetter + str.substr(1, strLength);
+};
+
+/**
+ * underScoreCaseToCamelCase
+ * 	underScoreCaseName : under score case name
+ */
+exports.underScoreCaseToCamelCase = function(underScoreCaseName){
+	if(!underScoreCaseName){
+		console.log('need under score case name!');
 		return;
 	}
 	
 	var res		= [];
-	var strs 	= tableName.split('_');
+	var strs 	= underScoreCaseName.split('_');
 	for(var i=0; i<strs.length; i++){
-		if(i == 0) continue;
-		
 		var str = strs[i];
 		var strLower = str.toLowerCase();
 		
-		res.push(strLower.charAt(0).toUpperCase() + strLower.substr(1, strLower.length));
+		res.push(exports.firstLetterUpper(strLower));
 	}
 	
 	return res.join('');

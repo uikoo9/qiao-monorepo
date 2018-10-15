@@ -1,28 +1,32 @@
 var qiao	= require('../../../util/qiao.sutil.js');
-var model	= require('../model/BlogTypeModel.js');
+var model	= require('../model/{{className1}}Model.js');
 
 /**
- * blog type list
+ * {{tableName1}} {{tableName2}} list
  */
-exports.blogTypeList = async function(req, res){
+exports.{{className2}}List = async function(req, res){
 	// vars
-	var name = req.body.name;
+	{{each params}}
+	var {{$value.name2}} = req.body.{{$value.name2}};
+	{{/each}}
 		
 	// sql and params
-	var sqlcount	= [model.sql.blogTypeListCount];
+	var sqlcount	= [model.sql.{{className2}}ListCount];
 	var paramscount	= [];
 	
-	var sqlquery	= [model.sql.blogTypeListQuery];
+	var sqlquery	= [model.sql.{{className2}}ListQuery];
 	var paramsquery	= [];
 	
 	// query
-	if(name){
-		sqlcount.push(' and t.blog_type_name = ?');
-		paramscount.push(gradeId);
+	{{each params}}
+	if({{$value.name2}}){
+		sqlcount.push(' and t.{{$value.name1}} = ?');
+		paramscount.push({{$value.name2}});
 		
-		sqlquery.push(" and t.blog_type_name = ?");
-		paramsquery.push(gradeId);
-	} 
+		sqlquery.push(" and t.{{$value.name1}} = ?");
+		paramsquery.push({{$value.name2}});
+	}
+	{{/each}}
 	
 	// page
 	var pagesize	= parseInt(req.body.pagesize || 10);
@@ -52,9 +56,9 @@ exports.blogTypeList = async function(req, res){
 };
 
 /**
- * blog type get
+ * {{tableName1}} {{tableName2}} get
  */
-exports.blogTypeGet = async function(req, res){
+exports.{{className2}}Get = async function(req, res){
 	// check
 	if(!req.body){
 		res.send(qiao.j.danger('缺少参数！'));
@@ -67,7 +71,7 @@ exports.blogTypeGet = async function(req, res){
 	
 	// db
 	try{
-		var rows = await model.blogTypeGetById(req.body.id);
+		var rows = await model.{{className2}}GetById(req.body.id);
 		
 		res.send(qiao.j.success('query success', {rows:rows}));
 	}catch(e){
@@ -76,49 +80,51 @@ exports.blogTypeGet = async function(req, res){
 };
 
 /**
- * blog type save
+ * {{tableName1}} {{tableName2}} save
  */
-exports.blogTypeSave = async function(req, res){
+exports.{{className2}}Save = async function(req, res){
 	// check
 	if(!req.body){
 		res.send(qiao.j.danger('缺少参数！'));
 		return;
 	}
-	if(!req.body.blogTypeSn){
-		res.send(qiao.j.danger('缺少参数blogTypeSn！'));
+	
+	{{each params}}
+	if(!req.body.{{$value.name2}}){
+		res.send(qiao.j.danger('缺少参数{{$value.name2}}！'));
 		return;
 	}
-	if(!req.body.blogTypeName){
-		res.send(qiao.j.danger('缺少参数blogTypeName！'));
-		return;
-	}
+	{{/each}}
 	
 	// vars
-	var id				= req.body.id;
-	var blogTypeSn		= req.body.blogTypeSn;
-	var blogTypeName	= req.body.blogTypeName;
+	var id = req.body.id;
+	{{each params}}
+	var {{$value.name2}} = req.body.{{$value.name2}};
+	{{/each}}
 	
 	// db
 	try{
 		var params = [];
 		
 		if(!id){
-			params.push(blogTypeSn);
-			params.push(blogTypeName);
+			{{each params}}
+			params.push({{$value.name2}});
+			{{/each}}
 			params.push(2);
 			params.push('admin');
 			params.push(2);
 			params.push('admin');
 			
-			await model.blogTypeAdd(params);
+			await model.{{className2}}Add(params);
 		}else{
-			params.push(blogTypeSn);
-			params.push(blogTypeName);
+			{{each params}}
+			params.push({{$value.name2}});
+			{{/each}}
 			params.push(2);
 			params.push('admin');
 			params.push(id);
 			
-			await model.blogTypeEdit(params);
+			await model.{{className2}}Edit(params);
 		}
 		
 		res.send(qiao.j.success('save success'));
@@ -128,9 +134,9 @@ exports.blogTypeSave = async function(req, res){
 };
 
 /**
- * blog type del
+ * {{tableName1}} {{tableName2}} del
  */
-exports.blogTypeDel = async function(req, res){
+exports.{{className2}}Del = async function(req, res){
 	// check
 	if(!req.body){
 		res.send(qiao.j.danger('缺少参数！'));
@@ -143,7 +149,7 @@ exports.blogTypeDel = async function(req, res){
 	
 	// db
 	try{
-		await model.blogTypeDel(req.body.ids.split(','));
+		await model.{{className2}}Del(req.body.ids.split(','));
 		res.send(qiao.j.success('del success'));
 	}catch(e){
 		res.send(qiao.j.danger('del failed', {e:e}));
