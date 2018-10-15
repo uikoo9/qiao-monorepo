@@ -37,15 +37,13 @@ qiaoPluginMysql.init(require('your path to config.json'));
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
-	try{
-		var connection = await qiaoPluginMysql.con();
-		console.log(connection);
-	}catch(e){
-		console.log(e);
-	}
+	qiaoPluginMysql.init(require('./_config.json'));
+	
+	var con = await qiaoPluginMysql.con();
+	console.log(con);
 };
 
-test(); 
+test();
 ```
 
 ## query
@@ -56,21 +54,37 @@ test();
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
-	try{
-		var sql = 'select * from t_blog where id=?';
-		var params = [1];
+	qiaoPluginMysql.init(require('./_config.json'));
 	
-		var rows = await qiaoPluginMysql(sql, params);
-		console.log(rows);
-	}catch(e){
-		console.log(e);
-	}
+	var res = await qiaoPluginMysql.query('show tables;');
+	console.log(res);
 };
 
-test(); 
+test();
+```
+
+### get columns
+```javascript
+'use strict';
+
+var qiaoPluginMysql = require('qiao.plugin.mysql');
+
+var test = async function(){
+	qiaoPluginMysql.init(require('./_config.json'));
+	
+	var res = await qiaoPluginMysql.getColumns('t_blog_type');
+	console.log(res);
+};
+
+test();
 ```
 
 # version
+## 0.0.2.20181015
+1. add _connection.js
+2. add _query.js
+3. add getColumns()
+
 ## 0.0.1.20180803
 1. init project
 2. modify md
