@@ -79,11 +79,26 @@ var test = async function(){
 test();
 ```
 
+### get types
+```javascript
+'use strict';
+
+var qiaoPluginMysql = require('../lib/qiao.plugin.mysql');
+
+var test = async function(){
+	var type = qiaoPluginMysql.getTypes('varchar(10)');
+	console.log(type);
+};
+
+test();
+```
+
 # version
 ## 0.0.2.20181015
 1. add _connection.js
 2. add _query.js
 3. add getColumns()
+4. add getTypes()
 
 ## 0.0.1.20180803
 1. init project
