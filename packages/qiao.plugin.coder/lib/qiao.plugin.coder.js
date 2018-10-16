@@ -99,17 +99,17 @@ exports.genServerCode = function(destFolder, tableName, params){
 	console.log(data);
 	
 	// gen controller
-	var controllerTemp 	= path.resolve(__dirname, '../temp/controller.art');
+	var controllerTemp 	= path.resolve(__dirname, '../template/controller.art');
 	var controllerDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/controller/' + className1 + 'Controller.js');
 	exports.genFileByData(controllerTemp, data, controllerDest);
 	
 	// gen model
-	var modelTemp 	= path.resolve(__dirname, '../temp/model.art');
+	var modelTemp 	= path.resolve(__dirname, '../template/model.art');
 	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
 	exports.genFileByData(modelTemp, data, modelDest);
 
 	// gen service
-	var serviceTemp = path.resolve(__dirname, '../temp/service.art');
+	var serviceTemp = path.resolve(__dirname, '../template/service.art');
 	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
 	exports.genFileByData(serviceTemp, data, serviceDest);
 };
