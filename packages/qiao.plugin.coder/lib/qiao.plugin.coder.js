@@ -3,7 +3,7 @@
 var fs				= require('fs');
 var path			= require('path');
 var template		= require('art-template');
-var qiaoUtilString 	= require('./qiao.util.string.js');
+var qiaoUtilString 	= require('../util/qiao.util.string.js');
 
 /**
  * genFileByFile
@@ -47,7 +47,7 @@ exports.genFileByFile = function(templateFile, templateDataFile, destFile){
  * 	templateData : template data
  * 	destFile : dest file path
  */
-exports.genFileByData = function(templateFile, templateData, destFile){
+exports.genFileByData = async function(templateFile, templateData, destFile){
 	// check temp file
 	if(!templateFile){
 		console.log('need template file path!');
@@ -70,7 +70,11 @@ exports.genFileByData = function(templateFile, templateData, destFile){
 	try{
 		var data = template(templateFile, templateData);
 		
-		fs.writeFileSync(destFile, data);
+		console.log(222);
+		destFile = 'z:\workspaces\fe.100tal\webroot-dev\server\manage\share\controller';
+		var stat = await fs.statSync(destFile);
+		console.log(111111111, stat);
+//		fs.writeFileSync(destFile, data);
 	}catch(e){
 		console.log(e);
 	}
@@ -102,14 +106,14 @@ exports.genServerCode = function(destFolder, tableName, params){
 	var controllerTemp 	= path.resolve(__dirname, '../template/server/controller.art');
 	var controllerDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/controller/' + className1 + 'Controller.js');
 	exports.genFileByData(controllerTemp, data, controllerDest);
-	
-	// gen model
-	var modelTemp 	= path.resolve(__dirname, '../template/server/model.art');
-	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
-	exports.genFileByData(modelTemp, data, modelDest);
-
-	// gen service
-	var serviceTemp = path.resolve(__dirname, '../template/server/service.art');
-	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
-	exports.genFileByData(serviceTemp, data, serviceDest);
+//	
+//	// gen model
+//	var modelTemp 	= path.resolve(__dirname, '../template/server/model.art');
+//	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
+//	exports.genFileByData(modelTemp, data, modelDest);
+//
+//	// gen service
+//	var serviceTemp = path.resolve(__dirname, '../template/server/service.art');
+//	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
+//	exports.genFileByData(serviceTemp, data, serviceDest);
 };

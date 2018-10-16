@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilString	= require('../lib/qiao.util.string');
+var qiaoUtilString	= require('../util/qiao.util.string');
 var qiaoPluginCoder = require('../lib/qiao.plugin.coder');
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
@@ -10,11 +10,12 @@ var test = async function(){
 	
 	// vars
 	var destFolder 	= 'z:/workspaces/fe.100tal/webroot-dev';
-	var tableName	= 't_blog_article';
+	var tableName	= 't_share_type';
 	var params		= [];
 	
 	// params
 	var columns = await qiaoPluginMysql.getColumns(tableName);
+//	console.log(columns);
 	for(var i=0; i<columns.length; i++){
 		var item = columns[i];
 		
@@ -36,7 +37,7 @@ var test = async function(){
 		params.push(obj);
 	}
 	
-	console.log(params);
+//	console.log(params);
 	
 	qiaoPluginCoder.genServerCode(destFolder, tableName, params);
 };
