@@ -27,6 +27,7 @@ npm install qiao.plugin.coder
 1. qiao.util.file
 2. add sql template
 3. modify md
+4. modify gen server code
 
 ## 0.0.2.20181015
 1. add art-template
