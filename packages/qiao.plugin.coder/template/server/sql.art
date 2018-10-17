@@ -1,0 +1,8 @@
+{
+	"{{className2}}GetById"		: "select * from {{tableName}} where id=? and del_tag='0'",
+	"{{className2}}Add"			: "insert into {{tableName}}(id, {{each params}}{{$value.name1}}, {{/each}}cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
+	"{{className2}}Edit"		: "update {{tableName}} set {{each params}}{{$value.name1}}=?, {{/each}}udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
+	"{{className2}}Del"			: "update {{tableName}} set del_tag='1' where id in (?)",
+	"{{className2}}ListCount"	: "SELECT count(*) tcount FROM {{tableName}} t WHERE t.del_tag='0'",
+	"{{className2}}ListQuery"	: "SELECT * FROM {{tableName}} t WHERE t.del_tag='0'"
+}

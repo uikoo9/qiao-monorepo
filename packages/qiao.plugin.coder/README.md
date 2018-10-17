@@ -17,6 +17,9 @@ npm install qiao.plugin.coder
 2. qiao.plugin.mysql
 
 # version
+## 0.0.3.20181017
+1. qiao.util.file
+
 ## 0.0.2.20181015
 1. add art-template
 2. gen file by data

@@ -3,7 +3,7 @@ var qiao = require('../../../util/qiao.sutil.js');
 /**
  * {{tableName1}} {{tableName2}} sql
  */
-exports.sql = require('../../../server-sql.json');
+exports.sql = require('../../manage-sql.json');
 
 /**
  * {{tableName1}} {{tableName2}} get by id
