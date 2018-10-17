@@ -15,7 +15,6 @@ var test = async function(){
 	
 	// params
 	var columns = await qiaoPluginMysql.getColumns(tableName);
-//	console.log(columns);
 	for(var i=0; i<columns.length; i++){
 		var item = columns[i];
 		
