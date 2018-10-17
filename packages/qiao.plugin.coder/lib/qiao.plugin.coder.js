@@ -131,7 +131,6 @@ exports.genServerCode = async function(destFolder, tableName){
 		params.push(obj);
 	}
 	data.params = params;
-	console.log(data);
 	
 	// gen code
 	genController(destFolder, tableName1, className1, data);
