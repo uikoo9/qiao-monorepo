@@ -103,6 +103,7 @@ exports.genServerCode = async function(destFolder, tableName){
 	var data = {
 		className1 	: className1,
 		className2 	: className2,
+		tableName	: tableName,
 		tableName1 	: tableName1,
 		tableName2 	: tableName2
 	};
@@ -137,6 +138,8 @@ exports.genServerCode = async function(destFolder, tableName){
 	genModel(destFolder, tableName1, className1, data);
 	genService(destFolder, tableName1, className1, data);
 	genSql(destFolder, tableName1, className1, data);
+	
+	return;
 };
 
 // not in
