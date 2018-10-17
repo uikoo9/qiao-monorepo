@@ -19,6 +19,7 @@ npm install qiao.plugin.coder
 # version
 ## 0.0.3.20181017
 1. qiao.util.file
+2. add sql template
 
 ## 0.0.2.20181015
 1. add art-template
