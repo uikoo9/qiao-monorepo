@@ -15,4 +15,6 @@ if(!args || args.length != 2){
 	return;
 }
 
+var destFolder 	= args[0];
+var tableName	= args[1];
 qiaoPluginCoder.genServerCode(destFolder, tableName);
