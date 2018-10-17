@@ -29,6 +29,7 @@ npm install qiao.plugin.coder
 3. modify md
 4. modify gen server code
 5. add bin
+6. fix bin
 
 ## 0.0.2.20181015
 1. add art-template
