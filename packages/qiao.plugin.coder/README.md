@@ -23,6 +23,9 @@ npm install qiao.plugin.coder
 3. qiao.util.file, https://www.npmjs.com/package/qiao.util.file
 
 # version
+## 0.0.4.20181019
+1. modify sql template
+
 ## 0.0.3.20181017
 1. qiao.util.file
 2. add sql template
