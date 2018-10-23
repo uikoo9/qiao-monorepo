@@ -45,6 +45,9 @@ npm install qiao.plugin.coder
 ``` 
 
 # version
+## 0.0.5.20181023
+1. front code 1
+
 ## 0.0.4.20181019
 1. modify sql template
 
