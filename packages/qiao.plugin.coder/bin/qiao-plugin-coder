@@ -38,7 +38,9 @@ async function genFrontCode(answers){
 		}
 	}]);
 	
-	console.log('https://github.com/insistime/qiao.plugin.coder#' + frontAnswers.code);
+	if(frontAnswers.code == '01'){
+		console.log('see : https://github.com/fe-100tal/fe.100tal/tree/qiao.plugin.coder#readme');
+	}
 }
 
 // gen server code
