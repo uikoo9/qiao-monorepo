@@ -25,7 +25,7 @@ async function genFrontCode(answers){
 	var frontAnswers = await qiaoPluginCli.ask([{
 		type		: 'input',
 		name		: 'code',
-		message		: 'Input code number, see:https://github.com/insistime/qiao.plugin.coder',
+		message		: 'Input code number, see:https://github.com/insistime/qiao.plugin.coder#frontCode',
 		validate	: function(input){
 			var done = this.async();
 			

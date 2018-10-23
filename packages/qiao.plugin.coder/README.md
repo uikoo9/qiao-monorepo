@@ -23,9 +23,9 @@ npm install qiao.plugin.coder
 3. qiao.util.file, https://www.npmjs.com/package/qiao.util.file
 
 # code list
-## front code
+## frontCode
 ### 01
-1. show website on pc, see demo : [https://fe.100tal.com/](https://fe.100tal.com/)
+1. show website on pc, see : [https://fe.100tal.com/](https://fe.100tal.com/)
 2. js lib use [jquery](https://jquery.com/)
 3. js plugin use [swiper](http://idangero.us/swiper/)
 4. build tool use [coolie](https://coolie.ydr.me/)
