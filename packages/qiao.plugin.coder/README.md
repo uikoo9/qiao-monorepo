@@ -22,6 +22,28 @@ npm install qiao.plugin.coder
 2. qiao.plugin.mysql, https://www.npmjs.com/package/qiao.plugin.mysql
 3. qiao.util.file, https://www.npmjs.com/package/qiao.util.file
 
+# code list
+## front code
+### 01
+1. show website on pc, see demo : [https://fe.100tal.com/](https://fe.100tal.com/)
+2. js lib use [jquery](https://jquery.com/)
+3. js plugin use [swiper](http://idangero.us/swiper/)
+4. build tool use [coolie](https://coolie.ydr.me/)
+5. server framework use [express](http://www.expressjs.com.cn/)
+6. and dependencies:
+```javascript
+  "dependencies": {
+    "art-template": "^4.13.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "moment": "^2.22.2",
+    "qiao.plugin.mysql": "0.0.3",
+    "qiao.plugin.request": "0.0.9",
+    "qiao.util.file": "0.0.3"
+  }
+``` 
+
 # version
 ## 0.0.4.20181019
 1. modify sql template

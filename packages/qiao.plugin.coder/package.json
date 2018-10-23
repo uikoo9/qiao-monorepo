@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "art-template": "^4.13.1",
-    "qiao.plugin.mysql": "0.0.3",
-    "qiao.util.file": "0.0.2"
+    "inquirer": "^6.2.0",
+    "qiao.util.file": "0.0.2",
+    "qiao.plugin.cli": "0.0.2",
+    "qiao.plugin.mysql": "0.0.3"
   },
   "author": {
     "name": "qiaowenbin",
