@@ -25,8 +25,8 @@ exports.{{className2}}List = async function(req, res){
 	}
 	{{/each}}
 	// page
-	var pagesize	= parseInt(req.body.pagesize || 10);
-	var pagenumber	= parseInt(req.body.pagenumber || 1);
+	var pagesize	= parseInt(req.body.rows || 10);
+	var pagenumber	= parseInt(req.body.page || 1);
 	var start		= (pagenumber - 1) * pagesize;
 	sqlquery.push(' order by t.udate desc limit ?,?');
 	paramsquery.push(start);
@@ -39,7 +39,7 @@ exports.{{className2}}List = async function(req, res){
 		
 		// result
 		var result = {};
-		result.count 		= rs[0]['tcount'];
+		result.total 		= rs[0]['tcount'];
 		result.rows 		= rows;
 		result.sumpage 		= Math.ceil(result.count / pagesize);
 		result.pagenumber 	= pagenumber;
