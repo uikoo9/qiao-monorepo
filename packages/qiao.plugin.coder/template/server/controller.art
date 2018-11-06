@@ -23,4 +23,9 @@ module.exports = function(app){
 	app.post('/{{tableName1}}/{{tableName2}}/del', function(req, res){
 		service.{{className2}}Del(req, res);
 	});
+
+	// {{tableName1}} {{tableName2}} edit
+	app.post('/{{tableName1}}/{{tableName2}}/edit', function(req, res){
+		service.{{className2}}Edit(req, res);
+	});
 };
