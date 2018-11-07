@@ -3,9 +3,7 @@
 var qiaoPluginMysql = require('../lib/qiao.plugin.mysql');
 
 var test = async function(){
-	qiaoPluginMysql.init(require('./_config.json'));
-	
-	var res = await qiaoPluginMysql.getColumns('t_blog_type');
+	var res = await qiaoPluginMysql.getColumns(require('./_config.json'), 't_share_type');
 	console.log(res);
 };
 

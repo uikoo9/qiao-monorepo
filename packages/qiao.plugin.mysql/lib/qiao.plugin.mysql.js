@@ -8,6 +8,8 @@ var mysql = require('mysql');
  * 	config
  */
 exports.connection = function(config){
+	if(!config) return;
+	
 	return mysql.createConnection(config);
 };
 
@@ -17,6 +19,10 @@ exports.connection = function(config){
  * 	config
  */
 exports.query = function(config, sql, params){
+	// check
+	if(!config || !sql) return;
+	
+	// connection
 	var connection = exports.connection(config);
 	if(!connection) return;
 	
@@ -31,6 +37,18 @@ exports.query = function(config, sql, params){
 			error ? reject(error) : resolve(results); 
 		});
 	});
+};
+
+/**
+ * getColumns
+ * 	config
+ * 	tableName
+ */
+exports.getColumns = function(config, tableName){
+	if(!config || !tableName) return;
+	
+	// columns
+	return exports.query(config, 'SHOW COLUMNS FROM ?', mysql.raw(tableName));
 };
 
 /**
@@ -89,27 +107,6 @@ exports.pquery = function(sql, params){
 			return error ? reject(error) : resolve(results);
 		});
 	});
-};
-
-/**
- * getColumns
- * 	tableName : table name
- */
-exports.getColumns = function(tableName){
-	// check pool
-	if(!exports.pool){
-		console.log('need init mysql pool');
-		return;
-	}
-	
-	// check table name
-	if(!tableName){
-		console.log('need table name!');
-		return;
-	}
-	
-	// columns
-	return exports.query('SHOW COLUMNS FROM ?', mysql.raw(tableName));
 };
 
 /**
