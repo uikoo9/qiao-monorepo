@@ -45,6 +45,10 @@ npm install qiao.plugin.coder
 ``` 
 
 # version
+## 0.0.6.20181107
+1. server edit method
+2. server pagination params
+
 ## 0.0.5.20181023
 1. front code 1
 2. front code ok 
