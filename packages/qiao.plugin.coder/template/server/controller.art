@@ -25,7 +25,7 @@ module.exports = function(app){
 	});
 
 	// {{tableName1}} {{tableName2}} edit
-	app.post('/{{tableName1}}/{{tableName2}}/edit', function(req, res){
+	app.get('/{{tableName1}}/{{tableName2}}/edit', function(req, res){
 		service.{{className2}}Edit(req, res);
 	});
 };

@@ -28,7 +28,7 @@ exports.{{className2}}List = async function(req, res){
 	var pagesize	= parseInt(req.body.rows || 10);
 	var pagenumber	= parseInt(req.body.page || 1);
 	var start		= (pagenumber - 1) * pagesize;
-	sqlquery.push(' order by t.udate desc limit ?,?');
+	sqlquery.push(' order by t.id desc limit ?,?');
 	paramsquery.push(start);
 	paramsquery.push(pagesize);
 	

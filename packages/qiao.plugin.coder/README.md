@@ -10,39 +10,15 @@
 
 # started
 ## install
-npm install qiao.plugin.coder
+npm install -g qiao.plugin.coder
 
-## dependencies
-1. art-template
-2. qiao.plugin.mysql
-3. qiao.util.file
-
-## documentation
-1. art-template, https://aui.github.io/art-template/docs/
-2. qiao.plugin.mysql, https://www.npmjs.com/package/qiao.plugin.mysql
-3. qiao.util.file, https://www.npmjs.com/package/qiao.util.file
+## use
+qiao-plugin-coder
 
 # code list
-## frontCode
-### 01
-1. show website on pc, see : [https://fe.100tal.com/](https://fe.100tal.com/)
-2. js lib use [jquery](https://jquery.com/)
-3. js plugin use [swiper](http://idangero.us/swiper/)
-4. build tool use [coolie](https://coolie.ydr.me/)
-5. server framework use [express](http://www.expressjs.com.cn/)
-6. and dependencies:
-```javascript
-  "dependencies": {
-    "art-template": "^4.13.1",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.16.4",
-    "express-art-template": "^1.0.1",
-    "moment": "^2.22.2",
-    "qiao.plugin.mysql": "0.0.3",
-    "qiao.plugin.request": "0.0.9",
-    "qiao.util.file": "0.0.3"
-  }
-``` 
+## 01
+1. server	: [node.js](https://nodejs.org/en/), [express.js](http://www.expressjs.com.cn/)
+2. browser	: [jquery](http://jquery.com/), [easyui](http://www.jeasyui.com/), [coolie](https://coolie.ydr.me/)
 
 # version
 ## 0.0.6.20181107
