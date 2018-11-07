@@ -2,30 +2,16 @@
 
 'use strict';
 
-var inquirer 		= require('inquirer');
 var qiaoPluginCli	= require('qiao.plugin.cli');
 var qiaoPluginCoder = require('../lib/qiao.plugin.coder.js');
 
 // init
 async function init(){
-	var typeAnswers = await qiaoPluginCli.ask([{
-	    type	: 'list',
-	    name	: 'type',
-	    message	: 'What type of code do you want to generate?',
-	    choices	: ['front', 'server', 'manage']
-	}]);
-	
-	if(typeAnswers.type == 'front') genFrontCode();
-	if(typeAnswers.type == 'server') genServerCode();
-	if(typeAnswers.type == 'manage') genManageCode();
-}
-
-// gen front code
-async function genFrontCode(answers){
-	var frontAnswers = await qiaoPluginCli.ask([{
+	console.log('111111');
+	var codeAnswers = await qiaoPluginCli.ask([{
 		type		: 'input',
 		name		: 'code',
-		message		: 'Input code number, see:https://github.com/insistime/qiao.plugin.coder#frontCode',
+		message		: 'Input code number, see:https://github.com/insistime/qiao.plugin.coder#01',
 		validate	: function(input){
 			var done = this.async();
 			
@@ -78,11 +64,6 @@ async function genServerCode(){
 	var destFolder 	= serverAnswers.destFolder;
 	var tableName	= serverAnswers.tableName;
 	qiaoPluginCoder.genServerCode(destFolder, tableName);
-}
-
-// gen manage code
-function genManageCode(){
-	console.log('todo');
 }
 
 // init
