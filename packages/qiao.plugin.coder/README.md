@@ -25,6 +25,7 @@ qiao-plugin-coder
 1. server edit method
 2. server pagination params
 3. uninstall inquirer
+4. qiao.util.string
 
 ## 0.0.5.20181023
 1. front code 1
