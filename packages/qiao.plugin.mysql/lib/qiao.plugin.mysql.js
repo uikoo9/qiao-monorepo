@@ -5,6 +5,7 @@ var mysql = require('mysql');
 /**
  * connection
  * 	get mysql connection
+ * 
  * 	config
  */
 exports.connection = function(config){
@@ -18,6 +19,7 @@ exports.connection = function(config){
 /**
  * query
  * 	mysql query by connection
+ * 
  * 	config
  */
 exports.query = function(config, sql, params){
@@ -80,15 +82,14 @@ exports.getTypes = function(mysqlType){
 exports.pool = null;
 
 /**
- * init
+ * pinit
+ * 	pool init
+ * 
  * 	config
  */
-exports.init = function(config){
-	// check config
-	if(!config){
-		console.log('need config to init');
-		return;
-	}
+exports.pinit = function(config){
+	// check
+	if(!config) return;
 	
 	// pool
 	return exports.pool ? exports.pool : exports.pool = mysql.createPool(config);
@@ -100,15 +101,12 @@ exports.init = function(config){
  */
 exports.pcon = function(){
 	// check pool
-	if(!exports.pool){
-		console.log('need init mysql pool');
-		return;
-	}
+	if(!exports.pool) return;
 	
 	// connection
 	return new Promise(function(resolve, reject){
 		exports.pool.getConnection(function(error, connection){
-			return error ? reject(error) : resolve(connection);
+			error ? reject(error) : resolve(connection);
 		});
 	});
 };
@@ -119,15 +117,21 @@ exports.pcon = function(){
  */
 exports.pquery = function(sql, params){
 	// check pool
-	if(!exports.pool){
-		console.log('need init mysql pool');
-		return;
-	}
+	if(!exports.pool) return;	
 	
 	// query
 	return new Promise(function(resolve, reject){
-		exports.pool.query(sql, params || [], function(error, results){
-			return error ? reject(error) : resolve(results);
+		exports.pool.getConnection(function(error, connection){
+			if(error){
+				reject(error);
+				return;
+			}
+			
+			connection.query(sql, params || [], function (err, results, fields){
+				connection.release();
+
+				err ? reject(err) : resolve(results); 
+			});
 		});
 	});
 };
