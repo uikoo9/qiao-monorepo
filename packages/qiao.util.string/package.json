@@ -1,0 +1,25 @@
+{
+  "name": "qiao.util.string",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "qiao.util.string",
+  "keywords": [
+  	"nodejs",
+  	"string",
+  	"tool"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.util.string",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.util.string.git"
+  }
+}
