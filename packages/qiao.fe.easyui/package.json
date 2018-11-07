@@ -1,0 +1,25 @@
+{
+  "name": "qiao.fe.easyui",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "jquery easyui on coolie",
+  "keywords": [
+    "jquery",
+    "easyui",
+    "coolie"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.fe.easyui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.fe.easyui.git"
+  }
+}
