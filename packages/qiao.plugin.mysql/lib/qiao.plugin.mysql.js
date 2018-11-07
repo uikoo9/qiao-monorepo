@@ -17,7 +17,7 @@ exports.connection = function(config){
  * 	config
  */
 exports.query = function(config, sql, params){
-	var connection = exports.con(config);
+	var connection = exports.connection(config);
 	if(!connection) return;
 	
 	// connect
