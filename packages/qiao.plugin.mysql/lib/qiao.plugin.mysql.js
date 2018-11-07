@@ -3,6 +3,37 @@
 var mysql = require('mysql');
 
 /**
+ * connection
+ * 	get mysql connection
+ * 	config
+ */
+exports.connection = function(config){
+	return mysql.createConnection(config);
+};
+
+/**
+ * query
+ * 	mysql query by connection
+ * 	config
+ */
+exports.query = function(config, sql, params){
+	var connection = exports.con(config);
+	if(!connection) return;
+	
+	// connect
+	connection.connect();
+	
+	// query
+	return new Promise(function(resolve, reject){
+		connection.query(sql, params || [], function (error, results, fields){
+			connection.end();
+
+			error ? reject(error) : resolve(results); 
+		});
+	});
+};
+
+/**
  * pool
  */
 exports.pool = null;
@@ -23,9 +54,10 @@ exports.init = function(config){
 };
 
 /**
- * con
+ * pcon
+ * 	pool connection
  */
-exports.con = function(){
+exports.pcon = function(){
 	// check pool
 	if(!exports.pool){
 		console.log('need init mysql pool');
@@ -41,9 +73,10 @@ exports.con = function(){
 };
 
 /**
- * query
+ * pquery
+ * 	pool query
  */
-exports.query = function(sql, params){
+exports.pquery = function(sql, params){
 	// check pool
 	if(!exports.pool){
 		console.log('need init mysql pool');
