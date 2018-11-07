@@ -13,7 +13,8 @@
     "art-template": "^4.13.1",
     "qiao.plugin.cli": "0.0.2",
     "qiao.plugin.mysql": "0.0.3",
-    "qiao.util.file": "0.0.2"
+    "qiao.util.file": "0.0.2",
+    "qiao.util.string": "0.0.1"
   },
   "author": {
     "name": "qiaowenbin",

@@ -4,7 +4,7 @@ var fs				= require('fs');
 var path			= require('path');
 var template		= require('art-template');
 var qiaoUtilFile	= require('qiao.util.file');
-var qiaoUtilString 	= require('../util/qiao.util.string.js');
+var qiaoUtilString 	= require('qiao.util.string');
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 /**
