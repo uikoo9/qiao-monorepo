@@ -8,8 +8,10 @@ var mysql = require('mysql');
  * 	config
  */
 exports.connection = function(config){
+	// check
 	if(!config) return;
 	
+	// connection
 	return mysql.createConnection(config);
 };
 
@@ -45,10 +47,31 @@ exports.query = function(config, sql, params){
  * 	tableName
  */
 exports.getColumns = function(config, tableName){
+	// check
 	if(!config || !tableName) return;
 	
 	// columns
 	return exports.query(config, 'SHOW COLUMNS FROM ?', mysql.raw(tableName));
+};
+
+/**
+ * getTypes
+ * 	mysqlType : mysql type
+ */
+exports.getTypes = function(mysqlType){
+	// check
+	if(!mysqlType) return 'string';
+	
+	// char, varchar
+	if(mysqlType.indexOf('char') > -1) return 'string';
+	
+	// int
+	if(mysqlType.indexOf('int') > -1) return 'number';
+	
+	// date, datetime
+	if(mysqlType.indexOf('date') > -1) return 'date';
+
+	return 'string';
 };
 
 /**
@@ -107,24 +130,4 @@ exports.pquery = function(sql, params){
 			return error ? reject(error) : resolve(results);
 		});
 	});
-};
-
-/**
- * getTypes
- * 	mysqlType : mysql type
- */
-exports.getTypes = function(mysqlType){
-	// check
-	if(!mysqlType) return 'string';
-	
-	// char, varchar
-	if(mysqlType.indexOf('char') > -1) return 'string';
-	
-	// int
-	if(mysqlType.indexOf('int') > -1) return 'number';
-	
-	// date, datetime
-	if(mysqlType.indexOf('date') > -1) return 'date';
-
-	return 'string';
 };
