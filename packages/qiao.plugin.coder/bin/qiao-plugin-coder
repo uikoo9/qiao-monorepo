@@ -7,34 +7,22 @@ var qiaoPluginCoder = require('../lib/qiao.plugin.coder.js');
 
 // init
 async function init(){
-	console.log('111111');
-	var codeAnswers = await qiaoPluginCli.ask([{
-		type		: 'input',
-		name		: 'code',
-		message		: 'Input code number, see:https://github.com/insistime/qiao.plugin.coder#01',
-		validate	: function(input){
-			var done = this.async();
-			
-			if(!input){
-				done('need code number');
-		        return;
-			}
-			
-			done(null, true);
-		}
-	}]);
+	// print
+	console.log('qiao.plugin.coder, generate server and browser code.');
+	console.log();
+	console.log('code list : https://github.com/insistime/qiao.plugin.coder#01');
+	console.log();
 	
-	if(frontAnswers.code == '01'){
-		console.log('see : https://github.com/fe-100tal/fe.100tal/tree/qiao.plugin.coder#readme');
-	}
-}
-
-// gen server code
-async function genServerCode(){
-	var serverAnswers = await qiaoPluginCli.ask([{
+	// code
+	var codeAnswers = await qiaoPluginCli.ask([{
+	    type	: 'list',
+	    name	: 'code',
+	    message	: 'select code number:',
+	    choices	: ['01', '02']
+	},{
 		type		: 'input',
 		name		: 'tableName',
-		message		: 'Input table name:',
+		message		: 'input table name:',
 		validate	: function(input){
 			var done = this.async();
 			
@@ -48,7 +36,7 @@ async function genServerCode(){
 	},{
 	    type		: 'input',
 	    name		: 'destFolder',
-	    message		: 'Input destination folder path:',
+	    message		: 'input destination folder path:',
 	    validate	: function(input){
 			var done = this.async();
 			
@@ -61,9 +49,11 @@ async function genServerCode(){
 		}
 	}]);
 	
-	var destFolder 	= serverAnswers.destFolder;
-	var tableName	= serverAnswers.tableName;
-	qiaoPluginCoder.genServerCode(destFolder, tableName);
+	if(codeAnswers.code == '01'){
+		var destFolder 	= codeAnswers.destFolder;
+		var tableName	= codeAnswers.tableName;
+		qiaoPluginCoder.genServerCode(destFolder, tableName);
+	}
 }
 
 // init
