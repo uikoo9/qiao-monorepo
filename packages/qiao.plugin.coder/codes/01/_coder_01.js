@@ -1,10 +1,9 @@
 'use strict';
 
 var path			= require('path');
-var template		= require('art-template');
-var qiaoUtilFile	= require('qiao.util.file');
 var qiaoUtilString 	= require('qiao.util.string');
 var qiaoPluginMysql = require('qiao.plugin.mysql');
+var qiaoPluginCoder	= require('../../lib/qiao.plugin.coder.js');
 
 var config			= require('./_config.json');
 
@@ -76,28 +75,28 @@ function notIn(s){
 
 // gen controller
 function genController(destFolder, tableName1, className1, data){
-	var controllerTemp 	= path.resolve(__dirname, '../template/server/controller.art');
+	var controllerTemp 	= path.resolve(__dirname, './controller.art');
 	var controllerDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/controller/' + className1 + 'Controller.js');
-	exports.genFileByData(controllerTemp, data, controllerDest);
+	qiaoPluginCoder.genFileByData(controllerTemp, data, controllerDest);
 }
 
 // gen model
 function genModel(destFolder, tableName1, className1, data){
-	var modelTemp 	= path.resolve(__dirname, '../template/server/model.art');
+	var modelTemp 	= path.resolve(__dirname, './model.art');
 	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
-	exports.genFileByData(modelTemp, data, modelDest);
+	qiaoPluginCoder.genFileByData(modelTemp, data, modelDest);
 }
 
 // gen service
 function genService(destFolder, tableName1, className1, data){
-	var serviceTemp = path.resolve(__dirname, '../template/server/service.art');
+	var serviceTemp = path.resolve(__dirname, './service.art');
 	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
-	exports.genFileByData(serviceTemp, data, serviceDest);
+	qiaoPluginCoder.genFileByData(serviceTemp, data, serviceDest);
 }
 
 // gen sql
 function genSql(destFolder, tableName1, className1, data){
-	var sqlTemp = path.resolve(__dirname, '../template/server/sql.art');
+	var sqlTemp = path.resolve(__dirname, './sql.art');
 	var sqlDest	= path.resolve(destFolder, './server/manage/manage-sql.json');
-	exports.genFileByData(sqlTemp, data, sqlDest);
+	qiaoPluginCoder.genFileByData(sqlTemp, data, sqlDest);
 }
