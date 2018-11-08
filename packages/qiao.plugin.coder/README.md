@@ -21,6 +21,11 @@ qiao-plugin-coder
 2. browser	: [jquery](http://jquery.com/), [easyui](http://www.jeasyui.com/), [coolie](https://coolie.ydr.me/)
 
 # version
+## 0.0.7.20181108
+1. update qiao.plugin.mysql
+2. coder 01 ok
+3. modify coder cli
+
 ## 0.0.6.20181107
 1. server edit method
 2. server pagination params
