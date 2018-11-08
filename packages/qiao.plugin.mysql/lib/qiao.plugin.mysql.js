@@ -82,24 +82,21 @@ exports.getTypes = function(mysqlType){
 exports.pool = null;
 
 /**
- * pinit
- * 	pool init
- * 
+ * poolInit
  * 	config
  */
-exports.pinit = function(config){
+exports.poolInit = function(config){
 	// check
 	if(!config) return;
 	
 	// pool
-	return exports.pool ? exports.pool : exports.pool = mysql.createPool(config);
+	exports.pool ? exports.pool : exports.pool = mysql.createPool(config);
 };
 
 /**
  * pcon
- * 	pool connection
  */
-exports.pcon = function(){
+exports.poolConnection = function(){
 	// check pool
 	if(!exports.pool) return;
 	
@@ -113,9 +110,8 @@ exports.pcon = function(){
 
 /**
  * pquery
- * 	pool query
  */
-exports.pquery = function(sql, params){
+exports.poolQuery = function(sql, params){
 	// check pool
 	if(!exports.pool) return;	
 	
