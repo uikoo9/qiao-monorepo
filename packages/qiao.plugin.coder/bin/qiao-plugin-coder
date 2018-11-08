@@ -2,8 +2,7 @@
 
 'use strict';
 
-var qiaoPluginCli	= require('qiao.plugin.cli');
-var qiaoPluginCoder = require('../lib/qiao.plugin.coder.js');
+var qiaoPluginCli = require('qiao.plugin.cli');
 
 // init
 async function init(){
@@ -52,7 +51,8 @@ async function init(){
 	if(codeAnswers.code == '01'){
 		var destFolder 	= codeAnswers.destFolder;
 		var tableName	= codeAnswers.tableName;
-		qiaoPluginCoder.genServerCode(destFolder, tableName);
+		
+		require('../codes/01/_coder_01.js').gen(destFolder, tableName);
 	}
 }
 
