@@ -6,6 +6,8 @@ var qiaoUtilFile	= require('qiao.util.file');
 var qiaoUtilString 	= require('qiao.util.string');
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
+var config			= require('./_config.json');
+
 /**
  * gen
  * 	destFolder	: dest folder
@@ -30,7 +32,7 @@ exports.gen = async function(destFolder, tableName){
 	
 	// params
 	var params	= [];
-	var columns = await qiaoPluginMysql.getColumns(tableName);
+	var columns = await qiaoPluginMysql.getColumns(config, tableName);
 	for(var i=0; i<columns.length; i++){
 		var item = columns[i];
 		
