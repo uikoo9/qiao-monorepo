@@ -25,6 +25,7 @@ qiao-plugin-coder
 1. update qiao.plugin.mysql
 2. coder 01 ok
 3. modify coder cli
+4. update template
 
 ## 0.0.6.20181107
 1. server edit method
