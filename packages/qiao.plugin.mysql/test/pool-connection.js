@@ -1,3 +1,5 @@
+'use strict';
+
 var qiaoPluginMysql = require('../lib/qiao.plugin.mysql.js');
 
 var test = async function(){

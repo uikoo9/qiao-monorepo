@@ -19,81 +19,106 @@ npm install qiao.plugin.mysql
 1. mysql, https://www.npmjs.com/package/mysql
 
 # api
-## init
-### init mysql pool
+## connection
 ```javascript
 'use strict';
 
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
-qiaoPluginMysql.init(require('your path to config.json'));
-```
-
-## con
-### get mysql connection
-```javascript
-'use strict';
-
-var qiaoPluginMysql = require('qiao.plugin.mysql');
-
-var test = async function(){
-	qiaoPluginMysql.init(require('./_config.json'));
-	
-	var con = await qiaoPluginMysql.con();
-	console.log(con);
-};
-
-test();
+var connection = qiaoPluginMysql.connection(require('./_config.json'));
+console.log(connection);
 ```
 
 ## query
-### query sql
 ```javascript
 'use strict';
 
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
-	qiaoPluginMysql.init(require('./_config.json'));
-	
-	var res = await qiaoPluginMysql.query('show tables;');
-	console.log(res);
+	try{
+		var rows = await qiaoPluginMysql.query(require('./_config.json'), 'select * from t_share_type where id=?', [1]);
+		console.log(rows);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();
 ```
 
-### get columns
+## getColumns
 ```javascript
 'use strict';
 
 var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
-	qiaoPluginMysql.init(require('./_config.json'));
-	
-	var res = await qiaoPluginMysql.getColumns('t_blog_type');
-	console.log(res);
+	try{
+		var res = await qiaoPluginMysql.getColumns(require('./_config.json'), 't_share_type');
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();
 ```
 
-### get types
+## getTypes
 ```javascript
 'use strict';
 
-var qiaoPluginMysql = require('../lib/qiao.plugin.mysql');
+var qiaoPluginMysql = require('qiao.plugin.mysql');
+
+var type = qiaoPluginMysql.getTypes('varchar(10)');
+console.log(type);
+```
+
+## poolConnection
+```javascript
+'use strict';
+
+var qiaoPluginMysql = require('qiao.plugin.mysql');
 
 var test = async function(){
-	var type = qiaoPluginMysql.getTypes('varchar(10)');
-	console.log(type);
+	try{
+		qiaoPluginMysql.poolInit(require('./_config.json'));
+		
+		var connection = await qiaoPluginMysql.poolConnection();
+		console.log(connection);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
+## poolQuery
+```javascript
+'use strict';
+
+var qiaoPluginMysql = require('qiao.plugin.mysql');
+
+var test = async function(){
+	try{
+		qiaoPluginMysql.poolInit(require('./_config.json'));
+		
+		var rows = await qiaoPluginMysql.poolQuery('select * from t_share_type where id=?', [1]);
+		console.log(rows);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();
 ```
 
 # version
+## 0.0.3.20181108
+1. update query and connection
+
 ## 0.0.2.20181015
 1. add _connection.js
 2. add _query.js
