@@ -1,0 +1,24 @@
+{{if item}}
+	<form id="form" method="post">
+		<input type="hidden" name="id" value="{{item.id}}" />
+		<div class="m-row">
+	        <label class="col-3" for="shareTypeSn">分享类型序号</label>
+	        <input class="col-7 easyui-validatebox" type="text" name="shareTypeSn" data-options="required:true" value="{{item.share_type_sn}}"/>
+		</div>
+		<div class="m-row">
+	        <label class="col-3" for="shareTypeName">分享类型名称</label>
+	        <input class="col-7 easyui-validatebox" type="text" name="shareTypeName" data-options="required:true"  value="{{item.share_type_name}}"/>
+	    </div>
+	</form>
+{{else}}
+	<form id="form" method="post">
+		<div class="m-row">
+	        <label class="col-3" for="shareTypeSn">分享类型序号</label>
+	        <input class="col-7 easyui-validatebox" type="text" name="shareTypeSn" data-options="required:true" />
+		</div>
+		<div class="m-row">
+	        <label class="col-3" for="shareTypeName">分享类型名称</label>
+	        <input class="col-7 easyui-validatebox" type="text" name="shareTypeName" data-options="required:true" />
+	    </div>
+	</form>
+{{/if}}

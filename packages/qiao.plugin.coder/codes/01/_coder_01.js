@@ -54,11 +54,15 @@ exports.gen = async function(destFolder, tableName){
 	}
 	data.params = params;
 	
-	// gen code
+	// gen server code
 	genController(destFolder, tableName1, className1, data);
 	genModel(destFolder, tableName1, className1, data);
 	genService(destFolder, tableName1, className1, data);
-	genSql(destFolder, tableName1, className1, data);
+	genSql(destFolder, data);
+	
+	// gen webroot code
+	genHtml(destFolder, tableName1, tableName2, data);
+	genJs(destFolder, tableName1, tableName2, data);
 	
 	return;
 };
@@ -75,28 +79,42 @@ function notIn(s){
 
 // gen controller
 function genController(destFolder, tableName1, className1, data){
-	var controllerTemp 	= path.resolve(__dirname, './controller.art');
+	var controllerTemp 	= path.resolve(__dirname, './server/controller.art');
 	var controllerDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/controller/' + className1 + 'Controller.js');
 	qiaoPluginCoder.genFileByData(controllerTemp, data, controllerDest);
 }
 
 // gen model
 function genModel(destFolder, tableName1, className1, data){
-	var modelTemp 	= path.resolve(__dirname, './model.art');
+	var modelTemp 	= path.resolve(__dirname, './server/model.art');
 	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
 	qiaoPluginCoder.genFileByData(modelTemp, data, modelDest);
 }
 
 // gen service
 function genService(destFolder, tableName1, className1, data){
-	var serviceTemp = path.resolve(__dirname, './service.art');
+	var serviceTemp = path.resolve(__dirname, './server/service.art');
 	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
 	qiaoPluginCoder.genFileByData(serviceTemp, data, serviceDest);
 }
 
 // gen sql
-function genSql(destFolder, tableName1, className1, data){
-	var sqlTemp = path.resolve(__dirname, './sql.art');
+function genSql(destFolder, data){
+	var sqlTemp = path.resolve(__dirname, './server/sql.art');
 	var sqlDest	= path.resolve(destFolder, './server/manage/manage-sql.json');
 	qiaoPluginCoder.genFileByData(sqlTemp, data, sqlDest);
+}
+
+// gen html
+function genHtml(destFolder, tableName1, tableName2, data){
+	var htmlTemp = path.resolve(__dirname, './webroot/edit.art');
+	var htmlDest	= path.resolve(destFolder, './webroot-dev/views/manage/' + tableName1 + '/' + tableName1 + '-' + tableName2 + '-edit.html');
+	qiaoPluginCoder.genFileByData(htmlTemp, data, htmlDest);
+}
+
+// gen js
+function genJs(destFolder, tableName1, tableName2, data){
+	var jsTemp 	= path.resolve(__dirname, './webroot/js.art');
+	var jsDest	= path.resolve(destFolder, './webroot-dev/static/js/app/manage/' + tableName1 + '/' + tableName1 + '-' + tableName2 + '.js');
+	qiaoPluginCoder.genFileByData(jsTemp, data, jsDest);
 }
