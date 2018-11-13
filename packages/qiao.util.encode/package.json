@@ -1,0 +1,25 @@
+{
+  "name": "qiao.util.encode",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "nodejs crypto tool",
+  "keywords": [
+    "nodejs",
+    "crypto",
+    "tool"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.util.encode",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.util.encode.git"
+  }
+}
