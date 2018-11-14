@@ -121,7 +121,7 @@ exports.crud = {};
  * 	url
  * 	cols
  */
-exports.crud.init = function(url, cols){
+exports.crud.init = function(url, cols, width, height){
 	// check
 	if(!url || !cols){
 		console.log('error: qiao.easyui.curd.init need url and cols');
@@ -134,6 +134,10 @@ exports.crud.init = function(url, cols){
 		console.log('error:not found datagrid by #datagrid');
 		return;
 	}
+	
+	// vars
+	var w = width || 400;
+	var h = height || 200;
 	
 	// datagrid
 	$dg.datagrid({
@@ -159,8 +163,8 @@ exports.crud.init = function(url, cols){
 					title	: '添加',
 					editUrl	: url + '/edit',
 					saveUrl	: url + '/save',
-					width	: 400,
-					height	: 200
+					width	: w,
+					height	: h
 				});
 			}
 	    },{
@@ -171,8 +175,8 @@ exports.crud.init = function(url, cols){
 					title	: '修改',
 					editUrl	: url + '/edit',
 					saveUrl	: url + '/save',
-					width	: 400,
-					height	: 200
+					width	: w,
+					height	: h
 				});
 			}
 		},{
@@ -189,8 +193,8 @@ exports.crud.init = function(url, cols){
 					title		: '搜索',
 					editUrl		: url + '/edit',
 					searchUrl	: url + '/save',
-					width		: 400,
-					height		: 200
+					width		: w,
+					height		: h
 				});
 			}
 		}, '-', {
