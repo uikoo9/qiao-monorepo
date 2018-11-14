@@ -63,6 +63,7 @@ qiaoFeEasyui.addTab(url, title);
 1. crud.init
 2. crud.search
 3. crud.reset
+4. crud.init add width height 
 
 ## 0.0.1.20181107
 1. init project
