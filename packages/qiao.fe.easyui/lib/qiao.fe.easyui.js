@@ -163,7 +163,7 @@ exports.crud.init = function(url, cols){
 					height	: 200
 				});
 			}
-	    },'-',{
+	    },{
 	    	text	: '修改',
 	    	iconCls	: 'icon-edit',
 	    	handler	: function(){
@@ -175,13 +175,13 @@ exports.crud.init = function(url, cols){
 					height	: 200
 				});
 			}
-		},'-',{
+		},{
 			text	: '删除',
 			iconCls	: 'icon-no',
 			handler	: function(){
 				exports.crud.del(url + '/del');
 			}
-		},'-',{
+		},{
 			text	: '搜索',
 			iconCls	: 'icon-search',
 			handler	: function(){
@@ -192,6 +192,12 @@ exports.crud.init = function(url, cols){
 					width		: 400,
 					height		: 200
 				});
+			}
+		}, '-', {
+			text	: '重置',
+			iconCls	: 'icon-reload',
+			handler	: function(){
+				exports.crud.reset();
 			}
 		}]
 	});
@@ -394,4 +400,19 @@ exports.crud.search = function(options){
 			$('#form').form('disableValidation');
 		}
 	});
+};
+
+/**
+ * crud.reset
+ */
+exports.crud.reset = function(){
+	// check datagrid
+	var $dg	= $('#datagrid');
+	if(!$dg || !$dg.length){
+		console.log('error:not found datagrid by #datagrid');
+		return;
+	}
+	
+	// reset
+	$dg.datagrid('load', {});
 };
