@@ -1,8 +1,25 @@
 'use strict';
 
 /**
+ * $el.qser
+ * 	将表单转为js对象
+ */
+$.fn.qser = function(){
+	var obj = {};
+	
+	var objs = $(this).serializeArray();
+	if(objs.length != 0){
+		for(var i=0; i<objs.length; i++){
+			obj[objs[i].name] = objs[i].value;
+		}
+	}
+
+	return obj;
+};
+
+/**
  * qiao.ajax
- * 对$.ajax的封装
+ * 	对$.ajax的封装
  */
 exports.ajax = function(options, success, fail){
 	if(!options) return;
@@ -34,7 +51,7 @@ exports.ajax.options = {
 };
 
 /**
- * alert
+ * easyui.alert
  * 	options, msg
  * 	fn, callback
  * 
@@ -67,13 +84,19 @@ exports.alert.options = {
 };
 
 /**
- * add tab
+ * easyui.addTab
  * 	url
  * 	title
  */
 exports.addTab = function(url, title){
+	// check
 	var $tabs = $('#tabs');
+	if(!$tabs || !$tabs.length){
+		console.log('error:not found tabs by #tabs');
+		return;
+	}
 	
+	// add
 	$tabs.tabs('add',{
 	    href	: url,
 	    title	: title,
@@ -89,23 +112,31 @@ exports.addTab = function(url, title){
 };
 
 /**
- * crud
+ * easyui.crud
  */
 exports.crud = {};
 
+/**
+ * easyui.crud.init
+ * 	url
+ * 	cols
+ */
 exports.crud.init = function(url, cols){
+	// check
 	if(!url || !cols){
 		console.log('error: qiao.easyui.curd.init need url and cols');
 		return;
 	}
 	
-	var $this = $('#datagrid'); 
-	if(!$this){
+	// dg
+	var $dg = $('#datagrid'); 
+	if(!$dg || !$dg.length){
 		console.log('error:not found datagrid by #datagrid');
 		return;
 	}
 	
-	$this.datagrid({
+	// datagrid
+	$dg.datagrid({
 	    url			: url + '/list',
 	    idField		: 'id',
 	    loadMsg		: '加载中，请稍候...',
@@ -154,7 +185,13 @@ exports.crud.init = function(url, cols){
 			text	: '搜索',
 			iconCls	: 'icon-search',
 			handler	: function(){
-				alert(1);
+				exports.crud.search({
+					title		: '搜索',
+					editUrl		: url + '/edit',
+					searchUrl	: url + '/save',
+					width		: 400,
+					height		: 200
+				});
 			}
 		}]
 	});
@@ -170,36 +207,59 @@ exports.crud.init = function(url, cols){
  * 	options.height
  */
 exports.crud.edit = function(options){
-	var $this = $('#datagrid'); 
-	if(!$this){
+	// dg
+	var $dg = $('#datagrid'); 
+	if(!$dg || !$dg.length){
 		console.log('error:not found datagrid by #datagrid');
 		return;
 	}
 	
-	var rows = $this.datagrid('getChecked');
+	// rows
+	var rows = $dg.datagrid('getChecked');
 	if(!rows || rows.length != 1){
 		exports.alert('请选择一条要修改的数据！');
 		return;
 	}
 	
+	// save
 	options.id = rows[0].id;
 	exports.crud.save(options);
 };
 
 /**
  * crud.save
+ *	options.id
+ * 	options.title
+ * 	options.editUrl
+ * 	options.saveUrl
+ * 	options.width
+ * 	options.height
  */
 exports.crud.save = function(options){
+	// check datagrid
+	var $dg	= $('#datagrid');
+	if(!$dg || !$dg.length){
+		console.log('error:not found datagrid by #datagrid');
+		return;
+	}
+	
+	// check dialog
+	var $dialog = $('#dialog');
+	if(!$dialog || !$dialog.length){
+		console.log('error:not found dialog by #dialog');
+		return;
+	}
+	
+	// options
 	var id		= options.id;
 	var title	= options.title;
 	var editUrl = options.editUrl;
 	var saveUrl = options.saveUrl;
 	var width	= options.width;
 	var height	= options.height;
-	
 	if(id) editUrl += '?id=' + options.id;
 	
-	var $dialog = $('#dialog');
+	// dialog 
 	$dialog.dialog({
 		href	: editUrl,
 	    title	: title,
@@ -223,7 +283,7 @@ exports.crud.save = function(options){
 						var json = JSON.parse(data);
 						if(json && json.type == 'success'){
 							$dialog.dialog('close');
-							$('#datagrid').datagrid('reload');
+							$dg.datagrid('reload');
 						}else{
 							exports.alert('保存失败！');
 						}
@@ -243,26 +303,31 @@ exports.crud.save = function(options){
  * crud.del
  */
 exports.crud.del = function(url){
+	// check url
 	if(!url){
 		console.log('error:qiao.easyui.crud.del need url parmams');
 		return;
 	}
 	
-	var $this = $('#datagrid'); 
-	if(!$this){
-		console.log('error:not found datagrid by #dg');
+	// check datagrid
+	var $dg = $('#datagrid'); 
+	if(!$dg || !$dg.length){
+		console.log('error:not found datagrid by #datagrid');
 		return;
 	}
 	
-	var rows = $this.datagrid('getChecked');
+	// check rows
+	var rows = $dg.datagrid('getChecked');
 	if(!rows || !rows.length){
 		exports.alert('请选择要删除的行！');
 		return;
 	}
 	
+	// ids
 	var ids = [];
 	for(var i=0; i<rows.length; i++) ids.push(rows[i].id);
 	
+	// del
 	exports.ajax({
 		url : url,
 		data: {
@@ -271,10 +336,62 @@ exports.crud.del = function(url){
 	}, function(s){
 		if(s && s.type == 'success'){
 			exports.alert('删除数据成功！', function(){
-				$this.datagrid('reload');
+				$dg.datagrid('reload');
 			});
 		}else{
 			exports.alert('请求' + url + '失败！');
+		}
+	});
+};
+
+/**
+ * crud.search
+ */
+exports.crud.search = function(options){
+	// check datagrid
+	var $dg	= $('#datagrid');
+	if(!$dg || !$dg.length){
+		console.log('error:not found datagrid by #datagrid');
+		return;
+	}
+	
+	// check dialog
+	var $dialog = $('#dialog');
+	if(!$dialog || !$dialog.length){
+		console.log('error:not found dialog by #dialog');
+		return;
+	}
+	
+	// options
+	var title		= options.title;
+	var editUrl 	= options.editUrl;
+	var searchUrl	= options.searchUrl;
+	var width		= options.width;
+	var height		= options.height;
+	
+	// search
+	$dialog.dialog({
+		href	: editUrl,
+	    title	: title,
+	    width	: width,
+	    height	: height,
+	    closed	: false,
+	    cache	: false,
+	    modal	: true,
+	    buttons	:[{
+			text	: '搜索',
+			handler	: function(){
+				$dialog.dialog('close');
+				$dg.datagrid('load', $('#form').qser());
+			}
+		},{
+			text:'取消',
+			handler:function(){
+				$dialog.dialog('close');
+			}
+		}],
+		onLoad	: function(){
+			$('#form').form('disableValidation');
 		}
 	});
 };
