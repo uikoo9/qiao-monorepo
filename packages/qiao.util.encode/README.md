@@ -44,6 +44,9 @@ console.log(ss);
 ```
 
 # version
+## 0.0.2.20181115
+1. add crypt method
+
 ## 0.0.1.20181112
 1. init project
 2. modify md
