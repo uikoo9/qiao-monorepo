@@ -13,21 +13,12 @@ exports.AESEncrypt = function(data, key, iv, encoding){
 	// check
 	if(!data || !key || key.length != 32) return;
 	
-	// iv
-	iv = iv || '';
-	
-	// cipher
-	var cipher 	= crypto.createCipheriv('aes-256-ecb', key, iv);
-	cipher.setAutoPadding(true);
-	
-	// crypt
+	// vars
+	var cipherIv		= iv || '';
 	var clearEncoding 	= 'utf8';
 	var cipherEncoding 	= encoding || 'base64';
-	var cipherChunks 	= [];
-	cipherChunks.push(cipher.update(data, clearEncoding, cipherEncoding));
-	cipherChunks.push(cipher.final(cipherEncoding));
 	
-	return cipherChunks.join('');
+	return crypt('en', 'aes-256-ecb', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -40,22 +31,13 @@ exports.AESEncrypt = function(data, key, iv, encoding){
 exports.AESDecrypt = function(data, key, iv, encoding){
 	// check
 	if(!data || !key || key.length != 32) return;
-
-	// iv
-	iv = iv || '';
 	
-	// decipher
-	var decipher = crypto.createDecipheriv('aes-256-ecb', key, iv);
-	decipher.setAutoPadding(true);
-
-	// decrypt
+	// vars
+	var cipherIv		= iv || '';
 	var clearEncoding 	= 'utf8';
 	var cipherEncoding 	= encoding || 'base64';
-	var cipherChunks 	= [];
-	cipherChunks.push(decipher.update(data, cipherEncoding, clearEncoding));
-	cipherChunks.push(decipher.final(clearEncoding));
 	
-	return cipherChunks.join('');
+	return crypt('de', 'aes-256-ecb', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -69,21 +51,12 @@ exports.TDESEncrypt = function(data, key, iv, encoding){
 	// check
 	if(!data || !key || key.length != 24) return;
 	
-	// iv
-	iv = iv || '';
-	
-	// cipher
-	var cipher 	= crypto.createCipheriv('des-ede3', key, iv);
-	cipher.setAutoPadding(true);
-	
-	// crypt
+	// vars
+	var cipherIv		= iv || '';
 	var clearEncoding 	= 'utf8';
 	var cipherEncoding 	= encoding || 'base64';
-	var cipherChunks 	= [];
-	cipherChunks.push(cipher.update(data, clearEncoding, cipherEncoding));
-	cipherChunks.push(cipher.final(cipherEncoding));
 	
-	return cipherChunks.join('');
+	return crypt('en', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -97,19 +70,37 @@ exports.TDESDecrypt = function(data, key, iv, encoding){
 	// check
 	if(!data || !key || key.length != 24) return;
 	
-	// iv
-	iv = iv || '';
-	
-	// decipher
-	var decipher = crypto.createDecipheriv('des-ede3', key, iv);
-	decipher.setAutoPadding(true);
-
-	// decrypt
+	// vars
+	var cipherIv		= iv || '';
 	var clearEncoding 	= 'utf8';
 	var cipherEncoding 	= encoding || 'base64';
-	var cipherChunks 	= [];
-	cipherChunks.push(decipher.update(data, cipherEncoding, clearEncoding));
-	cipherChunks.push(decipher.final(clearEncoding));
 	
-	return cipherChunks.join('');
+	return crypt('de', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
+
+// crypt
+function crypt(type, method, key, iv, data, clearEncoding, cipherEncoding){
+	if(type == 'en'){// encrypt
+		// cipher
+		var cipher = crypto.createCipheriv(method, key, iv);
+		cipher.setAutoPadding(true);
+		
+		// crypt
+		var chunks 	= [];
+		chunks.push(cipher.update(data, clearEncoding, cipherEncoding));
+		chunks.push(cipher.final(cipherEncoding));
+		
+		return chunks.join('');
+	}else{// decrypt
+		// decipher
+		var decipher = crypto.createDecipheriv(method, key, iv);
+		decipher.setAutoPadding(true);
+		
+		// decrypt
+		var chunks 	= [];
+		chunks.push(decipher.update(data, cipherEncoding, clearEncoding));
+		chunks.push(decipher.final(clearEncoding));
+		
+		return chunks.join('');
+	}
+}
