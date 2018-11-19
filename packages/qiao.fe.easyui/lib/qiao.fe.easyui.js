@@ -155,7 +155,7 @@ exports.crud.init = function(url, cols, width, height){
 	    loadFilter	: function(data){
 	    	return data.obj;
 	    },
-	    toolbar: [{
+	    toolbar		: [{
 	    	text	: '添加',
 			iconCls	: 'icon-add',
 			handler	: function(){
@@ -203,7 +203,10 @@ exports.crud.init = function(url, cols, width, height){
 			handler	: function(){
 				exports.crud.reset();
 			}
-		}]
+		}],
+		onLoadSuccess : function(){
+			$dg.datagrid('clearChecked');
+		}
 	});
 };
 
