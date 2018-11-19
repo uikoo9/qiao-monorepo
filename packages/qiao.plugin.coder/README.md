@@ -21,20 +21,22 @@ qiao-plugin-coder
 2. file tree :
 ```shell
 |--server
-	|--manage
+	|--config
+		|--config.json
+	|--manage-db
 		|--ucenter
 			|--controller
 				|--UcenterUserController.js
 				...
 			|--model
 				|--UcenterUserModel.js
+				|--ucenter-user-sql.json
 				...
 			|--service
 				|--UcenterUserService.js
 				...
-		|--manage-sql.json
+	|--middleware
 		|--qiao.mid.js
-	|--_properties.json
 	|--app.js
 	|--package.json
 ```

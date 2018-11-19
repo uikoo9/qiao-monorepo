@@ -1,6 +1,6 @@
 // qiao
 var qiao 	= require('qiao.util.all');
-qiao.config = require('../../../_properties.json');
+qiao.config = require('../../../config/config.json');
 
 /**
  * {{tableName1}} {{tableName2}} sql
