@@ -2,7 +2,7 @@
 
 'use strict';
 
-var qiaoPluginCli = require('qiao.plugin.cli');
+var qiao = require('qiao.util.all');
 
 // init
 async function init(){
@@ -13,7 +13,7 @@ async function init(){
 	console.log();
 	
 	// code
-	var codeAnswers = await qiaoPluginCli.ask([{
+	var codeAnswers = await qiao.cli.ask([{
 	    type	: 'list',
 	    name	: 'code',
 	    message	: 'select code number:',

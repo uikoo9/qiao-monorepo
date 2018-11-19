@@ -1,11 +1,9 @@
 'use strict';
 
-var path			= require('path');
-var qiaoUtilString 	= require('qiao.util.string');
-var qiaoPluginMysql = require('qiao.plugin.mysql');
-var qiaoPluginCoder	= require('../../lib/qiao.plugin.coder.js');
-
-var config			= require('./_config.json');
+var path	= require('path');
+var qiao	= require('qiao.util.all');
+qiao.coder	= require('../../lib/qiao.plugin.coder.js');
+qiao.config	= require('./_config.json');
 
 /**
  * gen
@@ -14,9 +12,9 @@ var config			= require('./_config.json');
  */
 exports.gen = async function(destFolder, tableName){
 	// vars
-	var className	= qiaoUtilString.underScoreCaseToCamelCase(tableName);
+	var className	= qiao.string.underScoreCaseToCamelCase(tableName);
 	var className1 	= className.substr(1, className.length);
-	var className2 	= qiaoUtilString.firstLetterLower(className1);
+	var className2 	= qiao.string.firstLetterLower(className1);
 	var tableName1 	= tableName.split('_')[1];
 	var tableName2 	= tableName.split('_')[2];
 	
@@ -31,7 +29,7 @@ exports.gen = async function(destFolder, tableName){
 	
 	// params
 	var params	= [];
-	var columns = await qiaoPluginMysql.getColumns(config, tableName);
+	var columns = await qiao.mysql.getColumns(qiao.config, tableName);
 	for(var i=0; i<columns.length; i++){
 		var item = columns[i];
 		
@@ -40,12 +38,12 @@ exports.gen = async function(destFolder, tableName){
 		if(!notIn(name1)) continue;
 		
 		// name2
-		var name3 = qiaoUtilString.underScoreCaseToCamelCase(name1);
-		var name2 = qiaoUtilString.firstLetterLower(name3);
+		var name3 = qiao.string.underScoreCaseToCamelCase(name1);
+		var name2 = qiao.string.firstLetterLower(name3);
 		
 		// obj
 		var obj 	= {};
-		obj.type	= qiaoPluginMysql.getTypes(item.Type);
+		obj.type	= qiao.mysql.getTypes(item.Type);
 		obj.name1 	= name1;
 		obj.name2 	= name2;
 		
@@ -81,40 +79,40 @@ function notIn(s){
 function genController(destFolder, tableName1, className1, data){
 	var controllerTemp 	= path.resolve(__dirname, './server/controller.art');
 	var controllerDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/controller/' + className1 + 'Controller.js');
-	qiaoPluginCoder.genFileByData(controllerTemp, data, controllerDest);
+	qiao.coder.genFileByData(controllerTemp, data, controllerDest);
 }
 
 // gen model
 function genModel(destFolder, tableName1, className1, data){
 	var modelTemp 	= path.resolve(__dirname, './server/model.art');
 	var modelDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/model/' + className1 + 'Model.js');
-	qiaoPluginCoder.genFileByData(modelTemp, data, modelDest);
+	qiao.coder.genFileByData(modelTemp, data, modelDest);
 }
 
 // gen service
 function genService(destFolder, tableName1, className1, data){
 	var serviceTemp = path.resolve(__dirname, './server/service.art');
 	var serviceDest	= path.resolve(destFolder, './server/manage/' + tableName1 + '/service/' + className1 + 'Service.js');
-	qiaoPluginCoder.genFileByData(serviceTemp, data, serviceDest);
+	qiao.coder.genFileByData(serviceTemp, data, serviceDest);
 }
 
 // gen sql
 function genSql(destFolder, data){
 	var sqlTemp = path.resolve(__dirname, './server/sql.art');
 	var sqlDest	= path.resolve(destFolder, './server/manage/manage-sql.json');
-	qiaoPluginCoder.genFileByData(sqlTemp, data, sqlDest);
+	qiao.coder.genFileByData(sqlTemp, data, sqlDest);
 }
 
 // gen html
 function genHtml(destFolder, tableName1, tableName2, data){
 	var htmlTemp = path.resolve(__dirname, './webroot/edit.art');
 	var htmlDest	= path.resolve(destFolder, './webroot-dev/views/manage/' + tableName1 + '/' + tableName1 + '-' + tableName2 + '-edit.html');
-	qiaoPluginCoder.genFileByData(htmlTemp, data, htmlDest);
+	qiao.coder.genFileByData(htmlTemp, data, htmlDest);
 }
 
 // gen js
 function genJs(destFolder, tableName1, tableName2, data){
 	var jsTemp 	= path.resolve(__dirname, './webroot/js.art');
 	var jsDest	= path.resolve(destFolder, './webroot-dev/static/js/app/manage/' + tableName1 + '/' + tableName1 + '-' + tableName2 + '.js');
-	qiaoPluginCoder.genFileByData(jsTemp, data, jsDest);
+	qiao.coder.genFileByData(jsTemp, data, jsDest);
 }

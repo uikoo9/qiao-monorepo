@@ -1,8 +1,8 @@
 'use strict';
 
-var fs				= require('fs');
-var template		= require('art-template');
-var qiaoUtilFile	= require('qiao.util.file');
+var fs			= require('fs');
+var qiao		= require('qiao.util.all');
+var template	= require('art-template');
 
 /**
  * genFileByData
@@ -35,7 +35,7 @@ exports.genFileByData = async function(templateFile, templateData, destFile){
 		var data = template(templateFile, templateData);
 		
 		// mkdir
-		qiaoUtilFile.mkdir(destFile);
+		qiao.file.mkdir(destFile);
 		
 		// write file
 		fs.writeFileSync(destFile, data);
