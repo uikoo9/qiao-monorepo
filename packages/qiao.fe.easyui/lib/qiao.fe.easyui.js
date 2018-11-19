@@ -79,8 +79,7 @@ exports.alert = function(options, fn){
 exports.alert.options = {
 	title 	: '提示',
 	msg		: 'msg',
-	icon	: '',
-	fn		: null 
+	icon	: ''
 };
 
 /**
