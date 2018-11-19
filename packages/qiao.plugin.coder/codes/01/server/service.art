@@ -1,4 +1,5 @@
-var qiao	= require('../../../util/qiao.sutil.js');
+var qiao 	= require('qiao.util.all');
+qiao.config = require('../../../_properties.json');
 var model	= require('../model/{{className1}}Model.js');
 
 /**
