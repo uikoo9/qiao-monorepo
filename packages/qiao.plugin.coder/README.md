@@ -21,6 +21,12 @@ qiao-plugin-coder
 2. browser	: [jquery](http://jquery.com/), [easyui](http://www.jeasyui.com/), [coolie](https://coolie.ydr.me/)
 
 # version
+## 0.0.8.20181119
+1. add webroot edit template
+2. add webroot js template
+3. modify service and model
+4. add qiao.util.all
+
 ## 0.0.7.20181108
 1. update qiao.plugin.mysql
 2. coder 01 ok

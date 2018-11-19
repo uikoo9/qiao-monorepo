@@ -59,8 +59,8 @@ exports.gen = async function(destFolder, tableName){
 	genSql(destFolder, data);
 	
 	// gen webroot code
-	genHtml(destFolder, tableName1, tableName2, data);
-	genJs(destFolder, tableName1, tableName2, data);
+//	genHtml(destFolder, tableName1, tableName2, data);
+//	genJs(destFolder, tableName1, tableName2, data);
 	
 	return;
 };
