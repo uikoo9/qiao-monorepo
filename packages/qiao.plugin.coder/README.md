@@ -49,6 +49,7 @@ qiao-plugin-coder
 3. modify service and model
 4. add qiao.util.all
 5. modify md
+6. manage-db
 
 ## 0.0.7.20181108
 1. update qiao.plugin.mysql
