@@ -17,8 +17,30 @@ qiao-plugin-coder
 
 # code list
 ## 01
-1. server	: [node.js](https://nodejs.org/en/), [express.js](http://www.expressjs.com.cn/)
-2. browser	: [jquery](http://jquery.com/), [easyui](http://www.jeasyui.com/), [coolie](https://coolie.ydr.me/)
+1. [node.js](https://nodejs.org/en/) server code by [express.js](http://www.expressjs.com.cn/) 
+2. file tree :
+```shell
+|--server
+	|--manage
+		|--ucenter
+			|--controller
+				|--UcenterUserController.js
+				...
+			|--model
+				|--UcenterUserModel.js
+				...
+			|--service
+				|--UcenterUserService.js
+				...
+		|--manage-sql.json
+		|--qiao.mid.js
+	|--_properties.json
+	|--app.js
+	|--package.json
+```
+
+## 02
+1. [jquery](http://jquery.com/) and [easyui](http://www.jeasyui.com/) on [coolie](https://coolie.ydr.me/) browser code
 
 # version
 ## 0.0.8.20181119
@@ -26,6 +48,7 @@ qiao-plugin-coder
 2. add webroot js template
 3. modify service and model
 4. add qiao.util.all
+5. modify md
 
 ## 0.0.7.20181108
 1. update qiao.plugin.mysql
