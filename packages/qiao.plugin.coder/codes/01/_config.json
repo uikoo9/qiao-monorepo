@@ -2,7 +2,7 @@
 	"connectionLimit" : 50,
 	"host"		: "127.0.0.1", 
     "port"		: 3306,
-    "database"	: "db_hwl_fe",
+    "database"	: "db_jiyuanxiang",
     "user"		: "root",
     "password"	: "123456"
 }

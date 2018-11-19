@@ -1,3 +1,4 @@
+// service
 var service	= require('../service/{{className1}}Service.js');
 
 /**

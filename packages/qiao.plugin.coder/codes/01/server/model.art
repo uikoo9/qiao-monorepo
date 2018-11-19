@@ -1,10 +1,11 @@
+// qiao
 var qiao 	= require('qiao.util.all');
 qiao.config = require('../../../_properties.json');
 
 /**
  * {{tableName1}} {{tableName2}} sql
  */
-exports.sql = require('../../manage-sql.json');
+exports.sql = require('./{{tableName1}}-{{tableName2}}-sql.json');
 
 /**
  * {{tableName1}} {{tableName2}} get by id

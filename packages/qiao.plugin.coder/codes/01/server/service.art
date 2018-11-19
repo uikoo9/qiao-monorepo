@@ -1,6 +1,9 @@
+// model
+var model	= require('../model/{{className1}}Model.js');
+
+// qiao
 var qiao 	= require('qiao.util.all');
 qiao.config = require('../../../_properties.json');
-var model	= require('../model/{{className1}}Model.js');
 
 /**
  * {{tableName1}} {{tableName2}} list
