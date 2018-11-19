@@ -59,6 +59,13 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.0.3.20181119
+1. fix alert bug
+2. fix check bug
+
+## 0.0.2.20181114
+1. crud.init
+
 ## 0.0.2.20181114
 1. crud.init
 2. crud.search
