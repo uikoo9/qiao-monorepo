@@ -49,9 +49,9 @@ exports.{{className2}}List = async function(req, res){
 		result.pagenumber 	= pagenumber;
 		result.pagesize		= pagesize;
 		
-		res.send(qiao.j.success('query success', result));
+		res.send(qiao.json.success('query success', result));
 	}catch(e){
-		res.send(qiao.j.danger('query failed', {e:e}));
+		res.send(qiao.json.danger('query failed', {e:e}));
 	}
 };
 
@@ -61,11 +61,11 @@ exports.{{className2}}List = async function(req, res){
 exports.{{className2}}Get = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.j.danger('缺少参数！'));
+		res.send(qiao.json.danger('缺少参数！'));
 		return;
 	}
 	if(!req.body.id){
-		res.send(qiao.j.danger('缺少参数id！'));
+		res.send(qiao.json.danger('缺少参数id！'));
 		return;
 	}
 	
@@ -73,9 +73,9 @@ exports.{{className2}}Get = async function(req, res){
 	try{
 		var rows = await model.{{className2}}GetById(req.body.id);
 		
-		res.send(qiao.j.success('query success', {rows:rows}));
+		res.send(qiao.json.success('query success', {rows:rows}));
 	}catch(e){
-		res.send(qiao.j.danger('query failed', {e:e}));
+		res.send(qiao.json.danger('query failed', {e:e}));
 	}
 };
 
@@ -85,11 +85,11 @@ exports.{{className2}}Get = async function(req, res){
 exports.{{className2}}Save = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.j.danger('缺少参数！'));
+		res.send(qiao.json.danger('缺少参数！'));
 		return;
 	}
 	{{each params}}if(!req.body.{{$value.name2}}){
-		res.send(qiao.j.danger('缺少参数{{$value.name2}}！'));
+		res.send(qiao.json.danger('缺少参数{{$value.name2}}！'));
 		return;
 	}
 	{{/each}}
@@ -118,9 +118,9 @@ exports.{{className2}}Save = async function(req, res){
 			await model.{{className2}}Edit(params);
 		}
 		
-		res.send(qiao.j.success('save success'));
+		res.send(qiao.json.success('save success'));
 	}catch(e){
-		res.send(qiao.j.danger('save failed', {e:e}));
+		res.send(qiao.json.danger('save failed', {e:e}));
 	}
 };
 
@@ -130,20 +130,20 @@ exports.{{className2}}Save = async function(req, res){
 exports.{{className2}}Del = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.j.danger('缺少参数！'));
+		res.send(qiao.json.danger('缺少参数！'));
 		return;
 	}
 	if(!req.body.ids){
-		res.send(qiao.j.danger('缺少参数ids！'));
+		res.send(qiao.json.danger('缺少参数ids！'));
 		return;
 	}
 	
 	// db
 	try{
 		await model.{{className2}}Del(req.body.ids.split(','));
-		res.send(qiao.j.success('del success'));
+		res.send(qiao.json.success('del success'));
 	}catch(e){
-		res.send(qiao.j.danger('del failed', {e:e}));
+		res.send(qiao.json.danger('del failed', {e:e}));
 	}
 };
 
