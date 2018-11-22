@@ -45,6 +45,9 @@ qiao-plugin-coder
 1. [jquery](http://jquery.com/) and [easyui](http://www.jeasyui.com/) on [coolie](https://coolie.ydr.me/) browser code
 
 # version
+## 0.0.9.20181120
+1. update qiao.util.all@0.0.4
+
 ## 0.0.8.20181119
 1. add webroot edit template
 2. add webroot js template

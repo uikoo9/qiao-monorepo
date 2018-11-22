@@ -1,6 +1,6 @@
 {
   "name": "qiao.plugin.coder",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "description": "qiao.plugin.coder",
   "keywords": [],
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "art-template": "^4.13.1",
-    "qiao.util.all": "0.0.3"
+    "qiao.util.all": "0.0.4"
   },
   "author": {
     "name": "qiaowenbin",
