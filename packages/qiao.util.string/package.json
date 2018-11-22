@@ -4,14 +4,13 @@
   "license": "MIT",
   "description": "qiao.util.string",
   "keywords": [
-  	"nodejs",
-  	"string",
-  	"tool"
+    "nodejs",
+    "string",
+    "tool"
   ],
   "main": "index.js",
   "scripts": {},
-  "dependencies": {
-  },
+  "dependencies": {},
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
