@@ -112,6 +112,9 @@ test();
 ```
 
 # version
+## 0.0.7.20181122
+1. npm audit fix
+
 ## 0.0.6.20180720
 1. https homepage
 
