@@ -1,24 +1,24 @@
 # urls
 ## homepage
-[https://code.insistime.com/qiao.ext.weixinx](https://code.insistime.com/qiao.ext.weixinx)
+[https://code.insistime.com/qiao.fe.weixinx](https://code.insistime.com/qiao.fe.weixinx)
 
 ## github
-[https://github.com/insistime/qiao.ext.weixinx](https://github.com/insistime/qiao.ext.weixinx)
+[https://github.com/insistime/qiao.fe.weixinx](https://github.com/insistime/qiao.fe.weixinx)
 
 ## npm
-[https://www.npmjs.com/package/qiao.ext.weixinx](https://www.npmjs.com/package/qiao.ext.weixinx)
+[https://www.npmjs.com/package/qiao.fe.weixinx](https://www.npmjs.com/package/qiao.fe.weixinx)
 
 # started
 ## install
-npm install qiao.ext.weixinx
+npm install qiao.fe.weixinx
 
 ## use
-copy node_modules/qiao.ext.weixinx/lib/qiao.ext.weixinx.js to you project
+copy node_modules/qiao.fe.weixinx/lib/qiao.fe.weixinx.js to you project
 
 # api for ajax
 ## ajax
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // ajax with url
 // default data {}
@@ -51,7 +51,7 @@ qiaoWeixinx.ajax({
 # api for tips
 ## alert
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // alert, without callback
 qiaoWeixinx.alert('alert');
@@ -82,7 +82,7 @@ qiaoWeixinx.alert({
 
 ## confirm
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // confirm, without callback
 qiaoWeixinx.confirm('confirm');
@@ -123,7 +123,7 @@ qiaoWeixinx.confirm({
 
 ## suc
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // tip for success
 qiaoWeixinx.suc('success message');
@@ -138,7 +138,7 @@ qiaoWeixinx.suc({
 
 ## tip
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // tip
 qiaoWeixinx.tip('tips');
@@ -153,7 +153,7 @@ qiaoWeixinx.tip({
 
 ## loading
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // default loading
 qiaoWeixinx.loading();
@@ -164,7 +164,7 @@ qiaoWeixinx.loading('custom loading');
 
 ## hideLoading
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // hide loading
 qiaoWeixinx.hideLoading();
@@ -172,7 +172,7 @@ qiaoWeixinx.hideLoading();
 
 ## sheet
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // sheet
 qiaoWeixinx.sheet(['1', '2'], function(index){
@@ -183,7 +183,7 @@ qiaoWeixinx.sheet(['1', '2'], function(index){
 # api for navigate
 ## to
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // navigate to
 qiaoWeixinx.to(url, function(){
@@ -195,7 +195,7 @@ qiaoWeixinx.to(url, function(){
 
 ## rto
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // redirect to
 qiaoWeixinx.rto(url, function(){
@@ -207,7 +207,7 @@ qiaoWeixinx.rto(url, function(){
 
 ## tab
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // switch tab
 qiaoWeixinx.tab(url, function(){
@@ -219,7 +219,7 @@ qiaoWeixinx.tab(url, function(){
 
 ## back
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // navigate back
 qiaoWeixinx.back(page);
@@ -228,7 +228,7 @@ qiaoWeixinx.back(page);
 # api for localstorage
 ## set
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // set data to localstorage
 qiaoWeixinx.set(key, value);
@@ -236,7 +236,7 @@ qiaoWeixinx.set(key, value);
 
 ## get
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // get data from localstorage
 qiaoWeixinx.get(key);
@@ -244,7 +244,7 @@ qiaoWeixinx.get(key);
 
 ## del
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // del data from localstorage
 qiaoWeixinx.del(key);
@@ -252,7 +252,7 @@ qiaoWeixinx.del(key);
 
 ## clear
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // clear data from localstorage
 qiaoWeixinx.clear();
@@ -261,7 +261,7 @@ qiaoWeixinx.clear();
 # api for device
 ## isAndroid
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // is android
 var isAndroid = qiaoWeixinx.isAndroid();
@@ -270,7 +270,7 @@ console.log(isAndroid);
 
 ## isIos
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // is ios
 var isIos = qiaoWeixinx.isIos();
@@ -279,7 +279,7 @@ console.log(isIos);
 
 ## net
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // net
 qiaoWeixinx.net(function(type){
@@ -289,7 +289,7 @@ qiaoWeixinx.net(function(type){
 
 ## screen
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // get screen
 qiaoWeixinx.screen(null, function(v){
@@ -316,7 +316,7 @@ qiaoWeixinx.screen(0, function(){
 # api for img
 ## showImg
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // show img with url
 qiaoWeixinx.showImg(url);
@@ -328,7 +328,7 @@ qiaoWeixinx.showImg(url, urls);
 # api for auth
 ## checkAuth
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // check auth
 qiaoWeixinx.checkAuth('scope.camera', 'need camera auth', function(){
@@ -339,7 +339,7 @@ qiaoWeixinx.checkAuth('scope.camera', 'need camera auth', function(){
 # api for version
 ## version
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // get weixin version
 var weixinVersion = qiaoWeixinx.version();
@@ -348,7 +348,7 @@ console.log(weixinVersion);
 
 ## sversion
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // get weixin sdk version
 var weixinSDKVersion = qiaoWeixinx.sversion();
@@ -357,7 +357,7 @@ console.log(weixinSDKVersion);
 
 ## higherThan
 ```javascript
-var qiaoWeixinx = require('qiao.ext.weixinx');
+var qiaoWeixinx = require('qiao.fe.weixinx');
 
 // compare weixin sdk version higher than
 var flag = qiaoWeixinx.higherThan('0.9.90');

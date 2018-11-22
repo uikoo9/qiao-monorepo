@@ -1,4 +1,4 @@
-console.log('======qiao.ext.weixinx', '0.2.5');
+console.log('======qiao.fe.weixinx', require('../package.json').version);
 
 /**
  * exports.ajax

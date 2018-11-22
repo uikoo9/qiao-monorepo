@@ -1,5 +1,5 @@
 {
-  "name": "qiao.ext.weixinx",
+  "name": "qiao.fe.weixinx",
   "version": "0.2.6",
   "license": "MIT",
   "description": "tools for wechat small program",
@@ -17,9 +17,9 @@
     "email": "npm@insistime.com",
     "url": "https://insistime.com"
   },
-  "homepage": "https://code.insistime.com/qiao.ext.weixinx",
+  "homepage": "https://code.insistime.com/qiao.fe.weixinx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao.ext.weixinx.git"
+    "url": "git+https://github.com/insistime/qiao.fe.weixinx.git"
   }
 }
