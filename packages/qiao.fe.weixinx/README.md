@@ -367,6 +367,7 @@ console.log(flag);
 # version
 ## 0.2.4.20181122
 1. update package.json
+2. qiao.ext.weixinx --> qiao.fe.weixinx
 
 ## 0.2.3.20180724
 1. readme.md
