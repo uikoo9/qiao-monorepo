@@ -123,6 +123,9 @@ qiao-ext-oss folder	test		d:/test		[info]
 ```
 
 # version
+## 0.1.4.20181122
+1. npm audit
+
 ## 0.1.3.20181012
 1. npm audit
 
