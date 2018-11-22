@@ -44,6 +44,9 @@ console.log(ss);
 ```
 
 # version
+## 0.0.3.20181122
+1. npm audit
+
 ## 0.0.2.20181115
 1. add crypt method
 
