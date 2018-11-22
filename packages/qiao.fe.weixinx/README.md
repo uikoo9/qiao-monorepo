@@ -365,6 +365,9 @@ console.log(flag);
 ```
 
 # version
+## 0.2.4.20181122
+1. update package.json
+
 ## 0.2.3.20180724
 1. readme.md
 2. npm publish
