@@ -59,6 +59,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.0.4.20181122
+1. update package.json
+
 ## 0.0.3.20181119
 1. fix alert bug
 2. fix check bug
