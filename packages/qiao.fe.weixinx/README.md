@@ -363,6 +363,9 @@ console.log(flag);
 ```
 
 # version
+## 0.2.5.20181123
+1. update md for weixin
+
 ## 0.2.4.20181122
 1. update package.json
 2. qiao.ext.weixinx --> qiao.fe.weixinx
