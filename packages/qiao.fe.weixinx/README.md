@@ -8,12 +8,10 @@
 ## npm
 [https://www.npmjs.com/package/qiao.fe.weixinx](https://www.npmjs.com/package/qiao.fe.weixinx)
 
-# started
-## install
-npm install qiao.fe.weixinx
-
-## use
-copy node_modules/qiao.fe.weixinx/lib/qiao.fe.weixinx.js to you project
+# use
+1. 微信开发者工具——项目设置——调试基础库——>=2.2.1版本
+2. npm i qiao.fe.weixinx后微信开发者工具——工具——npm构建
+3. var qiao = require('qiao.fe.weixinx');
 
 # api for ajax
 ## ajax
