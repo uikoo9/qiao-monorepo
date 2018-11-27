@@ -126,6 +126,7 @@ qiao-ext-oss folder	test		d:/test		[info]
 ## 0.1.5.20181127
 1. modify method name
 2. del .js
+3. index.js
 
 ## 0.1.4.20181122
 1. npm audit
