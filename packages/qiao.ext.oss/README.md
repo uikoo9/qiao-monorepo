@@ -23,7 +23,7 @@ npm install qiao.ext.oss
 ```
 
 # api
-## upload file sync
+## uploadFileSync
 ```javascript
 'use strict';
 
@@ -49,7 +49,7 @@ var test = async function(){
 test();
 ```
 
-## upload folder sync
+## uploadFolderSync
 ```javascript
 'use strict';
 
@@ -75,7 +75,7 @@ var test = async function(){
 test();
 ```
 
-## upload file async
+## uploadFile
 ```javascript
 'use strict';
 
@@ -93,7 +93,7 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 });
 ```
 
-## upload folder async
+## uploadFolder
 ```javascript
 'use strict';
 
@@ -123,6 +123,9 @@ qiao-ext-oss folder	test		d:/test		[info]
 ```
 
 # version
+## 0.1.5.20181127
+1. 
+
 ## 0.1.4.20181122
 1. npm audit
 
