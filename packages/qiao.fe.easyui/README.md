@@ -59,6 +59,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.0.5.20181127
+1. del .js
+
 ## 0.0.4.20181122
 1. update package.json
 
