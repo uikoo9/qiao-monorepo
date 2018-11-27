@@ -92,3 +92,5 @@ test();
 # version
 ## 0.0.1.20181127
 1. init project
+2. send
+3. send sync
