@@ -363,6 +363,9 @@ console.log(flag);
 ```
 
 # version
+## 0.2.6.20181127
+1. tip 3000 --> 2000
+
 ## 0.2.5.20181123
 1. update md for weixin
 
