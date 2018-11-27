@@ -27,7 +27,7 @@ npm install qiao.fe.easyui
 ```javascript
 'use strict';
 
-var qiaoFeEasyui = require('qiao.fe.easyui.js');
+var qiaoFeEasyui = require('qiao.fe.easyui');
 
 /**
  * alert
@@ -48,7 +48,7 @@ qiaoFeEasyui.alert(options, fn);
 ```javascript
 'use strict';
 
-var qiaoFeEasyui = require('../lib/qiao.fe.easyui.js');
+var qiaoFeEasyui = require('../lib/qiao.fe.easyui');
 
 /**
  * add tab
