@@ -3,6 +3,39 @@
 var crypto = require('crypto');
 
 /**
+ * uuid
+ * 	type	1,3,4,5,default:4
+ */
+exports.uuid = function(type){
+	// type
+	type = type || 4;
+	
+	// 1
+	if(type == 1){
+		var uuidv1 = require('uuid/v1');
+		return uuidv1();
+	}
+	
+	// 3
+	if(type == 3){
+		var uuidv3 = require('uuid/v3');
+		return uuidv3('insistime.com', uuidv3.DNS);
+	}
+	
+	// 4
+	if(type == 4){
+		var uuidv4 = require('uuid/v4');
+		return uuidv4();
+	}
+	
+	// 5
+	if(type == 5){
+		var uuidv5 = require('uuid/v5');
+		return uuidv5('insistime.com', uuidv5.DNS);
+	}
+};
+
+/**
  * aes encrypt
  * 	data
  * 	key
