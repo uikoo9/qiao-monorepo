@@ -112,6 +112,9 @@ test();
 ```
 
 # version
+## 0.0.8.20181127
+1. modify method name
+
 ## 0.0.7.20181122
 1. npm audit fix
 
