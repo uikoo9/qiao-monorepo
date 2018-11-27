@@ -44,6 +44,9 @@ console.log(ss);
 ```
 
 # version
+## 0.0.4.20181127
+1. add uuid
+
 ## 0.0.3.20181122
 1. npm audit
 
