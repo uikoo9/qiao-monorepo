@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginRequest = require('../lib/qiao.plugin.request');
+var qiaoPluginRequest = require('../lib/qiao.plugin.request.js');
 
 var test = async function(){
 	try{
