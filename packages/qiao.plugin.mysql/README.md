@@ -116,6 +116,9 @@ test();
 ```
 
 # version
+## 0.0.4.20181127
+1. add .js
+
 ## 0.0.3.20181108
 1. update query and connection
 
