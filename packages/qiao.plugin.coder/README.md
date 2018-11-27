@@ -45,6 +45,9 @@ qiao-plugin-coder
 1. [jquery](http://jquery.com/) and [easyui](http://www.jeasyui.com/) on [coolie](https://coolie.ydr.me/) browser code
 
 # version
+## 0.1.1.20181127
+1. add .js
+
 ## 0.1.0.20181122
 1. npm publish
 
