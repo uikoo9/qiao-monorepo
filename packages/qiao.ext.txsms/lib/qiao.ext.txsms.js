@@ -1,133 +1,115 @@
 'use strict';
 
-var mysql = require('mysql');
+var txsms = require('qcloudsms_js');
 
 /**
- * connection
- * 	get mysql connection
- * 
- * 	config
+ * send
+ * 	options.appid	appid
+ * 	options.appkey	appkey
+ * 	options.mtype	0：普通短信，1：营销短信
+ * 	options.cnum	86：中国
+ * 	options.sign	签名
+ * 	options.mobile	手机号
+ * 	options.msg		消息
+ * 	callback		回调函数
  */
-exports.connection = function(config){
+exports.send = function(options, callback){
+	// vars
+	var appid 	= options.appid;
+	var appkey	= options.appkey;
+	var mtype	= options.mtype || 0;
+	var cnum	= options.cnum || 86;
+	var sign	= options.sign || '坚时科技';
+	var mobile	= options.mobile;
+	var msg		= options.msg;
+	
 	// check
-	if(!config) return;
+	if(!appid){
+		console.log('need options.appid');
+		return;
+	}
+	if(!appkey){
+		console.log('need options.appkey');
+		return;
+	}
+	if(!mobile){
+		console.log('need options.mobile');
+		return;
+	}
+	if(!msg){
+		console.log('need options.msg');
+		return;
+	}
 	
-	// connection
-	return mysql.createConnection(config);
-};
-
-/**
- * query
- * 	mysql query by connection
- * 
- * 	config
- */
-exports.query = function(config, sql, params){
-	// check
-	if(!config || !sql) return;
+	// sign
+	msg = '【' + sign + '】' + msg;
 	
-	// connection
-	var connection = exports.connection(config);
-	if(!connection) return;
-	
-	// connect
-	connection.connect();
-	
-	// query
-	return new Promise(function(resolve, reject){
-		connection.query(sql, params || [], function (error, results, fields){
-			connection.end();
-
-			error ? reject(error) : resolve(results); 
-		});
+	// sms sender
+	var sms 	= txsms(appid, appkey);
+	var sender 	= sms.SmsSingleSender();
+	sender.send(mtype, cnum, mobile, msg, '', 'txsms', function(err, req, res){
+		// callback
+		if(callback){
+			callback(err, res);
+			return;
+		}
+		
+		// err
+		if(err){
+			console.log(err);
+			return;
+		}
+		
+		// check ext
+		if(!res || !res.ext || res.ext != 'txsms'){
+			console.log('0000-mismatched ext！');
+			return;
+		}
+		
+		// error
+		if(res.result != 0){
+			console.log(res.result + '-' + res.errmsg);
+			return;
+		}
+		
+		// suc
+		console.log('ok');
 	});
 };
 
 /**
- * getColumns
- * 	config
- * 	tableName
+ * sendSync
+ * 	options.appid	appid
+ * 	options.appkey	appkey
+ * 	options.mtype	0：普通短信，1：营销短信
+ * 	options.cnum	86：中国
+ * 	options.sign	签名
+ * 	options.mobile	手机号
+ * 	options.msg		消息
  */
-exports.getColumns = function(config, tableName){
-	// check
-	if(!config || !tableName) return;
-	
-	// columns
-	return exports.query(config, 'SHOW COLUMNS FROM ?', mysql.raw(tableName));
-};
-
-/**
- * getTypes
- * 	mysqlType : mysql type
- */
-exports.getTypes = function(mysqlType){
-	// check
-	if(!mysqlType) return 'string';
-	
-	// char, varchar
-	if(mysqlType.indexOf('char') > -1) return 'string';
-	
-	// int
-	if(mysqlType.indexOf('int') > -1) return 'number';
-	
-	// date, datetime
-	if(mysqlType.indexOf('date') > -1) return 'date';
-
-	return 'string';
-};
-
-/**
- * pool
- */
-exports.pool = null;
-
-/**
- * poolInit
- * 	config
- */
-exports.poolInit = function(config){
-	// check
-	if(!config) return;
-	
-	// pool
-	exports.pool ? exports.pool : exports.pool = mysql.createPool(config);
-};
-
-/**
- * pcon
- */
-exports.poolConnection = function(){
-	// check pool
-	if(!exports.pool) return;
-	
-	// connection
+exports.sendSync = function(options){
 	return new Promise(function(resolve, reject){
-		exports.pool.getConnection(function(error, connection){
-			error ? reject(error) : resolve(connection);
-		});
-	});
-};
-
-/**
- * pquery
- */
-exports.poolQuery = function(sql, params){
-	// check pool
-	if(!exports.pool) return;	
-	
-	// query
-	return new Promise(function(resolve, reject){
-		exports.pool.getConnection(function(error, connection){
-			if(error){
-				reject(error);
+		exports.send(options, function(err, res){
+			// err
+			if(err){
+				reject(err);
 				return;
 			}
 			
-			connection.query(sql, params || [], function (err, results, fields){
-				connection.release();
-
-				err ? reject(err) : resolve(results); 
-			});
+			// check ext
+			if(!res || !res.ext || res.ext != 'txsms'){
+				resolve('0000-mismatched ext！');
+				return;
+			}
+			
+			// error
+			if(res.result != 0){
+				resolve(res.result + '-' + res.errmsg);
+				return;
+			}
+			
+			// suc
+			resolve('ok');
 		});
 	});
 };
