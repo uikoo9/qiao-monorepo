@@ -19,14 +19,74 @@ npm install qiao.ext.txsms
 1. qcloudsms_js, https://www.npmjs.com/package/qcloudsms_js
 
 # api
-## connection
+## send
 ```javascript
 'use strict';
 
-var qiaoPluginMysql = require('qiao.ext.txsms');
+var qiaoExtTxsms = require('qiao.ext.txsms');
 
-var connection = qiaoPluginMysql.connection(require('./_config.json'));
-console.log(connection);
+var test = function(){
+	// 普通单条短信-简化
+	qiaoExtTxsms.send({
+		appid 	: 'your appid',
+		appkey	: 'your appkey',
+		sign	: 'your sign',
+		mobile	: 'mobile',
+		msg		: '您的验证码是：1234，如非本人操作，请忽略此短信。',
+	});
+	
+	// 普通单条短信-定制&回调
+	qiaoExtTxsms.send({
+		appid 	: 'your appid',
+		appkey	: 'your appkey',
+		sign	: 'your sign',
+		mobile	: 'mobile',
+		msg		: '您的验证码是：1234，如非本人操作，请忽略此短信。',
+		mtype	: '0：普通短信，1：营销短信，可选',
+		cnum	: '86：中国，可选',
+	}, function(err, res){
+		console.log(err, res);
+	});
+};
+
+test();
+```
+
+## sendSync
+```javascript
+'use strict';
+
+var qiaoExtTxsms = require('qiao.ext.txsms');
+
+var test = async function(){
+	try{
+		// 普通单条短信-简化
+		var msg1 = await qiaoExtTxsms.sendSync({
+			appid 	: 'your appid',
+			appkey	: 'your appkey',
+			sign	: 'your sign',
+			mobile	: 'mobile',
+			msg		: '您的验证码是：1234，如非本人操作，请忽略此短信。',
+		});
+		console.log(msg1);
+		
+		// 普通单条短信-定制&回调
+		var msg2 = qiaoExtTxsms.send({
+			appid 	: 'your appid',
+			appkey	: 'your appkey',
+			sign	: 'your sign',
+			mobile	: 'mobile',
+			msg		: '您的验证码是：1234，如非本人操作，请忽略此短信。',
+			mtype	: '0：普通短信，1：营销短信，可选',
+			cnum	: '86：中国，可选',
+		});
+		console.log(msg2);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
 ```
 
 # version
