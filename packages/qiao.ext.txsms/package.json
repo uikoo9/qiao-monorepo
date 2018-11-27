@@ -1,0 +1,26 @@
+{
+  "name": "qiao.ext.txsms",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "tencent sms tool",
+  "keywords": [
+    "tencent",
+    "cloud",
+    "sms",
+    "qcloudsms_js"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.ext.txsms",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.ext.txsms.git"
+  }
+}
