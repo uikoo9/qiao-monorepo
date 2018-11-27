@@ -101,7 +101,7 @@ exports.confirm = function(options, success, cancel){
 var _toastOptions = {
 	title	: 'title',
 	icon	: 'success', // loading,none
-	duration: 3000,
+	duration: 2000,
 	mask	: true
 };
 
@@ -131,7 +131,7 @@ exports.tip = function(options){
 	// opt
 	var opt 	= Object.assign({}, _toastOptions);
 	opt.icon 	= 'none';
-	opt.duration= 3000;
+	opt.duration= 2000;
 	opt.mask 	= true;
 
 	// options
