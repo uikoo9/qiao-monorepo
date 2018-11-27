@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginCoder = require('../lib/qiao.plugin.coder');
+var qiaoPluginCoder = require('../lib/qiao.plugin.coder.js');
 
 var test = function(){
 	var templateFile 	= 'd:/test/test.art';
