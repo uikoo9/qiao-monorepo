@@ -19,7 +19,7 @@ npm install qiao.plugin.request
 1. request, https://www.npmjs.com/package/request
 
 # api
-## request get sync
+## getSync
 ```javascript
 'use strict';
 
@@ -44,7 +44,7 @@ var test = async function(){
 test(); 
 ```
 
-## request post sync
+## postSync
 ```javascript
 'use strict';
 
@@ -69,7 +69,7 @@ var test = async function(){
 test();
 ```
 
-## request get async
+## get
 ```javascript
 'use strict';
 
@@ -90,7 +90,7 @@ var test = function(){
 test();
 ```
 
-## request post async
+## post
 ```javascript
 'use strict';
 
