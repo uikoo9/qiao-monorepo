@@ -27,7 +27,7 @@ npm install qiao.ext.oss
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss.js');
+var qiaoExtOss	= require('qiao.ext.oss');
 var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
@@ -53,7 +53,7 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss.js');
+var qiaoExtOss	= require('qiao.ext.oss');
 var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
@@ -79,7 +79,7 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss.js');
+var qiaoExtOss	= require('qiao.ext.oss');
 var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
@@ -97,7 +97,7 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss.js');
+var qiaoExtOss	= require('qiao.ext.oss');
 var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
