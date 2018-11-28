@@ -35,6 +35,20 @@ exports.uuid = function(type){
 	}
 };
 
+exports.random = function(){
+	
+};
+
+/**
+ * random number
+ * 	length
+ */
+exports.randomNumber = function(length){
+	length = length || 4;
+	
+	return Math.floor(Math.random()*Math.pow(10, length));
+};
+
 /**
  * aes encrypt
  * 	data
