@@ -40,6 +40,121 @@ var uuid5 = qiaoUtilEncode.uuid(5);
 console.log(uuid5);
 ```
 
+## random
+### random
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+// random number
+var type	= 0;
+var length	= 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.random(type, length));
+
+// random lower letter
+var type	= 1;
+var length	= 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.random(type, length));
+
+// random upper letter
+var type	= 2;
+var length	= 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.random(type, length));
+
+// random all letter
+var type	= 3;
+var length	= 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.random(type, length));
+
+// random all letter and number
+var type	= 4;
+var length	= 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.random(type, length));
+```
+
+### random number
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var length = 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomNumber(length));
+```
+
+### random lower letter
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var length = 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterLower(length));
+```
+
+### random upper letter
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var length = 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterUpper(length));
+```
+
+### random all letter
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var length = 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterAll(length));
+```
+
+### random all letter and number
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var length = 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterNumber(length));
+```
+
+### random seed
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var seed	= '0123456789';
+var length 	= 4;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomSeed(seed, length));
+```
+
+### random by seed
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var seed = '0123456789';
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomBySeed(seed));
+```
+
+### random in
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var min = 0;
+var max = 9;
+for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomIn(min, max));
+```
+
 ## aes
 ```javascript
 'use strict';
