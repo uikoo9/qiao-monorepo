@@ -35,8 +35,25 @@ exports.uuid = function(type){
 	}
 };
 
-exports.random = function(){
+/**
+ * random
+ * 	type	default: 0
+ * 		0 : number
+ * 		1 : lower letter
+ * 		2 : upper letter
+ * 		3 : all letter
+ * 		4 : all letter and number
+ * 	length	default: 4
+ */
+exports.random = function(type, length){
+	type 	= type || 0;
+	length	= length || 4;
 	
+	if(type == 0) return exports.randomNumber(length);
+	if(type == 1) return exports.randomLetterLower(length);
+	if(type == 2) return exports.randomLetterUpper(length);
+	if(type == 3) return exports.randomLetterAll(length);
+	if(type == 4) return exports.randomLetterNumber(length);
 };
 
 /**
@@ -44,9 +61,80 @@ exports.random = function(){
  * 	length
  */
 exports.randomNumber = function(length){
-	length = length || 4;
+	var seed = '0123456789';
+
+	return exports.randomSeed(seed, length || 4);
+};
+
+/**
+ * random letter lower
+ * 	length
+ */
+exports.randomLetterLower = function(length){
+	var seed = 'abcdefghljklmnopqrstuvwxyz';
+
+	return exports.randomSeed(seed, length || 4);
+};
+
+/**
+ * random letter upper
+ * 	length
+ */
+exports.randomLetterUpper = function(length){
+	var seed = 'ABCDEFGHLJKLMNOPQRSTUVWXYZ';
 	
-	return Math.floor(Math.random()*Math.pow(10, length));
+	return exports.randomSeed(seed, length || 4);
+};
+
+/**
+ * random letter all
+ * 	length
+ */
+exports.randomLetterAll = function(length){
+	var seed = 'abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ';
+	
+	return exports.randomSeed(seed, length || 4);
+};
+
+/**
+ * random letter number
+ * 	length
+ */
+exports.randomLetterNumber = function(length){
+	var seed = 'abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ0123456789';
+	
+	return exports.randomSeed(seed, length || 4);
+};
+
+/**
+ * random seed
+ * 	length
+ */
+exports.randomSeed = function(seed, len){
+	if(!seed || seed <= 1 || len < 1) return;
+	
+	var r = [];
+	for(var i=0; i<len; i++) r.push(exports.randomBySeed(seed));
+	
+	return r.join('');
+};
+
+/**
+ * random by seed
+ */
+exports.randomBySeed = function(seed){
+	if(!seed || seed <= 1) return null;
+	
+	return seed.charAt(exports.randomIn(0, seed.length - 1));
+};
+
+/**
+ * random in
+ * 	min
+ * 	max
+ */
+exports.randomIn = function(min, max){
+	return Math.floor( Math.random() * ( max - min + 1 ) + min );
 };
 
 /**
