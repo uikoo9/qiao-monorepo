@@ -186,6 +186,9 @@ console.log(ss);
 ```
 
 # version
+## 0.0.5.20181128
+1. add random
+
 ## 0.0.4.20181127
 1. add uuid
 

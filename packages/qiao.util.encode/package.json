@@ -1,12 +1,16 @@
 {
   "name": "qiao.util.encode",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "description": "nodejs crypto tool",
   "keywords": [
     "nodejs",
     "crypto",
-    "tool"
+    "tool",
+    "aes",
+    "3des",
+    "uuid",
+    "random"
   ],
   "main": "index.js",
   "scripts": {},
