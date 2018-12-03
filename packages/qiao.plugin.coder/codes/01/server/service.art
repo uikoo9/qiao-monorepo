@@ -146,21 +146,3 @@ exports.{{className2}}Del = async function(req, res){
 		res.send(qiao.json.danger('del failed', {e:e}));
 	}
 };
-
-/**
- * {{tableName1}} {{tableName2}} edit
- */
-exports.{{className2}}Edit = async function(req, res){
-	var item = null;
-	
-	try{
-		if(req.query && req.query.id){
-			var rows = await model.{{className2}}GetById(req.query.id);
-			item = rows[0];
-		}
-	}catch(e){
-		console.log(e);
-	}
-	
-	res.render('manage/{{tableName1}}/{{tableName1}}-{{tableName2}}-edit.html', {item : item});
-};

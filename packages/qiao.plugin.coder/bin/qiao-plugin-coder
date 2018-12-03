@@ -4,57 +4,43 @@
 
 var qiao = require('qiao.util.all');
 
-// init
-async function init(){
-	// print
-	console.log('qiao.plugin.coder, generate server and browser code.');
-	console.log();
-	console.log('code list : https://github.com/insistime/qiao.plugin.coder#01');
-	console.log();
-	
-	// code
-	var codeAnswers = await qiao.cli.ask([{
-	    type	: 'list',
-	    name	: 'code',
-	    message	: 'select code number:',
-	    choices	: ['01', '02']
-	},{
-		type		: 'input',
-		name		: 'tableName',
-		message		: 'input table name:',
-		validate	: function(input){
-			var done = this.async();
-			
-			if(!input){
-				done('need table name');
-		        return;
-			}
-			
-			done(null, true);
-		}
-	},{
-	    type		: 'input',
-	    name		: 'destFolder',
-	    message		: 'input destination folder path:',
-	    validate	: function(input){
-			var done = this.async();
-			
-			if(!input){
-				done('need destination folder path');
-		        return;
-			}
-			
-			done(null, true);
-		}
-	}]);
-	
-	if(codeAnswers.code == '01'){
-		var destFolder 	= codeAnswers.destFolder;
-		var tableName	= codeAnswers.tableName;
-		
-		require('../codes/01/_coder_01.js').gen(destFolder, tableName);
-	}
-}
+// cmd
+qiao.cli.cmd
+	.version(require('../package.json').version, '-v, --version')
+	.description('qiao.plugin.coder, generate server and browser code.')
+	.usage('[options] <command>')
+	.command('gen <code> <path>')
+	.alias('g')
+	.option('-i --init', 'init code')
+	.option('-t --table <name>', 'input table name')
+	.action(handleCode);
 
-// init
-init();
+// parse
+qiao.cli.cmd.parse(process.argv);
+
+// handle code
+function handleCode(code, path, options){
+	// vars
+	var init 		= options.init;
+	var tableName	= options.table;
+	
+	// check options
+	if(!init && !tableName){
+		console.log('need options, use -h or --help to see help info');
+		return;
+	}
+	
+	// init code
+	if(init){
+		console.log('init code');
+		return;
+	}
+	
+	// gen code
+	if(code == '01'){
+		require('../codes/01/_coder_01.js').gen(path, tableName);
+		return;
+	}
+	
+	console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
+}
