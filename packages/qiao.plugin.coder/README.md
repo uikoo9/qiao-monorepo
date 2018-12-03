@@ -13,7 +13,7 @@
 npm install -g qiao.plugin.coder
 
 ## use
-qiao-plugin-coder
+qiao-plugin-coder -h
 
 # code list
 ## 01
@@ -45,6 +45,10 @@ qiao-plugin-coder
 1. [jquery](http://jquery.com/) and [easyui](http://www.jeasyui.com/) on [coolie](https://coolie.ydr.me/) browser code
 
 # version
+## 0.1.2.20181203
+1. update qiao.util.all@0.0.8
+2. modify bin file
+
 ## 0.1.1.20181127
 1. add .js
 
