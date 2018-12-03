@@ -1,0 +1,90 @@
+'use strict';
+
+// import
+var easyui = require('qiao.fe.easyui');
+
+exports.init = function(){
+	$('#datagrid').datagrid({
+	    url			:'/{{tableName1}}/{{tableName2}}/list',
+	    idField		: 'id',
+	    fitColumns	: true,
+	    loadMsg		: '加载中，请稍候...',
+	    emptyMsg	: '暂无数据',
+	    pagination	: true,
+	    rownumbers	: true,
+	    pageNumber	: 1,
+	    pageSize	: 10,
+	    pageList	: [10,50,100],
+	    columns :[[
+	    	{
+	    		field:'cks',
+	    		checkbox: true,
+	    	},
+	        {
+	        	field:'id',
+	        	title:'id',
+	        	width:100
+	        },{{each params}}
+	        {
+	        	field:'{{$value.name1}}',
+	        	title:'{{$value.name1}}',
+	        	width:100
+	        },
+			{{/each}}{
+	        	field:'cdate',
+	        	title:'cdate',
+	        	width:100
+	        },
+	        {
+	        	field:'cuser_id',
+	        	title:'cuser_id',
+	        	width:100
+	        },
+	        {
+	        	field:'cuser_name',
+	        	title:'cuser_name',
+	        	width:100
+	        }
+	    ]],
+	    loadFilter	: function(data){
+	    	return data.obj;
+	    },
+	    toolbar: [{
+	    	text	: '添加',
+			iconCls	: 'icon-add',
+			handler	: function(){
+				easyui.crud.save({
+					title	: '添加',
+					editUrl	: '/{{tableName1}}/{{tableName2}}/edit',
+					saveUrl	: '/{{tableName1}}/{{tableName2}}/save',
+					width	: 400,
+					height	: 200
+				});
+			}
+	    },'-',{
+	    	text	: '修改',
+	    	iconCls	: 'icon-edit',
+	    	handler	: function(){
+	    		easyui.crud.edit({
+					title	: '修改',
+					editUrl	: '/{{tableName1}}/{{tableName2}}/edit',
+					saveUrl	: '/{{tableName1}}/{{tableName2}}/save',
+					width	: 400,
+					height	: 200
+				});
+			}
+		},'-',{
+			text	: '删除',
+			iconCls	: 'icon-no',
+			handler	: function(){
+				easyui.crud.del('/{{tableName1}}/{{tableName2}}/del');
+			}
+		},'-',{
+			text	: '搜索',
+			iconCls	: 'icon-search',
+			handler	: function(){
+				alert(1);
+			}
+		}]
+	});
+};

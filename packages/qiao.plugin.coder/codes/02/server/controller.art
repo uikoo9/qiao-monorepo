@@ -1,0 +1,32 @@
+// service
+var service	= require('../service/{{className1}}Service.js');
+
+/**
+ * {{tableName1}} {{tableName2}} controller
+ */
+module.exports = function(app){
+	// {{tableName1}} {{tableName2}} list
+	app.post('/{{tableName1}}/{{tableName2}}/list', function(req, res){
+		service.{{className2}}List(req, res);
+	});
+
+	// {{tableName1}} {{tableName2}} get
+	app.post('/{{tableName1}}/{{tableName2}}/get', function(req, res){
+		service.{{className2}}Get(req, res);
+	});
+	
+	// {{tableName1}} {{tableName2}} save
+	app.post('/{{tableName1}}/{{tableName2}}/save', function(req, res){
+		service.{{className2}}Save(req, res);
+	});
+
+	// {{tableName1}} {{tableName2}} del
+	app.post('/{{tableName1}}/{{tableName2}}/del', function(req, res){
+		service.{{className2}}Del(req, res);
+	});
+
+	// {{tableName1}} {{tableName2}} edit
+	app.get('/{{tableName1}}/{{tableName2}}/edit', function(req, res){
+		service.{{className2}}Edit(req, res);
+	});
+};
