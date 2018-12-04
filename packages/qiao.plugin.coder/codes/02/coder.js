@@ -56,6 +56,9 @@ exports.gen = async function(destFolder, tableName){
 	genController(destFolder, tableName1, className1, data);
 	genService(destFolder, tableName1, className1, data);
 	
+	// gen webroot code
+	genJs(destFolder, tableName1, tableName2, data);
+	
 	return;
 };
 
@@ -81,4 +84,11 @@ function genService(destFolder, tableName1, className1, data){
 	var serviceTemp = path.resolve(__dirname, './server/service.art');
 	var serviceDest	= path.resolve(destFolder, './server/manage-api/' + tableName1 + '/service/' + className1 + 'Service.js');
 	qiao.coder.genFileByData(serviceTemp, data, serviceDest);
+}
+
+// gen js
+function genJs(destFolder, tableName1, tableName2, data){
+	var jsTemp 	= path.resolve(__dirname, './webroot/js.art');
+	var jsDest	= path.resolve(destFolder, './webroot-dev/static/js/app/manage/' + tableName1 + '/' + tableName1 + '-' + tableName2 + '.js');
+	qiao.coder.genFileByData(jsTemp, data, jsDest);
 }
