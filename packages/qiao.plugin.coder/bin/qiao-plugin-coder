@@ -37,10 +37,20 @@ function handleCode(code, path, options){
 	}
 	
 	// gen code
-	if(code == '01'){
-		require('../codes/01/_coder_01.js').gen(path, tableName);
+	var codes = ['01', '02'];
+	if(isIn(code, codes)){
+		require('../codes/' + code + '/coder.js').gen(path, tableName);
 		return;
 	}
 	
 	console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
+}
+
+// is in
+function isIn(s, ss){
+	for(var i=0; i<ss.length; i++){
+		if(s == ss[i]) return true;
+	}
+	
+	return false;
 }

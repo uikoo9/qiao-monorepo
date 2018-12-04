@@ -1,6 +1,6 @@
 'use strict';
 
-var coder = require('../codes/01/_coder_01.js');
+var coder = require('../codes/01/coder.js');
 
 var test = function(){
 	// vars
