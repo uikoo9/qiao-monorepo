@@ -121,7 +121,7 @@ cd your-path
 qoss -h
 
 qoss file 	test/test.js	d:/test.js	
-qoss folder	test			d:/test		-i
+qoss folder	test		d:/test		-i
 ```
 
 # version
@@ -129,6 +129,7 @@ qoss folder	test			d:/test		-i
 1. qoss with qiao.plugin.cli
 2. update ali-oss@6.0.1
 3. qiao-ext-oss --> qoss 
+4. modify md
 
 ## 0.1.5.20181127
 1. modify method name
