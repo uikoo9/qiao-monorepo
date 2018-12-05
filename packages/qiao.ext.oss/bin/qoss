@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+
+'use strict';
+
+// qiao
+var qiao = {};
+qiao.cli = require('qiao.plugin.cli');
+qiao.oss = require('../lib/qiao.ext.oss.js');
+
+// client
+var client;
+try{
+	client = qiao.oss.client(require(process.cwd() + '/config.json'));
+}catch(e){
+	console.log('you need put config.json into this path');
+	
+	return;
+}
+
+// cmd for common
+qiao.cli.cmd
+	.version(require('../package.json').version, '-v, --version')
+	.description('qiao.ext.oss, oss upload tool')
+	.usage('<command> [options]');
+
+// cmd for file
+qiao.cli.cmd
+	.command('file <filePath> <bucketPath>')
+	.action(uploadFile);
+
+// cmd for folder
+qiao.cli.cmd
+	.command('folder <folderPath> <bucketPath>')
+	.option('-i, --info', 'show upload info')
+	.action(uploadFolder);
+
+// parse
+qiao.cli.cmd.parse(process.argv);
+
+// upload file
+async function uploadFile(filePath, bucketPath){
+	try{
+		console.log("upload file " + filePath + " to oss bucket's " + bucketPath);
+		console.log();
+		
+		console.log('please wait a moment...');
+		console.log();
+		
+		console.time('total use');
+		var rs = await qiao.oss.uploadFileSync(client, bucketPath, filePath);
+		
+		console.log('upload success, url is:');
+		console.log('	' + rs.url);
+		console.log();
+		
+		console.timeEnd('total use');
+	}catch(e){
+		console.log('upload file to alioss fail!');
+		console.log();
+		
+		console.log(e);
+	}
+}
+
+// upload folder
+async function uploadFolder(folderPath, bucketPath, options){
+	try{
+		console.log("upload folder " + folderPath + " to oss bucket's " + bucketPath);
+		console.log();
+		
+		console.log('please wait a moment...');
+		console.log();
+		
+		console.time('total use');
+		var rs = await qiao.oss.uploadFolderSync(client, bucketPath, folderPath);
+		
+		console.log('	upload ' + rs.suc.length + ' files successfully!');
+		console.log('	upload ' + rs.fail.length + ' files failed!');
+		console.log();
+
+		console.timeEnd('total use');
+		console.log();
+		
+		if(options.info) console.log(rs);
+	}catch(e){
+		console.log('upload folder to alioss fail!');
+		console.log();
+		
+		console.log(e);
+	}
+}

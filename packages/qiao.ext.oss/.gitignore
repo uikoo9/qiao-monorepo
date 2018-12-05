@@ -4,4 +4,5 @@
 .externalToolBuilders
 
 node_modules
+bin/config.json
 test/config.json
