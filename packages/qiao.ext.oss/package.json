@@ -14,7 +14,8 @@
     "qiao-ext-oss": "./bin/qiao-ext-oss"
   },
   "dependencies": {
-    "ali-oss": "^4.11.2"
+    "ali-oss": "^6.0.1",
+    "qiao.plugin.cli": "0.0.5"
   },
   "author": {
     "name": "qiaowenbin",
