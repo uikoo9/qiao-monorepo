@@ -1,6 +1,6 @@
 {
   "name": "qiao.ext.oss",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "license": "MIT",
   "description": "oss upload tool",
   "keywords": [
@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {},
   "bin": {
-    "qiao-ext-oss": "./bin/qoss"
+    "qoss": "./bin/qoss"
   },
   "dependencies": {
     "ali-oss": "^6.0.1",
