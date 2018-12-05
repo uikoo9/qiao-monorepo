@@ -118,8 +118,10 @@ npm install -g qiao.ext.oss
 and put config.json file into your-path
 cd your-path
 
-qiao-ext-oss file 	test/test.js	d:/test.js	[info]
-qiao-ext-oss folder	test		d:/test		[info]
+qoss -h
+
+qoss file 	test/test.js	d:/test.js	
+qoss folder	test			d:/test		-i
 ```
 
 # version
