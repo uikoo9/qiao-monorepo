@@ -125,6 +125,10 @@ qoss folder	test			d:/test		-i
 ```
 
 # version
+## 0.1.6.20181205
+1. qoss with qiao.plugin.cli
+2. update ali-oss@6.0.1
+
 ## 0.1.5.20181127
 1. modify method name
 2. del .js
