@@ -106,6 +106,7 @@ qiao-plugin-coder -h
 # version
 ## 0.1.3.20181207
 1. modify md add code 02
+2. gen code 02
 
 ## 0.1.2.20181203
 1. update qiao.util.all@0.0.8
