@@ -43,8 +43,70 @@ qiao-plugin-coder -h
 
 ## 02
 1. [jquery](http://jquery.com/) and [easyui](http://www.jeasyui.com/) on [coolie](https://coolie.ydr.me/) browser code
+2. file tree : 
+```shell
+|--server
+	|--config
+		|--config.json
+	|--fore
+		|--manage
+			|--controller
+				|--ManageController.js
+			|--service
+				|--ManageService.js
+	|--manage-api
+		|--ucenter
+			|--controller
+				|--UcenterUserController.js
+				...
+			|--model
+				|--UcenterUserModel.js
+				|--ucenter-user-sql.json
+				...
+			|--service
+				|--UcenterUserService.js
+				...
+		|--BaseService.js
+	|--middleware
+		|--qiao.mid.js
+	|--app.js
+	|--package.json
+|--webroot-dev
+	|--static
+		|--css
+			|--app
+				|--manage
+					|--manage.css
+			|--lib
+				normalize.css
+				...
+		|--img
+		|--js
+			|--app
+				|--manage
+					|--home
+						|--home-item.js
+					|--manage-index.js
+					|--manage-login.js
+			|--lib
+			|--coolie-config.js
+		|--plugins
+	|--views
+		|--_inc
+		|--manage
+			|--home
+				|--home-item-edit.html
+				|--home-user-edit.html
+			|--manage-index.html
+			|--manage-login.html
+	|--coolie.config.js
+	|--package.json
+```
 
 # version
+## 0.1.3.20181207
+1. modify md add code 02
+
 ## 0.1.2.20181203
 1. update qiao.util.all@0.0.8
 2. modify bin file
