@@ -97,6 +97,11 @@ exports.{{className2}}Save = async function(req, res){
 	var id = req.body.id;
 	{{each params}}var {{$value.name2}} = req.body.{{$value.name2}};
 	{{/each}}
+	
+	// vars for userinfo
+	var express_userid 		= req.body.express_userid;
+	var express_username	= req.body.express_username;
+	
 	// db
 	try{
 		var params = [];
