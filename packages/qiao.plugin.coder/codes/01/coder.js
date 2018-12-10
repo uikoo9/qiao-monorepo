@@ -27,9 +27,18 @@ exports.gen = async function(destFolder, tableName){
 		tableName2 	: tableName2
 	};
 	
+	// columns
+	var columns = null;
+	try{
+		columns = await qiao.mysql.getColumns(qiao.config, tableName);
+	}catch(e){
+		console.log('table ' + tableName + ' doesn\'t exist!');
+		console.log(e);
+		return;
+	}
+	
 	// params
 	var params	= [];
-	var columns = await qiao.mysql.getColumns(qiao.config, tableName);
 	for(var i=0; i<columns.length; i++){
 		var item = columns[i];
 		
