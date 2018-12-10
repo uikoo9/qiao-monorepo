@@ -104,6 +104,9 @@ qiao-plugin-coder -h
 ```
 
 # version
+## 0.1.4.20181210
+1. code 01 save method add userinfo
+
 ## 0.1.3.20181207
 1. modify md add code 02
 2. gen code 02
