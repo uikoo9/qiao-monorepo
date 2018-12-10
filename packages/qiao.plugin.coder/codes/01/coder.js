@@ -33,7 +33,6 @@ exports.gen = async function(destFolder, tableName){
 		columns = await qiao.mysql.getColumns(qiao.config, tableName);
 	}catch(e){
 		console.log('table ' + tableName + ' doesn\'t exist!');
-		console.log(e);
 		return;
 	}
 	
