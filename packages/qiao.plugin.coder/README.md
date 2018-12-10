@@ -13,7 +13,7 @@
 npm install -g qiao.plugin.coder
 
 ## use
-qiao-plugin-coder -h
+qcoder -h
 
 # code list
 ## 01

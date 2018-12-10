@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {},
   "bin": {
-    "qiao-plugin-coder": "./bin/qiao-plugin-coder"
+    "qcoder": "./bin/qcoder"
   },
   "dependencies": {
     "art-template": "^4.13.1",
