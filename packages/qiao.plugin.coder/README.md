@@ -108,6 +108,7 @@ qcoder -h
 1. code 01 save method add userinfo
 2. catch err for table columns
 3. qcoder
+4. service add userinfo
 
 ## 0.1.3.20181207
 1. modify md add code 02
