@@ -103,16 +103,18 @@ exports.{{className2}}Save = async function(req, res){
 		
 		if(!id){
 			{{each params}}params.push({{$value.name2}});
-			{{/each}}params.push(2);
-			params.push('admin');
-			params.push(2);
-			params.push('admin');
+			{{/each}}
+			params.push(express_userid || 1);
+			params.push(express_username || 'admin');
+			params.push(express_userid || 1);
+			params.push(express_username || 'admin');
 			
 			await model.{{className2}}Add(params);
 		}else{
 			{{each params}}params.push({{$value.name2}});
-			{{/each}}params.push(2);
-			params.push('admin');
+			{{/each}}
+			params.push(express_userid || 1);
+			params.push(express_username || 'admin');
 			params.push(id);
 			
 			await model.{{className2}}Edit(params);
