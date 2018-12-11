@@ -209,14 +209,14 @@ exports.title = function(title, suc, fail){
 			if(suc){
 				suc();
 			}else{
-				console.log('set title success : ' + url);
+				console.log('set title success : ' + title);
 			}
 		},
 		fail	: function(){
 			if(fail){
 				fail();
 			}else{
-				console.log('set title fail : ' + url);
+				console.log('set title fail : ' + title);
 			}
 		}
 	});
