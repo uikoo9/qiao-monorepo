@@ -376,6 +376,9 @@ console.log(flag);
 ```
 
 # version
+## 0.2.7.20181211
+1. title
+
 ## 0.2.6.20181127
 1. tip 3000 --> 2000
 2. modify md
