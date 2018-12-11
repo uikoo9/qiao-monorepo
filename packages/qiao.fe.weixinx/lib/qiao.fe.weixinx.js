@@ -193,6 +193,36 @@ exports.sheet = function(options, success){
 };
 
 /**
+ * exports.title
+ * 	setNavigationBarTitle
+ * 
+ * 	title，标题
+ * 	suc，成功的回调
+ * 	fail，失败的回调
+ */
+exports.title = function(title, suc, fail){
+	if(!title) return;
+	
+	wx.setNavigationBarTitle({
+		title	: title,
+		success	: function(){
+			if(suc){
+				suc();
+			}else{
+				console.log('set title success : ' + url);
+			}
+		},
+		fail	: function(){
+			if(fail){
+				fail();
+			}else{
+				console.log('set title fail : ' + url);
+			}
+		}
+	});
+};
+
+/**
  * exports.to
  * 	url，navigateTo的页面
  * 	suc，成功的回调

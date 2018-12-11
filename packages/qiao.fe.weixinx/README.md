@@ -180,6 +180,18 @@ qiaoWeixinx.sheet(['1', '2'], function(index){
 ```
 
 ## api for navigate
+### title
+```javascript
+var qiaoWeixinx = require('qiao.fe.weixinx');
+
+// set navigation bar title
+qiaoWeixinx.title(title, function(){
+	// success
+}, function(){
+	// fail
+});
+```
+
 ### to
 ```javascript
 var qiaoWeixinx = require('qiao.fe.weixinx');
