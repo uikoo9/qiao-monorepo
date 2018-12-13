@@ -117,10 +117,20 @@ exports.crud = {};
 
 /**
  * easyui.crud.init
- * 	url
- * 	cols
+ * 	options.url
+ * 	options.cols
+ * 	options.width
+ * 	options.height
+ * 	options.data
  */
-exports.crud.init = function(url, cols, width, height){
+exports.crud.init = function(options){
+	// vars
+	var url 	= options.url;
+	var cols 	= options.cols;
+	var width 	= options.width || 400;
+	var height 	= options.height || 200;
+	var data 	= options.data || {};
+	
 	// check
 	if(!url || !cols){
 		console.log('error: qiao.easyui.curd.init need url and cols');
@@ -134,13 +144,10 @@ exports.crud.init = function(url, cols, width, height){
 		return;
 	}
 	
-	// vars
-	var w = width || 400;
-	var h = height || 200;
-	
 	// datagrid
 	$dg.datagrid({
 	    url			: url + '/list',
+	    queryParams	: data,
 	    idField		: 'id',
 	    loadMsg		: '加载中，请稍候...',
 	    emptyMsg	: '暂无数据',
@@ -162,8 +169,8 @@ exports.crud.init = function(url, cols, width, height){
 					title	: '添加',
 					editUrl	: url + '/edit',
 					saveUrl	: url + '/save',
-					width	: w,
-					height	: h
+					width	: width,
+					height	: height
 				});
 			}
 	    },{
@@ -174,8 +181,8 @@ exports.crud.init = function(url, cols, width, height){
 					title	: '修改',
 					editUrl	: url + '/edit',
 					saveUrl	: url + '/save',
-					width	: w,
-					height	: h
+					width	: width,
+					height	: height
 				});
 			}
 		},{
@@ -192,8 +199,8 @@ exports.crud.init = function(url, cols, width, height){
 					title		: '搜索',
 					editUrl		: url + '/edit',
 					searchUrl	: url + '/save',
-					width		: w,
-					height		: h
+					width		: width,
+					height		: height
 				});
 			}
 		}, '-', {
