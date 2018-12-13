@@ -59,6 +59,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.0.6.20181213
+1. datagrid add query
+
 ## 0.0.5.20181127
 1. del .js
 
