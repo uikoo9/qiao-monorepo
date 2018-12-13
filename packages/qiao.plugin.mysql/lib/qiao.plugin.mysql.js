@@ -1,6 +1,10 @@
 'use strict';
 
-var mysql = require('mysql');
+/**
+ * lib
+ * 	mysql
+ */
+exports.lib = require('mysql');
 
 /**
  * connection
@@ -13,7 +17,7 @@ exports.connection = function(config){
 	if(!config) return;
 	
 	// connection
-	return mysql.createConnection(config);
+	return exports.lib.createConnection(config);
 };
 
 /**
@@ -53,7 +57,7 @@ exports.getColumns = function(config, tableName){
 	if(!config || !tableName) return;
 	
 	// columns
-	return exports.query(config, 'SHOW COLUMNS FROM ?', mysql.raw(tableName));
+	return exports.query(config, 'SHOW COLUMNS FROM ?', exports.lib.raw(tableName));
 };
 
 /**
@@ -90,7 +94,7 @@ exports.poolInit = function(config){
 	if(!config) return;
 	
 	// pool
-	exports.pool ? exports.pool : exports.pool = mysql.createPool(config);
+	exports.pool ? exports.pool : exports.pool = exports.lib.createPool(config);
 };
 
 /**
