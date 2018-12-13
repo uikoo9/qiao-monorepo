@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "art-template": "^4.13.1",
-    "qiao.util.all": "0.0.8"
+    "qiao.util.all": "^0.1.0"
   },
   "author": {
     "name": "qiaowenbin",
