@@ -28,11 +28,15 @@ exports.{{className2}}List = async function(req, res){
 		paramsquery.push({{$value.name2}});
 	}
 	{{/each}}
-	// page
+	// order and page
+	sqlquery.push(' order by t.? ? limit ?,?');
+	var order		= req.body.order || 'desc';
+	var orderby		= req.body.orderby || 'id';
 	var pagesize	= parseInt(req.body.rows || 10);
 	var pagenumber	= parseInt(req.body.page || 1);
 	var start		= (pagenumber - 1) * pagesize;
-	sqlquery.push(' order by t.id desc limit ?,?');
+	paramsquery.push(qiao.mysql.lib.raw(orderby));
+	paramsquery.push(qiao.mysql.lib.raw(order));
 	paramsquery.push(start);
 	paramsquery.push(pagesize);
 	
