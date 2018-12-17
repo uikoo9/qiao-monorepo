@@ -55,7 +55,7 @@ exports.{{className2}}List = async function(req, res){
 		
 		res.send(qiao.json.success('query success', result));
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {e:e}));
+		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
 	}
 };
 
@@ -79,7 +79,7 @@ exports.{{className2}}Get = async function(req, res){
 		
 		res.send(qiao.json.success('query success', {rows:rows}));
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {e:e}));
+		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
 	}
 };
 
@@ -131,7 +131,7 @@ exports.{{className2}}Save = async function(req, res){
 		
 		res.send(qiao.json.success('save success'));
 	}catch(e){
-		res.send(qiao.json.danger('save failed', {e:e}));
+		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
 	}
 };
 
@@ -154,6 +154,6 @@ exports.{{className2}}Del = async function(req, res){
 		await model.{{className2}}Del(req.body.ids.split(','));
 		res.send(qiao.json.success('del success'));
 	}catch(e){
-		res.send(qiao.json.danger('del failed', {e:e}));
+		res.send(qiao.json.danger('del failed', {errName:e.name,errMsg:e.message}));
 	}
 };
