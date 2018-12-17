@@ -82,6 +82,7 @@ qiaoFeEasyui.addTab(url, title);
 # version
 ## 0.0.7.20181217
 1. custom toolbar
+2. add confirm
 
 ## 0.0.6.20181213
 1. datagrid add query
