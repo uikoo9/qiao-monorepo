@@ -83,6 +83,40 @@ exports.alert.options = {
 };
 
 /**
+ * easyui.confirm
+ * 	options, msg
+ * 	fn, callback
+ * 
+ * 	or
+ * 
+ * 	options.msg
+ * 	options.title
+ * 	options.icon: error,question,info,warning.
+ * 	options.fn
+ */
+exports.confirm = function(options, fn){
+	if(!options) return;
+	
+	// opt
+	var opt = $.extend({}, exports.alert.options);
+	if(typeof options == 'string'){
+		opt.msg = options;
+	}else{
+		$.extend(opt, options);
+	}
+	
+	// fn
+	opt.fn = function(r){
+		if(!r) return;
+		
+		if(typeof options == 'string' && fn) fn();
+		if(typeof options != 'string' && options.fn) options.fn();
+	};
+	
+	$.messager.confirm(opt);
+};
+
+/**
  * easyui.addTab
  * 	url
  * 	title

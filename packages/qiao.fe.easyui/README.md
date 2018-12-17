@@ -44,11 +44,32 @@ var qiaoFeEasyui = require('qiao.fe.easyui');
 qiaoFeEasyui.alert(options, fn);
 ```
 
+## confirm
+```javascript
+'use strict';
+
+var qiaoFeEasyui = require('qiao.fe.easyui');
+
+/**
+ * confirm
+ * 	options, msg
+ * 	fn, callback
+ * 
+ * 	or
+ * 
+ * 	options.msg
+ * 	options.title
+ * 	options.icon: error,question,info,warning.
+ * 	options.fn
+ */
+qiaoFeEasyui.confirm(options, fn);
+```
+
 ## addTab
 ```javascript
 'use strict';
 
-var qiaoFeEasyui = require('../lib/qiao.fe.easyui');
+var qiaoFeEasyui = require('qiao.fe.easyui');
 
 /**
  * add tab
