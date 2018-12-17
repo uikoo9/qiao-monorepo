@@ -104,6 +104,9 @@ qcoder -h
 ```
 
 # version
+## 0.1.6.20181217
+1. update 02 js template
+
 ## 0.1.5.20181213
 1. service add order and orderby
 2. update qiao.util.all@0.1.0
