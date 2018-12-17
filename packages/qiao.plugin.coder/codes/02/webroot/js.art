@@ -28,5 +28,10 @@ exports.init = function(){
         }
     ]];
 	
-	easyui.crud.init(url, cols, 500, 400);
+	easyui.crud.init({
+		url 	: url,
+		cols 	: cols,
+		width	: 500,
+		height	: 400
+	});
 };
