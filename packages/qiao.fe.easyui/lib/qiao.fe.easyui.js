@@ -130,6 +130,7 @@ exports.crud.init = function(options){
 	var width 	= options.width || 400;
 	var height 	= options.height || 200;
 	var data 	= options.data || {};
+	var toolbars= options.toolbars;
 	
 	// check
 	if(!url || !cols){
@@ -143,6 +144,57 @@ exports.crud.init = function(options){
 		console.log('error:not found datagrid by #datagrid');
 		return;
 	}
+	
+	// default toolbar
+	var defaultToolbar = [{
+    	text	: '添加',
+		iconCls	: 'icon-add',
+		handler	: function(){
+			exports.crud.save({
+				title	: '添加',
+				editUrl	: url + '/edit',
+				saveUrl	: url + '/save',
+				width	: width,
+				height	: height
+			});
+		}
+    },{
+    	text	: '修改',
+    	iconCls	: 'icon-edit',
+    	handler	: function(){
+    		exports.crud.edit({
+				title	: '修改',
+				editUrl	: url + '/edit',
+				saveUrl	: url + '/save',
+				width	: width,
+				height	: height
+			});
+		}
+	},{
+		text	: '删除',
+		iconCls	: 'icon-no',
+		handler	: function(){
+			exports.crud.del(url + '/del');
+		}
+	},{
+		text	: '搜索',
+		iconCls	: 'icon-search',
+		handler	: function(){
+			exports.crud.search({
+				title		: '搜索',
+				editUrl		: url + '/edit',
+				searchUrl	: url + '/save',
+				width		: width,
+				height		: height
+			});
+		}
+	}, '-', {
+		text	: '重置',
+		iconCls	: 'icon-reload',
+		handler	: function(){
+			exports.crud.reset();
+		}
+	}];
 	
 	// datagrid
 	$dg.datagrid({
@@ -158,63 +210,56 @@ exports.crud.init = function(options){
 	    pageSize	: 10,
 	    pageList	: [10,50,100],
 	    columns 	: cols,
+	    toolbar		: initToolbar(toolbars, defaultToolbar),
 	    loadFilter	: function(data){
 	    	return data.obj;
 	    },
-	    toolbar		: [{
-	    	text	: '添加',
-			iconCls	: 'icon-add',
-			handler	: function(){
-				exports.crud.save({
-					title	: '添加',
-					editUrl	: url + '/edit',
-					saveUrl	: url + '/save',
-					width	: width,
-					height	: height
-				});
-			}
-	    },{
-	    	text	: '修改',
-	    	iconCls	: 'icon-edit',
-	    	handler	: function(){
-	    		exports.crud.edit({
-					title	: '修改',
-					editUrl	: url + '/edit',
-					saveUrl	: url + '/save',
-					width	: width,
-					height	: height
-				});
-			}
-		},{
-			text	: '删除',
-			iconCls	: 'icon-no',
-			handler	: function(){
-				exports.crud.del(url + '/del');
-			}
-		},{
-			text	: '搜索',
-			iconCls	: 'icon-search',
-			handler	: function(){
-				exports.crud.search({
-					title		: '搜索',
-					editUrl		: url + '/edit',
-					searchUrl	: url + '/save',
-					width		: width,
-					height		: height
-				});
-			}
-		}, '-', {
-			text	: '重置',
-			iconCls	: 'icon-reload',
-			handler	: function(){
-				exports.crud.reset();
-			}
-		}],
 		onLoadSuccess : function(){
 			$dg.datagrid('clearChecked');
 		}
 	});
 };
+
+// init toolbar
+function initToolbar(customToolbar, defaultToolbar){
+	if(customToolbar){
+		// add
+		if(customToolbar.add === false) defaultToolbar[0] = null;
+		if(customToolbar.add) defaultToolbar[0] = customToolbar.add;
+
+		// edit
+		if(customToolbar.edit === false) defaultToolbar[1] = null;
+		if(customToolbar.edit) defaultToolbar[1] = customToolbar.edit;
+
+		// del
+		if(customToolbar.del === false) defaultToolbar[2] = null;
+		if(customToolbar.del) defaultToolbar[2] = customToolbar.del;
+
+		// search
+		if(customToolbar.search === false) defaultToolbar[3] = null;
+		if(customToolbar.search) defaultToolbar[3] = customToolbar.search;
+
+		// reset
+		if(customToolbar.reset === false){
+			defaultToolbar[4] = null;
+			defaultToolbar[5] = null;
+		} 
+		if(customToolbar.reset) defaultToolbar[5] = customToolbar.reset;
+		
+		// others
+		if(customToolbar.others){
+			defaultToolbar.push('-');
+			defaultToolbar = defaultToolbar.concat(customToolbar.others);
+		}
+		
+		// filter
+		for(var i=0; i<defaultToolbar.length; i++){
+			if(!defaultToolbar[i]) defaultToolbar.splice(i, 1);
+		}
+	}
+	
+	return defaultToolbar;
+}
 
 /**
  * crud.edit
