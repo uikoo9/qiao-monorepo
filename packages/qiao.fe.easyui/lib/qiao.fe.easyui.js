@@ -377,7 +377,7 @@ exports.crud.save = function(options){
 					},
 					success:function(data){
 						if(!data) return;
-						
+
 						var json = JSON.parse(data);
 						if(json && json.type == 'success'){
 							$dialog.dialog('close');
@@ -426,19 +426,21 @@ exports.crud.del = function(url){
 	for(var i=0; i<rows.length; i++) ids.push(rows[i].id);
 	
 	// del
-	exports.ajax({
-		url : url,
-		data: {
-			ids : ids.join(',')
-		}
-	}, function(s){
-		if(s && s.type == 'success'){
-			exports.alert('删除数据成功！', function(){
-				$dg.datagrid('reload');
-			});
-		}else{
-			exports.alert('请求' + url + '失败！');
-		}
+	exports.confirm('确认删除选中的数据吗？', function(){
+		exports.ajax({
+			url : url,
+			data: {
+				ids : ids.join(',')
+			}
+		}, function(s){
+			if(s && s.type == 'success'){
+				exports.alert('删除数据成功！', function(){
+					$dg.datagrid('reload');
+				});
+			}else{
+				exports.alert('请求' + url + '失败！');
+			}
+		});
 	});
 };
 
