@@ -80,6 +80,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.0.8.20181219
+1. 删除数据时二次确认
+
 ## 0.0.7.20181217
 1. custom toolbar
 2. add confirm
