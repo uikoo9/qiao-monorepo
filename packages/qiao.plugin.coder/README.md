@@ -104,6 +104,9 @@ qcoder -h
 ```
 
 # version
+## 0.1.7.20181221
+1. modify err
+
 ## 0.1.6.20181217
 1. update 02 js template
 
