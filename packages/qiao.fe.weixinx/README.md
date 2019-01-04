@@ -376,6 +376,9 @@ console.log(flag);
 ```
 
 # version
+## 0.2.9.20190104
+1. modify console.log version
+
 ## 0.2.8.20181219
 1. add .v
 
