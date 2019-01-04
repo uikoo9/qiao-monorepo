@@ -1,29 +1,6 @@
-# urls
-## homepage
-[https://code.insistime.com/qiao.ext.weixin](https://code.insistime.com/qiao.ext.weixin)
-
-## github
-[https://github.com/insistime/qiao.ext.weixin](https://github.com/insistime/qiao.ext.weixin)
-
-## npm
-[https://www.npmjs.com/package/qiao.ext.weixin](https://www.npmjs.com/package/qiao.ext.weixin)
-
-# started
-## install
-npm install qiao.ext.weixin
-
-## dependencies
-1. request
-
-## documentation
-1. request, https://www.npmjs.com/package/request
-
-# api
-## send
-```javascript
 'use strict';
 
-var qiaoExtTxsms = require('qiao.ext.weixin');
+var qiaoExtTxsms = require('../lib/qiao.ext.weixin.js');
 
 var test = function(){
 	// 普通单条短信-简化
@@ -50,8 +27,3 @@ var test = function(){
 };
 
 test();
-```
-
-# version
-## 0.0.1.20190104
-1. init project

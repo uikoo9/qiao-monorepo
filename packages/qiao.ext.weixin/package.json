@@ -1,0 +1,27 @@
+{
+  "name": "qiao.ext.weixin",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "weixin sdk on nodejs",
+  "keywords": [
+    "weixin",
+    "server",
+    "sdk",
+    "weixin nodejs"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.ext.weixin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.ext.weixin.git"
+  }
+}
