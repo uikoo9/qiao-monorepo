@@ -97,3 +97,4 @@ test();
 3. add job method
 3. add run method 
 4. add runAndInit method
+5. nodejs timer tool
