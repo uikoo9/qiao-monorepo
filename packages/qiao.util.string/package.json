@@ -2,7 +2,7 @@
   "name": "qiao.util.string",
   "version": "0.0.2",
   "license": "MIT",
-  "description": "qiao.util.string",
+  "description": "nodejs string tool",
   "keywords": [
     "nodejs",
     "string",
