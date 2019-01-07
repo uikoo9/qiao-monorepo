@@ -2,7 +2,7 @@
   "name": "qiao.plugin.mysql",
   "version": "0.0.6",
   "license": "MIT",
-  "description": "mysql plugin on nodejs",
+  "description": "nodejs mysql plugin",
   "keywords": [
     "nodejs",
     "mysql",
