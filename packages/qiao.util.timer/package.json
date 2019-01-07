@@ -1,0 +1,26 @@
+{
+  "name": "qiao.util.timer",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "schedule on nodejs",
+  "keywords": [
+    "nodejs",
+    "schedule",
+    "cron"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "cron": "^1.6.0"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.util.timer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.util.timer.git"
+  }
+}
