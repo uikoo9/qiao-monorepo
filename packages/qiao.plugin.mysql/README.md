@@ -116,6 +116,9 @@ test();
 ```
 
 # version
+## 0.0.6.20190107
+1. nodejs mysql plugin
+
 ## 0.0.5.20181213
 1. add lib
 
