@@ -2,11 +2,10 @@
   "name": "qiao.fe.weixinx",
   "version": "0.3.6",
   "license": "MIT",
-  "description": "tools for wechat small program",
+  "description": "tools for weixin mini program",
   "keywords": [
-    "wechat",
     "weixin",
-    "small program",
+    "mini program",
     "xiaochengxu",
     "tools"
   ],
