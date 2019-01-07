@@ -2,7 +2,7 @@
   "name": "qiao.plugin.request",
   "version": "0.1.2",
   "license": "MIT",
-  "description": "http request on nodejs",
+  "description": "nodejs http request client",
   "keywords": [
     "nodejs",
     "http",
