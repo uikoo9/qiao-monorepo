@@ -376,6 +376,9 @@ console.log(flag);
 ```
 
 # version
+## 0.3.0.20190107
+1. tools for weixin mini program
+
 ## 0.2.9.20190104
 1. modify console.log version
 
