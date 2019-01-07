@@ -112,6 +112,10 @@ test();
 ```
 
 # version
+## 0.0.9.20190107
+1. modify desc
+2. update request@2.88.0
+
 ## 0.0.8.20181127
 1. modify method name
 2. add .js
