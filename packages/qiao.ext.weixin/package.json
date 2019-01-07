@@ -2,7 +2,7 @@
   "name": "qiao.ext.weixin",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "weixin sdk on nodejs",
+  "description": "nodejs weixin sdk",
   "keywords": [
     "weixin",
     "server",
