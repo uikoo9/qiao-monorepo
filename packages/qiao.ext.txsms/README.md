@@ -90,6 +90,9 @@ test();
 ```
 
 # version
+## 0.0.2.20190107
+1. nodejs tencent sms tool
+
 ## 0.0.1.20181127
 1. init project
 2. send
