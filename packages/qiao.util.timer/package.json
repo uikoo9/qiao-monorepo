@@ -2,7 +2,7 @@
   "name": "qiao.util.timer",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "schedule on nodejs",
+  "description": "nodejs timer tool",
   "keywords": [
     "nodejs",
     "schedule",
