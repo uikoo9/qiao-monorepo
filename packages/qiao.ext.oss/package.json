@@ -1,6 +1,6 @@
 {
   "name": "qiao.ext.oss",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "license": "MIT",
   "description": "ali oss upload tool on nodejs",
   "keywords": [

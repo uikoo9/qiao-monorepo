@@ -125,6 +125,10 @@ qoss folder	test		d:/test		-i
 ```
 
 # version
+## 0.1.7.20190107
+1. update ali-oss@6.1.0
+2. ali oss upload tool on nodejs
+
 ## 0.1.6.20181205
 1. qoss with qiao.plugin.cli
 2. update ali-oss@6.0.1
