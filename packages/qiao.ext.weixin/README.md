@@ -37,6 +37,9 @@ test();
 ```
 
 # version
+## 0.0.2.20190107
+1. nodejs weixin sdk
+
 ## 0.0.1.20190104
 1. init project
 2. access token
