@@ -95,5 +95,5 @@ test();
 1. init
 2. add cron method
 3. add job method
-3. add run method
+3. add run method 
 4. add runAndInit method
