@@ -11,11 +11,9 @@ var test = async function(){
 		path : 'views/ucenter-register/ucenter-register'
 	};
 	
-	// filePath
-	var filePath = 'd:/test.png';
-	
-	// mp code 1 file
-	qiaoExtWeixin.mpCode1File(accessToken, params, filePath);
+	// mp code 1 src
+	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params, 'jpg');
+	console.log(src);
 };
 
 test();

@@ -126,8 +126,59 @@ exports.webUserinfo = function(accessToken, openid){
 
 /**
  * mp code 1 file
+ * 	accessToken, https://developers.weixin.qq.com/miniprogram/dev/api/getAccessToken.html
+ * 	params, https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+ * 	filePath
  */
 exports.mpCode1File = async function(accessToken, params, filePath){
+	try{
+		// check file path
+		if(!filePath){
+			console.log('need file path');
+			return;
+		}
+		
+		// data
+		var data = await exports.mpCode1(accessToken, null, params);
+		if(!data) return;
+		
+		// write file
+		await fs.writeFileSync(filePath, data);
+		
+		// log
+		console.log('success');
+	}catch(e){
+		console.log(e);
+	}
+};
+
+/**
+ * mp code 1 src
+ * 	accessToken, https://developers.weixin.qq.com/miniprogram/dev/api/getAccessToken.html
+ * 	params, https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+ * 	fileType
+ */
+exports.mpCode1Src = async function(accessToken, params, fileType){
+	try{
+		// data
+		var data = await exports.mpCode1(accessToken, 'base64', params);
+		if(!data) return;
+		
+		// type
+		var type = fileType || 'png';
+		
+		// return
+		return 'data:image/' + type + ';base64,' + data;
+	}catch(e){
+		console.log(e);
+		return;
+	}
+};
+
+/**
+ * mp code 1
+ */
+exports.mpCode1 = async function(accessToken, encoding, params){
 	try{
 		// check access token
 		if(!accessToken){
@@ -141,29 +192,21 @@ exports.mpCode1File = async function(accessToken, params, filePath){
 			return;
 		}
 		
-		// check file path
-		if(!filePath){
-			console.log('need file path');
-			return;
-		}
-		
 		// url
 		var url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token=' + accessToken;
 		
 		// data
-		var data = await exports.mpCode(url, null, params);
+		var data = await exports.mpCode(url, encoding, params);
 		if(data.errcode){
 			console.log(data);
 			return;
 		}
 		
-		// write file
-		await fs.writeFileSync(filePath, data);
-		
-		// log
-		console.log('success');
+		// return
+		return data;
 	}catch(e){
 		console.log(e);
+		return;
 	}
 };
 
