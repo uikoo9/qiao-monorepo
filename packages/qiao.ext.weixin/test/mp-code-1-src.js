@@ -12,7 +12,8 @@ var test = async function(){
 	};
 	
 	// mp code 1 src
-	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params, 'jpg');
+	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params);
+//	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params, 'jpg');
 	console.log(src);
 };
 

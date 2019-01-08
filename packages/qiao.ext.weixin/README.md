@@ -36,6 +36,55 @@ var test = async function(){
 test();
 ```
 
+## mpCode1File
+```javascript
+'use strict';
+
+var qiaoExtWeixin = require('qiao.ext.weixin');
+
+var test = async function(){
+	// accessToken
+	var accessToken = '';
+	
+	// params
+	var params = {
+		path : 'views/ucenter-register/ucenter-register'
+	};
+	
+	// filePath
+	var filePath = 'd:/test.png';
+	
+	// mp code 1 file
+	qiaoExtWeixin.mpCode1File(accessToken, params, filePath);
+};
+
+test();
+```
+
+## mpCode1Src
+```javascript
+'use strict';
+
+var qiaoExtWeixin = require('qiao.ext.weixin');
+
+var test = async function(){
+	// accessToken
+	var accessToken = '';
+	
+	// params
+	var params = {
+		path : 'views/ucenter-register/ucenter-register'
+	};
+	
+	// mp code 1 src
+	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params);
+//	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params, 'jpg');
+	console.log(src);
+};
+
+test();
+```
+
 # version
 ## 0.0.2.20190107
 1. nodejs weixin sdk
