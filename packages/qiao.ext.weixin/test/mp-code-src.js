@@ -6,15 +6,18 @@ var test = async function(){
 	// accessToken
 	var accessToken = '17_0AzllqnmN-cnbXzzG07DCTGTiHKbDUARkE6db4WAAe_WDncKQNznPYYpKi_-HBSyvXdt7kUHNGzhcTWj1cKyNhyM_0AJtb5blBVi5Hja7rlVnSQI93GlmIpNlNjDw2J4CK7wr0LI4WDWb0lZXEEfAHAMTT';
 	
-	// params
-	var params = {
-		path : 'views/ucenter-register/ucenter-register'
-	};
+	// mp code src by api 1 : https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+	var src1 = await qiaoExtWeixin.mpCodeSrc(1, accessToken, {path:'views/ucenter-register/ucenter-register'});
+
+	// mp code src by api 2 : https://developers.weixin.qq.com/miniprogram/dev/api/getWXACodeUnlimit.html
+	var src2 = await qiaoExtWeixin.mpCodeSrc(2, accessToken, {page:'views/ucenter-register/ucenter-register', scene:'1'}, 'jpg');
 	
-	// mp code 1 src
-	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params);
-//	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params, 'jpg');
-	console.log(src);
+	// mp code src by api 3 : https://developers.weixin.qq.com/miniprogram/dev/api/createWXAQRCode.html
+	var src3 = await qiaoExtWeixin.mpCodeSrc(3, accessToken, {path:'views/ucenter-register/ucenter-register'}, 'png');
+	
+	console.log(src1);
+	console.log(src2);
+	console.log(src3);
 };
 
 test();

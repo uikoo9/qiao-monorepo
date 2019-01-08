@@ -36,7 +36,7 @@ var test = async function(){
 test();
 ```
 
-## mpCode1File
+## mpCodeFile
 ```javascript
 'use strict';
 
@@ -46,22 +46,20 @@ var test = async function(){
 	// accessToken
 	var accessToken = '';
 	
-	// params
-	var params = {
-		path : 'views/ucenter-register/ucenter-register'
-	};
+	// mp code file by api 1 : https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+	qiaoExtWeixin.mpCodeFile(1, accessToken, {path:'views/ucenter-register/ucenter-register'}, 'd:/test1.png');
+
+	// mp code file by api 2 : https://developers.weixin.qq.com/miniprogram/dev/api/getWXACodeUnlimit.html
+	qiaoExtWeixin.mpCodeFile(2, accessToken, {page:'views/ucenter-register/ucenter-register', scene:'1'}, 'd:/test2.png');
 	
-	// filePath
-	var filePath = 'd:/test.png';
-	
-	// mp code 1 file
-	qiaoExtWeixin.mpCode1File(accessToken, params, filePath);
+	// mp code file by api 3 : https://developers.weixin.qq.com/miniprogram/dev/api/createWXAQRCode.html
+	qiaoExtWeixin.mpCodeFile(3, accessToken, {path:'views/ucenter-register/ucenter-register'}, 'd:/test3.png');
 };
 
 test();
 ```
 
-## mpCode1Src
+## mpCodeSrc
 ```javascript
 'use strict';
 
@@ -71,15 +69,18 @@ var test = async function(){
 	// accessToken
 	var accessToken = '';
 	
-	// params
-	var params = {
-		path : 'views/ucenter-register/ucenter-register'
-	};
+	// mp code src by api 1 : https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+	var src1 = await qiaoExtWeixin.mpCodeSrc(1, accessToken, {path:'views/ucenter-register/ucenter-register'});
+
+	// mp code src by api 2 : https://developers.weixin.qq.com/miniprogram/dev/api/getWXACodeUnlimit.html
+	var src2 = await qiaoExtWeixin.mpCodeSrc(2, accessToken, {page:'views/ucenter-register/ucenter-register', scene:'1'}, 'jpg');
 	
-	// mp code 1 src
-	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params);
-//	var src = await qiaoExtWeixin.mpCode1Src(accessToken, params, 'jpg');
-	console.log(src);
+	// mp code src by api 3 : https://developers.weixin.qq.com/miniprogram/dev/api/createWXAQRCode.html
+	var src3 = await qiaoExtWeixin.mpCodeSrc(3, accessToken, {path:'views/ucenter-register/ucenter-register'}, 'png');
+	
+	console.log(src1);
+	console.log(src2);
+	console.log(src3);
 };
 
 test();
