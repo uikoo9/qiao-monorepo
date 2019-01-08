@@ -8,15 +8,13 @@ var test = async function(){
 	
 	// params
 	var params = {
-		page : 'views/ucenter-register/ucenter-register',
-		scene: '1'
+		path : 'views/ucenter-register/ucenter-register'
 	};
 	
-	// filePath
-	var filePath = 'd:/test.png';
-	
-	// mp code 2 file
-	qiaoExtWeixin.mpCode2File(accessToken, params, filePath);
+	// mp code 3 src
+	var src = await qiaoExtWeixin.mpCode3Src(accessToken, params);
+//	var src = await qiaoExtWeixin.mpCode3Src(accessToken, params, 'jpg');
+	console.log(src);
 };
 
 test();
