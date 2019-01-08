@@ -1,3 +1,4 @@
+var fs		= require('fs');
 var request = require('request');
 var crypto 	= require('crypto');
 
@@ -119,6 +120,69 @@ exports.webUserinfo = function(accessToken, openid){
 		var url = 'https://api.weixin.qq.com/sns/userinfo?access_token=' + accessToken + '&openid=' + openid + '&lang=zh_CN';
 		request.get(url, function(err, response, body){
 			resolve(err ? null : JSON.parse(body));
+		});
+	});
+};
+
+/**
+ * mp code 1 file
+ */
+exports.mpCode1File = async function(accessToken, params, filePath){
+	try{
+		// check access token
+		if(!accessToken){
+			console.log('need accessToken!');
+			return;
+		}
+		
+		// check params
+		if(!params || !params.path){
+			console.log('need params, params.path!');
+			return;
+		}
+		
+		// check file path
+		if(!filePath){
+			console.log('need file path');
+			return;
+		}
+		
+		// url
+		var url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token=' + accessToken;
+		
+		// data
+		var data = await exports.mpCode(url, null, params);
+		if(data.errcode){
+			console.log(data);
+			return;
+		}
+		
+		// write file
+		await fs.writeFileSync(filePath, data);
+		
+		// log
+		console.log('success');
+	}catch(e){
+		console.log(e);
+	}
+};
+
+/**
+ * mp code
+ * 	url
+ * 	encoding
+ * 	data
+ */
+exports.mpCode = function(url, encoding, data){
+	var options = {
+		url 		: url,
+		encoding	: encoding,
+		json		: data
+	};
+	
+	return new Promise(function(resolve, reject){
+		request.post(options, function(err, response, body){
+			return err ? reject(err) : resolve(body);
 		});
 	});
 };
