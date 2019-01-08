@@ -86,110 +86,11 @@ var test = async function(){
 test();
 ```
 
-## mpCode2File
-```javascript
-'use strict';
-
-var qiaoExtWeixin = require('qiao.ext.weixin');
-
-var test = async function(){
-	// accessToken
-	var accessToken = '';
-	
-	// params
-	var params = {
-		page : 'views/ucenter-register/ucenter-register',
-		scene: '1'
-	};
-	
-	// filePath
-	var filePath = 'd:/test.png';
-	
-	// mp code 1 file
-	qiaoExtWeixin.mpCode2File(accessToken, params, filePath);
-};
-
-test();
-```
-
-## mpCode1Src
-```javascript
-'use strict';
-
-var qiaoExtWeixin = require('qiao.ext.weixin');
-
-var test = async function(){
-	// accessToken
-	var accessToken = '';
-	
-	// params
-	var params = {
-		page : 'views/ucenter-register/ucenter-register',
-		scene: '1'
-	};
-	
-	// mp code 2 src
-	var src = await qiaoExtWeixin.mpCode2Src(accessToken, params);
-//	var src = await qiaoExtWeixin.mpCode2Src(accessToken, params, 'jpg');
-	console.log(src);
-};
-
-test();
-```
-
-## mpCode3File
-```javascript
-'use strict';
-
-var qiaoExtWeixin = require('qiao.ext.weixin');
-
-var test = async function(){
-	// accessToken
-	var accessToken = '';
-	
-	// params
-	var params = {
-		path : 'views/ucenter-register/ucenter-register'
-	};
-	
-	// filePath
-	var filePath = 'd:/test.png';
-	
-	// mp code 3 file
-	qiaoExtWeixin.mpCode3File(accessToken, params, filePath);
-};
-
-test();
-```
-
-## mpCode3Src
-```javascript
-'use strict';
-
-var qiaoExtWeixin = require('qiao.ext.weixin');
-
-var test = async function(){
-	// accessToken
-	var accessToken = '';
-	
-	// params
-	var params = {
-		path : 'views/ucenter-register/ucenter-register'
-	};
-	
-	// mp code 3 src
-	var src = await qiaoExtWeixin.mpCode3Src(accessToken, params);
-//	var src = await qiaoExtWeixin.mpCode3Src(accessToken, params, 'jpg');
-	console.log(src);
-};
-
-test();
-```
-
 # version
 ## 0.0.3.20190108
 1. 接口1生成文件
 2. 接口1生成src
+3. 接口1-3生成文件或者返回src
 
 ## 0.0.2.20190107
 1. nodejs weixin sdk
