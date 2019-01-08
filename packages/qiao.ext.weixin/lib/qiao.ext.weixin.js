@@ -211,6 +211,92 @@ exports.mpCode1 = async function(accessToken, encoding, params){
 };
 
 /**
+ * mp code 2 file
+ * 	accessToken, https://developers.weixin.qq.com/miniprogram/dev/api/getAccessToken.html
+ * 	params, https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+ * 	filePath
+ */
+exports.mpCode2File = async function(accessToken, params, filePath){
+	try{
+		// check file path
+		if(!filePath){
+			console.log('need file path');
+			return;
+		}
+		
+		// data
+		var data = await exports.mpCode2(accessToken, null, params);
+		if(!data) return;
+		
+		// write file
+		await fs.writeFileSync(filePath, data);
+		
+		// log
+		console.log('success');
+	}catch(e){
+		console.log(e);
+	}
+};
+
+/**
+ * mp code 2 src
+ * 	accessToken, https://developers.weixin.qq.com/miniprogram/dev/api/getAccessToken.html
+ * 	params, https://developers.weixin.qq.com/miniprogram/dev/api/getWXACode.html
+ * 	fileType
+ */
+exports.mpCode2Src = async function(accessToken, params, fileType){
+	try{
+		// data
+		var data = await exports.mpCode2(accessToken, 'base64', params);
+		if(!data) return;
+		
+		// type
+		var type = fileType || 'png';
+		
+		// return
+		return 'data:image/' + type + ';base64,' + data;
+	}catch(e){
+		console.log(e);
+		return;
+	}
+};
+
+/**
+ * mp code 2
+ */
+exports.mpCode2 = async function(accessToken, encoding, params){
+	try{
+		// check access token
+		if(!accessToken){
+			console.log('need accessToken!');
+			return;
+		}
+		
+		// check params
+		if(!params || !params.scene){
+			console.log('need params, params.scene!');
+			return;
+		}
+		
+		// url
+		var url = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=' + accessToken;
+		
+		// data
+		var data = await exports.mpCode(url, encoding, params);
+		if(data.errcode){
+			console.log(data);
+			return;
+		}
+		
+		// return
+		return data;
+	}catch(e){
+		console.log(e);
+		return;
+	}
+};
+
+/**
  * mp code
  * 	url
  * 	encoding

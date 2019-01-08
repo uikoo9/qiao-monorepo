@@ -85,6 +85,32 @@ var test = async function(){
 test();
 ```
 
+## mpCode2File
+```javascript
+'use strict';
+
+var qiaoExtWeixin = require('qiao.ext.weixin');
+
+var test = async function(){
+	// accessToken
+	var accessToken = '';
+	
+	// params
+	var params = {
+		page : 'views/ucenter-register/ucenter-register',
+		scene: '1'
+	};
+	
+	// filePath
+	var filePath = 'd:/test.png';
+	
+	// mp code 1 file
+	qiaoExtWeixin.mpCode2File(accessToken, params, filePath);
+};
+
+test();
+```
+
 # version
 ## 0.0.3.20190108
 1. 接口1生成文件
