@@ -7,16 +7,6 @@ var qiao = {};
 qiao.cli = require('qiao.plugin.cli');
 qiao.oss = require('../lib/qiao.ext.oss.js');
 
-// client
-var client;
-try{
-	client = qiao.oss.client(require(process.cwd() + '/config.json'));
-}catch(e){
-	console.log('you need put config.json into this path');
-	
-	return;
-}
-
 // cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
@@ -39,6 +29,17 @@ qiao.cli.cmd.parse(process.argv);
 
 // upload file
 async function uploadFile(filePath, bucketPath){
+	// client
+	var client;
+	try{
+		client = qiao.oss.client(require(process.cwd() + '/config.json'));
+	}catch(e){
+		console.log('you need put config.json into this path');
+		
+		return;
+	}
+
+	// upload
 	try{
 		console.log("upload file " + filePath + " to oss bucket's " + bucketPath);
 		console.log();
@@ -64,6 +65,17 @@ async function uploadFile(filePath, bucketPath){
 
 // upload folder
 async function uploadFolder(folderPath, bucketPath, options){
+	// client
+	var client;
+	try{
+		client = qiao.oss.client(require(process.cwd() + '/config.json'));
+	}catch(e){
+		console.log('you need put config.json into this path');
+		
+		return;
+	}
+	
+	// upload
 	try{
 		console.log("upload folder " + folderPath + " to oss bucket's " + bucketPath);
 		console.log();
