@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "ali-oss": "^6.1.0",
-    "qiao.plugin.cli": "0.0.5"
+    "qiao.plugin.cli": "0.0.6"
   },
   "author": {
     "name": "qiaowenbin",
