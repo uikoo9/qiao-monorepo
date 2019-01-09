@@ -118,13 +118,25 @@ npm install -g qiao.ext.oss
 and put config.json file into your-path
 cd your-path
 
-qoss -h
-
 qoss file 	test/test.js	d:/test.js	
 qoss folder	test		d:/test		-i
+
+or
+
+qoss fi 	test/test.js	d:/test.js	
+qoss fo		test		d:/test		-i
+
+or
+
+qoss | qoss -h for help
 ```
 
 # version
+## 0.1.8.20190109
+1. update qiao.plugin.cli@0.0.6
+2. 调整qoss中client的判断时机
+3. output help
+
 ## 0.1.7.20190107
 1. update ali-oss@6.1.0
 2. ali oss upload tool on nodejs
