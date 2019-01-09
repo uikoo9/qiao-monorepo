@@ -10,22 +10,33 @@ qiao.oss = require('../lib/qiao.ext.oss.js');
 // cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
-	.description('qiao.ext.oss, oss upload tool')
+	.description('qiao.ext.oss, ali oss upload tool on nodejs')
 	.usage('<command> [options]');
 
 // cmd for file
 qiao.cli.cmd
 	.command('file <filePath> <bucketPath>')
+	.alias('fi')
+	.description('upload file to ali oss bucket')
 	.action(uploadFile);
 
 // cmd for folder
 qiao.cli.cmd
 	.command('folder <folderPath> <bucketPath>')
+	.alias('fo')
+	.description('upload folder to ali oss bucket')
 	.option('-i, --info', 'show upload info')
 	.action(uploadFolder);
 
 // parse
 qiao.cli.cmd.parse(process.argv);
+
+// output help
+if(!process.argv.slice(2).length){
+	qiao.cli.cmd.outputHelp(function(txt){
+		return qiao.cli.colors.green(txt);
+	});
+}
 
 // upload file
 async function uploadFile(filePath, bucketPath){
