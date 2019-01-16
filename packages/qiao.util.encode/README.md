@@ -219,6 +219,9 @@ console.log(ss1);
 ```
 
 # version
+## 0.0.6.20190116
+1. add md5
+
 ## 0.0.5.20181128
 1. add random
 
