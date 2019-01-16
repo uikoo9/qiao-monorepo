@@ -3,6 +3,15 @@
 var crypto = require('crypto');
 
 /**
+ * md5
+ * 	data
+ * 	encoding	base64 or hex
+ */
+exports.md5 = function(data, encoding){
+	return crypto.createHash('md5').update(data).digest(encoding || 'base64');
+};
+
+/**
  * uuid
  * 	type	1,3,4,5,default:4
  */

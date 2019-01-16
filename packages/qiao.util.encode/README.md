@@ -13,6 +13,21 @@
 npm install qiao.util.encode
 
 # api
+## md5
+```javascript
+'use strict';
+
+var qiaoUtilEncode = require('qiao.util.encode');
+
+var data 	= '{"nihao":"name"}';
+var s		= qiaoUtilEncode.md5(data);
+console.log(s);
+
+// or use encoding, hex or base64
+var ss		= qiaoUtilEncode.md5(data, 'hex');
+console.log(ss);
+```
+
 ## uuid
 ```javascript
 'use strict';
@@ -169,16 +184,14 @@ console.log(s);
 var ss		= qiaoUtilEncode.AESDecrypt(s, key);
 console.log(ss);
 
-// or use iv and encoding
-var data 	= '{"nihao":"name"}';
-var key		= '12345612345612345612345612345611';
+// or use iv and encoding(hex, base64)
 var iv		= '';
 var encoding= 'hex';
-var s		= qiaoUtilEncode.AESEncrypt(data, key, iv, encoding);
-console.log(s);
+var s1		= qiaoUtilEncode.AESEncrypt(data, key, iv, encoding);
+console.log(s1);
 
-var ss		= qiaoUtilEncode.AESDecrypt(s, key, iv, encoding);
-console.log(ss);
+var ss1		= qiaoUtilEncode.AESDecrypt(s1, key, iv, encoding);
+console.log(ss1);
 ```
 
 ## 3des
@@ -195,16 +208,14 @@ console.log(s);
 var ss		= qiaoUtilEncode.TDESDecrypt(s, key);
 console.log(ss);
 
-// or use iv and encoding
-var data 	= '{"nihao":"name"}';
-var key		= '123456123456123456112233';
+// or use iv and encoding(hex, base64)
 var iv		= '';
 var encoding= 'hex';
-var s		= qiaoUtilEncode.TDESEncrypt(data, key, iv, encoding);
-console.log(s);
+var s1		= qiaoUtilEncode.TDESEncrypt(data, key, iv, encoding);
+console.log(s1);
 
-var ss		= qiaoUtilEncode.TDESDecrypt(s, key, iv, encoding);
-console.log(ss);
+var ss1		= qiaoUtilEncode.TDESDecrypt(s1, key, iv, encoding);
+console.log(ss1);
 ```
 
 # version

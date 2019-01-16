@@ -10,7 +10,8 @@
     "aes",
     "3des",
     "uuid",
-    "random"
+    "random",
+    "md5"
   ],
   "main": "index.js",
   "scripts": {},
