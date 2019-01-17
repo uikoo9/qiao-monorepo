@@ -66,8 +66,9 @@ exports.download = function(url, path){
 				return;
 			}
 			
-			request(url).pipe(fs.createWriteStream(path));
-			resolve();
+			request(url).pipe(fs.createWriteStream(path).on('finish', function(){
+				resolve();
+			}));
 		});
 	});
 };
