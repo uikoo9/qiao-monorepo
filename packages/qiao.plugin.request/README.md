@@ -134,6 +134,7 @@ test();
 # version
 ## 0.1.0.20190117
 1. add download
+2. donwload finish
 
 ## 0.0.9.20190107
 1. modify desc
