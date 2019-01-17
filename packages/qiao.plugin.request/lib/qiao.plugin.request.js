@@ -1,5 +1,6 @@
 'use strict';
 
+var fs		= require('fs');
 var request = require('request');
 
 /**
@@ -44,6 +45,29 @@ exports.postSync = function(options){
 	return new Promise(function(resolve, reject){
 		request.post(options, function(err, rs, body){
 			return err ? reject(err) : resolve(body);
+		});
+	});
+};
+
+/**
+ * download
+ * 	url
+ * 	path
+ */
+exports.download = function(url, path){
+	return new Promise(function(resolve, reject){
+		request.head(url, function(err, rs, body){
+			if(err){
+				reject(err);
+				return;
+			}
+			if(rs.statusCode != 200){
+				reject('status code not 200');
+				return;
+			}
+			
+			request(url).pipe(fs.createWriteStream(path));
+			resolve();
 		});
 	});
 };
