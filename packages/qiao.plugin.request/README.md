@@ -111,7 +111,30 @@ var test = function(){
 test();
 ```
 
+## download
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var url 	= 'https://www.baidu.com/img/bd_logo1.png';
+		var path	= 'd:/test.png';
+		
+		await qiaoPluginRequest.download(url, path);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 # version
+## 0.1.0.20190117
+1. add download
+
 ## 0.0.9.20190107
 1. modify desc
 2. update request@2.88.0
