@@ -49,7 +49,7 @@ exports.{{className2}}List = async function(req, res){
 		var result = {};
 		result.total 		= rs[0]['tcount'];
 		result.rows 		= rows;
-		result.sumpage 		= Math.ceil(result.count / pagesize);
+		result.sumpage 		= Math.ceil(result.total / pagesize);
 		result.pagenumber 	= pagenumber;
 		result.pagesize		= pagesize;
 		
