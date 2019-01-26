@@ -80,6 +80,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.0.9.20190126
+1. add options.pageList
+
 ## 0.0.8.20181219
 1. 删除数据时二次确认
 
