@@ -165,6 +165,7 @@ exports.crud.init = function(options){
 	var height 	= options.height || 200;
 	var data 	= options.data || {};
 	var toolbars= options.toolbars;
+	var pageList= options.pageList || [10, 50, 100];
 	
 	// check
 	if(!url || !cols){
@@ -241,8 +242,8 @@ exports.crud.init = function(options){
 	    pagination	: true,
 	    rownumbers	: true,
 	    pageNumber	: 1,
-	    pageSize	: 10,
-	    pageList	: [10,50,100],
+	    pageSize	: pageList[0],
+	    pageList	: pageList,
 	    columns 	: cols,
 	    toolbar		: initToolbar(toolbars, defaultToolbar),
 	    loadFilter	: function(data){
