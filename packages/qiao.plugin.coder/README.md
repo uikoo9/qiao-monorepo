@@ -104,6 +104,10 @@ qcoder -h
 ```
 
 # version
+## 0.1.8.20190127
+1. result.count --> result.total
+2. modify 02 service options
+
 ## 0.1.7.20181221
 1. modify err
 
