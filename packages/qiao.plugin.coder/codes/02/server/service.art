@@ -42,18 +42,12 @@ exports.{{className2}}Edit = async function(req, res){
 	
 	// options
 	var options = {
-		url : qiao.config.url.host + qiao.config.url.{{className2}}Get
+		url 	: qiao.config.url.host + qiao.config.url.{{className2}}Get,
+		headers	: {
+			userid 		: req.cookies['express_userid'],
+			usertoken	: req.cookies['express_usertoken']
+		}
 	};
-	
-	// headers
-	var userid		= req.cookies['express_userid'];
-	var usertoken	= req.cookies['express_usertoken'];
-	if(userid && usertoken){
-		options.headers = {
-			userid 		: userid,
-			usertoken	: usertoken
-		};
-	}
 	
 	// request
 	try{
