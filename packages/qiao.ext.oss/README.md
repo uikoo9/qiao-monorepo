@@ -15,9 +15,9 @@ npm install qiao.ext.oss
 ## config.json
 ```json
 {
-	"region"		: "your region",
 	"accessKeyId"		: "your access key id",
 	"accessKeySecret"	: "your access secret",
+	"region"		: "your region",
 	"bucket"		: "your bucket"
 }
 ```
@@ -28,7 +28,7 @@ npm install qiao.ext.oss
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -54,7 +54,7 @@ test();
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload folder
@@ -80,7 +80,7 @@ test();
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -98,7 +98,7 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload folder
@@ -132,6 +132,9 @@ qoss | qoss -h for help
 ```
 
 # version
+## 0.1.9.20190127
+1. del test/config.json
+
 ## 0.1.8.20190109
 1. update qiao.plugin.cli@0.0.6
 2. 调整qoss中client的判断时机
