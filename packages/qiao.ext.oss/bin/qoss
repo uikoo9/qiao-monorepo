@@ -15,14 +15,14 @@ qiao.cli.cmd
 
 // cmd for file
 qiao.cli.cmd
-	.command('file <filePath> <bucketPath>')
+	.command('file <configPath> <filePath> <bucketPath>')
 	.alias('fi')
 	.description('upload file to ali oss bucket')
 	.action(uploadFile);
 
 // cmd for folder
 qiao.cli.cmd
-	.command('folder <folderPath> <bucketPath>')
+	.command('folder <configPath> <folderPath> <bucketPath>')
 	.alias('fo')
 	.description('upload folder to ali oss bucket')
 	.option('-i, --info', 'show upload info')
@@ -39,33 +39,15 @@ if(!process.argv.slice(2).length){
 }
 
 // upload file
-async function uploadFile(filePath, bucketPath){
-	// client
-	var client;
+async function uploadFile(configPath, filePath, bucketPath){
 	try{
-		client = qiao.oss.client(require(process.cwd() + '/config.json'));
-	}catch(e){
-		console.log('you need put config.json into this path');
+		var client 	= qiao.oss.client(require(configPath));
+		var rs 		= await qiao.oss.uploadFileSync(client, bucketPath, filePath);
 		
-		return;
-	}
+		console.log('upload file to alioss success!');
+		console.log();
 
-	// upload
-	try{
-		console.log("upload file " + filePath + " to oss bucket's " + bucketPath);
-		console.log();
-		
-		console.log('please wait a moment...');
-		console.log();
-		
-		console.time('total use');
-		var rs = await qiao.oss.uploadFileSync(client, bucketPath, filePath);
-		
-		console.log('upload success, url is:');
-		console.log('	' + rs.url);
-		console.log();
-		
-		console.timeEnd('total use');
+		console.log(rs);
 	}catch(e){
 		console.log('upload file to alioss fail!');
 		console.log();
@@ -75,33 +57,12 @@ async function uploadFile(filePath, bucketPath){
 }
 
 // upload folder
-async function uploadFolder(folderPath, bucketPath, options){
-	// client
-	var client;
+async function uploadFolder(configPath, folderPath, bucketPath, options){
 	try{
-		client = qiao.oss.client(require(process.cwd() + '/config.json'));
-	}catch(e){
-		console.log('you need put config.json into this path');
+		var client 	= qiao.oss.client(require(configPath));
+		var rs 		= await qiao.oss.uploadFolderSync(client, bucketPath, folderPath);
 		
-		return;
-	}
-	
-	// upload
-	try{
-		console.log("upload folder " + folderPath + " to oss bucket's " + bucketPath);
-		console.log();
-		
-		console.log('please wait a moment...');
-		console.log();
-		
-		console.time('total use');
-		var rs = await qiao.oss.uploadFolderSync(client, bucketPath, folderPath);
-		
-		console.log('	upload ' + rs.suc.length + ' files successfully!');
-		console.log('	upload ' + rs.fail.length + ' files failed!');
-		console.log();
-
-		console.timeEnd('total use');
+		console.log('upload folder to alioss success!');
 		console.log();
 		
 		if(options.info) console.log(rs);

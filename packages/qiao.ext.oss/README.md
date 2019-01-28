@@ -128,16 +128,13 @@ test();
 ```shell
 npm install -g qiao.ext.oss
 
-and put config.json file into your-path
-cd your-path
-
-qoss file 	test/test.js	d:/test.js	
-qoss folder	test		d:/test		-i
+qoss file 	z:/workspaces/qiao.ext.oss/test/config.json 	d:/test.js	test.js	
+qoss folder	z:/workspaces/qiao.ext.oss/test/config.json 	d:/test/cocos	test9 	-i
 
 or
 
-qoss fi 	test/test.js	d:/test.js	
-qoss fo		test		d:/test		-i
+qoss fi 	z:/workspaces/qiao.ext.oss/test/config.json 	d:/test.js 	test.js	
+qoss fo		z:/workspaces/qiao.ext.oss/test/config.json 	d:/test/cocos 	test9 	-i
 
 or
 
