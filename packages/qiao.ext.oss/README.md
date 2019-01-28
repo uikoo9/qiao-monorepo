@@ -52,8 +52,8 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtOss 	= require('qiao.ext.oss');
+var client		= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload folder
@@ -61,11 +61,11 @@ var client	= qiaoExtOss.client(require('../bin/config.json'));
  */
 var test = async function(){
 	try{
-		var rs1 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
-		console.log(rs1);
-
-		var rs2 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
-		console.log(rs2);
+		var destPath		= 'test';
+		var sourceFolder	= 'd:/test/cocos';
+		
+		var rs = await qiaoExtOss.uploadFolderSync(client, destPath, sourceFolder);
+		console.log(rs);
 	}catch(e){
 		console.log(e);
 	}
