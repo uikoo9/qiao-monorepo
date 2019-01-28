@@ -24,11 +24,10 @@ npm install qiao.ext.oss
 
 # api
 ## uploadFileSync
-```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtOss 	= require('qiao.ext.oss');
+var client		= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -36,11 +35,11 @@ var client	= qiaoExtOss.client(require('../bin/config.json'));
  */
 var test = async function(){
 	try{
-		var rs1 = await qiaoExtOss.uploadFileSync(client, 'test/test.js', 'd:/test.js');
-		console.log(rs1);
-
-		var rs2 = await qiaoExtOss.uploadFileSync(client, 'test/test.js', 'd:/test.js');
-		console.log(rs2);
+		var destPath	= 'test/test.js';
+		var sourceFile 	= 'd:/test.js';
+		
+		var rs = await qiaoExtOss.uploadFileSync(client, destPath, sourceFile);
+		console.log(rs);
 	}catch(e){
 		console.log(e);
 	}
@@ -79,18 +78,25 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtOss 	= require('qiao.ext.oss');
+var client		= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
-qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
-	if(err) throw err;
+var test = function(){
+	var destPath	= 'test/test.js';
+	var sourceFile 	= 'd:/test.js';
 	
-	console.log(rs);
-});
+	qiaoExtOss.uploadFile(client, destPath, sourceFile, function(err, rs){
+		if(err) throw err;
+		
+		console.log(rs);
+	});
+};
+
+test();
 ```
 
 ## uploadFolder
