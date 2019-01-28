@@ -1,7 +1,7 @@
 'use strict';
 
+// oss
 var co	= require('co');
-var fs	= require('fs');
 var OSS = require('ali-oss');
 
 // qiao
@@ -102,7 +102,7 @@ exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
 
 			for(var i=0; i<files.length; i++){
 				var file 	= files[i].path + files[i].name;
-				var dest 	= destFolder + path.substr(sourceFolder.length);
+				var dest 	= destFolder + file.substr(sourceFolder.length);
 				var result 	= yield client.put(dest, file);
 				
 				allFiles.push(result);
