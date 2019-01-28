@@ -24,10 +24,11 @@ npm install qiao.ext.oss
 
 # api
 ## uploadFileSync
+```javascript
 'use strict';
 
 var qiaoExtOss 	= require('qiao.ext.oss');
-var client		= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -53,7 +54,7 @@ test();
 'use strict';
 
 var qiaoExtOss 	= require('qiao.ext.oss');
-var client		= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload folder
@@ -79,7 +80,7 @@ test();
 'use strict';
 
 var qiaoExtOss 	= require('qiao.ext.oss');
-var client		= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -104,7 +105,7 @@ test();
 'use strict';
 
 var qiaoExtOss 	= require('qiao.ext.oss');
-var client		= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('./config.json'));
 
 /**
  * upload folder
@@ -142,6 +143,9 @@ qoss | qoss -h for help
 ```
 
 # version
+## 0.2.0.20190128
+1. 代码优化
+
 ## 0.1.9.20190127
 1. del test/config.json
 
