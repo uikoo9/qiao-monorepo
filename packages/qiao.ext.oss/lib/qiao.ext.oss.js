@@ -4,6 +4,11 @@ var co	= require('co');
 var fs	= require('fs');
 var OSS = require('ali-oss');
 
+// qiao
+var qiao 	= {};
+qiao.cli	= require('qiao.plugin.cli');
+qiao.file	= require('qiao.util.file');
+
 /**
  * client
  * 获取client对象
@@ -85,27 +90,29 @@ exports.uploadFileSync = function(client, dest, source){
  */
 exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
 	try{
-		var paths = [];
-		getPathsFromFolder(sourceFolder, paths);
-		console.log('begin upload ' + paths.length + ' files');
+		var paths 	= qiao.file.lsdir(sourceFolder + '/');
+		var files 	= paths.files;
+		var bar 	= new qiao.cli.progress('uploading files... :current/:total', { total: files.length });
 		
 		var allFiles = [];
 		var sucFiles = [];
 		var failFiles= [];
-		
 		co(function* () {
-			for(var i=0; i<paths.length; i++){
-				var path = paths[i];
-				var dest = destFolder + path.substr(sourceFolder.length);
-				
-				var result = yield client.put(dest, path);
-				allFiles.push(result);
+			console.time('total use');
 
+			for(var i=0; i<files.length; i++){
+				var file 	= files[i].path + files[i].name;
+				var dest 	= destFolder + path.substr(sourceFolder.length);
+				var result 	= yield client.put(dest, file);
+				
+				allFiles.push(result);
 				if(result && result.res && result.res.status == 200){
 					sucFiles.push(result);
 				}else{
 					failFiles.push(result);
 				}
+				
+				bar.tick();
 			}
 			
 			var obj = {};
@@ -113,6 +120,10 @@ exports.uploadFolder = function(client, destFolder, sourceFolder, cb){
 			obj.all		= allFiles;
 			obj.suc		= sucFiles;
 			obj.fail	= failFiles;
+			
+			console.log();
+			console.timeEnd('total use');
+			console.log();
 			
 			if(cb) cb(null, obj);
 		}).catch(function (err) {
@@ -139,18 +150,3 @@ exports.uploadFolderSync = function(client, destFolder, sourceFolder){
 		});
 	});
 };
-
-// get paths from folder
-function getPathsFromFolder(root, list){
-	var paths = fs.readdirSync(root);
-	
-	for(var i=0; i<paths.length; i++){
-		var path = root + '/'  + paths[i];
-
-		if(fs.statSync(path).isDirectory()){
-			getPathsFromFolder(path, list);
-		}else{
-			list.push(path);
-		}
-	}
-}
