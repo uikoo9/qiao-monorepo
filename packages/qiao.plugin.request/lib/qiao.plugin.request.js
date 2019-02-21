@@ -1,7 +1,11 @@
 'use strict';
 
-var fs		= require('fs');
-var request = require('request');
+var fs = require('fs');
+
+/**
+ * reuqest
+ */
+exports.request = require('request');
 
 /**
  * get
@@ -9,7 +13,7 @@ var request = require('request');
  * 	callback
  */
 exports.get = function(options, callback){
-	request.get(options, function(err, rs, body){
+	exports.request.get(options, function(err, rs, body){
 		if(callback) callback(err, rs, body);
 	});
 };
@@ -20,7 +24,7 @@ exports.get = function(options, callback){
  */
 exports.getSync = function(options){
 	return new Promise(function(resolve, reject){
-		request.get(options, function(err, rs, body){
+		exports.request.get(options, function(err, rs, body){
 			return err ? reject(err) : resolve(body);
 		});
 	});
@@ -32,7 +36,7 @@ exports.getSync = function(options){
  * 	callback
  */
 exports.post = function(options, callback){
-	request.post(options, function(err, rs, body){
+	exports.request.post(options, function(err, rs, body){
 		if(callback) callback(err, rs, body);
 	});
 };
@@ -43,7 +47,30 @@ exports.post = function(options, callback){
  */
 exports.postSync = function(options){
 	return new Promise(function(resolve, reject){
-		request.post(options, function(err, rs, body){
+		exports.request.post(options, function(err, rs, body){
+			return err ? reject(err) : resolve(body);
+		});
+	});
+};
+
+/**
+ * put
+ * 	options,https://www.npmjs.com/package/request
+ * 	callback
+ */
+exports.put = function(options, callback){
+	exports.request.put(options, function(err, rs, body){
+		if(callback) callback(err, rs, body);
+	});
+};
+
+/**
+ * put sync
+ * 	options,https://www.npmjs.com/package/request
+ */
+exports.putSync = function(options){
+	return new Promise(function(resolve, reject){
+		exports.request.put(options, function(err, rs, body){
 			return err ? reject(err) : resolve(body);
 		});
 	});
@@ -56,7 +83,7 @@ exports.postSync = function(options){
  */
 exports.download = function(url, path){
 	return new Promise(function(resolve, reject){
-		request.head(url, function(err, rs, body){
+		exports.request.head(url, function(err, rs, body){
 			if(err){
 				reject(err);
 				return;
@@ -66,7 +93,7 @@ exports.download = function(url, path){
 				return;
 			}
 			
-			request(url).pipe(fs.createWriteStream(path).on('finish', function(){
+			exports.request(url).pipe(fs.createWriteStream(path).on('finish', function(){
 				resolve();
 			}));
 		});
