@@ -77,6 +77,29 @@ exports.putSync = function(options){
 };
 
 /**
+ * patch
+ * 	options,https://www.npmjs.com/package/request
+ * 	callback
+ */
+exports.patch = function(options, callback){
+	exports.request.patch(options, function(err, rs, body){
+		if(callback) callback(err, rs, body);
+	});
+};
+
+/**
+ * patch sync
+ * 	options,https://www.npmjs.com/package/request
+ */
+exports.patchSync = function(options){
+	return new Promise(function(resolve, reject){
+		exports.request.patch(options, function(err, rs, body){
+			return err ? reject(err) : resolve(body);
+		});
+	});
+};
+
+/**
  * download
  * 	url
  * 	path

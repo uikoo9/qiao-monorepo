@@ -69,6 +69,50 @@ var test = async function(){
 test();
 ```
 
+## putSync
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var url = 'http://10.33.12.68:8002/put';
+		var res = await qiaoPluginRequest.putSync({
+			url	: url
+		});
+		
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
+## patchSync
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var url = 'http://10.33.12.68:8002/patch';
+		var res = await qiaoPluginRequest.patchSync({
+			url	: url
+		});
+		
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 ## get
 ```javascript
 'use strict';
@@ -103,6 +147,42 @@ var test = function(){
 		qs	: {
 			test : 'test'
 		}
+	}, function(err, rs, body){
+		console.log(err, body);
+	});
+};
+
+test();
+```
+
+## put
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	var url = 'http://10.33.12.68:8002/put';
+	qiaoPluginRequest.put({
+		url	: url
+	}, function(err, rs, body){
+		console.log(err, body);
+	});
+};
+
+test();
+```
+
+## patch
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	var url = 'http://10.33.12.68:8002/patch';
+	qiaoPluginRequest.patch({
+		url	: url
 	}, function(err, rs, body){
 		console.log(err, body);
 	});
