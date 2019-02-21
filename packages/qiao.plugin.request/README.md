@@ -113,6 +113,28 @@ var test = async function(){
 test();
 ```
 
+## deleteSync
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var url = 'http://10.33.12.68:8002/delete';
+		var res = await qiaoPluginRequest.deleteSync({
+			url	: url
+		});
+		
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 ## get
 ```javascript
 'use strict';
@@ -182,6 +204,24 @@ var qiaoPluginRequest = require('qiao.plugin.request');
 var test = function(){
 	var url = 'http://10.33.12.68:8002/patch';
 	qiaoPluginRequest.patch({
+		url	: url
+	}, function(err, rs, body){
+		console.log(err, body);
+	});
+};
+
+test();
+```
+
+## delete
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	var url = 'http://10.33.12.68:8002/delete';
+	qiaoPluginRequest.delete({
 		url	: url
 	}, function(err, rs, body){
 		console.log(err, body);

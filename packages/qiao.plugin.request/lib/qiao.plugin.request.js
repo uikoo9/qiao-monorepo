@@ -100,6 +100,29 @@ exports.patchSync = function(options){
 };
 
 /**
+ * delete
+ * 	options,https://www.npmjs.com/package/request
+ * 	callback
+ */
+exports.delete = function(options, callback){
+	exports.request.delete(options, function(err, rs, body){
+		if(callback) callback(err, rs, body);
+	});
+};
+
+/**
+ * delete sync
+ * 	options,https://www.npmjs.com/package/request
+ */
+exports.deleteSync = function(options){
+	return new Promise(function(resolve, reject){
+		exports.request.delete(options, function(err, rs, body){
+			return err ? reject(err) : resolve(body);
+		});
+	});
+};
+
+/**
  * download
  * 	url
  * 	path
