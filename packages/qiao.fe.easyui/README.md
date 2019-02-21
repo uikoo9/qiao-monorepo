@@ -80,6 +80,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.1.0.20190221
+1. click before after edit and add
+
 ## 0.0.9.20190126
 1. add options.pageList
 
