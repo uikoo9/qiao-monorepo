@@ -123,6 +123,29 @@ exports.deleteSync = function(options){
 };
 
 /**
+ * head
+ * 	options,https://www.npmjs.com/package/request
+ * 	callback
+ */
+exports.head = function(options, callback){
+	exports.request.head(options, function(err, rs, body){
+		if(callback) callback(err, rs, body);
+	});
+};
+
+/**
+ * head sync
+ * 	options,https://www.npmjs.com/package/request
+ */
+exports.headSync = function(options){
+	return new Promise(function(resolve, reject){
+		exports.request.head(options, function(err, rs, body){
+			return err ? reject(err) : resolve(rs.headers);
+		});
+	});
+};
+
+/**
  * download
  * 	url
  * 	path
