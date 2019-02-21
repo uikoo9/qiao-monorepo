@@ -146,6 +146,29 @@ exports.headSync = function(options){
 };
 
 /**
+ * options
+ * 	options,https://www.npmjs.com/package/request
+ * 	callback
+ */
+exports.options = function(options, callback){
+	exports.request.options(options, function(err, rs, body){
+		if(callback) callback(err, rs, body);
+	});
+};
+
+/**
+ * options sync
+ * 	options,https://www.npmjs.com/package/request
+ */
+exports.optionsSync = function(options){
+	return new Promise(function(resolve, reject){
+		exports.request.options(options, function(err, rs, body){
+			return err ? reject(err) : resolve(body);
+		});
+	});
+};
+
+/**
  * download
  * 	url
  * 	path

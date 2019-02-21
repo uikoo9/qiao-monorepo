@@ -157,6 +157,28 @@ var test = async function(){
 test();
 ```
 
+## optionsSync
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var url = 'http://10.33.12.68:8002/options';
+		var res = await qiaoPluginRequest.optionsSync({
+			url	: url
+		});
+		
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 ## get
 ```javascript
 'use strict';
@@ -265,6 +287,24 @@ var test = function(){
 		url	: url
 	}, function(err, rs, body){
 		console.log(err, rs.headers);
+	});
+};
+
+test();
+```
+
+## options
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	var url = 'http://10.33.12.68:8002/options';
+	qiaoPluginRequest.options({
+		url	: url
+	}, function(err, rs, body){
+		console.log(err, body);
 	});
 };
 
