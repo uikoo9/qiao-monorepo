@@ -159,13 +159,14 @@ exports.crud = {};
  */
 exports.crud.init = function(options){
 	// vars
-	var url 	= options.url;
-	var cols 	= options.cols;
-	var width 	= options.width || 400;
-	var height 	= options.height || 200;
-	var data 	= options.data || {};
-	var toolbars= options.toolbars;
-	var pageList= options.pageList || [10, 50, 100];
+	var url 		= options.url;
+	var cols 		= options.cols;
+	var width 		= options.width || 400;
+	var height 		= options.height || 200;
+	var data 		= options.data || {};
+	var pageList	= options.pageList || [10, 50, 100];
+	var toolbars	= options.toolbars;
+	var callbacks 	= options.callbacks;
 	
 	// check
 	if(!url || !cols){
@@ -185,24 +186,30 @@ exports.crud.init = function(options){
     	text	: '添加',
 		iconCls	: 'icon-add',
 		handler	: function(){
+			if(callbacks && callbacks.clickAdd) callbacks.clickAdd();
+			
 			exports.crud.save({
-				title	: '添加',
-				editUrl	: url + '/edit',
-				saveUrl	: url + '/save',
-				width	: width,
-				height	: height
+				title		: '添加',
+				editUrl		: url + '/edit',
+				saveUrl		: url + '/save',
+				width		: width,
+				height		: height,
+				callbacks	: callbacks
 			});
 		}
     },{
     	text	: '修改',
     	iconCls	: 'icon-edit',
     	handler	: function(){
+    		if(callbacks && callbacks.clickEdit) callbacks.clickEdit();
+    		
     		exports.crud.edit({
-				title	: '修改',
-				editUrl	: url + '/edit',
-				saveUrl	: url + '/save',
-				width	: width,
-				height	: height
+				title		: '修改',
+				editUrl		: url + '/edit',
+				saveUrl		: url + '/save',
+				width		: width,
+				height		: height,
+				callbacks	: callbacks
 			});
 		}
 	},{
@@ -350,12 +357,13 @@ exports.crud.save = function(options){
 	}
 	
 	// options
-	var id		= options.id;
-	var title	= options.title;
-	var editUrl = options.editUrl;
-	var saveUrl = options.saveUrl;
-	var width	= options.width;
-	var height	= options.height;
+	var id			= options.id;
+	var title		= options.title;
+	var editUrl 	= options.editUrl;
+	var saveUrl 	= options.saveUrl;
+	var width		= options.width;
+	var height		= options.height;
+	var callbacks	= options.callbacks;
 	if(id) editUrl += '?id=' + options.id;
 	
 	// dialog 
@@ -386,6 +394,12 @@ exports.crud.save = function(options){
 						}else{
 							exports.alert('保存失败！');
 						}
+						
+						if(id){
+							if(callbacks && callbacks.afterEdit) callbacks.afterEdit();
+						}else{
+							if(callbacks && callbacks.afterAdd) callbacks.afterAdd();
+						}
 					}
 				});
 			}
@@ -394,7 +408,14 @@ exports.crud.save = function(options){
 			handler:function(){
 				$dialog.dialog('close');
 			}
-		}]
+		}],
+		onLoad	: function(){
+			if(id){
+				if(callbacks && callbacks.beforeEdit) callbacks.beforeEdit();
+			}else{
+				if(callbacks && callbacks.beforeAdd) callbacks.beforeAdd();
+			}
+		}
 	});
 };
 
