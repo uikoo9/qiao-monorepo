@@ -332,6 +332,14 @@ test();
 ```
 
 # version
+## 0.1.1.20190221
+1. add put
+2. add patch
+3. add delete
+4. add head
+5. add options
+6. add request
+
 ## 0.1.0.20190117
 1. add download
 2. donwload finish
