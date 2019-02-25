@@ -23,23 +23,15 @@ npm install qiao.plugin.upload
 ```javascript
 'use strict';
 
-var qiaoPluginRequest = require('qiao.plugin.upload');
+var qiaoPluginUpload = require('qiao.plugin.upload');
 
-var test = async function(){
-	try{
-		var url = 'http://www.baidu.com';
-		var res = await qiaoPluginRequest.getSync({
-			url	: url,
-			qs	: {
-				test : 'test'
-			}
-		});
-		
-		console.log(res);
-	}catch(e){
-		console.log(e);
-	}
-};
+function test(){
+	var dir		= 'd:/';
+	var filename= '1.txt';
+	var upload 	= qiaoPluginUpload.gen(dir, filename);
+	
+	console.log(upload);
+}
 
 test(); 
 ```
