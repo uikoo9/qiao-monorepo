@@ -36,6 +36,22 @@ function test(){
 test(); 
 ```
 
+## genWithExt
+```javascript
+'use strict';
+
+var qiaoPluginUpload = require('qiao.plugin.upload');
+
+function test(){
+	var dir		= 'd:/';
+	var upload 	= qiaoPluginUpload.genWithExt(dir);
+	
+	console.log(upload);
+}
+
+test(); 
+```
+
 # version
 ## 0.0.1.20190225
 1. init project
