@@ -73,4 +73,4 @@ test();
 1. init project
 2. gen
 3. gen with ext
-4. gen with name
+4. gen with name 
