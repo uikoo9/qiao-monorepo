@@ -52,9 +52,25 @@ function test(){
 test(); 
 ```
 
+## genWithName
+```javascript
+'use strict';
+
+var qiaoPluginUpload = require('qiao.plugin.upload');
+
+function test(){
+	var dir		= 'd:/';
+	var upload 	= qiaoPluginUpload.genWithName(dir);
+	
+	console.log(upload);
+}
+
+test(); 
+```
+
 # version
 ## 0.0.1.20190225
 1. init project
-2. request get
-3. request post
-4. modify index.js
+2. gen
+3. gen with ext
+4. gen with name
