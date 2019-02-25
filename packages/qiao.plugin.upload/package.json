@@ -1,0 +1,28 @@
+{
+  "name": "qiao.plugin.upload",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "nodejs multer tool",
+  "keywords": [
+    "nodejs",
+    "multer",
+    "tool"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "multer": "^1.4.1",
+    "qiao.util.encode": "0.0.6",
+    "qiao.util.file": "^0.1.0"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.plugin.upload",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.plugin.upload.git"
+  }
+}
