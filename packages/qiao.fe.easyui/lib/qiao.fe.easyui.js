@@ -229,7 +229,8 @@ exports.crud.init = function(options){
 				editUrl		: url + '/edit',
 				searchUrl	: url + '/save',
 				width		: width,
-				height		: height
+				height		: height,
+				callbacks	: callbacks
 			});
 		}
 	}, '-', {
@@ -492,6 +493,7 @@ exports.crud.search = function(options){
 	var searchUrl	= options.searchUrl;
 	var width		= options.width;
 	var height		= options.height;
+	var callbacks 	= options.callbacks;
 	
 	// search
 	$dialog.dialog({
