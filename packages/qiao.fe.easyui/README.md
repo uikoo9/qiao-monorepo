@@ -80,6 +80,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.1.1.20190226
+1. click before after search
+
 ## 0.1.0.20190221
 1. click before after edit and add
 
