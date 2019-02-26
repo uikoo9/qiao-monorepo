@@ -222,6 +222,8 @@ exports.crud.init = function(options){
 		text	: '搜索',
 		iconCls	: 'icon-search',
 		handler	: function(){
+			if(callbacks && callbacks.clickSearch) callbacks.clickSearch();
+
 			exports.crud.search({
 				title		: '搜索',
 				editUrl		: url + '/edit',
@@ -505,6 +507,8 @@ exports.crud.search = function(options){
 			handler	: function(){
 				$dialog.dialog('close');
 				$dg.datagrid('load', $('#form').qser());
+				
+				if(callbacks && callbacks.afterSearch) callbacks.afterSearch();
 			}
 		},{
 			text:'取消',
@@ -514,6 +518,8 @@ exports.crud.search = function(options){
 		}],
 		onLoad	: function(){
 			$('#form').form('disableValidation');
+			
+			if(callbacks && callbacks.beforeSearch) callbacks.beforeSearch();
 		}
 	});
 };
