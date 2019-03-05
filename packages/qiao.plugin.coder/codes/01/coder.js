@@ -3,7 +3,6 @@
 var path	= require('path');
 var qiao	= require('qiao.util.all');
 qiao.coder	= require('../../lib/qiao.plugin.coder.js');
-qiao.config	= require('./config.json');
 
 /**
  * gen
@@ -30,7 +29,7 @@ exports.gen = async function(destFolder, tableName){
 	// columns
 	var columns = null;
 	try{
-		columns = await qiao.mysql.getColumns(qiao.config, tableName);
+		columns = await qiao.mysql.getColumns(qiao.coder.config, tableName);
 	}catch(e){
 		console.log('table ' + tableName + ' doesn\'t exist!');
 		return;
@@ -43,7 +42,7 @@ exports.gen = async function(destFolder, tableName){
 		
 		// name1
 		var name1 = item.Field;
-		if(!notIn(name1)) continue;
+		if(isIn(name1)) continue;
 		
 		// name2
 		var name3 = qiao.string.underScoreCaseToCamelCase(name1);
@@ -58,13 +57,14 @@ exports.gen = async function(destFolder, tableName){
 		// params
 		params.push(obj);
 	}
+	console.log(params);
 	data.params = params;
 	
 	// gen server code
-	genController(destFolder, tableName1, className1, data);
-	genService(destFolder, tableName1, className1, data);
-	genModel(destFolder, tableName1, className1, data);
-	genSql(destFolder, tableName1, tableName2, data);
+//	genController(destFolder, tableName1, className1, data);
+//	genService(destFolder, tableName1, className1, data);
+//	genModel(destFolder, tableName1, className1, data);
+//	genSql(destFolder, tableName1, tableName2, data);
 	
 	// gen webroot code
 //	genHtml(destFolder, tableName1, tableName2, data);
@@ -74,8 +74,9 @@ exports.gen = async function(destFolder, tableName){
 };
 
 // not in
-function notIn(s){
+function isIn(s){
 	var ss = ['id', 'cdate', 'cuser_id', 'cuser_name', 'udate', 'uuser_id', 'uuser_name', 'del_tag'];
+	return ss.indexOf(s) > -1 ? true : false; 
 	for(var i=0; i<ss.length; i++){
 		if(s == ss[i]) return false;
 	}

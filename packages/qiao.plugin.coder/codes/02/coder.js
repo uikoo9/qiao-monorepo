@@ -3,7 +3,6 @@
 var path	= require('path');
 var qiao	= require('qiao.util.all');
 qiao.coder	= require('../../lib/qiao.plugin.coder.js');
-qiao.config	= require('./config.json');
 
 /**
  * gen
@@ -30,7 +29,7 @@ exports.gen = async function(destFolder, tableName){
 	// columns
 	var columns = null;
 	try{
-		columns = await qiao.mysql.getColumns(qiao.config, tableName);
+		columns = await qiao.mysql.getColumns(qiao.coder.config, tableName);
 	}catch(e){
 		console.log('table ' + tableName + ' doesn\'t exist!');
 		return;

@@ -5,6 +5,11 @@ var qiao 		= require('qiao.util.all');
 var template	= require('art-template');
 
 /**
+ * config
+ */
+exports.config = require('./config.json');
+
+/**
  * genFileByData
  * 	templateFile : template file path
  * 	templateData : template data
