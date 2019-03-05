@@ -10,8 +10,8 @@
     "qcoder": "./bin/qcoder"
   },
   "dependencies": {
-    "art-template": "^4.13.1",
-    "qiao.util.all": "^0.1.0"
+    "art-template": "^4.13.2",
+    "qiao.util.all": "^0.2.4"
   },
   "author": {
     "name": "qiaowenbin",
