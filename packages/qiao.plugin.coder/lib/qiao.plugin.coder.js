@@ -1,10 +1,8 @@
 'use strict';
 
 var fs			= require('fs');
+var qiao 		= require('qiao.util.all');
 var template	= require('art-template');
-
-var qiao	= {};
-qiao.file 	= require('qiao.util.file');
 
 /**
  * genFileByData

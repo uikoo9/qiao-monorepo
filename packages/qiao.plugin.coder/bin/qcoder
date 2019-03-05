@@ -3,8 +3,7 @@
 'use strict';
 
 // qiao
-var qiao = {};
-qiao.cli = require('qiao.plugin.cli');
+var qiao = require('qiao.util.all');
 
 // cmd
 qiao.cli.cmd
