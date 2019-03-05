@@ -1,8 +1,11 @@
 {
-	"connectionLimit" : 50,
-	"host"		: "127.0.0.1", 
-    "port"		: 3306,
-    "database"	: "db_jiyuanxiang",
-    "user"		: "root",
-    "password"	: "123456"
+	"db" : {
+		"connectionLimit" : 50,
+		"host"		: "127.0.0.1", 
+	    "port"		: 3306,
+	    "database"	: "db_jiyuanxiang",
+	    "user"		: "root",
+	    "password"	: "123456"
+	},
+	"defaultColumns" : ["id", "cdate", "cuser_id", "cuser_name", "udate", "uuser_id", "uuser_name", "del_tag"]
 }

@@ -10,61 +10,13 @@ qiao.coder	= require('../../lib/qiao.plugin.coder.js');
  * 	tableName 	: table name, like t_blog_type
  */
 exports.gen = async function(destFolder, tableName){
-	// vars
-	var className	= qiao.string.underScoreCaseToCamelCase(tableName);
-	var className1 	= className.substr(1, className.length);
-	var className2 	= qiao.string.firstLetterLower(className1);
-	var tableName1 	= tableName.split('_')[1];
-	var tableName2 	= tableName.split('_')[2];
-	
-	// data
-	var data = {
-		className1 	: className1,
-		className2 	: className2,
-		tableName	: tableName,
-		tableName1 	: tableName1,
-		tableName2 	: tableName2
-	};
-	
-	// columns
-	var columns = null;
-	try{
-		columns = await qiao.mysql.getColumns(qiao.coder.config, tableName);
-	}catch(e){
-		console.log('table ' + tableName + ' doesn\'t exist!');
-		return;
-	}
-	
-	// params
-	var params	= [];
-	for(var i=0; i<columns.length; i++){
-		var item = columns[i];
-		
-		// name1
-		var name1 = item.Field;
-		if(isIn(name1)) continue;
-		
-		// name2
-		var name3 = qiao.string.underScoreCaseToCamelCase(name1);
-		var name2 = qiao.string.firstLetterLower(name3);
-		
-		// obj
-		var obj 	= {};
-		obj.type	= qiao.mysql.getTypes(item.Type);
-		obj.name1 	= name1;
-		obj.name2 	= name2;
-		
-		// params
-		params.push(obj);
-	}
-	console.log(params);
-	data.params = params;
+	var data = await qiao.coder.genData(tableName);
 	
 	// gen server code
-//	genController(destFolder, tableName1, className1, data);
-//	genService(destFolder, tableName1, className1, data);
-//	genModel(destFolder, tableName1, className1, data);
-//	genSql(destFolder, tableName1, tableName2, data);
+	genController(destFolder, tableName1, className1, data);
+	genService(destFolder, tableName1, className1, data);
+	genModel(destFolder, tableName1, className1, data);
+	genSql(destFolder, tableName1, tableName2, data);
 	
 	// gen webroot code
 //	genHtml(destFolder, tableName1, tableName2, data);
@@ -72,17 +24,6 @@ exports.gen = async function(destFolder, tableName){
 	
 	return;
 };
-
-// not in
-function isIn(s){
-	var ss = ['id', 'cdate', 'cuser_id', 'cuser_name', 'udate', 'uuser_id', 'uuser_name', 'del_tag'];
-	return ss.indexOf(s) > -1 ? true : false; 
-	for(var i=0; i<ss.length; i++){
-		if(s == ss[i]) return false;
-	}
-	
-	return true;
-}
 
 // gen controller
 function genController(destFolder, tableName1, className1, data){
