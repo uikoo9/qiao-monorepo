@@ -106,6 +106,7 @@ qcoder -h
 # version
 ## 0.1.9.20190305
 1. update qiao.util.all@0.2.4
+2. update qcoder
 
 ## 0.1.8.20190127
 1. result.count --> result.total
