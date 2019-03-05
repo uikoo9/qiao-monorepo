@@ -5,6 +5,8 @@ var moment = require('moment');
 var easyui = require('qiao.fe.easyui');
 
 exports.init = function(){
+	var width	= 500;
+	var height	= 400;
 	var url 	= '/{{tableName1}}/{{tableName2}}';
 	var cols	= [[
     	{
@@ -31,7 +33,7 @@ exports.init = function(){
 	easyui.crud.init({
 		url 	: url,
 		cols 	: cols,
-		width	: 500,
-		height	: 400
+		width	: width,
+		height	: height
 	});
 };
