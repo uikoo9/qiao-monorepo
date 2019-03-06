@@ -22,6 +22,7 @@ qcoder -h
 ```shell
 |--server
 	|--config
+		|--config-server.json
 		|--config.json
 	|--manage-db
 		|--ucenter
@@ -36,7 +37,9 @@ qcoder -h
 				|--UcenterUserService.js
 				...
 	|--middleware
+		|--qiao.index.js 
 		|--qiao.mid.js
+		|--qiao.task.js
 	|--app.js
 	|--package.json
 ```
@@ -45,8 +48,11 @@ qcoder -h
 1. [jquery](http://jquery.com/) and [easyui](http://www.jeasyui.com/) on [coolie](https://coolie.ydr.me/) browser code
 2. file tree : 
 ```shell
+|--files
 |--server
 	|--config
+		|--config-cos.json
+		|--config-server.json
 		|--config.json
 	|--fore
 		|--manage
@@ -68,6 +74,7 @@ qcoder -h
 				...
 		|--BaseService.js
 	|--middleware
+		|--qiao.index.js
 		|--qiao.mid.js
 	|--app.js
 	|--package.json
