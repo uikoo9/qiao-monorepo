@@ -111,6 +111,12 @@ qcoder -h
 ```
 
 # version
+## 0.2.0.20190306
+1. gen data
+2. move config.json
+3. config-server.json
+4. modify md
+
 ## 0.1.9.20190305
 1. update qiao.util.all@0.2.4
 2. update qcoder 
