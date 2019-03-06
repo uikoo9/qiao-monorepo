@@ -1,6 +1,7 @@
 // qiao
-var qiao 	= require('qiao.util.all');
-qiao.config = require('../../../config/config.json');
+var qiao 			= require('qiao.util.all');
+qiao.config 		= require('../../../config/config.json');
+qiao.configServer 	= require('../../../config/config-server.json');
 
 // base service
 var service = require('../../BaseService.js');
@@ -42,7 +43,7 @@ exports.{{className2}}Edit = async function(req, res){
 	
 	// options
 	var options = {
-		url 	: qiao.config.url.host + qiao.config.url.{{className2}}Get,
+		url 	: qiao.config.host + qiao.configServer.url.{{className2}}Get,
 		headers	: {
 			userid 		: req.cookies['express_userid'],
 			usertoken	: req.cookies['express_usertoken']
