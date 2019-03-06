@@ -22,7 +22,8 @@ exports.genData = async function(tableName){
 	// data
 	var data = {
 		className1 	: className1,
-		className2 	: className2
+		className2 	: className2,
+		tableName	: tableName
 	};
 	data = getTableName(tableName, data);
 	

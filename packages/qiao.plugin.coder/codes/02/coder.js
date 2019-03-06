@@ -13,32 +13,32 @@ exports.gen = async function(destFolder, tableName){
 	var data = await qiao.coder.genData(tableName);
 	
 	// gen server code
-	genController(destFolder, tableName1, className1, data);
-	genService(destFolder, tableName1, className1, data);
+	genController(destFolder, data);
+	genService(destFolder, data);
 	
 	// gen webroot code
-	genJs(destFolder, tableName1, tableName2, data);
+	genJs(destFolder, data);
 	
 	return;
 };
 
 // gen controller
-function genController(destFolder, tableName1, className1, data){
+function genController(destFolder, data){
 	var controllerTemp 	= path.resolve(__dirname, './server/controller.art');
-	var controllerDest	= path.resolve(destFolder, './server/manage-api/' + tableName1 + '/controller/' + className1 + 'Controller.js');
+	var controllerDest	= path.resolve(destFolder, './server/manage-api/' + data.tableName1 + '/controller/' + data.className1 + 'Controller.js');
 	qiao.coder.genFileByData(controllerTemp, data, controllerDest);
 }
 
 // gen service
-function genService(destFolder, tableName1, className1, data){
+function genService(destFolder, data){
 	var serviceTemp = path.resolve(__dirname, './server/service.art');
-	var serviceDest	= path.resolve(destFolder, './server/manage-api/' + tableName1 + '/service/' + className1 + 'Service.js');
+	var serviceDest	= path.resolve(destFolder, './server/manage-api/' + data.tableName1 + '/service/' + data.className1 + 'Service.js');
 	qiao.coder.genFileByData(serviceTemp, data, serviceDest);
 }
 
 // gen js
-function genJs(destFolder, tableName1, tableName2, data){
+function genJs(destFolder, data){
 	var jsTemp 	= path.resolve(__dirname, './webroot/js.art');
-	var jsDest	= path.resolve(destFolder, './webroot-dev/static/js/app/manage/' + tableName1 + '/' + tableName1 + '-' + tableName2 + '.js');
+	var jsDest	= path.resolve(destFolder, './webroot-dev/static/js/app/manage/' + data.tableName1 + '/' + data.tableName1 + '-' + data.tableName2 + '.js');
 	qiao.coder.genFileByData(jsTemp, data, jsDest);
 }
