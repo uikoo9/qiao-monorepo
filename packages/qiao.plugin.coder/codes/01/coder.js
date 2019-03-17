@@ -6,10 +6,10 @@ qiao.coder	= require('../../lib/qiao.plugin.coder.js');
 
 /**
  * gen
- * 	destFolder	: dest folder
  * 	tableName 	: table name, like t_blog_type
+ * 	destFolder	: dest folder
  */
-exports.gen = async function(destFolder, tableName){
+exports.gen = async function(tableName, destFolder){
 	var data = await qiao.coder.genData(tableName);
 	
 	// gen server code

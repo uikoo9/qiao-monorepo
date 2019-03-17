@@ -4,10 +4,10 @@ var coder = require('../codes/01/coder.js');
 
 var test = function(){
 	// vars
-	var destFolder 	= 'd:/test';
 	var tableName	= 't_blog_type';
+	var destFolder 	= 'd:/test';
 	
-	coder.gen(destFolder, tableName);
+	coder.gen(tableName, destFolder);
 };
 
 test();

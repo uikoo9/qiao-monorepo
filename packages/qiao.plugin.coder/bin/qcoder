@@ -5,15 +5,24 @@
 // qiao
 var qiao = require('qiao.util.all');
 
-// cmd
+// cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
 	.description('qiao.plugin.coder, generate server and browser code.')
-	.usage('[options] <command>')
-	.command('gen <code> <path>')
+	.usage('<command>');
+
+// cmd for init code
+qiao.cli.cmd
+	.command('init <code> <path>')
+	.alias('i')
+	.description('init code to path')
+	.action(initCode);
+
+// cmd for gen code
+qiao.cli.cmd
+	.command('gen <code> <table> <path>')
 	.alias('g')
-	.option('-i --init', 'init code')
-	.option('-t --table <name>', 'input table name')
+	.description('gen code by table to path')
 	.action(handleCode);
 
 // parse
@@ -26,39 +35,19 @@ if(!process.argv.slice(2).length){
 	});
 }
 
+// init code
+function initCode(code, path){
+	console.log(code, path);
+}
+
 // handle code
-function handleCode(code, path, options){
-	// vars
-	var init 		= options.init;
-	var tableName	= options.table;
-	
-	// check options
-	if(!init && !tableName){
-		console.log('need options, use -h or --help to see help info');
-		return;
-	}
-	
-	// init code
-	if(init){
-		console.log('init code');
-		return;
-	}
-	
+function handleCode(code, table, path){
 	// gen code
 	var codes = ['01', '02'];
-	if(isIn(code, codes)){
-		require('../codes/' + code + '/coder.js').gen(path, tableName);
+	if(codes.indexOf(code) > -1){
+		require('../codes/' + code + '/coder.js').gen(table, path);
 		return;
 	}
 	
 	console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
-}
-
-// is in
-function isIn(s, ss){
-	for(var i=0; i<ss.length; i++){
-		if(s == ss[i]) return true;
-	}
-	
-	return false;
 }
