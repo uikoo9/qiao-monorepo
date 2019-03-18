@@ -113,6 +113,7 @@ qcoder -h
 # version
 ## 0.2.1.20190318
 1. init code
+2. download zip
 
 ## 0.2.0.20190306
 1. gen data
