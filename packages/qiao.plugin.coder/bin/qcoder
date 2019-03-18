@@ -38,7 +38,15 @@ if(!process.argv.slice(2).length){
 
 // init code
 function initCode(code, path){
-	console.log(code, path);
+	// check code
+	if(qiao.config.codes.indexOf(code) == -1){
+		console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
+		return;
+	}
+
+	// init code
+	var zipFile = require('path').resolve(__dirname, '../codes/' + code + '/init.zip');
+	qiao.zip.unzip(zipFile, path);
 }
 
 // handle code
