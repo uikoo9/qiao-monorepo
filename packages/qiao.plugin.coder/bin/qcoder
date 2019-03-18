@@ -3,7 +3,8 @@
 'use strict';
 
 // qiao
-var qiao = require('qiao.util.all');
+var qiao 	= require('qiao.util.all');
+qiao.config	= require('../test/config.json');
 
 // cmd for common
 qiao.cli.cmd
@@ -42,12 +43,12 @@ function initCode(code, path){
 
 // handle code
 function handleCode(code, table, path){
-	// gen code
-	var codes = ['01', '02'];
-	if(codes.indexOf(code) > -1){
-		require('../codes/' + code + '/coder.js').gen(table, path);
+	// check code
+	if(qiao.config.codes.indexOf(code) == -1){
+		console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
 		return;
 	}
 	
-	console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
+	// gen code
+	require('../codes/' + code + '/coder.js').gen(table, path);
 }
