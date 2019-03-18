@@ -21,12 +21,7 @@ exports.client = function(config){
 	if(!config.accessKeySecret)	throw new Error('need config.accessKeySecret params');
 	if(!config.bucket) 			throw new Error('need config.bucket params');
 	
-	return new OSS({
-		region 			: config.region,
-		accessKeyId 	: config.accessKeyId,
-		accessKeySecret	: config.accessKeySecret,
-		bucket 			: config.bucket
-	});
+	return new OSS(config);
 };
 
 /**
