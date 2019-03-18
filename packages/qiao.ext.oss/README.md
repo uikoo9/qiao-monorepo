@@ -143,6 +143,9 @@ qoss | qoss -h for help
 ```
 
 # version
+## 0.2.1.20190318
+1. modify client options
+
 ## 0.2.0.20190128
 1. 代码优化
 
