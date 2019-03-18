@@ -1,5 +1,7 @@
 {
-	"db" : {
+	"codes" : ["01", "02"],
+	"host"	: "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/qiao.plugin.coder/",
+	"db" 	: {
 		"connectionLimit" : 50,
 		"host"		: "127.0.0.1", 
 	    "port"		: 3306,

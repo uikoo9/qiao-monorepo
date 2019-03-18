@@ -4,7 +4,7 @@
 
 // qiao
 var qiao 	= require('qiao.util.all');
-qiao.config	= require('../test/config.json');
+qiao.config	= require('../lib/config.json');
 
 // cmd for common
 qiao.cli.cmd
@@ -37,16 +37,22 @@ if(!process.argv.slice(2).length){
 }
 
 // init code
-function initCode(code, path){
+async function initCode(code, path){
 	// check code
 	if(qiao.config.codes.indexOf(code) == -1){
 		console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
 		return;
 	}
-
+	
+	// download zip
+	var zipUrl 	= qiao.config.host + code + '/init.zip';
+	var tmpdir 	= require('os').tmpdir();
+	var tmpName	= qiao.encode.uuid() + '.zip';
+	var tmpPath	= require('path').resolve(tmpdir, tmpName); 
+	await qiao.ajax.download(zipUrl, tmpPath);
+	
 	// init code
-	var zipFile = require('path').resolve(__dirname, '../codes/' + code + '/init.zip');
-	qiao.zip.unzip(zipFile, path);
+	qiao.zip.unzip(tmpPath, path);
 }
 
 // handle code
