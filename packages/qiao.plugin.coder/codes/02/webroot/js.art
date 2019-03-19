@@ -13,6 +13,12 @@ exports.init = function(){
     		field 	: 'cks',
     		checkbox: true,
     	},
+    	
+    	{
+    		title	: 'id',
+    		field	: 'id',
+    		width	: 50
+    	},
     	{{each params}}
         {
     		title	: '养老院名称',
