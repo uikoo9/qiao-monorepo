@@ -5,16 +5,14 @@
   "description": "nodejs multer tool",
   "keywords": [
     "nodejs",
-    "multer",
-    "tool"
+    "form",
+    "post",
+    "multipart",
+    "multer"
   ],
   "main": "index.js",
   "scripts": {},
-  "dependencies": {
-    "multer": "^1.4.1",
-    "qiao.util.encode": "0.0.6",
-    "qiao.util.file": "^0.1.0"
-  },
+  "dependencies": {},
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
