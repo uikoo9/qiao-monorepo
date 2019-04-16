@@ -118,7 +118,8 @@ exports.{{className2}}Save = async function(req, res){
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
 			
-			await model.{{className2}}Add(params);
+			var rs = await model.{{className2}}Add(params);
+			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
 			{{each params}}params.push({{$value.name2}});
 			{{/each}}
@@ -129,7 +130,7 @@ exports.{{className2}}Save = async function(req, res){
 			await model.{{className2}}Edit(params);
 		}
 		
-		res.send(qiao.json.success('save success'));
+		res.send(qiao.json.success('save success', {id:id}));
 	}catch(e){
 		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
 	}
