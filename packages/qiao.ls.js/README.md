@@ -73,3 +73,4 @@ test();
 2. set item
 3. get item
 4. remove item
+5. modify expires
