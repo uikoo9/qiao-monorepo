@@ -39,7 +39,7 @@ exports.getItem = function(name){
     }
     if(!obj) return;
 
-    if(obj.expires && obj.expires > Date.now()){
+    if(obj.expires && obj.expires < Date.now()){
         localStorage.removeItem(name);
         return;
     }
