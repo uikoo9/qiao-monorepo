@@ -1,0 +1,26 @@
+{
+  "name": "qiao.ls.js",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "local storage expires",
+  "keywords": [
+    "local",
+    "storage",
+    "localStorage",
+    "expires"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.ls.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.ls.js.git"
+  }
+}

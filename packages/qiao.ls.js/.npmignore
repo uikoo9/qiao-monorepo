@@ -1,0 +1,6 @@
+.idea
+.project
+.settings
+.externalToolBuilders
+
+node_modules
