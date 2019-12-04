@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.util.timer](https://www.npmjs.com/package/qiao.util.timer)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # started
 ## install
 npm install qiao.util.timer
