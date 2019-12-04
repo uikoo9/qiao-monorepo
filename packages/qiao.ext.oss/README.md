@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.ext.oss](https://www.npmjs.com/package/qiao.ext.oss)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # started
 ## install
 npm install qiao.ext.oss
