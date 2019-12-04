@@ -222,6 +222,10 @@ console.log(ss1);
 ```
 
 # version
+## 0.0.7.20191204
+1. update packages
+2. add funding
+
 ## 0.0.6.20190116
 1. add md5
 
