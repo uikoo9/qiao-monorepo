@@ -94,6 +94,10 @@ test();
 ```
 
 # version
+## 0.0.2.20191204
+1. update packages
+2. add funding
+
 ## 0.0.1.20190107
 1. init
 2. add cron method
