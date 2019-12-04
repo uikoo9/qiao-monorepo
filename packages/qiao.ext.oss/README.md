@@ -146,6 +146,10 @@ qoss | qoss -h for help
 ```
 
 # version
+## 0.2.2.20191204
+1. update packager
+2. add funding
+
 ## 0.2.1.20190318
 1. modify client options
 
