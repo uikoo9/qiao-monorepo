@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.util.encode](https://www.npmjs.com/package/qiao.util.encode)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # started
 ## install
 npm install qiao.util.encode
