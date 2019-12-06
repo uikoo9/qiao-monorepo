@@ -379,6 +379,9 @@ console.log(flag);
 ```
 
 # version
+## 0.3.1.20191206
+1. add funding
+
 ## 0.3.0.20190107
 1. tools for weixin mini program
 
