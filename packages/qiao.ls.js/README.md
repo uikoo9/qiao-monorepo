@@ -71,6 +71,9 @@ test();
 ```
 
 # version
+## 0.0.2.20191206
+1. add funding
+
 ## 0.0.1.20190624
 1. init project
 2. set item
