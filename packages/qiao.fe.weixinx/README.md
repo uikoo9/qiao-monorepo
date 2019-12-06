@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.fe.weixinx](https://www.npmjs.com/package/qiao.fe.weixinx)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # use
 1. 微信开发者工具——项目设置——调试基础库——>=2.2.1版本&勾选【使用npm模块】
 2. npm i qiao.fe.weixinx后微信开发者工具——工具——npm构建
