@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.fe.easyui](https://www.npmjs.com/package/qiao.fe.easyui)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # started
 ## install
 npm install qiao.fe.easyui
