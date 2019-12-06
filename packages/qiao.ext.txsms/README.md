@@ -93,6 +93,9 @@ test();
 ```
 
 # version
+## 0.0.3.20191206
+1. add funding
+
 ## 0.0.2.20190107
 1. nodejs tencent sms tool
 
