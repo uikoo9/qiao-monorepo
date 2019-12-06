@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.ls.js](https://www.npmjs.com/package/qiao.ls.js)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # started
 ## install
 npm install qiao.ls.js
