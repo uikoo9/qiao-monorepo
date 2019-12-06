@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
-    "mysql": "^2.16.0"
+    "mysql": "^2.17.1"
   },
   "author": {
     "name": "qiaowenbin",
