@@ -119,6 +119,10 @@ test();
 ```
 
 # version
+## 0.0.7.20191206
+1. update packages
+2. add funding
+
 ## 0.0.6.20190107
 1. nodejs mysql plugin
 

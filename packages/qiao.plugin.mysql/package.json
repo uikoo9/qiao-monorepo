@@ -1,6 +1,6 @@
 {
   "name": "qiao.plugin.mysql",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "description": "nodejs mysql plugin",
   "keywords": [
