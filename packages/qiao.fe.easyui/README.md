@@ -83,6 +83,9 @@ qiaoFeEasyui.addTab(url, title);
 ```
 
 # version
+## 0.1.2.20191206
+1. add funding
+
 ## 0.1.1.20190226
 1. click before after search
 2. search callbacks
