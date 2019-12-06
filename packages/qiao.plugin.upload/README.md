@@ -8,6 +8,9 @@
 ## npm
 [https://www.npmjs.com/package/qiao.plugin.upload](https://www.npmjs.com/package/qiao.plugin.upload)
 
+## donate
+[http://uikoo9.com/donate](http://uikoo9.com/donate)
+
 # started
 ## install
 npm install qiao.plugin.upload
