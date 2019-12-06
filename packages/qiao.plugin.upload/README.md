@@ -22,6 +22,9 @@ npm install qiao.plugin.upload
 1. formidable, https://www.npmjs.com/package/formidable
 
 # version
+## 0.0.3.20191206
+1. add funding
+
 ## 0.0.2.20190321
 1. multer --> formidable
 
