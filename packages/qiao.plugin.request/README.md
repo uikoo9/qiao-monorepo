@@ -335,6 +335,9 @@ test();
 ```
 
 # version
+## 0.1.2.20191206
+1. add funding
+
 ## 0.1.1.20190221
 1. add put
 2. add patch
