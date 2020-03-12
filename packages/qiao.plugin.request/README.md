@@ -17,9 +17,11 @@ npm install qiao.plugin.request
 
 ## dependencies
 1. http request by request
+2. ping by ping
 
 ## documentation
 1. request, https://www.npmjs.com/package/request
+2. ping, https://www.npmjs.com/package/ping
 
 # api
 ## getSync
@@ -334,7 +336,31 @@ var test = async function(){
 test();
 ```
 
+## ping
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	try{
+		var hosts = ['www.baidu.com', 'www.google.com'];
+		hosts.forEach(async function(host){
+			var r = await qiaoPluginRequest.ping(host);
+			console.log(r);
+		});
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 # version
+## 0.1.3.20200312
+1. add ping
+
 ## 0.1.2.20191206
 1. add funding
 
