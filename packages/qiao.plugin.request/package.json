@@ -11,6 +11,7 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
+    "ping": "^0.2.2",
     "request": "^2.88.0"
   },
   "author": {
