@@ -204,7 +204,7 @@ exports.ping = function(host, options){
 		return;
 	}
 
-	var opt = options || {timeout:10};
+	var opt = options || {timeout:4};
 	return new Promise(function(resolve, reject){
 		ping.promise.probe(host, opt).then(function(res){return resolve(res);});
 	});
