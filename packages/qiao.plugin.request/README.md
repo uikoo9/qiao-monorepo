@@ -358,6 +358,9 @@ test();
 ```
 
 # version
+## 0.1.4.20200326
+1. ping timeout 4s
+
 ## 0.1.3.20200312
 1. add ping
 
