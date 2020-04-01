@@ -357,7 +357,43 @@ var test = function(){
 test();
 ```
 
+## ip
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	qiaoPluginRequest.ip(function(err, ip){
+		console.log(err, ip);
+	});
+};
+
+test();
+```
+
+## ipSync
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
+		var ip = await qiaoPluginRequest.ipSync();
+		console.log(ip);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 # version
+## 0.1.5.20200401
+1. add ip
+
 ## 0.1.4.20200326
 1. ping timeout 4s
 

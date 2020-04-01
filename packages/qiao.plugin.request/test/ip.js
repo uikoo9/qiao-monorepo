@@ -9,4 +9,3 @@ var test = function(){
 };
 
 test();
-

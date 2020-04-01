@@ -12,4 +12,3 @@ var test = async function(){
 };
 
 test();
-
