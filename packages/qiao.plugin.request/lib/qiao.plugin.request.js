@@ -237,3 +237,16 @@ exports.ipSync = async function(){
 		});
 	});
 };
+
+/**
+ * get ip
+ */
+exports.getIp = async function(){
+	var ip = null;
+	try{
+		ip = await exports.ipSync();
+	}catch(e){
+	}
+
+	return ip;
+};
