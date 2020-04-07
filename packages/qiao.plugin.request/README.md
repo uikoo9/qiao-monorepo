@@ -390,7 +390,24 @@ var test = async function(){
 test();
 ```
 
+## getIp
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	var ip = await qiaoPluginRequest.getIp();
+	console.log(ip);
+};
+
+test();
+```
+
 # version
+## 0.1.6.20200407
+1. add get ip
+
 ## 0.1.5.20200401
 1. add ip
 
