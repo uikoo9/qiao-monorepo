@@ -89,9 +89,30 @@ var qls = require('qiao.ls.js');
 console.log(qls.getCache('cache.group.role', 'team-123'));
 ```
 
+## removeCache
+```javascript
+'use strict';
+
+var qls = require('qiao.ls.js');
+
+qls.removeCache('cache.group.role', 'team-123');
+```
+
+## clearCache
+```javascript
+'use strict';
+
+var qls = require('qiao.ls.js');
+
+qls.clearCache('cache.group.role');
+```
+
 # version
 ## 0.0.3.20200414
-1. add cache
+1. set cache
+2. get cache
+3. remove cache
+4. clear cache
 
 ## 0.0.2.20191206
 1. add funding
