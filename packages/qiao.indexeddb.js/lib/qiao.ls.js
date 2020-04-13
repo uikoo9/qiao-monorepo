@@ -58,3 +58,38 @@ exports.removeItem = function(name){
 
     localStorage.removeItem(name);
 };
+
+/**
+ * set cache
+ *  name
+ *  key
+ *  value
+ *  exp
+ */
+exports.setCache = function(name, key, value, exp){
+    if(!localStorage){
+        console.log('unsupport localStorage');
+        return;
+    }
+
+	if(!name || !key) return;
+
+	var data = exports.getItem(name) || {};
+	data[key] = value;
+
+	exports.setItem(name, data, exp || 7);
+};
+
+/**
+ * get cache
+ *  name
+ *  key
+ */
+exports.getCache = function(name, key){
+	if(!name || !key) return;
+
+	var data = exports.getItem(name);
+	if(!data) return;
+
+	return data[key];
+};
