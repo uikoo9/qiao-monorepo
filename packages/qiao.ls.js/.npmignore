@@ -3,4 +3,5 @@
 .settings
 .externalToolBuilders
 
+dist
 node_modules
