@@ -70,7 +70,29 @@ var test = function(){
 test();
 ```
 
+## setCache
+```javascript
+'use strict';
+
+var qls = require('qiao.ls.js');
+
+qls.setCache('cache.group.role', 'team-123', false);
+qls.setCache('cache.group.role', 'team-123', true);
+```
+
+## getCache
+```javascript
+'use strict';
+
+var qls = require('qiao.ls.js');
+
+console.log(qls.getCache('cache.group.role', 'team-123'));
+```
+
 # version
+## 0.0.3.20200414
+1. add cache
+
 ## 0.0.2.20191206
 1. add funding
 
