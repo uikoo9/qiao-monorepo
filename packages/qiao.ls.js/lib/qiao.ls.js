@@ -60,6 +60,28 @@ exports.removeItem = function(name){
 };
 
 /**
+ * ls
+ * 	ls('name', value, expires);
+ * 	ls('name');
+ * 	ls('name', null);
+ */
+exports.ls = function(name, value, expires){
+	// remove
+	if(value === null){
+		exports.removeItem(name);
+		return;
+	}
+	
+	// get
+	if(typeof value == 'undefined'){
+		return exports.getItem(name);
+	}
+	
+	// set
+	exports.setItem(name, value, expires);
+};
+
+/**
  * set cache
  *  name
  *  key
@@ -117,4 +139,35 @@ exports.clearCache = function(name){
 	if(!name) return;
 
     exports.removeItem(name);
+};
+
+/**
+ * cache
+ *  cache('name', null);
+ *  cache('name', 'key', null);
+ *  cache('name', 'key');
+ *  cache('name', 'key', value, exp);
+ */
+exports.cache = function(name, key, value, expires){
+	if(!name) return;
+
+	// clear
+	if(key === null){
+		exports.clearCache(name);
+		return;
+	}
+	
+	// remove
+	if(value === null){
+		exports.removeCache(name, key);
+		return;
+	}
+	
+	// get
+	if(typeof value == 'undefined'){
+		return exports.getCache(name, key);
+	}
+	
+	// set
+	exports.setCache(name, key, value, expires);
 };
