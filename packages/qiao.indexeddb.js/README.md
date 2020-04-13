@@ -70,6 +70,27 @@ var test = function(){
 test();
 ```
 
+## ls
+```javascript
+'use strict';
+
+var qls = require('qiao.ls.js');
+
+var test = function(){
+	// set
+	qls.ls('name', 'value');
+	
+	// get
+	console.log(qls.ls('name'));
+	
+	// delete
+	qls.ls('name', null);
+	console.log(qls.ls('name'));
+};
+
+test();
+```
+
 ## setCache
 ```javascript
 'use strict';
@@ -107,12 +128,37 @@ var qls = require('qiao.ls.js');
 qls.clearCache('cache.group.role');
 ```
 
+## cache
+```javascript
+'use strict';
+
+var qls = require('qiao.ls.js');
+
+var test = function(){
+	// set
+	qls.cache('name', 'key', 'value');
+	
+	// get
+	console.log(qls.cache('name', 'key'));
+	
+	// delete
+	qls.cache('name', 'key', null);
+	console.log(qls.cache('name', 'key'));
+
+	// clear
+	qls.cache('name', null);
+};
+
+test();
+```
+
 # version
 ## 0.0.3.20200414
 1. set cache
 2. get cache
 3. remove cache
 4. clear cache
+5. add cache and ls
 
 ## 0.0.2.20191206
 1. add funding
