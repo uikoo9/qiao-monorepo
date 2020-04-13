@@ -93,3 +93,28 @@ exports.getCache = function(name, key){
 
 	return data[key];
 };
+
+/**
+ * remove cache
+ *  name
+ *  key
+ */
+exports.removeCache = function(name, key){
+	if(!name || !key) return;
+
+	var data = exports.getItem(name);
+	if(!data) return;
+
+    delete data[key];
+    exports.setItem(name, data);
+};
+
+/**
+ * clear cache
+ *  name
+ */
+exports.clearCache = function(name){
+	if(!name) return;
+
+    exports.removeItem(name);
+};

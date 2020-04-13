@@ -5,3 +5,5 @@ var qls = require('../lib/qiao.ls.js');
 qls.setCache('cache.group.role', 'team-123', false);
 qls.setCache('cache.group.role', 'team-123', true);
 console.log(qls.getCache('cache.group.role', 'team-123'));
+qls.removeCache('cache.group.role', 'team-123');
+qls.clearCache('cache.group.role');
