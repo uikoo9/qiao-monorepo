@@ -10,9 +10,10 @@
     "expires"
   ],
   "main": "index.js",
-  "scripts": {},
-  "dependencies": {
+  "scripts": {
+    "build": "webpack --config webpack.js"
   },
+  "dependencies": {},
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
@@ -23,5 +24,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/insistime/qiao.ls.js.git"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
