@@ -424,6 +424,9 @@ test();
 ```
 
 # version
+## 0.1.7.20200511
+1. add img to base64
+
 ## 0.1.6.20200407
 1. add get ip
 
