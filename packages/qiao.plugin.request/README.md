@@ -324,6 +324,25 @@ var qiaoPluginRequest = require('qiao.plugin.request');
 
 var test = async function(){
 	try{
+		var url = 'https://www.baidu.com/img/baidu_resultlogo@2.png';
+		var res = await qiaoPluginRequest.imgToBase64(url);
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
+## download
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = async function(){
+	try{
 		var url 	= 'https://www.baidu.com/img/bd_logo1.png';
 		var path	= 'd:/test.png';
 		
