@@ -1,6 +1,7 @@
 'use strict';
 
 var fs 		= require('fs');
+var path	= require('path');
 var ping 	= require('ping');
 
 /**
@@ -165,6 +166,55 @@ exports.optionsSync = function(options){
 	return new Promise(function(resolve, reject){
 		exports.request.options(options, function(err, rs, body){
 			return err ? reject(err) : resolve(body);
+		});
+	});
+};
+
+exports.imgToBase64 = function(url){
+	return new Promise(function(resolve, reject){
+		var res = {};
+		res.url = url;
+	
+		if(!url){
+			res.type = 'fail';
+			res.msg = 'need url';
+	
+			return resolve(res);
+		}
+
+		var type;
+		var ext = path.extname(url).toLowerCase();
+		if(ext == '.png') type = 'png';
+		if(ext == '.jpg') type = 'jpeg';
+		if(!type){
+			res.type = 'fail';
+			res.msg = 'only png or jpg';
+	
+			return resolve(res);
+		}
+
+		exports.get({
+			url: url,
+			encoding: null
+		}, function(err, rs, body){
+			if(err){
+				res.type = 'fail';
+				res.msg = err;
+		
+				return resolve(res);
+			}
+			if(rs.statusCode != 200){
+				res.type = 'fail';
+				res.msg = 'status code not 200';
+		
+				return resolve(res);
+			}
+
+			var base64 = body.toString('base64');
+			res.type = 'suc';
+			res.msg = `data:image/${type};base64,${base64}`;
+
+			return resolve(res);
 		});
 	});
 };
