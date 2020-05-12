@@ -185,7 +185,7 @@ exports.imgToBase64 = function(url){
 		var type;
 		var ext = path.extname(url).toLowerCase();
 		if(ext == '.png') type = 'png';
-		if(ext == '.jpg') type = 'jpeg';
+		if(ext == '.jpg' || ext == '.jpeg') type = 'jpeg';
 		if(!type){
 			res.type = 'fail';
 			res.msg = 'only png or jpg';
