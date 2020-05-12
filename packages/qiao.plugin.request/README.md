@@ -424,6 +424,9 @@ test();
 ```
 
 # version
+## 0.1.8.20200512
+1. img to base64 add jpeg
+
 ## 0.1.7.20200511
 1. add img to base64
 
