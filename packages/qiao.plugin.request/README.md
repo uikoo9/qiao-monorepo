@@ -316,7 +316,23 @@ var test = function(){
 test();
 ```
 
-## download
+## imgToBase64
+```javascript
+'use strict';
+
+var qiaoPluginRequest = require('qiao.plugin.request');
+
+var test = function(){
+	var url = 'https://www.baidu.com/img/baidu_resultlogo@2.png';
+	qiaoPluginRequest.imgToBase64(url, function(res){
+		console.log(res);
+	});
+};
+
+test();
+```
+
+## imgToBase64Sync
 ```javascript
 'use strict';
 
@@ -324,8 +340,8 @@ var qiaoPluginRequest = require('qiao.plugin.request');
 
 var test = async function(){
 	try{
-		var url = 'https://www.baidu.com/img/baidu_resultlogo@2.png';
-		var res = await qiaoPluginRequest.imgToBase64(url);
+        var url = 'https://www.baidu.com/img/baidu_resultlogo@2.png';
+		var res = await qiaoPluginRequest.imgToBase64Sync(url);
 		console.log(res);
 	}catch(e){
 		console.log(e);
@@ -426,6 +442,7 @@ test();
 # version
 ## 0.1.8.20200512
 1. img to base64 add jpeg
+2. img to base64 sync
 
 ## 0.1.7.20200511
 1. add img to base64
