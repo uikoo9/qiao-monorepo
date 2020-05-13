@@ -1,13 +1,11 @@
 {
-  "name": "qiao.ls.js",
-  "version": "0.0.7",
+  "name": "qiao.db.js",
+  "version": "0.0.1",
   "license": "MIT",
-  "description": "local storage expires",
+  "description": "indexeddb and web sql tools",
   "keywords": [
-    "local",
-    "storage",
-    "localStorage",
-    "expires"
+    "indexeddb",
+    "web sql"
   ],
   "main": "index.js",
   "scripts": {
@@ -19,11 +17,11 @@
     "email": "npm@insistime.com",
     "url": "https://insistime.com"
   },
-  "homepage": "https://code.insistime.com/qiao.ls.js",
+  "homepage": "https://code.insistime.com/qiao.db.js",
   "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao.ls.js.git"
+    "url": "git+https://github.com/insistime/qiao.db.js.git"
   },
   "devDependencies": {
     "webpack": "^4.42.1",

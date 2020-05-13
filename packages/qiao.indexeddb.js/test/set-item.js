@@ -1,6 +1,6 @@
 'use strict';
 
-var qls = require('../lib/qiao.ls.js');
+var qls = require('../lib/qiao.db.js');
 
 var test = function(){
 	var name = 'name';
