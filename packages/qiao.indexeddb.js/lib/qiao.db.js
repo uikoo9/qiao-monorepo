@@ -1,173 +1,56 @@
 'use strict';
 
 /**
- * set item
- *  name
- *  value
- *  expires, days
+ * open db
+ * 	databaseName
+ * 	version
+ * 	cb
  */
-exports.setItem = function(name, value, expires){
-    if(!localStorage){
-        console.log('unsupport localStorage');
-        return;
-    }
-
-    var obj = {};
-    obj.value = value;
-    if(expires) obj.expires = Date.now() + expires * 24 * 60 * 60 * 1000;
-
-    localStorage.setItem(name, JSON.stringify(obj));
+exports.openDB = function(databaseName, version, cb){
+	var request = window.indexedDB.open(databaseName, version);
+	request.onerror = function(event){
+		console.log('open indexeddb fail', event);
+		cb(null);
+	};
+	request.onsuccess = function (event) {
+		console.log('open indexeddb suc');
+	};
+	request.onupgradeneeded = function (event) {
+		console.log('open indexeddb update');
+		cb(event.target.result);
+	};
 };
 
 /**
- * get item
- *  name
+ * create db
+ * 	db
+ * 	tables
  */
-exports.getItem = function(name){
-    if(!localStorage){
-        console.log('unsupport localStorage');
-        return;
-    }
+exports.createTable = function(db, tables){
+	if(!db) return null;
 
-    var objStr = localStorage.getItem(name);
-    var obj;
-    try{
-        obj = JSON.parse(objStr);
-    }catch(e){
-        console.log('json parse error:');
-        console.log(e);
-    }
-    if(!obj) return;
-
-    if(obj.expires && obj.expires < Date.now()){
-        localStorage.removeItem(name);
-        return;
-    }
-
-    return obj.value;
-};
-
-/**
- * remove item
- */
-exports.removeItem = function(name){
-    if(!localStorage){
-        console.log('unsupport localStorage');
-        return;
-    }
-
-    localStorage.removeItem(name);
-};
-
-/**
- * ls
- * 	ls('name', value, expires);
- * 	ls('name');
- * 	ls('name', null);
- */
-exports.ls = function(name, value, expires){
-	// remove
-	if(value === null){
-		exports.removeItem(name);
-		return;
+	var res = [];
+	for(var i=0; i<tables.length; i++){
+		var table = tables[i];
+		if(!db.objectStoreNames.contains(table.name)){
+			var objectStore = db.createObjectStore(table.name, table.key);
+			res.push(objectStore);
+		}
 	}
-	
-	// get
-	if(typeof value == 'undefined'){
-		return exports.getItem(name);
-	}
-	
-	// set
-	exports.setItem(name, value, expires);
+
+	return res;
 };
 
 /**
- * set cache
- *  name
- *  key
- *  value
- *  exp
+ * open db and create tables
+ * 	databaseName
+ * 	version
+ * 	tables
+ * 		name
+ * 		keys
  */
-exports.setCache = function(name, key, value, exp){
-    if(!localStorage){
-        console.log('unsupport localStorage');
-        return;
-    }
-
-	if(!name || !key) return;
-
-	var data = exports.getItem(name) || {};
-	data[key] = value;
-
-	exports.setItem(name, data, exp || 7);
-};
-
-/**
- * get cache
- *  name
- *  key
- */
-exports.getCache = function(name, key){
-	if(!name || !key) return;
-
-	var data = exports.getItem(name);
-	if(!data) return;
-
-	return data[key];
-};
-
-/**
- * remove cache
- *  name
- *  key
- */
-exports.removeCache = function(name, key){
-	if(!name || !key) return;
-
-	var data = exports.getItem(name);
-	if(!data) return;
-
-    delete data[key];
-    exports.setItem(name, data);
-};
-
-/**
- * clear cache
- *  name
- */
-exports.clearCache = function(name){
-	if(!name) return;
-
-    exports.removeItem(name);
-};
-
-/**
- * cache
- *  cache('name', null);
- *  cache('name', 'key', null);
- *  cache('name', 'key');
- *  cache('name', 'key', value, exp);
- */
-exports.cache = function(name, key, value, expires){
-	if(!name) return;
-
-	// clear
-	if(key === null){
-		exports.clearCache(name);
-		return;
-	}
-	
-	// remove
-	if(value === null){
-		exports.removeCache(name, key);
-		return;
-	}
-	
-	// get
-	if(typeof value == 'undefined'){
-		return exports.getCache(name, key);
-	}
-	
-	// set
-	exports.setCache(name, key, value, expires);
+exports.openDBAndCreateDB = function(databaseName, version, tables){
+	exports.openDB(databaseName, version, function(db){
+		exports.createTable(db, tables);
+	});
 };
