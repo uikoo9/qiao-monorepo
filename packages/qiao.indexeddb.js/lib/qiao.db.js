@@ -39,7 +39,7 @@ exports.delDB = function(databaseName, cb){
 };
 
 /**
- * create db
+ * create table
  * 	db
  * 	tables
  * 		key
@@ -76,6 +76,17 @@ exports.createTable = function(db, tables){
 	}
 
 	return res;
+};
+
+/**
+ * del table
+ * 	db
+ * 	tables
+ * 		key
+ * 		index
+ */
+exports.delTable = function(db, tableName){
+	db.deleteObjectStore(tableName);
 };
 
 /**
