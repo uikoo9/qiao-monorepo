@@ -22,6 +22,23 @@ exports.openDB = function(databaseName, version, cb){
 };
 
 /**
+ * del db
+ * 	databaseName
+ * 	cb
+ */
+exports.delDB = function(databaseName, cb){
+	var request = window.indexedDB.deleteDatabase(databaseName);
+	request.onerror = function(event){
+		console.log('del indexeddb fail');
+		cb(false);
+	};
+	request.onsuccess = function (event) {
+		console.log('del indexeddb suc');
+		cb(true);
+	};
+};
+
+/**
  * create db
  * 	db
  * 	tables
