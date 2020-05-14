@@ -8,6 +8,7 @@ module.exports = {
         'get' : './test/get.js',
         'add' : './test/add.js',
         'put' : './test/put.js',
+        'save' : './test/save.js',
         'del' : './test/del.js',
         'clear' : './test/clear.js'
     },

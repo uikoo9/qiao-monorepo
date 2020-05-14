@@ -153,6 +153,28 @@ exports.put = function(tx, tableName, data, cb){
 };
 
 /**
+ * save
+ * 	tx
+ * 	tableName
+ * 	key
+ * 	data
+ * 	cb
+ */
+exports.save = function(tx, tableName, key, data, cb){
+	exports.get(tx, tableName, key, function(r){
+		if(r){
+			exports.put(tx, tableName, data, function(rr){
+				cb(rr);
+			});
+		}else{
+			exports.add(tx, tableName, data, function(rr){
+				cb(rr);
+			});
+		}
+	});
+};
+
+/**
  * del
  * 	tx
  * 	tableName
