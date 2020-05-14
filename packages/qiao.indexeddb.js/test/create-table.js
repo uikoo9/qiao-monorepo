@@ -7,14 +7,23 @@ var test = function(){
 	var version = 1;
 	var tables = [{
 		name : 't_test1',
-		key : 'id'
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
 	},{
 		name : 't_test2',
-		key : 'auto'
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
 	}];
 
 	qdb.openDB(databaseName, version, function(db){
-		qdb.createTable(db, tables);
+		var res = qdb.createTable(db, tables);
+		console.log(res);
 	});
 };
 

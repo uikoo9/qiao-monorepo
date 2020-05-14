@@ -9,7 +9,7 @@
 exports.openDB = function(databaseName, version, cb){
 	var request = window.indexedDB.open(databaseName, version);
 	request.onerror = function(event){
-		console.log('open indexeddb fail', event);
+		console.log('open indexeddb fail');
 		cb(null);
 	};
 	request.onsuccess = function (event) {
@@ -17,7 +17,7 @@ exports.openDB = function(databaseName, version, cb){
 	};
 	request.onupgradeneeded = function (event) {
 		console.log('open indexeddb update');
-		cb(event.target.result);
+		cb(event);
 	};
 };
 
@@ -25,6 +25,8 @@ exports.openDB = function(databaseName, version, cb){
  * create db
  * 	db
  * 	tables
+ * 		key
+ * 		index
  */
 exports.createTable = function(db, tables){
 	if(!db) return null;
@@ -60,15 +62,24 @@ exports.createTable = function(db, tables){
 };
 
 /**
- * open db and create tables
- * 	databaseName
- * 	version
- * 	tables
- * 		name
- * 		keys
+ * add
+ * 	tableName
+ * 	data
  */
-exports.openDBAndCreateDB = function(databaseName, version, tables){
-	exports.openDB(databaseName, version, function(db){
-		exports.createTable(db, tables);
-	});
+exports.add = function(db, tableName, data, cb){
+	if(!db) cb(null);
+
+	var request = db.transaction([tableName], 'readwrite')
+		.objectStore(tableName)
+		.add(data);
+
+	request.onerror = function (event) {
+		console.log('add data fail', event);
+		cb(null);
+	};
+	
+	request.onsuccess = function (event) {
+		console.log('add data suc');
+		cb('suc');
+	};
 };

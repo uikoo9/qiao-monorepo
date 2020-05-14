@@ -21,7 +21,16 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDBAndCreateDB(databaseName, version, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		if(!res) return;
+
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		qdb.add(db, tableName, data, function(res){
+			console.log(res);
+		});
+	});
 };
 
 test();
