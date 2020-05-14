@@ -33,14 +33,25 @@ exports.createTable = function(db, tables){
 	for(var i=0; i<tables.length; i++){
 		var table = tables[i];
 		if(!db.objectStoreNames.contains(table.name)){
+			// key
 			var key = {};
 			if(table.key == 'auto'){
 				key.autoIncrement = true;
 			}else{
 				key.keyPath = table.key;
 			}
-			
+
+			// create
 			var objectStore = db.createObjectStore(table.name, key);
+
+			// index
+			if(table.index){
+				var name = table.index.name;
+				var unique = table.index.unique;
+				objectStore.createIndex(name, name, { unique: unique });
+			}
+
+			// push
 			res.push(objectStore);
 		}
 	}
