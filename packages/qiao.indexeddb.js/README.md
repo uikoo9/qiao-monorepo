@@ -49,6 +49,7 @@ test();
 6. add data
 7. put data
 8. del data
+9. clear data
 
 ## 0.0.1.20200513
 1. init project
