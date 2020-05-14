@@ -62,6 +62,27 @@ exports.createTable = function(db, tables){
 };
 
 /**
+ * get
+ * 	tx
+ * 	tableName
+ * 	key
+ * 	cb
+ */
+exports.get = function(tx, tableName, key, cb){
+	var request = tx.objectStore(tableName).get(key);
+
+	request.onerror = function (event) {
+		console.log('get data fail');
+		cb(null);
+	};
+	
+	request.onsuccess = function (event) {
+		console.log('get data suc');
+		cb(request.result);
+	};
+};
+
+/**
  * add
  * 	tx
  * 	tableName
@@ -83,22 +104,22 @@ exports.add = function(tx, tableName, data, cb){
 };
 
 /**
- * get
+ * put
  * 	tx
  * 	tableName
- * 	key
+ * 	data
  * 	cb
  */
-exports.get = function(tx, tableName, key, cb){
-	var request = tx.objectStore(tableName).get(key);
+exports.put = function(tx, tableName, data, cb){
+	var request = tx.objectStore(tableName).put(data);
 
 	request.onerror = function (event) {
-		console.log('get data fail');
+		console.log('put data fail', event);
 		cb(null);
 	};
 	
 	request.onsuccess = function (event) {
-		console.log('get data suc');
-		cb(request.result);
+		console.log('put data suc');
+		cb('suc');
 	};
 };
