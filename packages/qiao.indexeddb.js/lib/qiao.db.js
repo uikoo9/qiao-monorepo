@@ -64,18 +64,41 @@ exports.createTable = function(db, tables){
 /**
  * add
  * 	tx
+ * 	tableName
  * 	data
+ * 	cb
  */
 exports.add = function(tx, tableName, data, cb){
 	var request = tx.objectStore(tableName).add(data);
 
 	request.onerror = function (event) {
-		console.log('add data fail', event);
+		console.log('add data fail');
 		cb(null);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('add data suc');
 		cb('suc');
+	};
+};
+
+/**
+ * get
+ * 	tx
+ * 	tableName
+ * 	key
+ * 	cb
+ */
+exports.get = function(tx, tableName, key, cb){
+	var request = tx.objectStore(tableName).get(key);
+
+	request.onerror = function (event) {
+		console.log('get data fail');
+		cb(null);
+	};
+	
+	request.onsuccess = function (event) {
+		console.log('get data suc');
+		cb(request.result);
 	};
 };
