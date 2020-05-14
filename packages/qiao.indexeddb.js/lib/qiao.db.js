@@ -94,12 +94,12 @@ exports.add = function(tx, tableName, data, cb){
 
 	request.onerror = function (event) {
 		console.log('add data fail');
-		cb(null);
+		cb(false);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('add data suc');
-		cb('suc');
+		cb(true);
 	};
 };
 
@@ -114,12 +114,33 @@ exports.put = function(tx, tableName, data, cb){
 	var request = tx.objectStore(tableName).put(data);
 
 	request.onerror = function (event) {
-		console.log('put data fail', event);
-		cb(null);
+		console.log('put data fail');
+		cb(false);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('put data suc');
-		cb('suc');
+		cb(true);
+	};
+};
+
+/**
+ * del
+ * 	tx
+ * 	tableName
+ * 	key
+ * 	cb
+ */
+exports.del = function(tx, tableName, key, cb){
+	var request = tx.objectStore(tableName).delete(key);
+
+	request.onerror = function (event) {
+		console.log('del data fail');
+		cb(false);
+	};
+	
+	request.onsuccess = function (event) {
+		console.log('del data suc');
+		cb(true);
 	};
 };
