@@ -7,10 +7,10 @@ var test = function(){
 	var version = 1;
 	var tables = [{
 		name : 't_test1',
-		key : {keyPath : 'id'}
+		key : 'id'
 	},{
 		name : 't_test2',
-		key : {keyPath : 'id'}
+		key : 'auto'
 	}];
 
 	qdb.openDB(databaseName, version, function(db){

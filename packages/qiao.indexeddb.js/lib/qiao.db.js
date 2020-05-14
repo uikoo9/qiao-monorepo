@@ -33,7 +33,14 @@ exports.createTable = function(db, tables){
 	for(var i=0; i<tables.length; i++){
 		var table = tables[i];
 		if(!db.objectStoreNames.contains(table.name)){
-			var objectStore = db.createObjectStore(table.name, table.key);
+			var key = {};
+			if(table.key == 'auto'){
+				key.autoIncrement = true;
+			}else{
+				key.keyPath = table.key;
+			}
+			
+			var objectStore = db.createObjectStore(table.name, key);
 			res.push(objectStore);
 		}
 	}
