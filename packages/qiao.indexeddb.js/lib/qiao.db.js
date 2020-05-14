@@ -172,3 +172,23 @@ exports.del = function(tx, tableName, key, cb){
 		cb(true);
 	};
 };
+
+/**
+ * clear
+ * 	tx
+ * 	tableName
+ * 	cb
+ */
+exports.clear = function(tx, tableName, cb){
+	var request = tx.objectStore(tableName).clear();
+
+	request.onerror = function (event) {
+		console.log('clear data fail');
+		cb(false);
+	};
+	
+	request.onsuccess = function (event) {
+		console.log('clear data suc');
+		cb(true);
+	};
+};

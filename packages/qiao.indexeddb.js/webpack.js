@@ -8,7 +8,8 @@ module.exports = {
         'get' : './test/get.js',
         'add' : './test/add.js',
         'put' : './test/put.js',
-        'del' : './test/del.js'
+        'del' : './test/del.js',
+        'clear' : './test/clear.js'
     },
     output  : {
         filename        : '[name].js',
