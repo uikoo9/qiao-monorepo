@@ -63,15 +63,11 @@ exports.createTable = function(db, tables){
 
 /**
  * add
- * 	tableName
+ * 	tx
  * 	data
  */
-exports.add = function(db, tableName, data, cb){
-	if(!db) cb(null);
-
-	var request = db.transaction([tableName], 'readwrite')
-		.objectStore(tableName)
-		.add(data);
+exports.add = function(tx, tableName, data, cb){
+	var request = tx.objectStore(tableName).add(data);
 
 	request.onerror = function (event) {
 		console.log('add data fail', event);

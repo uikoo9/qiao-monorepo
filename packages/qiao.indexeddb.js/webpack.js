@@ -3,7 +3,7 @@ module.exports = {
     entry   : {
         'open-db' : './test/open-db.js',
         'create-table' : './test/create-table.js',
-        'add-data' : './test/add-data.js'
+        'add' : './test/add.js'
     },
     output  : {
         filename        : '[name].js',

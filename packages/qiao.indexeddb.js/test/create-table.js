@@ -21,8 +21,10 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(db){
-		var res = qdb.createTable(db, tables);
+	qdb.openDB(databaseName, version, function(ev){
+		if(!ev) return;
+
+		var res = qdb.createTable(ev.target.result, tables);
 		console.log(res);
 	});
 };
