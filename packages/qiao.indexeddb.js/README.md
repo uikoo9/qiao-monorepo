@@ -404,6 +404,7 @@ test();
 # version
 ## 0.0.3.20200515
 1. tx --> db
+2. indexeddb add sync
 
 ## 0.0.2.20200514
 1. open db
