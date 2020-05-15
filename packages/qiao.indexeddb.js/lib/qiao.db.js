@@ -4,20 +4,22 @@
  * open db
  * 	databaseName
  * 	version
- * 	cb
+ * 	onupdate
+ * 	onsuccess
  */
-exports.openDB = function(databaseName, version, cb){
+exports.openDB = function(databaseName, version, onupdate, onsuccess){
 	var request = window.indexedDB.open(databaseName, version);
 	request.onerror = function(event){
 		console.log('open indexeddb fail');
-		cb(null);
+		if(onsuccess) onsuccess(null);
 	};
 	request.onsuccess = function (event) {
 		console.log('open indexeddb suc');
+		if(onsuccess) onsuccess(request.result);
 	};
 	request.onupgradeneeded = function (event) {
 		console.log('open indexeddb update');
-		cb(event);
+		if(onupdate) onupdate(event.target.result);
 	};
 };
 
@@ -30,11 +32,11 @@ exports.delDB = function(databaseName, cb){
 	var request = window.indexedDB.deleteDatabase(databaseName);
 	request.onerror = function(event){
 		console.log('del indexeddb fail');
-		cb(false);
+		if(cb) cb(false);
 	};
 	request.onsuccess = function (event) {
 		console.log('del indexeddb suc');
-		cb(true);
+		if(cb) cb(true);
 	};
 };
 
@@ -90,44 +92,46 @@ exports.delTable = function(db, tableName){
 };
 
 /**
- * get
- * 	tx
- * 	tableName
- * 	key
- * 	cb
- */
-exports.get = function(tx, tableName, key, cb){
-	var request = tx.objectStore(tableName).get(key);
-
-	request.onerror = function (event) {
-		console.log('get data fail');
-		cb(null);
-	};
-	
-	request.onsuccess = function (event) {
-		console.log('get data suc');
-		cb(request.result);
-	};
-};
-
-/**
  * add
  * 	tx
  * 	tableName
  * 	data
  * 	cb
  */
-exports.add = function(tx, tableName, data, cb){
+exports.add = function(db, tableName, data, cb){
+	var tx = db.transaction([tableName], 'readwrite');
 	var request = tx.objectStore(tableName).add(data);
 
 	request.onerror = function (event) {
 		console.log('add data fail');
-		cb(false);
+		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('add data suc');
-		cb(true);
+		if(cb) cb(true);
+	};
+};
+
+/**
+ * get
+ * 	tx
+ * 	tableName
+ * 	key
+ * 	cb
+ */
+exports.get = function(db, tableName, key, cb){
+	var tx = db.transaction([tableName], 'readonly');
+	var request = tx.objectStore(tableName).get(key);
+
+	request.onerror = function (event) {
+		console.log('get data fail');
+		if(cb) cb(null);
+	};
+	
+	request.onsuccess = function (event) {
+		console.log('get data suc');
+		if(cb) cb(request.result);
 	};
 };
 
@@ -138,17 +142,18 @@ exports.add = function(tx, tableName, data, cb){
  * 	data
  * 	cb
  */
-exports.put = function(tx, tableName, data, cb){
+exports.put = function(db, tableName, data, cb){
+	var tx = db.transaction([tableName], 'readwrite');
 	var request = tx.objectStore(tableName).put(data);
 
 	request.onerror = function (event) {
 		console.log('put data fail');
-		cb(false);
+		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('put data suc');
-		cb(true);
+		if(cb) cb(true);
 	};
 };
 
@@ -160,15 +165,15 @@ exports.put = function(tx, tableName, data, cb){
  * 	data
  * 	cb
  */
-exports.save = function(tx, tableName, key, data, cb){
-	exports.get(tx, tableName, key, function(r){
+exports.save = function(db, tableName, key, data, cb){
+	exports.get(db, tableName, key, function(r){
 		if(r){
-			exports.put(tx, tableName, data, function(rr){
-				cb(rr);
+			exports.put(db, tableName, data, function(rr){
+				if(cb) cb(rr);
 			});
 		}else{
-			exports.add(tx, tableName, data, function(rr){
-				cb(rr);
+			exports.add(db, tableName, data, function(rr){
+				if(cb) cb(rr);
 			});
 		}
 	});
@@ -181,17 +186,18 @@ exports.save = function(tx, tableName, key, data, cb){
  * 	key
  * 	cb
  */
-exports.del = function(tx, tableName, key, cb){
+exports.del = function(db, tableName, key, cb){
+	var tx = db.transaction([tableName], 'readwrite');
 	var request = tx.objectStore(tableName).delete(key);
 
 	request.onerror = function (event) {
 		console.log('del data fail');
-		cb(false);
+		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('del data suc');
-		cb(true);
+		if(cb) cb(true);
 	};
 };
 
@@ -201,16 +207,17 @@ exports.del = function(tx, tableName, key, cb){
  * 	tableName
  * 	cb
  */
-exports.clear = function(tx, tableName, cb){
+exports.clear = function(db, tableName, cb){
+	var tx = db.transaction([tableName], 'readwrite');
 	var request = tx.objectStore(tableName).clear();
 
 	request.onerror = function (event) {
 		console.log('clear data fail');
-		cb(false);
+		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
 		console.log('clear data suc');
-		cb(true);
+		if(cb) cb(true);
 	};
 };

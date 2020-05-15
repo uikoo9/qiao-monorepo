@@ -21,20 +21,18 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
+	});
 
-		var tx = ev.target.transaction;
+	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
-
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.add(tx, tableName, data, function(r){
+		qdb.add(db, tableName, data, function(r){
 			if(!r) return;
 
-			qdb.get(tx, tableName, 1, function(rr){
+			qdb.get(db, tableName, 1, function(rr){
 				console.log(rr);
 			});
 		});

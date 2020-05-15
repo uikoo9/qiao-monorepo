@@ -21,13 +21,11 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
 
-		qdb.delTable(ev.target.result, 't_test1');
+		qdb.delTable(db, 't_test1');
 	});
 };
 

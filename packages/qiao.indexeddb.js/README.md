@@ -31,8 +31,10 @@ var test = function(){
 	var databaseName = 'db_test';
 	var version = 1;
 
-	qdb.openDB(databaseName, version, function(ev){
-		console.log(ev ? ev.target.result : ev);
+	qdb.openDB(databaseName, version, function(db){
+		console.log(db);
+	}, function(db){
+		console.log(db);
 	});
 };
 
@@ -47,8 +49,6 @@ var qdb = require('qiao.db.js');
 
 var test = function(){
 	var databaseName = 'db_test';
-	var version = 1;
-
 	qdb.delDB(databaseName, function(res){
 		console.log(res);
 	});
@@ -82,10 +82,8 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
 	});
 };
@@ -118,61 +116,11 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
 
-		qdb.delTable(ev.target.result, 't_test1');
-	});
-};
-
-test();
-```
-
-## get
-```javascript
-'use strict';
-
-var qdb = require('qiao.db.js');
-
-var test = function(){
-	var databaseName = 'db_test';
-	var version = 1;
-	var tables = [{
-		name : 't_test1',
-		key : 'id',
-		index : {
-			name : 'name',
-			unique : false
-		}
-	},{
-		name : 't_test2',
-		key : 'auto',
-		index : {
-			name : 'email',
-			unique : true
-		}
-	}];
-
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
-		console.log(res);
-
-		var tx = ev.target.transaction;
-		var tableName = 't_test1';
-
-		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.add(tx, tableName, data, function(r){
-			if(!r) return;
-
-			qdb.get(tx, tableName, 1, function(rr){
-				console.log(rr);
-			});
-		});
+		qdb.delTable(db, 't_test1');
 	});
 };
 
@@ -204,17 +152,62 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
+	});
 
-		var tx = ev.target.transaction;
+	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.add(tx, tableName, data, function(r){
+		qdb.add(db, tableName, data, function(r){
 			console.log(r);
+		});
+	});
+};
+
+test();
+```
+
+## get
+```javascript
+'use strict';
+
+var qdb = require('qiao.db.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		qdb.add(db, tableName, data, function(r){
+			if(!r) return;
+
+			qdb.get(db, tableName, 1, function(rr){
+				console.log(rr);
+			});
 		});
 	});
 };
@@ -247,20 +240,19 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
+	});
 
-		var tx = ev.target.transaction;
+	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.add(tx, tableName, data, function(r){
+		qdb.add(db, tableName, data, function(r){
 			if(!r) return;
 
 			data.name = '1';
-			qdb.put(tx, tableName, data, function(rr){
+			qdb.put(db, tableName, data, function(rr){
 				console.log(rr);
 			});
 		});
@@ -295,20 +287,19 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
+	});
 
-		var tx = ev.target.transaction;
+	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.save(tx, tableName, 1, data, function(r){
+		qdb.save(db, tableName, 1, data, function(r){
 			console.log(r);
 
 			data.name = '1';
-			qdb.save(tx, tableName, 1, data, function(rr){
+			qdb.save(db, tableName, 1, data, function(rr){
 				console.log(rr);
 			});
 		});
@@ -343,19 +334,18 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
+	});
 
-		var tx = ev.target.transaction;
+	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.add(tx, tableName, data, function(r){
+		qdb.add(db, tableName, data, function(r){
 			if(!r) return;
 
-			qdb.del(tx, tableName, 1, function(rr){
+			qdb.del(db, tableName, 1, function(rr){
 				console.log(rr);
 			});
 		});
@@ -390,19 +380,18 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(ev){
-		if(!ev) return;
-
-		var res = qdb.createTable(ev.target.result, tables);
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
 		console.log(res);
+	});
 
-		var tx = ev.target.transaction;
+	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.add(tx, tableName, data, function(r){
+		qdb.add(db, tableName, data, function(r){
 			if(!r) return;
 
-			qdb.clear(tx, tableName, function(rr){
+			qdb.clear(db, tableName, function(rr){
 				console.log(rr);
 			});
 		});
@@ -413,6 +402,9 @@ test();
 ```
 
 # version
+## 0.0.3.20200515
+1. tx --> db
+
 ## 0.0.2.20200514
 1. open db
 2. del db
