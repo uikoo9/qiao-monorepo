@@ -221,3 +221,87 @@ exports.clear = function(db, tableName, cb){
 		if(cb) cb(true);
 	};
 };
+
+/**
+ * addSync
+ * 	tx
+ * 	tableName
+ * 	data
+ */
+exports.addSync = function(db, tableName, data){
+	return new Promise(function(resolve, reject){
+		exports.add(db, tableName, data, function(res){
+			resolve(res);
+		});
+	 });
+};
+
+/**
+ * getSync
+ * 	tx
+ * 	tableName
+ * 	key
+ */
+exports.getSync = function(db, tableName, key){
+	return new Promise(function(resolve, reject){
+		exports.get(db, tableName, key, function(res){
+			resolve(res);
+		});
+	});
+};
+
+/**
+ * putSync
+ * 	tx
+ * 	tableName
+ * 	data
+ */
+exports.putSync = function(db, tableName, data){
+	return new Promise(function(resolve, reject){
+		exports.put(db, tableName, data, function(res){
+			resolve(res);
+		});
+	});
+};
+
+/**
+ * saveSync
+ * 	tx
+ * 	tableName
+ * 	key
+ * 	data
+ */
+exports.saveSync = function(db, tableName, key, data){
+	return new Promise(function(resolve, reject){
+		exports.save(db, tableName, key, data, function(res){
+			resolve(res);
+		});
+	});
+};
+
+/**
+ * delSync
+ * 	tx
+ * 	tableName
+ * 	key
+ */
+exports.delSync = function(db, tableName, key){
+	return new Promise(function(resolve, reject){
+		exports.del(db, tableName, key, function(res){
+			resolve(res);
+		});
+	});
+};
+
+/**
+ * clearSync
+ * 	tx
+ * 	tableName
+ */
+exports.clearSync = function(db, tableName, cb){
+	return new Promise(function(resolve, reject){
+		exports.clear(db, tableName, function(res){
+			resolve(res);
+		});
+	});
+};
