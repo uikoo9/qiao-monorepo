@@ -1,6 +1,6 @@
 {
   "name": "qiao.plugin.request",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "license": "MIT",
   "description": "nodejs http request client",
   "keywords": [
