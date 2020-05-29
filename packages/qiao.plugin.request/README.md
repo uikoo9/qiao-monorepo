@@ -440,6 +440,9 @@ test();
 ```
 
 # version
+## 0.1.9.20200529
+1. img to base64 add gif
+
 ## 0.1.8.20200512
 1. img to base64 add jpeg
 2. img to base64 sync

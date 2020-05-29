@@ -187,11 +187,12 @@ exports.imgToBase64 = function(url, cb){
 
 	var type;
 	var ext = path.extname(url).toLowerCase();
+	if(ext == '.gif') type = 'gif';
 	if(ext == '.png') type = 'png';
 	if(ext == '.jpg' || ext == '.jpeg') type = 'jpeg';
 	if(!type){
 		res.type = 'fail';
-		res.msg = 'only png or jpg';
+		res.msg = 'only gif,png,jpg';
 
 		cb(res);
 		return;
