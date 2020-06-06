@@ -1,5 +1,7 @@
 var exec = require('child_process').exec;
 
+var decodeUtil = require('./decode.js');
+
 /**
  * default type
  */
@@ -22,8 +24,8 @@ exports.addValue = function(obj, cb){
 
 	obj.type = obj.type || defaultType;
 
-	exec(`reg add ${obj.key} /v ${obj.name} /t ${obj.type} /d ${obj.data} /f`, function(err, stdout, stderr){
-		if(cb) cb(err);
+	exec(`reg add \"${obj.key}\" /v \"${obj.name}\" /t \"${obj.type}\" /d \"${obj.data}\" /f`, { encoding: decodeUtil.binaryEncoding }, function(err, stdout, stderr){
+		if(cb) cb(decodeUtil.msg(err, stdout, stderr));
 	});
 };
 
@@ -56,8 +58,8 @@ exports.delValue = function(obj, cb){
 		return;
 	}
 
-	exec(`reg delete ${obj.key} /v ${obj.name} /f`, function(err, stdout, stderr){
-		if(cb) cb(err);
+	exec(`reg delete \"${obj.key}\" /v \"${obj.name}\" /f`, { encoding: decodeUtil.binaryEncoding }, function(err, stdout, stderr){
+		if(cb) cb(decodeUtil.msg(err, stdout, stderr));
 	});
 };
 
