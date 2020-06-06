@@ -76,3 +76,16 @@ exports.delValueSync = function(obj){
 		});
  	});
 };
+
+/**
+ * list value
+ * 	key
+ * 	cb
+ */
+exports.listValue = function(key, cb){
+	var cmdQueryAll = `reg query \"${key}\"`;
+
+	exec(cmdQueryAll, { encoding: util.binaryEncoding }, function(err, stdout, stderr){
+		if(cb) cb(util.msg(err, stdout, stderr));
+	});
+};
