@@ -55,7 +55,7 @@ var test = async function(){
 			data: 'haha'
 		};
 		
-		var res = await qiaoPluginRegedit.addValue(obj);
+		var res = await qiaoPluginRegedit.addValueSync(obj);
 		console.log(res);
 	}catch(e){
 		console.log(e);
