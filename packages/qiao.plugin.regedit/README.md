@@ -112,6 +112,45 @@ var test = async function(){
 test();
 ```
 
+## listValues
+```javascript
+'use strict';
+
+var qiaoPluginRegedit = require('qiao.plugin.regedit');
+
+var test = function(){
+	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+	var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+	
+	qiaoPluginRegedit.listValues(key, function(err, res){
+		console.log(err, res);
+	});
+};
+
+test();
+```
+
+## listValuesSync
+```javascript
+'use strict';
+
+var qiaoPluginRegedit = require('qiao.plugin.regedit');
+
+var test = async function(){
+	try{
+		// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+		var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+		
+		var res = await qiaoPluginRegedit.listValuesSync(key);
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
+```
+
 ## 0.0.1.20200606
 1. init project
 2. add value
@@ -119,3 +158,5 @@ test();
 4. del value
 5. del value sync
 6. 兼容中文和空格
+7. list values
+8. list values sync
