@@ -42,3 +42,35 @@ exports.addValueSync = function(obj){
 		});
  	});
 };
+
+/**
+ * del value
+ * 	obj
+ * 		key
+ * 		name
+ * 	cb
+ */
+exports.delValue = function(obj, cb){
+	if(!obj || !obj.key || !obj.name){
+		if(cb) cb('need key,name');
+		return;
+	}
+
+	exec(`reg delete ${obj.key} /v ${obj.name} /f`, function(err, stdout, stderr){
+		if(cb) cb(err);
+	});
+};
+
+/**
+ * del value sync
+ * 	obj
+ * 		key
+ * 		name
+ */
+exports.delValueSync = function(obj){
+	return new Promise(function(resolve, reject){
+		exports.delValue(obj, function(res){
+			resolve(res);
+		});
+ 	});
+};
