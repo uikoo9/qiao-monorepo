@@ -6,8 +6,8 @@ var test = function(){
 	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
 	var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
 	
-	qiaoPluginRegedit.listValue(key, function(res){
-		console.log(res);
+	qiaoPluginRegedit.listValues(key, function(err, res){
+		console.log(err, res);
 	});
 };
 

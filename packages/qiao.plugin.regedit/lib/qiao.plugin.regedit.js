@@ -78,14 +78,60 @@ exports.delValueSync = function(obj){
 };
 
 /**
- * list value
+ * list values
  * 	key
  * 	cb
  */
-exports.listValue = function(key, cb){
+exports.listValues = function(key, cb){
 	var cmdQueryAll = `reg query \"${key}\"`;
 
 	exec(cmdQueryAll, { encoding: util.binaryEncoding }, function(err, stdout, stderr){
-		if(cb) cb(util.msg(err, stdout, stderr));
+		var res = util.msg(err, stdout, stderr);
+		var completeKey = getCompleteKey(key);
+		if(res.indexOf(completeKey) === -1){
+			if(cb) cb(res);
+			return;
+		}
+		
+		var list = [];
+
+		var ss = res.split('\r\n');
+		if(!ss || !ss.length){
+			if(cb) cb(res);
+			return;
+		}
+
+		for(var s of ss){
+			if(!s) continue;
+			if(s == completeKey) continue;
+
+			var values = s.split(' ');
+			if(!values || !values.length) continue;
+
+			for(var v of values){
+				if(!v) continue;
+
+				list.push(v);
+				break;
+			}
+		}
+
+		if(cb) cb(null, list);
 	});
+};
+
+// get complete key
+function getCompleteKey(key){
+	if(key.indexOf('HKCU') === 0) return key.replace(/HKCU/g, 'HKEY_CURRENT_USER');
+}
+
+/**
+ * list values sync
+ */
+exports.listValuesSync = function(key){
+	return new Promise(function(resolve, reject){
+		exports.listValues(key, function(err, res){
+			resolve(err ? err : res);
+		});
+ 	});
 };
