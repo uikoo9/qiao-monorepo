@@ -118,3 +118,4 @@ test();
 3. add value sync
 4. del value
 5. del value sync
+6. 兼容中文和空格
