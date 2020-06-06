@@ -1,30 +1,44 @@
-'use strict';
-
-// cos
-var COS 	= require('cos-nodejs-sdk-v5');
-
-// qiao
-var qiao 	= {};
-qiao.cli	= require('qiao.plugin.cli');
-qiao.file	= require('qiao.util.file');
+var exec = require('child_process').exec;
 
 /**
- * client
- * 获取client对象
- * 	config，配文件
+ * default type
  */
-exports.client = function(config){
-	if(!config) 			throw new Error('need config params');
-	if(!config.SecretId) 	throw new Error('need config.SecretId params');
-	if(!config.SecretKey) 	throw new Error('need config.SecretKey params');
-	if(!config.Region) 	    throw new Error('need config.Region params');
-	if(!config.Bucket) 	    throw new Error('need config.Bucket params');
-	
-	return {
-		config 	: config,
-		cos		: new COS({
-			SecretId	: config.SecretId,
-			SecretKey	: config.SecretKey
-		})
-	};
+var defaultType = 'REG_SZ';
+
+/**
+ * add value
+ * 	obj
+ * 		key
+ * 		name
+ * 		type
+ * 		data
+ * 	cb
+ */
+exports.addValue = function(obj, cb){
+	if(!obj || !obj.key || !obj.name || !obj.data){
+		if(cb) cb('need key,name,data');
+		return;
+	}
+
+	obj.type = obj.type || defaultType;
+
+	exec(`reg add ${obj.key} /v ${obj.name} /t ${obj.type} /d ${obj.data} /f`, function(err, stdout, stderr){
+		if(cb) cb(err);
+	});
+};
+
+/**
+ * add value sync
+ * 	obj
+ * 		key
+ * 		name
+ * 		type
+ * 		data
+ */
+exports.addValueSync = function(obj){
+	return new Promise(function(resolve, reject){
+		exports.addValue(obj, function(res){
+			resolve(res);
+		});
+ 	});
 };

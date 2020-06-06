@@ -16,10 +16,56 @@
 npm install qiao.plugin.regedit
 
 # api
-## uploadFileSync
+## addValue
 ```javascript
+'use strict';
 
+var qiaoPluginRegedit = require('qiao.plugin.regedit');
+
+var test = function(){
+	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+	var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+	var obj = {
+		key : key,
+		name: 'test',
+		data: 'haha'
+	};
+	
+	qiaoPluginRegedit.addValue(obj, function(res){
+		console.log(res);
+	});
+};
+
+test();
+```
+
+## addValueSync
+```javascript
+'use strict';
+
+var qiaoPluginRegedit = require('qiao.plugin.regedit');
+
+var test = async function(){
+	try{
+		// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+		var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+		var obj = {
+			key : key,
+			name: 'test',
+			data: 'haha'
+		};
+		
+		var res = await qiaoPluginRegedit.addValue(obj);
+		console.log(res);
+	}catch(e){
+		console.log(e);
+	}
+};
+
+test();
 ```
 
 ## 0.0.1.20200606
 1. init project
+2. add value
+3. add value sync
