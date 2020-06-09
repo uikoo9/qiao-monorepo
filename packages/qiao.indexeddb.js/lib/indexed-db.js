@@ -31,11 +31,9 @@ exports.openDB = function(databaseName, version, onupdate, onsuccess){
 exports.delDB = function(databaseName, cb){
 	var request = window.indexedDB.deleteDatabase(databaseName);
 	request.onerror = function(event){
-		console.log('del indexeddb fail');
 		if(cb) cb(false);
 	};
 	request.onsuccess = function (event) {
-		console.log('del indexeddb suc');
 		if(cb) cb(true);
 	};
 };
@@ -103,12 +101,10 @@ exports.add = function(db, tableName, data, cb){
 	var request = tx.objectStore(tableName).add(data);
 
 	request.onerror = function (event) {
-		console.log('add data fail');
 		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
-		console.log('add data suc');
 		if(cb) cb(true);
 	};
 };
@@ -125,12 +121,10 @@ exports.get = function(db, tableName, key, cb){
 	var request = tx.objectStore(tableName).get(key);
 
 	request.onerror = function (event) {
-		console.log('get data fail');
 		if(cb) cb(null);
 	};
 	
 	request.onsuccess = function (event) {
-		console.log('get data suc');
 		if(cb) cb(request.result);
 	};
 };
@@ -147,12 +141,10 @@ exports.put = function(db, tableName, data, cb){
 	var request = tx.objectStore(tableName).put(data);
 
 	request.onerror = function (event) {
-		console.log('put data fail');
 		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
-		console.log('put data suc');
 		if(cb) cb(true);
 	};
 };
@@ -191,12 +183,10 @@ exports.del = function(db, tableName, key, cb){
 	var request = tx.objectStore(tableName).delete(key);
 
 	request.onerror = function (event) {
-		console.log('del data fail');
 		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
-		console.log('del data suc');
 		if(cb) cb(true);
 	};
 };
@@ -212,12 +202,10 @@ exports.clear = function(db, tableName, cb){
 	var request = tx.objectStore(tableName).clear();
 
 	request.onerror = function (event) {
-		console.log('clear data fail');
 		if(cb) cb(false);
 	};
 	
 	request.onsuccess = function (event) {
-		console.log('clear data suc');
 		if(cb) cb(true);
 	};
 };
