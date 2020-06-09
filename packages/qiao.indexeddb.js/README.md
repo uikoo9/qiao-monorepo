@@ -402,6 +402,9 @@ test();
 ```
 
 # version
+## 0.0.4.20200609
+1. del log
+
 ## 0.0.3.20200515
 1. tx --> db
 2. indexeddb add sync
