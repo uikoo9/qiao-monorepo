@@ -7,7 +7,7 @@ var ping 	= require('ping');
 /**
  * reuqest
  */
-exports.request = require('request');
+exports.request = require('../request/index.js');
 
 /**
  * get
