@@ -440,6 +440,10 @@ test();
 ```
 
 # version
+## 0.2.0.20200610
+1. use git request
+2. download large file
+
 ## 0.1.9.20200529
 1. img to base64 add gif
 
