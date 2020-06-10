@@ -1,3 +1,0 @@
-[submodule "request"]
-	path = request
-	url = git@github.com:insistime/request.git
