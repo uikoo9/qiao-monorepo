@@ -1,6 +1,6 @@
 {
   "name": "qiao.plugin.request",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "license": "MIT",
   "description": "nodejs http request client",
   "keywords": [
@@ -13,7 +13,8 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
-    "ping": "^0.2.2"
+    "ping": "^0.2.2",
+    "qiao.plugin.requestfix": "^2.88.99"
   },
   "author": {
     "name": "qiaowenbin",
