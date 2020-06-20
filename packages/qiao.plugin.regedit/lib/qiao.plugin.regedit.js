@@ -109,6 +109,7 @@ exports.listValues = function(key, cb){
 			if(!index) continue;
 
 			var keyName = s.substring(0, index);
+			keyName = keyName.replace(/(^\s*)|(\s*$)/g,'');
 			list.push(keyName);
 		}
 
