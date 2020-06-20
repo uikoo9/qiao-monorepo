@@ -151,6 +151,9 @@ var test = async function(){
 test();
 ```
 
+## 0.0.2.20200620
+1. fix list key space bug
+
 ## 0.0.1.20200606
 1. init project
 2. add value
