@@ -103,17 +103,13 @@ exports.listValues = function(key, cb){
 
 		for(var s of ss){
 			if(!s) continue;
-			if(s == completeKey) continue;
+			if(s.indexOf(completeKey) > -1) continue;
 
-			var values = s.split(' ');
-			if(!values || !values.length) continue;
+			var index = s.indexOf('REG_');
+			if(!index) continue;
 
-			for(var v of values){
-				if(!v) continue;
-
-				list.push(v);
-				break;
-			}
+			var keyName = s.substring(0, index);
+			list.push(keyName);
 		}
 
 		if(cb) cb(null, list);
