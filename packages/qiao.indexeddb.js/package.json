@@ -1,6 +1,6 @@
 {
   "name": "qiao.db.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "indexeddb and web sql tools",
   "keywords": [
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/insistime/qiao.db.js.git"
   },
   "devDependencies": {
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }

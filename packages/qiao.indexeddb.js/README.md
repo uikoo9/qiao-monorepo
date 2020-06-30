@@ -419,6 +419,7 @@ test();
 # version
 ## 0.0.5.20200630
 1. list db
+2. ncu
 
 ## 0.0.4.20200609
 1. del log
