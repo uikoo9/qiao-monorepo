@@ -24,6 +24,17 @@ exports.openDB = function(databaseName, version, onupdate, onsuccess){
 };
 
 /**
+ * list db
+ * 	cb
+ */
+exports.listDB = function(cb){
+	var promise = indexedDB.databases();
+	promise.then(function(dbs){
+		if(cb) cb(dbs);
+	})
+};
+
+/**
  * del db
  * 	databaseName
  * 	cb

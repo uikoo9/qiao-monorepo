@@ -48,6 +48,21 @@ test();
 var qdb = require('qiao.db.js');
 
 var test = function(){
+	qdb.listDB(function(dbs){
+		console.log(dbs);
+	});
+};
+
+test();
+```
+
+## delDB
+```javascript
+'use strict';
+
+var qdb = require('qiao.db.js');
+
+var test = function(){
 	var databaseName = 'db_test';
 	qdb.delDB(databaseName, function(res){
 		console.log(res);
