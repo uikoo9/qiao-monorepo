@@ -41,7 +41,7 @@ var test = function(){
 test();
 ```
 
-## delDB
+## listDB
 ```javascript
 'use strict';
 
