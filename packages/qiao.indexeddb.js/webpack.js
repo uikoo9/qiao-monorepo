@@ -1,17 +1,17 @@
 module.exports = {
     mode    : 'production',
     entry   : {
-        'open-db'       : './test/sync/open-db.js',
-        'list-db'       : './test/sync/list-db.js',
-        'del-db'        : './test/sync/del-db.js',
-        'create-table'  : './test/sync/create-table.js',
-        'del-table'     : './test/sync/del-table.js',
-        'add'           : './test/sync/add.js',
-        'get'           : './test/sync/get.js',
-        'put'           : './test/sync/put.js',
-        'save'          : './test/sync/save.js',
-        'del'           : './test/sync/del.js',
-        'clear'         : './test/sync/clear.js'
+        'open-db'       : './test/async/open-db.js',
+        'list-db'       : './test/async/list-db.js',
+        'del-db'        : './test/async/del-db.js',
+        'create-table'  : './test/async/create-table.js',
+        'del-table'     : './test/async/del-table.js',
+        'add'           : './test/async/add.js',
+        'get'           : './test/async/get.js',
+        'put'           : './test/async/put.js',
+        'save'          : './test/async/save.js',
+        'del'           : './test/async/del.js',
+        'clear'         : './test/async/clear.js'
     },
     output  : {
         filename        : '[name].js',
