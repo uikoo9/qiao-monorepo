@@ -1,6 +1,6 @@
 'use strict';
 
-var qdb = require('../lib/qiao.db.js');
+var qdb = require('../lib/qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';

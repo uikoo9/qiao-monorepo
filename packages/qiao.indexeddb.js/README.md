@@ -1,19 +1,19 @@
 # urls
 ## homepage
-[https://code.insistime.com/qiao.db.js](https://code.insistime.com/qiao.db.js)
+[https://code.insistime.com/qiao.indexeddb.js](https://code.insistime.com/qiao.indexeddb.js)
 
 ## github
-[https://github.com/insistime/qiao.db.js](https://github.com/insistime/qiao.db.js)
+[https://github.com/insistime/qiao.indexeddb.js](https://github.com/insistime/qiao.indexeddb.js)
 
 ## npm
-[https://www.npmjs.com/package/qiao.db.js](https://www.npmjs.com/package/qiao.db.js)
+[https://www.npmjs.com/package/qiao.indexeddb.js](https://www.npmjs.com/package/qiao.indexeddb.js)
 
 ## donate
 [http://uikoo9.com/donate](http://uikoo9.com/donate)
 
 # started
 ## install
-npm install qiao.db.js
+npm install qiao.indexeddb.js
 
 ## dependencies
 
@@ -25,7 +25,7 @@ npm install qiao.db.js
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -45,7 +45,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	qdb.listDB(function(dbs){
@@ -60,7 +60,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -76,7 +76,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -110,7 +110,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -146,7 +146,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -188,7 +188,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -234,7 +234,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -281,7 +281,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -328,7 +328,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -374,7 +374,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.db.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';

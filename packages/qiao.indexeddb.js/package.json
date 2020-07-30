@@ -1,5 +1,5 @@
 {
-  "name": "qiao.db.js",
+  "name": "qiao.indexeddb.js",
   "version": "0.0.7",
   "license": "MIT",
   "description": "indexeddb and web sql tools",
@@ -17,11 +17,11 @@
     "email": "npm@insistime.com",
     "url": "https://insistime.com"
   },
-  "homepage": "https://code.insistime.com/qiao.db.js",
+  "homepage": "https://code.insistime.com/qiao.indexeddb.js",
   "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao.db.js.git"
+    "url": "git+https://github.com/insistime/qiao.indexeddb.js.git"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
