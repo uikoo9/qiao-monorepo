@@ -1,6 +1,6 @@
 'use strict';
 
-var qdb = require('../lib/qiao.indexeddb.js');
+var qdb = require('../../lib/qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -32,8 +32,7 @@ var test = function(){
 		qdb.add(db, tableName, data, function(r){
 			if(!r) return;
 
-			data.name = '1';
-			qdb.put(db, tableName, data, function(rr){
+			qdb.del(db, tableName, 1, function(rr){
 				console.log(rr);
 			});
 		});

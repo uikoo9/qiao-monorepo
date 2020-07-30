@@ -1,17 +1,17 @@
 module.exports = {
     mode    : 'production',
     entry   : {
-        'open-db'       : './test/open-db.js',
-        'list-db'       : './test/list-db.js',
-        'del-db'        : './test/del-db.js',
-        'create-table'  : './test/create-table.js',
-        'del-table'     : './test/del-table.js',
-        'add'           : './test/add.js',
-        'get'           : './test/get.js',
-        'put'           : './test/put.js',
-        'save'          : './test/save.js',
-        'del'           : './test/del.js',
-        'clear'         : './test/clear.js'
+        'open-db'       : './test/sync/open-db.js',
+        'list-db'       : './test/sync/list-db.js',
+        'del-db'        : './test/sync/del-db.js',
+        'create-table'  : './test/sync/create-table.js',
+        'del-table'     : './test/sync/del-table.js',
+        'add'           : './test/sync/add.js',
+        'get'           : './test/sync/get.js',
+        'put'           : './test/sync/put.js',
+        'save'          : './test/sync/save.js',
+        'del'           : './test/sync/del.js',
+        'clear'         : './test/sync/clear.js'
     },
     output  : {
         filename        : '[name].js',
