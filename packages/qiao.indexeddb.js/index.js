@@ -1,1 +1,1 @@
-module.exports.db = require('./lib/indexed-db.js');
+module.exports = require('./lib/qiao.indexeddb.js');
