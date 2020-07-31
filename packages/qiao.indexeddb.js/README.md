@@ -580,7 +580,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('../../lib/qiao.indexeddb.js');
+var qdb = require('qiao.indexeddb.js');
 
 var test = function(){
 	var databaseName = 'db_test';
@@ -709,6 +709,16 @@ test();
 ```
 
 # version
+## 0.0.6.20200731
+1. add sync
+2. clear sync
+3. del db sync
+4. del sync
+5. get sync
+6. list db sync
+7. put sync
+8. save sync
+
 ## 0.0.5.20200630
 1. list db
 2. ncu

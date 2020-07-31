@@ -1,11 +1,10 @@
 {
   "name": "qiao.indexeddb.js",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
-  "description": "indexeddb and web sql tools",
+  "description": "indexeddb tools",
   "keywords": [
-    "indexeddb",
-    "web sql"
+    "indexeddb"
   ],
   "main": "index.js",
   "scripts": {
