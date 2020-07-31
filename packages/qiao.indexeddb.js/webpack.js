@@ -14,7 +14,13 @@ module.exports = {
         'clear'         : './test/async/clear.js',
 
         'list-db-sync'  : './test/sync/list-db-sync.js',
-        'del-db-sync'   : './test/sync/del-db-sync.js'
+        'del-db-sync'   : './test/sync/del-db-sync.js',
+        'add-sync'      : './test/sync/add-sync.js',
+        'get-sync'      : './test/sync/get-sync.js',
+        'put-sync'      : './test/sync/put-sync.js',
+        'save-sync'     : './test/sync/save-sync.js',
+        'del-sync'      : './test/sync/del-sync.js',
+        'clear-sync'    : './test/sync/clear-sync.js'
     },
     output  : {
         filename        : '[name].js',
