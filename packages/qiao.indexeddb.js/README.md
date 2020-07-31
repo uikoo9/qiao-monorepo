@@ -20,7 +20,7 @@ npm install qiao.indexeddb.js
 ## documentation
 1. indexeddb, [https://wangdoc.com/javascript/bom/indexeddb.html](https://wangdoc.com/javascript/bom/indexeddb.html)
 
-# api
+# async api
 ## openDB
 ```javascript
 'use strict';
@@ -410,6 +410,298 @@ var test = function(){
 				console.log(rr);
 			});
 		});
+	});
+};
+
+test();
+```
+
+
+# sync api
+## listDBSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = async function(){
+	var dbs = await qdb.listDBSync();
+	console.log(dbs);
+};
+
+test();
+```
+
+## delDBSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = async function(){
+	var databaseName = 'db_test';
+	var res = await qdb.delDBSync(databaseName);
+	console.log(res);
+};
+
+test();
+```
+
+## addSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, async function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		var r = await qdb.addSync(db, tableName, data);
+		console.log(r);
+	});
+};
+
+test();
+```
+
+## getSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, async function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		var r = await qdb.addSync(db, tableName, data);
+		if(!r) return;
+
+		var rr = await qdb.getSync(db, tableName, 1);
+		console.log(rr);
+	});
+};
+
+test();
+```
+
+## putSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, async function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		var r = await qdb.addSync(db, tableName, data);
+		if(!r) return;
+
+		var rr = await qdb.putSync(db, tableName, data);
+		console.log(rr);
+	});
+};
+
+test();
+```
+
+## saveSync
+```javascript
+'use strict';
+
+var qdb = require('../../lib/qiao.indexeddb.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, async function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		var r = await qdb.saveSync(db, tableName, 1, data);
+
+		data.name = '1';
+		var rr = await qdb.saveSync(db, tableName, 1, data);
+		console.log(rr);
+	});
+};
+
+test();
+```
+
+## delSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, async function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		var r = await qdb.addSync(db, tableName, data);
+		if(!r) return;
+
+		var rr = await qdb.delSync(db, tableName, 1);
+		console.log(rr);
+	});
+};
+
+test();
+```
+
+## clearSync
+```javascript
+'use strict';
+
+var qdb = require('qiao.indexeddb.js');
+
+var test = function(){
+	var databaseName = 'db_test';
+	var version = 1;
+	var tables = [{
+		name : 't_test1',
+		key : 'id',
+		index : {
+			name : 'name',
+			unique : false
+		}
+	},{
+		name : 't_test2',
+		key : 'auto',
+		index : {
+			name : 'email',
+			unique : true
+		}
+	}];
+
+	qdb.openDB(databaseName, version, function(db){
+		var res = qdb.createTable(db, tables);
+		console.log(res);
+	});
+
+	qdb.openDB(databaseName, version, null, async function(db){
+		var tableName = 't_test1';
+		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		var r = await qdb.addSync(db, tableName, data);
+		if(!r) return;
+
+		var rr = await qdb.clearSync(db, tableName, 1);
+		console.log(rr);
 	});
 };
 
