@@ -14,6 +14,7 @@ module.exports = {
         'clear'         : './test/async/clear.js',
 
         'list-db-sync'  : './test/sync/list-db-sync.js',
+        'del-db-sync'   : './test/sync/del-db-sync.js'
     },
     output  : {
         filename        : '[name].js',

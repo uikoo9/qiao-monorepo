@@ -233,6 +233,18 @@ exports.listDBSync = function(){
 };
 
 /**
+ * del db sync
+ * 	databaseName
+ */
+exports.delDBSync = function(databaseName){
+	return new Promise(function(resolve, reject){
+		exports.delDB(databaseName, function(res){
+			resolve(res);
+		});
+	 });
+};
+
+/**
  * addSync
  * 	tx
  * 	tableName
