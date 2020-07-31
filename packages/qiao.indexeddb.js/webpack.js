@@ -11,7 +11,9 @@ module.exports = {
         'put'           : './test/async/put.js',
         'save'          : './test/async/save.js',
         'del'           : './test/async/del.js',
-        'clear'         : './test/async/clear.js'
+        'clear'         : './test/async/clear.js',
+
+        'list-db-sync'  : './test/sync/list-db-sync.js',
     },
     output  : {
         filename        : '[name].js',

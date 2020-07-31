@@ -223,13 +223,10 @@ exports.clear = function(db, tableName, cb){
 
 /**
  * list db sync
- * 	tx
- * 	tableName
- * 	data
  */
-exports.addSync = function(db, tableName, data){
+exports.listDBSync = function(){
 	return new Promise(function(resolve, reject){
-		exports.add(db, tableName, data, function(res){
+		exports.listDB(function(res){
 			resolve(res);
 		});
 	 });
