@@ -22,6 +22,9 @@ npm install qiao.plugin.upload
 1. formidable, https://www.npmjs.com/package/formidable
 
 # version
+## 0.0.4.20200803
+1. ncu
+
 ## 0.0.3.20191206
 1. add funding
 
