@@ -14,7 +14,7 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
-    "formidable": "^1.2.1"
+    "formidable": "^1.2.2"
   },
   "author": {
     "name": "qiaowenbin",
