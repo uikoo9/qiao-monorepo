@@ -14,8 +14,8 @@
     "qoss": "./bin/qoss"
   },
   "dependencies": {
-    "ali-oss": "^6.3.1",
-    "qiao.plugin.cli": "0.0.9",
+    "ali-oss": "^6.10.0",
+    "qiao.plugin.cli": "0.1.0",
     "qiao.util.file": "^0.1.2"
   },
   "author": {
