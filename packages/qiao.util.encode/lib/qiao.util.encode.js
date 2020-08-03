@@ -1,6 +1,7 @@
 'use strict';
 
-var crypto = require('crypto');
+var crypto 	= require('crypto');
+var uuid 	= require('uuid');
 
 /**
  * md5
@@ -21,26 +22,22 @@ exports.uuid = function(type){
 	
 	// 1
 	if(type == 1){
-		var uuidv1 = require('uuid/v1');
-		return uuidv1();
+		return uuid.v1();
 	}
 	
 	// 3
 	if(type == 3){
-		var uuidv3 = require('uuid/v3');
-		return uuidv3('insistime.com', uuidv3.DNS);
+		return uuid.v3('insistime.com', uuid.v3.DNS);
 	}
 	
 	// 4
 	if(type == 4){
-		var uuidv4 = require('uuid/v4');
-		return uuidv4();
+		return uuid.v4();
 	}
 	
 	// 5
 	if(type == 5){
-		var uuidv5 = require('uuid/v5');
-		return uuidv5('insistime.com', uuidv5.DNS);
+		return uuid.v5('insistime.com', uuid.v5.DNS);
 	}
 };
 
