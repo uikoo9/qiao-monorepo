@@ -146,6 +146,9 @@ qoss | qoss -h for help
 ```
 
 # version
+## 0.2.4.20200803
+1. ncu
+
 ## 0.2.3.20191206
 1. update packages
 
