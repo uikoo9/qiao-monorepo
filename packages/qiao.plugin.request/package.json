@@ -13,7 +13,7 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
-    "ping": "^0.2.2",
+    "ping": "^0.2.3",
     "qiao.plugin.requestfix": "^2.88.99"
   },
   "author": {
