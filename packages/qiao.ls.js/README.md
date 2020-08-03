@@ -153,6 +153,9 @@ test();
 ```
 
 # version
+## 0.0.4.20200803
+1. ncu
+
 ## 0.0.3.20200414
 1. set cache
 2. get cache
