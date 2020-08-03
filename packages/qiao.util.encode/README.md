@@ -222,6 +222,9 @@ console.log(ss1);
 ```
 
 # version
+## 0.0.8.20200803
+1. ncu
+
 ## 0.0.7.20191204
 1. update packages
 2. add funding
