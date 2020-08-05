@@ -433,6 +433,160 @@ var test = async function(){
 test();
 ```
 
+## tarFile
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.tar');
+
+    q.tarFile(sourceFile, destPath, function(){
+        console.log(`tar file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`tar file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## tarFileSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.tar');
+
+    try{
+        await q.tarFileSync(sourceFile, destPath);
+        console.log(`tar file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`tar file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
+## tarFolder
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = function(){
+    var sourceFolder    = path.resolve(__dirname, '../node_modules');
+    var destPath        = path.resolve(__dirname, '../files_out/node_modules.tar');
+
+    q.tarFolder(sourceFolder, destPath, function(){
+        console.log(`tar folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`tar folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## tarFolderSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFolder    = path.resolve(__dirname, '../node_modules');
+    var destPath        = path.resolve(__dirname, '../files_out/node_modules.tar');
+
+    try{
+        await q.tarFolderSync(sourceFolder, destPath);
+        console.log(`tar folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`tar folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
+## untar
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+
+var test = function(){
+    var sourceFile  = path.resolve(__dirname, '../files_out/untar-file.tar');
+    var destPath    = path.resolve(__dirname, '../files_out');
+
+    q.untar(sourceFile, destPath, function(){
+        console.log(`untar file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`untar file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## untarSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/untar-file.tar');
+    var destPath    = path.resolve(__dirname, '../files_out');
+
+    try{
+        await q.untarSync(sourceFile, destPath);
+        console.log(`untar file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`untar file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
 # version
 ## 0.0.2.20200805
 1. compress file chinese
@@ -440,6 +594,7 @@ test();
 3. compress folder
 4. zip and unzip
 5. gzip and ungzip
+6. tar and untar
 
 ## 0.0.1.20200804
 1. init project
