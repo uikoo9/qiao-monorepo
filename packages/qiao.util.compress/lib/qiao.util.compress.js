@@ -10,13 +10,16 @@ var qiao = {};
 // qiao.file = require('qiao.util.file');
 
 /**
- * unzip
- * 	zipFile，待解压缩的zip文件
- * 	destFolder，解压缩后存放的文件夹
+ * uncompress
+ * 	compressType，压缩的文件类型
+ *  compressFile，待解压缩的文件
+ *  destFolder，解压缩后存放的文件夹
  */
-exports.unzip = function(zipFile, destFolder){
+exports.uncompress = function(compressType, compressFile, destFolder){
 	return new Promise(function(resolve, reject){
-		compressing.tgz.uncompress(zipFile, destFolder)
+		var compress = compressing[compressType];
+
+		compress.uncompress(compressFile, destFolder)
 		.then(function(){
 			resolve();
 		})
@@ -27,32 +30,25 @@ exports.unzip = function(zipFile, destFolder){
 };
 
 /**
- * zip file
+ * compress file
+ * 	compressType，压缩的文件类型
  * 	sourceFile，待压缩的文件
- * 	destZip，压缩后的zip文件
- * 	cb，回调函数
+ * 	destPath，压缩后的文件
  */
-exports.zipFile = function(sourceFile, destZip, cb){
-	if(!qiao.file.isExists(destZip)) qiao.file.mkdir(destZip);
+exports.compressFile = function(compressType, sourceFile, destPath){
+	// if(!qiao.file.isExists(destZip)) qiao.file.mkdir(destZip);
 	
-	// init
-	var output = fs.createWriteStream(destZip);
-	var archive = archiver('zip', {
-	    zlib: { level: 9 }
-	});
-	
-	// on
-	output.on('close', function() {
-		cb(null, 'zip file success!');
-	});
-	archive.on('error', function(err) {
-		cb(err);
-	});
+	return new Promise(function(resolve, reject){
+		var compress = compressing[compressType];
 
-	// zip
-	archive.pipe(output);
-	archive.file(sourceFile, {name : path.basename(sourceFile)});
-	archive.finalize();
+		compress.compressFile(sourceFile, destPath)
+		.then(function(){
+			resolve();
+		})
+		.catch(function(e){
+			reject(e);
+		});
+	});
 };
 
 /**
