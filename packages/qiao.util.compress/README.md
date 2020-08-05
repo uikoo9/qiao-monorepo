@@ -330,12 +330,116 @@ var test = async function(){
 test();
 ```
 
+## gzipFile
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.gz');
+
+    q.gzipFile(sourceFile, destPath, function(){
+        console.log(`gzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`gzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## gzipFileSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.gz');
+
+    try{
+        await q.gzipFileSync(sourceFile, destPath);
+        console.log(`gzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`gzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
+## ungzip
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+
+var test = function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/ungzip-file.gz');
+    var destPath    = path.resolve(__dirname, '../files_out/ungzip-file.js');
+
+    q.ungzip(sourceFile, destPath, function(){
+        console.log(`ungzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`ungzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## ungzipSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/ungzip-file.gz');
+    var destPath    = path.resolve(__dirname, '../files_out/ungzip-file.js');
+
+    try{
+        await q.ungzipSync(sourceFile, destPath);
+        console.log(`ungzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`ungzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
 # version
 ## 0.0.2.20200805
 1. compress file chinese
 2. uncompress file chinese
 3. compress folder
 4. zip and unzip
+5. gzip and ungzip
 
 ## 0.0.1.20200804
 1. init project
