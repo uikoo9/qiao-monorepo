@@ -8,9 +8,9 @@ var test = function(){
     var destPath        = path.resolve(__dirname, '../files_out/node_modules.zip');
 
     q.zipFolder(sourceFolder, destPath, function(){
-        console.log(`compress folder: ${sourceFolder} success, to ${destPath}`);
+        console.log(`zip folder: ${sourceFolder} success, to ${destPath}`);
     }, function(e){
-        console.log(`compress folder: ${sourceFolder} fail: ${e}`);
+        console.log(`zip folder: ${sourceFolder} fail: ${e}`);
     });
 };
 
