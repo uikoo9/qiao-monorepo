@@ -587,6 +587,160 @@ var test = async function(){
 test();
 ```
 
+## tgzFile
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.tgz');
+
+    q.tgzFile(sourceFile, destPath, function(){
+        console.log(`tgz file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`tgz file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## tgzFileSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.tgz');
+
+    try{
+        await q.tgzFileSync(sourceFile, destPath);
+        console.log(`tgz file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`tgz file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
+## tgzFolder
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = function(){
+    var sourceFolder    = path.resolve(__dirname, '../node_modules');
+    var destPath        = path.resolve(__dirname, '../files_out/node_modules.tgz');
+
+    q.tgzFolder(sourceFolder, destPath, function(){
+        console.log(`tgz folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`tgz folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## tgzFolderSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFolder    = path.resolve(__dirname, '../node_modules');
+    var destPath        = path.resolve(__dirname, '../files_out/node_modules.tgz');
+
+    try{
+        await q.tgzFolderSync(sourceFolder, destPath);
+        console.log(`tgz folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`tgz folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
+## untgz
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+
+var test = function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/untgz-file.tgz');
+    var destPath    = path.resolve(__dirname, '../files_out');
+
+    q.untgz(sourceFile, destPath, function(){
+        console.log(`untgz file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }, function(e){
+        console.log(`untgz file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    });
+};
+
+test();
+```
+
+## untgzSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFile  = path.resolve(__dirname, '../files_in/untgz-file.tgz');
+    var destPath    = path.resolve(__dirname, '../files_out');
+
+    try{
+        await q.untgzSync(sourceFile, destPath);
+        console.log(`untgz file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
+    }catch(e){
+        console.log(`untgz file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
+    }
+};
+
+test();
+```
+
 # version
 ## 0.0.2.20200805
 1. compress file chinese
@@ -595,6 +749,7 @@ test();
 4. zip and unzip
 5. gzip and ungzip
 6. tar and untar
+7. tgz and untgz
 
 ## 0.0.1.20200804
 1. init project

@@ -1,6 +1,6 @@
 {
   "name": "qiao.util.compress",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "nodejs compress and uncompress tool",
   "keywords": [
