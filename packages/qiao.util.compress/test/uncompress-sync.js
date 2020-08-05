@@ -3,16 +3,16 @@
 var path    = require('path');
 var q       = require('../qiao.util.compress');
 
-
-var test = function(){
+var test = async function(){
     var sourceFile  = path.resolve(__dirname, '../files_in/uncompress-file.zip');
     var destPath    = path.resolve(__dirname, '../files_out/');
 
-    q.uncompress('zip', sourceFile, destPath, function(){
+    try{
+        await q.uncompressSync('zip', sourceFile, destPath);
         console.log(`uncompress file: ${sourceFile} success, to ${destPath}`);
-    }, function(e){
+    }catch(e){
         console.log(`uncompress file: ${sourceFile} fail: ${e}`);
-    });
+    }
 };
 
 test();
