@@ -75,43 +75,32 @@ exports.zipFileSync = function(sourceFile, destPath){
 	});
 };
 
-// /**
-//  * compress folder
-//  * 	compressType, tar, gzip, tgz, zip
-//  *  sourceFolder
-//  *  destPath
-//  *  onSuccess
-//  *  onFail
-//  */
-// exports.compressFolder = function(compressType, sourceFolder, destPath, onSuccess, onFail){
-//     if(!compressTypes.includes(compressType)){
-//         if(onFail) onFail(new Error('compress type only support: tar, gzip, tgz, zip'));
-//         return;
-//     }
+/**
+ * zip folder
+ *  sourceFolder
+ *  destPath
+ *  onSuccess
+ *  onFail
+ */
+exports.zipFolder = function(sourceFolder, destPath, onSuccess, onFail){
+    _compress.compressFolder('zip', sourceFolder, destPath, function(){
+        if(onSuccess) onSuccess();
+    }, function(e){
+        if(onFail) onFail(e);
+    });
+};
 
-//     var compress = compressing[compressType];
-//     compress
-//         .compressDir(sourceFolder, destPath)
-//         .then(function(){
-//             if(onSuccess) onSuccess();
-//         })
-//         .catch(function(e){
-//             if(onFail) onFail(e);
-//         });
-// };
-
-// /**
-//  * compress folder sync
-//  * 	compressType, tar, gzip, tgz, zip
-//  *  sourceFolder
-//  *  destPath
-//  */
-// exports.compressFolderSync = function(compressType, sourceFolder, destPath){
-// 	return new Promise(function(resolve, reject){
-//         exports.compressFolder(compressType, sourceFolder, destPath, function(){
-//             resolve();
-//         }, function(e){
-//             reject(e);
-//         });
-// 	});
-// };
+/**
+ * zip folder sync
+ *  sourceFolder
+ *  destPath
+ */
+exports.zipFolderSync = function(sourceFolder, destPath){
+	return new Promise(function(resolve, reject){
+        exports.zipFolder(sourceFolder, destPath, function(){
+            resolve();
+        }, function(e){
+            reject(e);
+        });
+	});
+};
