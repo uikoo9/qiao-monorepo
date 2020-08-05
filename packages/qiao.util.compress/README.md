@@ -26,3 +26,5 @@ npm install qiao.util.compress
 # version
 ## 0.0.1.20200805
 1. init project
+2. uncompress
+3. compress file
