@@ -1,0 +1,31 @@
+{
+  "name": "qiao.util.compress",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "nodejs compress and uncompress tool",
+  "keywords": [
+    "compress",
+    "uncompress",
+    "zip",
+    "unzip",
+    "gzip",
+    "tar",
+    "tgz"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "compressing": "^1.5.1"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.util.compress",
+  "funding": "http://uikoo9.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.util.compress.git"
+  }
+}
