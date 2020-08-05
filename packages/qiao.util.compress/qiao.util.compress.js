@@ -22,3 +22,5 @@ module.exports.zipFile          = zip.zipFile;
 module.exports.zipFileSync      = zip.zipFileSync;
 module.exports.zipFolder        = zip.zipFolder;
 module.exports.zipFolderSync    = zip.zipFolderSync;
+module.exports.unzip            = zip.unzip;
+module.exports.unzipSync        = zip.unzipSync;
