@@ -8,6 +8,10 @@ var _compress       = require('./lib/_compress.js');
 module.exports.uncompress           = _uncompress.uncompress;
 module.exports.uncompressSync       = _uncompress.uncompressSync;
 
-// compress
+// compress file
 module.exports.compressFile         = _compress.compressFile;
 module.exports.compressFileSync     = _compress.compressFileSync;
+
+// compress folder
+module.exports.compressFolder       = _compress.compressFolder;
+module.exports.compressFolderSync   = _compress.compressFolderSync;
