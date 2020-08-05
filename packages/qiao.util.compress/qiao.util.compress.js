@@ -6,6 +6,7 @@ var _uncompress     = require('./lib/_uncompress.js');
 var zip             = require('./lib/zip.js');
 var gzip            = require('./lib/gzip.js');
 var tar             = require('./lib/tar.js');
+var tgz             = require('./lib/tgz.js');
 
 // compress file
 module.exports.compressFile         = _compress.compressFile;
@@ -40,3 +41,11 @@ module.exports.tarFolder        = tar.tarFolder;
 module.exports.tarFolderSync    = tar.tarFolderSync;
 module.exports.untar            = tar.untar;
 module.exports.untarSync        = tar.untarSync;
+
+// tgz
+module.exports.tgzFile          = tgz.tgzFile;
+module.exports.tgzFileSync      = tgz.tgzFileSync;
+module.exports.tgzFolder        = tgz.tgzFolder;
+module.exports.tgzFolderSync    = tgz.tgzFolderSync;
+module.exports.untgz            = tgz.untgz;
+module.exports.untgzSync        = tgz.untgzSync;

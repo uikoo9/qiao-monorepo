@@ -544,7 +544,7 @@ var q       = require('qiao.util.compress');
 
 
 var test = function(){
-    var sourceFile  = path.resolve(__dirname, '../files_out/untar-file.tar');
+    var sourceFile  = path.resolve(__dirname, '../files_in/untar-file.tar');
     var destPath    = path.resolve(__dirname, '../files_out');
 
     q.untar(sourceFile, destPath, function(){
