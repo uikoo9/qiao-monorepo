@@ -109,10 +109,54 @@ var test = async function(){
 test();
 ```
 
+## compressFolder
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = function(){
+    var sourceFolder    = path.resolve(__dirname, '../node_modules');
+    var destPath        = path.resolve(__dirname, '../files_out/node_modules.zip');
+
+    q.compressFolder('zip', sourceFolder, destPath, function(){
+        console.log(`compress folder: ${sourceFolder} success, to ${destPath}`);
+    }, function(e){
+        console.log(`compress folder: ${sourceFolder} fail: ${e}`);
+    });
+};
+
+test();
+```
+
+## compressFolderSync
+```javascript
+'use strict';
+
+var path    = require('path');
+var q       = require('qiao.util.compress');
+
+var test = async function(){
+    var sourceFolder    = path.resolve(__dirname, '../node_modules');
+    var destPath        = path.resolve(__dirname, '../files_out/node_modules.zip');
+
+    try{
+        await q.compressFolder('zip', sourceFolder, destPath);
+        console.log(`compress folder: ${sourceFolder} success, to ${destPath}`);
+    }catch(e){
+        console.log(`compress folder: ${sourceFolder} fail: ${e}`);
+    }
+};
+
+test();
+```
+
 # version
 ## 0.0.2.20200805
 1. compress file chinese
 2. uncompress file chinese
+3. compress folder
 
 ## 0.0.1.20200804
 1. init project
