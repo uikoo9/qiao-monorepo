@@ -34,9 +34,13 @@ var test = function(){
     var destPath    = path.resolve(__dirname, '../files_out/source-file.zip');
 
     q.compressFile('zip', sourceFile, destPath, function(){
-        console.log(`compress file: ${sourceFile} success, to ${destPath}`);
+        console.log(`compress file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`compress file: ${sourceFile} fail: ${e}`);
+        console.log(`compress file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     });
 };
 
@@ -56,9 +60,13 @@ var test = async function(){
 
     try{
         await q.compressFileSync('zip', sourceFile, destPath);
-        console.log(`compress file: ${sourceFile} success, to ${destPath}`);
+        console.log(`compress file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`compress file: ${sourceFile} fail: ${e}`);
+        console.log(`compress file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 
@@ -77,9 +85,13 @@ var test = function(){
     var destPath        = path.resolve(__dirname, '../files_out/node_modules.zip');
 
     q.compressFolder('zip', sourceFolder, destPath, function(){
-        console.log(`compress folder: ${sourceFolder} success, to ${destPath}`);
+        console.log(`compress folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`compress folder: ${sourceFolder} fail: ${e}`);
+        console.log(`compress folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
     });
 };
 
@@ -99,9 +111,13 @@ var test = async function(){
 
     try{
         await q.compressFolder('zip', sourceFolder, destPath);
-        console.log(`compress folder: ${sourceFolder} success, to ${destPath}`);
+        console.log(`compress folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`compress folder: ${sourceFolder} fail: ${e}`);
+        console.log(`compress folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
     }
 };
 
@@ -121,9 +137,13 @@ var test = function(){
     var destPath    = path.resolve(__dirname, '../files_out/');
 
     q.uncompress('zip', sourceFile, destPath, function(){
-        console.log(`uncompress file: ${sourceFile} success, to ${destPath}`);
+        console.log(`uncompress file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`uncompress file: ${sourceFile} fail: ${e}`);
+        console.log(`uncompress file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     });
 };
 
@@ -143,9 +163,13 @@ var test = async function(){
 
     try{
         await q.uncompressSync('zip', sourceFile, destPath);
-        console.log(`uncompress file: ${sourceFile} success, to ${destPath}`);
+        console.log(`uncompress file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`uncompress file: ${sourceFile} fail: ${e}`);
+        console.log(`uncompress file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 
@@ -164,9 +188,13 @@ var test = function(){
     var destPath    = path.resolve(__dirname, '../files_out/source-file.zip');
 
     q.zipFile(sourceFile, destPath, function(){
-        console.log(`zip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`zip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`zip file: ${sourceFile} fail: ${e}`);
+        console.log(`zip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     });
 };
 
@@ -186,9 +214,13 @@ var test = async function(){
 
     try{
         await q.zipFileSync(sourceFile, destPath);
-        console.log(`zip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`zip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`zip file: ${sourceFile} fail: ${e}`);
+        console.log(`zip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 
@@ -207,9 +239,13 @@ var test = function(){
     var destPath        = path.resolve(__dirname, '../files_out/node_modules.zip');
 
     q.zipFolder(sourceFolder, destPath, function(){
-        console.log(`zip folder: ${sourceFolder} success, to ${destPath}`);
+        console.log(`zip folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`zip folder: ${sourceFolder} fail: ${e}`);
+        console.log(`zip folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
     });
 };
 
@@ -229,9 +265,13 @@ var test = async function(){
 
     try{
         await q.zipFolderSync(sourceFolder, destPath);
-        console.log(`zip folder: ${sourceFolder} success, to ${destPath}`);
+        console.log(`zip folder success`);
+        console.log(`   source file:    ${sourceFolder}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`zip folder: ${sourceFolder} fail: ${e}`);
+        console.log(`zip folder fail`);
+        console.log(`   source folder:  ${sourceFolder}`);
+        console.log(`   error:          ${e}`);
     }
 };
 
@@ -251,9 +291,13 @@ var test = function(){
     var destPath    = path.resolve(__dirname, '../files_out/');
 
     q.unzip(sourceFile, destPath, function(){
-        console.log(`unzip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`unzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`unzip file: ${sourceFile} fail: ${e}`);
+        console.log(`unzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     });
 };
 
@@ -273,9 +317,13 @@ var test = async function(){
 
     try{
         await q.unzipSync(sourceFile, destPath);
-        console.log(`unzip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`unzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`unzip file: ${sourceFile} fail: ${e}`);
+        console.log(`unzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 

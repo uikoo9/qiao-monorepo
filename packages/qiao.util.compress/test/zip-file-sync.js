@@ -9,9 +9,13 @@ var test = async function(){
 
     try{
         await q.zipFileSync(sourceFile, destPath);
-        console.log(`zip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`zip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`zip file: ${sourceFile} fail: ${e}`);
+        console.log(`zip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 

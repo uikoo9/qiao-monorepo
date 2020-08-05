@@ -3,20 +3,19 @@
 var path    = require('path');
 var q       = require('../qiao.util.compress');
 
-var test = async function(){
+var test = function(){
     var sourceFile  = path.resolve(__dirname, '../files_in/source-file.js');
-    var destPath    = path.resolve(__dirname, '../files_out/source-file.zip');
+    var destPath    = path.resolve(__dirname, '../files_out/source-file.gz');
 
-    try{
-        await q.compressFileSync('zip', sourceFile, destPath);
-        console.log(`compress file success`);
+    q.gzipFile(sourceFile, destPath, function(){
+        console.log(`gzip file success`);
         console.log(`   source file:    ${sourceFile}`);
         console.log(`   dest path:      ${destPath}`);
-    }catch(e){
-        console.log(`compress file fail`);
+    }, function(e){
+        console.log(`gzip file fail`);
         console.log(`   source file:    ${sourceFile}`);
         console.log(`   error:          ${e}`);
-    }
+    });
 };
 
 test();

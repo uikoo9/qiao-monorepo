@@ -9,9 +9,13 @@ var test = async function(){
 
     try{
         await q.compressFileSync('zip', sourceFile, destPath);
-        console.log(`compress file: ${sourceFile} success, to ${destPath}`);
+        console.log(`compress file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`compress file: ${sourceFile} fail: ${e}`);
+        console.log(`compress file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 

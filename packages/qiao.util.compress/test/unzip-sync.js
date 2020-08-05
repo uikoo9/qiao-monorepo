@@ -9,9 +9,13 @@ var test = async function(){
 
     try{
         await q.unzipSync(sourceFile, destPath);
-        console.log(`unzip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`unzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }catch(e){
-        console.log(`unzip file: ${sourceFile} fail: ${e}`);
+        console.log(`unzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     }
 };
 

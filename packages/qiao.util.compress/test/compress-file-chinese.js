@@ -8,9 +8,13 @@ var test = function(){
     var destPath    = path.resolve(__dirname, '../files_out/source-file-中文.zip');
 
     q.compressFile('zip', sourceFile, destPath, function(){
-        console.log(`compress file: ${sourceFile} success, to ${destPath}`);
+        console.log(`compress file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`compress file: ${sourceFile} fail: ${e}`);
+        console.log(`compress file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     });
 };
 

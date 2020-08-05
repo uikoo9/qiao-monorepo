@@ -9,9 +9,13 @@ var test = function(){
     var destPath    = path.resolve(__dirname, '../files_out/');
 
     q.unzip(sourceFile, destPath, function(){
-        console.log(`unzip file: ${sourceFile} success, to ${destPath}`);
+        console.log(`unzip file success`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   dest path:      ${destPath}`);
     }, function(e){
-        console.log(`unzip file: ${sourceFile} fail: ${e}`);
+        console.log(`unzip file fail`);
+        console.log(`   source file:    ${sourceFile}`);
+        console.log(`   error:          ${e}`);
     });
 };
 

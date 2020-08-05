@@ -5,14 +5,14 @@ var _compress       = require('./_compress.js');
 var _uncompress     = require('./_uncompress.js');
 
 /**
- * zip file
+ * gzip file
  *  sourceFile
  *  destPath
  *  onSuccess
  *  onFail
  */
-exports.zipFile = function(sourceFile, destPath, onSuccess, onFail){
-    _compress.compressFile('zip', sourceFile, destPath, function(){
+exports.gzipFile = function(sourceFile, destPath, onSuccess, onFail){
+    _compress.compressFile('gzip', sourceFile, destPath, function(){
         if(onSuccess) onSuccess();
     }, function(e){
         if(onFail) onFail(e);
@@ -20,13 +20,13 @@ exports.zipFile = function(sourceFile, destPath, onSuccess, onFail){
 };
 
 /**
- * zip file sync
+ * gzip file sync
  *  sourceFile
  *  destPath
  */
-exports.zipFileSync = function(sourceFile, destPath){
+exports.gzipFileSync = function(sourceFile, destPath){
 	return new Promise(function(resolve, reject){
-        exports.zipFile(sourceFile, destPath, function(){
+        exports.gzipFile(sourceFile, destPath, function(){
             resolve();
         }, function(e){
             reject(e);
@@ -35,14 +35,14 @@ exports.zipFileSync = function(sourceFile, destPath){
 };
 
 /**
- * zip folder
+ * gzip folder
  *  sourceFolder
  *  destPath
  *  onSuccess
  *  onFail
  */
-exports.zipFolder = function(sourceFolder, destPath, onSuccess, onFail){
-    _compress.compressFolder('zip', sourceFolder, destPath, function(){
+exports.gzipFolder = function(sourceFolder, destPath, onSuccess, onFail){
+    _compress.compressFolder('gzip', sourceFolder, destPath, function(){
         if(onSuccess) onSuccess();
     }, function(e){
         if(onFail) onFail(e);
@@ -50,13 +50,13 @@ exports.zipFolder = function(sourceFolder, destPath, onSuccess, onFail){
 };
 
 /**
- * zip folder sync
+ * gzip folder sync
  *  sourceFolder
  *  destPath
  */
-exports.zipFolderSync = function(sourceFolder, destPath){
+exports.gzipFolderSync = function(sourceFolder, destPath){
 	return new Promise(function(resolve, reject){
-        exports.zipFolder(sourceFolder, destPath, function(){
+        exports.gzipFolder(sourceFolder, destPath, function(){
             resolve();
         }, function(e){
             reject(e);
@@ -65,14 +65,14 @@ exports.zipFolderSync = function(sourceFolder, destPath){
 };
 
 /**
- * unzip
+ * ungzip
  *  compressFile
  *  destPath
  *  onSuccess
  *  onFail
  */
-exports.unzip = function(compressFile, destPath, onSuccess, onFail){
-    _uncompress.uncompress('zip', compressFile, destPath, function(){
+exports.ungzip = function(compressFile, destPath, onSuccess, onFail){
+    _uncompress.uncompress('gzip', compressFile, destPath, function(){
         if(onSuccess) onSuccess();
     }, function(e){
         if(onFail) onFail(e);
@@ -80,13 +80,13 @@ exports.unzip = function(compressFile, destPath, onSuccess, onFail){
 };
 
 /**
- * unzip sync
+ * ungzip sync
  *  compressFile
  *  destPath
  */
-exports.unzipSync = function(compressFile, destPath){
+exports.ungzipSync = function(compressFile, destPath){
 	return new Promise(function(resolve, reject){
-        exports.unzip(compressFile, destPath, function(){
+        exports.ungzip(compressFile, destPath, function(){
             resolve();
         }, function(e){
             reject(e);
