@@ -12,7 +12,7 @@
     "tar",
     "tgz"
   ],
-  "main": "index.js",
+  "main": "qiao.util.compress.js",
   "scripts": {},
   "dependencies": {
     "compressing": "^1.5.1"
