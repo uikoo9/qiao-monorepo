@@ -29,7 +29,5 @@ module.exports.unzipSync        = zip.unzipSync;
 // gzip
 module.exports.gzipFile          = gzip.gzipFile;
 module.exports.gzipFileSync      = gzip.gzipFileSync;
-module.exports.gzipFolder        = gzip.gzipFolder;
-module.exports.gzipFolderSync    = gzip.gzipFolderSync;
 module.exports.ungzip            = gzip.ungzip;
 module.exports.ungzipSync        = gzip.ungzipSync;

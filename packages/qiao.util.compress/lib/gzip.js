@@ -35,36 +35,6 @@ exports.gzipFileSync = function(sourceFile, destPath){
 };
 
 /**
- * gzip folder
- *  sourceFolder
- *  destPath
- *  onSuccess
- *  onFail
- */
-exports.gzipFolder = function(sourceFolder, destPath, onSuccess, onFail){
-    _compress.compressFolder('gzip', sourceFolder, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
-};
-
-/**
- * gzip folder sync
- *  sourceFolder
- *  destPath
- */
-exports.gzipFolderSync = function(sourceFolder, destPath){
-	return new Promise(function(resolve, reject){
-        exports.gzipFolder(sourceFolder, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
-};
-
-/**
  * ungzip
  *  compressFile
  *  destPath
