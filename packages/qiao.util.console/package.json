@@ -1,0 +1,26 @@
+{
+  "name": "qiao.util.console",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "nodejs console tool",
+  "keywords": [
+    "nodejs",
+    "console",
+    "clearLine",
+    "clear"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "funding": "http://uikoo9.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.util.console.git"
+  }
+}
