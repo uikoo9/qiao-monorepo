@@ -27,3 +27,5 @@ q.writeLine(1, 'hello');
 # version
 ## 0.0.1.20200806
 1. init project
+2. clear
+3. write line
