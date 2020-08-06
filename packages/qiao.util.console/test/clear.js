@@ -1,5 +1,5 @@
 'use strict';
 
-var q = require('../lib/qiao.util.console.js');
+var qiao = require('../lib/qiao.util.console.js');
 
-q.clear();
+qiao.clear();

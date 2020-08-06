@@ -9,22 +9,25 @@ npm install qiao.util.console
 ```javascript
 'use strict';
 
-var q = require('qiao.util.console');
+var qiao = require('qiao.util.console');
 
-q.clear();
+qiao.clear();
 ```
 
 ## writeLine
 ```javascript
 'use strict';
 
-var q = require('qiao.util.console');
+var qiao = require('qiao.util.console');
 
-q.clear();
-q.writeLine(1, 'hello');
+qiao.clear();
+qiao.writeLine(1, 'hello');
 ```
 
 # version
+## 0.0.2.20200807
+1. modify md
+
 ## 0.0.1.20200806
 1. init project
 2. clear
