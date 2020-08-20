@@ -33,7 +33,7 @@ exports.getIpBySohu = function(){
 				var ip 	= s && s.length ? s[0] : null;
 				if(!ip) return reject(sohuErr);
 
-				var isIp = i({exact: true}).test(ip);
+				var isIp = i.v4({exact: true}).test(ip);
 				return isIp ? resolve(ip) : reject(notIpErr);
 			})
 			.catch(function(e){
@@ -58,7 +58,7 @@ exports.getIpByIcanhazip = function(){
 				var ip 	= res.data.replace(/\n/g, '');
 				if(!ip) return reject(hipErr);
 
-				var isIp = i({exact: true}).test(ip);
+				var isIp = i.v4({exact: true}).test(ip);
 				return isIp ? resolve(ip) : reject(notIpErr);
 			})
 			.catch(function(e){
