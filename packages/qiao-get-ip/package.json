@@ -1,0 +1,36 @@
+{
+  "name": "qiao-ajax",
+  "version": "0.0.3",
+  "license": "MIT",
+  "description": "browser ajax and nodejs http request",
+  "keywords": [
+    "browser",
+    "ajax",
+    "nodejs",
+    "http",
+    "request"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.js",
+    "reload": "pm2 reload all",
+    "pack": "npm run build && npm run reload"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "funding": "http://uikoo9.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao-ajax.git"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
