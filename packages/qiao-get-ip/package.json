@@ -1,14 +1,13 @@
 {
-  "name": "qiao-ajax",
+  "name": "qiao-get-ip",
   "version": "0.0.3",
   "license": "MIT",
-  "description": "browser ajax and nodejs http request",
+  "description": "get public ip on browser and nodejs",
   "keywords": [
     "browser",
-    "ajax",
     "nodejs",
-    "http",
-    "request"
+    "public",
+    "ip"
   ],
   "main": "index.js",
   "scripts": {
@@ -24,11 +23,9 @@
   "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao-ajax.git"
+    "url": "git+https://github.com/insistime/qiao-get-ip.git"
   },
-  "dependencies": {
-    "axios": "^0.19.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"

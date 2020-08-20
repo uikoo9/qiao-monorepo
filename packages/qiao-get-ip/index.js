@@ -1,1 +1,1 @@
-module.exports = require('./lib/qiao-ajax.js');
+module.exports = require('./lib/qiao-get-ip.js');

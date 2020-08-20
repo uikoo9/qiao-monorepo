@@ -3,7 +3,7 @@
 ```javascript
 'use strict';
 
-var q = require('qiao-ajax');
+var q = require('qiao-get-ip');
 
 var test = async function(){
     try{
@@ -22,4 +22,4 @@ test();
 ## 0.0.1.20200819
 1. init project
 2. http method
-3. qiao-ajax
+3. qiao-get-ip
