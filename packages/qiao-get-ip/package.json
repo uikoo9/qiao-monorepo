@@ -1,6 +1,6 @@
 {
   "name": "qiao-get-ip",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "description": "get public ip on browser and nodejs",
   "keywords": [
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "ip-regex": "^4.1.0",
-    "qiao-ajax": "0.0.3"
+    "qiao-ajax": "0.0.4"
   },
   "devDependencies": {
     "webpack": "^4.44.1",
