@@ -25,7 +25,9 @@
     "type": "git",
     "url": "git+https://github.com/insistime/qiao-get-ip.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "qiao-ajax": "0.0.3"
+  },
   "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
