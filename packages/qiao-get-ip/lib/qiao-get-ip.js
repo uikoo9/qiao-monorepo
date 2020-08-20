@@ -3,12 +3,18 @@
 // qiao-ajax
 var q = require('qiao-ajax');
 
+// ip-regex
+var i = require('ip-regex');
+
 // urls
 var sohuUrl = 'http://txt.go.sohu.com/ip/soip';
 var sohuErr = new Error('get ip by sohu failed');
 
 var hipUrl	= 'http://icanhazip.com/';
 var hipErr 	= new Error('get ip by icanhazip failed');
+
+// not ip
+var notIpErr= new Error('not ip');
 
 /**
  * get ip by sohu
@@ -25,8 +31,10 @@ exports.getIpBySohu = function(){
 				// ip
 				var s 	= res.data.match(/\d+\.\d+\.\d+\.\d+/g);
 				var ip 	= s && s.length ? s[0] : null;
+				if(!ip) return reject(sohuErr);
 
-				return ip ? resolve(ip) : reject(sohuErr);
+				var isIp = i({exact: true}).test(ip);
+				return isIp ? resolve(ip) : reject(notIpErr);
 			})
 			.catch(function(e){
 				reject(e);
@@ -46,8 +54,12 @@ exports.getIpByIcanhazip = function(){
 					return reject(hipErr);
 				}
 
-				resolve(res);
-				// return ip ? resolve(ip) : reject(sohuErr);
+				// ip
+				var ip 	= res.data.replace(/\n/g, '');
+				if(!ip) return reject(hipErr);
+
+				var isIp = i({exact: true}).test(ip);
+				return isIp ? resolve(ip) : reject(notIpErr);
 			})
 			.catch(function(e){
 				reject(e);

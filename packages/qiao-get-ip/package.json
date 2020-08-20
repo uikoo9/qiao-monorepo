@@ -26,6 +26,7 @@
     "url": "git+https://github.com/insistime/qiao-get-ip.git"
   },
   "dependencies": {
+    "ip-regex": "^4.1.0",
     "qiao-ajax": "0.0.3"
   },
   "devDependencies": {
