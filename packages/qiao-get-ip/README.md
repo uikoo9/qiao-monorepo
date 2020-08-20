@@ -3,13 +3,13 @@
 2. first by http://txt.go.sohu.com/ip/soip
 3. then by http://icanhazip.com/
 
-# install
+## install
 ```
 npm install qiao-get-ip
 ```
 
-# api
-## getIp
+## api
+### getIp
 ```javascript
 'use strict';
 
@@ -27,8 +27,8 @@ var test = async function(){
 test();
 ```
 
-# version
-## 0.0.1.20200819
+## version
+### 0.0.1.20200819
 1. init project
 2. http method
 3. qiao-get-ip
