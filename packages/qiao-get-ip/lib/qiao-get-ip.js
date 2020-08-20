@@ -66,3 +66,24 @@ exports.getIpByIcanhazip = function(){
 			});
 	});
 };
+
+/**
+ * get ip
+ */
+exports.getIp = async function(){
+	var ip;
+
+	// by sohu
+	try{
+		ip = await exports.getIpBySohu();
+	}catch(e1){
+		// by icanhazip
+		try{
+			ip = await exports.getIpByIcanhazip();
+		}catch(e2){
+			console.log(e1, e2);
+		}
+	}
+
+	return ip;
+}
