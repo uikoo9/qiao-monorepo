@@ -1,6 +1,6 @@
 {
   "name": "qiao-is-online-browser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "description": "is online on browser",
   "keywords": [
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/insistime/qiao-is-online-browser.git"
   },
   "dependencies": {
-    "offline-to-online": "0.0.2"
+    "offline-to-online": "0.0.4"
   },
   "devDependencies": {
     "webpack": "^4.44.1",
