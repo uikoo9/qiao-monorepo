@@ -23,7 +23,9 @@
     "type": "git",
     "url": "git+https://github.com/insistime/qiao-is-online-browser.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "offline-to-online": "0.0.2"
+  },
   "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"

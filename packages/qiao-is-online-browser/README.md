@@ -28,6 +28,18 @@ var test = async function(){
 test();
 ```
 
+### offlineToOnline
+```javascript
+'use strict';
+
+var q = require('qiao-is-online-browser');
+
+q.offlineToOnline(function(){
+    console.log('offline-to-online');
+});
+```
+
 ## version
 ### 0.0.1.20200821
 1. init project
+2. offline to online
