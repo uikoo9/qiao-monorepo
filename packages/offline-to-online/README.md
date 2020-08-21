@@ -3,10 +3,27 @@ offline to online on nodejs and browser
 
 ## install
 ```
-npm install offline-to-online
+-- on nodejs
+npm install qiao-is-online
+
+-- on browser
+npm install qiao-is-online-broswer
 ```
 
 ## api
+### offline to online on nodejs
+```javascript
+'use strict';
+
+var q = require('qiao-is-online');
+
+// callback
+// time, interval time, default is 3*1000ms
+q.offlineToOnline(function(){
+    console.log('offline-to-online');
+}, 3 * 1000);
+```
+
 ### offline to online on browser
 ```javascript
 'use strict';
