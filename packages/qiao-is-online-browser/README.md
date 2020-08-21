@@ -1,5 +1,6 @@
 # qiao-is-online-browser
-is online on browser by load img
+1. is online on browser by load img
+2. offline to online on browser
 
 ## install
 ```
@@ -44,4 +45,5 @@ q.offlineToOnline(function(){
 ## version
 ### 0.0.1.20200821
 1. init project
-2. offline to online
+2. is online
+3. offline to online

@@ -2,10 +2,11 @@
   "name": "qiao-is-online-browser",
   "version": "0.0.4",
   "license": "MIT",
-  "description": "is online on browser",
+  "description": "is online and offline to online on browser",
   "keywords": [
     "browser",
-    "is online"
+    "is online",
+    "offline to online"
   ],
   "main": "index.js",
   "scripts": {
