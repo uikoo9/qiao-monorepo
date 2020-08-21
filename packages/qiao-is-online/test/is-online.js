@@ -7,7 +7,7 @@ var test = async function(){
         var isOnline = await q.isOnline();
         console.log(isOnline);
 
-        // strict mode
+        // strict mode, all hosts alive return online
         var isOnlineStrictMode = await q.isOnline(true);
         console.log(isOnlineStrictMode);
     }catch(e){
