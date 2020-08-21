@@ -1,7 +1,5 @@
 # qiao-is-online-browser
-1. get public ip on nodejs and browser
-2. first by http://txt.go.sohu.com/ip/soip
-3. then by http://icanhazip.com/
+is online on browser by load img
 
 ## install
 ```
@@ -9,9 +7,25 @@ npm install qiao-is-online-browser
 ```
 
 ## api
-### getIp
+### isOnline
 ```javascript
+'use strict';
 
+var q = require('qiao-is-online-browser');
+
+var test = async function(){
+    try{
+        var isOnline = await q.isOnline();
+        console.log(isOnline);
+
+        // var isOnlineByYourImg = await q.isOnline(your img src);
+        // console.log(isOnlineByYourImg);
+    }catch(e){
+        console.log(e);
+    }
+};
+
+test();
 ```
 
 ## version
