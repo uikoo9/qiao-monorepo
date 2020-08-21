@@ -25,3 +25,4 @@ q.offlineToOnline(function(){
 1. init project
 2. on browser ok
 3. string offline online
+4. fix

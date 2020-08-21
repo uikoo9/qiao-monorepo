@@ -57,7 +57,7 @@ async function isNetworkChanged(isOnlineFunction){
 	}
 
 	// online
-	if(online){
+	if(online == 'online'){
 		offlineOne = false;
 		offlineTwo = false;
 	}
