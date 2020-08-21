@@ -10,9 +10,9 @@ var intervalId = null;
  *  callback
  *  time
  */
-exports.offlineToOnline = function(isOnline, calllback, time){
+exports.offlineToOnline = function(isOnlineFunction, calllback, time){
 	// check
-	if(!isOnline){
+	if(!isOnlineFunction){
         console.log('need is online function');
         return;
     }
@@ -23,14 +23,14 @@ exports.offlineToOnline = function(isOnline, calllback, time){
 
 	// start timer
 	if(intervalId) return;
-	startTimer(isOnline, calllback, time);
+	startTimer(isOnlineFunction, calllback, time);
 };
 
 // start timer
-function startTimer(isOnline, intervalCallback, intervalTime){
+function startTimer(isOnlineFunction, intervalCallback, intervalTime){
 	var time = intervalTime || 3*1000;
 	intervalId = setInterval(async () => {
-		var changed = await isNetworkChanged(isOnline);
+		var changed = await isNetworkChanged(isOnlineFunction);
 		if(!changed) return;
 
 		if(intervalCallback) intervalCallback();
@@ -38,8 +38,8 @@ function startTimer(isOnline, intervalCallback, intervalTime){
 }
 
 // is network changed
-async function isNetworkChanged(isOnline){
-	var online = await isOnline.isOnline();
+async function isNetworkChanged(isOnlineFunction){
+	var online = await isOnlineFunction();
 
 	// offline
 	if(!online){

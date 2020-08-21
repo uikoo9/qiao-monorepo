@@ -7,24 +7,18 @@ npm install offline-to-online
 ```
 
 ## api
-### offlineToOnline
+### offline to online on browser
 ```javascript
 'use strict';
 
-var q = require('offline-to-online');
+var q = require('qiao-is-online-browser');
 
-var test = async function(){
-    try{
-        var ip = await q.getIp();
-        console.log(ip);
-    }catch(e){
-        console.log(e);
-    }
-};
-
-test();
+q.offlineToOnline(function(){
+    console.log('offline-to-online');
+});
 ```
 
 ## version
 ### 0.0.1.20200821
 1. init project
+2. on browser ok
