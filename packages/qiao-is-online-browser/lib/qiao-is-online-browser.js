@@ -16,8 +16,8 @@ exports.isOnline = function(img){
 	return new Promise(function(resolve, reject){
         var img 	= new Image();
         img.src 	= `${src}?r=${Math.random()}`;
-        img.onload 	= function(){resolve(true);};
-		img.onerror = function(){resolve(false);};
+        img.onload 	= function(){resolve('online');};
+		img.onerror = function(){resolve('offline');};
 	});
 };
 
