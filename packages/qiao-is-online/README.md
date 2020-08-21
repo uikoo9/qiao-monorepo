@@ -1,6 +1,6 @@
 # qiao-is-online
-1. is online on nodejs
-2. by ping hosts: tmall.com, baidu.com, qq.com, taobao.com
+1. is online on nodejs by ping hosts: tmall.com, baidu.com, qq.com, taobao.com
+2. offline to online on nodejs
 
 ## install
 ```
@@ -30,6 +30,21 @@ var test = async function(){
 test();
 ```
 
+### offline to online on nodejs
+```javascript
+'use strict';
+
+var q = require('qiao-is-online');
+
+// callback
+// time, interval time, default is 3*1000ms
+q.offlineToOnline(function(){
+    console.log('offline-to-online');
+}, 3 * 1000);
+```
+
 ## version
 ### 0.0.1.20200821
 1. init project
+2. is online
+2. offline to online

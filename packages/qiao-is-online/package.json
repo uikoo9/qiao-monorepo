@@ -2,10 +2,11 @@
   "name": "qiao-is-online",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "is online on nodejs",
+  "description": "is online and offline to online on nodejs",
   "keywords": [
     "nodejs",
-    "is online"
+    "is online",
+    "offline to online"
   ],
   "main": "index.js",
   "scripts": {},
