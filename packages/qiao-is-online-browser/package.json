@@ -1,0 +1,31 @@
+{
+  "name": "qiao-is-online-browser",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "is online on browser",
+  "keywords": [
+    "browser",
+    "is online"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.js",
+    "reload": "pm2 reload all",
+    "pack": "npm run build && npm run reload"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "funding": "http://uikoo9.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao-is-online-browser.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

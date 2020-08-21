@@ -1,0 +1,1 @@
+module.exports = require('./lib/qiao-is-online-browser.js');
