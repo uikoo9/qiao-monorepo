@@ -42,14 +42,14 @@ async function isNetworkChanged(isOnlineFunction){
 	var online = await isOnlineFunction();
 
 	// offline
-	if(!online){
+	if(online == 'offline'){
 		if(offlineOne) offlineTwo = true;
 
 		offlineOne = true;
 	}
 
 	// offline to online
-	if(offlineOne &&  offlineTwo && online){
+	if(offlineOne &&  offlineTwo && online == 'online'){
 		offlineOne = false;
 		offlineTwo = false;
 

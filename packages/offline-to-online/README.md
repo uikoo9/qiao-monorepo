@@ -24,3 +24,4 @@ q.offlineToOnline(function(){
 ### 0.0.1.20200821
 1. init project
 2. on browser ok
+3. string offline online
