@@ -1,6 +1,6 @@
 {
   "name": "offline-to-online",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "offline to online on nodejs and browser",
   "keywords": [
