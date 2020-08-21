@@ -54,3 +54,15 @@ async function pingDomains(hosts){
 
 	return res;
 }
+
+// offline to online
+var o = require('offline-to-online');
+
+/**
+ * offline to online
+ *  callback
+ *  time
+ */
+exports.offlineToOnline = function(callback, time){
+    o.offlineToOnline(exports.isOnline, callback, time);
+};
