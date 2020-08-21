@@ -1,0 +1,27 @@
+{
+  "name": "offline-to-online",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "offline to online on nodejs and browser",
+  "keywords": [
+    "offline to online",
+    "nodejs",
+    "browser"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "funding": "http://uikoo9.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/offline-to-online.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
