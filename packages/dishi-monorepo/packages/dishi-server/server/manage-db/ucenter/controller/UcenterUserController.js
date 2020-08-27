@@ -28,9 +28,4 @@ module.exports = function(app){
 	app.post('/ucenter/code/send', function(req, res){
 		service.ucenterCodeSend(req, res);
 	});
-
-	// ucenter user get
-	app.post('/ucenter/user/get', function(req, res){
-		service.ucenterUserGet(req, res);
-	});
 };

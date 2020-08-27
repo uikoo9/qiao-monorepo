@@ -297,27 +297,3 @@ exports.ucenterCodeSend = async function(req, res){
 		res.send(qiao.json.danger('验证码发送失败！', {errName:e.name,errMsg:e.message}));
 	}
 };
-
-/**
- * ucenter user get
- */
-exports.ucenterUserGet = async function(req, res){
-	// check
-	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
-		return;
-	}
-	if(!req.body.id){
-		res.send(qiao.json.danger('缺少参数id！'));
-		return;
-	}
-	
-	// db
-	try{
-		var rows = await model.ucenterUserGetById(req.body.id);
-		
-		res.send(qiao.json.success('query success', {rows:rows}));
-	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
-	}
-};
