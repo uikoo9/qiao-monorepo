@@ -23,8 +23,8 @@ exports.server = function(options){
 	app.use(bodyParser.text({type:'text/xml'}));
 	
 	// path
-	var sslPath		= path.resolve(root, '../.well-known');
-	var filesPath	= path.resolve(root, '../files');
+	var sslPath		= path.resolve(root, './.well-known');
+	var filesPath	= path.resolve(root, './files');
 	
 	// static
 	app.use('/files', express.static(filesPath, {maxAge: 0}));
