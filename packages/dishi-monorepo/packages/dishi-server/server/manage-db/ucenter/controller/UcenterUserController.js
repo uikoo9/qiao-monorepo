@@ -4,6 +4,11 @@ var service	= require('../service/UcenterUserService.js');
  * ucenter user controller
  */
 module.exports = function(app){
+	// ucenter user reg
+	app.post('/ucenter/user/reg', function(req, res){
+		service.ucenterUserReg(req, res);
+	});
+
 	// ucenter user login
 	app.post('/ucenter/user/login', function(req, res){
 		service.ucenterUserLogin(req, res);
@@ -12,11 +17,6 @@ module.exports = function(app){
 	// ucenter user check
 	app.post('/ucenter/user/check', function(req, res){
 		service.ucenterUserCheck(req, res);
-	});
-
-	// ucenter user reg
-	app.post('/ucenter/user/reg', function(req, res){
-		service.ucenterUserReg(req, res);
 	});
 
 	// ucenter user forget
@@ -32,10 +32,5 @@ module.exports = function(app){
 	// ucenter user get
 	app.post('/ucenter/user/get', function(req, res){
 		service.ucenterUserGet(req, res);
-	});
-
-	// ucenter user menus
-	app.post('/ucenter/user/menus', function(req, res){
-		service.ucenterUserMenus(req, res);
 	});
 };

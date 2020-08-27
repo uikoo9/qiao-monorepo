@@ -6,6 +6,68 @@ qiao.config = require('../../../config/config.json');
 var model	= require('../model/UcenterUserModel.js');
 
 /**
+ * ucenter user reg
+ */
+exports.ucenterUserReg = async function(req, res){
+	// check
+	if(!req.body){
+		res.send(qiao.json.danger('缺少参数！'));
+		return;
+	}
+	if(!req.body.username){
+		res.send(qiao.json.danger('缺少参数username！'));
+		return;
+	}
+	if(!req.body.password){
+		res.send(qiao.json.danger('缺少参数password！'));
+		return;
+	}
+	if(!req.body.usercode){
+		res.send(qiao.json.danger('缺少参数usercode！'));
+		return;
+	}
+	
+	// db
+	try{
+		// vars for code
+		var type		= 'reg';
+		var username 	= req.body.username;
+		var usercode 	= req.body.usercode;
+		
+		// check code
+		var codes = await model.ucenterCodeGet(type, username);
+		if(codes.length != 1){
+			res.send(qiao.json.danger('请先获取手机验证码！'));
+			return;
+		}
+		if(usercode != codes[0].ucenter_code_code){
+			res.send(qiao.json.danger('手机验证码错误！'));
+			return;
+		}
+		
+		// vars for reg
+		var password 		= req.body.password;
+		var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey);
+		
+		// check user
+		var usersForMobile = await model.ucenterUserGetByMobile(username);
+		if(usersForMobile && usersForMobile.length){
+			res.send(qiao.json.danger('手机号已注册！'));
+			return;
+		}
+		
+		// reg
+		var regUser = await model.ucenterUserReg(username, encryptPassword);
+		await model.ucenterCodeDel(type, username);
+		
+		// send
+		res.send(qiao.json.success('注册成功！'));
+	}catch(e){
+		res.send(qiao.json.danger('注册失败', {errName:e.name,errMsg:e.message}));
+	}
+};
+
+/**
  * ucenter user login
  */
 exports.ucenterUserLogin = async function(req, res){
@@ -171,68 +233,6 @@ exports.ucenterCodeSend = async function(req, res){
 		res.send(qiao.json.success('验证码发送成功！'));
 	}catch(e){
 		res.send(qiao.json.danger('验证码发送失败！', {errName:e.name,errMsg:e.message}));
-	}
-};
-
-/**
- * ucenter user reg
- */
-exports.ucenterUserReg = async function(req, res){
-	// check
-	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
-		return;
-	}
-	if(!req.body.username){
-		res.send(qiao.json.danger('缺少参数username！'));
-		return;
-	}
-	if(!req.body.password){
-		res.send(qiao.json.danger('缺少参数password！'));
-		return;
-	}
-	if(!req.body.usercode){
-		res.send(qiao.json.danger('缺少参数usercode！'));
-		return;
-	}
-	
-	// db
-	try{
-		// vars for code
-		var type		= 'reg';
-		var username 	= req.body.username;
-		var usercode 	= req.body.usercode;
-		
-		// check code
-		var codes = await model.ucenterCodeGet(type, username);
-		if(codes.length != 1){
-			res.send(qiao.json.danger('请先获取手机验证码！'));
-			return;
-		}
-		if(usercode != codes[0].ucenter_code_code){
-			res.send(qiao.json.danger('手机验证码错误！'));
-			return;
-		}
-		
-		// vars for reg
-		var password 		= req.body.password;
-		var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey);
-		
-		// check user
-		var usersForMobile = await model.ucenterUserGetByMobile(username);
-		if(usersForMobile && usersForMobile.length){
-			res.send(qiao.json.danger('手机号已注册！'));
-			return;
-		}
-		
-		// reg
-		var regUser = await model.ucenterUserReg(username, encryptPassword);
-		await model.ucenterCodeDel(type, username);
-		
-		// send
-		res.send(qiao.json.success('注册成功！'));
-	}catch(e){
-		res.send(qiao.json.danger('注册失败', {errName:e.name,errMsg:e.message}));
 	}
 };
 
