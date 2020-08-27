@@ -214,9 +214,9 @@ exports.ucenterUserForget = async function(req, res){
 		await model.ucenterCodeDel(type, username);
 		
 		// send
-		res.send(qiao.json.success('注册成功！'));
+		res.send(qiao.json.success('修改成功！'));
 	}catch(e){
-		res.send(qiao.json.danger('注册失败', {errName:e.name,errMsg:e.message}));
+		res.send(qiao.json.danger('修改失败', {errName:e.name,errMsg:e.message}));
 	}
 };
 
