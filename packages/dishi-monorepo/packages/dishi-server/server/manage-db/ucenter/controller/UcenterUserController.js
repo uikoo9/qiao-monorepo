@@ -9,6 +9,11 @@ module.exports = function(app){
 		service.ucenterUserLogin(req, res);
 	});
 
+	// ucenter user check
+	app.post('/ucenter/user/check', function(req, res){
+		service.ucenterUserCheck(req, res);
+	});
+
 	// ucenter user reg
 	app.post('/ucenter/user/reg', function(req, res){
 		service.ucenterUserReg(req, res);
@@ -27,11 +32,6 @@ module.exports = function(app){
 	// ucenter user get
 	app.post('/ucenter/user/get', function(req, res){
 		service.ucenterUserGet(req, res);
-	});
-	
-	// ucenter user check
-	app.post('/ucenter/user/check', function(req, res){
-		service.ucenterUserCheck(req, res);
 	});
 
 	// ucenter user menus

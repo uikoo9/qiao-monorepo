@@ -6,6 +6,49 @@ qiao.config = require('../../../config/config.json');
 var model	= require('../model/UcenterUserModel.js');
 
 /**
+ * ucenter user login
+ */
+exports.ucenterUserLogin = async function(req, res){
+	// check
+	if(!req.body){
+		res.send(qiao.json.danger('缺少参数！'));
+		return;
+	}
+	if(!req.body.username){
+		res.send(qiao.json.danger('缺少参数username！'));
+		return;
+	}
+	if(!req.body.password){
+		res.send(qiao.json.danger('缺少参数password！'));
+		return;
+	}
+	
+	// vars
+	var username 		= req.body.username;
+	var password 		= req.body.password;
+	var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey); 
+	
+	// db
+	try{
+		// check user
+		var rows = await model.ucenterUserLogin(username, encryptPassword);
+		if(!rows || rows.length != 1){
+			res.send(qiao.json.danger('用户名或密码错误！'));
+			return;
+		}
+		
+		// send
+		var usertoken 	= qiao.encode.AESEncrypt(username + encryptPassword, qiao.config.encryptKey);
+		res.send(qiao.json.success('登录成功！', {
+			userid 		: rows[0].id,
+			usertoken	: usertoken
+		}));
+	}catch(e){
+		res.send(qiao.json.danger('登录失败', {errName:e.name,errMsg:e.message}));
+	}
+};
+
+/**
  * ucenter user check
  */
 exports.ucenterUserCheck = async function(req, res){
@@ -50,49 +93,6 @@ exports.ucenterUserCheck = async function(req, res){
 		}
 	}catch(e){
 		res.send(qiao.json.danger('校验token失败！', {errName:e.name,errMsg:e.message}));
-	}
-};
-
-/**
- * ucenter user login
- */
-exports.ucenterUserLogin = async function(req, res){
-	// check
-	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
-		return;
-	}
-	if(!req.body.username){
-		res.send(qiao.json.danger('缺少参数username！'));
-		return;
-	}
-	if(!req.body.password){
-		res.send(qiao.json.danger('缺少参数password！'));
-		return;
-	}
-	
-	// vars
-	var username 		= req.body.username;
-	var password 		= req.body.password;
-	var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey); 
-	
-	// db
-	try{
-		// check user
-		var rows = await model.ucenterUserLogin(username, encryptPassword);
-		if(!rows || rows.length != 1){
-			res.send(qiao.json.danger('用户名或密码错误！'));
-			return;
-		}
-		
-		// send
-		var usertoken 	= qiao.encode.AESEncrypt(username + encryptPassword, qiao.config.encryptKey);
-		res.send(qiao.json.success('登录成功！', {
-			userid 		: rows[0].id,
-			usertoken	: usertoken
-		}));
-	}catch(e){
-		res.send(qiao.json.danger('登录失败', {errName:e.name,errMsg:e.message}));
 	}
 };
 
