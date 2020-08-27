@@ -39,5 +39,5 @@ CREATE TABLE `t_ucenter_user` (
 
 /*Data for the table `t_ucenter_user` */
 
-insert  into `t_ucenter_user`(`id`,`ucenter_user_name`,`ucenter_user_password`,`cdate`,`cuser_id`,`cuser_name`,`udate`,`uuser_id`,`uuser_name`,`del_tag`) values (1,'admin','kud9vpBXcmQrYsYDJ7KCNw==','2018-11-13 19:57:04',1,'admin','2018-11-13 19:57:10',1,'admin','0'),(25,'18612257325','kud9vpBXcmQrYsYDJ7KCNw==','2018-12-19 17:05:07',1,'admin','2018-12-19 17:05:12',1,'admin','0');
+insert  into `t_ucenter_user`(`id`,`ucenter_user_name`,`ucenter_user_password`,`cdate`,`cuser_id`,`cuser_name`,`udate`,`uuser_id`,`uuser_name`,`del_tag`) values (1,'18612257325','kud9vpBXcmQrYsYDJ7KCNw==','2018-12-19 17:05:07',1,'admin','2018-12-19 17:05:12',1,'admin','0');
 
