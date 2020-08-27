@@ -1,0 +1,10 @@
+{
+	"path" : [
+		"/ucenter/user/login",
+		"/ucenter/user/reg",
+		"/ucenter/user/forget",
+		"/ucenter/code/send",
+		"/ucenter/user/get",
+		"/ucenter/user/check"
+	]
+}
