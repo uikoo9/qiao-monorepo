@@ -2,9 +2,6 @@
 
 'use strict';
 
-// path
-var path = require('path');
-
 // qiao
 var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
@@ -30,4 +27,9 @@ if(!process.argv.slice(2).length){
 	qiao.cli.cmd.outputHelp(function(txt){
 		return qiao.cli.colors.green(txt);
 	});
+}
+
+// login
+function login(){
+	console.log('login success');
 }
