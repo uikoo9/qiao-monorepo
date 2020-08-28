@@ -27,6 +27,12 @@ qiao.cli.cmd
 	.description('logout from dishi todo')
 	.action(logout);
 
+// cmd for whoami
+qiao.cli.cmd
+	.command('whoami')
+	.description('whoami in dishi todo')
+	.action(whoami);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -67,4 +73,15 @@ async function login(){
 function logout(){
 	qiao.config.clear();
 	qiao.log.suc(`already logout`);
+}
+
+// whoami
+function whoami(){
+	var userinfo = qiao.config.get('userinfo');
+	if(userinfo && userinfo.userid && userinfo.usertoken && userinfo.mobile){
+		qiao.log.suc(`login as ${userinfo.mobile}`);
+		return;
+	}
+
+	qiao.log.danger(`not login`);
 }
