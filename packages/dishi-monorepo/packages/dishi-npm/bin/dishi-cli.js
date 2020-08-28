@@ -5,6 +5,7 @@
 // qiao
 var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
+qiao.config	= require('qiao-config');
 qiao.dishi	= require('../lib/dishi.js');
 qiao.log 	= require('../lib/log.js');
 
@@ -33,6 +34,12 @@ if(!process.argv.slice(2).length){
 // login
 async function login(){
 	try{
+		var userinfo = qiao.config.get('userinfo');
+		if(userinfo && userinfo.userid && userinfo.usertoken && userinfo.mobile){
+			qiao.log.suc(`already login as ${userinfo.mobile}`);
+			return;
+		}
+
 		var answers = await qiao.cli.ask([{
 			type	: 'input',
 			name	: 'username',

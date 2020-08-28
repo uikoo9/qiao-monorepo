@@ -3,6 +3,7 @@
 // qiao
 var qiao 	= {};
 qiao.ajax	= require('qiao-ajax');
+qiao.config	= require('qiao-config');
 qiao.log	= require('./log.js');
 
 // config
@@ -44,5 +45,8 @@ exports.login = async function(username, password){
 		return;
 	}
 
+	var userinfo 	= data.obj;
+	userinfo.mobile = username;
+	qiao.config.set('userinfo', userinfo);
 	qiao.log.suc(`${time}ms | login success`);
 };
