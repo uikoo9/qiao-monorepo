@@ -6,6 +6,7 @@
 var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
 qiao.dishi	= require('../lib/dishi.js');
+qiao.log 	= require('../lib/log.js');
 
 // cmd for common
 qiao.cli.cmd
@@ -43,12 +44,8 @@ async function login(){
 			message	: 'password:'
 		}]);
 
-		if(!answers.username || !answers.password){
-			console.log('need username and password');
-			return;
-		}
-		console.log(answers);
+		await qiao.dishi.login(answers.username, answers.password);
 	}catch(e){
-		console.log(e.message);
+		qiao.log.danger(e.message);
 	}
 }

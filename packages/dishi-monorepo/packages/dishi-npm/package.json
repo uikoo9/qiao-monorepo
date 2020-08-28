@@ -13,6 +13,7 @@
     "dishi": "./bin/dishi-cli.js"
   },
   "dependencies": {
+    "qiao-ajax": "0.0.4",
     "qiao.plugin.cli": "^0.1.0"
   },
   "author": {
