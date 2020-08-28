@@ -94,18 +94,32 @@ function whoami(){
 // register
 async function register(){
 	try{
+		var mobileAnswers = await qiao.cli.ask([{
+			type	: 'input',
+			name	: 'mobile',
+			message	: 'mobile:'
+		}]);
+
+		var mobileRes = await qiao.dishi.sendCode(mobileAnswers.mobile);
+		if(!mobileRes) return;
+
 		var answers = await qiao.cli.ask([{
 			type	: 'input',
-			name	: 'username',
-			message	: 'username:'
+			name	: 'code',
+			message	: 'code:'
 		},{
 			type	: 'password',
 			mask	: '*',
 			name	: 'password',
 			message	: 'password:'
+		},{
+			type	: 'password',
+			mask	: '*',
+			name	: 'repassword',
+			message	: 'confirm password:'
 		}]);
 
-		await qiao.dishi.login(answers.username, answers.password);
+		await qiao.dishi.register(mobileAnswers.mobile, answers.password, answers.repassword, answers.code);
 	}catch(e){
 		qiao.log.danger(e.message);
 	}
