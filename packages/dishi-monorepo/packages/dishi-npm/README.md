@@ -8,4 +8,5 @@ npm i -g dishi
 
 ## version
 ### 0.0.1.20200828
-1. 初始化项目
+1. init
+2. login ok
