@@ -38,6 +38,14 @@ qiao.cli.cmd
 	.description('register to dishi todo')
 	.action(register);
 
+// cmd for list
+qiao.cli.cmd
+	.command('list [rows]')
+	.alias('l')
+	.description('list todo items by default group 1')
+	.option('-g, --group [groupId]', 'list todo group')
+	.action(list);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -123,4 +131,9 @@ async function register(){
 	}catch(e){
 		qiao.log.danger(e.message);
 	}
+}
+
+// list
+function list(rows, options){
+	console.log(rows, options.group);
 }

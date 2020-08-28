@@ -2,7 +2,7 @@
 
 // qiao
 var qiao 	= {};
-qiao.ajax	= require('qiao-ajax');
+qiao.ajax	= require('./fetch.js');
 qiao.config	= require('qiao-config');
 qiao.log	= require('./log.js');
 
@@ -18,37 +18,18 @@ exports.login = async function(mobile, password){
 		return;
 	}
 
-	var url = config.host + config.login;
-	var options = {
-		data: {
-			username: mobile,
-			password: password
-		}
+	var url 	= config.host + config.login;
+	var data	= {
+		username: mobile,
+		password: password
 	};
+	var json 	= await qiao.ajax.post(url, data);
+	if(!json) return;
 
-	var s = Date.now();
-	var res = await qiao.ajax.post(url, options);
-	var time = Date.now() - s;
-
-	if(res.status != 200){
-		qiao.log.danger(`${time}ms | request fail: ${res.status}`);
-		return;
-	}
-
-	var data = res.data;
-	if(!data){
-		qiao.log.danger(`${time}ms | request fail: no data`);
-		return;
-	}
-	if(data.type == 'danger'){
-		qiao.log.danger(`${time}ms | ${data.msg}`);
-		return;
-	}
-
-	var userinfo 	= data.obj;
+	var userinfo 	= json.obj;
 	userinfo.mobile = mobile;
 	qiao.config.set('userinfo', userinfo);
-	qiao.log.suc(`${time}ms | login success`);
+	qiao.log.suc(`${json.time}ms | login success`);
 };
 
 /**
@@ -61,34 +42,15 @@ exports.sendCode = async function(mobile){
 	}
 
 	var url = config.host + config.sendCode;
-	var options = {
-		data: {
-			type	: 'reg',
-			sign	: '济元祥',
-			mobile	: mobile
-		}
+	var data	= {
+		type	: 'reg',
+		sign	: '济元祥',
+		mobile	: mobile
 	};
-
-	var s = Date.now();
-	var res = await qiao.ajax.post(url, options);
-	var time = Date.now() - s;
-
-	if(res.status != 200){
-		qiao.log.danger(`${time}ms | request fail: ${res.status}`);
-		return;
-	}
-
-	var data = res.data;
-	if(!data){
-		qiao.log.danger(`${time}ms | request fail: no data`);
-		return;
-	}
-	if(data.type == 'danger'){
-		qiao.log.danger(`${time}ms | ${data.msg}`);
-		return;
-	}
+	var json 	= await qiao.ajax.post(url, data);
+	if(!json) return;
 	
-	qiao.log.suc(`${time}ms | send code success`);
+	qiao.log.suc(`${json.time}ms | send code success`);
 	return true;
 };
 
@@ -106,6 +68,22 @@ exports.register = async function(mobile, password, repassword, code){
 	}
 
 	var url = config.host + config.register;
+	var data	= {
+		username : mobile,
+		password : password,
+		usercode : code
+	};
+	var json 	= await qiao.ajax.post(url, data);
+	if(!json) return;
+	
+	qiao.log.suc(`${json.time}ms | register success`);
+};
+
+/**
+ * list
+ */
+exports.list = async function(rows, group){
+	var url = config.host + config.list;
 	var options = {
 		data: {
 			username : mobile,

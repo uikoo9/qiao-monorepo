@@ -3,5 +3,7 @@
 
     "login"     : "ucenter/user/login",
     "sendCode"  : "ucenter/code/send",
-    "register"  : "ucenter/user/reg"
+    "register"  : "ucenter/user/reg",
+
+    "list"      : "todo/group/list"
 }
