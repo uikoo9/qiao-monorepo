@@ -54,6 +54,14 @@ qiao.cli.cmd
 	.option('-g, --group [groupId]', 'add todo group [add todo items to group]')
 	.action(add);
 
+// cmd for update
+qiao.cli.cmd
+	.command('update <id> <name>')
+	.alias('u')
+	.description('update todo items to default group 1')
+	.option('-g, --group [groupId]', 'update todo group [update todo items to group]')
+	.action(update);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -149,4 +157,9 @@ function list(rows, options){
 // add
 function add(name, options){
 	qiao.dishi.add(name, options.group);
+}
+
+// update
+function update(id, name, options){
+	qiao.dishi.update(id, name, options.group);
 }

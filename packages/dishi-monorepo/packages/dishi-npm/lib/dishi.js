@@ -118,6 +118,27 @@ exports.add = async function(name, group){
 	}
 };
 
+/**
+ * update
+ */
+exports.update = async function(id, name, group){
+	var groupId = getGroupId(group);
+
+	if(!groupId){
+		var url 	= config.host + config.todoGroupSave;
+		var data	= {
+			id				: id,
+			todoGroupName 	: name,
+			todoGroupOrder	: '1'
+		};
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | update group success`);
+	}
+};
+
 // get group id
 function getGroupId(group){
 	var groupId;
