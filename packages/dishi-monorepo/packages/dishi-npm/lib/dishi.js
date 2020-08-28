@@ -83,33 +83,14 @@ exports.register = async function(mobile, password, repassword, code){
  * list
  */
 exports.list = async function(rows, group){
-	var url = config.host + config.list;
-	var options = {
-		data: {
-			username : mobile,
-			password : password,
-			usercode : code
-		}
+	var url = config.host + config.todoGrouplist;
+	var data	= {
+		username : mobile,
+		password : password,
+		usercode : code
 	};
-
-	var s = Date.now();
-	var res = await qiao.ajax.post(url, options);
-	var time = Date.now() - s;
-
-	if(res.status != 200){
-		qiao.log.danger(`${time}ms | request fail: ${res.status}`);
-		return;
-	}
-
-	var data = res.data;
-	if(!data){
-		qiao.log.danger(`${time}ms | request fail: no data`);
-		return;
-	}
-	if(data.type == 'danger'){
-		qiao.log.danger(`${time}ms | ${data.msg}`);
-		return;
-	}
+	var json 	= await qiao.ajax.post(url, data);
+	if(!json) return;
 	
 	qiao.log.suc(`${time}ms | register success`);
 };

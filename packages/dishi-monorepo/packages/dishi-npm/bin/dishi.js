@@ -135,5 +135,5 @@ async function register(){
 
 // list
 function list(rows, options){
-	console.log(rows, options.group);
+	qiao.dishi.list(rows, options.group);
 }

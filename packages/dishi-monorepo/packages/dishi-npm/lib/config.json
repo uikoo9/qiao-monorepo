@@ -5,5 +5,5 @@
     "sendCode"  : "ucenter/code/send",
     "register"  : "ucenter/user/reg",
 
-    "list"      : "todo/group/list"
+    "todoGrouplist" : "todo/group/list"
 }
