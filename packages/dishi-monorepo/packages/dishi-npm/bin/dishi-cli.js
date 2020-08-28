@@ -30,6 +30,25 @@ if(!process.argv.slice(2).length){
 }
 
 // login
-function login(){
-	console.log('login success');
+async function login(){
+	try{
+		var answers = await qiao.cli.ask([{
+			type	: 'input',
+			name	: 'username',
+			message	: 'username:'
+		},{
+			type	: 'password',
+			mask	: '*',
+			name	: 'password',
+			message	: 'password:'
+		}]);
+
+		if(!answers.username || !answers.password){
+			console.log('need username and password');
+			return;
+		}
+		console.log(answers);
+	}catch(e){
+		console.log(e.message);
+	}
 }
