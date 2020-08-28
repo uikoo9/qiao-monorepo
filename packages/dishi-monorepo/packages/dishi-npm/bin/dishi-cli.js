@@ -21,6 +21,12 @@ qiao.cli.cmd
 	.description('login to dishi todo')
 	.action(login);
 
+// cmd for logout
+qiao.cli.cmd
+	.command('logout')
+	.description('logout from dishi todo')
+	.action(logout);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -55,4 +61,10 @@ async function login(){
 	}catch(e){
 		qiao.log.danger(e.message);
 	}
+}
+
+// logout
+function logout(){
+	qiao.config.clear();
+	qiao.log.suc(`already logout`);
 }
