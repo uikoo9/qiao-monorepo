@@ -12,3 +12,4 @@ npm i -g dishi
 2. dishi login
 3. dishi logout
 4. dishi whoami
+5. dishi register
