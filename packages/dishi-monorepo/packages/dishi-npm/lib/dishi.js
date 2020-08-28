@@ -12,16 +12,16 @@ var config 	= require('./config.json');
 /**
  * login
  */
-exports.login = async function(username, password){
-	if(!username || !password){
-		qiao.log.danger('need username and password');
+exports.login = async function(mobile, password){
+	if(!mobile || !password){
+		qiao.log.danger('need mobile and password');
 		return;
 	}
 
 	var url = config.host + config.login;
 	var options = {
 		data: {
-			username: username,
+			username: mobile,
 			password: password
 		}
 	};
@@ -46,7 +46,7 @@ exports.login = async function(username, password){
 	}
 
 	var userinfo 	= data.obj;
-	userinfo.mobile = username;
+	userinfo.mobile = mobile;
 	qiao.config.set('userinfo', userinfo);
 	qiao.log.suc(`${time}ms | login success`);
 };

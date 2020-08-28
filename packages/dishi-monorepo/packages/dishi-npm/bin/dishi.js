@@ -32,6 +32,12 @@ qiao.cli.cmd
 	.description('whoami in dishi todo')
 	.action(whoami);
 
+// cmd for reg
+qiao.cli.cmd
+	.command('reg')
+	.description('register to dishi todo')
+	.action(register);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -53,8 +59,8 @@ async function login(){
 
 		var answers = await qiao.cli.ask([{
 			type	: 'input',
-			name	: 'username',
-			message	: 'username:'
+			name	: 'mobile',
+			message	: 'mobile:'
 		},{
 			type	: 'password',
 			mask	: '*',
@@ -62,7 +68,7 @@ async function login(){
 			message	: 'password:'
 		}]);
 
-		await qiao.dishi.login(answers.username, answers.password);
+		await qiao.dishi.login(answers.mobile, answers.password);
 	}catch(e){
 		qiao.log.danger(e.message);
 	}
@@ -83,4 +89,24 @@ function whoami(){
 	}
 
 	qiao.log.danger(`not login`);
+}
+
+// register
+async function register(){
+	try{
+		var answers = await qiao.cli.ask([{
+			type	: 'input',
+			name	: 'username',
+			message	: 'username:'
+		},{
+			type	: 'password',
+			mask	: '*',
+			name	: 'password',
+			message	: 'password:'
+		}]);
+
+		await qiao.dishi.login(answers.username, answers.password);
+	}catch(e){
+		qiao.log.danger(e.message);
+	}
 }
