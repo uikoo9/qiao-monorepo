@@ -13,6 +13,9 @@
 2. add sms 
 
 ## version
+### 0.0.2.20200828
+1. add mit
+
 ### 0.0.1.20200827
 1. init project
 2. ucenter user ok
