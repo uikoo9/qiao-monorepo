@@ -15,6 +15,7 @@
 ## version
 ### 0.0.2.20200828
 1. add mit
+2. add todo group
 
 ### 0.0.1.20200827
 1. init project
