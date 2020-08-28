@@ -46,6 +46,14 @@ qiao.cli.cmd
 	.option('-g, --group [groupId]', 'list todo group')
 	.action(list);
 
+// cmd for add
+qiao.cli.cmd
+	.command('add <name>')
+	.alias('a')
+	.description('add todo items to default group 1')
+	.option('-g, --group [groupId]', 'add todo group [add todo items to group]')
+	.action(add);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -136,4 +144,9 @@ async function register(){
 // list
 function list(rows, options){
 	qiao.dishi.list(rows, options.group);
+}
+
+// add
+function add(name, options){
+	qiao.dishi.add(name, options.group);
 }

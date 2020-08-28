@@ -39,7 +39,7 @@ async function ajax(url, data, headers){
 	var options = {data: data};
 	if(headers){
 		options.headers = headers;
-		options.data['ucenter_user_id'] = headers.userid;
+		options.data['ucenterUserId'] = headers.userid;
 	}
 
 	var s       = Date.now();

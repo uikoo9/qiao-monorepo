@@ -83,7 +83,9 @@ exports.register = async function(mobile, password, repassword, code){
  * list
  */
 exports.list = async function(rows, group){
-	if(group){
+	var groupId = getGroupId(group);
+
+	if(!groupId){
 		var url 	= config.host + config.todoGrouplist;
 		var data	= {};
 		if(rows) data.rows = rows;
@@ -92,6 +94,46 @@ exports.list = async function(rows, group){
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | list group success`);
-		console.log(json);
+		listGroups(json.obj.rows);
 	}
 };
+
+/**
+ * add
+ */
+exports.add = async function(name, group){
+	var groupId = getGroupId(group);
+
+	if(!groupId){
+		var url 	= config.host + config.todoGroupSave;
+		var data	= {
+			todoGroupName : name,
+			todoGroupOrder: '1'
+		};
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | add group success`);
+	}
+};
+
+// get group id
+function getGroupId(group){
+	var groupId;
+	if(group){
+		if(typeof group == 'string') groupId = group;
+	}else{
+		groupId = '1';
+	}
+
+	return groupId;
+}
+
+// list groups
+function listGroups(rows){
+	for(var i=0; i<rows.length; i++){
+		var item = rows[i];
+		qiao.log.log(`${item.id}	${item.todo_group_name}`);
+	}
+}
