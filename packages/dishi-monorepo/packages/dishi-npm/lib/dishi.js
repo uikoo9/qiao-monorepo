@@ -139,6 +139,29 @@ exports.update = async function(id, name, group){
 	}
 };
 
+/**
+ * del
+ */
+exports.del = async function(ids, group){
+	var groupId = getGroupId(group);
+
+	if(!groupId){
+		var idss = ids.split(',');
+		if(idss.includes('1')){
+			qiao.log.danger('can note delete default group');
+			return;
+		}
+		
+		var url 	= config.host + config.todoGroupDel;
+		var data	= {ids : ids};
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | delete group success`);
+	}
+};
+
 // get group id
 function getGroupId(group){
 	var groupId;

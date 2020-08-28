@@ -6,5 +6,6 @@
     "register"  : "ucenter/user/reg",
 
     "todoGrouplist" : "todo/group/list",
-    "todoGroupSave" : "todo/group/save"
+    "todoGroupSave" : "todo/group/save",
+    "todoGroupDel"  : "todo/group/del"
 }

@@ -62,6 +62,14 @@ qiao.cli.cmd
 	.option('-g, --group [groupId]', 'update todo group [update todo items to group]')
 	.action(update);
 
+// cmd for update
+qiao.cli.cmd
+	.command('del <ids>')
+	.alias('d')
+	.description('delete todo items to default group 1')
+	.option('-g, --group [groupId]', 'delete todo group [delete todo items to group]')
+	.action(del);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -162,4 +170,9 @@ function add(name, options){
 // update
 function update(id, name, options){
 	qiao.dishi.update(id, name, options.group);
+}
+
+// del
+function del(ids, options){
+	qiao.dishi.del(ids, options.group);
 }
