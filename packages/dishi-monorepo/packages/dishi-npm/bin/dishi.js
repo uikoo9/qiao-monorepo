@@ -12,7 +12,6 @@ qiao.log 	= require('../lib/log.js');
 // cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
-	.description('dishi, dishi todo')
 	.usage('<command> [options]');
 
 // cmd for login

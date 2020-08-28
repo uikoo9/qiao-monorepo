@@ -10,7 +10,7 @@
   "main": "index.js",
   "scripts": {},
   "bin": {
-    "dishi": "./bin/dishi-cli.js"
+    "dishi": "./bin/dishi.js"
   },
   "dependencies": {
     "qiao-ajax": "0.0.4",
