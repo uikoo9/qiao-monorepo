@@ -83,14 +83,15 @@ exports.register = async function(mobile, password, repassword, code){
  * list
  */
 exports.list = async function(rows, group){
-	var url = config.host + config.todoGrouplist;
-	var data	= {
-		username : mobile,
-		password : password,
-		usercode : code
-	};
-	var json 	= await qiao.ajax.post(url, data);
-	if(!json) return;
-	
-	qiao.log.suc(`${time}ms | register success`);
+	if(group){
+		var url 	= config.host + config.todoGrouplist;
+		var data	= {};
+		if(rows) data.rows = rows;
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | list group success`);
+		console.log(json);
+	}
 };

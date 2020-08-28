@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "qiao-ajax": "0.0.4",
-    "qiao-config": "0.0.1",
+    "qiao-config": "0.0.2",
     "qiao.plugin.cli": "^0.1.0"
   },
   "author": {
