@@ -15,3 +15,5 @@ npm i -g dishi
 5. dishi register
 6. todo group list
 7. todo group add
+8. todo group update
+9. todo grorup del
