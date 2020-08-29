@@ -1,10 +1,12 @@
-DROP TABLE IF EXISTS `t_todo_group`;
+DROP TABLE IF EXISTS `t_todo_item`;
 
-CREATE TABLE `t_todo_group` (
+CREATE TABLE `t_todo_item` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `ucenter_user_id` int(10) NOT NULL COMMENT 'userid',
-  `todo_group_name` varchar(200) NOT NULL COMMENT 'todo分组名称',
-  `todo_group_order` varchar(20) NOT NULL COMMENT 'todo分组排序',
+  `todo_group_id` int(10) NOT NULL COMMENT 'todogroupid',
+  `todo_item_name` varchar(200) NOT NULL COMMENT 'todo名称',
+  `todo_item_order` varchar(20) NOT NULL COMMENT 'todo排序',
+  `todo_item_status` char(1) NOT NULL COMMENT 'todo状态，0todo，1done',
   `cdate` datetime NOT NULL COMMENT '创建时间',
   `cuser_id` int(10) NOT NULL COMMENT '创建人id',
   `cuser_name` varchar(200) NOT NULL COMMENT '创建人姓名',
