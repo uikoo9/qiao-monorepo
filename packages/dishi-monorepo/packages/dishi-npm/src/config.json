@@ -11,5 +11,6 @@
 
     "todoItemlist"  : "todo/item/list",
     "todoItemSave"  : "todo/item/save",
-    "todoItemDel"   : "todo/item/del"
+    "todoItemDel"   : "todo/item/del",
+    "todoItemGet"   : "todo/item/get"
 }
