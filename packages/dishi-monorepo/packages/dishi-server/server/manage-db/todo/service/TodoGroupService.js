@@ -10,7 +10,7 @@ var model	= require('../model/TodoGroupModel.js');
  */
 exports.todoGroupList = async function(req, res){
 	// vars
-	var ucenterUserId = req.body.ucenterUserId;
+	var ucenterUserId = req.body['express_userid'];
 	var todoGroupName = req.body.todoGroupName;
 	var todoGroupOrder = req.body.todoGroupOrder;
 	
@@ -108,10 +108,6 @@ exports.todoGroupSave = async function(req, res){
 		res.send(qiao.json.danger('缺少参数！'));
 		return;
 	}
-	if(!req.body.ucenterUserId){
-		res.send(qiao.json.danger('缺少参数ucenterUserId！'));
-		return;
-	}
 	if(!req.body.todoGroupName){
 		res.send(qiao.json.danger('缺少参数todoGroupName！'));
 		return;
@@ -123,7 +119,6 @@ exports.todoGroupSave = async function(req, res){
 	
 	// vars
 	var id = req.body.id;
-	var ucenterUserId = req.body.ucenterUserId;
 	var todoGroupName = req.body.todoGroupName;
 	var todoGroupOrder = req.body.todoGroupOrder;
 	
@@ -137,7 +132,7 @@ exports.todoGroupSave = async function(req, res){
 		var params = [];
 		
 		if(!id){
-			params.push(ucenterUserId);
+			params.push(express_userid);
 			params.push(todoGroupName);
 			params.push(todoGroupOrder);
 			
@@ -149,7 +144,7 @@ exports.todoGroupSave = async function(req, res){
 			var rs = await model.todoGroupAdd(params);
 			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
-			params.push(ucenterUserId);
+			params.push(express_userid);
 			params.push(todoGroupName);
 			params.push(todoGroupOrder);
 			
