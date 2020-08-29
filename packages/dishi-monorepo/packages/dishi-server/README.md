@@ -13,6 +13,9 @@
 2. add sms 
 
 ## version
+### 0.0.3.20200829
+1. get todo group by userid
+
 ### 0.0.2.20200828
 1. add mit
 2. add todo group
