@@ -10,7 +10,7 @@ var model	= require('../model/TodoItemModel.js');
  */
 exports.todoItemList = async function(req, res){
 	// vars
-	var ucenterUserId = req.body.ucenterUserId;
+	var ucenterUserId = req.body['express_userid'];
 	var todoGroupId = req.body.todoGroupId;
 	var todoItemName = req.body.todoItemName;
 	var todoItemOrder = req.body.todoItemOrder;
