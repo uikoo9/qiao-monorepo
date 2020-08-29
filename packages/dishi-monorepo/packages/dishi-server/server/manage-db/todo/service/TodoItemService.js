@@ -142,6 +142,7 @@ exports.todoItemSave = async function(req, res){
 	var todoGroupId = req.body.todoGroupId;
 	var todoItemName = req.body.todoItemName;
 	var todoItemOrder = req.body.todoItemOrder;
+	var todoItemStatus = req.body.todoItemStatus;
 	
 	// vars for userinfo
 	var express_userid 		= req.body.express_userid;
@@ -156,7 +157,7 @@ exports.todoItemSave = async function(req, res){
 			params.push(todoGroupId);
 			params.push(todoItemName);
 			params.push(todoItemOrder);
-			params.push('0');
+			params.push(todoItemStatus || '0');
 			
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
@@ -170,7 +171,7 @@ exports.todoItemSave = async function(req, res){
 			params.push(todoGroupId);
 			params.push(todoItemName);
 			params.push(todoItemOrder);
-			params.push('0');
+			params.push(todoItemStatus || '0');
 			
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
