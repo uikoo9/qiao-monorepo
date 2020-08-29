@@ -37,10 +37,7 @@ exports.postWithToken = async function(url, data){
 // ajax
 async function ajax(url, data, headers){
 	var options = {data: data};
-	if(headers){
-		options.headers = headers;
-		options.data['ucenterUserId'] = headers.userid;
-	}
+	if(headers) options.headers = headers;
 
 	var s       = Date.now();
 	var res     = await qiao.ajax.post(url, options);
