@@ -15,6 +15,7 @@
 ## version
 ### 0.0.3.20200829
 1. get todo group by userid
+2. todo item
 
 ### 0.0.2.20200828
 1. add mit
