@@ -6,8 +6,8 @@
 var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
 qiao.config	= require('qiao-config');
-qiao.dishi	= require('../lib/dishi.js');
-qiao.log 	= require('../lib/log.js');
+qiao.dishi	= require('../src/dishi.js');
+qiao.log 	= require('../src/util/log.js');
 
 // cmd for common
 qiao.cli.cmd
@@ -69,6 +69,12 @@ qiao.cli.cmd
 	.description('delete todo items to default group 1')
 	.option('-g, --group [groupId]', 'delete todo group [delete todo items to group]')
 	.action(del);
+
+// cmd for done
+qiao.cli.cmd
+	.command('done <id>')
+	.description('done todo item by id')
+	.action(done);
 
 // parse
 qiao.cli.cmd.parse(process.argv);
@@ -175,4 +181,9 @@ function update(id, name, options){
 // del
 function del(ids, options){
 	qiao.dishi.del(ids, options.group);
+}
+
+// done
+function done(id){
+	qiao.dishi.done(id);
 }
