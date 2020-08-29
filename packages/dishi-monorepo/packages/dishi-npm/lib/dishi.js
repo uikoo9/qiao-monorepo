@@ -196,6 +196,14 @@ exports.del = async function(ids, group){
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | delete group success`);
+	}else{
+		var url 	= config.host + config.todoItemDel;
+		var data	= {ids : ids};
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | delete todo success`);
 	}
 };
 
