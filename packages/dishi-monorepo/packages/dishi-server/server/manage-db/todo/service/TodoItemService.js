@@ -124,10 +124,6 @@ exports.todoItemSave = async function(req, res){
 		res.send(qiao.json.danger('缺少参数！'));
 		return;
 	}
-	if(!req.body.ucenterUserId){
-		res.send(qiao.json.danger('缺少参数ucenterUserId！'));
-		return;
-	}
 	if(!req.body.todoGroupId){
 		res.send(qiao.json.danger('缺少参数todoGroupId！'));
 		return;
@@ -140,19 +136,12 @@ exports.todoItemSave = async function(req, res){
 		res.send(qiao.json.danger('缺少参数todoItemOrder！'));
 		return;
 	}
-	if(!req.body.todoItemStatus){
-		res.send(qiao.json.danger('缺少参数todoItemStatus！'));
-		return;
-	}
 	
 	// vars
 	var id = req.body.id;
-	var ucenterUserId = req.body.ucenterUserId;
 	var todoGroupId = req.body.todoGroupId;
 	var todoItemName = req.body.todoItemName;
 	var todoItemOrder = req.body.todoItemOrder;
-	var todoItemStatus = req.body.todoItemStatus;
-	
 	
 	// vars for userinfo
 	var express_userid 		= req.body.express_userid;
@@ -163,11 +152,11 @@ exports.todoItemSave = async function(req, res){
 		var params = [];
 		
 		if(!id){
-			params.push(ucenterUserId);
+			params.push(express_userid);
 			params.push(todoGroupId);
 			params.push(todoItemName);
 			params.push(todoItemOrder);
-			params.push(todoItemStatus);
+			params.push('0');
 			
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
@@ -177,11 +166,11 @@ exports.todoItemSave = async function(req, res){
 			var rs = await model.todoItemAdd(params);
 			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
-			params.push(ucenterUserId);
+			params.push(express_userid);
 			params.push(todoGroupId);
 			params.push(todoItemName);
 			params.push(todoItemOrder);
-			params.push(todoItemStatus);
+			params.push('0');
 			
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
