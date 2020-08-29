@@ -95,6 +95,18 @@ exports.list = async function(rows, group){
 		
 		qiao.log.suc(`${json.time}ms | list group success`);
 		listGroups(json.obj.rows);
+	}else{
+		var url 	= config.host + config.todoItemlist;
+		var data	= {
+			todoGroupId : groupId
+		};
+		if(rows) data.rows = rows;
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | list todo success`);
+		listTodos(json.obj.rows);
 	}
 };
 
@@ -179,5 +191,13 @@ function listGroups(rows){
 	for(var i=0; i<rows.length; i++){
 		var item = rows[i];
 		qiao.log.log(`${item.id}	${item.todo_group_name}`);
+	}
+}
+
+// list todos
+function listTodos(rows){
+	for(var i=0; i<rows.length; i++){
+		var item = rows[i];
+		qiao.log.log(`${item.id}	${item.todo_item_name}`);
 	}
 }
