@@ -2,11 +2,11 @@
 
 // qiao
 var qiao 	= {};
-qiao.ajax	= require('./util/fetch.js');
-qiao.log	= require('./util/log.js');
+qiao.ajax	= require('../util/fetch.js');
+qiao.log	= require('../util/log.js');
 
 // config
-var config 	= require('./config.json');
+var config 	= require('../config.json');
 
 /**
  * list

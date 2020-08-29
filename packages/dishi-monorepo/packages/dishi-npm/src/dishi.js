@@ -1,8 +1,8 @@
 'use strict';
 
 // dishi
-var _ucenter 	= require('./dishi-ucenter.js');
-var _crud		= require('./dishi-crud.js');
+var _ucenter 	= require('./service/dishi-ucenter.js');
+var _crud		= require('./service/dishi-crud.js');
 
 // ucenter
 exports.login 		= _ucenter.login;
