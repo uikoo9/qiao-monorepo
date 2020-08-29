@@ -136,6 +136,19 @@ login as 11111111111
 1	haha
 ```
 
+### done todo item
+```
+# node bin/dishi.js done 7
+113ms | done success
+sh-3.2# node bin/dishi.js l
+83ms | list todo success
+
+todo group 1:
+id	todo-status	todo-name
+7	done		heihei
+1	todo		haha
+```
+
 ## version
 ### 0.0.2.20200829
 1. todo item list
@@ -143,6 +156,7 @@ login as 11111111111
 3. todo item update
 4. todo item del
 5. md
+6. todo done
 
 ### 0.0.1.20200828
 1. init
