@@ -6,6 +6,15 @@ dishi todo
 npm i -g dishi
 ```
 
+## use
+### login
+```
+# dishi login
+? mobile: 11111111111
+? password: ********
+70ms | login success
+```
+
 ## version
 ### 0.0.2.20200829
 1. todo item list
