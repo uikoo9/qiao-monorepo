@@ -234,10 +234,10 @@ function listGroups(rows){
 function listTodos(rows, groupId){
 	qiao.log.log();
 	qiao.log.info(`todo group ${groupId}:`);
-	qiao.log.info(`id	todo-name`);
+	qiao.log.info(`id	todo-status	todo-name`);
 
 	for(var i=0; i<rows.length; i++){
 		var item = rows[i];
-		qiao.log.log(`${item.id}	${item.todo_item_name}`);
+		qiao.log.log(`${item.id}	${item.todo_item_status == '0' ? 'todo' : 'done'}		${item.todo_item_name}`);
 	}
 }
