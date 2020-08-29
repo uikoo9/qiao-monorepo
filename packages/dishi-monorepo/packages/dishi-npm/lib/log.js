@@ -10,6 +10,13 @@ exports.log = function(...msg){
 };
 
 /**
+ * info
+ */
+exports.info = function(...msg){
+    console.log(qiao.cli.colors.blue(...msg));
+};
+
+/**
  * suc
  */
 exports.suc = function(...msg){

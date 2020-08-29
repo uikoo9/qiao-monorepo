@@ -106,7 +106,7 @@ exports.list = async function(rows, group){
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | list todo success`);
-		listTodos(json.obj.rows);
+		listTodos(json.obj.rows, groupId);
 	}
 };
 
@@ -221,6 +221,9 @@ function getGroupId(group){
 
 // list groups
 function listGroups(rows){
+	qiao.log.log();
+	qiao.log.info(`id	group-name`);
+
 	for(var i=0; i<rows.length; i++){
 		var item = rows[i];
 		qiao.log.log(`${item.id}	${item.todo_group_name}`);
@@ -228,7 +231,11 @@ function listGroups(rows){
 }
 
 // list todos
-function listTodos(rows){
+function listTodos(rows, groupId){
+	qiao.log.log();
+	qiao.log.info(`todo group ${groupId}:`);
+	qiao.log.info(`id	todo-name`);
+
 	for(var i=0; i<rows.length; i++){
 		var item = rows[i];
 		qiao.log.log(`${item.id}	${item.todo_item_name}`);
