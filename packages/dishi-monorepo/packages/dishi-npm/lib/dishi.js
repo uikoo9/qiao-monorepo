@@ -138,7 +138,7 @@ exports.add = async function(name, group){
 		var json 	= await qiao.ajax.postWithToken(url, data);
 		if(!json) return;
 		
-		qiao.log.suc(`${json.time}ms | add group success`);
+		qiao.log.suc(`${json.time}ms | add todo success`);
 	}
 };
 
@@ -160,6 +160,19 @@ exports.update = async function(id, name, group){
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | update group success`);
+	}else{
+		var url 	= config.host + config.todoItemSave;
+		var data	= {
+			id				: id,
+			todoGroupId 	: groupId,
+			todoItemName	: name,
+			todoItemOrder	: '1'
+		};
+
+		var json 	= await qiao.ajax.postWithToken(url, data);
+		if(!json) return;
+		
+		qiao.log.suc(`${json.time}ms | update todo success`);
 	}
 };
 
