@@ -8,6 +8,7 @@
     "todoGrouplist" : "todo/group/list",
     "todoGroupSave" : "todo/group/save",
     "todoGroupDel"  : "todo/group/del",
+    "todoGroupGet"  : "todo/group/get",
 
     "todoItemlist"  : "todo/item/list",
     "todoItemSave"  : "todo/item/save",

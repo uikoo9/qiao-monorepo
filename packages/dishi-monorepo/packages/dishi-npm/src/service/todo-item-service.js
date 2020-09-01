@@ -52,6 +52,11 @@ exports.del = async function(ids){
  * get
  */
 exports.get = async function(id){
+	if(!id){
+		log.danger('need item id');
+		return;
+	}
+
 	var url 	= config.host + config.todoItemGet;
 	var data	= {id :id};
 
