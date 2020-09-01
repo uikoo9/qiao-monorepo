@@ -76,6 +76,12 @@ qiao.cli.cmd
 	.description('done todo item by id')
 	.action(done);
 
+// cmd for use
+qiao.cli.cmd
+	.command('use <groupId>')
+	.description('use groupId to list todo items')
+	.action(useGroupId);
+
 // parse
 qiao.cli.cmd.parse(process.argv);
 
@@ -186,4 +192,9 @@ function del(ids, options){
 // done
 function done(id){
 	qiao.dishi.done(id);
+}
+
+// use group id
+function useGroupId(id){
+	qiao.dishi.use(id);
 }

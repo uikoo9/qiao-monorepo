@@ -138,9 +138,10 @@ login as 11111111111
 
 ### done todo item
 ```
-# node bin/dishi.js done 7
+# dishi done 7
 113ms | done success
-sh-3.2# node bin/dishi.js l
+
+# dishi l
 83ms | list todo success
 
 todo group 1:

@@ -4,6 +4,7 @@
 var _ucenter 	= require('./service/dishi-ucenter.js');
 var _crud		= require('./service/dishi-crud.js');
 var _done       = require('./service/dishi-done.js');
+var _use        = require('./service/dishi-use.js');
 
 // ucenter
 exports.login 		= _ucenter.login;
@@ -18,3 +19,6 @@ exports.del 	= _crud.del;
 
 // done
 exports.done    = _done.done;
+
+// use
+exports.use     = _use.use;
