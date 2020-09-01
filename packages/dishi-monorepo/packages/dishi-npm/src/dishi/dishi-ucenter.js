@@ -2,28 +2,17 @@
 
 // qiao
 var qiao 	= {};
-qiao.ajax	= require('../util/fetch.js');
 qiao.config	= require('qiao-config');
 qiao.log	= require('../util/log.js');
 
-// config
-var config 	= require('../config.json');
+// service
+var ucenterService = require('../service/ucenter-service');
 
 /**
  * login
  */
 exports.login = async function(mobile, password){
-	if(!mobile || !password){
-		qiao.log.danger('need mobile and password');
-		return;
-	}
-
-	var url 	= config.host + config.login;
-	var data	= {
-		username: mobile,
-		password: password
-	};
-	var json 	= await qiao.ajax.post(url, data);
+	var json = await ucenterService.login(mobile, password);
 	if(!json) return;
 
 	var userinfo 	= json.obj;
@@ -36,18 +25,7 @@ exports.login = async function(mobile, password){
  * sendCode
  */
 exports.sendCode = async function(mobile){
-	if(!mobile){
-		qiao.log.danger('need mobile');
-		return;
-	}
-
-	var url = config.host + config.sendCode;
-	var data	= {
-		type	: 'reg',
-		sign	: '济元祥',
-		mobile	: mobile
-	};
-	var json 	= await qiao.ajax.post(url, data);
+	var json = await ucenterService.sendCode(mobile);
 	if(!json) return;
 	
 	qiao.log.suc(`${json.time}ms | send code success`);
@@ -58,22 +36,7 @@ exports.sendCode = async function(mobile){
  * register
  */
 exports.register = async function(mobile, password, repassword, code){
-	if(!mobile || !password || !repassword || !code){
-		qiao.log.danger('need mobile, code, password');
-		return;
-	}
-	if(password != repassword){
-		qiao.log.danger('the two password do not match');
-		return;
-	}
-
-	var url = config.host + config.register;
-	var data	= {
-		username : mobile,
-		password : password,
-		usercode : code
-	};
-	var json 	= await qiao.ajax.post(url, data);
+	var json = await ucenterService.register(mobile, password, repassword, code);
 	if(!json) return;
 	
 	qiao.log.suc(`${json.time}ms | register success`);
