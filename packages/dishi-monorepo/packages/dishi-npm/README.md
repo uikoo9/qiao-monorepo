@@ -82,14 +82,16 @@ login as 11111111111
 1	todo
 ```
 
+### change todo group
+```
+# node dishi use 9
+64ms | todo group use success
+```
+
 ### list todo item
 ```
 # dishi l
 74ms | list todo success
-1	haha
-
-# dishi l -g 1
-82ms | list todo success
 1	haha
 ```
 
@@ -97,9 +99,6 @@ login as 11111111111
 ```
 # dishi a hello
 88ms | add todo success
-
-# dishi a nihao -g 1
-87ms | add todo success
 
 # dishi l
 84ms | list todo success
@@ -110,10 +109,7 @@ login as 11111111111
 
 ### update todo item
 ```
-# dishi u 5 nihaoyaya
-95ms | update todo success
-
-# dishi u 5 nihaoyayaya -g 1
+# dishi u 5 nihaoyayaya
 80ms | update todo success
 
 # dishi l
@@ -125,11 +121,8 @@ login as 11111111111
 
 ### delete todo item
 ```
-# dishi d 5
+# dishi d 5,4
 77ms | delete todo success
-
-# dishi d 4 -g 1
-80ms | delete todo success
 
 # dishi l
 80ms | list todo success
