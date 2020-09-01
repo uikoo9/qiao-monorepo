@@ -4,8 +4,8 @@
 var log = require('../util/log.js');
 
 // service
-var todoGroupService 	= require('./todo-group-service');
-var todoItemService		= require('./todo-item-service');
+var todoGroupService 	= require('../service/todo-group-service');
+var todoItemService		= require('../service/todo-item-service');
 
 /**
  * list
