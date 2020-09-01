@@ -1,5 +1,8 @@
 'use strict';
 
+// qiao-config
+var q = require('qiao-config');
+
 // log
 var log = require('../util/log.js');
 
@@ -11,20 +14,18 @@ var todoItemService		= require('../service/todo-item-service');
  * list
  */
 exports.list = async function(rows, group){
-	var groupId = getGroupId(group);
-
-	if(!groupId){
+	if(group){
 		var json = await todoGroupService.list(rows);
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | list group success`);
 		listGroups(json.obj.rows);
 	}else{
-		var json = await todoItemService.list(groupId, rows);
+		var json = await todoItemService.list(rows);
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | list todo success`);
-		listTodos(json.obj.rows, groupId);
+		listTodos(json.obj.rows);
 	}
 };
 
@@ -32,15 +33,13 @@ exports.list = async function(rows, group){
  * add
  */
 exports.add = async function(name, group){
-	var groupId = getGroupId(group);
-
-	if(!groupId){
+	if(group){
 		var json = await todoGroupService.save(name);
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | add group success`);
 	}else{
-		var json = await todoItemService.save(groupId, name);
+		var json = await todoItemService.save(name);
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | add todo success`);
@@ -51,15 +50,13 @@ exports.add = async function(name, group){
  * update
  */
 exports.update = async function(id, name, group){
-	var groupId = getGroupId(group);
-
-	if(!groupId){
+	if(group){
 		var json = await todoGroupService.save(name, id);
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | update group success`);
 	}else{
-		var json = await todoItemService.save(groupId, name, id);
+		var json = await todoItemService.save(name, id);
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | update todo success`);
@@ -70,9 +67,7 @@ exports.update = async function(id, name, group){
  * del
  */
 exports.del = async function(ids, group){
-	var groupId = getGroupId(group);
-
-	if(!groupId){
+	if(group){
 		var idss = ids.split(',');
 		if(idss.includes('1')){
 			log.danger('can note delete default group');
@@ -91,18 +86,6 @@ exports.del = async function(ids, group){
 	}
 };
 
-// get group id
-function getGroupId(group){
-	var groupId;
-	if(group){
-		if(typeof group == 'string') groupId = group;
-	}else{
-		groupId = '1';
-	}
-
-	return groupId;
-}
-
 // list groups
 function listGroups(rows){
 	log.log();
@@ -115,7 +98,9 @@ function listGroups(rows){
 }
 
 // list todos
-function listTodos(rows, groupId){
+function listTodos(rows){
+	var groupId = q.c('groupId') || '1';
+
 	log.log();
 	log.info(`todo group ${groupId}:`);
 	log.info(`id	todo-status	todo-name`);

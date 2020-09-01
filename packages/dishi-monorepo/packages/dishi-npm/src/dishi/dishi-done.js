@@ -15,7 +15,7 @@ exports.done = async function(id){
 	if(!item) return;
 
 	// update item
-	var json = await todoItemService.save(item.todo_group_id, item.todo_item_name, id, item.todo_item_order, '1');
+	var json = await todoItemService.save(item.todo_item_name, id, item.todo_group_id, item.todo_item_order, '1');
 	if(!json) return;
 
 	// suc

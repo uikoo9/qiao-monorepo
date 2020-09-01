@@ -43,7 +43,7 @@ qiao.cli.cmd
 	.command('list [rows]')
 	.alias('l')
 	.description('list todo items by default group 1')
-	.option('-g, --group [groupId]', 'list todo group')
+	.option('-g, --group', 'list todo groups')
 	.action(list);
 
 // cmd for add
@@ -51,7 +51,7 @@ qiao.cli.cmd
 	.command('add <name>')
 	.alias('a')
 	.description('add todo items to default group 1')
-	.option('-g, --group [groupId]', 'add todo group [add todo items to group]')
+	.option('-g, --group', 'add todo group')
 	.action(add);
 
 // cmd for update
@@ -59,15 +59,15 @@ qiao.cli.cmd
 	.command('update <id> <name>')
 	.alias('u')
 	.description('update todo items to default group 1')
-	.option('-g, --group [groupId]', 'update todo group [update todo items to group]')
+	.option('-g, --group', 'update todo group')
 	.action(update);
 
-// cmd for update
+// cmd for del
 qiao.cli.cmd
 	.command('del <ids>')
 	.alias('d')
 	.description('delete todo items to default group 1')
-	.option('-g, --group [groupId]', 'delete todo group [delete todo items to group]')
+	.option('-g, --group', 'delete todo group')
 	.action(del);
 
 // cmd for done

@@ -9,10 +9,15 @@ var fetch = require('../util/fetch.js');
 // log
 var log = require('../util/log.js');
 
+// qiao-config
+var q = require('qiao-config');
+
 /**
  * list
  */
-exports.list = async function(groupId, rows){
+exports.list = async function(rows){
+	var groupId = q.c('groupId') || '1';
+
 	var url 	= config.host + config.todoItemlist;
 	var data	= {
 		todoGroupId : groupId
@@ -25,7 +30,9 @@ exports.list = async function(groupId, rows){
 /**
  * save
  */
-exports.save = async function(groupId, name, id, order, status){
+exports.save = async function(name, id, groupId, order, status){
+	var groupId = groupId || q.c('groupId') || '1';
+
 	var url 	= config.host + config.todoItemSave;
 	var data	= {
 		todoGroupId 	: groupId,
