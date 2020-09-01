@@ -8,6 +8,8 @@ qiao.log	= require('../util/log.js');
 // config
 var config 	= require('../config.json');
 
+var todoItemService = require('./todo-item-service');
+
 /**
  * list
  */
@@ -25,13 +27,7 @@ exports.list = async function(rows, group){
 		qiao.log.suc(`${json.time}ms | list group success`);
 		listGroups(json.obj.rows);
 	}else{
-		var url 	= config.host + config.todoItemlist;
-		var data	= {
-			todoGroupId : groupId
-		};
-		if(rows) data.rows = rows;
-
-		var json 	= await qiao.ajax.postWithToken(url, data);
+		var json = await todoItemService.list(groupId, rows);
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | list todo success`);
@@ -57,14 +53,7 @@ exports.add = async function(name, group){
 		
 		qiao.log.suc(`${json.time}ms | add group success`);
 	}else{
-		var url 	= config.host + config.todoItemSave;
-		var data	= {
-			todoGroupId 	: groupId,
-			todoItemName	: name,
-			todoItemOrder	: '1'
-		};
-
-		var json 	= await qiao.ajax.postWithToken(url, data);
+		var json = await todoItemService.save(groupId, name);
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | add todo success`);
@@ -90,15 +79,7 @@ exports.update = async function(id, name, group){
 		
 		qiao.log.suc(`${json.time}ms | update group success`);
 	}else{
-		var url 	= config.host + config.todoItemSave;
-		var data	= {
-			id				: id,
-			todoGroupId 	: groupId,
-			todoItemName	: name,
-			todoItemOrder	: '1'
-		};
-
-		var json 	= await qiao.ajax.postWithToken(url, data);
+		var json = await todoItemService.save(groupId, name, id);
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | update todo success`);
@@ -126,10 +107,7 @@ exports.del = async function(ids, group){
 		
 		qiao.log.suc(`${json.time}ms | delete group success`);
 	}else{
-		var url 	= config.host + config.todoItemDel;
-		var data	= {ids : ids};
-
-		var json 	= await qiao.ajax.postWithToken(url, data);
+		var json = await todoItemService.del(ids);
 		if(!json) return;
 		
 		qiao.log.suc(`${json.time}ms | delete todo success`);
