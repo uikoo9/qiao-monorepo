@@ -14,5 +14,5 @@ exports.use = async function(id){
 		return;
 	}
 
-	qiao.config.set('groupId', id);
+	qiao.config.c('groupId', id);
 };

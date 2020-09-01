@@ -21,7 +21,7 @@ exports.post = async function(url, data){
  *  data
  */
 exports.postWithToken = async function(url, data){
-	var userinfo = qiao.config.get('userinfo');
+	var userinfo = qiao.config.c('userinfo');
 	if(!userinfo || !userinfo.userid || !userinfo.usertoken){
 		qiao.log.danger(`please login first`);
 		return;

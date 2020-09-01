@@ -28,7 +28,7 @@ exports.login = async function(mobile, password){
 
 	var userinfo 	= json.obj;
 	userinfo.mobile = mobile;
-	qiao.config.set('userinfo', userinfo);
+	qiao.config.c('userinfo', userinfo);
 	qiao.log.suc(`${json.time}ms | login success`);
 };
 

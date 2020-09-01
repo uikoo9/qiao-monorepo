@@ -95,7 +95,7 @@ if(!process.argv.slice(2).length){
 // login
 async function login(){
 	try{
-		var userinfo = qiao.config.get('userinfo');
+		var userinfo = qiao.config.c('userinfo');
 		if(userinfo && userinfo.userid && userinfo.usertoken && userinfo.mobile){
 			qiao.log.suc(`already login as ${userinfo.mobile}`);
 			return;
@@ -126,7 +126,7 @@ function logout(){
 
 // whoami
 function whoami(){
-	var userinfo = qiao.config.get('userinfo');
+	var userinfo = qiao.config.c('userinfo');
 	if(userinfo && userinfo.userid && userinfo.usertoken && userinfo.mobile){
 		qiao.log.suc(`login as ${userinfo.mobile}`);
 		return;
