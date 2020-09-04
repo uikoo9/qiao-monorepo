@@ -16,7 +16,8 @@ var q = require('qiao-config');
  * list
  */
 exports.list = async function(rows){
-	var groupId = q.c('groupId') || '1';
+	var groupId = getGroupId();
+	if(!groupId) return;
 
 	var url 	= config.host + config.todoItemlist;
 	var data	= {
@@ -31,7 +32,8 @@ exports.list = async function(rows){
  * save
  */
 exports.save = async function(name, id, groupId, order, status){
-	var groupId = groupId || q.c('groupId') || '1';
+	var groupId = groupId || getGroupId();
+	if(!groupId) return;
 
 	var url 	= config.host + config.todoItemSave;
 	var data	= {
@@ -79,3 +81,16 @@ exports.get = async function(id){
 	item.time	= json.time;
 	return item;
 };
+
+// get group id
+function getGroupId(){
+	var groupId = q.c('groupId');
+	if(!groupId){
+		console.log('add	todo group by \'dishi add groupName -g\'');
+		console.log('list 	todo group by \'dishi list -g\'');
+		console.log('use 	todo group by \'dishi use groupId\'');
+		return;
+	}
+
+	return groupId;
+}
