@@ -23,7 +23,7 @@ exports.list = async function(rows){
 	var data	= {
 		todoGroupId : groupId
 	};
-	if(rows) data.rows = rows;
+	data.rows	= q.c('rows') || '10';
 
 	return await fetch.postWithToken(url, data);
 };

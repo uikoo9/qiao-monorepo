@@ -18,3 +18,11 @@ exports.use = async function(id){
 	qiao.config.c('groupId', id);
 	qiao.log.suc(`${item.time}ms | todo group use success`);
 };
+
+/**
+ * rows
+ */
+exports.rows = async function(rows){
+	qiao.config.c('rows', rows);
+	qiao.log.suc(`set rows to ${rows}`);
+};

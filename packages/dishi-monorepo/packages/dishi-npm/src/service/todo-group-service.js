@@ -9,13 +9,16 @@ var fetch = require('../util/fetch.js');
 // log
 var log = require('../util/log.js');
 
+// qiao-config
+var q = require('qiao-config');
+
 /**
  * list
  */
 exports.list = async function(rows){
 	var url 	= config.host + config.todoGrouplist;
 	var data	= {};
-	if(rows) data.rows = rows;
+	data.rows	= q.c('rows') || '10';
 
 	return await fetch.postWithToken(url, data);
 };

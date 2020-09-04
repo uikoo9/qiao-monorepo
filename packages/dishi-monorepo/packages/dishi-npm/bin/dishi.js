@@ -14,6 +14,7 @@ qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
 	.usage('<command> [options]');
 
+// cmd for ucenter-----------------------------------------------------
 // cmd for login
 qiao.cli.cmd
 	.command('login')
@@ -42,6 +43,7 @@ qiao.cli.cmd
 	.description('register')
 	.action(register);
 
+// cmd for crud-----------------------------------------------------
 // cmd for list
 qiao.cli.cmd
 	.command('list [rows]')
@@ -85,12 +87,20 @@ qiao.cli.cmd
 	.description('todo item done')
 	.action(done);
 
+// cmd for config-----------------------------------------------------
 // cmd for use
 qiao.cli.cmd
 	.command('use <groupId>')
 	.usage('<groupId>')
 	.description('select todo group')
 	.action(useGroupId);
+
+// cmd for rows
+qiao.cli.cmd
+	.command('rows <rows>')
+	.usage('<rows>')
+	.description('set rows')
+	.action(setRows);
 
 // parse
 qiao.cli.cmd.parse(process.argv);
@@ -207,4 +217,9 @@ function done(id){
 // use group id
 function useGroupId(id){
 	qiao.dishi.use(id);
+}
+
+// set rows
+function setRows(rows){
+	qiao.dishi.rows(rows);
 }
