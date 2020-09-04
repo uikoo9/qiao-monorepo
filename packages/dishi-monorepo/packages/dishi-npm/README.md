@@ -82,12 +82,6 @@ login as 11111111111
 1	todo
 ```
 
-### change todo group
-```
-# node dishi use 9
-64ms | todo group use success
-```
-
 ### list todo item
 ```
 # dishi l
@@ -129,6 +123,18 @@ login as 11111111111
 1	haha
 ```
 
+### change todo group
+```
+# node dishi use 9
+64ms | todo group use success
+```
+
+### set rows
+```
+# node dishi rows 10
+set rows to 10
+```
+
 ### done todo item
 ```
 # dishi done 7
@@ -148,6 +154,7 @@ id	todo-status	todo-name
 1. check group id
 2. command help
 3. dishi rows
+4. todo and done items
 
 ### 0.0.3.20200901
 1. dishi use
