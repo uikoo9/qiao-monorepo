@@ -13,6 +13,9 @@
 2. add sms 
 
 ## version
+### 0.0.4.20200904
+1. todo list
+
 ### 0.0.3.20200829
 1. get todo group by userid
 2. todo item
