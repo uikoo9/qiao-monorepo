@@ -5,6 +5,8 @@
     "sendCode"  : "ucenter/code/send",
     "register"  : "ucenter/user/reg",
 
+    "todoList"  : "todo/list",
+
     "todoGrouplist" : "todo/group/list",
     "todoGroupSave" : "todo/group/save",
     "todoGroupDel"  : "todo/group/del",

@@ -19,12 +19,12 @@ exports.list = async function(){
 	var groupId = getGroupId();
 	if(!groupId) return;
 
-	var url 	= config.host + config.todoItemlist;
+	var url 	= config.host + config.todoList;
 	var data	= {
 		todoGroupId : groupId
 	};
 	data.rows	= q.c('rows') || '10';
-
+	
 	return await fetch.postWithToken(url, data);
 };
 

@@ -25,7 +25,7 @@ exports.list = async function(group){
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | list todo success`);
-		listTodos(json.obj.rows);
+		listTodos(json.obj);
 	}
 };
 
@@ -98,15 +98,24 @@ function listGroups(rows){
 }
 
 // list todos
-function listTodos(rows){
+function listTodos(obj){
 	var groupId = q.c('groupId') || '1';
 
 	log.log();
 	log.info(`todo group ${groupId}:`);
-	log.info(`id	todo-status	todo-name`);
 
-	for(var i=0; i<rows.length; i++){
-		var item = rows[i];
-		log.log(`${item.id}	${item.todo_item_status == '0' ? 'todo' : 'done'}		${item.todo_item_name}`);
+	var todoRows = obj.todoRows;
+	log.danger(`todo items`);
+	for(var i=0; i<todoRows.length; i++){
+		var item = todoRows[i];
+		log.log(`${item.id}	${item.todo_item_name}`);
+	}
+	log.log();
+
+	var doneRows = obj.doneRows;
+	log.suc(`done items`);
+	for(var i=0; i<doneRows.length; i++){
+		var item = doneRows[i];
+		log.log(`${item.id}	${item.todo_item_name}`);
 	}
 }
