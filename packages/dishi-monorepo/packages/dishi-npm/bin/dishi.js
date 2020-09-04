@@ -17,32 +17,37 @@ qiao.cli.cmd
 // cmd for login
 qiao.cli.cmd
 	.command('login')
-	.description('login to dishi todo')
+	.usage(' ')
+	.description('login')
 	.action(login);
 
 // cmd for logout
 qiao.cli.cmd
 	.command('logout')
-	.description('logout from dishi todo')
+	.usage(' ')
+	.description('logout')
 	.action(logout);
 
 // cmd for whoami
 qiao.cli.cmd
 	.command('whoami')
-	.description('whoami in dishi todo')
+	.usage(' ')
+	.description('whoami')
 	.action(whoami);
 
 // cmd for reg
 qiao.cli.cmd
 	.command('reg')
-	.description('register to dishi todo')
+	.usage(' ')
+	.description('register')
 	.action(register);
 
 // cmd for list
 qiao.cli.cmd
 	.command('list [rows]')
 	.alias('l')
-	.description('list todo items by default group 1')
+	.usage('[rows] [options]')
+	.description('todo item list')
 	.option('-g, --group', 'list todo groups')
 	.action(list);
 
@@ -50,7 +55,8 @@ qiao.cli.cmd
 qiao.cli.cmd
 	.command('add <name>')
 	.alias('a')
-	.description('add todo items to default group 1')
+	.usage('<name> [options]')
+	.description('todo item add')
 	.option('-g, --group', 'add todo group')
 	.action(add);
 
@@ -58,7 +64,8 @@ qiao.cli.cmd
 qiao.cli.cmd
 	.command('update <id> <name>')
 	.alias('u')
-	.description('update todo items to default group 1')
+	.usage('<id> <name> [options]')
+	.description('todo item update')
 	.option('-g, --group', 'update todo group')
 	.action(update);
 
@@ -66,20 +73,23 @@ qiao.cli.cmd
 qiao.cli.cmd
 	.command('del <ids>')
 	.alias('d')
-	.description('delete todo items to default group 1')
+	.usage('<ids> [options]')
+	.description('todo item delete')
 	.option('-g, --group', 'delete todo group')
 	.action(del);
 
 // cmd for done
 qiao.cli.cmd
 	.command('done <id>')
-	.description('done todo item by id')
+	.usage('<id> [options]')
+	.description('todo item done')
 	.action(done);
 
 // cmd for use
 qiao.cli.cmd
 	.command('use <groupId>')
-	.description('use groupId to list todo items')
+	.usage('<groupId>')
+	.description('select todo group')
 	.action(useGroupId);
 
 // parse
