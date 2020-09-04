@@ -46,9 +46,9 @@ qiao.cli.cmd
 // cmd for crud-----------------------------------------------------
 // cmd for list
 qiao.cli.cmd
-	.command('list [rows]')
+	.command('list')
 	.alias('l')
-	.usage('[rows] [options]')
+	.usage('[options]')
 	.description('todo item list')
 	.option('-g, --group', 'list todo groups')
 	.action(list);
@@ -190,8 +190,8 @@ async function register(){
 }
 
 // list
-function list(rows, options){
-	qiao.dishi.list(rows, options.group);
+function list(options){
+	qiao.dishi.list(options.group);
 }
 
 // add

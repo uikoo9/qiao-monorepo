@@ -15,7 +15,7 @@ var q = require('qiao-config');
 /**
  * list
  */
-exports.list = async function(rows){
+exports.list = async function(){
 	var groupId = getGroupId();
 	if(!groupId) return;
 

@@ -15,7 +15,7 @@ var q = require('qiao-config');
 /**
  * list
  */
-exports.list = async function(rows){
+exports.list = async function(){
 	var url 	= config.host + config.todoGrouplist;
 	var data	= {};
 	data.rows	= q.c('rows') || '10';

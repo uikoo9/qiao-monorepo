@@ -13,15 +13,15 @@ var todoItemService		= require('../service/todo-item-service');
 /**
  * list
  */
-exports.list = async function(rows, group){
+exports.list = async function(group){
 	if(group){
-		var json = await todoGroupService.list(rows);
+		var json = await todoGroupService.list();
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | list group success`);
 		listGroups(json.obj.rows);
 	}else{
-		var json = await todoItemService.list(rows);
+		var json = await todoItemService.list();
 		if(!json) return;
 		
 		log.suc(`${json.time}ms | list todo success`);
