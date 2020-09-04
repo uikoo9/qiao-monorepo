@@ -146,6 +146,7 @@ id	todo-status	todo-name
 ## version
 ### 0.0.4.20200904
 1. check group id
+2. command help
 
 ### 0.0.3.20200901
 1. dishi use
