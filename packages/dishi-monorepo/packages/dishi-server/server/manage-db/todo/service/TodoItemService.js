@@ -9,20 +9,33 @@ var model	= require('../model/TodoItemModel.js');
  * todo item list
  */
 exports.todoItemList = async function(req, res){
+	try{
+		var result = await exports.todoItemRows(req);
+		
+		res.send(qiao.json.success('query success', result));
+	}catch(e){
+		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+	}
+};
+
+/**
+ * todo item rows
+ */
+exports.todoItemRows = async function(req){
 	// vars
 	var ucenterUserId = req.body['express_userid'];
 	var todoGroupId = req.body.todoGroupId;
 	var todoItemName = req.body.todoItemName;
 	var todoItemOrder = req.body.todoItemOrder;
 	var todoItemStatus = req.body.todoItemStatus;
-	
+
 	// sql and params
 	var sqlcount	= [model.sql.todoItemListCount];
 	var paramscount	= [];
-	
+
 	var sqlquery	= [model.sql.todoItemListQuery];
 	var paramsquery	= [];
-	
+
 	// query
 	if(ucenterUserId){
 		sqlcount.push(' and t.ucenter_user_id = ?');
@@ -59,7 +72,7 @@ exports.todoItemList = async function(req, res){
 		sqlquery.push(" and t.todo_item_status = ?");
 		paramsquery.push(todoItemStatus);
 	}
-	
+
 	// order and page
 	sqlquery.push(' order by t.? ? limit ?,?');
 	var order		= req.body.order || 'desc';
@@ -71,7 +84,7 @@ exports.todoItemList = async function(req, res){
 	paramsquery.push(qiao.mysql.lib.raw(order));
 	paramsquery.push(start);
 	paramsquery.push(pagesize);
-	
+
 	// db
 	try{
 		var rs 		= await qiao.mysql.query(qiao.config.db, sqlcount.join(''), paramscount);
@@ -85,9 +98,9 @@ exports.todoItemList = async function(req, res){
 		result.pagenumber 	= pagenumber;
 		result.pagesize		= pagesize;
 		
-		res.send(qiao.json.success('query success', result));
+		return result;
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+		throw e;
 	}
 };
 
