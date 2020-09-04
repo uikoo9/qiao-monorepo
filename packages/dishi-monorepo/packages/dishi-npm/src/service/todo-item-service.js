@@ -86,9 +86,7 @@ exports.get = async function(id){
 function getGroupId(){
 	var groupId = q.c('groupId');
 	if(!groupId){
-		console.log('add	todo group by \'dishi add groupName -g\'');
-		console.log('list 	todo group by \'dishi list -g\'');
-		console.log('use 	todo group by \'dishi use groupId\'');
+		log.danger('please select a todo group');
 		return;
 	}
 
