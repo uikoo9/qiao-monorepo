@@ -41,6 +41,9 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 ```
 
 ## version
+### 0.0.2.20200908
+1. is online img src on browser
+
 ### 0.0.1.20200821
 1. init project
 2. on browser ok
