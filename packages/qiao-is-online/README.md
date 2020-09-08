@@ -44,6 +44,9 @@ q.offlineToOnline(function(){
 ```
 
 ## version
+### 0.0.2.2020908
+1. offline-to-online@0.0.8
+
 ### 0.0.1.20200821
 1. init project
 2. is online
