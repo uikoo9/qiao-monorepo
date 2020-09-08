@@ -3,17 +3,14 @@
 // offline to online
 var o = require('offline-to-online');
 
-// is online img
-var isOnlineImg = require('./config.json').img;
-
 /**
  * is online
- * 	img, img src
+ *  src, online img src
  */
-exports.isOnline = function(img){
-	var src = img || isOnlineImg;
-
+exports.isOnline = function(src){
 	return new Promise(function(resolve, reject){
+        if(!src) return reject(Error('need online img src'));
+
         var img 	= new Image();
         img.src 	= `${src}?r=${Math.random()}`;
         img.onload 	= function(){resolve('online');};
