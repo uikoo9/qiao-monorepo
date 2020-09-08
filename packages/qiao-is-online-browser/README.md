@@ -33,9 +33,12 @@ test();
 
 var q = require('qiao-is-online-browser');
 
+// is online img src
+var isOnlineImgSrc = 'your online img src';
+
 // callback
 // time, interval time, default is 3*1000ms
-q.offlineToOnline(function(){
+q.offlineToOnline(isOnlineImgSrc, function(){
     console.log('offline-to-online');
 }, 3 * 1000);
 ```

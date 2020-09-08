@@ -20,9 +20,10 @@ exports.isOnline = function(src){
 
 /**
  * offline to online
+ *  src, is online img src
  *  callback
  *  time
  */
-exports.offlineToOnline = function(callback, time){
-    o.offlineToOnline(exports.isOnline, callback, time);
+exports.offlineToOnline = function(src, callback, time){
+    o.offlineToOnlineWithSrc(src, exports.isOnline, callback, time);
 };
