@@ -10,7 +10,23 @@ var intervalId = null;
  *  callback
  *  time
  */
-exports.offlineToOnline = function(isOnlineFunction, calllback, time){
+exports.offlineToOnlineWithSrc = function(isOnlineImgSrc, isOnlineFunction, calllback, time){
+	// check
+	if(!isOnlineImgSrc){
+        console.log('need is online img src');
+        return;
+    }
+
+	// is online
+	exports.offlineToOnline(isOnlineImgSrc, isOnlineFunction, calllback, time);
+};
+
+/**
+ * offline to online
+ *  callback
+ *  time
+ */
+exports.offlineToOnline = function(isOnlineImgSrc, isOnlineFunction, calllback, time){
 	// check
 	if(!isOnlineFunction){
         console.log('need is online function');
@@ -23,14 +39,14 @@ exports.offlineToOnline = function(isOnlineFunction, calllback, time){
 
 	// start timer
 	if(intervalId) return;
-	startTimer(isOnlineFunction, calllback, time);
+	startTimer(isOnlineImgSrc, isOnlineFunction, calllback, time);
 };
 
 // start timer
-function startTimer(isOnlineFunction, intervalCallback, intervalTime){
+function startTimer(isOnlineImgSrc, isOnlineFunction, intervalCallback, intervalTime){
 	var time = intervalTime || 3*1000;
 	intervalId = setInterval(async () => {
-		var changed = await isNetworkChanged(isOnlineFunction);
+		var changed = await isNetworkChanged(isOnlineImgSrc, isOnlineFunction);
 		if(!changed) return;
 
 		if(intervalCallback) intervalCallback();
@@ -38,8 +54,8 @@ function startTimer(isOnlineFunction, intervalCallback, intervalTime){
 }
 
 // is network changed
-async function isNetworkChanged(isOnlineFunction){
-	var online = await isOnlineFunction();
+async function isNetworkChanged(isOnlineImgSrc, isOnlineFunction){
+	var online = await isOnlineFunction(isOnlineImgSrc);
 
 	// offline
 	if(online == 'offline'){
