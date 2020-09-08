@@ -64,5 +64,5 @@ var o = require('offline-to-online');
  *  time
  */
 exports.offlineToOnline = function(callback, time){
-    o.offlineToOnline(exports.isOnline, callback, time);
+    o.offlineToOnline(null, exports.isOnline, callback, time);
 };

@@ -21,7 +21,7 @@
     "url": "git+https://github.com/insistime/qiao-is-online.git"
   },
   "dependencies": {
-    "offline-to-online": "0.0.7",
+    "offline-to-online": "0.0.8",
     "qiao-ping": "0.0.1"
   },
   "devDependencies": {}
