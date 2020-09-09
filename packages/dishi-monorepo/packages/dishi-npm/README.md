@@ -152,6 +152,7 @@ id	todo-status	todo-name
 ## version
 ### 0.0.5.20200909
 1. get group
+2. dishi log
 
 ### 0.0.4.20200904
 1. check group id
