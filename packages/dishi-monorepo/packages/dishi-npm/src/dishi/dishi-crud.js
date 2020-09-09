@@ -3,6 +3,9 @@
 // qiao-config
 var q = require('qiao-config');
 
+// b
+var b = require('../util/b.js');
+
 // log
 var log = require('../util/log.js');
 
@@ -99,7 +102,8 @@ function listGroups(rows){
 
 // list todos
 function listTodos(obj){
-	var groupId = q.c('groupId') || '1';
+	var groupId = b.getGroupId();
+	if(!groupId) return;
 
 	log.log();
 	log.info(`todo group ${groupId}:`);

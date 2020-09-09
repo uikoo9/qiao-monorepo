@@ -15,7 +15,7 @@ exports.use = async function(id){
 	var item = await todoGroupService.get(id);
 	if(!item) return;
 
-	qiao.config.c('groupId', id);
+	qiao.config.c('group', item);
 	qiao.log.suc(`${item.time}ms | todo group use success`);
 };
 

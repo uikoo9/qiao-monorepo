@@ -1,5 +1,11 @@
 'use strict';
 
+// qiao-config
+var q = require('qiao-config');
+
+// b
+var b = require('../util/b.js');
+
 // config
 var config = require('../config.json');
 
@@ -9,14 +15,11 @@ var fetch = require('../util/fetch.js');
 // log
 var log = require('../util/log.js');
 
-// qiao-config
-var q = require('qiao-config');
-
 /**
  * list
  */
 exports.list = async function(){
-	var groupId = getGroupId();
+	var groupId = b.getGroupId();
 	if(!groupId) return;
 
 	var url 	= config.host + config.todoList;
@@ -32,7 +35,7 @@ exports.list = async function(){
  * save
  */
 exports.save = async function(name, id, groupId, order, status){
-	var groupId = groupId || getGroupId();
+	var groupId = groupId || b.getGroupId();
 	if(!groupId) return;
 
 	var url 	= config.host + config.todoItemSave;
@@ -81,14 +84,3 @@ exports.get = async function(id){
 	item.time	= json.time;
 	return item;
 };
-
-// get group id
-function getGroupId(){
-	var groupId = q.c('groupId');
-	if(!groupId){
-		log.danger('please select a todo group');
-		return;
-	}
-
-	return groupId;
-}
