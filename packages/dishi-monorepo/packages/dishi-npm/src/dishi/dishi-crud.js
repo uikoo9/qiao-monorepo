@@ -106,10 +106,14 @@ function listTodos(obj){
 	if(!group) return;
 
 	log.log();
-	log.info(`todo group '${group.todo_group_name}[${group.id}]':`);
+	log.info('========================');
+	log.info(`todo group '${group.todo_group_name}[${group.id}]'`);
+	log.info('========================');
+	log.log();
 
 	var todoRows = obj.todoRows;
 	log.danger(`todo items`);
+	log.danger('------------------------');
 	for(var i=0; i<todoRows.length; i++){
 		var item = todoRows[i];
 		log.log(`${item.id}	${item.todo_item_name}`);
@@ -118,6 +122,7 @@ function listTodos(obj){
 
 	var doneRows = obj.doneRows;
 	log.suc(`done items`);
+	log.suc('------------------------');
 	for(var i=0; i<doneRows.length; i++){
 		var item = doneRows[i];
 		log.log(`${item.id}	${item.todo_item_name}`);
