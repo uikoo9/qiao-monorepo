@@ -102,11 +102,11 @@ function listGroups(rows){
 
 // list todos
 function listTodos(obj){
-	var groupId = b.getGroupId();
-	if(!groupId) return;
+	var group = b.getGroup();
+	if(!group) return;
 
 	log.log();
-	log.info(`todo group ${groupId}:`);
+	log.info(`todo group '${group.todo_group_name}[${group.id}]':`);
 
 	var todoRows = obj.todoRows;
 	log.danger(`todo items`);
