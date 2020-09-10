@@ -12,10 +12,10 @@ qiao.cli.cmd
 	.usage('<command> [options]');
 
 require('./dishi-ucenter');
-require('./dishi-item');
-require('./dishi-group');
-require('./dishi-operate');
 require('./dishi-config');
+require('./dishi-group');
+require('./dishi-item');
+require('./dishi-operate');
 
 // parse
 qiao.cli.cmd.parse(process.argv);
