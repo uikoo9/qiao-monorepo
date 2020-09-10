@@ -43,6 +43,17 @@ login as 11111111111
 61ms | register success
 ```
 
+## config
+### change todo group
+```
+dishi use todoGroupId
+```
+
+### set rows
+```
+dishi rows 10
+```
+
 ## todo group
 ### list todo group
 ```
@@ -83,17 +94,6 @@ dishi update|u todoItemId todoItemName
 ### delete todo item
 ```
 dishi del|d todoItemIds
-```
-
-## config
-### change todo group
-```
-dishi use todoGroupId
-```
-
-### set rows
-```
-dishi rows 10
 ```
 
 ## operate
