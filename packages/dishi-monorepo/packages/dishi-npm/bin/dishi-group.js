@@ -8,52 +8,52 @@ qiao.dishi	= require('../src/dishi.js');
 // cmd for crud-----------------------------------------------------
 // cmd for list
 qiao.cli.cmd
-	.command('list')
-	.alias('l')
+	.command('group')
+	.alias('g')
 	.usage(' ')
-	.description('todo item list')
+	.description('todo group list')
 	.action(list);
 
 // cmd for add
 qiao.cli.cmd
-	.command('add <name>')
-	.alias('a')
+	.command('group-add <name>')
+	.alias('ga')
 	.usage('<name>')
-	.description('todo item add')
+	.description('todo group add')
 	.action(add);
 
 // cmd for update
 qiao.cli.cmd
-	.command('update <id> <name>')
-	.alias('u')
+	.command('group-update <id> <name>')
+	.alias('gu')
 	.usage('<id> <name>')
-	.description('todo item update')
+	.description('todo group update')
 	.action(update);
 
 // cmd for del
 qiao.cli.cmd
-	.command('del <ids>')
-	.alias('d')
+	.command('group-del <ids>')
+	.alias('gd')
 	.usage('<ids>')
-	.description('todo item delete')
+	.description('todo group delete')
 	.action(del);
 
 // list
 function list(){
-	qiao.dishi.list();
+	qiao.dishi.list(true);
 }
 
 // add
 function add(name){
-	qiao.dishi.add(name);
+	qiao.dishi.add(name, true);
 }
 
 // update
 function update(id, name){
-	qiao.dishi.update(id, name);
+	qiao.dishi.update(id, name, true);
 }
 
 // del
 function del(ids){
-	qiao.dishi.del(ids);
+	qiao.dishi.del(ids, true);
 }

@@ -13,6 +13,7 @@ qiao.cli.cmd
 
 require('./dishi-ucenter');
 require('./dishi-item');
+require('./dishi-group');
 require('./dishi-operate');
 require('./dishi-config');
 
