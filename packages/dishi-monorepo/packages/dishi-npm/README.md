@@ -149,6 +149,12 @@ id	todo-status	todo-name
 1	todo		haha
 ```
 
+### move todo item
+```
+# dishi move|mv 7 11
+113ms | done success
+```
+
 ## version
 ### 0.0.6.20200910
 1. move
