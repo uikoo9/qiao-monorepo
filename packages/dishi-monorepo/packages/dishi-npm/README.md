@@ -158,6 +158,7 @@ id	todo-status	todo-name
 ## version
 ### 0.0.6.20200910
 1. move
+2. bin dishi modify
 
 ### 0.0.5.20200909
 1. get group
