@@ -1,0 +1,33 @@
+{
+  "name": "t-url",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "short url by tiyee.cn",
+  "keywords": [
+    "short",
+    "url"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.js",
+    "reload": "pm2 reload all",
+    "pack": "npm run build && npm run reload"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "funding": "http://uikoo9.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/t-url.git"
+  },
+  "dependencies": {
+    "qiao-ajax": "0.0.4"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
