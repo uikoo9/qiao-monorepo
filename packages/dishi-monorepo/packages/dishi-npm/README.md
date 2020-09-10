@@ -11,7 +11,7 @@ npm i -g dishi
 dishi -h
 ```
 
-## use
+## ucenter
 ### login
 ```
 # dishi login
@@ -43,122 +43,75 @@ login as 11111111111
 61ms | register success
 ```
 
+## todo group
 ### list todo group
 ```
-# dishi list|l -g
-89ms | list group success
-1	todo
+dishi group|g
 ```
 
 ### add todo group
 ```
-# dishi add|a togoGroupName -g
-92ms | add group success
-
-# dishi l -g
-84ms | list group success
-5	togoGroupName
-1	todo
+dishi group-add|ga togoGroupName
 ```
 
 ### update todo group
 ```
-# dishi update|u 5 todoGroupName -g
-84ms | update group success
-
-# dishi l -g
-86ms | list group success
-5	todoGroupName
-1	todo
+dishi group-update|gu todoGroupId todoGroupName
 ```
 
 ### delete todo group
 ```
-# dishi delete|d 5 -g
-85ms | delete group success
-
-# dishi l -g
-87ms | list group success
-1	todo
+dishi group-delete|gd todoGroupIds
 ```
 
+## todo item
 ### list todo item
 ```
-# dishi l
-74ms | list todo success
-1	haha
+dishi list|l
 ```
 
 ### add todo item
 ```
-# dishi a hello
-88ms | add todo success
-
-# dishi l
-84ms | list todo success
-5	nihao
-4	hello
-1	haha
+dishi add|a hello
 ```
 
 ### update todo item
 ```
-# dishi u 5 nihaoyayaya
-80ms | update todo success
-
-# dishi l
-81ms | list todo success
-5	nihaoyayaya
-4	hello
-1	haha
+dishi update|u todoItemId todoItemName
 ```
 
 ### delete todo item
 ```
-# dishi d 5,4
-77ms | delete todo success
-
-# dishi l
-80ms | list todo success
-1	haha
+dishi del|d todoItemIds
 ```
 
+## config
 ### change todo group
 ```
-# node dishi use 9
-64ms | todo group use success
+dishi use todoGroupId
 ```
 
 ### set rows
 ```
-# node dishi rows 10
-set rows to 10
+dishi rows 10
 ```
 
+## operate
 ### done todo item
 ```
-# dishi done 7
-113ms | done success
-
-# dishi l
-83ms | list todo success
-
-todo group 1:
-id	todo-status	todo-name
-7	done		heihei
-1	todo		haha
+dishi done todoItemId
 ```
 
 ### move todo item
 ```
-# dishi move|mv 7 11
-113ms | done success
+dishi move|mv todoItemId todoGroupId
 ```
 
 ## version
 ### 0.0.6.20200910
 1. move
 2. bin dishi modify
+3. dishi group
 
 ### 0.0.5.20200909
 1. get group
