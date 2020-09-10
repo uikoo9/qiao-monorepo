@@ -80,12 +80,21 @@ qiao.cli.cmd
 	.option('-g, --group', 'delete todo group')
 	.action(del);
 
+// cmd for operate-----------------------------------------------------
 // cmd for done
 qiao.cli.cmd
 	.command('done <id>')
 	.usage('<id> [options]')
 	.description('todo item done')
 	.action(done);
+
+// cmd for move
+qiao.cli.cmd
+	.command('move <id> <groupId>')
+	.alias('mv')
+	.usage('<id> <groupId> [options]')
+	.description('todo item move')
+	.action(move);
 
 // cmd for config-----------------------------------------------------
 // cmd for use
@@ -212,6 +221,11 @@ function del(ids, options){
 // done
 function done(id){
 	qiao.dishi.done(id);
+}
+
+// move
+function move(id, groupId){
+	qiao.dishi.move(id, groupId);
 }
 
 // use group id
