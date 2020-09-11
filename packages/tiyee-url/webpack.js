@@ -1,9 +1,7 @@
 module.exports = {
     mode    : 'production',
     entry   : {
-        'get-ip'                : './test/get-ip.js',
-        'get-ip-by-sohu'        : './test/get-ip-by-sohu.js',
-        'get-ip-by-icanhazip'   : './test/get-ip-by-icanhazip.js'
+        'short-url' : './test/short-url.js',
     },
     output  : {
         filename        : '[name].js',
