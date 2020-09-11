@@ -1,11 +1,14 @@
 {
-  "name": "t-url",
+  "name": "tiyee-url",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "short url by tiyee.cn",
+  "description": "tiyee.cn URL Shortener Node.js and Browser module",
   "keywords": [
     "short",
-    "url"
+    "url",
+    "nodejs",
+    "browser",
+    "tiyee.cn"
   ],
   "main": "index.js",
   "scripts": {
