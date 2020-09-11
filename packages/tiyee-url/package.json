@@ -24,7 +24,7 @@
   "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/t-url.git"
+    "url": "git+https://github.com/insistime/tiyee-url.git"
   },
   "dependencies": {
     "qiao-ajax": "0.0.4"

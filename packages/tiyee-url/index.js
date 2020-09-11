@@ -1,1 +1,1 @@
-module.exports = require('./lib/t-url.js');
+module.exports = require('./lib/tiyee-url.js');
