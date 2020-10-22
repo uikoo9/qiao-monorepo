@@ -1,5 +1,7 @@
-# api
-## ls
+# qiao.ls.js
+
+## api
+### ls
 ```javascript
 'use strict';
 
@@ -20,7 +22,7 @@ var test = function(){
 test();
 ```
 
-## cache
+### cache
 ```javascript
 'use strict';
 
@@ -44,24 +46,24 @@ var test = function(){
 test();
 ```
 
-# version
-## 0.0.5.20201022
+## version
+### 0.0.5.20201022
 1. export ls and cache
 
-## 0.0.4.20200803
+### 0.0.4.20200803
 1. ncu
 
-## 0.0.3.20200414
+### 0.0.3.20200414
 1. set cache
 2. get cache
 3. remove cache
 4. clear cache
 5. add cache and ls
 
-## 0.0.2.20191206
+### 0.0.2.20191206
 1. add funding
 
-## 0.0.1.20190624
+### 0.0.1.20190624
 1. init project
 2. set item
 3. get item
