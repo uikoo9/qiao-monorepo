@@ -1,9 +1,7 @@
 module.exports = {
     mode    : 'production',
     entry   : {
-        'get-item' : './test/get-item.js',
-        'remove-item' : './test/remove-item.js',
-        'set-item' : './test/set-item.js',
+        'ls'    : './test/ls.js',
         'cache' : './test/cache.js',
     },
     output  : {
