@@ -52,7 +52,7 @@ function setCache(name, key, value, exp){
 	data[key] = value;
 
 	q.ls(name, data, exp || 7);
-};
+}
 
 /**
  * get cache
@@ -66,7 +66,7 @@ function getCache(name, key){
 	if(!data) return;
 
 	return data[key];
-};
+}
 
 /**
  * remove cache
@@ -81,7 +81,7 @@ function removeCache(name, key){
 
     delete data[key];
     q.ls(name, data);
-};
+}
 
 /**
  * clear cache
@@ -91,4 +91,4 @@ function clearCache(name){
 	if(!name) return;
 
     q.ls(name, null);
-};
+}
