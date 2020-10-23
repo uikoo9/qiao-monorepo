@@ -8,7 +8,7 @@ var test = async function(){
 	var version 		= 2;
 
 	try{
-		var db 	= await qdb.openDB(databaseName, version);
+		var db = await qdb.openDB(databaseName, version);
 		await qdb.clear(db, tableName);
 	}catch(e){
 		console.log(e);
