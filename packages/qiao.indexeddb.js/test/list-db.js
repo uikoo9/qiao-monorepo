@@ -3,8 +3,12 @@
 var qdb = require('../lib/qiao.indexeddb.js');
 
 var test = async function(){
-	var dbs = await qdb.listDB();
-	console.log(dbs);
+	try{
+		var dbs = await qdb.listDB();
+		console.log(dbs);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();
