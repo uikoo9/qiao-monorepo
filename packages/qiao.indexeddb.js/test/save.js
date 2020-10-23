@@ -2,7 +2,7 @@
 
 var qdb = require('../lib/qiao.indexeddb.js');
 
-var test = function(){
+var test = async function(){
 	var databaseName = 'db_test';
 	var version = 1;
 	var tables = [{
@@ -21,23 +21,20 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(db){
+	try{
+		var db 	= await qdb.openDB(databaseName, version);
 		var res = qdb.createTable(db, tables);
 		console.log(res);
-	});
 
-	qdb.openDB(databaseName, version, null, function(db){
 		var tableName = 't_test1';
 		var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		qdb.save(db, tableName, 1, data, function(r){
-			console.log(r);
+		await qdb.save(db, tableName, 1, data);
 
-			data.name = '1';
-			qdb.save(db, tableName, 1, data, function(rr){
-				console.log(rr);
-			});
-		});
-	});
+		data.name = '1';
+		await qdb.save(db, tableName, 1, data);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();

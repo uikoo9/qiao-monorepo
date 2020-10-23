@@ -123,9 +123,8 @@ exports.get = function(db, tableName, key){
  * 	tableName
  * 	key
  * 	data
- * 	cb
  */
-exports.save = function(db, tableName, key, data, cb){
+exports.save = function(db, tableName, key, data){
 	return new Promise(function(resolve, reject){
 		d.getData(db, tableName, key, function(r){
 			if(r){
