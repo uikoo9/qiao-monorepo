@@ -2,7 +2,7 @@
 
 var qdb = require('../lib/qiao.indexeddb.js');
 
-var test = function(){
+var test = async function(){
 	var databaseName = 'db_test';
 	var version = 1;
 	var tables = [{
@@ -21,12 +21,15 @@ var test = function(){
 		}
 	}];
 
-	qdb.openDB(databaseName, version, function(db){
+	try{
+		var db 	= await qdb.openDB(databaseName, version);
 		var res = qdb.createTable(db, tables);
 		console.log(res);
 
 		qdb.delTable(db, 't_test1');
-	});
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();
