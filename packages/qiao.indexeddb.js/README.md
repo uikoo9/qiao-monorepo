@@ -213,6 +213,9 @@ test();
 ```
 
 ## version
+### 0.0.7.20201023
+1. export sync
+
 ### 0.0.6.20200731
 1. add sync
 2. clear sync
