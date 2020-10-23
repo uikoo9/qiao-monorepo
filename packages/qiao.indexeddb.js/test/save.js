@@ -10,10 +10,10 @@ var test = async function(){
 
 		var tableName 	= 't_test1';
 		var data 		= { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		await qdb.save(db, tableName, data);
+		await qdb.save(db, tableName, data.id, data);
 
 		data.name = '1';
-		await qdb.save(db, tableName, data);
+		await qdb.save(db, tableName, data.id, data);
 	}catch(e){
 		console.log(e);
 	}

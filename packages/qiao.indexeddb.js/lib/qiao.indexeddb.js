@@ -121,12 +121,12 @@ exports.get = function(db, tableName, key){
  * save
  * 	tx
  * 	tableName
+ * 	key
  * 	data
  */
-exports.save = function(db, tableName, data){
+exports.save = function(db, tableName, key, data){
 	return new Promise(function(resolve, reject){
-		var id = data && data.id;
-		d.getData(db, tableName, id, function(r){
+		d.getData(db, tableName, key, function(r){
 			if(r){
 				d.putData(db, tableName, data, function(rr){
 					resolve(rr);
