@@ -8,7 +8,9 @@
   ],
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.js"
+    "pack": "npm run build && npm run reload",
+    "build": "webpack --config webpack.js",
+    "reload": "pm2 reload all"
   },
   "dependencies": {},
   "author": {
