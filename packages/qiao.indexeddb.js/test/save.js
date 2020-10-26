@@ -14,6 +14,9 @@ var test = async function(){
 
 		data.name = '1';
 		await qdb.save(db, tableName, data.id, data);
+
+		var data1 		= { id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		await qdb.save(db, tableName, data1.id, data1);
 	}catch(e){
 		console.log(e);
 	}
