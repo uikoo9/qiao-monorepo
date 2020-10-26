@@ -1,5 +1,7 @@
 'use strict';
 
+var _db = require('./_db.js');
+
 /**
  * create table
  * 	db
@@ -68,8 +70,19 @@ function createIndex(os, table){
  * 	db
  * 	tableName
  */
-exports.delTable = function(db, tableName){
+exports.delTable = async function(db, tableName){
     if(!db || !tableName) return;
     
-	db.deleteObjectStore(tableName);
+    var databaseName    = db.name;
+    var databaseVersion = db.version;
+    if(!databaseName || ! databaseVersion) return;
+
+    try{
+        db.close();
+
+        var newDB = await _db.openDB(databaseName, ++databaseVersion);
+        newDB.deleteObjectStore(tableName);
+    }catch(e){
+        throw e;
+    }
 };
