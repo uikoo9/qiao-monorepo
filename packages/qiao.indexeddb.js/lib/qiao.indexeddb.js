@@ -1,6 +1,7 @@
 'use strict';
 
-var d = require('./data.js');
+var d = require('./_data.js');
+var t = require('./_table.js');
 
 /**
  * open db
@@ -60,48 +61,18 @@ exports.delDB = function(databaseName){
  * 	tables
  * 		key
  * 		index
+ * 			name
+ * 			index
+ * 			unique
  */
-exports.createTable = function(db, tables){
-	if(!db) return null;
-
-	var res = [];
-	for(var i=0; i<tables.length; i++){
-		var table = tables[i];
-		if(!db.objectStoreNames.contains(table.name)){
-			// key
-			var key = {};
-			if(table.key == 'auto'){
-				key.autoIncrement = true;
-			}else{
-				key.keyPath = table.key;
-			}
-
-			// create
-			var objectStore = db.createObjectStore(table.name, key);
-
-			// index
-			if(table.index){
-				var name = table.index.name;
-				var unique = table.index.unique;
-				objectStore.createIndex(name, name, { unique: unique });
-			}
-
-			// push
-			res.push(objectStore);
-		}
-	}
-
-	return res;
-};
+exports.createTable = t.createTable;
 
 /**
  * del table
  * 	db
  * 	tableName
  */
-exports.delTable = function(db, tableName){
-	db.deleteObjectStore(tableName);
-};
+exports.delTable = t.delTable;
 
 /**
  * get

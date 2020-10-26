@@ -8,17 +8,22 @@ var test = async function(){
 	var tables 			= [{
 		name : 't_test1',
 		key : 'id',
-		index : {
+		index : [{
 			name : 'name',
 			unique : false
-		}
+		}]
 	},{
 		name : 't_test2',
 		key : 'auto',
-		index : {
+		index : [{
+			name : 'name',
+			index: 'name',
+			unique : false
+		},{
 			name : 'email',
+			index: ['name', 'email'],
 			unique : true
-		}
+		}]
 	}];
 
 	try{
