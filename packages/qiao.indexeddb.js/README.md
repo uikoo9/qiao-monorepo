@@ -69,21 +69,26 @@ var qdb = require('qiao.indexeddb.js');
 
 var test = async function(){
 	var databaseName	= 'db_test';
-	var version 		= 1;
+	var version 		= 2;
 	var tables 			= [{
 		name : 't_test1',
 		key : 'id',
-		index : {
+		index : [{
 			name : 'name',
 			unique : false
-		}
+		}]
 	},{
 		name : 't_test2',
 		key : 'auto',
-		index : {
+		index : [{
+			name : 'name',
+			index: 'name',
+			unique : false
+		},{
 			name : 'email',
+			index: ['name', 'email'],
 			unique : true
-		}
+		}]
 	}];
 
 	try{
@@ -107,7 +112,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	try{
 		var databaseName	= 'db_test';
-		var version 		= 2;
+		var version 		= 3;
 
 		var db = await qdb.openDB(databaseName, version);
 		qdb.delTable(db, 't_test2');
@@ -128,7 +133,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	try{
 		var databaseName 	= 'db_test';
-		var version 		= 2;
+		var version 		= 3;
 		var db 				= await qdb.openDB(databaseName, version);
 
 		var tableName 	= 't_test1';
@@ -137,6 +142,9 @@ var test = async function(){
 
 		data.name = '1';
 		await qdb.save(db, tableName, data.id, data);
+
+		var data1 		= { id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' };
+		await qdb.save(db, tableName, data1.id, data1);
 	}catch(e){
 		console.log(e);
 	}
@@ -154,7 +162,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
-	var version 		= 2;
+	var version 		= 3;
 
 	try{
 		var db 	= await qdb.openDB(databaseName, version);
@@ -177,7 +185,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
-	var version 		= 2;
+	var version 		= 3;
 
 	try{
 		var db = await qdb.openDB(databaseName, version);
@@ -199,7 +207,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
-	var version 		= 2;
+	var version 		= 3;
 
 	try{
 		var db = await qdb.openDB(databaseName, version);

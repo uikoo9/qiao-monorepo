@@ -5,7 +5,7 @@ var qdb = require('../lib/qiao.indexeddb.js');
 var test = async function(){
 	try{
 		var databaseName 	= 'db_test';
-		var version 		= 2;
+		var version 		= 3;
 		var db 				= await qdb.openDB(databaseName, version);
 
 		var tableName 	= 't_test1';
