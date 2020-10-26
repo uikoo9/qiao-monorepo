@@ -215,6 +215,7 @@ test();
 ## version
 ### 0.0.8.20201026
 1. modify create table
+2. del version
 
 ### 0.0.7.20201023
 1. export sync
