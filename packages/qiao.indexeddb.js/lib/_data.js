@@ -49,7 +49,7 @@ exports.del = function(db, tableName, key){
 		var request = tx.objectStore(tableName).delete(key);
 	
 		request.onerror = function (event) {
-			reject(new Error('del data fail'));
+			reject(event.target.error);
 		};
 		request.onsuccess = function (event) {
 			resolve();
@@ -68,7 +68,7 @@ exports.clear = function(db, tableName){
 		var request = tx.objectStore(tableName).clear();
 	
 		request.onerror = function (event) {
-			reject(new Error('clear fail'));
+			reject(event.target.error);
 		};
 		request.onsuccess = function (event) {
 			resolve();

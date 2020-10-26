@@ -14,7 +14,7 @@ exports.getAll = function(db, tableName, indexName){
 		var request	= index.getAll();
 	
 		request.onerror = function (event) {
-			reject();
+			reject(event.target.error);
 		};
 		request.onsuccess = function (event) {
 			resolve(request.result);
