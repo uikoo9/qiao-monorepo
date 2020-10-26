@@ -10,6 +10,7 @@ var test = async function(){
 		key : 'id',
 		index : [{
 			name : 'name',
+			index: 'name',
 			unique : false
 		}]
 	},{

@@ -4,17 +4,20 @@
  * get data
  * 	tx
  * 	tableName
- * 	key
- * 	cb
+ * 	indexName
  */
-exports.getData = function(db, tableName, key, cb){
-	var tx = db.transaction([tableName], 'readonly');
-	var request = tx.objectStore(tableName).get(key);
-
-	request.onerror = function (event) {
-		if(cb) cb(null);
-	};
-	request.onsuccess = function (event) {
-		if(cb) cb(request.result);
-	};
+exports.getAll = function(db, tableName, indexName){
+	return new Promise(function(resolve, reject){
+		var tx 		= db.transaction([tableName], 'readonly');
+		var os 		= tx.objectStore(tableName);
+		var index	= os.index(indexName);
+		var request	= index.getAll();
+	
+		request.onerror = function (event) {
+			reject();
+		};
+		request.onsuccess = function (event) {
+			resolve(request.result);
+		};
+	});
 };

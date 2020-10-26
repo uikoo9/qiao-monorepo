@@ -3,6 +3,7 @@
 var _db		= require('./_db.js');
 var _table	= require('./_table.js');
 var _data 	= require('./_data.js');
+var _index  = require('./_index.js');
 
 // db
 exports.openDB 	= _db.openDB;
@@ -18,3 +19,6 @@ exports.save 	= _data.save;
 exports.get		= _data.get;
 exports.del 	= _data.del;
 exports.clear	= _data.clear;
+
+// index
+exports.igetAll = _index.getAll;
