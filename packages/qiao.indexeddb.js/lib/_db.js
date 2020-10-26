@@ -7,7 +7,7 @@
  */
 exports.openDB = function(databaseName, version){
 	return new Promise(function(resolve, reject){
-		var request = window.indexedDB.open(databaseName, version);
+		var request = window.indexedDB.open(databaseName, version || 1);
 		request.onerror = function(event){
 			reject(event.target.error);
 		};
