@@ -221,6 +221,9 @@ test();
 ```
 
 ## version
+### 0.0.8.20201026
+1. modify create table
+
 ### 0.0.7.20201023
 1. export sync
 2. save key
