@@ -13,9 +13,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	try{
 		var databaseName 	= 'db_test';
-		var version 		= 1;
-	
-		var db = await qdb.openDB(databaseName, version);
+		var db 				= await qdb.openDB(databaseName);
 		console.log(db);
 	}catch(e){
 		console.log(e);
@@ -69,12 +67,12 @@ var qdb = require('qiao.indexeddb.js');
 
 var test = async function(){
 	var databaseName	= 'db_test';
-	var version 		= 2;
 	var tables 			= [{
 		name : 't_test1',
 		key : 'id',
 		index : [{
 			name : 'name',
+			index: 'name',
 			unique : false
 		}]
 	},{
@@ -92,8 +90,8 @@ var test = async function(){
 	}];
 
 	try{
-		var db 	= await qdb.openDB(databaseName, version);
-		var res = qdb.createTable(db, tables);
+		var db 	= await qdb.openDB(databaseName);
+		var res = await qdb.createTable(db, tables);
 		console.log(res);
 	}catch(e){
 		console.log(e);
@@ -112,10 +110,8 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	try{
 		var databaseName	= 'db_test';
-		var version 		= 3;
-
-		var db = await qdb.openDB(databaseName, version);
-		qdb.delTable(db, 't_test2');
+		var db 				= await qdb.openDB(databaseName);
+		await qdb.delTable(db, 't_test2');
 	}catch(e){
 		console.log(e);
 	}
@@ -133,8 +129,7 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	try{
 		var databaseName 	= 'db_test';
-		var version 		= 3;
-		var db 				= await qdb.openDB(databaseName, version);
+		var db 				= await qdb.openDB(databaseName);
 
 		var tableName 	= 't_test1';
 		var data 		= { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
@@ -162,10 +157,9 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
-	var version 		= 3;
 
 	try{
-		var db 	= await qdb.openDB(databaseName, version);
+		var db 	= await qdb.openDB(databaseName);
 		var s 	= await qdb.get(db, tableName, 1);
 		console.log(s);
 	}catch(e){
@@ -185,10 +179,9 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
-	var version 		= 3;
 
 	try{
-		var db = await qdb.openDB(databaseName, version);
+		var db = await qdb.openDB(databaseName);
 		await qdb.del(db, tableName, 2);
 	}catch(e){
 		console.log(e);
@@ -207,10 +200,9 @@ var qdb = require('qiao.indexeddb.js');
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
-	var version 		= 3;
 
 	try{
-		var db = await qdb.openDB(databaseName, version);
+		var db = await qdb.openDB(databaseName);
 		await qdb.clear(db, tableName);
 	}catch(e){
 		console.log(e);
