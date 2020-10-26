@@ -6,10 +6,9 @@ var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
 	var indexName		= 'name'
-	var version 		= 2;
 
 	try{
-		var db 	= await qdb.openDB(databaseName, version);
+		var db 	= await qdb.openDB(databaseName);
 		var s 	= await qdb.igetAll(db, tableName, indexName);
 		console.log(s);
 	}catch(e){
