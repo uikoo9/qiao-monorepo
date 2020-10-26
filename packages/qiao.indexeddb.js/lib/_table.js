@@ -12,16 +12,17 @@ var _db = require('./_db.js');
  * 			index
  * 			unique
  */
-exports.createTable = function(db, tables){
-	if(!db || !tables || !tables.length) return null;
+exports.createTable = async function(db, tables){
+    if(!db || !tables || !tables.length) return null;
+    var newDB = await _db.newDB(db);
 
 	var res = [];
 	for(var i=0; i<tables.length; i++){
 		var table = tables[i];
-        if(db.objectStoreNames.contains(table.name)) continue;
+        if(newDB.objectStoreNames.contains(table.name)) continue;
         
         // create table
-        var objectStore = createTable(db, table);
+        var objectStore = createTable(newDB, table);
 
         // push
         res.push(objectStore);
@@ -72,17 +73,7 @@ function createIndex(os, table){
  */
 exports.delTable = async function(db, tableName){
     if(!db || !tableName) return;
-    
-    var databaseName    = db.name;
-    var databaseVersion = db.version;
-    if(!databaseName || ! databaseVersion) return;
 
-    try{
-        db.close();
-
-        var newDB = await _db.openDB(databaseName, ++databaseVersion);
-        newDB.deleteObjectStore(tableName);
-    }catch(e){
-        throw e;
-    }
+    var newDB = await _db.newDB(db);
+    newDB.deleteObjectStore(tableName);
 };

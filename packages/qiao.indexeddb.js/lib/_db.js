@@ -7,7 +7,7 @@
  */
 exports.openDB = function(databaseName, version){
 	return new Promise(function(resolve, reject){
-		var request = window.indexedDB.open(databaseName, version || 1);
+		var request = version ? window.indexedDB.open(databaseName, version) : window.indexedDB.open(databaseName);
 		request.onerror = function(event){
 			reject(event.target.error);
 		};
@@ -50,4 +50,19 @@ exports.delDB = function(databaseName){
 			resolve();
 		};
 	});
+};
+
+/**
+ * new db
+ * 	db
+ */
+exports.newDB = async function(db){
+	if(!db) return;
+		
+	var databaseName    = db.name;
+	var databaseVersion = db.version;
+	if(!databaseName || ! databaseVersion) return;
+	db.close();
+	
+	return await exports.openDB(databaseName, ++databaseVersion);
 };

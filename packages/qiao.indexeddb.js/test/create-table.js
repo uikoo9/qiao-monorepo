@@ -28,7 +28,7 @@ var test = async function(){
 
 	try{
 		var db 	= await qdb.openDB(databaseName);
-		var res = qdb.createTable(db, tables);
+		var res = await qdb.createTable(db, tables);
 		console.log(res);
 	}catch(e){
 		console.log(e);
