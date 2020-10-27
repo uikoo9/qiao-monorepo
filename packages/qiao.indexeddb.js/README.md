@@ -213,6 +213,9 @@ test();
 ```
 
 ## version
+### 0.0.9.20201027
+1. fix bug
+
 ### 0.0.8.20201026
 1. modify create table
 2. del version
