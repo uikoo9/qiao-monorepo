@@ -26,9 +26,14 @@ exports.createTable = async function(db, tables){
 
         // push
         res.push(objectStore);
-	}
+    }
+    
+    // obj
+    var obj = {};
+    obj.res = res;
+    obj.db  = newDB;
 
-	return res;
+	return obj;
 };
 
 // create table
@@ -55,7 +60,7 @@ function createTable(db, table){
 
 // create index
 function createIndex(os, table){
-    if(!os || !table || !table.index.length) return;
+    if(!os || !table || !table.index || !table.index.length) return;
 
     for(var j=0; j<table.index.length; j++){
         var item 	= table.index[j];
