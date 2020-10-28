@@ -11,6 +11,7 @@ qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
 	.usage('<command> [options]');
 
+require('./dishi-version');
 require('./dishi-ucenter');
 require('./dishi-config');
 require('./dishi-group');
