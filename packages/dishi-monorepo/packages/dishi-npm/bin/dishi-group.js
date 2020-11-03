@@ -5,7 +5,7 @@ var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
 qiao.dishi	= require('../src/dishi.js');
 
-// cmd for crud-----------------------------------------------------
+// cmd for group-----------------------------------------------------
 // cmd for list
 qiao.cli.cmd
 	.command('group')

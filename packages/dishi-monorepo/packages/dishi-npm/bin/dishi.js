@@ -13,6 +13,7 @@ require('./dishi-config');
 require('./dishi-group');
 require('./dishi-item');
 require('./dishi-operate');
+require('./dishi-show');
 
 // parse
 qiao.cli.cmd.parse(process.argv);

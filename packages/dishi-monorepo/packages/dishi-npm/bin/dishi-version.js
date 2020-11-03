@@ -9,7 +9,7 @@ qiao.cli 	= require('qiao.plugin.cli');
 // package
 var pkg = require('../package.json'); 
 
-// cmd for common
+// cmd for version
 qiao.cli.cmd
 	.version(pkg.version, '-v, --version')
 	.usage('<command> [options]');
