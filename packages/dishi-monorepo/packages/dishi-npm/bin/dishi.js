@@ -6,11 +6,7 @@
 var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
 
-// cmd for common
-qiao.cli.cmd
-	.version(require('../package.json').version, '-v, --version')
-	.usage('<command> [options]');
-
+// cmd
 require('./dishi-version');
 require('./dishi-ucenter');
 require('./dishi-config');
