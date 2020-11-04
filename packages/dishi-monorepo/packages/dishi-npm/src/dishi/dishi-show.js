@@ -22,6 +22,9 @@ var showSplit2	= '------------------------ ';
  * show
  */
 exports.show = async function(num){
+	// default
+	num = num || showNum;
+
 	// check
 	var n = Number(num);
 	if(!n || isNaN(n)){

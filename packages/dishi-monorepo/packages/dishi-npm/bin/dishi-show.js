@@ -7,9 +7,9 @@ qiao.dishi	= require('../src/dishi.js');
 
 // cmd for show-----------------------------------------------------
 qiao.cli.cmd
-	.command('show <num>')
-	.usage('<num>')
-	.description('todo item show')
+	.command('show [num]')
+	.usage('[num]')
+	.description('todo show')
 	.action(show);
 
 // show
