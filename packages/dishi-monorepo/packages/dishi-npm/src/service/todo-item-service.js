@@ -19,7 +19,7 @@ var log = require('../util/log.js');
  * list
  */
 exports.list = async function(gid){
-	var groupId = b.getGroupId() || gid;
+	var groupId = gid || b.getGroupId();
 	if(!groupId) return;
 
 	var url 	= config.host + config.todoList;
