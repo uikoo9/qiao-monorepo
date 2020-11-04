@@ -107,7 +107,16 @@ dishi done todoItemId
 dishi move|mv todoItemId todoGroupId
 ```
 
+## show
+### show todo groups and items
+```
+dishi show 5
+```
+
 ## version
+### 0.0.7.20201104
+1. add dishi show
+
 ### 0.0.6.20200910
 1. move
 2. bin dishi modify
