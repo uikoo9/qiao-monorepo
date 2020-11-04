@@ -42,3 +42,19 @@ exports.move = async function(id, groupId){
 	// suc
 	log.suc(`${json.time + item.time}ms | move success`);
 };
+
+/**
+ * show
+ */
+exports.show = async function(num){
+	// check
+	var n = Number(num);
+	if(!n || isNaN(n)){
+		log.danger('num must be number');
+		return;
+	}
+
+	// get group list
+	var groups = await todoGroupService.list();
+	console.log(groups, typeof num);
+};

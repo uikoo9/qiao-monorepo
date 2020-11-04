@@ -21,6 +21,13 @@ qiao.cli.cmd
 	.description('todo item move')
 	.action(move);
 
+// cmd for show
+qiao.cli.cmd
+	.command('show <num>')
+	.usage('<num>')
+	.description('todo item show')
+	.action(show);
+
 // done
 function done(id){
 	qiao.dishi.done(id);
@@ -29,4 +36,9 @@ function done(id){
 // move
 function move(id, groupId){
 	qiao.dishi.move(id, groupId);
+}
+
+// show
+function show(num){
+	qiao.dishi.show(num);
 }

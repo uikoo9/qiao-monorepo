@@ -20,6 +20,7 @@ exports.del 	= _crud.del;
 // done
 exports.done    = _operate.done;
 exports.move    = _operate.move;
+exports.show    = _operate.show;
 
 // config
 exports.use     = _config.use;
