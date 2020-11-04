@@ -108,14 +108,15 @@ dishi move|mv todoItemId todoGroupId
 ```
 
 ## show
-### show todo groups and items
+### dishi show all todo items
 ```
-dishi show 5
+dishi show [6]
 ```
 
 ## version
 ### 0.0.7.20201104
 1. add dishi show
+2. default show num
 
 ### 0.0.6.20200910
 1. move
