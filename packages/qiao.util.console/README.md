@@ -1,11 +1,10 @@
-# donate
+# qiao.util.console
+
+## donate
 [http://uikoo9.com/donate](http://uikoo9.com/donate)
 
-# install
-npm install qiao.util.console
-
-# api
-## clear
+## api
+### clear
 ```javascript
 'use strict';
 
@@ -14,7 +13,7 @@ var qiao = require('qiao.util.console');
 qiao.clear();
 ```
 
-## writeLine
+### writeLine
 ```javascript
 'use strict';
 
