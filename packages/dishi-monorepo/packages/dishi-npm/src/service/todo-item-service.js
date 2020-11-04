@@ -18,8 +18,8 @@ var log = require('../util/log.js');
 /**
  * list
  */
-exports.list = async function(){
-	var groupId = b.getGroupId();
+exports.list = async function(gid){
+	var groupId = b.getGroupId() || gid;
 	if(!groupId) return;
 
 	var url 	= config.host + config.todoList;
