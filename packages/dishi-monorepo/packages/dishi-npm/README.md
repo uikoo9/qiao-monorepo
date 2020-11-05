@@ -116,6 +116,7 @@ dishi show [6]
 ## version
 ### 0.0.8.20201105
 1. ncu
+2. qiao-config
 
 ### 0.0.7.20201104
 1. add dishi show
