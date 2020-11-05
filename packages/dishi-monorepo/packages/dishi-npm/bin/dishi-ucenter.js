@@ -39,7 +39,7 @@ qiao.cli.cmd
 // login
 async function login(){
 	try{
-		var userinfo = qiao.config.c('userinfo');
+		var userinfo = qiao.config.config('userinfo');
 		if(userinfo && userinfo.userid && userinfo.usertoken && userinfo.mobile){
 			qiao.log.suc(`already login as ${userinfo.mobile}`);
 			return;
@@ -70,7 +70,7 @@ function logout(){
 
 // whoami
 function whoami(){
-	var userinfo = qiao.config.c('userinfo');
+	var userinfo = qiao.config.config('userinfo');
 	if(userinfo && userinfo.userid && userinfo.usertoken && userinfo.mobile){
 		qiao.log.suc(`login as ${userinfo.mobile}`);
 		return;

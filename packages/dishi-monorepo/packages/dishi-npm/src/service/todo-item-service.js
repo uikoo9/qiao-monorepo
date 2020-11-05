@@ -26,7 +26,7 @@ exports.list = async function(gid){
 	var data	= {
 		todoGroupId : groupId
 	};
-	data.rows	= q.c('rows') || '10';
+	data.rows	= q.config('rows') || '10';
 	
 	return await fetch.postWithToken(url, data);
 };

@@ -1,8 +1,5 @@
 'use strict';
 
-// qiao-config
-var q = require('qiao-config');
-
 // b
 var b = require('../util/b.js');
 

@@ -18,7 +18,7 @@ var q = require('qiao-config');
 exports.list = async function(){
 	var url 	= config.host + config.todoGrouplist;
 	var data	= {};
-	data.rows	= q.c('rows') || '10';
+	data.rows	= q.config('rows') || '10';
 
 	return await fetch.postWithToken(url, data);
 };

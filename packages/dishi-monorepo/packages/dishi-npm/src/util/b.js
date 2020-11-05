@@ -20,7 +20,7 @@ exports.getGroupId = function(){
  * get group
  */
 exports.getGroup = function(){
-	var group = q.c('group');
+	var group = q.config('group');
 	if(!group){
 		log.danger('please select a todo group');
 		return;
