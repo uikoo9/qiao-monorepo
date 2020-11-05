@@ -4,7 +4,7 @@
 var log = require('./log.js');
 
 // qiao-config
-var q = require('qiao-config');
+var q = require('qiao-config').c();
 
 /**
  * get group id

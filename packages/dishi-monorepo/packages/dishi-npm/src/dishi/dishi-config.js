@@ -2,7 +2,7 @@
 
 // qiao
 var qiao 	= {};
-qiao.config	= require('qiao-config');
+qiao.config	= require('qiao-config').c();
 qiao.log	= require('../util/log.js');
 
 // service

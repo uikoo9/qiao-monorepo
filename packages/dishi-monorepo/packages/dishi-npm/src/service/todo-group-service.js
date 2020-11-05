@@ -10,7 +10,7 @@ var fetch = require('../util/fetch.js');
 var log = require('../util/log.js');
 
 // qiao-config
-var q = require('qiao-config');
+var q = require('qiao-config').c();
 
 /**
  * list

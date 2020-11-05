@@ -3,7 +3,7 @@
 // qiao
 var qiao 	= {};
 qiao.cli 	= require('qiao.plugin.cli');
-qiao.config	= require('qiao-config');
+qiao.config	= require('qiao-config').c();
 qiao.dishi	= require('../src/dishi.js');
 qiao.log 	= require('../src/util/log.js');
 

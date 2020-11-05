@@ -3,7 +3,7 @@
 // qiao
 var qiao 	= {};
 qiao.ajax	= require('qiao-ajax');
-qiao.config	= require('qiao-config');
+qiao.config	= require('qiao-config').c();
 qiao.log	= require('./log.js');
 
 /**
