@@ -5,7 +5,7 @@ nodejs memory cache
 [http://uikoo9.com/donate](http://uikoo9.com/donate)
 
 ## api
-### c
+### cache
 ```javascript
 'use strict';
 
