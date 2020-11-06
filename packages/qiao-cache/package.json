@@ -21,6 +21,7 @@
     "url": "git+https://github.com/insistime/qiao-cache.git"
   },
   "dependencies": {
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {}
 }
