@@ -11,13 +11,16 @@ nodejs memory cache
 
 var q = require('qiao-cache');
 
-// default path
-var _c1 = q.c();
-console.log(_c1);
+// set
+q.cache('test', 'hello');
 
-// custom path
-var _c2 = q.c('../');
-console.log(_c2);
+// get
+var s = q.cache('test');
+console.log(s); // hello
+
+// del
+q.cache('test', null);
+console.log(q.cache('test')); // undefined
 ```
 
 ## version
