@@ -1,20 +1,29 @@
 'use strict';
 
-// qiao
-var qiao = require('qiao.util.file');
-
-// c
-var _c = require('./c.js');
+// data
+var _data = require('./_data.js');
 
 /**
- * c
- * 	p
+ * node cache
+ * 	https://www.npmjs.com/package/node-cache
  */
-exports.c = function(p){
-	// path
-	var defaultPath = qiao.path.resolve(__dirname, './config.json');
-	var finalPath	= !p ? defaultPath : qiao.path.resolve(process.cwd(), p); 
+exports.nodeCache = _data.cache;
 
-	// db
-	return new _c(finalPath);
+/**
+ * cache
+ */
+exports.cache = function(key, value){
+	// remove
+	if(value === null){
+		_data.del(key);
+		return;
+	}
+	
+	// get
+	if(typeof value == 'undefined'){
+		return _data.get(key);
+	}
+	
+	// set
+	_data.set(key, value);
 };
