@@ -71,7 +71,7 @@ function writeLineContent(i, res){
 		var item = res[j];
 		// title
 		if(i == 0 || i == 2) s.push(showSplit1);
-		if(i == 1) s.push(formatContent(`todo group '${item.group.todo_group_name}'`));
+		if(i == 1) s.push(formatContent(`todo group '${item.group.todo_group_name}[${item.group.id}]'`));
 		if(i == 3) s.push('');
 
 		// todo rows
