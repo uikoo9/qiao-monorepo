@@ -114,6 +114,9 @@ dishi show [6]
 ```
 
 ## version
+### 0.0.9.20201123
+1. add group id
+
 ### 0.0.8.20201105
 1. ncu
 2. qiao-config
