@@ -114,6 +114,9 @@ dishi show [6]
 ```
 
 ## version
+### 0.1.0.20201226
+1. request error
+
 ### 0.0.9.20201123
 1. add group id
 
