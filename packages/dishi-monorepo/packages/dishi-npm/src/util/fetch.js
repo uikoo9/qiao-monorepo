@@ -39,20 +39,34 @@ async function ajax(url, data, headers){
 	var options = {data: data};
 	if(headers) options.headers = headers;
 
-	var s       = Date.now();
-	var res     = await qiao.ajax.post(url, options);
-	var time    = Date.now() - s;
+	var s = Date.now();
+	var res;
+	try{
+		res = await qiao.ajax.post(url, options);
+	}catch(e){
+	}
+	var time = Date.now() - s;
 
+	// res error
+	if(!res){
+		qiao.log.danger(`${time}ms | request fail`);
+		return;
+	}
+
+	// not 200
 	if(res.status != 200){
 		qiao.log.danger(`${time}ms | request fail: ${res.status}`);
 		return;
 	}
 
+	// no data
 	var json = res.data;
 	if(!json){
 		qiao.log.danger(`${time}ms | request fail: no data`);
 		return;
 	}
+
+	// danger
 	if(json.type == 'danger'){
 		qiao.log.danger(`${time}ms | ${json.msg}`);
 		return;
