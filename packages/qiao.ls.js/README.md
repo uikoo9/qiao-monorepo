@@ -41,6 +41,7 @@ qls.cache('name', null);
 ## version
 ### 0.0.6.20210209
 1. add jest
+2. expires to ms
 
 ### 0.0.5.20201022
 1. export ls and cache
