@@ -1,12 +1,11 @@
 'use strict';
 
 /**
- * ls
- * 	ls('name', value, expires);
- * 	ls('name');
- * 	ls('name', null);
+ * ls('name', value, expires);
+ * ls('name');
+ * ls('name', null);
  */
-exports.ls = function(name, value, expires){
+module.exports = function(name, value, expires){
 	// remove
 	if(value === null){
 		removeItem(name);

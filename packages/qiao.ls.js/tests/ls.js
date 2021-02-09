@@ -1,6 +1,6 @@
 'use strict';
 
-var qls = require('../lib/qiao.ls.js');
+var qls = require('../qiao.ls.js');
 
 // set boolean
 test('set boolean, get boolean', function(){

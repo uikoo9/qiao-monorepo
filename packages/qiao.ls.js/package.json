@@ -9,7 +9,7 @@
     "localStorage",
     "expires"
   ],
-  "main": "index.js",
+  "main": "qiao.ls.js",
   "scripts": {
     "build": "webpack --config webpack.js",
     "test": "jest --config jest.config.js"
