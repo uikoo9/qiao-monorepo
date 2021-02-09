@@ -10,6 +10,9 @@ var qls = require('qiao.ls.js');
 // set
 qls.ls('name', 'value');
 
+// set 10s expires
+qls.ls('name', 'value', 10 * 1000);
+
 // get
 console.log(qls.ls('name'));
 
