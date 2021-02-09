@@ -1,15 +1,14 @@
 'use strict';
 
-var q = require('./ls.js');
+var ls = require('./ls.js');
 
 /**
- * cache
- *  cache('name', null);
- *  cache('name', 'key', null);
- *  cache('name', 'key');
- *  cache('name', 'key', value, exp);
+ * cache('name', null);
+ * cache('name', 'key', null);
+ * cache('name', 'key');
+ * cache('name', 'key', value, exp);
  */
-exports.cache = function(name, key, value, expires){
+module.exports = function(name, key, value, expires){
 	if(!name) return;
 
 	// clear
@@ -48,10 +47,10 @@ function setCache(name, key, value, exp){
 
 	if(!name || !key) return;
 
-	var data = q.ls(name) || {};
+	var data = ls(name) || {};
 	data[key] = value;
 
-	q.ls(name, data, exp || 7);
+	ls(name, data, exp || 7);
 }
 
 /**
@@ -62,7 +61,7 @@ function setCache(name, key, value, exp){
 function getCache(name, key){
 	if(!name || !key) return;
 
-	var data = q.ls(name);
+	var data = ls(name);
 	if(!data) return;
 
 	return data[key];
@@ -76,11 +75,11 @@ function getCache(name, key){
 function removeCache(name, key){
 	if(!name || !key) return;
 
-	var data = q.ls(name);
+	var data = ls(name);
 	if(!data) return;
 
     delete data[key];
-    q.ls(name, data);
+    ls(name, data);
 }
 
 /**
@@ -90,5 +89,5 @@ function removeCache(name, key){
 function clearCache(name){
 	if(!name) return;
 
-    q.ls(name, null);
+    ls(name, null);
 }
