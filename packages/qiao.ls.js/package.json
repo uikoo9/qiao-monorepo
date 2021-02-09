@@ -1,6 +1,6 @@
 {
   "name": "qiao.ls.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "description": "local storage expires",
   "keywords": [
@@ -18,7 +18,6 @@
     "email": "npm@insistime.com",
     "url": "https://insistime.com"
   },
-  "homepage": "https://code.insistime.com/qiao.ls.js",
   "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
