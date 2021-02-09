@@ -7,19 +7,15 @@
 
 var qls = require('qiao.ls.js');
 
-var test = function(){
-	// set
-	qls.ls('name', 'value');
-	
-	// get
-	console.log(qls.ls('name'));
-	
-	// delete
-	qls.ls('name', null);
-	console.log(qls.ls('name'));
-};
+// set
+qls.ls('name', 'value');
 
-test();
+// get
+console.log(qls.ls('name'));
+
+// delete
+qls.ls('name', null);
+console.log(qls.ls('name'));
 ```
 
 ### cache
@@ -28,22 +24,18 @@ test();
 
 var qls = require('qiao.ls.js');
 
-var test = function(){
-	// set
-	qls.cache('name', 'key', 'value');
-	
-	// get
-	console.log(qls.cache('name', 'key'));
-	
-	// delete
-	qls.cache('name', 'key', null);
-	console.log(qls.cache('name', 'key'));
+// set
+qls.cache('name', 'key', 'value');
 
-	// clear
-	qls.cache('name', null);
-};
+// get
+console.log(qls.cache('name', 'key'));
 
-test();
+// delete
+qls.cache('name', 'key', null);
+console.log(qls.cache('name', 'key'));
+
+// clear
+qls.cache('name', null);
 ```
 
 ## version
