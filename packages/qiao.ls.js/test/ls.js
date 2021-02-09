@@ -9,7 +9,12 @@ var qls = require('../lib/qiao.ls.js');
  * 	ls('name', null);
  */
 
- qls.ls('test', true, 1);
- qls.ls('test', false, 2);
- console.log(qls.ls('test'));
- qls.ls('test', null);
+//  qls.ls('test', true, 1);
+//  qls.ls('test', false, 2);
+//  console.log(qls.ls('test'));
+//  qls.ls('test', null);
+
+ test('adds 1 + 2 to equal 3', function(){
+    qls.ls('test', true, 1);
+    expect(qls.ls('test')).toBe('true');
+ });
