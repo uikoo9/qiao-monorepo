@@ -25,7 +25,7 @@ module.exports = function(name, value, expires){
  * set item
  *  name
  *  value
- *  expires, days
+ *  expires, ms
  */
 function setItem(name, value, expires){
     if(!localStorage){
@@ -35,7 +35,7 @@ function setItem(name, value, expires){
 
     var obj = {};
     obj.value = value;
-    if(expires) obj.expires = Date.now() + expires * 24 * 60 * 60 * 1000;
+    if(expires) obj.expires = Date.now() + expires;
 
     localStorage.setItem(name, JSON.stringify(obj));
 }

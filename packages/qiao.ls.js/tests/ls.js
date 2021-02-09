@@ -48,3 +48,32 @@ test('del key', function(){
    qls.ls(key, null);
    expect(qls.ls(key)).toBeUndefined();
 });
+
+// expires
+test('expires', async function(){
+   // vars
+   var key     = 'key-expires';
+   var value   = 'expires';
+   var expires = 3 * 1000;
+   qls.ls(key, value, expires);
+
+   // not expires
+   expect(qls.ls(key)).toStrictEqual(value);
+
+   // not expires
+   var v = await getValue(key, 2 * 1000);
+   expect(v).toStrictEqual(value);
+
+   // expires
+   var vv = await getValue(key, 2 * 1000);
+   expect(vv).toBeUndefined();
+});
+
+// get value
+function getValue(key, time){
+   return new Promise(function(resolve, reject){
+      setTimeout(function(){
+         return resolve(qls.ls(key));
+      }, time);
+	});
+}
