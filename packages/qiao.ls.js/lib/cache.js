@@ -16,27 +16,27 @@ function cache(name, key, value, expires){
 
 	// clear
 	if(key === null){
-		clearCache(name);
+		_clearCache(name);
 		return;
 	}
 	
 	// remove
 	if(value === null){
-		removeCache(name, key);
+		_removeCache(name, key);
 		return;
 	}
 	
 	// get
 	if(typeof value == 'undefined'){
-		return getCache(name, key);
+		return _getCache(name, key);
 	}
 	
 	// set
-	setCache(name, key, value, expires);
+	_setCache(name, key, value, expires);
 }
 
 // set cache
-function setCache(name, key, value, exp){
+function _setCache(name, key, value, exp){
     if(!localStorage){
         console.log('unsupport localStorage');
         return;
@@ -47,11 +47,11 @@ function setCache(name, key, value, exp){
 	var data = ls(name) || {};
 	data[key] = value;
 
-	ls(name, data, exp || 7);
+	ls(name, data, exp || 7 * 24 * 60 * 60 * 1000);
 }
 
 // get cache
-function getCache(name, key){
+function _getCache(name, key){
 	if(!name || !key) return;
 
 	var data = ls(name);
@@ -61,7 +61,7 @@ function getCache(name, key){
 }
 
 // remove cache
-function removeCache(name, key){
+function _removeCache(name, key){
 	if(!name || !key) return;
 
 	var data = ls(name);
@@ -72,7 +72,7 @@ function removeCache(name, key){
 }
 
 // clear cache
-function clearCache(name){
+function _clearCache(name){
 	if(!name) return;
 
     ls(name, null);

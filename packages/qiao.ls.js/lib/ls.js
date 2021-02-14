@@ -11,21 +11,21 @@ module.exports = ls;
 function ls(name, value, expires){
 	// remove
 	if(value === null){
-		removeItem(name);
+		_removeItem(name);
 		return;
 	}
 	
 	// get
 	if(typeof value == 'undefined'){
-		return getItem(name);
+		return _getItem(name);
 	}
 	
 	// set
-	setItem(name, value, expires);
+	_setItem(name, value, expires);
 }
 
 // set item
-function setItem(name, value, expires){
+function _setItem(name, value, expires){
     if(!localStorage){
         console.log('unsupport localStorage');
         return;
@@ -39,7 +39,7 @@ function setItem(name, value, expires){
 }
 
 // get item
-function getItem(name){
+function _getItem(name){
     if(!localStorage){
         console.log('unsupport localStorage');
         return;
@@ -64,7 +64,7 @@ function getItem(name){
 }
 
 // remove item
-function removeItem(name){
+function _removeItem(name){
     if(!localStorage){
         console.log('unsupport localStorage');
         return;
