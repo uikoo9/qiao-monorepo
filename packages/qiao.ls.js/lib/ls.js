@@ -1,11 +1,14 @@
 'use strict';
 
+// exports
+module.exports = ls;
+
 /**
  * ls('name', value, expires);
  * ls('name');
  * ls('name', null);
  */
-module.exports = function(name, value, expires){
+function ls(name, value, expires){
 	// remove
 	if(value === null){
 		removeItem(name);
@@ -19,14 +22,9 @@ module.exports = function(name, value, expires){
 	
 	// set
 	setItem(name, value, expires);
-};
+}
 
-/**
- * set item
- *  name
- *  value
- *  expires, ms
- */
+// set item
 function setItem(name, value, expires){
     if(!localStorage){
         console.log('unsupport localStorage');
@@ -40,10 +38,7 @@ function setItem(name, value, expires){
     localStorage.setItem(name, JSON.stringify(obj));
 }
 
-/**
- * get item
- *  name
- */
+// get item
 function getItem(name){
     if(!localStorage){
         console.log('unsupport localStorage');
@@ -68,9 +63,7 @@ function getItem(name){
     return obj.value;
 }
 
-/**
- * remove item
- */
+// remove item
 function removeItem(name){
     if(!localStorage){
         console.log('unsupport localStorage');

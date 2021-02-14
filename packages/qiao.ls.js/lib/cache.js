@@ -2,13 +2,16 @@
 
 var ls = require('./ls.js');
 
+// exports
+module.exports = cache;
+
 /**
  * cache('name', null);
  * cache('name', 'key', null);
  * cache('name', 'key');
  * cache('name', 'key', value, exp);
  */
-module.exports = function(name, key, value, expires){
+function cache(name, key, value, expires){
 	if(!name) return;
 
 	// clear
@@ -30,15 +33,9 @@ module.exports = function(name, key, value, expires){
 	
 	// set
 	setCache(name, key, value, expires);
-};
+}
 
-/**
- * set cache
- *  name
- *  key
- *  value
- *  exp
- */
+// set cache
 function setCache(name, key, value, exp){
     if(!localStorage){
         console.log('unsupport localStorage');
@@ -53,11 +50,7 @@ function setCache(name, key, value, exp){
 	ls(name, data, exp || 7);
 }
 
-/**
- * get cache
- *  name
- *  key
- */
+// get cache
 function getCache(name, key){
 	if(!name || !key) return;
 
@@ -67,11 +60,7 @@ function getCache(name, key){
 	return data[key];
 }
 
-/**
- * remove cache
- *  name
- *  key
- */
+// remove cache
 function removeCache(name, key){
 	if(!name || !key) return;
 
@@ -82,10 +71,7 @@ function removeCache(name, key){
     ls(name, data);
 }
 
-/**
- * clear cache
- *  name
- */
+// clear cache
 function clearCache(name){
 	if(!name) return;
 
