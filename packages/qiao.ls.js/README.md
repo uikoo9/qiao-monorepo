@@ -14,31 +14,11 @@ qls.ls('name', 'value');
 qls.ls('name', 'value', 10 * 1000);
 
 // get
-console.log(qls.ls('name'));
+console.log(qls.ls('name')); // value
 
 // delete
 qls.ls('name', null);
-console.log(qls.ls('name'));
-```
-
-### cache
-```javascript
-'use strict';
-
-var qls = require('qiao.ls.js');
-
-// set
-qls.cache('name', 'key', 'value');
-
-// get
-console.log(qls.cache('name', 'key'));
-
-// delete
-qls.cache('name', 'key', null);
-console.log(qls.cache('name', 'key'));
-
-// clear
-qls.cache('name', null);
+console.log(qls.ls('name')); // undefined
 ```
 
 ## version
