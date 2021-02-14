@@ -11,6 +11,7 @@
   ],
   "main": "qiao.ls.js",
   "scripts": {
+    "doc": "jsdoc -c jsdoc.config.js",
     "test": "jest --config jest.config.js"
   },
   "author": {
