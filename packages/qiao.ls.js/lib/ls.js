@@ -4,9 +4,22 @@
 module.exports = ls;
 
 /**
- * ls('name', value, expires);
- * ls('name');
- * ls('name', null);
+ * @function ls
+ * @param {string} name key
+ * @param {any} value value
+ * @param {number} expires expiration time ms
+ * @example
+ * // get localstorage item by key: name
+ * ls(name)
+ * 
+ * // set localstorage item by key-value: name-value
+ * ls(name, value)
+ * 
+ * // set localstorage item by key-value: name-value, and expiration time: expires ms
+ * ls(name, value, expires)
+ * 
+ * // del localstorage item by key: name
+ * ls(name, null):
  */
 function ls(name, value, expires){
 	// remove

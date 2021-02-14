@@ -5,12 +5,7 @@ var ls = require('./ls.js');
 // exports
 module.exports = cache;
 
-/**
- * cache('name', null);
- * cache('name', 'key', null);
- * cache('name', 'key');
- * cache('name', 'key', value, exp);
- */
+// cache
 function cache(name, key, value, expires){
 	if(!name) return;
 
