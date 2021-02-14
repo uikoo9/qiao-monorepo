@@ -22,6 +22,9 @@ console.log(qls.ls('name')); // undefined
 ```
 
 ## version
+### 0.0.7.20210214
+1. add jsdoc
+
 ### 0.0.6.20210209
 1. add jest
 2. expires to ms
