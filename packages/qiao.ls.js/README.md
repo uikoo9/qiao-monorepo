@@ -22,6 +22,9 @@ console.log(q.ls('name')); // undefined
 ```
 
 ## version
+### 0.0.8.20210215
+1. qls --> q
+
 ### 0.0.7.20210214
 1. add jsdoc
 
