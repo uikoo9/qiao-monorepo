@@ -2,13 +2,15 @@
 
 var q = require('../lib/qiao-get-ip');
 
-var test = async function(){
+// get ip by sohu
+test('get ip by sohu', async function(){
     try{
         var res = await q.getIpBySohu();
-        console.log(res);
-    }catch(e){
-        console.log(e);
-    }
-};
 
-test();
+        console.log(res);
+        expect(res).toBeDefined();
+    }catch(e){
+        console.log(e.message);
+        expect(e.message).toBeDefined();
+    }
+});
