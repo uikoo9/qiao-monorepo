@@ -17,7 +17,7 @@ var hipErr 	= new Error('get ip by icanhazip failed');
 var notIpErr= new Error('not ip');
 
 /**
- * get ip by sohu
+ * @returns {string} public ip
  */
 exports.getIpBySohu = function(){
 	return new Promise(function(resolve, reject){
@@ -43,7 +43,7 @@ exports.getIpBySohu = function(){
 };
 
 /**
- * get ip by icanhazip
+ * @returns {string} public ip
  */
 exports.getIpByIcanhazip = function(){
 	return new Promise(function(resolve, reject){
@@ -68,7 +68,7 @@ exports.getIpByIcanhazip = function(){
 };
 
 /**
- * get ip
+ * @returns {string} public ip
  */
 exports.getIp = async function(){
 	var ip;
@@ -86,4 +86,4 @@ exports.getIp = async function(){
 	}
 
 	return ip;
-}
+};
