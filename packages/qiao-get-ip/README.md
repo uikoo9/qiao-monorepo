@@ -28,6 +28,10 @@ test();
 ```
 
 ## version
+### 0.0.2.20210215
+1. add jsdoc
+2. add jest
+
 ### 0.0.1.20200819
 1. init project
 2. http method
