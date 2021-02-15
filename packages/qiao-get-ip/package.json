@@ -9,7 +9,7 @@
     "public",
     "ip"
   ],
-  "main": "index.js",
+  "main": "qiao-get-ip.js",
   "scripts": {
     "doc": "jsdoc -c jsdoc.config.js",
     "test": "jest --config jest.config.js"

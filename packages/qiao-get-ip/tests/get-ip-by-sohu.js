@@ -1,6 +1,6 @@
 'use strict';
 
-var q = require('../lib/qiao-get-ip');
+var q = require('../qiao-get-ip.js');
 
 // get ip by sohu
 test('get ip by sohu', async function(){
