@@ -5,20 +5,20 @@
 ```javascript
 'use strict';
 
-var qls = require('qiao.ls.js');
+var q = require('qiao.ls.js');
 
 // set
-qls.ls('name', 'value');
+q.ls('name', 'value');
 
 // set 10s expires
-qls.ls('name', 'value', 10 * 1000);
+q.ls('name', 'value', 10 * 1000);
 
 // get
-console.log(qls.ls('name')); // value
+console.log(q.ls('name')); // value
 
 // delete
-qls.ls('name', null);
-console.log(qls.ls('name')); // undefined
+q.ls('name', null);
+console.log(q.ls('name')); // undefined
 ```
 
 ## version
