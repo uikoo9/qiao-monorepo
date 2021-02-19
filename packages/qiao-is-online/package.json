@@ -10,6 +10,7 @@
   ],
   "main": "index.js",
   "scripts": {
+    "doc": "jsdoc -c jsdoc.config.js",
     "test": "jest --config jest.config.js"
   },
   "author": {
@@ -27,6 +28,7 @@
     "qiao-ping": "0.0.1"
   },
   "devDependencies": {
-    "jest": "^27.0.0-next.1"
+    "jest": "^27.0.0-next.1",
+    "jsdoc": "^3.6.6"
   }
 }
