@@ -2,17 +2,17 @@
 
 var q = require('../lib/qiao-is-online');
 
-var test = async function(){
+// is online
+test('is online', async function(){
     try{
         var isOnline = await q.isOnline();
-        console.log(isOnline);
+        expect(isOnline).toStrictEqual('online');
 
         // strict mode, all hosts alive return online
         var isOnlineStrictMode = await q.isOnline(true);
-        console.log(isOnlineStrictMode);
+        expect(isOnlineStrictMode).toStrictEqual('online');
     }catch(e){
-        console.log(e);
+        console.log(e.message);
+        expect(e.message).toBeDefined();
     }
-};
-
-test();
+});

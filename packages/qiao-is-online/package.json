@@ -9,7 +9,9 @@
     "offline to online"
   ],
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "jest --config jest.config.js"
+  },
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
@@ -24,5 +26,7 @@
     "offline-to-online": "0.0.8",
     "qiao-ping": "0.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^27.0.0-next.1"
+  }
 }
