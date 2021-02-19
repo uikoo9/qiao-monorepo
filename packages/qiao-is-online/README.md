@@ -2,11 +2,6 @@
 1. is online on nodejs by ping hosts: tmall.com, baidu.com, qq.com, taobao.com
 2. offline to online on nodejs
 
-## install
-```
-npm install qiao-is-online
-```
-
 ## api
 ### isOnline
 ```javascript
@@ -44,6 +39,10 @@ q.offlineToOnline(function(){
 ```
 
 ## version
+### 0.0.3.20210219
+1. add jest
+2. add jsdoc
+
 ### 0.0.2.2020908
 1. offline-to-online@0.0.8
 
