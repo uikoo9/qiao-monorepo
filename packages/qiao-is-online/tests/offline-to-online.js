@@ -1,9 +1,23 @@
 'use strict';
 
-var q = require('../lib/qiao-is-online');
+var offlineToOnline = require('../lib/offline-to-online.js');
 
-// callback
-// time, interval time, default is 3*1000ms
-q.offlineToOnline(function(){
-    console.log('offline-to-online');
-}, 3 * 1000);
+// offline to online
+test('offline to online', async function(){
+    try{
+        var res = await getCall(500);
+        expect(res).toStrictEqual('offline-to-online');
+    }catch(e){
+        console.log(e.message);
+        expect(e.message).toBeDefined();
+    }
+});
+
+// get call
+function getCall(time){
+    return new Promise(function(resolve, reject){
+        offlineToOnline(function(){
+            return resolve('offline-to-online');
+        }, time);
+    });
+ }

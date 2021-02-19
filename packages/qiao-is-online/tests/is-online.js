@@ -1,15 +1,15 @@
 'use strict';
 
-var q = require('../lib/qiao-is-online');
+var isOnlineFunc = require('../lib/is-online.js');
 
 // is online
 test('is online', async function(){
     try{
-        var isOnline = await q.isOnline();
+        var isOnline = await isOnlineFunc();
         expect(isOnline).toStrictEqual('online');
 
         // strict mode, all hosts alive return online
-        var isOnlineStrictMode = await q.isOnline(true);
+        var isOnlineStrictMode = await isOnlineFunc(true);
         expect(isOnlineStrictMode).toStrictEqual('online');
     }catch(e){
         console.log(e.message);

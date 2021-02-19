@@ -11,11 +11,33 @@ var domains = [
 	'taobao.com'
 ];
 
+// exports
+module.exports = isOnline;
+
 /**
- * is online
- * 	strictMode, default is false
+ * @param {boolean} strictMode strict mode, default is false
+ * @returns {string} 'online' or 'offline'
+ * @example
+'use strict';
+
+var q = require('qiao-is-online');
+
+var test = async function(){
+    try{
+        var isOnline = await q.isOnline();
+        console.log(isOnline);
+
+        // strict mode, all hosts alive return online
+        var isOnlineStrictMode = await q.isOnline(true);
+        console.log(isOnlineStrictMode);
+    }catch(e){
+        console.log(e);
+    }
+};
+
+test();
  */
-exports.isOnline = async function(strictMode){
+async function isOnline(strictMode){
 	var res = await pingDomains(domains);
 	if(!res || res.length != domains.length) throw new Error('no res');
 
@@ -54,15 +76,3 @@ async function pingDomains(hosts){
 
 	return res;
 }
-
-// offline to online
-var o = require('offline-to-online');
-
-/**
- * offline to online
- *  callback
- *  time
- */
-exports.offlineToOnline = function(callback, time){
-    o.offlineToOnline(null, exports.isOnline, callback, time);
-};
