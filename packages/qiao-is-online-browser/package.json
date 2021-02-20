@@ -8,7 +8,7 @@
     "is online",
     "offline to online"
   ],
-  "main": "index.js",
+  "main": "qiao-is-online-browser.js",
   "scripts": {
     "build": "webpack --config webpack.js",
     "reload": "pm2 reload all",
