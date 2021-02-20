@@ -1,8 +1,8 @@
 module.exports = {
     mode    : 'production',
     entry   : {
-        'is-online'         : './test/is-online.js',
-        'offline-to-online' : './test/offline-to-online.js'
+        'is-online'         : './tests/is-online.js',
+        'offline-to-online' : './tests/offline-to-online.js'
     },
     output  : {
         filename        : '[name].js',
