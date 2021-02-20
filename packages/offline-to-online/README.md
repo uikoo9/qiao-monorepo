@@ -41,6 +41,9 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 ```
 
 ## version
+### 0.0.3.20210220
+1. add jsdoc
+
 ### 0.0.2.20200908
 1. is online img src on browser
 
