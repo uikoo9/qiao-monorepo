@@ -39,6 +39,9 @@ q.offlineToOnline(function(){
 ```
 
 ## version
+### 0.0.4.20210220
+1. ncu
+
 ### 0.0.3.20210219
 1. add jest
 2. add jsdoc
