@@ -6,9 +6,10 @@ var offlineTwo = false;
 var intervalId = null;
 
 /**
- * offline to online
- *  callback
- *  time
+ * @param {string} isOnlineImgSrc is online img src
+ * @param {function} isOnlineFunction is online function
+ * @param {function} calllback callback function 
+ * @param {number} time interval time(ms), default is 3 * 1000ms 
  */
 exports.offlineToOnlineWithSrc = function(isOnlineImgSrc, isOnlineFunction, calllback, time){
 	// check
@@ -22,9 +23,10 @@ exports.offlineToOnlineWithSrc = function(isOnlineImgSrc, isOnlineFunction, call
 };
 
 /**
- * offline to online
- *  callback
- *  time
+ * @param {string} isOnlineImgSrc is online img src
+ * @param {function} isOnlineFunction is online function
+ * @param {function} calllback callback function 
+ * @param {number} time interval time(ms), default is 3 * 1000ms 
  */
 exports.offlineToOnline = function(isOnlineImgSrc, isOnlineFunction, calllback, time){
 	// check

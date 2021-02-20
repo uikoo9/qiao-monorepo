@@ -9,7 +9,9 @@
     "browser"
   ],
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.config.js"
+  },
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
@@ -20,8 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/insistime/offline-to-online.git"
   },
-  "dependencies": {
-  },
   "devDependencies": {
+    "jsdoc": "^3.6.6"
   }
 }
