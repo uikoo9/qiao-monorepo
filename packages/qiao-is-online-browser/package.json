@@ -28,7 +28,7 @@
     "offline-to-online": "0.0.8"
   },
   "devDependencies": {
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.5.0"
   }
 }
