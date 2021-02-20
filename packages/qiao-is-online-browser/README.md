@@ -2,11 +2,6 @@
 1. is online on browser by load img
 2. offline to online on browser
 
-## install
-```
-npm install qiao-is-online-browser
-```
-
 ## api
 ### isOnline
 ```javascript
@@ -44,6 +39,10 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 ```
 
 ## version
+### 0.0.3.20210220
+1. ncu
+2. add jsdoc
+
 ### 0.0.2.20200908
 1. is online with img src
 
