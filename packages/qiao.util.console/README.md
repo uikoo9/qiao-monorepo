@@ -1,8 +1,5 @@
 # qiao.util.console
 
-## donate
-[http://uikoo9.com/donate](http://uikoo9.com/donate)
-
 ## api
 ### clear
 ```javascript
@@ -43,6 +40,9 @@ qiao.writeLineXY(x, y, msg);
 ```
 
 ## version
+### 0.0.4.20210318
+1. modify md
+
 ### 0.0.3.20201104
 1. modify md
 2. add other method
