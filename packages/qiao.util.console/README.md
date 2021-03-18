@@ -5,38 +5,38 @@
 ```javascript
 'use strict';
 
-var qiao = require('qiao.util.console');
+var q = require('qiao.util.console');
 
-qiao.clear();
+q.clear();
 ```
 
 ### writeLine
 ```javascript
 'use strict';
 
-var qiao = require('qiao.util.console');
+var q = require('qiao.util.console');
 
-qiao.clear();
-qiao.writeLine(1, 'hello');
+q.clear();
+q.writeLine(1, 'hello');
 ```
 
 ### others
 ```javascript
 'use strict';
 
-var qiao = require('qiao.util.console');
+var q = require('qiao.util.console');
 
 // clear line
-qiao.clearLine();
+q.clearLine();
 
 // move to
-qiao.moveTo(x, y);
+q.moveTo(x, y);
 
 // write
-qiao.write(msg);
+q.write(msg);
 
 // write line xy
-qiao.writeLineXY(x, y, msg);
+q.writeLineXY(x, y, msg);
 ```
 
 ## version
