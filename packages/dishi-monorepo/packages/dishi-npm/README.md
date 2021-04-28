@@ -83,23 +83,23 @@ dishi list|l
 
 ### add todo item
 ```
-dishi add|a hello
+dishi add hello
 ```
 
 ### update todo item
 ```
-dishi update|u todoItemId todoItemName
+dishi update todoItemId todoItemName
 ```
 
 ### delete todo item
 ```
-dishi del|d todoItemIds
+dishi del todoItemIds
 ```
 
 ## operate
 ### done todo item
 ```
-dishi done todoItemId
+dishi done|d todoItemId
 ```
 
 ### move todo item
@@ -114,6 +114,9 @@ dishi show [6]
 ```
 
 ## version
+### 0.1.1.20210428
+1. modify alias
+
 ### 0.1.0.20201226
 1. request error
 
