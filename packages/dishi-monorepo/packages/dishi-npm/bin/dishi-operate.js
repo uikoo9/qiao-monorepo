@@ -9,6 +9,7 @@ qiao.dishi	= require('../src/dishi.js');
 // cmd for done
 qiao.cli.cmd
 	.command('done <id>')
+	.alias('d')
 	.usage('<id> [options]')
 	.description('todo item done')
 	.action(done);

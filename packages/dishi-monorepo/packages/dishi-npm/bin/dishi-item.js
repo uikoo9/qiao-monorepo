@@ -6,18 +6,9 @@ qiao.cli 	= require('qiao.plugin.cli');
 qiao.dishi	= require('../src/dishi.js');
 
 // cmd for item-----------------------------------------------------
-// cmd for list
-qiao.cli.cmd
-	.command('list')
-	.alias('l')
-	.usage(' ')
-	.description('todo item list')
-	.action(list);
-
 // cmd for add
 qiao.cli.cmd
 	.command('add <name>')
-	.alias('a')
 	.usage('<name>')
 	.description('todo item add')
 	.action(add);
@@ -25,7 +16,6 @@ qiao.cli.cmd
 // cmd for update
 qiao.cli.cmd
 	.command('update <id> <name>')
-	.alias('u')
 	.usage('<id> <name>')
 	.description('todo item update')
 	.action(update);
@@ -33,10 +23,17 @@ qiao.cli.cmd
 // cmd for del
 qiao.cli.cmd
 	.command('del <ids>')
-	.alias('d')
 	.usage('<ids>')
 	.description('todo item delete')
 	.action(del);
+
+// cmd for list
+qiao.cli.cmd
+	.command('list')
+	.alias('l')
+	.usage(' ')
+	.description('todo item list')
+	.action(list);
 
 // list
 function list(){

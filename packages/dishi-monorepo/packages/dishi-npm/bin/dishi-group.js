@@ -6,14 +6,6 @@ qiao.cli 	= require('qiao.plugin.cli');
 qiao.dishi	= require('../src/dishi.js');
 
 // cmd for group-----------------------------------------------------
-// cmd for list
-qiao.cli.cmd
-	.command('group')
-	.alias('g')
-	.usage(' ')
-	.description('todo group list')
-	.action(list);
-
 // cmd for add
 qiao.cli.cmd
 	.command('group-add <name>')
@@ -37,6 +29,14 @@ qiao.cli.cmd
 	.usage('<ids>')
 	.description('todo group delete')
 	.action(del);
+
+// cmd for list
+qiao.cli.cmd
+	.command('group')
+	.alias('g')
+	.usage(' ')
+	.description('todo group list')
+	.action(list);
 
 // list
 function list(){
