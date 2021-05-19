@@ -9,8 +9,10 @@
  * 	7.最好是多进程执行以上操作
  */
 
-var q 	= {};
-q.file 	= require('qiao.util.file');
+var fs = require('fs');
+
+// vars
+var subFolders = [];
 
 /**
  * mult ncu
@@ -20,6 +22,30 @@ exports.multiNCU = function(folderName){
 	if(!folderName) return 'need folder name';
 
 	// check folder name is folder
-	var s = q.file.isExists(folderName);
-	console.log(s);
+	var isExist = isExists(folderName);
+	if(!isExist) return 'folder is not exists';
+
+	// get sub folders
+	lsdir(folderName);
+	console.log(subFolders);
 };
+
+// is exists
+function isExists(dir){
+	try{
+		fs.accessSync(dir);
+		return true;
+	}catch(e){
+		return false;
+	}
+}
+
+// ls dir
+function lsdir(dir){
+	fs.readdirSync(dir).forEach(function(name){
+		var stat = fs.statSync(dir + name);
+		if(!stat.isDirectory()) return;
+
+		subFolders.push(dir + name);
+	});
+}
