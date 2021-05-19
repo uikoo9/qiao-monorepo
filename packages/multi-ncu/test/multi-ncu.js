@@ -3,4 +3,5 @@
 var m = require('../lib/multi-ncu.js');
 
 var dir = '/Users/vincent/Data/qiao/';
-m.multiNCU(dir);
+var s   = m.multiNCU(dir);
+console.log(s);

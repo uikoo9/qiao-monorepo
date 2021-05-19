@@ -12,6 +12,9 @@
 // fs
 var fs = require('./util/fs.js');
 
+// ncu
+var ncu = require('npm-check-updates');
+
 /**
  * mult ncu
  */
@@ -25,5 +28,25 @@ exports.multiNCU = function(folderName){
 
 	// get sub folders
 	fs.lsdir(folderName);
-	console.log(fs.subFolders);
+	if(!fs.subFolders || !fs.subFolders.length) return 'empty folder';
+
+	// ncu
+	var subFolders = fs.subFolders;
+	for(var i=0; i<subFolders.length; i++){
+		var item = subFolders[i];
+		ncuSubFolders(item);
+	}
 };
+
+// ncu
+async function ncuSubFolders(dir){
+	var packageFile = fs.resolve(dir, 'package.json');
+	if(!fs.isExists(packageFile)) return 'package.json not exists';
+
+	var upgraded = await ncu.run({
+		packageFile: packageFile,
+		upgrade: false
+	});
+	
+	console.log(upgraded);
+}

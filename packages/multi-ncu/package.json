@@ -20,6 +20,6 @@
     "url": "git+https://github.com/insistime/multi-ncu.git"
   },
   "dependencies": {
-    "qiao.util.file": "^0.1.2"
+    "npm-check-updates": "^11.5.13"
   }
 }
