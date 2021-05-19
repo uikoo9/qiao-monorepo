@@ -9,3 +9,4 @@ multi ncu
 1. init project
 2. get sub folders
 3. fs
+4. ncu
