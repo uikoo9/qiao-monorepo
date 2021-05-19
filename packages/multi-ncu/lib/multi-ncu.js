@@ -9,31 +9,12 @@
  * 	7.最好是多进程执行以上操作
  */
 
-// fs
-var fs = require('./util/fs.js');
-
-// ncu
-var ncu = require('./util/ncu.js');
+// handler
+var handler = require('./util/handler.js');
 
 /**
  * mult ncu
  */
-exports.multiNCU = function(folderName){
-	// check folder name
-	if(!folderName) return 'need folder name';
-
-	// check folder name is folder
-	var isExist = fs.isExists(folderName);
-	if(!isExist) return 'folder is not exists';
-
-	// get sub folders
-	fs.lsdir(folderName);
-	if(!fs.subFolders || !fs.subFolders.length) return 'empty folder';
-
-	// ncu
-	var subFolders = fs.subFolders;
-	for(var i=0; i<subFolders.length; i++){
-		var item = subFolders[i];
-		ncu.ncuSubFolders(item);
-	}
+exports.multiNCU = async function(dir){
+	handler.multiNCU(dir);
 };

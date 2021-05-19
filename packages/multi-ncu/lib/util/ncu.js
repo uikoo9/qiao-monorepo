@@ -18,6 +18,6 @@ exports.ncuSubFolders = async function(dir){
         packageFile: packageFile,
         upgrade: false
     });
-    
-    console.log(upgraded);
+
+    return upgraded;
 };
