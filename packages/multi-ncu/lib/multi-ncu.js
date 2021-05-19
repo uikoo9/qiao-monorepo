@@ -9,10 +9,8 @@
  * 	7.最好是多进程执行以上操作
  */
 
-var fs = require('fs');
-
-// vars
-var subFolders = [];
+// fs
+var fs = require('./util/fs.js');
 
 /**
  * mult ncu
@@ -22,30 +20,10 @@ exports.multiNCU = function(folderName){
 	if(!folderName) return 'need folder name';
 
 	// check folder name is folder
-	var isExist = isExists(folderName);
+	var isExist = fs.isExists(folderName);
 	if(!isExist) return 'folder is not exists';
 
 	// get sub folders
-	lsdir(folderName);
-	console.log(subFolders);
+	fs.lsdir(folderName);
+	console.log(fs.subFolders);
 };
-
-// is exists
-function isExists(dir){
-	try{
-		fs.accessSync(dir);
-		return true;
-	}catch(e){
-		return false;
-	}
-}
-
-// ls dir
-function lsdir(dir){
-	fs.readdirSync(dir).forEach(function(name){
-		var stat = fs.statSync(dir + name);
-		if(!stat.isDirectory()) return;
-
-		subFolders.push(dir + name);
-	});
-}
