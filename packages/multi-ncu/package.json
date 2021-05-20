@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "npm-check-updates": "^11.5.13",
-    "qiao.util.console": "^0.0.6"
+    "qiao.util.console": "^0.0.6",
+    "qiao.util.process": "^0.0.1"
   }
 }

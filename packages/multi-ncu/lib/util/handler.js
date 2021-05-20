@@ -3,12 +3,10 @@
 // fs
 var fs = require('./fs.js');
 
-// ncu
-var ncu = require('./ncu.js');
-
 // q
 var q = {};
 q.console = require('qiao.util.console');
+q.process = require('qiao.util.process');
 
 // line
 var line = 2;
@@ -44,22 +42,25 @@ async function handlerFolder(folderName){
 	// ncu
 	var subFolders = fs.subFolders;
 	for(var i=0; i<subFolders.length; i++){
-		var item	= subFolders[i];
-		var res 	= await ncu.ncuSubFolders(item);
-		var json	= getJson(res);
-		var str		= `${item} : ${json}`;
-
-		q.console.writeLine(line + i, str);
+		(function(item, i, l){
+            handlerIt(item, i, l);
+        })(subFolders[i], i, subFolders.length);
 	}
 
 	return;
 }
 
-// get json
-function getJson(s){
-	try{
-		return JSON.stringify(s);
-	}catch(e){
-		return s;
-	}
+// handler it
+function handlerIt(item, i, l){
+	var jsPath = fs.resolve(__dirname, './handler-fork.js');
+	var args = [item];
+	q.process.fork(jsPath, args, function(msg){
+		q.console.writeLine(line + i, msg);
+	}, function(){
+		if(++i == l){
+			q.console.writeLine(line + l, '');
+	
+			q.console.writeLine(line + l + 1, 'multi update npm packages end');
+		}
+	});
 }
