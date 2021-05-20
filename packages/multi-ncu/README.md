@@ -5,6 +5,9 @@ multi ncu
 
 
 ## version
+### 0.0.2.20210520
+1. fork
+
 ### 0.0.1.20210519
 1. init project
 2. get sub folders
