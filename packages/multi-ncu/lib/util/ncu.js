@@ -11,7 +11,7 @@ var ncu = require('npm-check-updates');
  * @param {string} dir 
  */
 exports.ncuSubFolders = async function(dir){
-    var packageFile = fs.resolve(dir, 'package.json');
+    var packageFile = fs.path.resolve(dir, 'package.json');
     if(!fs.isExists(packageFile)) return 'package.json not exists';
     
     var upgraded = await ncu.run({

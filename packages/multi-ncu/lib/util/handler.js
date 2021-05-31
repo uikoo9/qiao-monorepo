@@ -31,12 +31,15 @@ async function handlerFolder(folderName){
 	// check folder name
 	if(!folderName) return 'need folder name';
 
-	// check folder name is folder
-	var isExist = fs.isExists(folderName);
+	// dir
+	var dir = fs.path.resolve(process.cwd(), folderName) + fs.path.sep;
+
+	// check dir is folder
+	var isExist = fs.isExists(dir);
 	if(!isExist) return 'folder is not exists';
 
 	// get sub folders
-	fs.lsdir(folderName);
+	fs.lsdir(dir);
 	if(!fs.subFolders || !fs.subFolders.length) return 'empty folder';
 
 	// console time
@@ -55,7 +58,7 @@ async function handlerFolder(folderName){
 
 // handler it
 function handlerIt(item, i, l){
-	var jsPath = fs.resolve(__dirname, './handler-fork.js');
+	var jsPath = fs.path.resolve(__dirname, './handler-fork.js');
 	var args = [item];
 	q.process.fork(jsPath, args, function(msg){
 		q.console.writeLine(line + i, msg);

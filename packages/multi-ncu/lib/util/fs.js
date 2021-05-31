@@ -4,18 +4,10 @@
 var fs = require('fs');
 
 // path
-var path = require('path');
+exports.path = require('path');
 
 // sub folders
 exports.subFolders = [];
-
-/**
- * resolve
- * @param  {...string} paths 
- */
-exports.resolve = function(...paths){
-	return path.resolve(...paths);
-};
 
 /**
  * is exists
