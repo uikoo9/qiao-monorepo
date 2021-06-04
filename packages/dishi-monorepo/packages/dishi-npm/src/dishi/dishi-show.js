@@ -77,7 +77,7 @@ function writeLineContent(i, res){
 		// todo rows
 		if(i == 4) s.push(formatContent(`todo items`));
 		if(i == 5) s.push(showSplit2);
-		if(i > 5 && i < 16){
+		if(i > 5 && i < showLines){
 			var items = item.items.obj.todoRows;
 			var index = i - 6;
 			if(items.length > index){
@@ -87,21 +87,21 @@ function writeLineContent(i, res){
 				s.push(formatContent(''));
 			}
 		}
-		if(i == 16) s.push('');
+		if(i == showLines) s.push('');
 
 		// done rows
-		if(i == 17) s.push(formatContent(`done items`));
-		if(i == 18) s.push(showSplit2);
-		if(i > 18 && i < showLines){
-			var items = item.items.obj.doneRows;
-			var index = i - 19;
-			if(items.length > index){
-				var done = items[index];
-				s.push(formatContent(`${done.id}-${done.todo_item_name}`));
-			}else{
-				s.push(formatContent(''));
-			}
-		}
+		// if(i == 17) s.push(formatContent(`done items`));
+		// if(i == 18) s.push(showSplit2);
+		// if(i > 18 && i < showLines){
+		// 	var items = item.items.obj.doneRows;
+		// 	var index = i - 19;
+		// 	if(items.length > index){
+		// 		var done = items[index];
+		// 		s.push(formatContent(`${done.id}-${done.todo_item_name}`));
+		// 	}else{
+		// 		s.push(formatContent(''));
+		// 	}
+		// }
 	}
 
 	var ss = s.join('');
