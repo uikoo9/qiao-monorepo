@@ -9,6 +9,9 @@
   ],
   "main": "index.js",
   "scripts": {},
+  "bin": {
+    "mncu": "./bin/multi-ncu.js"
+  },
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
@@ -21,6 +24,7 @@
   },
   "dependencies": {
     "npm-check-updates": "^11.6.0",
+    "qiao.plugin.cli": "^0.1.0",
     "qiao.util.console": "^0.0.6",
     "qiao.util.process": "^0.0.1"
   }
