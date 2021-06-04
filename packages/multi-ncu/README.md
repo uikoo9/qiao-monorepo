@@ -6,6 +6,7 @@ multi ncu
 ## version
 ### 0.0.4.20210604
 1. npm publish
+2. add cli
 
 ### 0.0.3.20210531
 1. 相对路径
