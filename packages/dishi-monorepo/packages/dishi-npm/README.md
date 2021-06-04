@@ -114,6 +114,9 @@ dishi show [6]
 ```
 
 ## version
+### 0.1.2.20210604
+1. dishi show del done rows
+
 ### 0.1.1.20210428
 1. modify alias
 
