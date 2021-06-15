@@ -117,17 +117,17 @@ function writeLineContent(i, res){
 	if(i == 4 || i == 5){
 		writeDanger(i, ss);
 	}	
-	if(i > 5 && i <= 16){
+	if(i > 5 && i <= showLines){
 		writeLog(i, ss);
 	}
 
 	// done rows
-	if(i == 17 || i == 18){
-		writeSuc(i, ss);
-	}	
-	if(i > 18 && i < showLines){
-		writeLog(i, ss);
-	}
+	// if(i == 17 || i == 18){
+	// 	writeSuc(i, ss);
+	// }	
+	// if(i > 18 && i < showLines){
+	// 	writeLog(i, ss);
+	// }
 }
 
 // format content
