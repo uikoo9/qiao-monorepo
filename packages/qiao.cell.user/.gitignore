@@ -1,0 +1,8 @@
+.idea
+.project
+.settings
+.externalToolBuilders
+
+dist
+node_modules
+package-lock.json
