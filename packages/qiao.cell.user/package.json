@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "",
-  "keywords": [
-  ],
+  "keywords": [],
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
@@ -19,7 +17,7 @@
     "url": "git+https://github.com/insistime/qiao.user.git"
   },
   "dependencies": {
-  },
-  "devDependencies": {
+    "express": "^4.17.1",
+    "qiao.util.file": "^0.1.2"
   }
 }
