@@ -1,3 +1,28 @@
+-- MySQL dump 10.13  Distrib 5.6.40, for Linux (x86_64)
+--
+-- Host: localhost    Database: db_dishi
+-- ------------------------------------------------------
+-- Server version       5.6.40
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `db_dishi`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `db_rbac` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `db_rbac`;
+
 /*Table structure for table `t_ucenter_code` */
 
 DROP TABLE IF EXISTS `t_ucenter_code`;
@@ -40,4 +65,3 @@ CREATE TABLE `t_ucenter_user` (
 /*Data for the table `t_ucenter_user` */
 
 insert  into `t_ucenter_user`(`id`,`ucenter_user_name`,`ucenter_user_password`,`cdate`,`cuser_id`,`cuser_name`,`udate`,`uuser_id`,`uuser_name`,`del_tag`) values (1,'18612257325','kud9vpBXcmQrYsYDJ7KCNw==','2018-12-19 17:05:07',1,'admin','2018-12-19 17:05:12',1,'admin','0');
-
