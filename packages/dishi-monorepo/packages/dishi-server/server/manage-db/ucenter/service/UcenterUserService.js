@@ -151,7 +151,7 @@ exports.ucenterUserCheck = async function(req, res){
 		if(usertoken == rUsertoken){
 			res.send(qiao.json.success('合法token！', {user:user}));
 		}else{
-			res.send(qiao.json.danger('非法token！', {user:user}));
+			res.send(qiao.json.danger('非法token！'));
 		}
 	}catch(e){
 		res.send(qiao.json.danger('校验token失败！', {errName:e.name,errMsg:e.message}));
