@@ -1,5 +1,5 @@
 // qiao
-var qiao 	= require('../../qiao.user.js');
+var qiao 	= require('../../qiao.cell.user.js');
 
 /**
  * share item sql
