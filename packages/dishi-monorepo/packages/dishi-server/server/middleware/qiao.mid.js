@@ -1,9 +1,7 @@
 'use strict';
 
-// qiao
-var qiao 			= require('qiao.util.all');
-global.cell_config 		= require('../config/config.json');
-global.cell_configServer 	= require('../config/config-server.json');
+// vars
+var configServer = require('../config/config-server.json');
 
 // qiao.cell.user
 var qcUser = require('qiao.cell.user');
@@ -25,7 +23,7 @@ exports.auth = async function(req, res, next){
 
 	// auth - normal visit
 	var normalVisit		= false;
-    var normalVisitPath = global.cell_configServer.path;
+    var normalVisitPath = configServer.path;
 	for(var i=0; i<normalVisitPath.length; i++){
 		if(path == normalVisitPath[i]) normalVisit = true;
 	}
@@ -38,7 +36,7 @@ exports.auth = async function(req, res, next){
 	var userid		= req.headers.userid;
 	var usertoken	= req.headers.usertoken;
 	if(!userid || !usertoken){
-		res.send(qiao.json.danger('缺少token！'));
+		res.send(global.qiao.json.danger('缺少token！'));
 		return;
     }
 	
@@ -47,7 +45,7 @@ exports.auth = async function(req, res, next){
 		// get user
 		var rows = await qcUser.ucenterUserModel.ucenterUserGetById(userid);
 		if(!rows || rows.length != 1){
-			res.send(qiao.json.danger('缺少用户信息！'));
+			res.send(global.qiao.json.danger('缺少用户信息！'));
 			return;
 		}
 		
@@ -55,11 +53,11 @@ exports.auth = async function(req, res, next){
 		var user 		= rows[0];
 		var username	= user['ucenter_user_name'];
 		var password	= user['ucenter_user_password'];
-		var rUsertoken 	= qiao.encode.AESEncrypt(username + password, global.cell_config.encryptKey);
+		var rUsertoken 	= global.qiao.encode.AESEncrypt(username + password, global.cell_config.encryptKey);
 		
 		// send
 		if(usertoken != rUsertoken){
-			res.send(qiao.json.danger('非法token！'));
+			res.send(global.qiao.json.danger('非法token！'));
 			return;
 		}
 		
@@ -69,6 +67,6 @@ exports.auth = async function(req, res, next){
 		
 		next();
 	}catch(e){
-		res.send(qiao.json.danger('校验token失败！', {errName:e.name,errMsg:e.message}));
+		res.send(global.qiao.json.danger('校验token失败！', {errName:e.name,errMsg:e.message}));
 	}
 };

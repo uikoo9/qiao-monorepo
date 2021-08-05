@@ -1,6 +1,10 @@
 // require
-var path 			= require('path');
-var qiao 			= require('qiao.util.all');
+var path 	= require('path');
+var qiao 	= {};
+qiao.encode	= require('qiao.util.encode');
+qiao.json 	= require('qiao.util.json');
+qiao.mysql	= require('qiao.plugin.mysql');
+global.qiao	= qiao;
 global.cell_config 	= require('./config/config.json');
 
 // vars

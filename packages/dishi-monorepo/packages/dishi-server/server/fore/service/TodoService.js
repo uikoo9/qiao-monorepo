@@ -1,6 +1,3 @@
-// qiao
-var qiao 	= require('qiao.util.all');
-
 // service
 var service = require('../../manage-db/todo/service/TodoItemService');
 
@@ -20,8 +17,8 @@ exports.todoList = async function(req, res){
 		result.todoRows = todoRows.rows;
 		result.doneRows = doneRows.rows;
 		
-		res.send(qiao.json.success('query success', result));
+		res.send(global.qiao.json.success('query success', result));
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+		res.send(global.qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
 	}
 };
