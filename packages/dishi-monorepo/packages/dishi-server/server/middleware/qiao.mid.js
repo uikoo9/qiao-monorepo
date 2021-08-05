@@ -2,11 +2,11 @@
 
 // qiao
 var qiao 			= require('qiao.util.all');
-qiao.config 		= require('../config/config.json');
-qiao.configServer 	= require('../config/config-server.json');
+global.cell_config 		= require('../config/config.json');
+global.cell_configServer 	= require('../config/config-server.json');
 
-// ucenter user model
-var ucenterUserModel = require('../manage-db/ucenter/model/UcenterUserModel.js');
+// qiao.cell.user
+var qcUser = require('qiao.cell.user');
 
 /**
  * cross domain
@@ -25,7 +25,7 @@ exports.auth = async function(req, res, next){
 
 	// auth - normal visit
 	var normalVisit		= false;
-    var normalVisitPath = qiao.configServer.path;
+    var normalVisitPath = global.cell_configServer.path;
 	for(var i=0; i<normalVisitPath.length; i++){
 		if(path == normalVisitPath[i]) normalVisit = true;
 	}
@@ -45,7 +45,7 @@ exports.auth = async function(req, res, next){
 	// auth - check token
 	try{
 		// get user
-		var rows = await ucenterUserModel.ucenterUserGetById(userid);
+		var rows = await qcUser.ucenterUserModel.ucenterUserGetById(userid);
 		if(!rows || rows.length != 1){
 			res.send(qiao.json.danger('缺少用户信息！'));
 			return;
@@ -55,7 +55,7 @@ exports.auth = async function(req, res, next){
 		var user 		= rows[0];
 		var username	= user['ucenter_user_name'];
 		var password	= user['ucenter_user_password'];
-		var rUsertoken 	= qiao.encode.AESEncrypt(username + password, qiao.config.encryptKey);
+		var rUsertoken 	= qiao.encode.AESEncrypt(username + password, global.cell_config.encryptKey);
 		
 		// send
 		if(usertoken != rUsertoken){

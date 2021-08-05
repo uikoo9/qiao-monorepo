@@ -7,10 +7,10 @@
 	    "port"		: 3306,
 	    "database"	: "db_dishi",
 	    "user"		: "root",
-	    "password"	: "123456"
+	    "password"	: "p123456"
 	},
 	"sms"               : {
-		"appid"         : "",
-		"appkey"        : ""
+		"appid"         : "1400163256",
+		"appkey"        : "a54b58c3b54d10104ab0c0dd4ab24577"
 	}
 }

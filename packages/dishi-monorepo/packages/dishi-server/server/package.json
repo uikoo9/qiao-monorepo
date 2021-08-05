@@ -4,10 +4,10 @@
   "description": "",
   "keywords": [],
   "main": "app.js",
-  "devDependencies": {},
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "qiao.cell.user": "^0.0.2",
     "qiao.util.all": "^0.3.0"
   }
 }

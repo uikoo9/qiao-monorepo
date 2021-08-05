@@ -1,6 +1,5 @@
 // qiao
 var qiao 	= require('qiao.util.all');
-qiao.config = require('../../../config/config.json');
 
 // model
 var model	= require('../model/TodoGroupModel.js');
@@ -58,8 +57,8 @@ exports.todoGroupList = async function(req, res){
 	
 	// db
 	try{
-		var rs 		= await qiao.mysql.query(qiao.config.db, sqlcount.join(''), paramscount);
-		var rows 	= await qiao.mysql.query(qiao.config.db, sqlquery.join(''), paramsquery);
+		var rs 		= await qiao.mysql.query(global.cell_config.db, sqlcount.join(''), paramscount);
+		var rows 	= await qiao.mysql.query(global.cell_config.db, sqlquery.join(''), paramsquery);
 		
 		// result
 		var result = {};
