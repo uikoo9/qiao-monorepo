@@ -1,11 +1,14 @@
 {
   "name": "dishi-server",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "keywords": [],
   "main": "app.js",
   "dependencies": {
     "express": "^4.17.1",
-    "qiao.cell.user": "^0.0.3"
+    "qiao.cell.user": "^0.0.3",
+    "qiao.plugin.mysql": "^0.0.9",
+    "qiao.util.encode": "^0.0.8",
+    "qiao.util.json": "^0.0.4"
   }
 }
