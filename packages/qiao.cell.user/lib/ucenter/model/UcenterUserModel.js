@@ -1,6 +1,5 @@
 // qiao
-var qiao 	= require('qiao.util.all');
-qiao.config = require('../../../config/config.json');
+var qiao 	= require('../../qiao.user.js');
 
 /**
  * share item sql
