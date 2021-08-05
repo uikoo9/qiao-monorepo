@@ -2,53 +2,40 @@
 
 var ucenterUserController 	= require('./ucenter/controller/UcenterUserController.js');
 var ucenterUserService		= require('./ucenter/service/UcenterUserService.js');
-
-/**
- * config
- */
-exports.config = null;
+var ucenterUserModel		= require('./ucenter/model/UcenterUserModel.js');
 
 /**
  * init
  * @param {*} app express app
- * @param {*} config config
  */
-exports.init = function(app, config){
+exports.init = function(app){
+	// check config
+	if(!global.cell_config){
+		console.log('need global.cell_config');
+		return;
+	}
+
 	// check app
 	if(!app){
 		console.log('need express app');
 		return;
 	}
 
-	// check config
-	if(!config){
-		console.log('need config');
-		return;
-	}
-
-	// check config.encryptKey
-	if(!config.encryptKey){
-		console.log('need config.encryptKey');
-		return;
-	}
-
-	// check config.sms
-	if(!config.sms || !config.sms.appid || !config.sms.appkey){
-		console.log('need config.sms, config.sms.appid, config.sms.appkey');
-		return;
-	}
-
-	// check config.db
-	if(!config.db){
-		console.log('need config.db');
-		return;
-	}
-
-	// config
-	exports.config = config;
-
 	// init controller
-	ucenterUserController(app);
-
-	return ucenterUserService;
+	exports.ucenterUserController(app);
 };
+
+/**
+ * ucenter user controller
+ */
+exports.ucenterUserController = ucenterUserController;
+
+/**
+ * ucenter user service
+ */
+exports.ucenterUserService = ucenterUserService;
+
+/**
+ * ucenter user model
+ */
+exports.ucenterUserModel = ucenterUserModel;

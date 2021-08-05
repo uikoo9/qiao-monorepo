@@ -15,5 +15,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/insistime/qiao.cell.user.git"
+  },
+  "dependencies": {
+    "qiao.util.all": "^0.3.0"
   }
 }

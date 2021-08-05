@@ -1,5 +1,5 @@
 // qiao
-var qiao 	= require('../../qiao.cell.user.js');
+var qiao 	= require('qiao.util.all');
 
 // model
 var model	= require('../model/UcenterUserModel.js');
@@ -46,7 +46,7 @@ exports.ucenterUserReg = async function(req, res){
 		
 		// vars for reg
 		var password 		= req.body.password;
-		var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey);
+		var encryptPassword	= qiao.encode.AESEncrypt(password, global.cell_config.encryptKey);
 		
 		// check user
 		var usersForMobile = await model.ucenterUserGetByMobile(username);
@@ -87,7 +87,7 @@ exports.ucenterUserLogin = async function(req, res){
 	// vars
 	var username 		= req.body.username;
 	var password 		= req.body.password;
-	var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey); 
+	var encryptPassword	= qiao.encode.AESEncrypt(password, global.cell_config.encryptKey); 
 	
 	// db
 	try{
@@ -99,7 +99,7 @@ exports.ucenterUserLogin = async function(req, res){
 		}
 		
 		// send
-		var usertoken 	= qiao.encode.AESEncrypt(username + encryptPassword, qiao.config.encryptKey);
+		var usertoken 	= qiao.encode.AESEncrypt(username + encryptPassword, global.cell_config.encryptKey);
 		res.send(qiao.json.success('登录成功！', {
 			userid 		: rows[0].id,
 			usertoken	: usertoken
@@ -144,7 +144,7 @@ exports.ucenterUserCheck = async function(req, res){
 		var user 		= rows[0];
 		var username	= user['ucenter_user_name'];
 		var password	= user['ucenter_user_password'];
-		var rUsertoken 	= qiao.encode.AESEncrypt(username + password, qiao.config.encryptKey);
+		var rUsertoken 	= qiao.encode.AESEncrypt(username + password, global.cell_config.encryptKey);
 		
 		// send
 		if(usertoken == rUsertoken){
@@ -199,7 +199,7 @@ exports.ucenterUserForget = async function(req, res){
 		
 		// vars for reg
 		var password 		= req.body.password;
-		var encryptPassword	= qiao.encode.AESEncrypt(password, qiao.config.encryptKey);
+		var encryptPassword	= qiao.encode.AESEncrypt(password, global.cell_config.encryptKey);
 		
 		// check user
 		var rows = await model.ucenterUserGetByMobile(username);
@@ -269,8 +269,8 @@ exports.ucenterCodeSend = async function(req, res){
 		}
 		
 		// vars for send
-		var appid 	= qiao.config.sms.appid;
-		var appkey	= qiao.config.sms.appkey;
+		var appid 	= global.cell_config.sms.appid;
+		var appkey	= global.cell_config.sms.appkey;
 		var sign	= req.body.sign;
 		
 		// send
