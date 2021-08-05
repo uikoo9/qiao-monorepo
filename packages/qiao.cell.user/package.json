@@ -17,6 +17,9 @@
     "url": "git+https://github.com/insistime/qiao.cell.user.git"
   },
   "dependencies": {
-    "qiao.util.all": "^0.3.0"
+    "qiao.ext.txsms": "^0.0.3",
+    "qiao.plugin.mysql": "^0.0.9",
+    "qiao.util.encode": "^0.0.8",
+    "qiao.util.json": "^0.0.4"
   }
 }

@@ -1,6 +1,3 @@
-// qiao
-var qiao 	= require('qiao.util.all');
-
 /**
  * share item sql
  */
@@ -10,14 +7,14 @@ exports.sql = require('./ucenter-user-sql.json');
  * ucenter user get by id
  */
 exports.ucenterUserGetById = function(id){
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserGetById, [id]);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserGetById, [id]);
 };
 
 /**
  * ucenter user get by mobile
  */
 exports.ucenterUserGetByMobile = function(id){
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserGetByMobile, [id]);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserGetByMobile, [id]);
 };
 
 /**
@@ -28,7 +25,7 @@ exports.ucenterUserLogin = function(username, password){
 	params.push(username);
 	params.push(password);
 
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserLogin, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserLogin, params);
 };
 
 /**
@@ -39,7 +36,7 @@ exports.ucenterUserReg = function(username, password){
 	params.push(username);
 	params.push(password);
 	
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserReg, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserReg, params);
 };
 
 /**
@@ -50,7 +47,7 @@ exports.ucenterUserForget = function(userid, password){
 	params.push(password);
 	params.push(userid);
 	
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserForget, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterUserForget, params);
 };
 
 /**
@@ -61,7 +58,7 @@ exports.ucenterCodeGet = function(type, mobile){
 	params.push(type);
 	params.push(mobile);
 	
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeGet, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeGet, params);
 };
 
 /**
@@ -73,7 +70,7 @@ exports.ucenterCodeAdd = function(type, mobile, code){
 	params.push(mobile);
 	params.push(code);
 	
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeAdd, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeAdd, params);
 };
 
 /**
@@ -85,7 +82,7 @@ exports.ucenterCodeUpdate = function(type, mobile, code){
 	params.push(type);
 	params.push(mobile);
 	
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeUpdate, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeUpdate, params);
 };
 
 /**
@@ -96,5 +93,5 @@ exports.ucenterCodeDel = function(type, mobile){
 	params.push(type);
 	params.push(mobile);
 	
-	return qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeDel, params);
+	return global.qiao.mysql.query(global.cell_config.db, exports.sql.ucenterCodeDel, params);
 };

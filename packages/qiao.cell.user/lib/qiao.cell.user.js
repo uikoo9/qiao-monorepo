@@ -1,5 +1,14 @@
 'use strict';
 
+// qiao
+var qiao 	= {};
+qiao.encode	= require('qiao.util.encode');
+qiao.json 	= require('qiao.util.json');
+qiao.mysql	= require('qiao.plugin.mysql');
+qiao.txsms	= require('qiao.ext.txsms');
+global.qiao	= qiao;
+
+// ucenter
 var ucenterUserController 	= require('./ucenter/controller/UcenterUserController.js');
 var ucenterUserService		= require('./ucenter/service/UcenterUserService.js');
 var ucenterUserModel		= require('./ucenter/model/UcenterUserModel.js');
