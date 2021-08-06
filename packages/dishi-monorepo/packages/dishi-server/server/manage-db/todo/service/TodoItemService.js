@@ -83,8 +83,8 @@ exports.todoItemRows = async function(req){
 
 	// db
 	try{
-		var rs 		= await global.qiao.mysql.query(global.cell_config.db, sqlcount.join(''), paramscount);
-		var rows 	= await global.qiao.mysql.query(global.cell_config.db, sqlquery.join(''), paramsquery);
+		var rs 		= await global.qiao.mysql.query(global.config.db, sqlcount.join(''), paramscount);
+		var rows 	= await global.qiao.mysql.query(global.config.db, sqlquery.join(''), paramsquery);
 		
 		// result
 		var result = {};

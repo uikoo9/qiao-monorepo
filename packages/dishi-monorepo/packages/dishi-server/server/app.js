@@ -8,11 +8,11 @@ qiao.mysql	= require('qiao.plugin.mysql');
 
 // global
 global.qiao			= qiao;
-global.cell_config 	= require('./config/config.json');
+global.config 	= require('./config/config.json');
 
 // vars
 var root	= __dirname;
-var port	= global.cell_config.port;
+var port	= global.config.port;
 
 // express
 var express 		= require('express');

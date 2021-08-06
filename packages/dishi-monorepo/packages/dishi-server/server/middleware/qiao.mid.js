@@ -53,7 +53,7 @@ exports.auth = async function(req, res, next){
 		var user 		= rows[0];
 		var username	= user['ucenter_user_name'];
 		var password	= user['ucenter_user_password'];
-		var rUsertoken 	= global.qiao.encode.AESEncrypt(username + password, global.cell_config.encryptKey);
+		var rUsertoken 	= global.qiao.encode.AESEncrypt(username + password, global.config.encryptKey);
 		
 		// send
 		if(usertoken != rUsertoken){

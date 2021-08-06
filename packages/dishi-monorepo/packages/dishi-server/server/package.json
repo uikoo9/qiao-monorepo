@@ -7,7 +7,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
-    "qiao.cell.user": "^0.0.3",
+    "qiao.cell.user": "^0.0.4",
     "qiao.plugin.mysql": "^0.0.9",
     "qiao.util.encode": "^0.0.8",
     "qiao.util.file": "^0.1.2",
