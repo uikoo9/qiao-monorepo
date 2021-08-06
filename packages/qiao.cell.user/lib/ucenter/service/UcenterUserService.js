@@ -43,7 +43,7 @@ exports.ucenterUserReg = async function(req, res){
 		
 		// vars for reg
 		var password 		= req.body.password;
-		var encryptPassword	= global.qiao.encode.AESEncrypt(password, global.cell_config.encryptKey);
+		var encryptPassword	= global.qiao.encode.AESEncrypt(password, global.config.encryptKey);
 		
 		// check user
 		var usersForMobile = await model.ucenterUserGetByMobile(username);
@@ -84,7 +84,7 @@ exports.ucenterUserLogin = async function(req, res){
 	// vars
 	var username 		= req.body.username;
 	var password 		= req.body.password;
-	var encryptPassword	= global.qiao.encode.AESEncrypt(password, global.cell_config.encryptKey); 
+	var encryptPassword	= global.qiao.encode.AESEncrypt(password, global.config.encryptKey); 
 	
 	// db
 	try{
@@ -96,7 +96,7 @@ exports.ucenterUserLogin = async function(req, res){
 		}
 		
 		// send
-		var usertoken 	= global.qiao.encode.AESEncrypt(username + encryptPassword, global.cell_config.encryptKey);
+		var usertoken 	= global.qiao.encode.AESEncrypt(username + encryptPassword, global.config.encryptKey);
 		res.send(global.qiao.json.success('登录成功！', {
 			userid 		: rows[0].id,
 			usertoken	: usertoken
@@ -141,7 +141,7 @@ exports.ucenterUserCheck = async function(req, res){
 		var user 		= rows[0];
 		var username	= user['ucenter_user_name'];
 		var password	= user['ucenter_user_password'];
-		var rUsertoken 	= global.qiao.encode.AESEncrypt(username + password, global.cell_config.encryptKey);
+		var rUsertoken 	= global.qiao.encode.AESEncrypt(username + password, global.config.encryptKey);
 		
 		// send
 		if(usertoken == rUsertoken){
@@ -196,7 +196,7 @@ exports.ucenterUserForget = async function(req, res){
 		
 		// vars for reg
 		var password 		= req.body.password;
-		var encryptPassword	= global.qiao.encode.AESEncrypt(password, global.cell_config.encryptKey);
+		var encryptPassword	= global.qiao.encode.AESEncrypt(password, global.config.encryptKey);
 		
 		// check user
 		var rows = await model.ucenterUserGetByMobile(username);
@@ -266,8 +266,8 @@ exports.ucenterCodeSend = async function(req, res){
 		}
 		
 		// vars for send
-		var appid 	= global.cell_config.sms.appid;
-		var appkey	= global.cell_config.sms.appkey;
+		var appid 	= global.config.sms.appid;
+		var appkey	= global.config.sms.appkey;
 		var sign	= req.body.sign;
 		
 		// send

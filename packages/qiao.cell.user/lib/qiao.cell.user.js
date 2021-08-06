@@ -19,8 +19,8 @@ var ucenterUserModel		= require('./ucenter/model/UcenterUserModel.js');
  */
 exports.init = function(app){
 	// check config
-	if(!global.cell_config){
-		console.log('need global.cell_config');
+	if(!global.config){
+		console.log('need global.config');
 		return;
 	}
 
