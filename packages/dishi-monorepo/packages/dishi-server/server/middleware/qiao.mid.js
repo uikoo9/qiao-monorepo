@@ -1,7 +1,7 @@
 'use strict';
 
 // qiao
-var qiao 	= require('../../../_qiao.js');
+var qiao 	= require('../_qiao.js');
 qiao.user	= require('qiao.cell.user');
 
 // vars
