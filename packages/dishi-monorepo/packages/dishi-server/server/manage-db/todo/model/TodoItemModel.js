@@ -1,3 +1,6 @@
+// qiao
+var qiao = require('../../../_qiao.js');
+
 /**
  * todo item sql
  */
@@ -10,21 +13,21 @@ exports.todoItemGetById = function(id){
 	var params = [];
 	params.push(id);
 
-	return global.qiao.mysql.query(global.config.db, exports.sql.todoItemGetById, params);
+	return qiao.mysql.query(global.config.db, exports.sql.todoItemGetById, params);
 };
 
 /**
  * todo item add
  */
 exports.todoItemAdd = function(params){
-	return global.qiao.mysql.query(global.config.db, exports.sql.todoItemAdd, params);
+	return qiao.mysql.query(global.config.db, exports.sql.todoItemAdd, params);
 };
 
 /**
  * todo item edit
  */
 exports.todoItemEdit = function(params){
-	return global.qiao.mysql.query(global.config.db, exports.sql.todoItemEdit, params);
+	return qiao.mysql.query(global.config.db, exports.sql.todoItemEdit, params);
 };
 
 /**
@@ -34,5 +37,5 @@ exports.todoItemDel = function(ids){
 	var params = [];
 	params.push(ids);
 	
-	return global.qiao.mysql.query(global.config.db, exports.sql.todoItemDel, params);
+	return qiao.mysql.query(global.config.db, exports.sql.todoItemDel, params);
 };

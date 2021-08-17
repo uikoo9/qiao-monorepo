@@ -1,10 +1,11 @@
 'use strict';
 
+// qiao
+var qiao 	= require('../../../_qiao.js');
+qiao.user	= require('qiao.cell.user');
+
 // vars
 var configServer = require('../config/config-server.json');
-
-// qiao.cell.user
-var qcUser = require('qiao.cell.user');
 
 /**
  * cross domain
@@ -36,16 +37,16 @@ exports.auth = async function(req, res, next){
 	var userid		= req.headers.userid;
 	var usertoken	= req.headers.usertoken;
 	if(!userid || !usertoken){
-		res.send(global.qiao.json.danger('缺少token！'));
+		res.send(qiao.json.danger('缺少token！'));
 		return;
     }
 	
 	// auth - check token
 	try{
 		// get user
-		var rows = await qcUser.ucenterUserModel.ucenterUserGetById(userid);
+		var rows = await qiao.user.ucenterUserModel.ucenterUserGetById(userid);
 		if(!rows || rows.length != 1){
-			res.send(global.qiao.json.danger('缺少用户信息！'));
+			res.send(qiao.json.danger('缺少用户信息！'));
 			return;
 		}
 		
@@ -53,11 +54,11 @@ exports.auth = async function(req, res, next){
 		var user 		= rows[0];
 		var username	= user['ucenter_user_name'];
 		var password	= user['ucenter_user_password'];
-		var rUsertoken 	= global.qiao.encode.AESEncrypt(username + password, global.config.encryptKey);
+		var rUsertoken 	= qiao.encode.AESEncrypt(username + password, global.config.encryptKey);
 		
 		// send
 		if(usertoken != rUsertoken){
-			res.send(global.qiao.json.danger('非法token！'));
+			res.send(qiao.json.danger('非法token！'));
 			return;
 		}
 		
@@ -67,6 +68,6 @@ exports.auth = async function(req, res, next){
 		
 		next();
 	}catch(e){
-		res.send(global.qiao.json.danger('校验token失败！', {errName:e.name,errMsg:e.message}));
+		res.send(qiao.json.danger('校验token失败！', {errName:e.name,errMsg:e.message}));
 	}
 };
