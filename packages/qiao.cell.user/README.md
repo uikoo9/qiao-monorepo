@@ -53,6 +53,7 @@ q.ucenterUserModel
 ## version
 ### 0.0.5.20210818
 1. md
+2. add postman
 
 ### 0.0.4.20210817
 1. global.qiao --> _qiao
