@@ -1,0 +1,1 @@
+module.exports = require('./lib/dishi.cell.todo.js');
