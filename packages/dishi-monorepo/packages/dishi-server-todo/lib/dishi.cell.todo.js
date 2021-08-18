@@ -20,6 +20,7 @@ exports.init = function(app){
 	// init controller
 	exports.todoGroupController(app);
 	exports.todoItemController(app);
+	exports.todoController(app);
 };
 
 /**
@@ -35,3 +36,9 @@ exports.todoGroupModel		= require('./todo/model/TodoGroupModel.js');
 exports.todoItemController	= require('./todo/controller/TodoItemController.js');
 exports.todoItemService		= require('./todo/service/TodoItemService.js');
 exports.todoItemModel		= require('./todo/model/TodoItemModel.js');
+
+/**
+ * todo
+ */
+exports.todoController	= require('./fore/controller/TodoController.js');
+exports.todoService		= require('./fore/service/TodoService.js');
