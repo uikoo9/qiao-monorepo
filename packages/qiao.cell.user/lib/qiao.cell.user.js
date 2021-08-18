@@ -1,10 +1,5 @@
 'use strict';
 
-// ucenter
-var ucenterUserController 	= require('./ucenter/controller/UcenterUserController.js');
-var ucenterUserService		= require('./ucenter/service/UcenterUserService.js');
-var ucenterUserModel		= require('./ucenter/model/UcenterUserModel.js');
-
 /**
  * init
  * @param {*} app express app
@@ -27,16 +22,8 @@ exports.init = function(app){
 };
 
 /**
- * ucenter user controller
+ * ucenter user
  */
-exports.ucenterUserController = ucenterUserController;
-
-/**
- * ucenter user service
- */
-exports.ucenterUserService = ucenterUserService;
-
-/**
- * ucenter user model
- */
-exports.ucenterUserModel = ucenterUserModel;
+exports.ucenterUserController 	= require('./ucenter/controller/UcenterUserController.js');
+exports.ucenterUserService		= require('./ucenter/service/UcenterUserService.js');
+exports.ucenterUserModel		= require('./ucenter/model/UcenterUserModel.js');

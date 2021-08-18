@@ -32,21 +32,12 @@ var app = express();
 require('qiao.cell.user').init(app);
 ```
 
-### controller
+### use
 ```javascript
 var q = require('qiao.cell.user');
+
 q.ucenterUserController
-```
-
-### service
-```javascript
-var q = require('qiao.cell.user');
 q.ucenterUserService
-```
-
-### model
-```javascript
-var q = require('qiao.cell.user');
 q.ucenterUserModel
 ```
 
