@@ -7,7 +7,6 @@ qiao.json 	= require('qiao.util.json');
 qiao.mysql	= require('qiao.plugin.mysql');
 
 // global
-global.qiao		= qiao;
 global.config 	= require('./config/config.json');
 
 // vars

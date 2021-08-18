@@ -11,7 +11,7 @@ exports.todoGroupList = async function(req, res){
 	// vars
 	var ucenterUserId = req.body['express_userid'];
 	var todoGroupName = req.body.todoGroupName;
-	var todoGroupOrder = req.body.todoGroupOrder;
+	var todoGroupOrder= req.body.todoGroupOrder;
 	
 	// sql and params
 	var sqlcount	= [model.sql.todoGroupListCount];
