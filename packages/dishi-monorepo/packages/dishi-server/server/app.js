@@ -1,10 +1,6 @@
 // require
 var path 	= require('path');
-var qiao 	= {};
-qiao.encode	= require('qiao.util.encode');
-qiao.file	= require('qiao.util.file');
-qiao.json 	= require('qiao.util.json');
-qiao.mysql	= require('qiao.plugin.mysql');
+var qiao 	= require('./_qiao.js');
 
 // global
 global.config 	= require('./config/config.json');
@@ -46,6 +42,9 @@ for(var i=0; i<serverFiles.files.length; i++){
 
 // qiao.cell.user
 require('qiao.cell.user').init(app);
+
+// dishi.cell.todo
+require('dishi.cell.todo').init(app);
 
 // port
 app.listen(port);

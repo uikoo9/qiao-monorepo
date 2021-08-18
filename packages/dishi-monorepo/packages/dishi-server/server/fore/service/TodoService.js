@@ -2,7 +2,7 @@
 var qiao = require('../../_qiao.js');
 
 // service
-var service = require('../../manage-db/todo/service/TodoItemService');
+var service = require('dishi.cell.todo').todoItemService;
 
 /**
  * todo list
