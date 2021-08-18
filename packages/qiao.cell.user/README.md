@@ -1,6 +1,54 @@
 # qiao.cell.user
 
+## config
+```json
+{
+	"port"			: 9001,
+	"encryptKey" 	: "",
+	"db" 			: {
+		"connectionLimit" : 50,
+		"host"		: "127.0.0.1", 
+	    "port"		: 3306,
+	    "database"	: "",
+	    "user"		: "root",
+	    "password"	: ""
+	},
+	"sms"               : {
+		"appid"         : "",
+		"appkey"        : ""
+	}
+}
+```
+
 ## api
+### init
+```javascript
+// app
+var app = express();
+
+// ...
+
+// qiao.cell.user
+require('qiao.cell.user').init(app);
+```
+
+### controller
+```javascript
+var q = require('qiao.cell.user');
+q.ucenterUserController
+```
+
+### service
+```javascript
+var q = require('qiao.cell.user');
+q.ucenterUserService
+```
+
+### model
+```javascript
+var q = require('qiao.cell.user');
+q.ucenterUserModel
+```
 
 ## version
 ### 0.0.4.20210817
