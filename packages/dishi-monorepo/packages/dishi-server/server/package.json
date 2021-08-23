@@ -8,7 +8,7 @@
     "cookie-parser": "^1.4.5",
     "dishi.cell.todo": "^0.0.2",
     "express": "^4.17.1",
-    "qiao.cell.user": "^0.0.8",
+    "qiao.cell.user": "^0.0.9",
     "qiao.util.encode": "^0.0.8",
     "qiao.util.file": "^0.1.2",
     "qiao.util.json": "^0.0.4"
