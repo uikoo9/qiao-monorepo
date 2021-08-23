@@ -42,6 +42,9 @@ q.ucenterUserModel
 ```
 
 ## version
+### 0.0.6.20210823
+1. del qiao.cell.user.js
+
 ### 0.0.5.20210818
 1. md
 2. add postman
