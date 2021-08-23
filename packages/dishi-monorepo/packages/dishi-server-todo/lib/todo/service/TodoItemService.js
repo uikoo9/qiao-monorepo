@@ -22,11 +22,11 @@ exports.todoItemList = async function(req, res){
  */
 exports.todoItemRows = async function(req){
 	// vars
-	var ucenterUserId = req.body['express_userid'];
-	var todoGroupId = req.body.todoGroupId;
-	var todoItemName = req.body.todoItemName;
-	var todoItemOrder = req.body.todoItemOrder;
-	var todoItemStatus = req.body.todoItemStatus;
+	var ucenterUserId 	= req.body['express_userid'];
+	var todoGroupId 	= req.body.todoGroupId;
+	var todoItemName 	= req.body.todoItemName;
+	var todoItemOrder 	= req.body.todoItemOrder;
+	var todoItemStatus 	= req.body.todoItemStatus;
 
 	// sql and params
 	var sqlcount	= [model.sql.todoItemListCount];
@@ -150,11 +150,11 @@ exports.todoItemSave = async function(req, res){
 	}
 	
 	// vars
-	var id = req.body.id;
-	var todoGroupId = req.body.todoGroupId;
-	var todoItemName = req.body.todoItemName;
-	var todoItemOrder = req.body.todoItemOrder;
-	var todoItemStatus = req.body.todoItemStatus;
+	var id 				= req.body.id;
+	var todoGroupId 	= req.body.todoGroupId;
+	var todoItemName 	= req.body.todoItemName;
+	var todoItemOrder 	= req.body.todoItemOrder;
+	var todoItemStatus 	= req.body.todoItemStatus;
 	
 	// vars for userinfo
 	var express_userid 		= req.body.express_userid;

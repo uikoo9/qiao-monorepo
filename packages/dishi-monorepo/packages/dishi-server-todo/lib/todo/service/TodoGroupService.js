@@ -87,10 +87,6 @@ exports.todoGroupGet = async function(req, res){
 		res.send(qiao.json.danger('缺少参数id！'));
 		return;
 	}
-	if(!req.body['express_userid']){
-		res.send(qiao.json.danger('非法访问！'));
-		return;
-	}
 
 	// db
 	try{
