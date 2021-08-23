@@ -29,6 +29,9 @@ q.todoService
 ```
 
 ## version
+### 0.0.2.20210823
+1. todo group get by id add userid
+
 ### 0.0.1.20210818
 1. init project
 2. add postman
