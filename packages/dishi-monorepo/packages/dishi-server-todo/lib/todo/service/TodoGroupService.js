@@ -87,11 +87,18 @@ exports.todoGroupGet = async function(req, res){
 		res.send(qiao.json.danger('缺少参数id！'));
 		return;
 	}
-	
+	if(!req.body['express_userid']){
+		res.send(qiao.json.danger('非法访问！'));
+		return;
+	}
+
 	// db
 	try{
-		var rows = await model.todoGroupGetById(req.body.id);
-		
+		var params = [];
+		params.push(req.body.id);
+		params.push(req.body['express_userid']);
+
+		var rows = await model.todoGroupGetById(params);
 		res.send(qiao.json.success('query success', {rows:rows}));
 	}catch(e){
 		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));

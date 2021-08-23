@@ -9,10 +9,7 @@ exports.sql = require('./todo-group-sql.json');
 /**
  * todo group get by id
  */
-exports.todoGroupGetById = function(id){
-	var params = [];
-	params.push(id);
-
+exports.todoGroupGetById = function(params){
 	return qiao.mysql.query(global.config.db, exports.sql.todoGroupGetById, params);
 };
 

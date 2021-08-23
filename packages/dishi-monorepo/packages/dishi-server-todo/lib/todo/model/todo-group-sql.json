@@ -1,7 +1,7 @@
 {
-	"todoGroupGetById"		: "select * from t_todo_group where id=? and del_tag='0'",
+	"todoGroupGetById"		: "select * from t_todo_group t where t.id=? and t.ucenter_user_id=? and t.del_tag='0'",
 	"todoGroupAdd"			: "insert into t_todo_group(id, ucenter_user_id, todo_group_name, todo_group_order, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
-	"todoGroupEdit"		: "update t_todo_group set ucenter_user_id=?, todo_group_name=?, todo_group_order=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
+	"todoGroupEdit"			: "update t_todo_group set ucenter_user_id=?, todo_group_name=?, todo_group_order=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
 	"todoGroupDel"			: "update t_todo_group set del_tag='1' where id in (?)",
 	"todoGroupListCount"	: "SELECT count(*) tcount FROM t_todo_group t WHERE t.del_tag='0'",
 	"todoGroupListQuery"	: "SELECT * FROM t_todo_group t WHERE t.del_tag='0'"
