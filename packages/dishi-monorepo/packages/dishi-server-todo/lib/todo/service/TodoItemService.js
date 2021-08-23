@@ -119,8 +119,11 @@ exports.todoItemGet = async function(req, res){
 	
 	// db
 	try{
-		var rows = await model.todoItemGetById(req.body.id);
-		
+		var params = [];
+		params.push(req.body.id);
+		params.push(req.body['express_userid']);
+
+		var rows = await model.todoItemGetById(params);
 		res.send(qiao.json.success('query success', {rows:rows}));
 	}catch(e){
 		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));

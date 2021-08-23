@@ -9,10 +9,7 @@ exports.sql = require('./todo-item-sql.json');
 /**
  * todo item get by id
  */
-exports.todoItemGetById = function(id){
-	var params = [];
-	params.push(id);
-
+exports.todoItemGetById = function(params){
 	return qiao.mysql.query(global.config.db, exports.sql.todoItemGetById, params);
 };
 

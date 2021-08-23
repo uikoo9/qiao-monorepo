@@ -1,8 +1,8 @@
 {
-	"todoItemGetById"		: "select * from t_todo_item where id=? and del_tag='0'",
-	"todoItemAdd"			: "insert into t_todo_item(id, ucenter_user_id, todo_group_id, todo_item_name, todo_item_order, todo_item_status, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, ?, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
+	"todoItemGetById"	: "select * from t_todo_item t where t.id=? and t.ucenter_user_id=? and t.del_tag='0'",
+	"todoItemAdd"		: "insert into t_todo_item(id, ucenter_user_id, todo_group_id, todo_item_name, todo_item_order, todo_item_status, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, ?, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
 	"todoItemEdit"		: "update t_todo_item set ucenter_user_id=?, todo_group_id=?, todo_item_name=?, todo_item_order=?, todo_item_status=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
-	"todoItemDel"			: "update t_todo_item set del_tag='1' where id in (?)",
+	"todoItemDel"		: "update t_todo_item set del_tag='1' where id in (?)",
 	"todoItemListCount"	: "SELECT count(*) tcount FROM t_todo_item t WHERE t.del_tag='0'",
 	"todoItemListQuery"	: "SELECT * FROM t_todo_item t WHERE t.del_tag='0'"
 }
