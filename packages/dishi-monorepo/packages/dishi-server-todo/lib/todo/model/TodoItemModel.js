@@ -30,9 +30,6 @@ exports.todoItemEdit = function(params){
 /**
  * todo item del
  */
-exports.todoItemDel = function(ids){
-	var params = [];
-	params.push(ids);
-	
+exports.todoItemDel = function(params){
 	return qiao.mysql.query(global.config.db, exports.sql.todoItemDel, params);
 };

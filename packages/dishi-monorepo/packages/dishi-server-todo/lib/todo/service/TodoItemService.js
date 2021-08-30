@@ -30,19 +30,12 @@ exports.todoItemRows = async function(req){
 
 	// sql and params
 	var sqlcount	= [model.sql.todoItemListCount];
-	var paramscount	= [];
+	var paramscount	= [ucenterUserId];
 
 	var sqlquery	= [model.sql.todoItemListQuery];
-	var paramsquery	= [];
+	var paramsquery	= [ucenterUserId];
 
 	// query
-	if(ucenterUserId){
-		sqlcount.push(' and t.ucenter_user_id = ?');
-		paramscount.push(ucenterUserId);
-		
-		sqlquery.push(" and t.ucenter_user_id = ?");
-		paramsquery.push(ucenterUserId);
-	}
 	if(todoGroupId){
 		sqlcount.push(' and t.todo_group_id = ?');
 		paramscount.push(todoGroupId);
@@ -182,7 +175,6 @@ exports.todoItemSave = async function(req, res){
 			var rs = await model.todoItemAdd(params);
 			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
-			params.push(express_userid);
 			params.push(todoGroupId);
 			params.push(todoItemName);
 			params.push(todoItemOrder);
@@ -191,6 +183,7 @@ exports.todoItemSave = async function(req, res){
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
 			params.push(id);
+			params.push(express_userid);
 			
 			await model.todoItemEdit(params);
 		}
@@ -217,7 +210,11 @@ exports.todoItemDel = async function(req, res){
 	
 	// db
 	try{
-		await model.todoItemDel(req.body.ids.split(','));
+		var params = [];
+		params.push(req.body['express_userid']);
+		params.push(req.body.ids.split(','));
+
+		await model.todoItemDel(params);
 		res.send(qiao.json.success('del success'));
 	}catch(e){
 		res.send(qiao.json.danger('del failed', {errName:e.name,errMsg:e.message}));
