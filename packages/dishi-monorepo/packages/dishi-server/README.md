@@ -13,6 +13,9 @@
 2. add sms 
 
 ## version
+### 0.0.6.20210830
+1. todo add userid
+
 ### 0.0.5.20210818
 1. qiao.cell.user
 2. dishi.cell.todo
