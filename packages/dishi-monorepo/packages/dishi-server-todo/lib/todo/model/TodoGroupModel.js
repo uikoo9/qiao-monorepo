@@ -30,9 +30,6 @@ exports.todoGroupEdit = function(params){
 /**
  * todo group del
  */
-exports.todoGroupDel = function(ids){
-	var params = [];
-	params.push(ids);
-	
+exports.todoGroupDel = function(params){
 	return qiao.mysql.query(global.config.db, exports.sql.todoGroupDel, params);
 };

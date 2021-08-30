@@ -139,13 +139,13 @@ exports.todoGroupSave = async function(req, res){
 			var rs = await model.todoGroupAdd(params);
 			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
-			params.push(express_userid);
 			params.push(todoGroupName);
 			params.push(todoGroupOrder);
 			
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
 			params.push(id);
+			params.push(express_userid);
 			
 			await model.todoGroupEdit(params);
 		}
@@ -172,7 +172,11 @@ exports.todoGroupDel = async function(req, res){
 	
 	// db
 	try{
-		await model.todoGroupDel(req.body.ids.split(','));
+		var params = [];
+		params.push(req.body['express_userid']);
+		params.push(req.body.ids.split(','));
+
+		await model.todoGroupDel(params);
 		res.send(qiao.json.success('del success'));
 	}catch(e){
 		res.send(qiao.json.danger('del failed', {errName:e.name,errMsg:e.message}));
