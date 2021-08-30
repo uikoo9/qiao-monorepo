@@ -15,19 +15,12 @@ exports.todoGroupList = async function(req, res){
 	
 	// sql and params
 	var sqlcount	= [model.sql.todoGroupListCount];
-	var paramscount	= [];
+	var paramscount	= [ucenterUserId];
 	
 	var sqlquery	= [model.sql.todoGroupListQuery];
-	var paramsquery	= [];
-	
+	var paramsquery	= [ucenterUserId];
+
 	// query
-	if(ucenterUserId){
-		sqlcount.push(' and t.ucenter_user_id = ?');
-		paramscount.push(ucenterUserId);
-		
-		sqlquery.push(" and t.ucenter_user_id = ?");
-		paramsquery.push(ucenterUserId);
-	}
 	if(todoGroupName){
 		sqlcount.push(' and t.todo_group_name = ?');
 		paramscount.push(todoGroupName);
