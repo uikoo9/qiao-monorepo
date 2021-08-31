@@ -36,12 +36,14 @@ require('qiao.cell.user').init(app);
 ```javascript
 var q = require('qiao.cell.user');
 
-q.ucenterUserController
-q.ucenterUserService
 q.ucenterUserModel
 ```
 
 ## version
+### 0.0.7.20210831
+1. add rbac
+2. add sql
+
 ### 0.0.6.20210823
 1. del qiao.cell.user.js
 
