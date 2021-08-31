@@ -98,3 +98,10 @@ exports.ucenterCodeDel = function(type, mobile){
 	
 	return qiao.mysql.query(global.config.db, exports.sql.ucenterCodeDel, params);
 };
+
+/**
+ * ucenter user menus
+ */
+exports.ucenterUserMenus = function(id){
+	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserMenus, [id]);
+};

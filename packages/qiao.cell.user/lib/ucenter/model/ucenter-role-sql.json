@@ -1,0 +1,8 @@
+{
+	"ucenterRoleGetById"		: "select * from t_ucenter_role where id=? and del_tag='0'",
+	"ucenterRoleAdd"			: "insert into t_ucenter_role(id, ucenter_role_name, ucenter_role_url, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
+	"ucenterRoleEdit"		: "update t_ucenter_role set ucenter_role_name=?, ucenter_role_url=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
+	"ucenterRoleDel"			: "update t_ucenter_role set del_tag='1' where id in (?)",
+	"ucenterRoleListCount"	: "SELECT count(*) tcount FROM t_ucenter_role t WHERE t.del_tag='0'",
+	"ucenterRoleListQuery"	: "SELECT * FROM t_ucenter_role t WHERE t.del_tag='0'"
+}
