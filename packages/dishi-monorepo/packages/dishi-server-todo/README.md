@@ -29,6 +29,9 @@ q.todoService
 ```
 
 ## version
+### 0.0.4.20210831
+1. add sql
+
 ### 0.0.3.20210830
 1. todo group add userid
 2. todo item add userid
