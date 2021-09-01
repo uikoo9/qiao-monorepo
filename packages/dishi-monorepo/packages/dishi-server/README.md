@@ -2,7 +2,8 @@
 
 ## init database
 1. create database db_dishi character set utf8 collate utf8_general_ci;
-2. source project path/init.sql;
+2. source server/node_modules/qiao.cell.user/_sql/*.sql;
+3. source server/node_modules/dishi.cell.todo/_sql/*.sql;
 
 ## npm install
 1. cd server
@@ -13,6 +14,9 @@
 2. add sms 
 
 ## version
+### 0.0.7.20210901
+1. qiao.cell.user update
+
 ### 0.0.6.20210830
 1. todo add userid
 
