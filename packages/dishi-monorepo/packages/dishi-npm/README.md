@@ -114,6 +114,9 @@ dishi show [6]
 ```
 
 ## version
+### 0.1.4.20210902
+1. dishi show num 8
+
 ### 0.1.3.20210615
 1. line colors
 
