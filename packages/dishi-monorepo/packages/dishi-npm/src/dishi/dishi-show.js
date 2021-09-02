@@ -13,7 +13,7 @@ var todoGroupService 	= require('../service/todo-group-service');
 var todoItemService		= require('../service/todo-item-service');
 
 // vars
-var showNum 	= 6;
+var showNum 	= 8;
 var showLines	= 29;
 var showSplit1	= '======================== ';
 var showSplit2	= '------------------------ ';
