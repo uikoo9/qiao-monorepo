@@ -606,6 +606,334 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "/ucenter/role-r-menu",
+			"item": [
+				{
+					"name": "/ucenter/role-r-menu/list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-menu/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-menu",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role-r-menu/get",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "39",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-menu/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-menu",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role-r-menu/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ucenterRoleId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ucenterMenuId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-menu/save",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-menu",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role-r-menu/del",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids",
+									"value": "39",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-menu/del",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-menu",
+								"del"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/ucenter/role-r-user",
+			"item": [
+				{
+					"name": "/ucenter/role-r-user/list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-user/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role-r-user/get",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-user/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-user",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role-r-user/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ucenterRoleId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ucenterUserId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-user/save",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-user",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role-r-user/del",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role-r-user/del",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role-r-user",
+								"del"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
