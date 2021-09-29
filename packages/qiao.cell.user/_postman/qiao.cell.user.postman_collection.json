@@ -6,189 +6,437 @@
 	},
 	"item": [
 		{
-			"name": "/ucenter/code/send",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "type",
-							"value": "reg",
-							"type": "text"
+			"name": "/ucenter/user",
+			"item": [
+				{
+					"name": "/ucenter/user/reg",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "13522857325",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "usercode",
+									"value": "463750",
+									"type": "text"
+								}
+							]
 						},
-						{
-							"key": "sign",
-							"value": "济元祥",
-							"type": "text"
-						},
-						{
-							"key": "mobile",
-							"value": "13522857325",
-							"type": "text"
+						"url": {
+							"raw": "{{host}}/ucenter/user/reg",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"user",
+								"reg"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{host}}/ucenter/code/send",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"ucenter",
-						"code",
-						"send"
-					]
+				{
+					"name": "/ucenter/user/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "18612257325",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/user/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/user/forget",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "18612257325",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "usercode",
+									"value": "419438",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/user/forget",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"user",
+								"forget"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/code/send",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "forget",
+									"type": "text"
+								},
+								{
+									"key": "sign",
+									"value": "济元祥",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "18612257325",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/code/send",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"code",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/user/get",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/user/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"user",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/user/check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userid",
+									"value": "51",
+									"type": "text"
+								},
+								{
+									"key": "usertoken",
+									"value": "jkzSWLr3yxE8VVFtBYe+jClGySaUT8AGMoc8KAGK5C8zJ1iud3LmLOQov1pT5yzE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/user/check",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"user",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/user/menus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/user/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"user",
+								"menus"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "/ucenter/user/reg",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "13522857325",
-							"type": "text"
+			"name": "/ucenter/menu",
+			"item": [
+				{
+					"name": "/ucenter/menu/list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
 						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "text"
-						},
-						{
-							"key": "usercode",
-							"value": "463750",
-							"type": "text"
+						"url": {
+							"raw": "{{host}}/ucenter/menu/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"menu",
+								"list"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{host}}/ucenter/user/reg",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"ucenter",
-						"user",
-						"reg"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/ucenter/user/login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "13522857325",
-							"type": "text"
+				{
+					"name": "/ucenter/menu/get",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "31",
+									"type": "text"
+								}
+							]
 						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "text"
+						"url": {
+							"raw": "{{host}}/ucenter/menu/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"menu",
+								"get"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{host}}/ucenter/user/login",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"ucenter",
-						"user",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/ucenter/user/check",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "userid",
-							"value": "51",
-							"type": "text"
+				{
+					"name": "/ucenter/menu/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ucenterMenuParent",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "ucenterMenuSn",
+									"value": "01",
+									"type": "text"
+								},
+								{
+									"key": "ucenterMenuTitle",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "ucenterMenuUrl",
+									"value": "/",
+									"type": "text"
+								}
+							]
 						},
-						{
-							"key": "usertoken",
-							"value": "jkzSWLr3yxE8VVFtBYe+jClGySaUT8AGMoc8KAGK5C8zJ1iud3LmLOQov1pT5yzE",
-							"type": "text"
+						"url": {
+							"raw": "{{host}}/ucenter/menu/save",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"menu",
+								"save"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{host}}/ucenter/user/check",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"ucenter",
-						"user",
-						"check"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/ucenter/user/forget",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "13522857325",
-							"type": "text"
+				{
+					"name": "/ucenter/menu/del",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids",
+									"value": "31",
+									"type": "text"
+								}
+							]
 						},
-						{
-							"key": "password",
-							"value": "123456",
-							"type": "text"
-						},
-						{
-							"key": "usercode",
-							"value": "463750",
-							"type": "text"
+						"url": {
+							"raw": "{{host}}/ucenter/menu/del",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"menu",
+								"del"
+							]
 						}
-					]
-				},
-				"url": {
-					"raw": "{{host}}/ucenter/user/forget",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"ucenter",
-						"user",
-						"forget"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
