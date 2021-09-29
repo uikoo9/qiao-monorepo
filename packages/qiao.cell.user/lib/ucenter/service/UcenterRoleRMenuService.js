@@ -144,7 +144,7 @@ exports.ucenterRoleRMenuSave = async function(req, res){
 			await model.ucenterRoleRMenuEdit(params);
 		}
 		
-		res.send(qiao.json.success('save success'), {id:id});
+		res.send(qiao.json.success('save success', {id:id}));
 	}catch(e){
 		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
 	}
