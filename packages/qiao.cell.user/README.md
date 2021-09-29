@@ -42,6 +42,10 @@ q.ucenterUserModel
 ## version
 ### 0.0.8.20210929
 1. save return id
+2. postman ucenter menu
+3. postman ucenter role
+4. postman role-r-user
+5. postman role-r-menu
 
 ### 0.0.7.20210831
 1. add rbac
