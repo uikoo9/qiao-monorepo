@@ -437,6 +437,175 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "/ucenter/role",
+			"item": [
+				{
+					"name": "/ucenter/role/list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role/get",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role/get",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ucenterRoleName",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "ucenterRoleUrl",
+									"value": "/",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role/save",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ucenter/role/del",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "usertoken",
+								"value": "V4n//Uy+zBgdDEp6OdRNRsPtimjHOiYG4XqyZKl6Z5w=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/ucenter/role/del",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ucenter",
+								"role",
+								"del"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
