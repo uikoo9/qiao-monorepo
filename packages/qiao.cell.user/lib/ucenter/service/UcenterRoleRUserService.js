@@ -134,7 +134,8 @@ exports.ucenterRoleRUserSave = async function(req, res){
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
 			
-			await model.ucenterRoleRUserAdd(params);
+			var rs = await model.ucenterRoleRUserAdd(params);
+			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
 			params.push(ucenterRoleId);
 			params.push(ucenterUserId);
@@ -146,7 +147,7 @@ exports.ucenterRoleRUserSave = async function(req, res){
 			await model.ucenterRoleRUserEdit(params);
 		}
 		
-		res.send(qiao.json.success('save success'));
+		res.send(qiao.json.success('save success'), {id:id});
 	}catch(e){
 		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
 	}

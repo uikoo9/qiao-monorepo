@@ -159,7 +159,8 @@ exports.ucenterMenuSave = async function(req, res){
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
 			
-			await model.ucenterMenuAdd(params);
+			var rs = await model.ucenterMenuAdd(params);
+			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
 			params.push(ucenterMenuParent);
 			params.push(ucenterMenuSn);
@@ -173,7 +174,7 @@ exports.ucenterMenuSave = async function(req, res){
 			await model.ucenterMenuEdit(params);
 		}
 		
-		res.send(qiao.json.success('save success'));
+		res.send(qiao.json.success('save success'), {id:id});
 	}catch(e){
 		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
 	}
