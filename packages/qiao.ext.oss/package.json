@@ -11,20 +11,18 @@
   "main": "index.js",
   "scripts": {},
   "bin": {
-    "qoss": "./bin/qoss"
+    "qoss": "./bin/qoss.js"
   },
   "dependencies": {
-    "ali-oss": "^6.10.0",
+    "ali-oss": "^6.17.1",
     "qiao.plugin.cli": "0.1.0",
-    "qiao.util.file": "^0.1.2"
+    "qiao.util.file": "^0.1.4"
   },
   "author": {
     "name": "qiaowenbin",
     "email": "npm@insistime.com",
     "url": "https://insistime.com"
   },
-  "homepage": "https://code.insistime.com/qiao.ext.oss",
-  "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/insistime/qiao.ext.oss.git"
