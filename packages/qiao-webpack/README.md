@@ -19,6 +19,7 @@ qwebpack analyzer /{yourconfigpath}/qiao.webpack.js
 ## version
 ### 0.0.6.20220415
 1. add lerna
+2. rule for react del exclude
 
 ### 0.0.5.20220414
 1. webpack error show
