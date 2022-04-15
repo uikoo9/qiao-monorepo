@@ -13,13 +13,6 @@
   "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-ajax#readme",
   "license": "MIT",
   "main": "lib/qiao-ajax.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
