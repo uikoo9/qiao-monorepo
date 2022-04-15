@@ -1,6 +1,6 @@
 {
   "name": "qiao-qrcode",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "qrcode",
   "keywords": [
     "qrcode"
@@ -25,6 +25,6 @@
     "qrcode": "^1.5.0"
   },
   "devDependencies": {
-    "qiao-webpack": "^0.1.8"
+    "qiao-webpack": "^0.1.9"
   }
 }
