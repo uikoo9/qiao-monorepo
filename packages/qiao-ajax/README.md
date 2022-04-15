@@ -30,6 +30,7 @@ test();
 ## version
 ### 0.0.5.20220415
 1. qiao-webpack
+2. lerna
 
 ### 0.0.4.20220412
 1. ncu
