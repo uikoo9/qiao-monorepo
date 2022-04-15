@@ -1,0 +1,799 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var electron = require('electron');
+var path = require('path');
+var qiaoLog = require('qiao-log');
+var qiaoConfig = require('qiao-config');
+var qiaoSqlite = require('qiao-sqlite');
+var qiao_util_json = require('qiao.util.json');
+var electron$1 = require('@sentry/electron');
+
+/**
+ * app constant
+ */
+const IPC_APP_GET_VERSION = 'ipc-app-get-version';
+
+/**
+ * appIPCInit
+ */
+const appIPCInit = (version) => {
+  // ipc get app version
+  electron.ipcMain.handle(IPC_APP_GET_VERSION, () => {
+    return version;
+  });
+};
+
+/**
+ * appGetVersionIPC
+ * @returns version
+ */
+const appGetVersionIPC = async () => {
+    return await electron.ipcRenderer.invoke(IPC_APP_GET_VERSION);
+};
+
+/**
+ * darkmode constant
+ */
+const IPC_DARKMODE_CHANGE= 'ipc-darkmode-change';
+const IPC_DARKMODE_GET   = 'ipc-darkmode-get';
+
+/**
+ * darkModeIPCInit
+ */
+const darkModeIPCInit = () => {
+  // native theme updated
+  electron.nativeTheme.on('updated', () => {
+    const wins = electron.BrowserWindow.getAllWindows();
+    for(let win of wins){
+      win.webContents.send(IPC_DARKMODE_CHANGE, electron.nativeTheme.shouldUseDarkColors);
+    }
+  });
+
+  // ipc darkmode get
+  electron.ipcMain.handle(IPC_DARKMODE_GET, () => {
+    return electron.nativeTheme.shouldUseDarkColors;
+  });
+};
+
+/**
+ * darkModeChangeIPC
+ */
+const darkModeChangeIPC = (callback) => {
+    electron.ipcRenderer.on(IPC_DARKMODE_CHANGE, (e, msg) => {
+        if(callback) callback(msg);
+    });
+};
+
+/**
+ * darkModeGetIPC
+ * @returns 
+ */
+const darkModeGetIPC = async () => {
+    return await electron.ipcRenderer.invoke(IPC_DARKMODE_GET);
+};
+
+/**
+ * dialogOpenFolder
+ *  https://www.electronjs.org/zh/docs/latest/api/dialog#dialogshowopendialogbrowserwindow-options
+ * @param {*} options 
+ * @returns 
+ */
+const dialogOpenFolder = async (options) => {
+    // opt
+    let opt = options || {};
+
+    // properties
+    opt.properties = opt.properties || ['openDirectory'];
+
+    // win
+    const win = opt.win;
+
+    // return
+    return win ? await electron.dialog.showOpenDialog(win, opt) : await electron.dialog.showOpenDialog(opt);
+};
+
+/**
+ * dialog constant
+ */
+const IPC_DIALOG_OPEN_FOLDER = 'ipc-dialog-open-folder';
+
+/**
+ * dialogIPCInit
+ */
+const dialogIPCInit = () => {
+  // ipc dialog open folder
+  electron.ipcMain.handle(IPC_DIALOG_OPEN_FOLDER, async (event, options) => {
+    return await dialogOpenFolder(options);
+  });
+};
+
+/**
+ * dialogOpenFolderIPC
+ * @param {*} options 
+ */
+const dialogOpenFolderIPC = async (options) => {
+    return await electron.ipcRenderer.invoke(IPC_DIALOG_OPEN_FOLDER, options);
+};
+
+/**
+ * logInit
+ * @returns 
+ */
+const logInit = () => {
+    const logsPath = electron.app.getPath('logs');
+    const logPath = path.resolve(logsPath, './electron.log');
+
+    return qiaoLog.getLogger(logPath);
+};
+
+/**
+ * log constant
+ */
+const IPC_LOG = 'ipc-log';
+
+/**
+ * logIPCInit
+ */
+const logIPCInit = () => {
+  // Logger
+  const Logger = logInit();
+
+  // ipc log
+  electron.ipcMain.on(IPC_LOG, (event, arg) => {
+    // check
+    if(!arg || !arg.msg) return;
+  
+    // log
+    let type = arg.type || 'info';
+    if(type == 'info')  Logger.info(arg.msg);
+    if(type == 'warn')  Logger.warn(arg.msg);
+    if(type == 'error') Logger.error(arg.msg);
+  });
+};
+
+/**
+ * logIPC
+ * @param {*} msg 
+ * @param {*} type info,warn,error
+ */
+const logIPC = (msg, type) => {
+    electron.ipcRenderer.send(IPC_LOG, {msg, type});
+};
+
+/**
+ * ls
+ * @returns 
+ */
+const ls = () => {
+    const userDataPath = electron.app.getPath('userData');
+    const configPath = path.resolve(userDataPath, './electron.config');
+    const config = qiaoConfig.c(configPath);
+
+    return config;
+};
+
+/**
+ * ls constant
+ */
+const IPC_LS_ALL = 'ipc-ls-all';
+const IPC_LS_GET = 'ipc-ls-get';
+const IPC_LS_SET = 'ipc-ls-set';
+const IPC_LS_DEL = 'ipc-ls-del';
+
+/**
+ * lsIPCInit
+ */
+const lsIPCInit = () => {
+  const _ls = ls();
+
+  // ipc ls all
+  electron.ipcMain.handle(IPC_LS_ALL, () => {
+    return _ls.all();
+  });
+  
+  // ipc ls get
+  electron.ipcMain.handle(IPC_LS_GET, (event, key) => {
+    return _ls.config(key);
+  });
+  
+  // ipc ls set
+  electron.ipcMain.handle(IPC_LS_SET, (event, args) => {
+    // check
+    if(!args || !args.key || !args.value) return;
+  
+    // set
+    _ls.config(args.key, args.value);
+  
+    // return
+    return true;
+  });
+  
+  // ipc ls del
+  electron.ipcMain.handle(IPC_LS_DEL, (event, key) => {
+    // del
+    _ls.config(key, null);
+  
+    //return
+    return true;
+  });
+};
+
+/**
+ * lsAllIPC
+ */
+const lsAllIPC = async () => {
+    return await electron.ipcRenderer.invoke(IPC_LS_ALL);
+};
+
+/**
+ * lsGetIPC
+ */
+const lsGetIPC = async (key) => {
+    return await electron.ipcRenderer.invoke(IPC_LS_GET, key);
+};
+
+/**
+ * lsSetIPC
+ */
+const lsSetIPC = async (key, value) => {
+    return await electron.ipcRenderer.invoke(IPC_LS_SET, {key, value});
+};
+
+/**
+ * lsDelIPC
+ */
+const lsDelIPC = async (key) => {
+    return await electron.ipcRenderer.invoke(IPC_LS_DEL, key);
+};
+
+/**
+ * setAboutVersion
+ * @param {*} version 
+ */
+const setAboutVersion = (version) => {
+    let v = version || '0.0.1';
+    electron.app.setAboutPanelOptions({
+        applicationVersion: v,
+        version: v
+    });
+};
+
+/**
+ * setApplicationMenu
+ * @param {*} menus 菜单数组
+ */
+const setApplicationMenu = (menus) => {
+    const defaultMenus = [
+        {
+            label: 'app',
+            submenu: [
+                {
+                    label: '关于',
+                    role: 'about'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    label: '隐藏',
+                    role: 'hide'
+                },
+                {
+                    label: '隐藏其他',
+                    role: 'hideOthers'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    label: '退出',
+                    role: 'quit'
+                }
+            ]
+        },
+        {
+            label: '编辑',
+            submenu: [
+                {
+                    label: '撤销',
+                    role: 'undo'
+                },
+                {
+                    label: '重做',
+                    role: 'redo'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    label: '剪切',
+                    role: 'cut'
+                },
+                {
+                    label: '复制',
+                    role: 'copy'
+                },
+                {
+                    label: '粘贴',
+                    role: 'paste'
+                },
+                {
+                    label: '删除',
+                    role: 'delete'
+                },
+                {
+                    label: '选中所有',
+                    role: 'selectAll'
+                }
+            ]
+        },
+        {
+            label: '窗口',
+            submenu: [
+                {
+                    label: '最小化',
+                    role: 'minimize'
+                },
+                {
+                    label: '关闭',
+                    role: 'close'
+                },
+                {
+                    label: '自动全屏',
+                    role: 'togglefullscreen'
+                }
+            ]
+        },
+        {
+            label: '调试',
+            submenu: [
+                {
+                    label: '调试',
+                    role: 'toggleDevTools'
+                }
+            ]
+        }
+    ];
+
+    // final menus
+    let finalMenus = (menus && menus.length) ? menus : defaultMenus;
+
+    // set menus
+    electron.Menu.setApplicationMenu(electron.Menu.buildFromTemplate(finalMenus));
+};
+
+/**
+ * shell constant
+ */
+const IPC_SHELL_OPEN_URL = 'ipc-shell-open-url';
+
+/**
+ * shellIPCInit
+ */
+const shellIPCInit = () => {
+  // ipc shell open url
+  electron.ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
+    if(!url) return;
+  
+    electron.shell.openExternal(url, { activate:true });
+  });
+};
+
+/**
+ * shellOpenUrlIPC
+ * @param {*} url 
+ */
+const shellOpenUrlIPC = (url) => {
+    electron.ipcRenderer.send(IPC_SHELL_OPEN_URL, url);
+};
+
+/**
+ * shellOpenURL
+ */
+const shellOpenURL = (url) => {
+  // shell open url
+  electron.shell.openExternal(url, { activate:true });
+};
+
+/**
+ * shortcutReg
+ * @param {*} shortcutKey 
+ * @param {*} shortcutCallback 
+ */
+const shortcutReg = (shortcutKey, shortcutCallback) => {
+    if(!shortcutKey || !shortcutCallback) return;
+
+    return electron.globalShortcut.register(shortcutKey, shortcutCallback);
+};
+
+/**
+ * shortcutUnReg
+ * @param {*} shortcutKey 
+ */
+ const shortcutUnReg = (shortcutKey) => {
+    if(!shortcutKey) return;
+    
+    return electron.globalShortcut.unregister(shortcutKey);
+};
+
+/**
+ * shortcut constant
+ */
+const IPC_SHORTCUT_GLOBAL = 'ipc-shortcut-global';
+
+/**
+ * shortcutGlobalIPC
+ * @returns res
+ */
+const shortcutGlobalIPC = async (shortcutKey, shortcutCallbackName) => {
+    return await electron.ipcRenderer.invoke(IPC_SHORTCUT_GLOBAL, shortcutKey, shortcutCallbackName);
+};
+
+/**
+ * shortcutInit
+ */
+const shortcutInit = () => {
+  electron.app.on('will-quit', () => {
+    electron.globalShortcut.unregisterAll();
+  });
+};
+
+const jsonSuccess = qiao_util_json.success;
+const jsonInfo = qiao_util_json.info;
+const jsonWarning = qiao_util_json.warning;
+const jsonDanger = qiao_util_json.danger;
+
+/**
+ * sqlite
+ * @returns 
+ */
+const sqlite = () => {
+    const userDataPath = electron.app.getPath('userData');
+    const dbPath = path.resolve(userDataPath, './electron.db');
+    const db = qiaoSqlite.createDb(dbPath);
+
+    return db;
+};
+
+/**
+ * dbCreateTable
+ * @param {*} sql 
+ * @returns 
+ */
+const dbCreateTable = async (sql) => {
+    // check
+    if(!sql) return jsonDanger('need create table sql');
+
+    // db
+    const db = sqlite();
+
+    // create table
+    try{
+        await qiaoSqlite.createTable(db, sql);
+        return jsonSuccess('create table success');
+    }catch(e){
+        // return jsonDanger('create table fail', e);
+        return jsonSuccess('create table success');
+    }
+};
+
+/**
+ * dbDropTable
+ * @param {*} tableName 
+ * @returns 
+ */
+ const dbDropTable = async (tableName) => {
+    // check
+    if(!tableName) return jsonDanger('need tableName');
+
+    // db
+    const db = sqlite();
+
+    // drop table
+    try{
+        await qiaoSqlite.dropTable(db, tableName);
+        return jsonSuccess('drop table success');
+    }catch(e){
+        return jsonSuccess('drop table success');
+    }
+};
+
+/**
+ * dbShowTables
+ * @returns 
+ */
+ const dbShowTables = async () => {
+    // db
+    const db = sqlite();
+
+    // show tables
+    try{
+        const rows = await qiaoSqlite.showTables(db);
+        return jsonSuccess('show table success', rows);
+    }catch(e){
+        return jsonSuccess('show table success');
+    }
+};
+
+/**
+ * dbInsertData
+ * @param {*} sql 
+ * @param {*} params 
+ * @returns 
+ */
+const dbInsertData = async (sql, params) => {
+    // check
+    if(!sql) return jsonDanger('need insert data sql');
+
+    // db
+    const db = sqlite();
+
+    // insert data
+    try{
+        await qiaoSqlite.insertData(db, sql, params);
+        return jsonSuccess('insert data success');
+    }catch(e){
+        return jsonDanger('insert data fail', e);
+    }
+};
+
+/**
+ * dbDeleteData
+ * @param {*} sql 
+ * @param {*} params 
+ * @returns 
+ */
+ const dbDeleteData = async (sql, params) => {
+    // check
+    if(!sql) return jsonDanger('need delete data sql');
+
+    // db
+    const db = sqlite();
+
+    // delete data
+    try{
+        await qiaoSqlite.deleteData(db, sql, params);
+        return jsonSuccess('delete data success');
+    }catch(e){
+        return jsonDanger('delete data fail', e);
+    }
+};
+
+/**
+ * dbModifyData
+ * @param {*} sql 
+ * @param {*} params 
+ * @returns 
+ */
+ const dbModifyData = async (sql, params) => {
+    // check
+    if(!sql) return jsonDanger('need modify data sql');
+
+    // db
+    const db = sqlite();
+
+    // modify data
+    try{
+        await qiaoSqlite.modifyData(db, sql, params);
+        return jsonSuccess('modify data success');
+    }catch(e){
+        return jsonDanger('modify data fail', e);
+    }
+};
+
+/**
+ * dbSelectData
+ * @param {*} sql 
+ * @param {*} params 
+ * @returns 
+ */
+ const dbSelectData = async (sql, params) => {
+    // check
+    if(!sql) return jsonDanger('need select data sql');
+
+    // db
+    const db = sqlite();
+
+    // select data
+    try{
+        const rows = await qiaoSqlite.selectData(db, sql, params);
+        return jsonSuccess('select data success', rows);
+    }catch(e){
+        return jsonDanger('select data fail', e);
+    }
+};
+
+/**
+ * get window options
+ * @param {*} options 
+ * @param {*} supportNode 
+ * @param {*} isDev 
+ * @returns 
+ */
+const getWindowOptions = (options, supportNode, isDev) => {
+    // opt
+    let opt = options || {};
+
+    // support node
+    if (supportNode) {
+        let webPreferences = opt.webPreferences || {};
+        webPreferences.nodeIntegration = true;
+        webPreferences.contextIsolation = false;
+
+        opt.webPreferences = webPreferences;
+    }
+
+    // is dev
+    if (isDev) {
+        let webPreferences = opt.webPreferences || {};
+        webPreferences.webSecurity = false;
+
+        opt.webPreferences = webPreferences;
+    }
+
+    // return
+    return opt;
+};
+
+/**
+ * windowOpenByFile
+ * @param {*} filePath 
+ * @param {*} options 
+ * @param {*} supportNode 
+ */
+function windowOpenByFile(filePath, options, supportNode){
+    // check
+    if(!filePath) throw new Error('need filePath params');
+
+    // opt
+    const opt = getWindowOptions(options, supportNode);
+
+    // win
+    const win = new electron.BrowserWindow(opt);
+
+    // show false
+    if(opt.show === false){
+        win.once('ready-to-show', function(){
+            win.show();
+        });
+    }
+
+    // load file
+    win.loadFile(filePath);
+
+    // return
+    return win;
+}
+
+/**
+ * windowOpenByUrl
+ * @param {*} url 
+ * @param {*} options 
+ * @param {*} supportNode 
+ * @param {*} isDev 
+ */
+function windowOpenByUrl(url, options, supportNode, isDev){
+    // check
+    if(!url) throw new Error('need url params');
+
+    // opt
+    const opt = getWindowOptions(options, supportNode, isDev);
+
+    // win
+    const win = new electron.BrowserWindow(opt);
+    if(isDev) win.webContents.openDevTools();
+
+    // load url
+    win.loadURL(url);
+
+    // return
+    return win;
+}
+
+/**
+ * windowOpenByUrlAndFile
+ * @param {*} urlPath 
+ * @param {*} filePath 
+ * @param {*} options 
+ * @returns 
+ */
+function windowOpenByUrlAndFile(urlPath, filePath, options){
+    // opt
+    let opt = options || {};
+
+    // dev
+    const env = (process.argv && process.argv.length > 2) ? process.argv[2] : null;
+    if(env == 'dev') return windowOpenByUrl(urlPath, opt, false, true);
+    
+    // file
+    opt.show =false;
+    return windowOpenByFile(filePath, opt);
+}
+
+/**
+ * window constant
+ */
+const IPC_WINDOW_RESIZE_TO = 'ipc-window-resize-to';
+
+/**
+ * windowIPCInit
+ */
+const windowIPCInit = () => {
+  // ipc window resize to
+  electron.ipcMain.on(IPC_WINDOW_RESIZE_TO, (event, width, height) => {
+    if(!event || !event.sender || !width || !height) return;
+
+    const win = electron.BrowserWindow.fromWebContents(event.sender);
+    win.setSize(width, height);
+  });
+};
+
+/**
+ * windowResizeIPC
+ * @param {*} width 
+ * @param {*} height 
+ */
+const windowResizeIPC = (width, height) => {
+    electron.ipcRenderer.send(IPC_WINDOW_RESIZE_TO, width, height);
+};
+
+// sentry
+
+/**
+ * sentry init
+ * @param {*} options 
+ */
+const sentryInit = (options) => {
+  // check
+  if(!options || !options.dsn) return;
+
+  // init
+  electron$1.init(options);
+};
+
+exports.appGetVersionIPC = appGetVersionIPC;
+exports.appIPCInit = appIPCInit;
+exports.darkModeChangeIPC = darkModeChangeIPC;
+exports.darkModeGetIPC = darkModeGetIPC;
+exports.darkModeIPCInit = darkModeIPCInit;
+exports.dbCreateTable = dbCreateTable;
+exports.dbDeleteData = dbDeleteData;
+exports.dbDropTable = dbDropTable;
+exports.dbInsertData = dbInsertData;
+exports.dbModifyData = dbModifyData;
+exports.dbSelectData = dbSelectData;
+exports.dbShowTables = dbShowTables;
+exports.dialogIPCInit = dialogIPCInit;
+exports.dialogOpenFolder = dialogOpenFolder;
+exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
+exports.jsonDanger = jsonDanger;
+exports.jsonInfo = jsonInfo;
+exports.jsonSuccess = jsonSuccess;
+exports.jsonWarning = jsonWarning;
+exports.logIPC = logIPC;
+exports.logIPCInit = logIPCInit;
+exports.logInit = logInit;
+exports.ls = ls;
+exports.lsAllIPC = lsAllIPC;
+exports.lsDelIPC = lsDelIPC;
+exports.lsGetIPC = lsGetIPC;
+exports.lsIPCInit = lsIPCInit;
+exports.lsSetIPC = lsSetIPC;
+exports.sentryInit = sentryInit;
+exports.setAboutVersion = setAboutVersion;
+exports.setApplicationMenu = setApplicationMenu;
+exports.shellIPCInit = shellIPCInit;
+exports.shellOpenURL = shellOpenURL;
+exports.shellOpenUrlIPC = shellOpenUrlIPC;
+exports.shortcutGlobalIPC = shortcutGlobalIPC;
+exports.shortcutInit = shortcutInit;
+exports.shortcutReg = shortcutReg;
+exports.shortcutUnReg = shortcutUnReg;
+exports.sqlite = sqlite;
+exports.windowIPCInit = windowIPCInit;
+exports.windowOpenByFile = windowOpenByFile;
+exports.windowOpenByUrl = windowOpenByUrl;
+exports.windowOpenByUrlAndFile = windowOpenByUrlAndFile;
+exports.windowResizeIPC = windowResizeIPC;
