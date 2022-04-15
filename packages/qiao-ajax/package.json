@@ -10,7 +10,7 @@
     "request"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/qiao-monorepo#readme",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-ajax#readme",
   "license": "MIT",
   "main": "lib/qiao-ajax.js",
   "directories": {
