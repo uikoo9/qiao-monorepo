@@ -13,7 +13,7 @@ module.exports = [
     title   : 'delete',
     chunks  : ['delete'],
     filename: 'delete.html',
-    template: path.resolve(__dirname, '../test/delete.html')
+    template: path.resolve(__dirname, '../__tests__/delete.html')
     
   },
   {
@@ -22,7 +22,7 @@ module.exports = [
     title   : 'get',
     chunks  : ['get'],
     filename: 'get.html',
-    template: path.resolve(__dirname, '../test/get.html')
+    template: path.resolve(__dirname, '../__tests__/get.html')
   },
   {
     type    : 'html',
@@ -30,7 +30,7 @@ module.exports = [
     title   : 'head',
     chunks  : ['head'],
     filename: 'head.html',
-    template: path.resolve(__dirname, '../test/head.html')
+    template: path.resolve(__dirname, '../__tests__/head.html')
   },
   {
     type    : 'html',
@@ -38,7 +38,7 @@ module.exports = [
     title   : 'options',
     chunks  : ['options'],
     filename: 'options.html',
-    template: path.resolve(__dirname, '../test/options.html')
+    template: path.resolve(__dirname, '../__tests__/options.html')
   },
   {
     type    : 'html',
@@ -46,7 +46,7 @@ module.exports = [
     title   : 'patch',
     chunks  : ['patch'],
     filename: 'patch.html',
-    template: path.resolve(__dirname, '../test/patch.html')
+    template: path.resolve(__dirname, '../__tests__/patch.html')
   },
   {
     type    : 'html',
@@ -54,7 +54,7 @@ module.exports = [
     title   : 'post',
     chunks  : ['post'],
     filename: 'post.html',
-    template: path.resolve(__dirname, '../test/post.html')
+    template: path.resolve(__dirname, '../__tests__/post.html')
   },
   {
     type    : 'html',
@@ -62,6 +62,6 @@ module.exports = [
     title   : 'put',
     chunks  : ['put'],
     filename: 'put.html',
-    template: path.resolve(__dirname, '../test/put.html')
+    template: path.resolve(__dirname, '../__tests__/put.html')
   },
 ];
