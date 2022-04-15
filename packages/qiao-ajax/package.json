@@ -25,7 +25,9 @@
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "dev": "qwebpack dev ./webpack/qiao.webpack.js",
+    "build": "qwebpack build ./webpack/qiao.webpack.js",
+    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
   },
   "bugs": {
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
