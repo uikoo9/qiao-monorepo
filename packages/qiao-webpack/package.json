@@ -1,6 +1,6 @@
 {
   "name": "qiao-webpack",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "webpack tools",
   "keywords": [
     "webpack",
@@ -26,7 +26,7 @@
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
-    "qiao-cli": "^0.1.2",
+    "qiao-cli": "^0.1.3",
     "sass": "^1.50.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
