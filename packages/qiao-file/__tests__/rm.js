@@ -4,7 +4,7 @@ var q = require('../index.js');
 
 var test = function(){
 	var folderPath 	= './test copy/';
-	var filePath	= './qiao.util.file copy.js'
+	var filePath	= './qiao-file copy.js'
 
 	// rm folder
 	q.rm(folderPath);

@@ -1,10 +1,10 @@
-# qiao.util.file
+# qiao-file
 ## api
 ### extname
 ```javascript
 'use strict';
 
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 var test = function(){
 	var filePath 	= 'd:/test1/test2/test.js';
@@ -20,7 +20,7 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 var test = function(){
 	var fpath 	= 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
@@ -36,7 +36,7 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 var test = function(){
 	var foldersAndFiles = q.lsdir('z:/workspaces/qiao.plugin.coder/');
@@ -50,7 +50,7 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 var test = function(){
 	var folder = 'd:/test1/test2/test3/test.js';
@@ -65,7 +65,7 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 var test = function(){
 	var folderPath 	= 'd:/test1/';
@@ -85,11 +85,11 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 var test = function(){
 	var folderPath 	= './test/';
-	var filePath	= './qiao.util.file.js'
+	var filePath	= './qiao-file.js'
 
 	// cp folder
 	q.cp(folderPath, './test1');
