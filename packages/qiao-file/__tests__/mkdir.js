@@ -1,11 +1,11 @@
 'use strict';
 
-var qiaoUtilFile = require('../qiao.util.file.js');
+var q = require('../index.js');
 
 var test = function(){
 	var folder = './test1/test2/test3/test.js';
 	
-	qiaoUtilFile.mkdir(folder);
+	q.mkdir(folder);
 };
 
 test();

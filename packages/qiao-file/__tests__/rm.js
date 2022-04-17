@@ -1,16 +1,16 @@
 'use strict';
 
-var qiaoUtilFile = require('../qiao.util.file.js');
+var q = require('../index.js');
 
 var test = function(){
 	var folderPath 	= './test copy/';
 	var filePath	= './qiao.util.file copy.js'
 
 	// rm folder
-	qiaoUtilFile.rm(folderPath);
+	q.rm(folderPath);
 		
 	// rm file
-	qiaoUtilFile.rm(filePath);
+	q.rm(filePath);
 };
 
 test();

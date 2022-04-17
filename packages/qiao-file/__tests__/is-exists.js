@@ -1,10 +1,10 @@
 'use strict';
 
-var qiaoUtilFile = require('../qiao.util.file.js');
+var q = require('../index.js');
 
 var test = function(){
 	var fpath 	= 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
-	var s		= qiaoUtilFile.isExists(fpath);
+	var s		= q.isExists(fpath);
 	
 	console.log(s);
 };
