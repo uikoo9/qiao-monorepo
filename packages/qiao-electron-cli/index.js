@@ -18,4 +18,4 @@ exports.packDmg = require('./lib/pack-dmg.js');
  /**
  * upload dmg
  */
-exports.uploadDmg = require('.lib/upload-dmg.js');
+exports.uploadDmg = require('./lib/upload-dmg.js');
