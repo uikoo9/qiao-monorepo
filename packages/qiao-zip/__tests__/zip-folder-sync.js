@@ -4,8 +4,8 @@ var qiaoPluginZip = require('../lib/qiao-zip.js');
 
 var test = async function(){
 	try{
-		var sourceFolder= 'd:/test/';
-		var destZip		= 'd:/test04.zip';
+		var sourceFolder	= '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip';
+		var destZip			= './2.zip';
 
 		console.log('zip folder ' + sourceFolder);
 		console.log('in ' + destZip);
