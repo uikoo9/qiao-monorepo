@@ -195,6 +195,9 @@ test();
 ```
 
 ## version
+### 0.0.4.20220417
+1. add lerna
+
 ### 0.0.3.20220408
 1. modify data
 2. show tables
