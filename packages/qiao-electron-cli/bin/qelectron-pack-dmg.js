@@ -5,7 +5,7 @@ var path = require('path');
 
 // qiao
 var qiao = {};
-qiao.cli = require('qiao.plugin.cli');
+qiao.cli = require('qiao-cli');
 qiao.qec = require('../index.js');
 
 // cmd for packdmg

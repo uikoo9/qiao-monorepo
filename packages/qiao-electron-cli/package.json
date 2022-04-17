@@ -26,6 +26,6 @@
     "electron-packager": "^15.4.0",
     "qiao-file": "^0.1.6",
     "qiao.ext.cos": "^0.1.5",
-    "qiao.plugin.cli": "0.1.0"
+    "qiao-cli": "0.1.2"
   }
 }

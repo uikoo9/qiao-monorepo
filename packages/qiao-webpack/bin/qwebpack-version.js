@@ -2,7 +2,7 @@
 
 // qiao
 var qiao = {};
-qiao.cli = require('qiao.plugin.cli');
+qiao.cli = require('qiao-cli');
 
 // cmd for common
 qiao.cli.cmd
