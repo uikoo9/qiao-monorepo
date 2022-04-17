@@ -9,7 +9,7 @@
   "author": "uikoo9 <uikoo9@qq.com>",
   "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-webpack#readme",
   "license": "MIT",
-  "main": "lib/qiao-webpack.js",
+  "main": "index.js",
   "bin": {
     "qwebpack": "bin/qwebpack.js"
   },
