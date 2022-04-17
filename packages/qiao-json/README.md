@@ -1,13 +1,13 @@
-# qiao.util.json
+# qiao-json
 
 ## api
 ### json
 ```javascript
 'use strict';
 
-var qiaoUtilJson = require('qiao.util.json');
+var q = require('qiao-json');
 
-var json = qiaoUtilJson.json('success', 'test', {});
+var json = q.json('success', 'test', {});
 console.log(json);
 ```
 
@@ -15,9 +15,9 @@ console.log(json);
 ```javascript
 'use strict';
 
-var qiaoUtilJson = require('qiao.util.json');
+var q = require('qiao-json');
 
-var success = qiaoUtilJson.success('test', {});
+var success = q.success('test', {});
 console.log(success);
 ```
 
@@ -25,9 +25,9 @@ console.log(success);
 ```javascript
 'use strict';
 
-var qiaoUtilJson = require('qiao.util.json');
+var q = require('qiao-json');
 
-var info = qiaoUtilJson.info('test', {});
+var info = q.info('test', {});
 console.log(info);
 ```
 
@@ -35,9 +35,9 @@ console.log(info);
 ```javascript
 'use strict';
 
-var qiaoUtilJson = require('qiao.util.json');
+var q = require('qiao-json');
 
-var warning = qiaoUtilJson.warning('test', {});
+var warning = q.warning('test', {});
 console.log(warning);
 ```
 
@@ -45,9 +45,9 @@ console.log(warning);
 ```javascript
 'use strict';
 
-var qiaoUtilJson = require('qiao.util.json');
+var q = require('qiao-json');
 
-var danger = qiaoUtilJson.danger('test', {});
+var danger = q.danger('test', {});
 console.log(danger);
 ```
 
