@@ -1,6 +1,6 @@
 'use strict';
 
-var q = require('../lib/qiao-zip.js');
+var q = require('../index.js');
 
 var test = function(){
 	var sourceFolder	= '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip';

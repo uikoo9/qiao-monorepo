@@ -1,7 +1,7 @@
 'use strict';
 
 // q
-var q = require('../lib/qiao-qrcode.js');
+var q = require('../index.js');
 
 // url
 var url = 'https://baidu.com/';
