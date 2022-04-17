@@ -1,6 +1,6 @@
 {
   "name": "qiao-zip",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "nodejs zip and unzip tool",
   "keywords": [
     "zip",
@@ -16,8 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "bugs": {
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
