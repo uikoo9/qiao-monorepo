@@ -1,0 +1,18 @@
+{
+  "name": "qiao-json",
+  "version": "0.0.5",
+  "description": "nodejs json data",
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  }
+}
