@@ -1,6 +1,6 @@
 {
   "name": "qiao-electron",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "description": "electron tools",
   "keywords": [
     "electron",
@@ -24,9 +24,9 @@
   "dependencies": {
     "@sentry/electron": "^3.0.7",
     "qiao-config": "^0.0.6",
+    "qiao-json": "^0.0.7",
     "qiao-log": "^0.0.1",
-    "qiao-sqlite": "^0.1.4",
-    "qiao-json": "^0.0.7"
+    "qiao-sqlite": "^0.1.5"
   },
   "devDependencies": {
     "rollup": "^2.70.2"
