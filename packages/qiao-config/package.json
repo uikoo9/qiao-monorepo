@@ -1,6 +1,6 @@
 {
   "name": "qiao-config",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "json config to local file",
   "keywords": [
     "json",
@@ -17,8 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "bugs": {
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
