@@ -6,7 +6,7 @@ var path = require('path');
 // qiao
 var qiao = {};
 qiao.cli = require('qiao.plugin.cli');
-qiao.qec = require('../lib/qiao-electron-cli.js');
+qiao.qec = require('../index.js');
 
 // cmd for uploadDmg
 qiao.cli.cmd
