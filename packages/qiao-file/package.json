@@ -3,7 +3,7 @@
   "version": "0.1.5",
   "description": "nodejs file tool",
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/qiao-monorepo#readme",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-file#readme",
   "license": "MIT",
   "main": "index.js",
   "repository": {
