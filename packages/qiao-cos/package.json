@@ -1,6 +1,6 @@
 {
   "name": "qiao-cos",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "tencent cos upload tool on nodejs",
   "keywords": [
     "tencent",
@@ -17,8 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "bin": {
     "qcos": "./bin/qcos.js"
   },
