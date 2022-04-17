@@ -52,6 +52,9 @@ console.log(danger);
 ```
 
 ## version
+### 0.0.6.20220417
+1. add lerna
+
 ### 0.0.5.20220407
 1. md
 
