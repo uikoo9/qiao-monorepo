@@ -5,7 +5,7 @@
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao.plugin.zip');
+var qiaoPluginZip = require('qiao-zip');
 
 var test = function(){
 	var zipFile 	= 'd:/test1.zip';
@@ -21,7 +21,7 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao.plugin.zip');
+var qiaoPluginZip = require('qiao-zip');
 
 var test = async function(){
 	var sourceFile	= 'd:/test.js';
@@ -42,7 +42,7 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao.plugin.zip');
+var qiaoPluginZip = require('qiao-zip');
 
 var test = async function(){
 	var sourceFolder	= 'd:/test/';
@@ -63,7 +63,7 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao.plugin.zip');
+var qiaoPluginZip = require('qiao-zip');
 
 var test = function(){
 	var sourceFile	= 'd:/test.js';
@@ -83,7 +83,7 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao.plugin.zip');
+var qiaoPluginZip = require('qiao-zip');
 
 var test = function(){
 	var sourceFolder	= 'd:/test/';

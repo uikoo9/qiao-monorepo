@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginZip = require('../lib/qiao.plugin.zip.js');
+var qiaoPluginZip = require('../lib/qiao-zip.js');
 
 var test = function(){
 	var sourceFile	= 'd:/test.js';
