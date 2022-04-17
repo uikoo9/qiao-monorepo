@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginZip = require('../lib/qiao-zip.js');
+var q = require('../lib/qiao-zip.js');
 
 var test = function(){
 	var sourceFolder	= '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip';
@@ -13,7 +13,7 @@ var test = function(){
 	console.log('please wait a moment...');
 	console.log();
 	
-	qiaoPluginZip.zipFolder(sourceFolder, destZip, function(err, msg){
+	q.zipFolder(sourceFolder, destZip, function(err, msg){
 		if(err) throw err;
 		console.log(msg);
 	});

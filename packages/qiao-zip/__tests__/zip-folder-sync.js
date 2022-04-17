@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginZip = require('../lib/qiao-zip.js');
+var q = require('../lib/qiao-zip.js');
 
 var test = async function(){
 	try{
@@ -14,7 +14,7 @@ var test = async function(){
 		console.log('please wait a moment...');
 		console.log();
 		
-		var msg = await qiaoPluginZip.zipFolderSync(sourceFolder, destZip);
+		var msg = await q.zipFolderSync(sourceFolder, destZip);
 		console.log(msg);
 	}catch(e){
 		console.log(e);

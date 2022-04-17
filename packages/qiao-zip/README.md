@@ -5,13 +5,13 @@
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao-zip');
+var q = require('qiao-zip');
 
 var test = function(){
 	var zipFile 	= 'd:/test1.zip';
 	var destFolder	= 'd:/test2/';
 	
-	qiaoPluginZip.unzip(zipFile, destFolder);
+	q.unzip(zipFile, destFolder);
 };
 
 test();
@@ -21,14 +21,14 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao-zip');
+var q = require('qiao-zip');
 
 var test = async function(){
 	var sourceFile	= 'd:/test.js';
 	var destZip	= 'd:/test22.zip';
 	
 	try{
-		var msg = await qiaoPluginZip.zipFileSync(sourceFile, destZip);
+		var msg = await q.zipFileSync(sourceFile, destZip);
 		console.log(msg);
 	}catch(e){
 		console.log(e);
@@ -42,14 +42,14 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao-zip');
+var q = require('qiao-zip');
 
 var test = async function(){
 	var sourceFolder	= 'd:/test/';
 	var destZip		= 'd:/test24.zip';
 	
 	try{
-		var msg = await qiaoPluginZip.zipFolderSync(sourceFolder, destZip);
+		var msg = await q.zipFolderSync(sourceFolder, destZip);
 		console.log(msg);
 	}catch(e){
 		console.log(e);
@@ -63,13 +63,13 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao-zip');
+var q = require('qiao-zip');
 
 var test = function(){
 	var sourceFile	= 'd:/test.js';
 	var destZip	= 'd:/test22.zip';
 	
-	qiaoPluginZip.zipFile(sourceFile, destZip, function(err, msg){
+	q.zipFile(sourceFile, destZip, function(err, msg){
 		if(err) throw err;
 		
 		console.log(msg);
@@ -83,13 +83,13 @@ test();
 ```javascript
 'use strict';
 
-var qiaoPluginZip = require('qiao-zip');
+var q = require('qiao-zip');
 
 var test = function(){
 	var sourceFolder	= 'd:/test/';
 	var destZip		= 'd:/test23.zip';
 	
-	qiaoPluginZip.zipFolder(sourceFolder, destZip, function(err, msg){
+	q.zipFolder(sourceFolder, destZip, function(err, msg){
 		if(err) throw err;
 		
 		console.log(msg);
