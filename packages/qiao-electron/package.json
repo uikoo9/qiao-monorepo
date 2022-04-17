@@ -22,13 +22,13 @@
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "dependencies": {
-    "@sentry/electron": "^3.0.6",
+    "@sentry/electron": "^3.0.7",
     "qiao-config": "^0.0.6",
     "qiao-log": "^0.0.1",
     "qiao-sqlite": "^0.1.4",
-    "qiao.util.json": "^0.0.5"
+    "qiao-json": "^0.0.7"
   },
   "devDependencies": {
-    "rollup": "^2.70.1"
+    "rollup": "^2.70.2"
   }
 }
