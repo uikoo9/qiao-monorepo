@@ -9,7 +9,7 @@ var iconv	= require('iconv-lite');
 
 // qiao
 var qiao = {};
-qiao.file = require('qiao.util.file');
+qiao.file = require('qiao-file');
 
 /**
  * unzip

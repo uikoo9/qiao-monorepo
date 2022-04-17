@@ -4,7 +4,7 @@
 var path = require('path');
 
 // q
-var q = require('qiao.util.file');
+var q = require('qiao-file');
 
 /**
  * dist
