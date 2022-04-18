@@ -6,7 +6,7 @@ import {
     info,
     warning,
     danger,
-} from 'qiao.util.json';
+} from 'qiao-json';
 
 export const jsonSuccess = success;
 export const jsonInfo = info;
