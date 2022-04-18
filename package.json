@@ -3,10 +3,10 @@
   "private": true,
   "scripts": {
     "init": "lerna bootstrap",
+    "check": "mncu run ./packages",
     "clean": "lerna clean -y",
     "ls": "lerna ls -l",
-    "show": "lerna ls --graph",
-    "ncu": "mnuc ./packages"
+    "show": "lerna ls --graph"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
