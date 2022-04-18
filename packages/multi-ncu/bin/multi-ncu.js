@@ -11,7 +11,7 @@ var pkg = require('../package.json');
 
 // multi-ncu
 var mncu = require('../lib/multi-ncu.js');
--
+
 // cmd for version
 qiao.cli.cmd
     .version(pkg.version, '-v, --version')
