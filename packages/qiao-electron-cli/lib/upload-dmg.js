@@ -1,7 +1,7 @@
 'use strict';
 
 // q
-var q = require('qiao.ext.cos');
+var q = require('qiao-cos');
 
 /**
  * upload dmg

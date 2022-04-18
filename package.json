@@ -5,7 +5,8 @@
     "init": "lerna bootstrap",
     "clean": "lerna clean -y",
     "ls": "lerna ls -l",
-    "show": "lerna ls --graph"
+    "show": "lerna ls --graph",
+    "ncu": "mnuc ./packages"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
