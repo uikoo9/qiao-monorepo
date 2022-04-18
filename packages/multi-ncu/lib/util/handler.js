@@ -10,6 +10,7 @@ q.process = require('qiao.util.process');
 
 // line
 var line = 2;
+var count = 0;
 
 /**
  * mult ncu
@@ -42,9 +43,6 @@ async function handlerFolder(folderName){
 	fs.lsdir(dir);
 	if(!fs.subFolders || !fs.subFolders.length) return 'empty folder';
 
-	// console time
-	console.time('multi ncu');
-
 	// ncu
 	var subFolders = fs.subFolders;
 	for(var i=0; i<subFolders.length; i++){
@@ -63,12 +61,11 @@ function handlerIt(item, i, l){
 	q.process.fork(jsPath, args, function(msg){
 		q.console.writeLine(line + i, msg);
 	}, function(){
-		if(++i == l){
+		count++;
+
+		if(count == l){
 			q.console.writeLine(line + l, '');
 			q.console.writeLine(line + l + 1, 'multi update npm packages end');
-
-			// console time end
-			console.timeEnd('multi ncu');
 		}
 	});
 }
