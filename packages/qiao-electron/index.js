@@ -7,7 +7,7 @@ var path = require('path');
 var qiaoLog = require('qiao-log');
 var qiaoConfig = require('qiao-config');
 var qiaoSqlite = require('qiao-sqlite');
-var qiao_util_json = require('qiao.util.json');
+var qiaoJson = require('qiao-json');
 var electron$1 = require('@sentry/electron');
 
 /**
@@ -440,10 +440,10 @@ const shortcutInit = () => {
   });
 };
 
-const jsonSuccess = qiao_util_json.success;
-const jsonInfo = qiao_util_json.info;
-const jsonWarning = qiao_util_json.warning;
-const jsonDanger = qiao_util_json.danger;
+const jsonSuccess = qiaoJson.success;
+const jsonInfo = qiaoJson.info;
+const jsonWarning = qiaoJson.warning;
+const jsonDanger = qiaoJson.danger;
 
 /**
  * sqlite
