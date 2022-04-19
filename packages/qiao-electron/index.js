@@ -88,7 +88,8 @@ const dialogIPCInit = () => {
 /**
  * fs constant
  */
-const IPC_FS_GET_TREE = 'ipc-fs-get-tree';
+const IPC_FS_GET_TREE    = 'ipc-fs-get-tree';
+const IPC_FS_READ_FILE   = 'ipc-fs-read-file';
 
 /**
  * fsIPCInit
@@ -99,6 +100,13 @@ const fsIPCInit = () => {
     if(!dir) return;
 
     return qiaoFile.lstree(dir, ignore);
+  });
+
+  // ipc ls read file
+  electron.ipcMain.handle(IPC_FS_READ_FILE, (event, filePath) => {
+    if(!filePath) return;
+
+    return qiaoFile.readFile(filePath);
   });
 };
 
@@ -296,6 +304,13 @@ const dialogOpenFolderIPC = async (options) => {
  */
 const fsGetTreeIPC = async (dir, ignore) => {
     return await electron.ipcRenderer.invoke(IPC_FS_GET_TREE, dir, ignore);
+};
+
+/**
+ * fsReadFileIPC
+ */
+ const fsReadFileIPC = async (filePath) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_READ_FILE, filePath);
 };
 
 /**
@@ -809,6 +824,7 @@ exports.dbShowTables = dbShowTables;
 exports.dialogOpenFolder = dialogOpenFolder;
 exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
 exports.fsGetTreeIPC = fsGetTreeIPC;
+exports.fsReadFileIPC = fsReadFileIPC;
 exports.ipcInit = ipcInit;
 exports.jsonDanger = jsonDanger;
 exports.jsonInfo = jsonInfo;
