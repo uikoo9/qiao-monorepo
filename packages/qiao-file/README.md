@@ -46,6 +46,21 @@ var test = function(){
 test();
 ```
 
+### lstree
+```javascript
+'use strict';
+
+var q = require('qiao-file');
+
+var test = function(){
+	var fileTree = q.lstree('./', 'node_modules');
+	console.log(fileTree);
+	console.log(JSON.stringify(fileTree));
+};
+
+test();
+```
+
 ### mkdir
 ```javascript
 'use strict';
@@ -102,6 +117,10 @@ test();
 ```
 
 ## version
+### 0.1.2.20220419
+1. es6
+2. add lstree
+
 ### 0.1.1.20220417
 1. add lerna
 
