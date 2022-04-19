@@ -9,6 +9,9 @@ export * from './darkmode/darkmode.js';
 // dialog
 export * from './dialog/dialog.js';
 
+// fs
+export * from './fs/fs.js';
+
 // log
 export * from './log/log.js';
 
