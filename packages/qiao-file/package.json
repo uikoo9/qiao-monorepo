@@ -10,8 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "prepublish": "npm run build",
+    "test": "node "
+  },
   "bugs": {
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  },
+  "devDependencies": {
+    "rollup": "^2.70.2"
   }
 }

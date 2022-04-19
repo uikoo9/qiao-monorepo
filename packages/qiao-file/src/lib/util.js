@@ -1,13 +1,13 @@
 'use strict';
 
 // fs
-var fs = require('fs');
+import fs from 'fs';
 
 // path
-var path = require('path');
+import path from 'path';
 
 // is exists
-var isExists = require('./is-exists.js');
+import { isExists } from './is.js';
 
 /**
  * get folders and files
@@ -15,16 +15,16 @@ var isExists = require('./is-exists.js');
  * @param {*} folders 
  * @param {*} files 
  */
-exports.getFoldersAndFiles = function(fpath, folders, files){
+export const getFoldersAndFiles = (fpath, folders, files) => {
 	fs.readdirSync(fpath).forEach(function(name){
-		var stat = fs.statSync(fpath + name);
+		const stat = fs.statSync(fpath + name);
 		if(stat.isDirectory()){
 			folders.push({
 				path : fpath,
 				name : name
 			});
 			
-			exports.getFoldersAndFiles(fpath + name + '/', folders, files);
+			getFoldersAndFiles(fpath + name + '/', folders, files);
 		}else{
 			files.push({
 				path : fpath,
@@ -39,11 +39,11 @@ exports.getFoldersAndFiles = function(fpath, folders, files){
  * @param {*} dir 
  * @param {*} list 
  */
-exports.checkDir = function(dir, list){
-	var pdir = path.dirname(dir);
+export const checkDir = (dir, list) => {
+	const pdir = path.dirname(dir);
 	
 	if(!isExists(pdir)){
 		list.push(pdir);
-		exports.checkDir(pdir, list);
+		checkDir(pdir, list);
 	}
 };

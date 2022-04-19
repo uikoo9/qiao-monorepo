@@ -3,8 +3,8 @@
 var q = require('../index.js');
 
 var test = function(){
-	var folderPath 	= './test copy/';
-	var filePath	= './qiao-file copy.js'
+	var folderPath 	= './__tests__ copy/';
+	var filePath	= './index copy.js'
 
 	// rm folder
 	q.rm(folderPath);

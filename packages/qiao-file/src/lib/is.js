@@ -1,13 +1,13 @@
 'use strict';
 
 // fs
-var fs = require('fs');
+import fs from 'fs';
 
 /**
  * isExists
  * 	fpath : file or folder path
  */
-module.exports = function(fpath){
+export const isExists = (fpath) => {
     try{
         fs.accessSync(fpath);
         

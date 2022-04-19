@@ -1,20 +1,35 @@
 'use strict';
 
 // fs
-var fs = require('fs');
+import fs from 'fs';
 
 // util
-var util = require('./util.js');
+import { checkDir, getFoldersAndFiles } from './util.js';
+
+/**
+* ls dir
+* 	dir : must end with /
+*/
+export const lsdir = (dir) => {
+    let folders = [];
+    let files	= [];
+    getFoldersAndFiles(dir, folders, files);
+    
+    return {
+        folders : folders,
+        files	: files
+    };
+};
 
 /**
 * mk dir
 * 	dir : must end with /
 */
-module.exports = function(dir){
+export const mkdir = (dir) => {
     try{
         // check dir
         var dirs = [];
-        util.checkDir(dir, dirs);
+        checkDir(dir, dirs);
         
         // check dirs
         if(!dirs.length) return false;
