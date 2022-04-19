@@ -209,6 +209,22 @@ const extname = (filePath) => {
     return path.extname(filePath.toLowerCase());
 };
 
+/**
+ * readFile
+ * @param {*} filePath 
+ * @param {*} options https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsreadfilesyncpath-options
+ */
+const readFile = (filePath, options) => {
+    // check
+    if(!filePath) return;
+
+    // opt
+    const opt = {encoding:'utf8'};
+    options = options || opt;
+
+    return fs.readFileSync(filePath, options);
+};
+
 exports.fs = fs;
 exports.path = path;
 exports.cp = cp;
@@ -217,4 +233,5 @@ exports.isExists = isExists;
 exports.lsdir = lsdir;
 exports.lstree = lstree;
 exports.mkdir = mkdir;
+exports.readFile = readFile;
 exports.rm = rm;
