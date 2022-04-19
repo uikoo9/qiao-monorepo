@@ -1,7 +1,7 @@
 'use strict';
 
 // about version
-export * from './about-version.js';
+export * from './menu-main/about-version.js';
 
 // app menu
-export * from './app-menu.js';
+export * from './menu-main/app-menu.js';

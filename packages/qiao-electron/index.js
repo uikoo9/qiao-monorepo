@@ -7,9 +7,9 @@ var qiaoFile = require('qiao-file');
 var path = require('path');
 var qiaoLog = require('qiao-log');
 var qiaoConfig = require('qiao-config');
+var electron$1 = require('@sentry/electron');
 var qiaoSqlite = require('qiao-sqlite');
 var qiaoJson = require('qiao-json');
-var electron$1 = require('@sentry/electron');
 
 /**
  * app constant
@@ -24,14 +24,6 @@ const appIPCInit = (version) => {
   electron.ipcMain.handle(IPC_APP_GET_VERSION, () => {
     return version;
   });
-};
-
-/**
- * appGetVersionIPC
- * @returns version
- */
-const appGetVersionIPC = async () => {
-    return await electron.ipcRenderer.invoke(IPC_APP_GET_VERSION);
 };
 
 /**
@@ -59,21 +51,9 @@ const darkModeIPCInit = () => {
 };
 
 /**
- * darkModeChangeIPC
+ * dialog constant
  */
-const darkModeChangeIPC = (callback) => {
-    electron.ipcRenderer.on(IPC_DARKMODE_CHANGE, (e, msg) => {
-        if(callback) callback(msg);
-    });
-};
-
-/**
- * darkModeGetIPC
- * @returns 
- */
-const darkModeGetIPC = async () => {
-    return await electron.ipcRenderer.invoke(IPC_DARKMODE_GET);
-};
+const IPC_DIALOG_OPEN_FOLDER = 'ipc-dialog-open-folder';
 
 /**
  * dialogOpenFolder
@@ -96,11 +76,6 @@ const dialogOpenFolder = async (options) => {
 };
 
 /**
- * dialog constant
- */
-const IPC_DIALOG_OPEN_FOLDER = 'ipc-dialog-open-folder';
-
-/**
  * dialogIPCInit
  */
 const dialogIPCInit = () => {
@@ -108,14 +83,6 @@ const dialogIPCInit = () => {
   electron.ipcMain.handle(IPC_DIALOG_OPEN_FOLDER, async (event, options) => {
     return await dialogOpenFolder(options);
   });
-};
-
-/**
- * dialogOpenFolderIPC
- * @param {*} options 
- */
-const dialogOpenFolderIPC = async (options) => {
-    return await electron.ipcRenderer.invoke(IPC_DIALOG_OPEN_FOLDER, options);
 };
 
 /**
@@ -133,13 +100,6 @@ const fsIPCInit = () => {
 
     return qiaoFile.lstree(dir, ignore);
   });
-};
-
-/**
- * fsGetTreeIPC
- */
-const fsGetTreeIPC = async (dir, ignore) => {
-    return await electron.ipcRenderer.invoke(IPC_FS_GET_TREE, dir, ignore);
 };
 
 /**
@@ -176,15 +136,6 @@ const logIPCInit = () => {
     if(type == 'warn')  Logger.warn(arg.msg);
     if(type == 'error') Logger.error(arg.msg);
   });
-};
-
-/**
- * logIPC
- * @param {*} msg 
- * @param {*} type info,warn,error
- */
-const logIPC = (msg, type) => {
-    electron.ipcRenderer.send(IPC_LOG, {msg, type});
 };
 
 /**
@@ -246,6 +197,117 @@ const lsIPCInit = () => {
 };
 
 /**
+ * shell constant
+ */
+const IPC_SHELL_OPEN_URL = 'ipc-shell-open-url';
+
+/**
+ * shellIPCInit
+ */
+const shellIPCInit = () => {
+  // ipc shell open url
+  electron.ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
+    if(!url) return;
+  
+    electron.shell.openExternal(url, { activate:true });
+  });
+};
+
+/**
+ * shortcutInit
+ */
+const shortcutInit = () => {
+  electron.app.on('will-quit', () => {
+    electron.globalShortcut.unregisterAll();
+  });
+};
+
+/**
+ * window constant
+ */
+const IPC_WINDOW_RESIZE_TO = 'ipc-window-resize-to';
+
+/**
+ * windowIPCInit
+ */
+const windowIPCInit = () => {
+  // ipc window resize to
+  electron.ipcMain.on(IPC_WINDOW_RESIZE_TO, (event, width, height) => {
+    if(!event || !event.sender || !width || !height) return;
+
+    const win = electron.BrowserWindow.fromWebContents(event.sender);
+    win.setSize(width, height);
+  });
+};
+
+// init
+const ipcInit = (version) => {
+    // app
+    if(version) appIPCInit(version);
+
+    // others
+    darkModeIPCInit();
+    dialogIPCInit();
+    fsIPCInit();
+    logIPCInit();
+    lsIPCInit();
+    shellIPCInit();
+    windowIPCInit();
+
+    // shortcut quit init
+    shortcutInit();
+};
+
+/**
+ * appGetVersionIPC
+ * @returns version
+ */
+const appGetVersionIPC = async () => {
+    return await electron.ipcRenderer.invoke(IPC_APP_GET_VERSION);
+};
+
+/**
+ * darkModeChangeIPC
+ */
+const darkModeChangeIPC = (callback) => {
+    electron.ipcRenderer.on(IPC_DARKMODE_CHANGE, (e, msg) => {
+        if(callback) callback(msg);
+    });
+};
+
+/**
+ * darkModeGetIPC
+ * @returns 
+ */
+const darkModeGetIPC = async () => {
+    return await electron.ipcRenderer.invoke(IPC_DARKMODE_GET);
+};
+
+/**
+ * dialogOpenFolderIPC
+ * @param {*} options 
+ */
+const dialogOpenFolderIPC = async (options) => {
+    return await electron.ipcRenderer.invoke(IPC_DIALOG_OPEN_FOLDER, options);
+};
+
+/**
+ * fsGetTreeIPC
+ */
+const fsGetTreeIPC = async (dir, ignore) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_GET_TREE, dir, ignore);
+};
+
+/**
+ * logIPC
+ * @param {*} msg 
+ * @param {*} type info,warn,error
+ */
+const logIPC = (msg, type) => {
+    electron.ipcRenderer.send(IPC_LOG, {msg, type});
+};
+
+/**
  * lsAllIPC
  */
 const lsAllIPC = async () => {
@@ -271,6 +333,36 @@ const lsSetIPC = async (key, value) => {
  */
 const lsDelIPC = async (key) => {
     return await electron.ipcRenderer.invoke(IPC_LS_DEL, key);
+};
+
+/**
+ * shellOpenUrlIPC
+ * @param {*} url 
+ */
+const shellOpenUrlIPC = (url) => {
+    electron.ipcRenderer.send(IPC_SHELL_OPEN_URL, url);
+};
+
+/**
+ * shortcut constant
+ */
+const IPC_SHORTCUT_GLOBAL = 'ipc-shortcut-global';
+
+/**
+ * shortcutGlobalIPC
+ * @returns res
+ */
+const shortcutGlobalIPC = async (shortcutKey, shortcutCallbackName) => {
+    return await electron.ipcRenderer.invoke(IPC_SHORTCUT_GLOBAL, shortcutKey, shortcutCallbackName);
+};
+
+/**
+ * windowResizeIPC
+ * @param {*} width 
+ * @param {*} height 
+ */
+const windowResizeIPC = (width, height) => {
+    electron.ipcRenderer.send(IPC_WINDOW_RESIZE_TO, width, height);
 };
 
 /**
@@ -389,29 +481,18 @@ const setApplicationMenu = (menus) => {
     electron.Menu.setApplicationMenu(electron.Menu.buildFromTemplate(finalMenus));
 };
 
-/**
- * shell constant
- */
-const IPC_SHELL_OPEN_URL = 'ipc-shell-open-url';
+// sentry
 
 /**
- * shellIPCInit
+ * sentry init
+ * @param {*} options 
  */
-const shellIPCInit = () => {
-  // ipc shell open url
-  electron.ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
-    if(!url) return;
-  
-    electron.shell.openExternal(url, { activate:true });
-  });
-};
+const sentryInit = (options) => {
+  // check
+  if(!options || !options.dsn) return;
 
-/**
- * shellOpenUrlIPC
- * @param {*} url 
- */
-const shellOpenUrlIPC = (url) => {
-    electron.ipcRenderer.send(IPC_SHELL_OPEN_URL, url);
+  // init
+  electron$1.init(options);
 };
 
 /**
@@ -441,28 +522,6 @@ const shortcutReg = (shortcutKey, shortcutCallback) => {
     if(!shortcutKey) return;
     
     return electron.globalShortcut.unregister(shortcutKey);
-};
-
-/**
- * shortcut constant
- */
-const IPC_SHORTCUT_GLOBAL = 'ipc-shortcut-global';
-
-/**
- * shortcutGlobalIPC
- * @returns res
- */
-const shortcutGlobalIPC = async (shortcutKey, shortcutCallbackName) => {
-    return await electron.ipcRenderer.invoke(IPC_SHORTCUT_GLOBAL, shortcutKey, shortcutCallbackName);
-};
-
-/**
- * shortcutInit
- */
-const shortcutInit = () => {
-  electron.app.on('will-quit', () => {
-    electron.globalShortcut.unregisterAll();
-  });
 };
 
 const jsonSuccess = qiaoJson.success;
@@ -737,52 +796,9 @@ function windowOpenByUrlAndFile(urlPath, filePath, options){
     return windowOpenByFile(filePath, opt);
 }
 
-/**
- * window constant
- */
-const IPC_WINDOW_RESIZE_TO = 'ipc-window-resize-to';
-
-/**
- * windowIPCInit
- */
-const windowIPCInit = () => {
-  // ipc window resize to
-  electron.ipcMain.on(IPC_WINDOW_RESIZE_TO, (event, width, height) => {
-    if(!event || !event.sender || !width || !height) return;
-
-    const win = electron.BrowserWindow.fromWebContents(event.sender);
-    win.setSize(width, height);
-  });
-};
-
-/**
- * windowResizeIPC
- * @param {*} width 
- * @param {*} height 
- */
-const windowResizeIPC = (width, height) => {
-    electron.ipcRenderer.send(IPC_WINDOW_RESIZE_TO, width, height);
-};
-
-// sentry
-
-/**
- * sentry init
- * @param {*} options 
- */
-const sentryInit = (options) => {
-  // check
-  if(!options || !options.dsn) return;
-
-  // init
-  electron$1.init(options);
-};
-
 exports.appGetVersionIPC = appGetVersionIPC;
-exports.appIPCInit = appIPCInit;
 exports.darkModeChangeIPC = darkModeChangeIPC;
 exports.darkModeGetIPC = darkModeGetIPC;
-exports.darkModeIPCInit = darkModeIPCInit;
 exports.dbCreateTable = dbCreateTable;
 exports.dbDeleteData = dbDeleteData;
 exports.dbDropTable = dbDropTable;
@@ -790,36 +806,30 @@ exports.dbInsertData = dbInsertData;
 exports.dbModifyData = dbModifyData;
 exports.dbSelectData = dbSelectData;
 exports.dbShowTables = dbShowTables;
-exports.dialogIPCInit = dialogIPCInit;
 exports.dialogOpenFolder = dialogOpenFolder;
 exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
 exports.fsGetTreeIPC = fsGetTreeIPC;
-exports.fsIPCInit = fsIPCInit;
+exports.ipcInit = ipcInit;
 exports.jsonDanger = jsonDanger;
 exports.jsonInfo = jsonInfo;
 exports.jsonSuccess = jsonSuccess;
 exports.jsonWarning = jsonWarning;
 exports.logIPC = logIPC;
-exports.logIPCInit = logIPCInit;
 exports.logInit = logInit;
 exports.ls = ls;
 exports.lsAllIPC = lsAllIPC;
 exports.lsDelIPC = lsDelIPC;
 exports.lsGetIPC = lsGetIPC;
-exports.lsIPCInit = lsIPCInit;
 exports.lsSetIPC = lsSetIPC;
 exports.sentryInit = sentryInit;
 exports.setAboutVersion = setAboutVersion;
 exports.setApplicationMenu = setApplicationMenu;
-exports.shellIPCInit = shellIPCInit;
 exports.shellOpenURL = shellOpenURL;
 exports.shellOpenUrlIPC = shellOpenUrlIPC;
 exports.shortcutGlobalIPC = shortcutGlobalIPC;
-exports.shortcutInit = shortcutInit;
 exports.shortcutReg = shortcutReg;
 exports.shortcutUnReg = shortcutUnReg;
 exports.sqlite = sqlite;
-exports.windowIPCInit = windowIPCInit;
 exports.windowOpenByFile = windowOpenByFile;
 exports.windowOpenByUrl = windowOpenByUrl;
 exports.windowOpenByUrlAndFile = windowOpenByUrlAndFile;
