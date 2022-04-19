@@ -4,6 +4,7 @@ electron tools
 ## version
 ### 0.1.7.20220419
 1. add fs
+2. init ipc
 
 ### 0.1.6.20220415
 1. add lerna
