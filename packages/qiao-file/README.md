@@ -1,37 +1,47 @@
 # qiao-file
-## api
-### extname
+
+## cmd
+### cp
 ```javascript
 'use strict';
 
 var q = require('qiao-file');
 
 var test = function(){
-	var filePath 	= 'd:/test1/test2/test.js';
-	var s 			= q.extname(filePath);
-	
-	console.log(s);
+	var folderPath 	= './test/';
+	var filePath	= './qiao-file.js'
+
+	// cp folder
+	q.cp(folderPath, './test1');
+		
+	// cp file
+	q.cp(filePath, './1.js');
 };
 
 test();
 ```
 
-### isExists
+### rm
 ```javascript
 'use strict';
 
 var q = require('qiao-file');
 
 var test = function(){
-	var fpath 	= 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
-	var s		= q.isExists(fpath);
-	
-	console.log(s);
+	var folderPath 	= 'd:/test1/';
+	var filePath	= 'd:/test.png'
+
+	// rm folder
+	q.rm(folderPath);
+		
+	// rm file
+	q.rm(filePath);
 };
 
 test();
 ```
 
+## dir
 ### lsdir
 ```javascript
 'use strict';
@@ -76,41 +86,51 @@ var test = function(){
 test();
 ```
 
-### rm
+## file
+### extname
 ```javascript
 'use strict';
 
 var q = require('qiao-file');
 
 var test = function(){
-	var folderPath 	= 'd:/test1/';
-	var filePath	= 'd:/test.png'
-
-	// rm folder
-	q.rm(folderPath);
-		
-	// rm file
-	q.rm(filePath);
+	var filePath 	= 'd:/test1/test2/test.js';
+	var s 			= q.extname(filePath);
+	
+	console.log(s);
 };
 
 test();
 ```
 
-### cp
+### readFile
 ```javascript
 'use strict';
 
 var q = require('qiao-file');
 
 var test = function(){
-	var folderPath 	= './test/';
-	var filePath	= './qiao-file.js'
+	var filePath 	= './index.js';
+	var s 			= q.readFile(filePath);
+	
+	console.log(s);
+};
 
-	// cp folder
-	q.cp(folderPath, './test1');
-		
-	// cp file
-	q.cp(filePath, './1.js');
+test();
+```
+
+## is
+### isExists
+```javascript
+'use strict';
+
+var q = require('qiao-file');
+
+var test = function(){
+	var fpath 	= 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
+	var s		= q.isExists(fpath);
+	
+	console.log(s);
 };
 
 test();
@@ -120,6 +140,7 @@ test();
 ### 0.1.2.20220419
 1. es6
 2. add lstree
+3. read file
 
 ### 0.1.1.20220417
 1. add lerna
