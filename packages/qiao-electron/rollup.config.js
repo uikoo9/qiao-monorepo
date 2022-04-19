@@ -15,8 +15,9 @@ export default {
         'electron', 
         '@sentry/electron',
         'qiao-config',
+        'qiao-file',
+        'qiao-json',
         'qiao-log',
         'qiao-sqlite',
-        'qiao-json',
     ],
 };

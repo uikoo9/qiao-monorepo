@@ -1,8 +1,5 @@
 'use strict';
 
-// fs
-export * from './_fs.js';
-
 // fs ipc
 export * from './fs-ipc.js';
 

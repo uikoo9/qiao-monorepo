@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var electron = require('electron');
+var qiaoFile = require('qiao-file');
 var path = require('path');
 var qiaoLog = require('qiao-log');
 var qiaoConfig = require('qiao-config');
@@ -115,6 +116,30 @@ const dialogIPCInit = () => {
  */
 const dialogOpenFolderIPC = async (options) => {
     return await electron.ipcRenderer.invoke(IPC_DIALOG_OPEN_FOLDER, options);
+};
+
+/**
+ * fs constant
+ */
+const IPC_FS_GET_TREE = 'ipc-fs-get-tree';
+
+/**
+ * fsIPCInit
+ */
+const fsIPCInit = () => {
+  // ipc ls get tree
+  electron.ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignore) => {
+    if(!dir) return;
+
+    return qiaoFile.lstree(dir, ignore);
+  });
+};
+
+/**
+ * fsGetTreeIPC
+ */
+const fsGetTreeIPC = async (dir, ignore) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_GET_TREE, dir, ignore);
 };
 
 /**
@@ -768,6 +793,8 @@ exports.dbShowTables = dbShowTables;
 exports.dialogIPCInit = dialogIPCInit;
 exports.dialogOpenFolder = dialogOpenFolder;
 exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
+exports.fsGetTreeIPC = fsGetTreeIPC;
+exports.fsIPCInit = fsIPCInit;
 exports.jsonDanger = jsonDanger;
 exports.jsonInfo = jsonInfo;
 exports.jsonSuccess = jsonSuccess;
