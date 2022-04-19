@@ -45,6 +45,36 @@ const getFoldersAndFiles = (fpath, folders, files) => {
 };
 
 /**
+ * get file tree
+ * @param {*} fpath 
+ * @param {*} fileTree 
+ */
+ const getFileTree = (fpath, fileTreeChildrens, ignore) => {
+	fs.readdirSync(fpath).forEach(function(name){
+		const rpath = fpath + name;
+		if(rpath.indexOf(ignore) > -1) return;
+
+		const stat = fs.statSync(rpath);
+		if(stat.isDirectory()){
+			let info = {};
+			info.path = rpath + '/';
+			info.name = '';
+			info.children = [];
+			
+			fileTreeChildrens.push(info);
+			
+			getFileTree(info.path, info.children);
+		}else {
+			let info = {};
+			info.path = fpath;
+			info.name = name;
+
+			fileTreeChildrens.push(info);
+		}
+	});
+};
+
+/**
  * check dir
  * @param {*} dir 
  * @param {*} list 
@@ -129,6 +159,23 @@ const lsdir = (dir) => {
 };
 
 /**
+ * ls tree
+ * @param {*} dir must end with /
+ * @param {*} ignore 
+ * @returns 
+ */
+const lstree = (dir, ignore) => {
+    let root = {};
+    root.path = dir;
+    root.name = '';
+    root.children = [];
+
+    getFileTree(dir, root.children, ignore);
+    
+    return root;
+};
+
+/**
 * mk dir
 * 	dir : must end with /
 */
@@ -168,5 +215,6 @@ exports.cp = cp;
 exports.extname = extname;
 exports.isExists = isExists;
 exports.lsdir = lsdir;
+exports.lstree = lstree;
 exports.mkdir = mkdir;
 exports.rm = rm;

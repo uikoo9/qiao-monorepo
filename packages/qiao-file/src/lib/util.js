@@ -35,6 +35,36 @@ export const getFoldersAndFiles = (fpath, folders, files) => {
 };
 
 /**
+ * get file tree
+ * @param {*} fpath 
+ * @param {*} fileTree 
+ */
+ export const getFileTree = (fpath, fileTreeChildrens, ignore) => {
+	fs.readdirSync(fpath).forEach(function(name){
+		const rpath = fpath + name;
+		if(rpath.indexOf(ignore) > -1) return;
+
+		const stat = fs.statSync(rpath);
+		if(stat.isDirectory()){
+			let info = {};
+			info.path = rpath + '/';
+			info.name = '';
+			info.children = [];
+			
+			fileTreeChildrens.push(info);
+			
+			getFileTree(info.path, info.children);
+		}else{
+			let info = {};
+			info.path = fpath;
+			info.name = name;
+
+			fileTreeChildrens.push(info);
+		}
+	});
+};
+
+/**
  * check dir
  * @param {*} dir 
  * @param {*} list 

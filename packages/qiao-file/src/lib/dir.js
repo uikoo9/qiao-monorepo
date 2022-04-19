@@ -4,7 +4,11 @@
 import fs from 'fs';
 
 // util
-import { checkDir, getFoldersAndFiles } from './util.js';
+import { 
+    checkDir, 
+    getFileTree,
+    getFoldersAndFiles 
+} from './util.js';
 
 /**
 * ls dir
@@ -19,6 +23,23 @@ export const lsdir = (dir) => {
         folders : folders,
         files	: files
     };
+};
+
+/**
+ * ls tree
+ * @param {*} dir must end with /
+ * @param {*} ignore 
+ * @returns 
+ */
+export const lstree = (dir, ignore) => {
+    let root = {};
+    root.path = dir;
+    root.name = '';
+    root.children = [];
+
+    getFileTree(dir, root.children, ignore);
+    
+    return root;
 };
 
 /**
