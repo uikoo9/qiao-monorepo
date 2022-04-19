@@ -1,0 +1,25 @@
+{
+  "name": "qiao-process",
+  "version": "0.0.1",
+  "description": "nodejs process tool",
+  "keywords": [
+    "nodejs",
+    "process",
+    "child_process",
+    "fork"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/fork.js"
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  }
+}
