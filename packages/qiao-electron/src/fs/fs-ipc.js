@@ -14,10 +14,10 @@ import { IPC_FS_GET_TREE, IPC_FS_READ_FILE } from './fs-constant.js';
  */
 export const fsIPCInit = () => {
   // ipc ls get tree
-  ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignore) => {
+  ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignores) => {
     if(!dir) return;
 
-    return lstree(dir, ignore);
+    return lstree(dir, ignores);
   });
 
   // ipc ls read file
