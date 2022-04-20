@@ -27,7 +27,10 @@ import { shortcutInit } from './shortcut/shortcut-quit.js';
 // window
 import { windowIPCInit } from './window/window-ipc.js';
 
-// init
+/**
+ * ipcInit
+ * @param {*} version 
+ */
 export const ipcInit = (version) => {
     // app
     if(version) appIPCInit(version);
@@ -43,4 +46,4 @@ export const ipcInit = (version) => {
 
     // shortcut quit init
     shortcutInit();
-}
+};

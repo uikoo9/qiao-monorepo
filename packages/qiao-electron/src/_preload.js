@@ -55,7 +55,9 @@ import {
 } from './window/window-preload.js';
 
 /**
- * 
+ * getPreloads
+ * @param {*} customPreloads 
+ * @returns 
  */
 export const getPreloads = (customPreloads) => {
     const defaultPreloads = {
@@ -80,4 +82,4 @@ export const getPreloads = (customPreloads) => {
     };
 
     return {...defaultPreloads, ...customPreloads};
-}
+};

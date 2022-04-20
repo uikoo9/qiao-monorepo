@@ -280,7 +280,10 @@ const windowIPCInit = () => {
   });
 };
 
-// init
+/**
+ * ipcInit
+ * @param {*} version 
+ */
 const ipcInit = (version) => {
     // app
     if(version) appIPCInit(version);
@@ -441,7 +444,9 @@ const windowResizeIPC = (width, height) => {
 };
 
 /**
- * 
+ * getPreloads
+ * @param {*} customPreloads 
+ * @returns 
  */
 const getPreloads = (customPreloads) => {
     const defaultPreloads = {
