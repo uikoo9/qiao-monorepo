@@ -131,8 +131,12 @@ const cp = (src, dest) => {
 const mv = (oldPath, newPath) => {
     try{
         fs.renameSync(oldPath, newPath);
+
+		return true;
     }catch(e){
         console.log(e);
+
+		return;
     }
 };
 
