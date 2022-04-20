@@ -89,9 +89,11 @@ const dialogIPCInit = () => {
  * fs constant
  */
 const IPC_FS_RM          = 'ipc-fs-rm';
+const IPC_FS_MKDIR       = 'ipc-fs-mkdir';
 const IPC_FS_RENAME      = 'ipc-fs-rename';
 const IPC_FS_GET_TREE    = 'ipc-fs-get-tree';
 const IPC_FS_READ_FILE   = 'ipc-fs-read-file';
+const IPC_FS_WRITE_FILE  = 'ipc-fs-write-file';
 
 /**
  * fsIPCInit
@@ -102,6 +104,13 @@ const fsIPCInit = () => {
     if(!rmPath) return;
 
     return qiaoFile.rm(rmPath);
+  });
+
+  // ipc fs mkdir
+  electron.ipcMain.handle(IPC_FS_MKDIR, (event, dir) => {
+    if(!dir) return;
+
+    return qiaoFile.mkdir(dir);
   });
 
   // ipc fs rename
@@ -123,6 +132,13 @@ const fsIPCInit = () => {
     if(!filePath) return;
 
     return qiaoFile.readFile(filePath);
+  });
+
+  // ipc fs write file
+  electron.ipcMain.handle(IPC_FS_WRITE_FILE, (event, filePath, fileData) => {
+    if(!filePath) return;
+
+    return qiaoFile.writeFile(filePath, fileData);
   });
 };
 
@@ -323,6 +339,13 @@ const fsRmIPC = async (rmPath) => {
 };
 
 /**
+ * fsMkdirIPC
+ */
+const fsMkdirIPC = async (dir) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_MKDIR, dir);
+};
+
+/**
  * fsRenameIPC
  */
  const fsRenameIPC = async (oldPath, newPath) => {
@@ -339,8 +362,15 @@ const fsGetTreeIPC = async (dir, ignores) => {
 /**
  * fsReadFileIPC
  */
- const fsReadFileIPC = async (filePath) => {
+const fsReadFileIPC = async (filePath) => {
     return await electron.ipcRenderer.invoke(IPC_FS_READ_FILE, filePath);
+};
+
+/**
+ * fsWriteFileIPC
+ */
+const fsWriteFileIPC = async (filePath, fileData) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_WRITE_FILE, filePath, fileData);
 };
 
 /**
@@ -854,9 +884,11 @@ exports.dbShowTables = dbShowTables;
 exports.dialogOpenFolder = dialogOpenFolder;
 exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
 exports.fsGetTreeIPC = fsGetTreeIPC;
+exports.fsMkdirIPC = fsMkdirIPC;
 exports.fsReadFileIPC = fsReadFileIPC;
 exports.fsRenameIPC = fsRenameIPC;
 exports.fsRmIPC = fsRmIPC;
+exports.fsWriteFileIPC = fsWriteFileIPC;
 exports.ipcInit = ipcInit;
 exports.jsonDanger = jsonDanger;
 exports.jsonInfo = jsonInfo;
