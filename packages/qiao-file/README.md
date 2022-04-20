@@ -63,8 +63,7 @@ test();
 var q = require('qiao-file');
 
 var test = function(){
-	var fileTree = q.lstree('./', 'node_modules');
-	console.log(fileTree);
+	var fileTree = q.lstree('./', ['node_modules']);
 	console.log(JSON.stringify(fileTree));
 };
 
@@ -137,6 +136,9 @@ test();
 ```
 
 ## version
+### 0.1.3.20220420
+1. lstree path name
+
 ### 0.1.2.20220419
 1. es6
 2. add lstree
