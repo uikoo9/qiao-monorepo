@@ -96,10 +96,10 @@ const IPC_FS_READ_FILE   = 'ipc-fs-read-file';
  */
 const fsIPCInit = () => {
   // ipc ls get tree
-  electron.ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignore) => {
+  electron.ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignores) => {
     if(!dir) return;
 
-    return qiaoFile.lstree(dir, ignore);
+    return qiaoFile.lstree(dir, ignores);
   });
 
   // ipc ls read file
@@ -302,8 +302,8 @@ const dialogOpenFolderIPC = async (options) => {
 /**
  * fsGetTreeIPC
  */
-const fsGetTreeIPC = async (dir, ignore) => {
-    return await electron.ipcRenderer.invoke(IPC_FS_GET_TREE, dir, ignore);
+const fsGetTreeIPC = async (dir, ignores) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_GET_TREE, dir, ignores);
 };
 
 /**
