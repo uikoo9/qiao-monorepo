@@ -1,6 +1,6 @@
 {
   "name": "qiao-cos",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "tencent cos upload tool on nodejs",
   "keywords": [
     "tencent",
@@ -27,6 +27,6 @@
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.11.6",
     "qiao-cli": "^0.1.5",
-    "qiao-file": "^0.2.1"
+    "qiao-file": "^0.2.2"
   }
 }
