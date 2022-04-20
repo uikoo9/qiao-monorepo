@@ -1,31 +1,83 @@
 'use strict';
 
 // app
-export * from './app/app-preload.js';
+import {
+    appGetVersionIPC,
+} from './app/app-preload.js';
 
 // darkmode
-export * from './darkmode/darkmode-preload.js';
-
-// darkmode
-export * from './darkmode/darkmode-preload.js';
+import {
+    darkModeChangeIPC,
+    darkModeGetIPC,
+} from './darkmode/darkmode-preload.js';
 
 // dialog
-export * from './dialog/dialog-preload.js';
+import {
+    dialogOpenFolderIPC,
+} from './dialog/dialog-preload.js';
 
 // fs
-export * from './fs/fs-preload.js';
+import {
+    fsRmIPC,
+    fsMkdirIPC,
+    fsRenameIPC,
+    fsGetTreeIPC,
+    fsReadFileIPC,
+    fsWriteFileIPC,
+} from './fs/fs-preload.js';
 
 // log
-export * from './log/log-preload.js';
+import {
+    logIPC,
+} from './log/log-preload.js';
 
 // ls
-export * from './ls/ls-preload.js';
+import {
+    lsAllIPC,
+    lsGetIPC,
+    lsSetIPC,
+    lsDelIPC,
+} from './ls/ls-preload.js';
 
 // shell
-export * from './shell/shell-preload.js';
+import {
+    shellOpenUrlIPC,
+} from './shell/shell-preload.js';
 
 // shortcut
-export * from './shortcut/shortcut-preload.js';
+import {
+    shortcutGlobalIPC,
+} from './shortcut/shortcut-preload.js';
 
 // window
-export * from './window/window-preload.js';
+import {
+    windowResizeIPC,
+} from './window/window-preload.js';
+
+/**
+ * 
+ */
+export const getPreloads = (customPreloads) => {
+    const defaultPreloads = {
+        appGetVersionIPC,
+        darkModeChangeIPC,
+        darkModeGetIPC,
+        dialogOpenFolderIPC,
+        fsRmIPC,
+        fsMkdirIPC,
+        fsRenameIPC,
+        fsGetTreeIPC,
+        fsReadFileIPC,
+        fsWriteFileIPC,
+        logIPC,
+        lsAllIPC,
+        lsGetIPC,
+        lsSetIPC,
+        lsDelIPC,
+        shellOpenUrlIPC,
+        shortcutGlobalIPC,
+        windowResizeIPC,
+    };
+
+    return {...defaultPreloads, ...customPreloads};
+}

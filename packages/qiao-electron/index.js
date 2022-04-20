@@ -441,6 +441,34 @@ const windowResizeIPC = (width, height) => {
 };
 
 /**
+ * 
+ */
+const getPreloads = (customPreloads) => {
+    const defaultPreloads = {
+        appGetVersionIPC,
+        darkModeChangeIPC,
+        darkModeGetIPC,
+        dialogOpenFolderIPC,
+        fsRmIPC,
+        fsMkdirIPC,
+        fsRenameIPC,
+        fsGetTreeIPC,
+        fsReadFileIPC,
+        fsWriteFileIPC,
+        logIPC,
+        lsAllIPC,
+        lsGetIPC,
+        lsSetIPC,
+        lsDelIPC,
+        shellOpenUrlIPC,
+        shortcutGlobalIPC,
+        windowResizeIPC,
+    };
+
+    return {...defaultPreloads, ...customPreloads};
+};
+
+/**
  * setAboutVersion
  * @param {*} version 
  */
@@ -871,9 +899,6 @@ function windowOpenByUrlAndFile(urlPath, filePath, options){
     return windowOpenByFile(filePath, opt);
 }
 
-exports.appGetVersionIPC = appGetVersionIPC;
-exports.darkModeChangeIPC = darkModeChangeIPC;
-exports.darkModeGetIPC = darkModeGetIPC;
 exports.dbCreateTable = dbCreateTable;
 exports.dbDeleteData = dbDeleteData;
 exports.dbDropTable = dbDropTable;
@@ -882,38 +907,24 @@ exports.dbModifyData = dbModifyData;
 exports.dbSelectData = dbSelectData;
 exports.dbShowTables = dbShowTables;
 exports.dialogOpenFolder = dialogOpenFolder;
-exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
-exports.fsGetTreeIPC = fsGetTreeIPC;
-exports.fsMkdirIPC = fsMkdirIPC;
-exports.fsReadFileIPC = fsReadFileIPC;
-exports.fsRenameIPC = fsRenameIPC;
-exports.fsRmIPC = fsRmIPC;
-exports.fsWriteFileIPC = fsWriteFileIPC;
+exports.getPreloads = getPreloads;
 exports.ipcInit = ipcInit;
 exports.jsonDanger = jsonDanger;
 exports.jsonInfo = jsonInfo;
 exports.jsonSuccess = jsonSuccess;
 exports.jsonWarning = jsonWarning;
-exports.logIPC = logIPC;
 exports.logInit = logInit;
 exports.ls = ls;
-exports.lsAllIPC = lsAllIPC;
-exports.lsDelIPC = lsDelIPC;
-exports.lsGetIPC = lsGetIPC;
-exports.lsSetIPC = lsSetIPC;
 exports.sentryInit = sentryInit;
 exports.setAboutVersion = setAboutVersion;
 exports.setApplicationMenu = setApplicationMenu;
 exports.shellOpenURL = shellOpenURL;
-exports.shellOpenUrlIPC = shellOpenUrlIPC;
-exports.shortcutGlobalIPC = shortcutGlobalIPC;
 exports.shortcutReg = shortcutReg;
 exports.shortcutUnReg = shortcutUnReg;
 exports.sqlite = sqlite;
 exports.windowOpenByFile = windowOpenByFile;
 exports.windowOpenByUrl = windowOpenByUrl;
 exports.windowOpenByUrlAndFile = windowOpenByUrlAndFile;
-exports.windowResizeIPC = windowResizeIPC;
 Object.keys(qiaoFile).forEach(function (k) {
   if (k !== 'default' && !exports.hasOwnProperty(k)) Object.defineProperty(exports, k, {
     enumerable: true,
