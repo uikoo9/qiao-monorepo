@@ -251,6 +251,23 @@ const readFile = (filePath, options) => {
     return fs.readFileSync(filePath, options);
 };
 
+/**
+ * writeFile
+ * @param {*} filePath 
+ * @param {*} fileData 
+ * @param {*} options https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fswritefilesyncfile-data-options
+ */
+const writeFile = (filePath, fileData, options) => {
+    // check
+    if(!filePath) return;
+
+    // vars
+    fileData = fileData || '';
+    options = options || {};
+
+    fs.writeFileSync(filePath, fileData, options);
+};
+
 exports.fs = fs;
 exports.path = path;
 exports.cp = cp;
@@ -262,3 +279,4 @@ exports.mkdir = mkdir;
 exports.mv = mv;
 exports.readFile = readFile;
 exports.rm = rm;
+exports.writeFile = writeFile;
