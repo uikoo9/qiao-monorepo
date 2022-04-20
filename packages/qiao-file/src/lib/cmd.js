@@ -40,8 +40,7 @@ export const mv = (oldPath, newPath) => {
 		return true;
     }catch(e){
         console.log(e);
-
-		return;
+		return false;
     }
 };
 

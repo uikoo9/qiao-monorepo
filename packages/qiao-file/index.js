@@ -135,8 +135,7 @@ const mv = (oldPath, newPath) => {
 		return true;
     }catch(e){
         console.log(e);
-
-		return;
+		return false;
     }
 };
 
@@ -244,11 +243,16 @@ const readFile = (filePath, options) => {
     // check
     if(!filePath) return;
 
-    // opt
-    const opt = {encoding:'utf8'};
-    options = options || opt;
-
-    return fs.readFileSync(filePath, options);
+    try{
+        // opt
+        const opt = {encoding:'utf8'};
+        options = options || opt;
+    
+        return fs.readFileSync(filePath, options);
+    }catch(e){
+        console.log(e);
+        return;
+    }
 };
 
 /**
@@ -261,11 +265,17 @@ const writeFile = (filePath, fileData, options) => {
     // check
     if(!filePath) return;
 
-    // vars
-    fileData = fileData || '';
-    options = options || {};
-
-    fs.writeFileSync(filePath, fileData, options);
+    try{
+        // vars
+        fileData = fileData || '';
+        options = options || {};
+        fs.writeFileSync(filePath, fileData, options);
+    
+        return true;
+    }catch(e){
+        console.log(e);
+        return false;
+    }
 };
 
 exports.fs = fs;
