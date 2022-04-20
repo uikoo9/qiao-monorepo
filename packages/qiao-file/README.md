@@ -135,6 +135,20 @@ var test = function(){
 test();
 ```
 
+### writeFile
+```javascript
+'use strict';
+
+var q = require('qiao-file');
+
+var test = function(){
+	var filePath = './1.js';
+	q.writeFile(filePath, '2');
+};
+
+test();
+```
+
 ## is
 ### isExists
 ```javascript
@@ -156,6 +170,7 @@ test();
 ### 0.1.3.20220420
 1. lstree path name
 2. mv
+3. write file
 
 ### 0.1.2.20220419
 1. es6
