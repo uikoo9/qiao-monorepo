@@ -124,10 +124,23 @@ const cp = (src, dest) => {
 };
 
 /**
+ * mv
+ * @param {*} oldPath 
+ * @param {*} newPath 
+ */
+const mv = (oldPath, newPath) => {
+    try{
+        fs.renameSync(oldPath, newPath);
+    }catch(e){
+        console.log(e);
+    }
+};
+
+/**
  * rm
  * 	fpath, file or folder path, folder must end with /
  */
- const rm = (fpath) => {
+const rm = (fpath) => {
 	try{
 		// rm file
 		const pathStat = fs.statSync(fpath);
@@ -242,5 +255,6 @@ exports.isExists = isExists;
 exports.lsdir = lsdir;
 exports.lstree = lstree;
 exports.mkdir = mkdir;
+exports.mv = mv;
 exports.readFile = readFile;
 exports.rm = rm;

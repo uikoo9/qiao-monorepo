@@ -29,10 +29,23 @@ export const cp = (src, dest) => {
 };
 
 /**
+ * mv
+ * @param {*} oldPath 
+ * @param {*} newPath 
+ */
+export const mv = (oldPath, newPath) => {
+    try{
+        fs.renameSync(oldPath, newPath);
+    }catch(e){
+        console.log(e);
+    }
+};
+
+/**
  * rm
  * 	fpath, file or folder path, folder must end with /
  */
- export const rm = (fpath) => {
+export const rm = (fpath) => {
 	try{
 		// rm file
 		const pathStat = fs.statSync(fpath);
