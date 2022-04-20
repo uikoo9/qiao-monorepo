@@ -6,6 +6,7 @@ electron tools
 1. fs rename
 2. fs rm
 3. get preloads
+4. shell open path
 
 ### 0.1.7.20220419
 1. add fs
