@@ -6,7 +6,8 @@ var test = function(){
 	var oldPath = './test';
 	var newPath	= './test1'
 
-	q.mv(oldPath, newPath);
+	var res = q.mv(oldPath, newPath);
+	console.log(res);
 };
 
 test();
