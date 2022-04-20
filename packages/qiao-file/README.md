@@ -21,6 +21,22 @@ var test = function(){
 test();
 ```
 
+### mv
+```javascript
+'use strict';
+
+var q = require('qiao-file');
+
+var test = function(){
+	var oldPath = './test';
+	var newPath	= './test1'
+
+	q.mv(oldPath, newPath);
+};
+
+test();
+```
+
 ### rm
 ```javascript
 'use strict';
@@ -138,6 +154,7 @@ test();
 ## version
 ### 0.1.3.20220420
 1. lstree path name
+2. mv
 
 ### 0.1.2.20220419
 1. es6
