@@ -4,15 +4,22 @@
 import { ipcMain } from 'electron';
 
 // q
-import { mv, lstree, readFile } from 'qiao-file';
+import { mv, rm, lstree, readFile } from 'qiao-file';
 
 // const
-import { IPC_FS_RENAME, IPC_FS_GET_TREE, IPC_FS_READ_FILE } from './fs-constant.js';
+import { IPC_FS_RM, IPC_FS_RENAME, IPC_FS_GET_TREE, IPC_FS_READ_FILE } from './fs-constant.js';
 
 /**
  * fsIPCInit
  */
 export const fsIPCInit = () => {
+  // ipc fs rm
+  ipcMain.handle(IPC_FS_RM, (event, rmPath) => {
+    if(!rmPath) return;
+
+    return rm(rmPath);
+  });
+
   // ipc fs rename
   ipcMain.handle(IPC_FS_RENAME, (event, oldPath, newPath) => {
     if(!oldPath || !newPath) return;

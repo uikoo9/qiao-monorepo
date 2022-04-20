@@ -88,6 +88,7 @@ const dialogIPCInit = () => {
 /**
  * fs constant
  */
+const IPC_FS_RM          = 'ipc-fs-rm';
 const IPC_FS_RENAME      = 'ipc-fs-rename';
 const IPC_FS_GET_TREE    = 'ipc-fs-get-tree';
 const IPC_FS_READ_FILE   = 'ipc-fs-read-file';
@@ -96,6 +97,13 @@ const IPC_FS_READ_FILE   = 'ipc-fs-read-file';
  * fsIPCInit
  */
 const fsIPCInit = () => {
+  // ipc fs rm
+  electron.ipcMain.handle(IPC_FS_RM, (event, rmPath) => {
+    if(!rmPath) return;
+
+    return qiaoFile.rm(rmPath);
+  });
+
   // ipc fs rename
   electron.ipcMain.handle(IPC_FS_RENAME, (event, oldPath, newPath) => {
     if(!oldPath || !newPath) return;
@@ -305,6 +313,13 @@ const darkModeGetIPC = async () => {
  */
 const dialogOpenFolderIPC = async (options) => {
     return await electron.ipcRenderer.invoke(IPC_DIALOG_OPEN_FOLDER, options);
+};
+
+/**
+ * fsRmIPC
+ */
+const fsRmIPC = async (rmPath) => {
+    return await electron.ipcRenderer.invoke(IPC_FS_RM, rmPath);
 };
 
 /**
@@ -841,6 +856,7 @@ exports.dialogOpenFolderIPC = dialogOpenFolderIPC;
 exports.fsGetTreeIPC = fsGetTreeIPC;
 exports.fsReadFileIPC = fsReadFileIPC;
 exports.fsRenameIPC = fsRenameIPC;
+exports.fsRmIPC = fsRmIPC;
 exports.ipcInit = ipcInit;
 exports.jsonDanger = jsonDanger;
 exports.jsonInfo = jsonInfo;
