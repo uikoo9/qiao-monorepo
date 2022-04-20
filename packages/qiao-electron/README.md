@@ -2,6 +2,10 @@
 electron tools
 
 ## version
+### 0.1.8.20220420
+1. fs rename
+2. fs rm
+
 ### 0.1.7.20220419
 1. add fs
 2. init ipc
