@@ -28,18 +28,14 @@ export const lsdir = (dir) => {
 /**
  * ls tree
  * @param {*} dir must end with /
- * @param {*} ignore 
+ * @param {*} ignores 
  * @returns 
  */
-export const lstree = (dir, ignore) => {
-    let root = {};
-    root.path = dir;
-    root.name = '';
-    root.children = [];
-
-    getFileTree(dir, root.children, ignore);
+export const lstree = (dir, ignores) => {
+    let fileTree = [];
+    getFileTree(dir, fileTree, ignores);
     
-    return root;
+    return fileTree;
 };
 
 /**

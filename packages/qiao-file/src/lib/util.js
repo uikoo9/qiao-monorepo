@@ -38,28 +38,29 @@ export const getFoldersAndFiles = (fpath, folders, files) => {
  * get file tree
  * @param {*} fpath 
  * @param {*} fileTree 
+ * @param {*} ignores 
  */
- export const getFileTree = (fpath, fileTreeChildrens, ignore) => {
+export const getFileTree = (fpath, fileTree, ignores) => {
 	fs.readdirSync(fpath).forEach(function(name){
 		const rpath = fpath + name;
-		if(rpath.indexOf(ignore) > -1) return;
+		if(isFileTreeIgnore(rpath, ignores)) return;
 
 		const stat = fs.statSync(rpath);
 		if(stat.isDirectory()){
 			let info = {};
-			info.path = rpath + '/';
-			info.name = '';
+			info.path = fpath;
+			info.name = name;
 			info.children = [];
 			
-			fileTreeChildrens.push(info);
+			fileTree.push(info);
 			
-			getFileTree(info.path, info.children);
+			getFileTree(rpath + '/', info.children, ignores);
 		}else{
 			let info = {};
 			info.path = fpath;
 			info.name = name;
 
-			fileTreeChildrens.push(info);
+			fileTree.push(info);
 		}
 	});
 };
@@ -76,4 +77,16 @@ export const checkDir = (dir, list) => {
 		list.push(pdir);
 		checkDir(pdir, list);
 	}
+};
+
+// is file tree ignore
+const isFileTreeIgnore = (rpath, ignores) => {
+	if(!rpath || !ignores || !ignores.length) return;
+
+	let ignore = false;
+	for(let i=0; i<ignores.length; i++){
+		if(rpath.indexOf(ignores[i]) > -1) ignore = true;
+	}
+
+	return ignore;
 };
