@@ -206,8 +206,14 @@ const lstree = (dir, ignores) => {
 */
 const mkdir = (dir) => {
     try{
+        // check
+        if(!dir || !dir.endsWith('/')) return false;
+
+        // is exists
+        if(isExists(dir)) return true;
+        
         // check dir
-        var dirs = [];
+        var dirs = [dir];
         checkDir(dir, dirs);
         
         // check dirs

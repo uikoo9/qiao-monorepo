@@ -3,6 +3,9 @@
 // fs
 import fs from 'fs';
 
+// is
+import { isExists } from './is.js';
+
 // util
 import { 
     checkDir, 
@@ -44,8 +47,14 @@ export const lstree = (dir, ignores) => {
 */
 export const mkdir = (dir) => {
     try{
+        // check
+        if(!dir || !dir.endsWith('/')) return false;
+
+        // is exists
+        if(isExists(dir)) return true;
+        
         // check dir
-        var dirs = [];
+        var dirs = [dir];
         checkDir(dir, dirs);
         
         // check dirs
