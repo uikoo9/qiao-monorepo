@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "electron-installer-dmg": "^3.0.0",
-    "electron-packager": "^15.4.0",
+    "electron-packager": "^15.5.0",
     "qiao-cli": "^0.1.4",
     "qiao-cos": "^0.2.0",
     "qiao-file": "^0.1.9"
