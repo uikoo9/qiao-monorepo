@@ -42,6 +42,7 @@ import {
 // shell
 import {
     shellOpenUrlIPC,
+    shellShowPathIPC,
 } from './shell/shell-preload.js';
 
 // shortcut
@@ -77,6 +78,7 @@ export const getPreloads = (customPreloads) => {
         lsSetIPC,
         lsDelIPC,
         shellOpenUrlIPC,
+        shellShowPathIPC,
         shortcutGlobalIPC,
         windowResizeIPC,
     };

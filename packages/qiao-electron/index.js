@@ -239,7 +239,32 @@ const lsIPCInit = () => {
 /**
  * shell constant
  */
-const IPC_SHELL_OPEN_URL = 'ipc-shell-open-url';
+const IPC_SHELL_OPEN_URL     = 'ipc-shell-open-url';
+const IPC_SHELL_SHOW_PATH    = 'ipc-shell-show-path';
+
+/**
+ * shellOpenURL
+ */
+const shellOpenURL = (url) => {
+  electron.shell.openExternal(url, { activate:true });
+};
+
+/**
+ * 
+ * @param {*} path 
+ */
+const shellShowPath = (path) => {
+  try{
+    const stat = qiaoFile.fs.statSync(path);
+    if(stat.isDirectory()){
+      electron.shell.openPath(path);
+    }else {
+      electron.shell.showItemInFolder(path);
+    }
+  }catch(e){
+    console.log(e);
+  }
+};
 
 /**
  * shellIPCInit
@@ -249,7 +274,14 @@ const shellIPCInit = () => {
   electron.ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
     if(!url) return;
   
-    electron.shell.openExternal(url, { activate:true });
+    shellOpenURL(url);
+  });
+
+  // ipc shell show path
+  electron.ipcMain.on(IPC_SHELL_SHOW_PATH, (event, path) => {
+    if(!path) return;
+  
+    shellShowPath(path);
   });
 };
 
@@ -422,6 +454,14 @@ const shellOpenUrlIPC = (url) => {
 };
 
 /**
+ * shellShowPathIPC
+ * @param {*} path 
+ */
+const shellShowPathIPC = (path) => {
+    electron.ipcRenderer.send(IPC_SHELL_SHOW_PATH, path);
+};
+
+/**
  * shortcut constant
  */
 const IPC_SHORTCUT_GLOBAL = 'ipc-shortcut-global';
@@ -466,6 +506,7 @@ const getPreloads = (customPreloads) => {
         lsSetIPC,
         lsDelIPC,
         shellOpenUrlIPC,
+        shellShowPathIPC,
         shortcutGlobalIPC,
         windowResizeIPC,
     };
@@ -601,14 +642,6 @@ const sentryInit = (options) => {
 
   // init
   electron$1.init(options);
-};
-
-/**
- * shellOpenURL
- */
-const shellOpenURL = (url) => {
-  // shell open url
-  electron.shell.openExternal(url, { activate:true });
 };
 
 /**
@@ -924,6 +957,7 @@ exports.sentryInit = sentryInit;
 exports.setAboutVersion = setAboutVersion;
 exports.setApplicationMenu = setApplicationMenu;
 exports.shellOpenURL = shellOpenURL;
+exports.shellShowPath = shellShowPath;
 exports.shortcutReg = shortcutReg;
 exports.shortcutUnReg = shortcutUnReg;
 exports.sqlite = sqlite;
