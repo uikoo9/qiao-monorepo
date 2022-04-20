@@ -914,3 +914,9 @@ exports.windowOpenByFile = windowOpenByFile;
 exports.windowOpenByUrl = windowOpenByUrl;
 exports.windowOpenByUrlAndFile = windowOpenByUrlAndFile;
 exports.windowResizeIPC = windowResizeIPC;
+Object.keys(qiaoFile).forEach(function (k) {
+  if (k !== 'default' && !exports.hasOwnProperty(k)) Object.defineProperty(exports, k, {
+    enumerable: true,
+    get: function () { return qiaoFile[k]; }
+  });
+});
