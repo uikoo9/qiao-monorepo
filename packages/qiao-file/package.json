@@ -12,8 +12,7 @@
   },
   "scripts": {
     "build": "rollup --config rollup.config.js",
-    "prepublish": "npm run build",
-    "test": "node "
+    "prepublish": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
