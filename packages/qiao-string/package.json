@@ -1,0 +1,19 @@
+{
+  "name": "qiao-string",
+  "version": "0.0.4",
+  "description": "nodejs string tool",
+  "keywords": [
+    "nodejs",
+    "string",
+    "tool"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {}
+}
