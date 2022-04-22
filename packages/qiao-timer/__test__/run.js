@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilTimer = require('../lib/qiao.util.timer.js');
+var q = require('../index.js');
 
 var test = function(){
 	var time = '*/1 * * * * *';
@@ -9,7 +9,7 @@ var test = function(){
 	};
 	
 	console.log('-' + new Date());
-	var job = qiaoUtilTimer.run(time, tick);
+	var job = q.run(time, tick);
 };
 
 test();
