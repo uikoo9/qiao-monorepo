@@ -1,11 +1,11 @@
-# qiao.util.console
+# qiao-console
 
 ## api
 ### clear
 ```javascript
 'use strict';
 
-var q = require('qiao.util.console');
+var q = require('qiao-console');
 
 q.clear();
 ```
@@ -14,7 +14,7 @@ q.clear();
 ```javascript
 'use strict';
 
-var q = require('qiao.util.console');
+var q = require('qiao-console');
 
 q.clear();
 q.writeLine(1, 'hello');
@@ -24,7 +24,7 @@ q.writeLine(1, 'hello');
 ```javascript
 'use strict';
 
-var q = require('qiao.util.console');
+var q = require('qiao-console');
 
 // clear line
 q.clearLine();
