@@ -40,6 +40,9 @@ q.writeLineXY(x, y, msg);
 ```
 
 ## version
+### 0.0.5.20220422
+1. add lerna
+
 ### 0.0.4.20210318
 1. modify md
 

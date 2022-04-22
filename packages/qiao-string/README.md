@@ -50,6 +50,9 @@ test();
 ```
 
 ## version
+### 0.0.5.20220422
+1. add lerna
+
 ### 0.0.4.20191204
 1. add funding
 
