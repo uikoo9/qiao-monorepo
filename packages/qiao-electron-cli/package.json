@@ -22,8 +22,8 @@
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "dependencies": {
-    "electron-installer-dmg": "^3.0.0",
-    "electron-packager": "^15.5.0",
+    "electron-installer-dmg": "^4.0.0",
+    "electron-packager": "^15.5.1",
     "qiao-cli": "^0.1.5",
     "qiao-cos": "^0.2.7",
     "qiao-file": "^0.2.6"
