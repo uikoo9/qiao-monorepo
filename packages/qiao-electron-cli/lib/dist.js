@@ -15,17 +15,17 @@ var q = require('qiao-file');
  */
 module.exports = function(config){
     // check
-    if(!config || !config.distConfig) throw new Error('need config.distConfig params');
+    if(!config || !config.appConfig) throw new Error('need config.appConfig params');
 
     // vars
-    var srcPath = config.distConfig.srcPath;
-    var distPath= config.distConfig.distPath;
-    var srcFiles= config.distConfig.srcFiles;
+    var srcPath = config.appConfig.srcPath;
+    var srcFiles= config.appConfig.srcFiles;
+    var distPath= config.appConfig.distPath;
 
     // check
-    if(!srcPath) throw new Error('need config.distConfig.srcPath params');
-    if(!distPath) throw new Error('need config.distConfig.distPath params');
-    if(!srcFiles || !srcFiles.length) throw new Error('need config.distConfig.srcFiles params');
+    if(!srcPath) throw new Error('need config.appConfig.srcPath params');
+    if(!distPath) throw new Error('need config.appConfig.distPath params');
+    if(!srcFiles || !srcFiles.length) throw new Error('need config.appConfig.srcFiles params');
 
     // vars
     var root    = process.cwd();
