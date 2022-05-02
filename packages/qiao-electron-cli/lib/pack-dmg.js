@@ -11,29 +11,29 @@ var electronDMG = require('electron-installer-dmg');
  */
 module.exports = async function(config){
     // check config
-    if(!config || !config.appConfig) throw new Error('need config.appConfig params');
+    if(!config) throw new Error('need config params');
 
     // vars
-    var appEnv          = config.appConfig.appEnv;
-    var appName         = config.appConfig.appName;
-    var appPath         = config.appConfig.appPath;
-    var appVersion      = config.appConfig.appVersion;
-    var appIconPath     = config.appConfig.appIconPath;
-    var dmgIconSize     = config.appConfig.dmgIconSize;
-    var dmgBackground   = config.appConfig.dmgBackground;
-    var dmgContents     = config.appConfig.dmgContents;
-    var dmgOutPath      = config.appConfig.dmgOutPath;
+    var appEnv          = config.appEnv;
+    var appName         = config.appName;
+    var appPath         = config.appPath;
+    var appVersion      = config.appVersion;
+    var appIconPath     = config.appIconPath;
+    var dmgIconSize     = config.dmgIconSize;
+    var dmgBackground   = config.dmgBackground;
+    var dmgContents     = config.dmgContents;
+    var dmgOutPath      = config.dmgOutPath;
 
     // check vars
-    if(!appEnv)         throw new Error('need config.appConfig.appEnv params');
-    if(!appName)        throw new Error('need config.appConfig.appName params');
-    if(!appPath)        throw new Error('need config.appConfig.appPath params');
-    if(!appVersion)     throw new Error('need config.appConfig.appVersion params');
-    if(!appIconPath)    throw new Error('need config.appConfig.appIconPath params');
-    if(!dmgIconSize)    throw new Error('need config.appConfig.dmgIconSize params');
-    if(!dmgBackground)  throw new Error('need config.appConfig.dmgBackground params');
-    if(!dmgContents)    throw new Error('need config.appConfig.dmgContents params');
-    if(!dmgOutPath)     throw new Error('need config.appConfig.dmgOutPath params');
+    if(!appEnv)         throw new Error('need config.appEnv params');
+    if(!appName)        throw new Error('need config.appName params');
+    if(!appPath)        throw new Error('need config.appPath params');
+    if(!appVersion)     throw new Error('need config.appVersion params');
+    if(!appIconPath)    throw new Error('need config.appIconPath params');
+    if(!dmgIconSize)    throw new Error('need config.dmgIconSize params');
+    if(!dmgBackground)  throw new Error('need config.dmgBackground params');
+    if(!dmgContents)    throw new Error('need config.dmgContents params');
+    if(!dmgOutPath)     throw new Error('need config.dmgOutPath params');
 
     // options
     var options = {

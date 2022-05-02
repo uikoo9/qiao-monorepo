@@ -8,26 +8,26 @@ var packager = require('electron-packager');
  */
 module.exports = async function(config){
     // check config
-    if(!config || !config.appConfig) throw new Error('need config.appConfig params');
+    if(!config) throw new Error('need config params');
 
     // vars
-    var distPath        = config.appConfig.distPath;
-    var outPath         = config.appConfig.outPath;
-    var arch            = config.appConfig.arch;
-    var asar            = config.appConfig.asar;
-    var appName         = config.appConfig.appName;
-    var appIconPath     = config.appConfig.appIconPath;
-    var appVersion      = config.appConfig.appVersion;
-    var appCopyright    = config.appConfig.appCopyright;
+    var distPath        = config.distPath;
+    var outPath         = config.outPath;
+    var arch            = config.arch;
+    var asar            = config.asar;
+    var appName         = config.appName;
+    var appIconPath     = config.appIconPath;
+    var appVersion      = config.appVersion;
+    var appCopyright    = config.appCopyright;
 
     // check vars
-    if(!distPath)       throw new Error('need config.appConfig.distPath params');
-    if(!outPath)        throw new Error('need config.appConfig.outPath params');
-    if(!appName)        throw new Error('need config.appConfig.appName params');
-    if(!arch)           throw new Error('need config.appConfig.arch params');
-    if(!appIconPath)    throw new Error('need config.appConfig.appIconPath params');
-    if(!appVersion)     throw new Error('need config.appConfig.appVersion params');
-    if(!appCopyright)   throw new Error('need config.appConfig.appCopyright params');
+    if(!distPath)       throw new Error('need config.distPath params');
+    if(!outPath)        throw new Error('need config.outPath params');
+    if(!appName)        throw new Error('need config.appName params');
+    if(!arch)           throw new Error('need config.arch params');
+    if(!appIconPath)    throw new Error('need config.appIconPath params');
+    if(!appVersion)     throw new Error('need config.appVersion params');
+    if(!appCopyright)   throw new Error('need config.appCopyright params');
 
     // options
     var options = {
