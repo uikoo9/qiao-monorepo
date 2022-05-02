@@ -6,8 +6,8 @@ var path = require('path');
 // q
 var q = require('qiao-file');
 
-// check
-var checkConfig = require('./_check.js');
+// checker
+var checker = require('./_check.js');
 
 /**
  * dist
@@ -18,7 +18,7 @@ var checkConfig = require('./_check.js');
  */
 module.exports = function(config){
     // check
-    checkConfig(config);
+    checker.checkConfig(config);
 
     // vars
     var root    = process.cwd();

@@ -1,8 +1,8 @@
 // electron pakcager
 var packager = require('electron-packager');
 
-// check
-var checkConfig = require('./_check.js');
+// checker
+var checker = require('./_check.js');
 
 /**
  * pack mac
@@ -11,7 +11,7 @@ var checkConfig = require('./_check.js');
  */
 module.exports = async function(config){
     // check
-    checkConfig(config);
+    checker.checkConfig(config);
 
     // options
     var options = {

@@ -6,8 +6,8 @@ var path = require('path');
 // electron installer dmg
 var electronDMG = require('electron-installer-dmg');
 
-// check
-var checkConfig = require('./_check.js');
+// checker
+var checker = require('./_check.js');
 
 /**
  * pack dmg
@@ -16,7 +16,7 @@ var checkConfig = require('./_check.js');
  */
 module.exports = async function(config){
     // check
-    checkConfig(config);
+    checker.checkConfig(config);
 
     // vars
     var outPath         = config.outPath;

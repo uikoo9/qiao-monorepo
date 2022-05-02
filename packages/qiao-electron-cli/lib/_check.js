@@ -4,7 +4,7 @@
  * check config
  * @param {*} config 
  */
-module.exports = function(config){
+exports.checkConfig = function(config){
     // check config
     if(!config) throw new Error('need config params');
 
@@ -41,4 +41,21 @@ module.exports = function(config){
 
     if(!dmgIconSize)    throw new Error('need config.dmgIconSize params');
     if(!dmgBackground)  throw new Error('need config.dmgBackground params');
+};
+
+/**
+ * check cos config
+ * @param {*} config 
+ */
+ exports.checkCosConfig = function(config){
+    // check config
+    if(!config || !config.cosConfig) throw new Error('need config.cosConfig params');
+
+    // cos config
+    var cosConfig = config.cosConfig;
+    if(!cosConfig.SecretId)    throw new Error('need config.cosConfig.SecretId params');
+    if(!cosConfig.SecretKey)   throw new Error('need config.cosConfig.SecretKey params');
+    if(!cosConfig.Region)      throw new Error('need config.cosConfig.Region params');
+    if(!cosConfig.Bucket)      throw new Error('need config.cosConfig.Bucket params');
+    if(!cosConfig.destPath)    throw new Error('need config.cosConfig.destPath params');
 };
