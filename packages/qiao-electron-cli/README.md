@@ -32,8 +32,8 @@ let config = {
     // app操作系统，详见https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html#arch
     arch            : 'arm64',
 	
-    // app应用包中的app文件夹是否使用asar格式，默认为true
-    asar            : true,
+    // app应用包中的app文件夹是否使用asar格式，默认为false
+    asar            : false,
 
     // app中主进程src路径
     srcPath         : 'src/app',

@@ -25,7 +25,6 @@ module.exports = async function(config){
     var appName         = config.appName;
     var appVersion      = config.appVersion;
     var appIconPath     = config.appIconPath;
-    var dmgIconSize     = config.dmgIconSize;
     var dmgBackground   = config.dmgBackground;
 
     // other vars

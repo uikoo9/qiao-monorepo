@@ -22,7 +22,6 @@ exports.checkConfig = function(config){
     var appVersion      = config.appVersion;
     var appCopyright    = config.appCopyright;
 
-    var dmgIconSize     = config.dmgIconSize;
     var dmgBackground   = config.dmgBackground;
 
     // check vars
@@ -39,7 +38,6 @@ exports.checkConfig = function(config){
     if(!appVersion)     throw new Error('need config.appVersion params');
     if(!appCopyright)   throw new Error('need config.appCopyright params');
 
-    if(!dmgIconSize)    throw new Error('need config.dmgIconSize params');
     if(!dmgBackground)  throw new Error('need config.dmgBackground params');
 };
 
