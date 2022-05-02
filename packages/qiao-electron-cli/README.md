@@ -71,6 +71,12 @@ module.exports = config;
 ```
 
 ## cli
+
+### init
+```shell
+qelectron init          /{youprojectpath}
+```
+
 ### dist
 ```shell
 qelectron dist|d        /{yourconfigpath}/qe.config.js
@@ -94,6 +100,7 @@ qelectron uploaddmg|ud 	/{yourconfigpath}/qe.config.js
 ## version
 ### 0.0.4.20220502
 1. qe config
+2. qe init
 
 ### 0.0.3.20220401
 1. upload dmg
