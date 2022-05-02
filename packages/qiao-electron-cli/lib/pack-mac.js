@@ -11,31 +11,33 @@ module.exports = async function(config){
     if(!config || !config.appConfig) throw new Error('need config.appConfig params');
 
     // vars
-    var dir             = config.appConfig.distPath;
-    var out             = config.appConfig.outPath;
-    var name            = config.appConfig.appName;
+    var distPath        = config.appConfig.distPath;
+    var outPath         = config.appConfig.outPath;
     var arch            = config.appConfig.arch;
-    var icon            = config.appConfig.appIconPath;
+    var asar            = config.appConfig.asar;
+    var appName         = config.appConfig.appName;
+    var appIconPath     = config.appConfig.appIconPath;
     var appVersion      = config.appConfig.appVersion;
     var appCopyright    = config.appConfig.appCopyright;
 
     // check vars
-    if(!dir)            throw new Error('need config.appConfig.distPath params');
-    if(!out)            throw new Error('need config.appConfig.outPath params');
-    if(!name)           throw new Error('need config.appConfig.appName params');
+    if(!distPath)       throw new Error('need config.appConfig.distPath params');
+    if(!outPath)        throw new Error('need config.appConfig.outPath params');
+    if(!appName)        throw new Error('need config.appConfig.appName params');
     if(!arch)           throw new Error('need config.appConfig.arch params');
-    if(!icon)           throw new Error('need config.appConfig.appIconPath params');
+    if(!appIconPath)    throw new Error('need config.appConfig.appIconPath params');
     if(!appVersion)     throw new Error('need config.appConfig.appVersion params');
     if(!appCopyright)   throw new Error('need config.appConfig.appCopyright params');
 
     // options
     var options = {
         overwrite   : true,
-        dir         : dir,
-        out         : out,
-        name        : name,
+        dir         : distPath,
+        out         : outPath,
         arch        : arch,
-        icon        : icon,
+        asar        : !!asar,
+        name        : appName,
+        icon        : appIconPath,
         appVersion  : appVersion,
         appCopyright: appCopyright,
     };
