@@ -1,6 +1,3 @@
-// path
-var path = require('path');
-
 // electron installer dmg
 var electronDMG = require('electron-installer-dmg');
 
@@ -19,6 +16,7 @@ module.exports = async function(config){
     var appPath         = config.appPath;
     var appVersion      = config.appVersion;
     var appIconPath     = config.appIconPath;
+    var dmgName         = config.dmgName;
     var dmgIconSize     = config.dmgIconSize;
     var dmgBackground   = config.dmgBackground;
     var dmgContents     = config.dmgContents;
@@ -30,6 +28,7 @@ module.exports = async function(config){
     if(!appPath)        throw new Error('need config.appPath params');
     if(!appVersion)     throw new Error('need config.appVersion params');
     if(!appIconPath)    throw new Error('need config.appIconPath params');
+    if(!dmgName)        throw new Error('need config.dmgName params');
     if(!dmgIconSize)    throw new Error('need config.dmgIconSize params');
     if(!dmgBackground)  throw new Error('need config.dmgBackground params');
     if(!dmgContents)    throw new Error('need config.dmgContents params');
@@ -37,7 +36,7 @@ module.exports = async function(config){
 
     // options
     var options = {
-        name        : `${appName}-${appEnv}-${appVersion}`,
+        name        : dmgName,
         icon        : appIconPath,
 
         overwrite   : true,
