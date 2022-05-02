@@ -49,7 +49,7 @@ module.exports = async function(config){
         debug       : false,
 
         appPath     : appPath,
-        iconSize    : dmgIconSize,
+        iconSize    : dmgIconSize || 80,
         background  : dmgBackground,
         contents    : dmgContents,
 
