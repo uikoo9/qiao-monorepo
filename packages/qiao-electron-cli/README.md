@@ -1,4 +1,42 @@
 # qiao-electron-cli
+[electron](https://www.electronjs.org/)打包工具，使用[electron-packager](https://github.com/electron/electron-packager)打包应用，使用[electron-installer-dmg](https://github.com/electron-userland/electron-installer-dmg)打包dmg安装包
+
+## config
+### appEnv
+app环境，online，test之类的，会拼接在dmg安装包名上
+
+### appName
+app名称
+
+### appVersion
+app版本号，会显示在dmg安装包名以及关于面板上
+
+### appIconPath
+app应用图标
+
+### appCopyright
+app权限声明，会显示在关于面板上
+
+### arch
+app操作系统，详见[arch](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html#arch)
+
+### asar
+app应用包中的app文件夹是否使用asar格式，默认为true
+
+### srcPath
+app中主进程src路径
+
+### srcFiles
+最终要打包到app应用包中的文件和文件夹，在dist这一步会复制出去
+
+### distPath
+srcFiles中的文件和文件夹会复制到这个目录
+
+### outPath
+app应用包及dmg安装包生成的路径
+
+### dmgBackground
+app安装包dmg中的背景图
 
 ## cli
 ### dist
