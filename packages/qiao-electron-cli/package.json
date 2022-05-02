@@ -1,6 +1,6 @@
 {
   "name": "qiao-electron-cli",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "electron cli tools",
   "keywords": [
     "electron",
