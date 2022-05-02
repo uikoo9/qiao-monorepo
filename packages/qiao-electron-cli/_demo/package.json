@@ -1,0 +1,37 @@
+{
+  "name": "qe",
+  "version": "0.0.4",
+  "private": true,
+  "description": "qiao-electron-cli demo",
+  "keywords": [],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxx/xxx.git"
+  },
+  "scripts": {
+    "init-pack": "npm i",
+    "init-main": "cd qe-src/qe-main && npm i",
+    "init-main-m1": "cd qe-src/qe-main && npm i --target_arch=arm64",
+    "init-renderer": "cd qe-src/qe-renderer && npm i",
+    "init-all": "npm run init-pack && npm run init-main && npm run init-renderer",
+    "init-all-m1": "npm run init-pack && npm run init-main-m1 && npm run init-renderer",
+    "build": "cd qe-src/qe-renderer && npm run build",
+    "start": "electron qe-src/qe-main",
+    "debug": "electron qe-src/qe-main --inspect=5858",
+    "dev": "electron qe-src/qe-main dev",
+    "dist": "qelectron d ./qe-pack/qe.config.js",
+    "prepackmac": "npm run build && npm run dist",
+    "packmac": "qelectron pm ./qe-pack/qe.config.js",
+    "packdmg": "qelectron pd ./qe-pack/qe.config.js",
+    "uploaddmg": "qelectron ud ./qe-pack/qe.config.js"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "devDependencies": {
+    "electron": "^18.2.0",
+    "qiao-electron-cli": "^0.5.5"
+  }
+}

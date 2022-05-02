@@ -10,14 +10,17 @@ qiao.qec = require('../index.js');
 
 // cmd for packmac
 qiao.cli.cmd
-	.command('init')
+	.command('init <destPath>')
 	.description('init electron application')
 	.action(init);
 
 // init project
-async function init(){
+async function init(destPath){
 	try{
-		qiao.qec.init();
+		var cwd = process.cwd();
+        if(destPath.startsWith('./')) destPath = path.resolve(cwd, destPath);
+		
+		qiao.qec.init(destPath);
 
 		console.log('init electron application success!');
 		console.log();

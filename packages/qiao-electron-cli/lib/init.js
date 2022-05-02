@@ -1,8 +1,17 @@
 'use strict';
 
+// path
+var path = require('path');
+
+// q
+var q = require('qiao-file');
+
 /**
  * init
  */
-module.exports = function(){
-    console.log(1);
+module.exports = function(destPath){
+    var src = path.resolve(__dirname, '../_demo');
+    var dest= path.resolve(destPath, './qe');
+
+    q.cp(src, dest);
 };

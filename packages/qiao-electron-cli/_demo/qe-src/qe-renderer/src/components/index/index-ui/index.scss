@@ -1,0 +1,13 @@
+$pageWidth: 1400px;
+$pageHeight: 900px - 28px;
+
+#root {
+    width: $pageWidth;
+    height: $pageHeight;
+    background-color: #1C2432;
+
+    .index-container{
+        width: $pageWidth;
+        height: $pageHeight;
+    }
+}
