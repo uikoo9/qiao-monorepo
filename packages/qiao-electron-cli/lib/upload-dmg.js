@@ -9,19 +9,22 @@ var q = require('qiao-cos');
  * @returns 
  */
 module.exports = async function(config){
-    // check
-    if(!config)             throw new Error('need config params');
-    if(!config.SecretId)    throw new Error('need config.SecretId params');
-    if(!config.SecretKey)   throw new Error('need config.SecretKey params');
-    if(!config.Region)      throw new Error('need config.Region params');
-    if(!config.Bucket)      throw new Error('need config.Bucket params');
-    if(!config.dmgPath)     throw new Error('need config.dmgPath params');
-    if(!config.destPath)    throw new Error('need config.destPath params');
+    // check config
+    if(!config || !config.cosConfig) throw new Error('need config.cosConfig params');
+
+    // cos config
+    var cosConfig = config.cosConfig;
+    if(!cosConfig.SecretId)    throw new Error('need config.cosConfig.SecretId params');
+    if(!cosConfig.SecretKey)   throw new Error('need config.cosConfig.SecretKey params');
+    if(!cosConfig.Region)      throw new Error('need config.cosConfig.Region params');
+    if(!cosConfig.Bucket)      throw new Error('need config.cosConfig.Bucket params');
+    if(!cosConfig.dmgPath)     throw new Error('need config.cosConfig.dmgPath params');
+    if(!cosConfig.destPath)    throw new Error('need config.cosConfig.destPath params');
 
     // client
-    var client      = q.client(config);
-    var destPath	= config.destPath;
-    var sourceFile 	= config.dmgPath;
+    var client      = q.client(cosConfig);
+    var destPath	= cosConfig.destPath;
+    var sourceFile 	= cosConfig.dmgPath;
     
     // rs
     var rs = await q.uploadFileSync(client, destPath, sourceFile);
