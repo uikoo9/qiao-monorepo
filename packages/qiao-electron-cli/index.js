@@ -1,6 +1,11 @@
 'use strict';
 
 /**
+ * init
+ */
+ exports.init = require('./lib/init.js');
+
+/**
  * dist
  */
 exports.dist = require('./lib/dist.js');

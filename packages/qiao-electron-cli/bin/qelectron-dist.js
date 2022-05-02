@@ -15,7 +15,7 @@ qiao.cli.cmd
 	.description('dist electron application')
 	.action(dist);
 
-// pack mac
+// dist
 async function dist(configPath){
 	try{
         var cwd = process.cwd();
