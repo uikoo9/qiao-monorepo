@@ -14,31 +14,31 @@ const srcPkg = require('../src/app/package.json');
 
 // config
 let config = {
-	// app环境，online，test之类的，会拼接在dmg安装包名上
+    // app环境，online，test之类的，会拼接在dmg安装包名上
     appEnv          : 'online',
 	
-	// app名称，默认从主进程下的package.json中获取
+    // app名称，默认从主进程下的package.json中获取
     appName         : srcPkg.name,
 	
-	// app版本号，会显示在dmg安装包名以及关于面板上，默认从主进程下的package.json中获取
+    // app版本号，会显示在dmg安装包名以及关于面板上，默认从主进程下的package.json中获取
     appVersion      : srcPkg.version,
 	
-	// app应用图标
+    // app应用图标
     appIconPath     : 'pack/static/icon/icon.icns',
 	
-	// app权限声明，会显示在关于面板上
+    // app权限声明，会显示在关于面板上
     appCopyright    : 'Copyright © 2022 xxx版权所有',
 
-	// app操作系统，详见https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html#arch
+    // app操作系统，详见https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html#arch
     arch            : 'arm64',
 	
-	// app应用包中的app文件夹是否使用asar格式，默认为true
+    // app应用包中的app文件夹是否使用asar格式，默认为true
     asar            : true,
 
-	// app中主进程src路径
+    // app中主进程src路径
     srcPath         : 'src/app',
 	
-	// 最终要打包到app应用包中的文件和文件夹，在dist这一步会复制出去
+    // 最终要打包到app应用包中的文件和文件夹，在dist这一步会复制出去
     srcFiles        : [ 
         'main',
         'node_modules',
@@ -46,13 +46,13 @@ let config = {
         'package.json'
     ],
 	
-	// srcFiles中的文件和文件夹会复制到这个目录
+    // srcFiles中的文件和文件夹会复制到这个目录
     distPath        : 'dist',
 	
-	// app应用包及dmg安装包生成的路径
+    // app应用包及dmg安装包生成的路径
     outPath         : 'out',
 	
-	// app安装包dmg中的背景图
+    // app安装包dmg中的背景图
     dmgBackground   : 'pack/static/bg.png',
 };
 
