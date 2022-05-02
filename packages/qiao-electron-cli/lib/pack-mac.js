@@ -7,22 +7,38 @@ var packager = require('electron-packager');
  * @returns 
  */
 module.exports = async function(config){
-    // check
-    if(!config)                         throw new Error('need config params');
-    if(!config.appConfig)               throw new Error('need config.appConfig params');
-    if(!config.appConfig.appName)       throw new Error('need config.appConfig.appName params');
-    if(!config.distConfig)              throw new Error('need config.distConfig params');
-    if(!config.distConfig.distPath)     throw new Error('need config.distConfig.distPath params');
-    if(!config.packmacConfig)           throw new Error('need config.packmacConfig params');
-    if(!config.packmacConfig.out)       throw new Error('need config.packmacConfig.out params');
+    // check config
+    if(!config || !config.appConfig) throw new Error('need config.appConfig params');
+
+    // vars
+    var dir             = config.appConfig.distPath;
+    var out             = config.appConfig.outPath;
+    var name            = config.appConfig.appName;
+    var arch            = config.appConfig.arch;
+    var icon            = config.appConfig.appIconPath;
+    var appVersion      = config.appConfig.appVersion;
+    var appCopyright    = config.appConfig.appCopyright;
+
+    // check vars
+    if(!dir)            throw new Error('need config.appConfig.distPath params');
+    if(!out)            throw new Error('need config.appConfig.outPath params');
+    if(!name)           throw new Error('need config.appConfig.appName params');
+    if(!arch)           throw new Error('need config.appConfig.arch params');
+    if(!icon)           throw new Error('need config.appConfig.appIconPath params');
+    if(!appVersion)     throw new Error('need config.appConfig.appVersion params');
+    if(!appCopyright)   throw new Error('need config.appConfig.appCopyright params');
 
     // options
-    var options     = config.packmacConfig;
-    options.dir     = config.distConfig.distPath;
-    options.name    = config.appConfig.appName;
-    if(config.appConfig.appVersion)     options.appVersion  = config.appConfig.appVersion;
-    if(config.appConfig.appIconPath)    options.icon        = config.appConfig.appIconPath;
-    if(config.appConfig.appCopyright)   options.appCopyright= config.appConfig.appCopyright;
+    var options = {
+        overwrite   : true,
+        dir         : dir,
+        out         : out,
+        name        : name,
+        arch        : arch,
+        icon        : icon,
+        appVersion  : appVersion,
+        appCopyright: appCopyright,
+    };
 
     // packager
     return await packager(options);
