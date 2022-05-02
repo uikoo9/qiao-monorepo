@@ -1,0 +1,13 @@
+.idea
+.project
+.settings
+.externalToolBuilders
+
+qe-dist
+qe-out
+node_modules
+package-lock.json
+
+cos-config.json
+
+*.log

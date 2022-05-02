@@ -1,0 +1,10 @@
+{
+  "name": "qe",
+  "version": "0.0.1",
+  "description": "qiao-electron-cli main demo",
+  "main": "./main/main.js",
+  "dependencies": {
+    "qiao-electron": "^0.9.9"
+  },
+  "scripts": {}
+}
