@@ -6,6 +6,9 @@ var path = require('path');
 // q
 var q = require('qiao-file');
 
+// check
+var checkConfig = require('./_check.js');
+
 /**
  * dist
  * @param {*} srcPath 
@@ -14,23 +17,14 @@ var q = require('qiao-file');
  * @returns 
  */
 module.exports = function(config){
-    // check config
-    if(!config) throw new Error('need config params');
-
-    // vars
-    var srcPath = config.srcPath;
-    var distPath= config.distPath;
-    var srcFiles= config.srcFiles;
-
-    // check vars
-    if(!srcPath) throw new Error('need config.srcPath params');
-    if(!distPath) throw new Error('need config.distPath params');
-    if(!srcFiles || !srcFiles.length) throw new Error('need config.srcFiles params');
+    // check
+    checkConfig(config);
 
     // vars
     var root    = process.cwd();
-    var src     = path.resolve(root, srcPath);
-    var dist    = path.resolve(root, distPath);
+    var src     = path.resolve(root, config.srcPath);
+    var dist    = path.resolve(root, config.distPath);
+    var srcFiles= config.srcFiles;
 
     // mkdir
     mkDir(dist);

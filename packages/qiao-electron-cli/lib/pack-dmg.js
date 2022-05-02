@@ -6,14 +6,17 @@ var path = require('path');
 // electron installer dmg
 var electronDMG = require('electron-installer-dmg');
 
+// check
+var checkConfig = require('./_check.js');
+
 /**
  * pack dmg
  * @param {*} config 
  * @returns 
  */
 module.exports = async function(config){
-    // check config
-    if(!config) throw new Error('need config params');
+    // check
+    checkConfig(config);
 
     // vars
     var outPath         = config.outPath;
@@ -24,16 +27,6 @@ module.exports = async function(config){
     var appIconPath     = config.appIconPath;
     var dmgIconSize     = config.dmgIconSize;
     var dmgBackground   = config.dmgBackground;
-
-    // check vars
-    if(!outPath)        throw new Error('need config.outPath params');
-    if(!arch)           throw new Error('need config.arch params');
-    if(!appEnv)         throw new Error('need config.appEnv params');
-    if(!appName)        throw new Error('need config.appName params');
-    if(!appVersion)     throw new Error('need config.appVersion params');
-    if(!appIconPath)    throw new Error('need config.appIconPath params');
-    if(!dmgIconSize)    throw new Error('need config.dmgIconSize params');
-    if(!dmgBackground)  throw new Error('need config.dmgBackground params');
 
     // other vars
     var root            = process.cwd();
