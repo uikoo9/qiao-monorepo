@@ -3,7 +3,12 @@
 /**
  * init
  */
- exports.init = require('./lib/init.js');
+exports.init = require('./lib/init.js');
+
+/**
+ * icon
+ */
+exports.icon = require('./lib/icon.js');
 
 /**
  * dist

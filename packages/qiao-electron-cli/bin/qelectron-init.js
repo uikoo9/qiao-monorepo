@@ -8,7 +8,7 @@ var qiao = {};
 qiao.cli = require('qiao-cli');
 qiao.qec = require('../index.js');
 
-// cmd for packmac
+// cmd for init
 qiao.cli.cmd
 	.command('init <destPath>')
 	.description('init electron application')
