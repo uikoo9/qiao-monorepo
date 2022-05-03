@@ -77,6 +77,11 @@ module.exports = config;
 qelectron init          /{youprojectpath}
 ```
 
+### icon
+```shell
+qelectron icon          /{youprojectpath}/static/icon/pic.png
+```
+
 ### dist
 ```shell
 qelectron dist|d        /{yourconfigpath}/qe.config.js
