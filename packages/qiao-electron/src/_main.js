@@ -3,6 +3,7 @@
 // dialog
 export * from './dialog/dialog-main/dialog-main.js';
 
+// qiao-file
 export * from 'qiao-file';
 
 // log
