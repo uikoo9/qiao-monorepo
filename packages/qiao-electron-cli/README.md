@@ -98,6 +98,10 @@ qelectron uploaddmg|ud 	/{yourconfigpath}/qe.config.js
 ```
 
 ## version
+
+### 0.0.5.20220503
+1. mac icns
+
 ### 0.0.4.20220502
 1. qe config
 2. qe init
