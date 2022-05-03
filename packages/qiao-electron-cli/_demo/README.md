@@ -1,4 +1,4 @@
-# qe
+# qiao-electron-demo
 qiao-electron-cli demo
 
 ## version

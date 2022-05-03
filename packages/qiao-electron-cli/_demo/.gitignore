@@ -3,14 +3,13 @@
 .settings
 .externalToolBuilders
 
-qe-dist
-qe-out
-
 node_modules
 package-lock.json
 
-renderer
-
+*.log
 cos-config.json
 
-*.log
+renderer
+
+qe-dist
+qe-out
