@@ -44,6 +44,15 @@ async function openDialog(options, defaultProps){
     // win
     const win = opt.win;
 
+    // filter
+    if(opt.files){
+        opt.filters = {
+            filters: [
+                { name: 'files', extensions: opt.files },
+            ]
+        };
+    }
+
     // return
     return win ? await dialog.showOpenDialog(win, opt) : await dialog.showOpenDialog(opt);
 }
