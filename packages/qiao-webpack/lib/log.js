@@ -58,11 +58,11 @@ exports.showErr = function (err, stats) {
     var info = stats.toJson();
     if (stats.hasErrors() && info.errors){
         errorOrWarn = true;
-        for(var i=0; i<info.errorsCount; i++) exports.danger(info.errors[i].message);
+        for(var i=0; i<info.errors.length; i++) exports.danger(info.errors[i].message);
     }
     if (stats.hasWarnings() && info.warnings){
         errorOrWarn = true;
-        for(var i=0; i<info.warningsCount; i++) exports.danger(info.warnings[i].message);
+        for(var i=0; i<info.warnings.length; i++) exports.danger(info.warnings[i].message);
     }
 
     return errorOrWarn;

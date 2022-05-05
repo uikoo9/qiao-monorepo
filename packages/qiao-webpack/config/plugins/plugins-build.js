@@ -37,8 +37,6 @@ module.exports = function(plugins, isAnalyzer){
         }
     }
 
-    console.log(2, res);
-
     // return
     return res;
 };

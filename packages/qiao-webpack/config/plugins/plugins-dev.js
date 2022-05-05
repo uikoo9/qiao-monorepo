@@ -19,7 +19,5 @@ module.exports = function(plugins){
         commonPlugins(res, plugin);
     }
 
-    console.log(2, res);
-
     return res;
 };

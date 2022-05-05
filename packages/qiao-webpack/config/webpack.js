@@ -9,11 +9,11 @@ var webpack_common_options = require('./webpack-common-options.js');
 
 // webpack dev
 var webpack_dev_options = require('./webpack-dev-options.js');
-var webpack_dev_plugins = require('./plugins/webpack-dev-plugins.js');
+var webpack_dev_plugins = require('./plugins/plugins-dev.js');
 
 // webpack build
 var webpack_build_options = require('./webpack-build-options.js');
-var webpack_build_plugins = require('./plugins/webpack-build-plugins.js');
+var webpack_build_plugins = require('./plugins/plugins-build.js');
 
 // webpack performance
 var webpack_performance = require('./webpack-performance.js');
