@@ -7,7 +7,8 @@ import { ipcRenderer } from 'electron';
 import { 
     IPC_DIALOG_OPEN_FILE,
     IPC_DIALOG_OPEN_FOLDER,
-} from './dialog-constant.js';
+    IPC_DIALOG_OPEN_FILE_FOLDER,
+  } from './dialog-constant.js';
 
 /**
  * dialogOpenFileIPC
@@ -23,4 +24,12 @@ import {
  */
 export const dialogOpenFolderIPC = async (options) => {
     return await ipcRenderer.invoke(IPC_DIALOG_OPEN_FOLDER, options);
+};
+
+/**
+ * dialogOpenFileAndFolderIPC
+ * @param {*} options 
+ */
+export const dialogOpenFileAndFolderIPC = async (options) => {
+  return await ipcRenderer.invoke(IPC_DIALOG_OPEN_FILE_FOLDER, options);
 };

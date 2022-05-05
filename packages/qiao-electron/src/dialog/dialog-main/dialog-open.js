@@ -10,7 +10,7 @@ import { dialog } from 'electron';
  * @returns 
  */
 export const dialogOpenFile = async (options) => {
-    return await openDialog(options, 'openFile');
+    return await openDialog(options, ['openFile']);
 };
 
 /**
@@ -20,7 +20,17 @@ export const dialogOpenFile = async (options) => {
  * @returns 
  */
 export const dialogOpenFolder = async (options) => {
-    return await openDialog(options, 'openDirectory');
+    return await openDialog(options, ['openDirectory']);
+};
+
+/**
+ * dialogOpenFileAndFolder
+ *  https://www.electronjs.org/zh/docs/latest/api/dialog#dialogshowopendialogbrowserwindow-options
+ * @param {*} options 
+ * @returns 
+ */
+export const dialogOpenFileAndFolder = async (options) => {
+    return await openDialog(options, ['openFile', 'openDirectory']);
 };
 
 // openDialog
@@ -29,7 +39,7 @@ async function openDialog(options, defaultProps){
     let opt = options || {};
 
     // properties
-    opt.properties = opt.properties || [defaultProps];
+    opt.properties = opt.properties || defaultProps;
 
     // win
     const win = opt.win;
