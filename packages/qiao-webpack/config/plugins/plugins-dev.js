@@ -1,7 +1,7 @@
 'use strict';
 
-// html webpack plugin
-var HtmlWebpackPlugin = require('./plugin-for-html.js');
+// common plugins
+var commonPlugins = require('./plugins-common.js');
 
 /**
  * webpack dev plugins
@@ -14,11 +14,12 @@ module.exports = function(plugins){
     
     for (var i = 0; i < plugins.length; i++) {
         var plugin = plugins[i];
-        if (plugin.type == 'html') {
-            delete plugin.type;
-            res.push(HtmlWebpackPlugin(plugin));
-        }
+
+        // common
+        commonPlugins(res, plugin);
     }
+
+    console.log(2, res);
 
     return res;
 };

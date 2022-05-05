@@ -1,13 +1,13 @@
 'use strict';
 
-// html webpack plugin
-var HtmlWebpackPlugin = require('./plugin-for-html.js');
-
 // mini css extract plugin
 var MiniCssExtractPlugin = require('./plugin-for-minicss.js');
 
 // webpack bundle analyzer
 var BundleAnalyzerPlugin = require('./plugin-for-analyzer.js');
+
+// common plugins
+var commonPlugins = require('./plugins-common.js');
 
 /**
  * webpack build plugins
@@ -26,15 +26,18 @@ module.exports = function(plugins, isAnalyzer){
     // add
     for (var i = 0; i < plugins.length; i++) {
         var plugin = plugins[i];
+
+        // common
+        commonPlugins(res, plugin);
+
+        // other
         if (plugin.type == 'css') {
             delete plugin.type;
             res.push(MiniCssExtractPlugin(plugin));
         }
-        if (plugin.type == 'html') {
-            delete plugin.type;
-            res.push(HtmlWebpackPlugin(plugin));
-        }
     }
+
+    console.log(2, res);
 
     // return
     return res;
