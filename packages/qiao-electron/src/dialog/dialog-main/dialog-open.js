@@ -10,17 +10,7 @@ import { dialog } from 'electron';
  * @returns 
  */
 export const dialogOpenFile = async (options) => {
-    // opt
-    let opt = options || {};
-
-    // properties
-    opt.properties = opt.properties || ['openFile'];
-
-    // win
-    const win = opt.win;
-
-    // return
-    return win ? await dialog.showOpenDialog(win, opt) : await dialog.showOpenDialog(opt);
+    return await openDialog(options, 'openFile');
 };
 
 /**
@@ -30,15 +20,20 @@ export const dialogOpenFile = async (options) => {
  * @returns 
  */
 export const dialogOpenFolder = async (options) => {
+    return await openDialog(options, 'openDirectory');
+};
+
+// openDialog
+async function openDialog(options, defaultProps){
     // opt
     let opt = options || {};
 
     // properties
-    opt.properties = opt.properties || ['openDirectory'];
+    opt.properties = opt.properties || [defaultProps];
 
     // win
     const win = opt.win;
 
     // return
     return win ? await dialog.showOpenDialog(win, opt) : await dialog.showOpenDialog(opt);
-};
+}
