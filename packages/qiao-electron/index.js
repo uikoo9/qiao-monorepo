@@ -100,11 +100,11 @@ async function openDialog(options, defaultProps){
 
     // filter
     if(opt.files){
-        opt.filters = {
-            filters: [
-                { name: 'files', extensions: opt.files },
-            ]
-        };
+        opt.filters = [{ 
+            name: 'files', 
+            extensions: opt.files 
+        }];
+        delete opt.files;
     }
 
     // return
