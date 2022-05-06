@@ -249,7 +249,16 @@ windowOpenByUrl(url, options, supportNode, isDev);
 windowOpenByUrlAndFile(urlPath, filePath, options);
 ```
 
+### windowOpenByUrlAndFile
+```javascript
+// 通过ipc的event获取对应的window
+windowGetByEvent(event);
+```
+
 ## version
+### 0.2.0.20220506
+1. windowGetByEvent
+
 ### 0.1.9.20220503
 1. md
 
