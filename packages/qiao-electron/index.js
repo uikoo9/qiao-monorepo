@@ -983,6 +983,19 @@ function windowOpenByUrlAndFile(urlPath, filePath, options){
     return windowOpenByFile(filePath, opt);
 }
 
+/**
+ * windowGetByEvent
+ * @param {*} event 
+ * @returns 
+ */
+function windowGetByEvent(event){
+    // check
+    if(!event || !event.sender) return;
+
+    // return
+    return electron.BrowserWindow.fromWebContents(event.sender);
+}
+
 exports.dbCreateTable = dbCreateTable;
 exports.dbDeleteData = dbDeleteData;
 exports.dbDropTable = dbDropTable;
@@ -1009,6 +1022,7 @@ exports.shellShowPath = shellShowPath;
 exports.shortcutReg = shortcutReg;
 exports.shortcutUnReg = shortcutUnReg;
 exports.sqlite = sqlite;
+exports.windowGetByEvent = windowGetByEvent;
 exports.windowOpenByFile = windowOpenByFile;
 exports.windowOpenByUrl = windowOpenByUrl;
 exports.windowOpenByUrlAndFile = windowOpenByUrlAndFile;
