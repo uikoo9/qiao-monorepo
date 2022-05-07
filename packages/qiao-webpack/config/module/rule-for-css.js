@@ -41,12 +41,17 @@ exports.build = {
       /iconfont\.css$/,
   ],
   use: [
-      MiniCssExtractPlugin.loader,
-      {
-          loader: require.resolve('css-loader'),
-          options: {
-              modules: false,
-          },
-      },
+    {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+            esModule: true,
+        },
+    },
+    {
+        loader: require.resolve('css-loader'),
+        options: {
+            modules: true,
+        },
+    },
   ],
 };
