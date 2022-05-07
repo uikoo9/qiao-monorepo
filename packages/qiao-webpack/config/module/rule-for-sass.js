@@ -7,9 +7,10 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
  * rule for css dev
  *  style-loader,
  *  css-loader,
+ *  sass-loader,
  */
 exports.dev = {
-  test: /\.sass$/,
+  test: /\.scss$/,
   use: [
     'style-loader',
     'css-loader',
@@ -19,11 +20,12 @@ exports.dev = {
 
 /**
  * rule for css build
- *  MiniCssExtractPlugin
+ *  MiniCssExtractPlugin,
  *  css-loader,
+ *  sass-loader,
  */
 exports.build = {
-  test: /\.sass$/,
+  test: /\.scss$/,
   use: [
       MiniCssExtractPlugin.loader,
       'css-loader',
