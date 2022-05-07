@@ -33,7 +33,6 @@ exports.build = function(configPath, target, isAnalyzer){
     opt.resolve         = qiaoWebpack.resolve;
     opt.plugins         = webpack_build_plugins(qiaoWebpack.plugins, isAnalyzer);
     opt.performance     = qiaoWebpack.performance || webpack_performance;
-    opt.optimization    = qiaoWebpack.optimization;
 
     // target
     if(target) opt.target = target;
@@ -58,7 +57,6 @@ exports.build = function(configPath, target, isAnalyzer){
     opt.devServer       = qiaoWebpack.devServer;
     opt.plugins         = webpack_dev_plugins(qiaoWebpack.plugins);
     opt.performance     = qiaoWebpack.performance || webpack_performance;
-    opt.optimization    = qiaoWebpack.optimization;
 
     // target
     if(target) opt.target = target;
