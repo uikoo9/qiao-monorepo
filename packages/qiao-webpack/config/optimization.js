@@ -34,7 +34,7 @@ module.exports = {
         test: /[\\/]node_modules[\\/]antd[\\/]/,
         name: 'antd',
         chunks: 'all',
-        priority: 0,
+        priority: -1,
         reuseExistingChunk: true,
       },
       default: {
