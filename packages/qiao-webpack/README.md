@@ -21,6 +21,8 @@ qwebpack analyzer /{yourconfigpath}/qiao.webpack.js
 1. optimization
 2. css build dev
 3. mini css
+4. antd
+5. babel-plugin-import
 
 ### 0.0.7.202205005
 1. webpack plugins
