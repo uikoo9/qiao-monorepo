@@ -31,7 +31,10 @@ module.exports = function(plugins, isAnalyzer){
         commonPlugins(res, plugin);
 
         // other
-        res.push(MiniCssExtractPlugin());
+        if (plugin.type == 'css') {
+            delete plugin.type;
+            res.push(new MiniCssExtractPlugin(plugin));
+        }
     }
 
     // return
