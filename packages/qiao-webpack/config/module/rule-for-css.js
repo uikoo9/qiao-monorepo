@@ -4,51 +4,34 @@
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /**
- * rule for css dev
- *  style-loader,
- *  css-loader,
+ * rule for css
+ * @param {*} isDev 
+ * @param {*} cssIncludes 
  */
-exports.dev = {
-  test: /\.css$/,
-  include: [
-      /node_modules[\\/]antd/,
-      /node_modules[\\/]normalize\.css/,
-      /iconfont\.css$/,
-  ],
-  use: [
-      {
-          loader: require.resolve('style-loader'),
-      },
-      {
-          loader: require.resolve('css-loader'),
-          options: {
-              modules: false,
-          },
-      },
-  ],
-};
+module.exports = function(isDev, cssIncludes){
+    // css includes
+    var defaultCssIncludes = [
+        /node_modules[\\/]antd/,
+        /node_modules[\\/]normalize\.css/,
+        /iconfont\.css$/,
+    ];
+    var finalCssIncludes = defaultCssIncludes.concat(cssIncludes || []);
 
-/**
- * rule for css build
- *  MiniCssExtractPlugin
- *  css-loader,
- */
-exports.build = {
-  test: /\.css$/,
-  include: [
-      /iconfont\.css$/,
-      /node_modules[\\/]antd/,
-      /node_modules[\\/]normalize\.css/,
-      /node_modules[\\/]monaco-editor/,
-      /node_modules[\\/]@tencent[\\/]vos\.plugin\.editor/,
-  ],
-  use: [
-    MiniCssExtractPlugin.loader,
-    {
-        loader: require.resolve('css-loader'),
-        options: {
-            modules: false,
-        },
-    },
-  ],
+    // use
+    var use = [
+        isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+        {
+            loader: require.resolve('css-loader'),
+            options: {
+                modules: false,
+            },
+        }
+    ];
+
+    // return
+    return {
+        test    : /\.css$/,
+        include : finalCssIncludes,
+        use     : use,
+    };
 };

@@ -1,42 +1,51 @@
 'use strict';
 
+// html webpack plugin
+var HtmlWebpackPlugin = require('./plugin-for-html.js');
+
 // mini css extract plugin
 var MiniCssExtractPlugin = require('./plugin-for-minicss.js');
 
 // webpack bundle analyzer
 var BundleAnalyzerPlugin = require('./plugin-for-analyzer.js');
 
-// common plugins
-var commonPlugins = require('./plugins-common.js');
-
 /**
- * webpack build plugins
+ * webpack plugins
+ * @param {*} isDev 
  * @param {*} plugins 
  * @param {*} isAnalyzer 
  * @returns 
  */
-module.exports = function(plugins, isAnalyzer){
-    // default
-    var res = [];
-    if(isAnalyzer) res.push(BundleAnalyzerPlugin());
-
+module.exports = function(isDev, plugins, isAnalyzer){
     // check
+    var res = [];
     if (!plugins || !plugins.length) return res;
+
+    // isAnalyzer
+    if(isAnalyzer) res.push(BundleAnalyzerPlugin());
     
-    // add
+    // plugins
     for (var i = 0; i < plugins.length; i++) {
         var plugin = plugins[i];
 
-        // common
-        commonPlugins(res, plugin);
+        // html
+        if (plugin.type == 'html') {
+            delete plugin.type;
+            res.push(HtmlWebpackPlugin(plugin));
+        }
 
-        // other
+        // css
         if (plugin.type == 'css') {
             delete plugin.type;
             res.push(new MiniCssExtractPlugin(plugin));
         }
+
+        // editor
+        if (plugin.type == 'editor') {
+            delete plugin.type;
+            res.push(plugin.item);
+        }
     }
 
-    // return
     return res;
 };

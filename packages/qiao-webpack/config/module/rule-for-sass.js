@@ -4,31 +4,20 @@
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /**
- * rule for css dev
- *  style-loader,
- *  css-loader,
- *  sass-loader,
+ * rule for scss
+ * @param {*} isDev 
  */
-exports.dev = {
-  test: /\.scss$/,
-  use: [
-    'style-loader',
-    'css-loader',
-    'sass-loader',
-  ],
-};
-
-/**
- * rule for css build
- *  MiniCssExtractPlugin,
- *  css-loader,
- *  sass-loader,
- */
-exports.build = {
-  test: /\.scss$/,
-  use: [
-      MiniCssExtractPlugin.loader,
+ module.exports = function(isDev){
+  // use
+  var use = [
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       'css-loader',
       'sass-loader',
-  ],
+  ];
+
+  // return
+  return {
+      test: /\.scss$/,
+      use : use,
+  };
 };
