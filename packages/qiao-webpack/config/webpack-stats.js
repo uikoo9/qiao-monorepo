@@ -9,7 +9,7 @@ module.exports = {
     // assets
     assets              : true,
     assetsSort          : '!size',
-    assetsSpace         : 20,
+    assetsSpace         : 200,
     groupAssetsByChunk  : true,
     
     // chunks
@@ -19,7 +19,7 @@ module.exports = {
     chunkOrigins        : false,
     chunkGroups         : false,
     chunkRelations      : false,
-    chunkModulesSpace   : 100,
+    chunkModulesSpace   : 200,
 
     // false
     builtAt             : false,
@@ -32,9 +32,9 @@ module.exports = {
     modules             : false,
     moduleAssets        : false,
     modulesSort         : 'id',
-    modulesSpace        : 20,
+    modulesSpace        : 200,
     nestedModules       : false,
-    nestedModulesSpace  : 20,
+    nestedModulesSpace  : 200,
     relatedAssets       : false,
     runtimeModules      : false,
     groupAssetsByEmitStatus     : false,
