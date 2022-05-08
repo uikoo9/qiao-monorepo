@@ -36,9 +36,11 @@ exports.dev = {
 exports.build = {
   test: /\.css$/,
   include: [
+      /iconfont\.css$/,
       /node_modules[\\/]antd/,
       /node_modules[\\/]normalize\.css/,
-      /iconfont\.css$/,
+      /node_modules[\\/]monaco-editor/,
+      /node_modules[\\/]@tencent[\\/]vos\.plugin\.editor/,
   ],
   use: [
     MiniCssExtractPlugin.loader,
