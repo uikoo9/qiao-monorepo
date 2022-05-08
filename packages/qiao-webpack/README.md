@@ -17,14 +17,17 @@ qwebpack analyzer /{yourconfigpath}/qiao.webpack.js
 ```
 
 ## version
-### 0.0.8.202205007
+### 0.0.8.20220508
+1. optimization
+
+### 0.0.8.20220507
 1. optimization
 2. css build dev
 3. mini css
 4. antd
 5. babel-plugin-import
 
-### 0.0.7.202205005
+### 0.0.7.20220505
 1. webpack plugins
 
 ### 0.0.6.20220415
