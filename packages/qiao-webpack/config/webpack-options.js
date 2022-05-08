@@ -9,8 +9,8 @@ var webpack_plugins = require('./plugins/plugins.js');
 // webpack performance
 var webpack_performance = require('./webpack-performance.js');
 
-// optimization
-var optimization = require('./optimization.js');
+// webpack optimization
+var webpack_optimization = require('./optimization/optimization.js');
 
 /**
  * webpack options
@@ -26,6 +26,6 @@ module.exports = function(isDev, qiaoWebpack, isAnalyzer){
         module          : webpack_module(isDev, qiaoWebpack.cssIncludes),
         plugins         : webpack_plugins(isDev, qiaoWebpack.plugins, isAnalyzer),
         performance     : qiaoWebpack.performance || webpack_performance,
-        optimization    : optimization,
+        optimization    : webpack_optimization(isDev, qiaoWebpack.cacheGroups),
     };
 };
