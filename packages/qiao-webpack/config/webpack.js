@@ -7,9 +7,6 @@ var merge = require('webpack-merge').merge;
 // webpack options
 var webpack_options = require('./webpack-options.js');
 
-// webpack performance
-var webpack_performance = require('./webpack-performance.js');
-
 /**
  * webpack build config
  */
@@ -26,7 +23,6 @@ exports.build = function(configPath, target, isAnalyzer){
     opt.entry           = qiaoWebpack.entry;
     opt.output          = qiaoWebpack.output;
     opt.resolve         = qiaoWebpack.resolve;
-    opt.performance     = qiaoWebpack.performance || webpack_performance;
 
     // target
     if(target) opt.target = target;
@@ -52,7 +48,6 @@ exports.build = function(configPath, target, isAnalyzer){
     opt.output          = qiaoWebpack.output;
     opt.resolve         = qiaoWebpack.resolve;
     opt.devServer       = qiaoWebpack.devServer;
-    opt.performance     = qiaoWebpack.performance || webpack_performance;
 
     // target
     if(target) opt.target = target;

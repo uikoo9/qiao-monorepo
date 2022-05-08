@@ -37,7 +37,7 @@ module.exports = function(isDev, plugins, isAnalyzer){
         // css
         if (plugin.type == 'css') {
             delete plugin.type;
-            res.push(new MiniCssExtractPlugin(plugin));
+            res.push(MiniCssExtractPlugin(plugin));
         }
 
         // editor

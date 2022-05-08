@@ -6,6 +6,9 @@ var webpack_module = require('./module/module.js');
 // webpack plugins
 var webpack_plugins = require('./plugins/plugins.js');
 
+// webpack performance
+var webpack_performance = require('./webpack-performance.js');
+
 // optimization
 var optimization = require('./optimization.js');
 
@@ -22,6 +25,7 @@ module.exports = function(isDev, qiaoWebpack, isAnalyzer){
         devtool         : isDev ? 'inline-source-map' : 'source-map',
         module          : webpack_module(isDev, qiaoWebpack.cssIncludes),
         plugins         : webpack_plugins(isDev, qiaoWebpack.plugins, isAnalyzer),
+        performance     : qiaoWebpack.performance || webpack_performance,
         optimization    : optimization,
     };
 };
