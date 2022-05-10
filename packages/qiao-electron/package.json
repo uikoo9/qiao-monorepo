@@ -30,7 +30,7 @@
     "qiao-sqlite": "^0.2.2"
   },
   "devDependencies": {
-    "rollup": "^2.70.2"
+    "rollup": "^2.72.1"
   },
   "gitHead": "14d9939b4abdc453bdc08cc12d8f6d49ef107db5"
 }

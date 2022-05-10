@@ -22,7 +22,7 @@ exports.job = function(time, tick){
 	}
 	
 	// return
-	return new exports.cron.job(time, tick);
+	return new exports.cron.CronJob(time, tick);
 };
 
 /**
