@@ -1,6 +1,6 @@
 {
   "name": "qiao-ajax",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "browser ajax and nodejs http request",
   "keywords": [
     "browser",
@@ -29,6 +29,6 @@
     "axios": "0.27.2"
   },
   "devDependencies": {
-    "qiao-webpack": "^0.5.3"
+    "qiao-webpack": "^0.5.4"
   }
 }
