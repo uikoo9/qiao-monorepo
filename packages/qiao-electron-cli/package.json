@@ -1,6 +1,6 @@
 {
   "name": "qiao-electron-cli",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "electron cli tools",
   "keywords": [
     "electron",
@@ -24,8 +24,8 @@
   "dependencies": {
     "electron-installer-dmg": "^4.0.0",
     "electron-packager": "^15.5.1",
-    "qiao-cli": "^0.1.9",
-    "qiao-cos": "^0.3.1",
-    "qiao-file": "^0.3.0"
+    "qiao-cli": "^0.2.0",
+    "qiao-cos": "^0.3.2",
+    "qiao-file": "^0.3.1"
   }
 }
