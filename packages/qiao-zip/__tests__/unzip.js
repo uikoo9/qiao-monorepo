@@ -3,7 +3,7 @@
 var q = require('../index.js');
 
 var test = function(){
-	var zipFile 	= '/Users/vincent/Data/projects/qiao/qiao-monorepo/2.zip';
+	var zipFile 	= '/Users/vincent/Data/projects/qiao/qiao-monorepo/test.zip';
 	var destFolder	= '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/2/';
 	
 	console.log('unzip ' + zipFile);

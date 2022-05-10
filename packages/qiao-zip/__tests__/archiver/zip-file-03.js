@@ -35,8 +35,8 @@ function zipFile(sourceFile, destZip, cb){
  * test
  */
 function test(){
-    var sourceFile    = 'd:/zip/demo02/test.js';
-    var destZip       = 'd:/zip/demo02/test.zip';
+    var sourceFile    = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.js';
+    var destZip       = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.zip';
   
     zipFile(sourceFile, destZip, function(err, msg){
     	console.log(err, msg);

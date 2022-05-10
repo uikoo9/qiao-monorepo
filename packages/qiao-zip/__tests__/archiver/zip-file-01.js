@@ -32,8 +32,8 @@ function zipFile(sourceFile, destZip, cb){
  * test
  */
 function test(){
-    var sourceFile    = 'd:/test.js';
-    var destZip       = 'd:/test.zip';
+    var sourceFile    = './archiver.js';
+    var destZip       = './archiver.zip';
   
     zipFile(sourceFile, destZip, function(err, msg){
     	console.log(err, msg);

@@ -33,8 +33,8 @@ function zipFolder(sourceFolder, destZip, cb, subdir){
  * test
  */
 function test(){
-    var sourceFolder    = 'd:/zip/demo03';
-    var destZip       	= 'd:/zip/demo05/test.zip';
+	var sourceFolder  = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver';
+    var destZip       = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver11/archiver.zip';
   
     zipFolder(sourceFolder, destZip, function(err, msg){
     	console.log(err, msg);

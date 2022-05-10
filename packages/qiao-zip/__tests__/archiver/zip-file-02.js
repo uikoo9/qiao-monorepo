@@ -25,23 +25,24 @@ function zipFile(sourceFile, destZip, cb){
 	// zip
 	archive.pipe(output);
 	archive.file(sourceFile);
-	archive.finalize();
 	
 	// 这行代码，没有传入name属性
 	archive.file(sourceFile);
-
+	
 	// 应该像这样
 	archive.file(sourceFile, {
 		name : 'test.js'
 	});
+	
+	archive.finalize();
 }
 
 /**
  * test
  */
 function test(){
-    var sourceFile    = 'd:/zip/demo01/test.js';
-    var destZip       = 'd:/zip/demo01/test.zip';
+    var sourceFile    = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.js';
+    var destZip       = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.zip';
   
     zipFile(sourceFile, destZip, function(err, msg){
     	console.log(err, msg);
