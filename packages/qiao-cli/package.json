@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^6.0.0",
-    "inquirer": "^7.3.3",
+    "commander": "^9.2.0",
+    "inquirer": "^8.2.4",
     "progress": "^2.0.3"
   }
 }
