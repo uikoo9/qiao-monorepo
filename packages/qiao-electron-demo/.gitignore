@@ -4,7 +4,6 @@
 .externalToolBuilders
 
 node_modules
-package-lock.json
 
 *.log
 cos-config.json
