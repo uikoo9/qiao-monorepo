@@ -37,8 +37,5 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^4.9.0",
     "webpack-merge": "^5.8.0"
-  },
-  "bugs": {
-    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   }
 }

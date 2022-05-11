@@ -14,7 +14,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao.util.console.git"
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {}
 }

@@ -16,9 +16,6 @@
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {},
-  "bugs": {
-    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-  },
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^9.2.0",

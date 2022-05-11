@@ -10,8 +10,5 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {},
-  "bugs": {
-    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-  }
+  "scripts": {}
 }

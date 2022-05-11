@@ -18,9 +18,6 @@
     "build": "qwebpack build ./webpack/qiao.webpack.js",
     "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
   },
-  "bugs": {
-    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-  },
   "dependencies": {
     "qrcode": "^1.5.0"
   },

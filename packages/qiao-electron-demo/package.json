@@ -5,10 +5,6 @@
   "description": "qiao-electron-cli demo",
   "keywords": [],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xxx/xxx.git"
-  },
   "scripts": {
     "init-pack": "npm i",
     "init-main": "cd qe-src/qe-main && npm i",

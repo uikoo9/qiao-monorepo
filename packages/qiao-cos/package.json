@@ -10,7 +10,7 @@
     "nodejs"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/qiao-monorepo#readme",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-cos#readme",
   "license": "MIT",
   "main": "index.js",
   "repository": {
@@ -20,9 +20,6 @@
   "scripts": {},
   "bin": {
     "qcos": "./bin/qcos.js"
-  },
-  "bugs": {
-    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.11.8",
