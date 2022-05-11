@@ -1,27 +1,22 @@
 {
   "name": "qiao-cache",
   "version": "0.0.2",
-  "license": "MIT",
   "description": "nodejs memory cache",
   "keywords": [
     "nodejs",
     "memory",
     "cache"
   ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "license": "MIT",
   "main": "index.js",
-  "scripts": {},
-  "author": {
-    "name": "qiaowenbin",
-    "email": "npm@insistime.com",
-    "url": "https://insistime.com"
-  },
-  "funding": "http://uikoo9.com/donate",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao-cache.git"
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
+  "scripts": {},
   "dependencies": {
     "node-cache": "^5.1.2"
-  },
-  "devDependencies": {}
+  }
 }

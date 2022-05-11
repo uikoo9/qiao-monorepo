@@ -1,6 +1,6 @@
 'use strict';
 
-var q = require('../lib/qiao-cache');
+var q = require('../index.js');
 
 // set
 q.cache('test', 'hello');

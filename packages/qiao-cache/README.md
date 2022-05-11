@@ -1,9 +1,6 @@
 # qiao-cache
 nodejs memory cache
 
-## donate
-[http://uikoo9.com/donate](http://uikoo9.com/donate)
-
 ## api
 ### cache
 ```javascript
