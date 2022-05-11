@@ -21,5 +21,8 @@ console.log(q.cache('test')); // undefined
 ```
 
 ## version
+### 0.0.2.20220511
+1. md
+
 ### 0.0.1.20201106
 1. init project
