@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilEncode = require('../../lib/qiao-encode.js');
+var q = require('../../index.js');
 
 var length = 4;
-for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterAll(length));
+for(var i=0; i<10; i++) console.log(q.randomLetterAll(length));

@@ -1,20 +1,20 @@
 'use strict';
 
-var qiaoUtilEncode = require('../lib/qiao-encode.js');
+var q = require('../index.js');
 
 var data 	= '{"nihao":"name"}';
 var key		= '123456123456123456112233';
-var s		= qiaoUtilEncode.TDESEncrypt(data, key);
+var s		= q.TDESEncrypt(data, key);
 console.log(s);
 
-var ss		= qiaoUtilEncode.TDESDecrypt(s, key);
+var ss		= q.TDESDecrypt(s, key);
 console.log(ss);
 
 // or use iv and encoding(hex, base64)
 var iv		= '';
 var encoding= 'hex';
-var s1		= qiaoUtilEncode.TDESEncrypt(data, key, iv, encoding);
+var s1		= q.TDESEncrypt(data, key, iv, encoding);
 console.log(s1);
 
-var ss1		= qiaoUtilEncode.TDESDecrypt(s1, key, iv, encoding);
+var ss1		= q.TDESDecrypt(s1, key, iv, encoding);
 console.log(ss1);
