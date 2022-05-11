@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilEncode = require('../../lib/qiao.util.encode.js');
+var qiaoUtilEncode = require('../../lib/qiao-encode.js');
 
 // random number
 var type	= 0;

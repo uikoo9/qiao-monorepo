@@ -1,26 +1,26 @@
 # urls
 ## homepage
-[https://code.insistime.com/qiao.util.encode](https://code.insistime.com/qiao.util.encode)
+[https://code.insistime.com/qiao-encode](https://code.insistime.com/qiao-encode)
 
 ## github
-[https://github.com/insistime/qiao.util.encode](https://github.com/insistime/qiao.util.encode)
+[https://github.com/insistime/qiao-encode](https://github.com/insistime/qiao-encode)
 
 ## npm
-[https://www.npmjs.com/package/qiao.util.encode](https://www.npmjs.com/package/qiao.util.encode)
+[https://www.npmjs.com/package/qiao-encode](https://www.npmjs.com/package/qiao-encode)
 
 ## donate
 [http://uikoo9.com/donate](http://uikoo9.com/donate)
 
 # started
 ## install
-npm install qiao.util.encode
+npm install qiao-encode
 
 # api
 ## md5
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var data 	= '{"nihao":"name"}';
 var s		= qiaoUtilEncode.md5(data);
@@ -35,7 +35,7 @@ console.log(ss);
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 // uuid v4
 var uuid0 = qiaoUtilEncode.uuid();
@@ -63,7 +63,7 @@ console.log(uuid5);
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 // random number
 var type	= 0;
@@ -95,7 +95,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.random(type, length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var length = 4;
 for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomNumber(length));
@@ -105,7 +105,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomNumber(length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var length = 4;
 for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterLower(length));
@@ -115,7 +115,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterLower(length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var length = 4;
 for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterUpper(length));
@@ -125,7 +125,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterUpper(length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var length = 4;
 for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterAll(length));
@@ -135,7 +135,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterAll(length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var length = 4;
 for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterNumber(length));
@@ -145,7 +145,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomLetterNumber(length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var seed	= '0123456789';
 var length 	= 4;
@@ -156,7 +156,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomSeed(seed, length));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var seed = '0123456789';
 for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomBySeed(seed));
@@ -166,7 +166,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomBySeed(seed));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var min = 0;
 var max = 9;
@@ -177,7 +177,7 @@ for(var i=0; i<10; i++) console.log(qiaoUtilEncode.randomIn(min, max));
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var data 	= '{"nihao":"name"}';
 var key		= '12345612345612345612345612345611';
@@ -201,7 +201,7 @@ console.log(ss1);
 ```javascript
 'use strict';
 
-var qiaoUtilEncode = require('qiao.util.encode');
+var qiaoUtilEncode = require('qiao-encode');
 
 var data 	= '{"nihao":"name"}';
 var key		= '123456123456123456112233';

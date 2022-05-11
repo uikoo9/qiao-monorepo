@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilEncode = require('../lib/qiao.util.encode');
+var qiaoUtilEncode = require('../lib/qiao-encode');
 
 // uuid v4
 var uuid0 = qiaoUtilEncode.uuid();

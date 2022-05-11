@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilEncode = require('../../lib/qiao.util.encode.js');
+var qiaoUtilEncode = require('../../lib/qiao-encode.js');
 
 var seed	= '0123456789';
 var length 	= 4;

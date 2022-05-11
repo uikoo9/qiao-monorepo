@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoUtilEncode = require('../lib/qiao.util.encode.js');
+var qiaoUtilEncode = require('../lib/qiao-encode.js');
 
 var data 	= '{"nihao":"name"}';
 var s		= qiaoUtilEncode.md5(data);
