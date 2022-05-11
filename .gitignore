@@ -4,6 +4,7 @@
 .externalToolBuilders
 
 dist
+jsdoc
 node_modules
 
 lerna-debug.log

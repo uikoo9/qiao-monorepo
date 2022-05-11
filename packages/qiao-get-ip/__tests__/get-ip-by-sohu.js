@@ -1,11 +1,11 @@
 'use strict';
 
-var q = require('../qiao-get-ip.js');
+var q = require('../index.js');
 
-// get ip
-test('get ip', async function(){
+// get ip by sohu
+test('get ip by sohu', async function(){
     try{
-        var res = await q.getIp();
+        var res = await q.getIpBySohu();
 
         console.log(res);
         expect(res).toBeDefined();

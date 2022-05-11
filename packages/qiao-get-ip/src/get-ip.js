@@ -1,20 +1,18 @@
 'use strict';
 
 // get ip by sohu
-var getIpBySohu = require('./get-ip-by-sohu.js');
+import { getIpBySohu } from './get-ip-by-sohu.js';
 
 // get ip by icanhazip
-var getIpByIcanhazip = require('./get-ip-by-icanhazip.js');
-
-// exports
-module.exports = getIp;
+import { getIpByIcanhazip } from './get-ip-by-icanhazip.js';
 
 /**
- * @returns {string} public ip
+ * getIp
+ * @returns 
  */
-async function getIp(){
-	var ip;
-
+export const getIp = async () => {
+	let ip;
+	
 	// by sohu
 	try{
 		ip = await getIpBySohu();
@@ -26,6 +24,6 @@ async function getIp(){
 			console.log(e1, e2);
 		}
 	}
-
+	
 	return ip;
 }

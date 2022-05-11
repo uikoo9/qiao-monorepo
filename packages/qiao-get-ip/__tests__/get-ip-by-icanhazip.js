@@ -1,12 +1,12 @@
 'use strict';
 
-var q = require('../qiao-get-ip.js');
+var q = require('../index.js');
 
-// get ip by sohu
-test('get ip by sohu', async function(){
+// get ip by icanhazip
+test('get ip by icanhazip', async function(){
     try{
-        var res = await q.getIpBySohu();
-
+        var res = await q.getIpByIcanhazip();
+        
         console.log(res);
         expect(res).toBeDefined();
     }catch(e){

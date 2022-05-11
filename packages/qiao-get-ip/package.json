@@ -1,7 +1,6 @@
 {
   "name": "qiao-get-ip",
   "version": "0.0.8",
-  "license": "MIT",
   "description": "get public ip on browser and nodejs",
   "keywords": [
     "browser",
@@ -9,27 +8,25 @@
     "public",
     "ip"
   ],
-  "main": "qiao-get-ip.js",
-  "scripts": {
-    "doc": "jsdoc -c jsdoc.config.js",
-    "test": "jest --config jest.config.js"
-  },
-  "author": {
-    "name": "qiaowenbin",
-    "email": "npm@insistime.com",
-    "url": "https://insistime.com"
-  },
-  "funding": "http://uikoo9.com/donate",
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao-get-ip.git"
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {
+    "test": "jest --config jest.config.js",
+    "build": "rollup --config rollup.config.js",
+    "prepublish": "npm run build"
   },
   "dependencies": {
-    "ip-regex": "^4.3.0",
-    "qiao-ajax": "0.0.5"
+    "ip-regex": "^5.0.0",
+    "qiao-ajax": "2.5.1"
   },
   "devDependencies": {
-    "jest": "^27.0.0-next.1",
-    "jsdoc": "^3.6.6"
+    "jest": "^28.1.0",
+    "rollup": "^2.72.1"
   }
 }

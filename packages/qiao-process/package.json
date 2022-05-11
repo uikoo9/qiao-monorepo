@@ -16,7 +16,5 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {
-    "test": "node ./__tests__/fork.js"
-  }
+  "scripts": {}
 }

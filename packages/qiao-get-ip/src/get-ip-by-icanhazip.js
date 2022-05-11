@@ -1,25 +1,23 @@
 'use strict';
 
 // qiao-ajax
-var q = require('qiao-ajax');
+import q from 'qiao-ajax';
 
 // ip-regex
-var i = require('ip-regex');
+import i from 'ip-regex';
 
 // urls
-var hipUrl	= 'http://icanhazip.com/';
-var hipErr 	= new Error('get ip by icanhazip failed');
+const hipUrl	= 'http://icanhazip.com/';
+const hipErr 	= new Error('get ip by icanhazip failed');
 
 // not ip
-var notIpErr= new Error('not ip');
-
-// exports
-module.exports = getIpByIcanhazip;
+const notIpErr	= new Error('not ip');
 
 /**
- * @returns {string} public ip
+ * getIpByIcanhazip
+ * @returns 
  */
-function getIpByIcanhazip(){
+export const getIpByIcanhazip = () => {
 	return new Promise(function(resolve, reject){
 		q.get(hipUrl)
 			.then(function(res){
@@ -27,12 +25,12 @@ function getIpByIcanhazip(){
 				if(!res || res.status != 200 || !res.data){
 					return reject(hipErr);
 				}
-
+	
 				// ip
-				var ip 	= res.data.replace(/\n/g, '');
+				const ip = res.data.replace(/\n/g, '');
 				if(!ip) return reject(hipErr);
-
-				var isIp = i.v4({exact: true}).test(ip);
+	
+				const isIp = i.v4({exact: true}).test(ip);
 				return isIp ? resolve(ip) : reject(notIpErr);
 			})
 			.catch(function(e){
