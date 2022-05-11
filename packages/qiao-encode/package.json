@@ -1,6 +1,6 @@
 {
   "name": "qiao-encode",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "nodejs crypto tool",
   "keywords": [
     "nodejs",
