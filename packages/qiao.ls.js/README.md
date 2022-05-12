@@ -22,6 +22,9 @@ console.log(q.ls('name')); // undefined
 ```
 
 ## version
+### 0.0.9.20220512
+1. lerna
+
 ### 0.0.8.20210215
 1. qls --> q
 
