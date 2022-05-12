@@ -2,15 +2,13 @@
 
 var q = require('../index.js');
 
-// get ip by sohu
-test('get ip by sohu', async function(){
+var test = async function(){
     try{
-        var res = await q.getIpBySohu();
-
-        console.log(res);
-        expect(res).toBeDefined();
+        var ip = await q.getIpBySohu();
+        console.log(ip);
     }catch(e){
-        console.log(e.message);
-        expect(e.message).toBeDefined();
+        console.log(e);
     }
-});
+};
+
+test();

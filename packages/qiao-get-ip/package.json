@@ -17,7 +17,6 @@
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {
-    "test": "jest --config jest.config.js",
     "build": "rollup --config rollup.config.js",
     "prepublish": "npm run build"
   },
@@ -26,7 +25,7 @@
     "qiao-ajax": "2.5.1"
   },
   "devDependencies": {
-    "jest": "^28.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "rollup": "^2.72.1"
   }
 }

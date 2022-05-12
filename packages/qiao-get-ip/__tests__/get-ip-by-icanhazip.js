@@ -2,15 +2,13 @@
 
 var q = require('../index.js');
 
-// get ip by icanhazip
-test('get ip by icanhazip', async function(){
+var test = async function(){
     try{
-        var res = await q.getIpByIcanhazip();
-        
-        console.log(res);
-        expect(res).toBeDefined();
+        var ip = await q.getIpByIcanhazip();
+        console.log(ip);
     }catch(e){
-        console.log(e.message);
-        expect(e.message).toBeDefined();
+        console.log(e);
     }
-});
+};
+
+test();

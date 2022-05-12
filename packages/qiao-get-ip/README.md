@@ -1,7 +1,5 @@
 # qiao-get-ip
-1. get public ip on nodejs and browser
-2. first by http://txt.go.sohu.com/ip/soip
-3. then by http://icanhazip.com/
+get public ip on nodejs and browser
 
 ## api
 ### getIp
