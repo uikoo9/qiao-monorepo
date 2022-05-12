@@ -21,6 +21,9 @@ test();
 ```
 
 ## version
+### 0.0.3.20220512
+1. ncu
+
 ### 0.0.2.20210215
 1. add jsdoc
 2. add jest
