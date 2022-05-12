@@ -1,34 +1,23 @@
 {
   "name": "qiao-is-online",
   "version": "0.0.6",
-  "license": "MIT",
   "description": "is online and offline to online on nodejs",
   "keywords": [
     "nodejs",
     "is online",
     "offline to online"
   ],
-  "main": "qiao-is-online.js",
-  "scripts": {
-    "doc": "jsdoc -c jsdoc.config.js",
-    "test": "jest --config jest.config.js"
-  },
-  "author": {
-    "name": "qiaowenbin",
-    "email": "npm@insistime.com",
-    "url": "https://insistime.com"
-  },
-  "funding": "http://uikoo9.com/donate",
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/insistime/qiao-is-online.git"
   },
+  "scripts": {},
   "dependencies": {
     "offline-to-online": "0.0.9",
-    "qiao-ping": "0.0.1"
-  },
-  "devDependencies": {
-    "jest": "^27.0.0-next.1",
-    "jsdoc": "^3.6.6"
+    "qiao-ping": "0.0.4"
   }
 }
