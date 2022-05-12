@@ -39,6 +39,9 @@ q.offlineToOnline(function(){
 ```
 
 ## version
+### 0.0.5.20220512
+1. lerna
+
 ### 0.0.4.20210220
 1. ncu
 
