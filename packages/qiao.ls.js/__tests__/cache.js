@@ -1,6 +1,6 @@
 'use strict';
 
-var q = require('../qiao.ls.js');
+var q = require('../index.js');
 
 // set value, get value
 test('set value, get value', function(){

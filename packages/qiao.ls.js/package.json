@@ -1,7 +1,6 @@
 {
   "name": "qiao.ls.js",
   "version": "0.1.7",
-  "license": "MIT",
   "description": "local storage expires",
   "keywords": [
     "local",
@@ -9,23 +8,19 @@
     "localStorage",
     "expires"
   ],
-  "main": "qiao.ls.js",
-  "scripts": {
-    "doc": "jsdoc -c jsdoc.config.js",
-    "test": "jest --config jest.config.js"
-  },
-  "author": {
-    "name": "qiaowenbin",
-    "email": "npm@insistime.com",
-    "url": "https://insistime.com"
-  },
-  "funding": "http://uikoo9.com/donate",
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao.ls.js.git"
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {
+    "test": "jest --config jest.config.js"
   },
   "devDependencies": {
-    "jest": "^27.0.0-next.1",
-    "jsdoc": "^3.6.6"
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0"
   }
 }

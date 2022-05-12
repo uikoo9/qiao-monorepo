@@ -1,6 +1,6 @@
 'use strict';
 
-var q = require('../qiao.ls.js');
+var q = require('../index.js');
 
 // set boolean
 test('set boolean, get boolean', function(){
