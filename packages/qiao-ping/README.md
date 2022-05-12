@@ -1,11 +1,6 @@
 # qiao-ping
 ping on nodejs
 
-## install
-```
-npm install qiao-ping
-```
-
 ## api
 ### ping
 ```javascript
