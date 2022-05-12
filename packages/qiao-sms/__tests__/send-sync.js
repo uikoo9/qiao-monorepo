@@ -1,11 +1,11 @@
 'use strict';
 
-var qiaoExtTxsms = require('../lib/qiao.ext.txsms.js');
+var q = require('../index.js');
 
 var test = async function(){
 	try{
 		// 普通单条短信-简化
-		var msg1 = await qiaoExtTxsms.sendSync({
+		var msg1 = await q.sendSync({
 			appid 	: 'your appid',
 			appkey	: 'your appkey',
 			sign	: 'your sign',
@@ -15,7 +15,7 @@ var test = async function(){
 		console.log(msg1);
 		
 		// 普通单条短信-定制&回调
-		var msg2 = qiaoExtTxsms.send({
+		var msg2 = q.send({
 			appid 	: 'your appid',
 			appkey	: 'your appkey',
 			sign	: 'your sign',

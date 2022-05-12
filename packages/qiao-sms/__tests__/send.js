@@ -1,19 +1,19 @@
 'use strict';
 
-var qiaoExtTxsms = require('../lib/qiao.ext.txsms.js');
+var q = require('../index.js');
 
 var test = function(){
 	// 普通单条短信-简化
-	qiaoExtTxsms.send({
+	q.send({
 		appid 	: 'your appid',
 		appkey	: 'your appkey',
 		sign	: 'your sign',
 		mobile	: 'mobile',
-		msg		: '您的验证码是：1234，如非本人操作，请忽略此短信。',
+		msg		: '您的验证码是：12345，如非本人操作，请忽略此短信。',
 	});
 	
 	// 普通单条短信-定制&回调
-	qiaoExtTxsms.send({
+	q.send({
 		appid 	: 'your appid',
 		appkey	: 'your appkey',
 		sign	: 'your sign',

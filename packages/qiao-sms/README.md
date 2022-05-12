@@ -1,36 +1,15 @@
-# urls
-## homepage
-[https://code.insistime.com/qiao.ext.txsms](https://code.insistime.com/qiao.ext.txsms)
+# qiao-sms
 
-## github
-[https://github.com/insistime/qiao.ext.txsms](https://github.com/insistime/qiao.ext.txsms)
-
-## npm
-[https://www.npmjs.com/package/qiao.ext.txsms](https://www.npmjs.com/package/qiao.ext.txsms)
-
-## donate
-[http://uikoo9.com/donate](http://uikoo9.com/donate)
-
-# started
-## install
-npm install qiao.ext.txsms
-
-## dependencies
-1. qcloudsms_js
-
-## documentation
-1. qcloudsms_js, https://www.npmjs.com/package/qcloudsms_js
-
-# api
-## send
+## api
+### send
 ```javascript
 'use strict';
 
-var qiaoExtTxsms = require('qiao.ext.txsms');
+var q = require('qiao-sms');
 
 var test = function(){
 	// 普通单条短信-简化
-	qiaoExtTxsms.send({
+	q.send({
 		appid 	: 'your appid',
 		appkey	: 'your appkey',
 		sign	: 'your sign',
@@ -39,7 +18,7 @@ var test = function(){
 	});
 	
 	// 普通单条短信-定制&回调
-	qiaoExtTxsms.send({
+	q.send({
 		appid 	: 'your appid',
 		appkey	: 'your appkey',
 		sign	: 'your sign',
@@ -55,16 +34,16 @@ var test = function(){
 test();
 ```
 
-## sendSync
+### sendSync
 ```javascript
 'use strict';
 
-var qiaoExtTxsms = require('qiao.ext.txsms');
+var q = require('qiao-sms');
 
 var test = async function(){
 	try{
 		// 普通单条短信-简化
-		var msg1 = await qiaoExtTxsms.sendSync({
+		var msg1 = await q.sendSync({
 			appid 	: 'your appid',
 			appkey	: 'your appkey',
 			sign	: 'your sign',
@@ -74,7 +53,7 @@ var test = async function(){
 		console.log(msg1);
 		
 		// 普通单条短信-定制&回调
-		var msg2 = qiaoExtTxsms.send({
+		var msg2 = q.send({
 			appid 	: 'your appid',
 			appkey	: 'your appkey',
 			sign	: 'your sign',
@@ -92,14 +71,14 @@ var test = async function(){
 test();
 ```
 
-# version
-## 0.0.3.20191206
+## version
+### 0.0.3.20191206
 1. add funding
 
-## 0.0.2.20190107
+### 0.0.2.20190107
 1. nodejs tencent sms tool
 
-## 0.0.1.20181127
+### 0.0.1.20181127
 1. init project
 2. send
 3. send sync
