@@ -41,6 +41,9 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 ```
 
 ## version
+### 0.0.4.20220512
+1. lerna
+
 ### 0.0.3.20210220
 1. add jsdoc
 
