@@ -1,6 +1,6 @@
 {
   "name": "qiao-config",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "json config to local file",
   "keywords": [
     "json",
@@ -19,6 +19,6 @@
   },
   "scripts": {},
   "dependencies": {
-    "qiao-file": "^0.3.2"
+    "qiao-file": "^0.3.3"
   }
 }
