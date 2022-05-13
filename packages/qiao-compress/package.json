@@ -1,0 +1,26 @@
+{
+  "name": "qiao-compress",
+  "version": "0.0.6",
+  "description": "nodejs compress and uncompress tool",
+  "keywords": [
+    "compress",
+    "uncompress",
+    "zip",
+    "unzip",
+    "gzip",
+    "tar",
+    "tgz"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "compressing": "^1.5.1"
+  }
+}

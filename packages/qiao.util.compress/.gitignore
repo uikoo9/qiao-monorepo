@@ -1,8 +1,0 @@
-.idea
-.project
-.settings
-.externalToolBuilders
-
-node_modules
-files_out
-package-lock.json

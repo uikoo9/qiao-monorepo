@@ -5,6 +5,7 @@
 
 dist
 jsdoc
+files_out
 node_modules
 
 lerna-debug.log
