@@ -9,14 +9,14 @@ var noUrl	= new Error('no url');
 var resErr	= new Error('res error');
 
 /**
- * short url
+ * short link
  */
-exports.shortUrl = function(longUrl){
+exports.shortLink = function(longLink){
 	return new Promise(function(resolve, reject){
-		if(!longUrl) return reject(noUrl);
+		if(!longLink) return reject(noUrl);
 
 		// config
-		var config = {data : `url=${longUrl}`};
+		var config = {data : `url=${longLink}`};
 
 		// post
 		q.post(turl, config)
