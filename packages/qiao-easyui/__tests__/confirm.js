@@ -1,9 +1,9 @@
 'use strict';
 
-var qiaoFeEasyui = require('../lib/qiao.fe.easyui.js');
+var q = require('../index.js');
 
 /**
- * alert
+ * confirm
  * 	options, msg
  * 	fn, callback
  * 
@@ -14,4 +14,4 @@ var qiaoFeEasyui = require('../lib/qiao.fe.easyui.js');
  * 	options.icon: error,question,info,warning.
  * 	options.fn
  */
-qiaoFeEasyui.alert(options, fn);
+q.confirm(options, fn);
