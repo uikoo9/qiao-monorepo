@@ -1,8 +1,8 @@
 'use strict';
 
 var fs			= require('fs');
-var qiao 		= require('qiao.util.all');
 var template	= require('art-template');
+var qiao 		= require('./_qiao.js');
 
 /**
  * config

@@ -1,0 +1,28 @@
+{
+  "name": "qiao-coder",
+  "version": "0.4.0",
+  "description": "qiao-coder",
+  "keywords": [],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-coder#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {},
+  "bin": {
+    "qcoder": "./bin/qcoder.js"
+  },
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "qiao-cli": "^0.2.2",
+    "qiao-encode": "^0.1.2",
+    "qiao-file": "^0.3.3",
+    "qiao-mysql": "^0.1.0",
+    "qiao-request": "^0.3.3",
+    "qiao-string": "^0.0.8",
+    "qiao-zip": "^0.7.3"
+  }
+}

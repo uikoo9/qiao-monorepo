@@ -3,13 +3,17 @@
 'use strict';
 
 // qiao
-var qiao 	= require('qiao.util.all');
+var qiao 	= {};
+qiao.ajax 	= require('qiao-request');
+qiao.cli 	= require('qiao-cli');
+qiao.encode = require('qiao-encode');
+qiao.zip 	= require('qiao-zip');
 qiao.config	= require('../lib/config.json');
 
 // cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
-	.description('qiao.plugin.coder, generate server and browser code.')
+	.description('qiao-coder, generate server and browser code.')
 	.usage('<command>');
 
 // cmd for init code
@@ -40,7 +44,7 @@ if(!process.argv.slice(2).length){
 async function initCode(code, path){
 	// check code
 	if(qiao.config.codes.indexOf(code) == -1){
-		console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
+		console.log('error code, see: https://github.com/insistime/qiao-coder#code-list');
 		return;
 	}
 	
@@ -59,7 +63,7 @@ async function initCode(code, path){
 function handleCode(code, table, path){
 	// check code
 	if(qiao.config.codes.indexOf(code) == -1){
-		console.log('error code, see: https://github.com/insistime/qiao.plugin.coder#code-list');
+		console.log('error code, see: https://github.com/insistime/qiao-coder#code-list');
 		return;
 	}
 	
