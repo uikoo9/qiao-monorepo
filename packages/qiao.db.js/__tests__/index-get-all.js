@@ -1,6 +1,6 @@
 'use strict';
 
-var qdb = require('../lib/qiao.indexeddb.js');
+var q = require('../index.js');
 
 var test = async function(){
 	var databaseName 	= 'db_test';
@@ -8,8 +8,8 @@ var test = async function(){
 	var indexName		= 'name'
 
 	try{
-		var db 	= await qdb.openDB(databaseName);
-		var s 	= await qdb.igetAll(db, tableName, indexName);
+		var db 	= await q.openDB(databaseName);
+		var s 	= await q.igetAll(db, tableName, indexName);
 		console.log(s);
 	}catch(e){
 		console.log(e);

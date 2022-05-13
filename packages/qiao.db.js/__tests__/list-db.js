@@ -1,10 +1,10 @@
 'use strict';
 
-var qdb = require('../lib/qiao.indexeddb.js');
+var q = require('../index.js');
 
 var test = async function(){
 	try{
-		var dbs = await qdb.listDB();
+		var dbs = await q.listDB();
 		console.log(dbs);
 	}catch(e){
 		console.log(e);

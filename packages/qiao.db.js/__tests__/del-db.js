@@ -1,11 +1,11 @@
 'use strict';
 
-var qdb = require('../lib/qiao.indexeddb.js');
+var q = require('../index.js');
 
 var test = async function(){
 	try{
 		var databaseName = 'db_test';
-		await qdb.delDB(databaseName);
+		await q.delDB(databaseName);
 	}catch(e){
 		console.log(e);
 	}

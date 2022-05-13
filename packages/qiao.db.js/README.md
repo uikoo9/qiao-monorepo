@@ -1,4 +1,4 @@
-# qiao.indexeddb.js
+# qiao.db.js
 
 ## documentation
 1. indexeddb, [https://wangdoc.com/javascript/bom/indexeddb.html](https://wangdoc.com/javascript/bom/indexeddb.html)
@@ -8,12 +8,12 @@
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	try{
 		var databaseName 	= 'db_test';
-		var db 				= await qdb.openDB(databaseName);
+		var db 				= await q.openDB(databaseName);
 		console.log(db);
 	}catch(e){
 		console.log(e);
@@ -27,11 +27,11 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	try{
-		var dbs = await qdb.listDB();
+		var dbs = await q.listDB();
 		console.log(dbs);
 	}catch(e){
 		console.log(e);
@@ -45,12 +45,12 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	try{
 		var databaseName = 'db_test';
-		await qdb.delDB(databaseName);
+		await q.delDB(databaseName);
 	}catch(e){
 		console.log(e);
 	}
@@ -63,7 +63,7 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	var databaseName	= 'db_test';
@@ -90,8 +90,8 @@ var test = async function(){
 	}];
 
 	try{
-		var db 	= await qdb.openDB(databaseName);
-		var res = await qdb.createTable(db, tables);
+		var db 	= await q.openDB(databaseName);
+		var res = await q.createTable(db, tables);
 		console.log(res);
 	}catch(e){
 		console.log(e);
@@ -105,13 +105,13 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	try{
 		var databaseName	= 'db_test';
-		var db 				= await qdb.openDB(databaseName);
-		await qdb.delTable(db, 't_test2');
+		var db 				= await q.openDB(databaseName);
+		await q.delTable(db, 't_test2');
 	}catch(e){
 		console.log(e);
 	}
@@ -124,22 +124,22 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	try{
 		var databaseName 	= 'db_test';
-		var db 				= await qdb.openDB(databaseName);
+		var db 				= await q.openDB(databaseName);
 
 		var tableName 	= 't_test1';
 		var data 		= { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		await qdb.save(db, tableName, data.id, data);
+		await q.save(db, tableName, data.id, data);
 
 		data.name = '1';
-		await qdb.save(db, tableName, data.id, data);
+		await q.save(db, tableName, data.id, data);
 
 		var data1 		= { id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		await qdb.save(db, tableName, data1.id, data1);
+		await q.save(db, tableName, data1.id, data1);
 	}catch(e){
 		console.log(e);
 	}
@@ -152,15 +152,15 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
 
 	try{
-		var db 	= await qdb.openDB(databaseName);
-		var s 	= await qdb.get(db, tableName, 1);
+		var db 	= await q.openDB(databaseName);
+		var s 	= await q.get(db, tableName, 1);
 		console.log(s);
 	}catch(e){
 		console.log(e);
@@ -174,15 +174,15 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
 
 	try{
-		var db = await qdb.openDB(databaseName);
-		await qdb.del(db, tableName, 2);
+		var db = await q.openDB(databaseName);
+		await q.del(db, tableName, 2);
 	}catch(e){
 		console.log(e);
 	}
@@ -195,15 +195,15 @@ test();
 ```javascript
 'use strict';
 
-var qdb = require('qiao.indexeddb.js');
+var q = require('qiao.db.js');
 
 var test = async function(){
 	var databaseName 	= 'db_test';
 	var tableName		= 't_test1';
 
 	try{
-		var db = await qdb.openDB(databaseName);
-		await qdb.clear(db, tableName);
+		var db = await q.openDB(databaseName);
+		await q.clear(db, tableName);
 	}catch(e){
 		console.log(e);
 	}
@@ -213,6 +213,9 @@ test();
 ```
 
 ## version
+### 0.1.0.20220513
+1. lerna
+
 ### 0.0.9.20201027
 1. fix bug
 
