@@ -1,1 +1,0 @@
-module.exports = require('./lib/qiao.fe.weixinx.js');

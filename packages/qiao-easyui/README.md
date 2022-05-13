@@ -58,6 +58,9 @@ q.addTab(url, title);
 ```
 
 ## version
+### 0.1.4.20220513
+1. lerna
+
 ### 0.1.3.20191206
 1. add funding
 

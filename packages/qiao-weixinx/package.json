@@ -1,0 +1,20 @@
+{
+  "name": "qiao-weixinx",
+  "version": "0.3.8",
+  "description": "tools for weixin mini program",
+  "keywords": [
+    "weixin",
+    "mini program",
+    "xiaochengxu",
+    "tools"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {}
+}
