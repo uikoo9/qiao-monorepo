@@ -4,7 +4,7 @@
   "description": "qiao-electron-cli renderer demo",
   "keywords": [],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-electron-cli#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,9 +14,6 @@
     "dev": "qwebpack dev ./webpack/qiao.webpack.js",
     "build": "qwebpack build ./webpack/qiao.webpack.js",
     "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
-  },
-  "bugs": {
-    "url": ""
   },
   "devDependencies": {
     "qiao-webpack": "^0.3.3"

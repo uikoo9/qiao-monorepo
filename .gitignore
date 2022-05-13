@@ -8,4 +8,6 @@ jsdoc
 files_out
 node_modules
 
+config.json
+
 lerna-debug.log
