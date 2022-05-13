@@ -1,6 +1,6 @@
 {
   "name": "qiao-request",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "nodejs http request client",
   "keywords": [
     "nodejs",
