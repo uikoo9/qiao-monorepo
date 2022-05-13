@@ -1,0 +1,22 @@
+{
+  "name": "qiao-mysql",
+  "version": "0.0.9",
+  "description": "nodejs mysql plugin",
+  "keywords": [
+    "nodejs",
+    "mysql",
+    "plugin"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-mysql#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
