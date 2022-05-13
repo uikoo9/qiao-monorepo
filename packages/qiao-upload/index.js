@@ -1,0 +1,1 @@
+module.exports = require('./lib/qiao-upload.js');
