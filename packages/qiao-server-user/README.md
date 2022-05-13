@@ -1,4 +1,4 @@
-# qiao.cell.user
+# qiao-server-user
 
 ## config
 ```json
@@ -28,13 +28,13 @@ var app = express();
 
 // ...
 
-// qiao.cell.user
-require('qiao.cell.user').init(app);
+// qiao-server-user
+require('qiao-server-user').init(app);
 ```
 
 ### use
 ```javascript
-var q = require('qiao.cell.user');
+var q = require('qiao-server-user');
 
 q.ucenterUserModel
 ```
@@ -52,7 +52,7 @@ q.ucenterUserModel
 2. add sql
 
 ### 0.0.6.20210823
-1. del qiao.cell.user.js
+1. del qiao-server-user.js
 
 ### 0.0.5.20210818
 1. md
@@ -65,7 +65,7 @@ q.ucenterUserModel
 1. cell_config --> config
 
 ### 0.0.2.20210805
-1. qiao.cell.user
+1. qiao-server-user
 2. add qiao.util.all
 3. del qiao.util.all
 

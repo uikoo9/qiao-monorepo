@@ -226,7 +226,7 @@ exports.ucenterCodeSend = async function(req, res){
 		var sign	= req.body.sign;
 		
 		// send
-		var msg = await qiao.txsms.sendSync({
+		var msg = await qiao.sms.sendSync({
 			appid 	: appid,
 			appkey	: appkey,
 			sign	: sign,
