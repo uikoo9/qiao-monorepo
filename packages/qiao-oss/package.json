@@ -13,7 +13,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/qiao-oss.git"
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {},
   "bin": {
