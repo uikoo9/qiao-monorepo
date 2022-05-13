@@ -6,7 +6,7 @@
     "indexeddb"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.db.js#readme",
   "license": "MIT",
   "main": "index.js",
   "repository": {
