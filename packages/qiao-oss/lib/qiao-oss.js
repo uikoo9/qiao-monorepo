@@ -6,8 +6,8 @@ var OSS = require('ali-oss');
 
 // qiao
 var qiao 	= {};
-qiao.cli	= require('qiao.plugin.cli');
-qiao.file	= require('qiao.util.file');
+qiao.cli	= require('qiao-cli');
+qiao.file	= require('qiao-file');
 
 /**
  * client

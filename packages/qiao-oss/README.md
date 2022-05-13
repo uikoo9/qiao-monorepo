@@ -1,4 +1,4 @@
-# qiao.ext.oss
+# qiao-oss
 
 ## config.json
 ```json
@@ -15,8 +15,8 @@
 ```javascript
 'use strict';
 
-var qiaoExtOss 	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var q 		= require('qiao-oss');
+var client	= q.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -27,7 +27,7 @@ var test = async function(){
 		var destPath	= 'test/test.js';
 		var sourceFile 	= 'd:/test.js';
 		
-		var rs = await qiaoExtOss.uploadFileSync(client, destPath, sourceFile);
+		var rs = await q.uploadFileSync(client, destPath, sourceFile);
 		console.log(rs);
 	}catch(e){
 		console.log(e);
@@ -41,8 +41,8 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss 	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var q 		= require('qiao-oss');
+var client	= q.client(require('./config.json'));
 
 /**
  * upload folder
@@ -53,7 +53,7 @@ var test = async function(){
 		var destPath		= 'test';
 		var sourceFolder	= 'd:/test/cocos';
 		
-		var rs = await qiaoExtOss.uploadFolderSync(client, destPath, sourceFolder);
+		var rs = await q.uploadFolderSync(client, destPath, sourceFolder);
 		console.log(rs);
 	}catch(e){
 		console.log(e);
@@ -67,8 +67,8 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss 	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var q 		= require('qiao-oss');
+var client	= q.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -78,7 +78,7 @@ var test = function(){
 	var destPath	= 'test/test.js';
 	var sourceFile 	= 'd:/test.js';
 	
-	qiaoExtOss.uploadFile(client, destPath, sourceFile, function(err, rs){
+	q.uploadFile(client, destPath, sourceFile, function(err, rs){
 		if(err) throw err;
 		
 		console.log(rs);
@@ -92,8 +92,8 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss 	= require('qiao.ext.oss');
-var client	= qiaoExtOss.client(require('./config.json'));
+var q 		= require('qiao-oss');
+var client	= q.client(require('./config.json'));
 
 /**
  * upload folder
@@ -103,7 +103,7 @@ var test = function(){
 	var destPath		= 'test';
 	var sourceFolder	= 'd:/test/cocos';
 	
-	qiaoExtOss.uploadFolder(client, destPath, sourceFolder, function(err, rs){
+	q.uploadFolder(client, destPath, sourceFolder, function(err, rs){
 		if(err) throw err;
 		
 		console.log(rs);
@@ -115,15 +115,15 @@ test();
 
 ## also in cli
 ```shell
-npm install -g qiao.ext.oss
+npm install -g qiao-oss
 
-qoss file 	z:/workspaces/qiao.ext.oss/test/config.json 	d:/test.js	test.js	
-qoss folder	z:/workspaces/qiao.ext.oss/test/config.json 	d:/test/cocos	test9 	-i
+qoss file 	z:/workspaces/qiao-oss/test/config.json 	d:/test.js	test.js	
+qoss folder	z:/workspaces/qiao-oss/test/config.json 	d:/test/cocos	test9 	-i
 
 or
 
-qoss fi 	z:/workspaces/qiao.ext.oss/test/config.json 	d:/test.js 	test.js	
-qoss fo		z:/workspaces/qiao.ext.oss/test/config.json 	d:/test/cocos 	test9 	-i
+qoss fi 	z:/workspaces/qiao-oss/test/config.json 	d:/test.js 	test.js	
+qoss fo		z:/workspaces/qiao-oss/test/config.json 	d:/test/cocos 	test9 	-i
 
 or
 
@@ -151,7 +151,7 @@ qoss | qoss -h for help
 1. del test/config.json
 
 ### 0.1.8.20190109
-1. update qiao.plugin.cli@0.0.6
+1. update qiao-cli@0.0.6
 2. 调整qoss中client的判断时机
 3. output help
 
@@ -160,7 +160,7 @@ qoss | qoss -h for help
 2. ali oss upload tool on nodejs
 
 ### 0.1.6.20181205
-1. qoss with qiao.plugin.cli
+1. qoss with qiao-cli
 2. update ali-oss@6.0.1
 3. qiao-ext-oss --> qoss 
 4. modify md

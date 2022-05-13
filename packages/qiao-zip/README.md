@@ -137,9 +137,9 @@ test();
 ### 0.1.4.20190109
 1. qzip
 2. modify md
-3. add qiao.plugin.cli
+3. add qiao-cli
 4. modify qzip
-5. update qiao.plugin.cli@0.0.6
+5. update qiao-cli@0.0.6
 6. output help
 
 ### 0.1.3.20190107

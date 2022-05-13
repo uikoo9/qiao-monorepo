@@ -1,7 +1,7 @@
 'use strict';
 
-var qiaoExtOss 	= require('../lib/qiao.ext.oss.js');
-var client		= qiaoExtOss.client(require('./config.json'));
+var q 		= require('../index.js');
+var client	= q.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -11,7 +11,7 @@ var test = function(){
 	var destPath	= 'test/test.js';
 	var sourceFile 	= 'd:/test.js';
 	
-	qiaoExtOss.uploadFile(client, destPath, sourceFile, function(err, rs){
+	q.uploadFile(client, destPath, sourceFile, function(err, rs){
 		if(err) throw err;
 		
 		console.log(rs);

@@ -4,13 +4,13 @@
 
 // qiao
 var qiao = {};
-qiao.cli = require('qiao.plugin.cli');
-qiao.oss = require('../lib/qiao.ext.oss.js');
+qiao.cli = require('qiao-cli');
+qiao.oss = require('../index.js');
 
 // cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
-	.description('qiao.ext.oss, ali oss upload tool on nodejs')
+	.description('qiao-oss, ali oss upload tool on nodejs')
 	.usage('<command> [options]');
 
 // cmd for file

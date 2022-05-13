@@ -1,9 +1,0 @@
-.idea
-.project
-.settings
-.externalToolBuilders
-
-node_modules
-bin/config.json
-test/config.json
-package-lock.json
