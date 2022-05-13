@@ -44,7 +44,7 @@ if(!process.argv.slice(2).length){
 async function initCode(code, path){
 	// check code
 	if(qiao.config.codes.indexOf(code) == -1){
-		console.log('error code, see: https://github.com/insistime/qiao-coder#code-list');
+		console.log('error code, see: https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-coder#code-list');
 		return;
 	}
 	
@@ -63,7 +63,7 @@ async function initCode(code, path){
 function handleCode(code, table, path){
 	// check code
 	if(qiao.config.codes.indexOf(code) == -1){
-		console.log('error code, see: https://github.com/insistime/qiao-coder#code-list');
+		console.log('error code, see: https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-coder#code-list');
 		return;
 	}
 	
