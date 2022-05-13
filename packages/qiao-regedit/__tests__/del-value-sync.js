@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginRegedit = require('../lib/qiao.plugin.regedit.js');
+var q = require('../index.js');
 
 var test = async function(){
 	try{
@@ -11,7 +11,7 @@ var test = async function(){
 			name: 'test'
 		};
 		
-		var res = await qiaoPluginRegedit.delValueSync(obj);
+		var res = await q.delValueSync(obj);
 		console.log(res);
 	}catch(e){
 		console.log(e);

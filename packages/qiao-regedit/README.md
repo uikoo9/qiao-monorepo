@@ -1,26 +1,11 @@
-# urls
-## homepage
-[https://code.insistime.com/qiao.plugin.regedit](https://code.insistime.com/qiao.plugin.regedit)
+# qiao-regedit
 
-## github
-[https://github.com/insistime/qiao.plugin.regedit](https://github.com/insistime/qiao.plugin.regedit)
-
-## npm
-[https://www.npmjs.com/package/qiao.plugin.regedit](https://www.npmjs.com/package/qiao.plugin.regedit)
-
-## donate
-[http://uikoo9.com/donate](http://uikoo9.com/donate)
-
-# started
-## install
-npm install qiao.plugin.regedit
-
-# api
-## addValue
+## api
+### addValue
 ```javascript
 'use strict';
 
-var qiaoPluginRegedit = require('qiao.plugin.regedit');
+var q = require('qiao-regedit');
 
 var test = function(){
 	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
@@ -31,7 +16,7 @@ var test = function(){
 		data: 'haha'
 	};
 	
-	qiaoPluginRegedit.addValue(obj, function(res){
+	q.addValue(obj, function(res){
 		console.log(res);
 	});
 };
@@ -39,11 +24,11 @@ var test = function(){
 test();
 ```
 
-## addValueSync
+### addValueSync
 ```javascript
 'use strict';
 
-var qiaoPluginRegedit = require('qiao.plugin.regedit');
+var q = require('qiao-regedit');
 
 var test = async function(){
 	try{
@@ -55,7 +40,7 @@ var test = async function(){
 			data: 'haha'
 		};
 		
-		var res = await qiaoPluginRegedit.addValueSync(obj);
+		var res = await q.addValueSync(obj);
 		console.log(res);
 	}catch(e){
 		console.log(e);
@@ -65,11 +50,11 @@ var test = async function(){
 test();
 ```
 
-## delValue
+### delValue
 ```javascript
 'use strict';
 
-var qiaoPluginRegedit = require('qiao.plugin.regedit');
+var q = require('qiao-regedit');
 
 var test = function(){
 	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
@@ -79,7 +64,7 @@ var test = function(){
 		name: 'test'
 	};
 	
-	qiaoPluginRegedit.delValue(obj, function(res){
+	q.delValue(obj, function(res){
 		console.log(res);
 	});
 };
@@ -87,11 +72,11 @@ var test = function(){
 test();
 ```
 
-## delValueSync
+### delValueSync
 ```javascript
 'use strict';
 
-var qiaoPluginRegedit = require('qiao.plugin.regedit');
+var q = require('qiao-regedit');
 
 var test = async function(){
 	try{
@@ -102,7 +87,7 @@ var test = async function(){
 			name: 'test'
 		};
 		
-		var res = await qiaoPluginRegedit.delValueSync(obj);
+		var res = await q.delValueSync(obj);
 		console.log(res);
 	}catch(e){
 		console.log(e);
@@ -112,17 +97,17 @@ var test = async function(){
 test();
 ```
 
-## listValues
+### listValues
 ```javascript
 'use strict';
 
-var qiaoPluginRegedit = require('qiao.plugin.regedit');
+var q = require('qiao-regedit');
 
 var test = function(){
 	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
 	var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
 	
-	qiaoPluginRegedit.listValues(key, function(err, res){
+	q.listValues(key, function(err, res){
 		console.log(err, res);
 	});
 };
@@ -130,18 +115,18 @@ var test = function(){
 test();
 ```
 
-## listValuesSync
+### listValuesSync
 ```javascript
 'use strict';
 
-var qiaoPluginRegedit = require('qiao.plugin.regedit');
+var q = require('qiao-regedit');
 
 var test = async function(){
 	try{
 		// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
 		var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
 		
-		var res = await qiaoPluginRegedit.listValuesSync(key);
+		var res = await q.listValuesSync(key);
 		console.log(res);
 	}catch(e){
 		console.log(e);
@@ -151,15 +136,15 @@ var test = async function(){
 test();
 ```
 
-# version
-## 0.0.3.20200803
+## version
+### 0.0.3.20200803
 1. ncu
 
-## 0.0.2.20200620
+### 0.0.2.20200620
 1. fix list key space bug
 2. string trim
 
-## 0.0.1.20200606
+### 0.0.1.20200606
 1. init project
 2. add value
 3. add value sync

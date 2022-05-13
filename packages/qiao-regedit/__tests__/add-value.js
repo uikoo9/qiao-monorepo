@@ -1,6 +1,6 @@
 'use strict';
 
-var qiaoPluginRegedit = require('../lib/qiao.plugin.regedit.js');
+var q = require('../index.js');
 
 var test = function(){
 	// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
@@ -11,7 +11,7 @@ var test = function(){
 		data: 'haha'
 	};
 	
-	qiaoPluginRegedit.addValue(obj, function(res){
+	q.addValue(obj, function(res){
 		console.log(res);
 	});
 };

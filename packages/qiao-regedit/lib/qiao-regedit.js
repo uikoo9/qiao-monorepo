@@ -1,10 +1,12 @@
+'use strict';
+
+// exec
 var exec = require('child_process').exec;
 
+// utile
 var util = require('./util.js');
 
-/**
- * default type
- */
+// default type
 var defaultType = 'REG_SZ';
 
 /**

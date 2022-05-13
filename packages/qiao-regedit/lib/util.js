@@ -1,4 +1,7 @@
-var iconv           = require('iconv-lite');
+'use strict';
+
+// iconv
+var iconv = require('iconv-lite');
 
 // encoding
 var encoding = 'cp936';

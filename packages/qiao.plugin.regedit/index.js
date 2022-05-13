@@ -1,1 +1,0 @@
-module.exports = require('./lib/qiao.plugin.regedit.js');
