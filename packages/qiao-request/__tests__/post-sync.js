@@ -1,11 +1,11 @@
 'use strict';
 
-var qiaoPluginRequest = require('../lib/qiao.plugin.request.js');
+var q = require('../index.js');
 
 var test = async function(){
 	try{
 		var url = 'http://www.baidu.com';
-		var res = await qiaoPluginRequest.postSync({
+		var res = await q.postSync({
 			url	: url,
 			qs	: {
 				test : 'test'

@@ -1,10 +1,10 @@
 'use strict';
 
-var qiaoPluginRequest = require('../lib/qiao.plugin.request.js');
+var q = require('../index.js');
 
 var test = function(){
 	var url = 'http://www.baidu.com';
-	qiaoPluginRequest.post({
+	q.get({
 		url	: url,
 		qs	: {
 			test : 'test'

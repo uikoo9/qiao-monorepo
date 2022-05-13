@@ -1,9 +1,6 @@
 'use strict';
 
 var req 		= require('./req.js');
-var ip			= require('./ip.js');
-var ping		= require('./ping.js');
-var isOnline	= require('./is-online.js');
 var download	= require('./download.js');
 var imgToBase64	= require('./img-to-base64.js');
 
@@ -25,23 +22,6 @@ exports.head 		= req.head;
 exports.headSync 	= req.headSync;
 exports.options 	= req.options;
 exports.optionsSync	= req.optionsSync;
-
-/**
- * ip
- */
-exports.ip 		= ip.ip;
-exports.ipSync 	= ip.ipSync;
-exports.getIp	= ip.getIp;
-
-/**
- * ping
- */
-exports.ping = ping.ping;
-
-/**
- * is online
- */
-exports.isOnline = isOnline.isOnline;
 
 /**
  * download

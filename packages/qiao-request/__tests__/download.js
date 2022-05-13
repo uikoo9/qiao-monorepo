@@ -1,13 +1,13 @@
 'use strict';
 
-var qiaoPluginRequest = require('../lib/qiao.plugin.request.js');
+var q = require('../index.js');
 
 var test = async function(){
 	try{
 		var url 	= 'https://www.baidu.com/img/bd_logo1.png';
 		var path	= './test.png';
 		
-		await qiaoPluginRequest.download(url, path);
+		await q.download(url, path);
 	}catch(e){
 		console.log(e);
 	}
