@@ -721,6 +721,9 @@ test();
 ```
 
 ## version
+### 0.0.3.20220513
+1. lerna
+
 ### 0.0.2.20200805
 1. compress file chinese
 2. uncompress file chinese
