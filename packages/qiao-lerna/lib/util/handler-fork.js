@@ -5,7 +5,7 @@ var ncu = require('./ncu.js');
 
 // q
 var q = {};
-q.process = require('qiao.util.process');
+q.process = require('qiao-process');
 
 // handler folder
 async function handlerFolder(folderName){

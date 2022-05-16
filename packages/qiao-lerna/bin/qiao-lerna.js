@@ -5,12 +5,10 @@
 // qiao
 var qiao 	= {};
 qiao.cli 	= require('qiao-cli');
+qiao.lerna  = require('../index.js');
 
 // package
 var pkg = require('../package.json'); 
-
-// multi-ncu
-var mncu = require('../lib/multi-ncu.js');
 
 // cmd for version
 qiao.cli.cmd
@@ -27,7 +25,7 @@ qiao.cli.cmd
 // run
 function run(destPath){
     var _path = destPath || '.';
-    mncu.multiNCU(_path);
+    qiao.lerna.multiNCU(_path);
 }
 
 // parse

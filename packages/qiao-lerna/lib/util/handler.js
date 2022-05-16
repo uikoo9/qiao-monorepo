@@ -5,8 +5,8 @@ var fs = require('./fs.js');
 
 // q
 var q = {};
-q.console = require('qiao.util.console');
-q.process = require('qiao.util.process');
+q.console = require('qiao-console');
+q.process = require('qiao-process');
 
 // line
 var line = 2;
