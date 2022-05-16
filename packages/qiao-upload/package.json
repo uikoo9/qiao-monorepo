@@ -20,6 +20,6 @@
   },
   "scripts": {},
   "dependencies": {
-    "formidable": "^1.2.2"
+    "formidable": "^2.0.1"
   }
 }

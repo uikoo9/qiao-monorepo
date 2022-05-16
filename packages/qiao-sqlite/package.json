@@ -22,6 +22,6 @@
     "sqlite3": "^5.0.8"
   },
   "devDependencies": {
-    "rollup": "^2.72.1"
+    "rollup": "^2.73.0"
   }
 }
