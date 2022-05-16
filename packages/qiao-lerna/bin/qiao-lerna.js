@@ -7,12 +7,9 @@ var qiao 	= {};
 qiao.cli 	= require('qiao-cli');
 qiao.lerna  = require('../index.js');
 
-// package
-var pkg = require('../package.json'); 
-
 // cmd for version
 qiao.cli.cmd
-    .version(pkg.version, '-v, --version')
+    .version(require('../package.json').version, '-v, --version')
     .usage('<command> [options]');
 
 // cmd for run

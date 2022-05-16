@@ -1,5 +1,5 @@
 'use strict';
 
-var m = require('../lib/qiao-lerna.js');
+var q = require('../index.js');
 
-m.multiNCU('../');
+q.multiNCU('../');
