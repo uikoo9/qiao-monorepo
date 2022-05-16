@@ -42,6 +42,9 @@ nodejs下cache能力
 ### [qiao-cli](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-cli#readme)
 nodejs下cli能力
 
+### [qiao-coder](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-coder#readme)
+nodejs下qiao-server配套的代码生成工具，待完善
+
 ### [qiao-compress](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-compress#readme)
 nodejs下压缩&解压缩能力，待完善
 
@@ -62,6 +65,12 @@ nodejs下文件相关封装
 
 ### [qiao-is-online](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-is-online#readme)
 nodejs下判断是否在线
+
+### [qiao-json](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-json#readme)
+nodejs下qiao-server中的json数据结构
+
+### [qiao-lerna](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-lerna#readme)
+lerna相关工具
 
 ### [qiao-log](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-log#readme)
 nodejs下日志能力
@@ -86,6 +95,9 @@ nodejs下qiao-server中user部分
 
 ### [qiao-sms](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-sms#readme)
 nodejs下腾讯云sms常见api封装
+
+### [qiao-string](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-string#readme)
+nodejs下qiao-server中的string相关工具类
 
 ### [qiao-timer](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-timer#readme)
 nodejs下timer能力
