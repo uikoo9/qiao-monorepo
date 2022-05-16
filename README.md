@@ -26,7 +26,7 @@
 ### [qiao-ajax](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-ajax#readme)
 浏览器和nodejs下请求能力，by [axios](https://axios-http.com)
 
-### [offline-to-online](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/offline-to-onliner#readme)
+### [offline-to-online](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/offline-to-online#readme)
 浏览器和nodejs下检测用户从离线到在线
 
 ### [qiao-get-ip](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-get-ip#readme)
