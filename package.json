@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "init": "lerna bootstrap",
-    "check": "mncu run ./packages",
+    "check": "qlerna run ./packages",
     "clean": "lerna clean -y",
     "ls": "lerna ls -l",
     "show": "lerna ls --graph"
