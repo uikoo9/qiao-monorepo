@@ -16,7 +16,7 @@
   },
   "scripts": {},
   "bin": {
-    "qlerna": "./bin/qiao-lerna.js"
+    "qlerna": "./bin/qlerna.js"
   },
   "dependencies": {
     "npm-check-updates": "^13.0.0",

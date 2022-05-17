@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "init": "lerna bootstrap",
-    "check": "qlerna run ./packages",
+    "check": "qlerna ncu ./packages",
     "clean": "lerna clean -y",
     "ls": "lerna ls -l",
     "show": "lerna ls --graph"
