@@ -81,8 +81,8 @@ nodejs下mysql能力
 ### [qiao-oss](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-oss#readme)
 nodejs下阿里云oss常见api封装
 
-### [qiao-parallel(https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-parallel#readme)
-nodejs下并行执行能力]
+### [qiao-parallel](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-parallel#readme)
+nodejs下并行执行能力
 
 ### [qiao-ping](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-ping#readme)
 nodejs下ping能力
