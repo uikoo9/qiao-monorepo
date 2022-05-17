@@ -6,14 +6,6 @@ var q = require('../index.js');
 // qconsole
 var qconsole = require('qiao-console');
 
-// funcs
-var funcs = [
-    getTestFunction(),
-    getTestFunction(),
-    getTestFunction(),
-    getTestFunction(),
-];
-
 // values
 var values = [
     100,
@@ -22,15 +14,13 @@ var values = [
     400,
 ];
 
-// get test function
-function getTestFunction(){
-    return function(timeout){
-        return new Promise(function(resolve, reject){
-            setTimeout(() => {
-                return resolve(timeout);
-            }, timeout);
-        });
-    }
+// handler
+function handler(timeout){
+    return new Promise(function(resolve, reject){
+        setTimeout(() => {
+            return resolve(timeout);
+        }, timeout);
+    });
 }
 
 // callback
@@ -47,7 +37,7 @@ function complete(l){
 function test(){
     qconsole.clear();
     
-    q.parallelByIIFE(funcs, values, callback, complete);
+    q.parallelByIIFE(handler, values, callback, complete);
 }
 
 test();

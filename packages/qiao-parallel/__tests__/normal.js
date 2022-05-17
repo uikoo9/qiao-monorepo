@@ -1,18 +1,7 @@
 'use strict';
 
-// q
-var q = require('../index.js');
-
 // qconsole
 var qconsole = require('qiao-console');
-
-// funcs
-var funcs = [
-    getTestFunction(),
-    getTestFunction(),
-    getTestFunction(),
-    getTestFunction(),
-];
 
 // values
 var values = [
@@ -22,15 +11,13 @@ var values = [
     400,
 ];
 
-// get test function
-function getTestFunction(){
-    return function(timeout){
-        return new Promise(function(resolve, reject){
-            setTimeout(() => {
-                return resolve(timeout);
-            }, timeout);
-        });
-    }
+// handler
+function handler(timeout){
+    return new Promise(function(resolve, reject){
+        setTimeout(() => {
+            return resolve(timeout);
+        }, timeout);
+    });
 }
 
 // callback
@@ -42,11 +29,10 @@ function callback(index, res){
 async function normal(){
     console.time('qiao-parallel');
 
-    for(var i=0; i<funcs.length; i++){
-        var func = funcs[i];
+    for(var i=0; i<values.length; i++){
         var value = values[i];
 
-        var res = await func(value);
+        var res = await handler(value);
         callback(i, res);
     }
 
