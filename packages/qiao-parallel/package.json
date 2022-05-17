@@ -17,5 +17,8 @@
   "scripts": {},
   "devDependencies": {
     "qiao-console": "^0.1.0"
+  },
+  "dependencies": {
+    "qiao-process": "^0.0.5"
   }
 }
