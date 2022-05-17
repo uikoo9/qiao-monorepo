@@ -4,6 +4,10 @@ lerna tools
 ## api
 
 ## version
+### 0.0.6.20220517
+1. handler by parallel
+2. handler by fork
+
 ### 0.0.5.20220516
 1. lerna
 
