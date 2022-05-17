@@ -19,5 +19,15 @@ exports.ncuSubFolders = async function(dir){
         upgrade: false
     });
 
-    return upgraded;
+    var json = getJson(upgraded);
+    return `${dir} : ${json}`;
 };
+
+// get json
+function getJson(s){
+	try{
+		return JSON.stringify(s);
+	}catch(e){
+		return s;
+	}
+}
