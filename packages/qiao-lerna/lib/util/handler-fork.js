@@ -17,20 +17,8 @@ async function handlerFolder(folderName){
 
 	q.process.send(`${folderName} ...`);
 	
-	var res 	= await ncu.ncuSubFolders(folderName);
-	var json	= getJson(res);
-	var str		= `${folderName} : ${json}`;
-
-	q.process.send(str);
-}
-
-// get json
-function getJson(s){
-	try{
-		return JSON.stringify(s);
-	}catch(e){
-		return s;
-	}
+	var msg = await ncu.ncuSubFolders(folderName);
+	q.process.send(msg);
 }
 
 handlerFolder();

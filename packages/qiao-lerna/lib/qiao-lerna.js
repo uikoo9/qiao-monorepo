@@ -17,7 +17,8 @@ q.console = require('qiao-console');
 var fs = require('./util/fs.js');
 
 // handler
-var handlerByParallel = require('./util/handler-by-parallel.js');
+var handlerByFork		= require('./util/handler-by-fork.js');
+var handlerByParallel 	= require('./util/handler-by-parallel.js');
 
 // line
 var line = 0;
@@ -35,6 +36,7 @@ exports.multiNCU = async function(folderName){
 
 	// parallel
 	handlerByParallel.multiNCU(fs.subFolders, line);
+	// handlerByFork.multiNCU(fs.subFolders, line);
 };
 
 // check dir
