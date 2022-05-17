@@ -44,6 +44,7 @@ async function handlerFolder(folderName){
 	if(!fs.subFolders || !fs.subFolders.length) return 'empty folder';
 
 	// ncu
+	console.time('multi ncu');
 	var subFolders = fs.subFolders;
 	for(var i=0; i<subFolders.length; i++){
 		(function(item, i, l){
@@ -66,6 +67,7 @@ function handlerIt(item, i, l){
 		if(count == l){
 			q.console.writeLine(line + l, '');
 			q.console.writeLine(line + l + 1, 'multi update npm packages end');
+			console.timeEnd('multi ncu');
 		}
 	});
 }
