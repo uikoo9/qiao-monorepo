@@ -22,7 +22,6 @@
     "npm-check-updates": "^13.0.0",
     "qiao-cli": "^0.2.4",
     "qiao-console": "^0.1.0",
-    "qiao-parallel": "^0.0.4",
-    "qiao-process": "^0.0.5"
+    "qiao-parallel": "^0.0.4"
   }
 }

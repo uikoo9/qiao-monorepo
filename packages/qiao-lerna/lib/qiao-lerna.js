@@ -10,8 +10,7 @@
  */
 
 // q
-var q = {};
-q.console = require('qiao-console');
+var q = require('qiao-console');
 
 // fs
 var fs = require('./util/fs.js');
@@ -28,8 +27,8 @@ var line = 0;
  */
 exports.multiNCU = async function(folderName){
 	// clear && start
-	q.console.clear();
-	q.console.writeLine(line++, `start operating folder: ${folderName}`);
+	q.clear();
+	q.writeLine(line++, `start operating folder: ${folderName}`);
 
 	// dir
 	checkDir(folderName);
@@ -43,7 +42,7 @@ exports.multiNCU = async function(folderName){
 function checkDir(folderName){
 	// check folder name
 	if(!folderName){
-		q.console.writeLine(line, 'need folder name');
+		q.writeLine(line, 'need folder name');
 		return;
 	}
 
@@ -53,14 +52,14 @@ function checkDir(folderName){
 	// check dir is folder
 	var isExist = fs.isExists(dir);
 	if(!isExist){
-		q.console.writeLine(line, 'folder is not exists');
+		q.writeLine(line, 'folder is not exists');
 		return;
 	}
 
 	// get sub folders
 	fs.lsdir(dir);
 	if(!fs.subFolders || !fs.subFolders.length){
-		q.console.writeLine(line, 'empty folder');
+		q.writeLine(line, 'empty folder');
 		return;
 	}
 }
