@@ -8,6 +8,7 @@ qiao.cli = require('qiao-cli');
 
 // cmds
 require('./qlerna-ncu.js');
+require('./qlerna-pkg.js');
 require('./qlerna-version.js');
 
 // parse

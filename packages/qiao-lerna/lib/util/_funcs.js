@@ -21,5 +21,5 @@ exports.callback = function(index, res){
  */
 exports.complete = function(l){
 	q.writeLine(exports.line + l, '');
-	q.writeLine(exports.line + l + 1, 'multi update npm packages end');
+	q.writeLine(exports.line + l + 1, 'qiao-lerna end');
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * qiao-lerna
  *  1.判断输入的目标文件夹是否存在且是文件夹
@@ -12,12 +14,12 @@
 // q
 var q = require('qiao-console');
 
-// fs
-var fs = require('./util/_fs.js');
+// check dir
+var checkDir = require('./util/check-dir.js');
 
 // handler
-var handlerByFork		= require('./util/handler-by-fork.js');
-var handlerByParallel 	= require('./util/handler-by-parallel.js');
+var handlerByFork		= require('./util/handler-ncu-fork.js');
+var handlerByParallel 	= require('./util/handler-ncu-parallel.js');
 
 // line
 var line = 0;
@@ -31,35 +33,9 @@ module.exports = async function(folderName){
 	q.writeLine(line++, `start operating folder: ${folderName}`);
 
 	// dir
-	checkDir(folderName);
+	var subFolders =  checkDir(folderName);
 
 	// parallel
-	handlerByParallel.multiNCU(fs.subFolders, line);
-	// handlerByFork.multiNCU(fs.subFolders, line);
+	handlerByParallel(subFolders, line);
+	// handlerByFork(subFolders, line);
 };
-
-// check dir
-function checkDir(folderName){
-	// check folder name
-	if(!folderName){
-		q.writeLine(line, 'need folder name');
-		return;
-	}
-
-	// dir
-	var dir = fs.path.resolve(process.cwd(), folderName) + fs.path.sep;
-
-	// check dir is folder
-	var isExist = fs.isExists(dir);
-	if(!isExist){
-		q.writeLine(line, 'folder is not exists');
-		return;
-	}
-
-	// get sub folders
-	fs.lsdir(dir);
-	if(!fs.subFolders || !fs.subFolders.length){
-		q.writeLine(line, 'empty folder');
-		return;
-	}
-}
