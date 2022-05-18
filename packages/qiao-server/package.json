@@ -13,6 +13,7 @@
   },
   "scripts": {},
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
     "qiao-file": "^0.3.6"
   }
