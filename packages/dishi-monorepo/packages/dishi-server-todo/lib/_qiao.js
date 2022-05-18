@@ -2,8 +2,8 @@
 
 // qiao
 var qiao 	= {};
-qiao.json 	= require('qiao.util.json');
-qiao.mysql	= require('qiao.plugin.mysql');
+qiao.json 	= require('qiao-json');
+qiao.mysql	= require('qiao-mysql');
 
 // exports
 module.exports = qiao;

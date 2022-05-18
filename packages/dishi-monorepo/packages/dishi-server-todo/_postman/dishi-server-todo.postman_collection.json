@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "ba64bc37-5fbe-4ae4-8089-2ebf7abbbab8",
-		"name": "dishi.cell.todo",
+		"name": "dishi-server-todo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
