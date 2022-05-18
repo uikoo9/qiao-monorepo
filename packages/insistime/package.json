@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "init": "lerna bootstrap",
+    "check": "qlerna ncu ./packages",
+    "pkg": "qlerna pkg ./packages",
+    "dpkg": "qlerna pkg ./packages 1",
+    "clean": "lerna clean -y",
+    "ls": "lerna ls -l",
+    "show": "lerna ls --graph"
+  }
+}
