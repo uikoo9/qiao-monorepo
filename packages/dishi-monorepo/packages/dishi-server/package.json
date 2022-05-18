@@ -3,12 +3,7 @@
   "private": true,
   "version": "0.1.5",
   "dependencies": {
-    "cookie-parser": "^1.4.6",
     "dishi-server-todo": "^0.0.9",
-    "express": "^4.18.1",
-    "qiao-encode": "^0.1.5",
-    "qiao-file": "^0.3.6",
-    "qiao-json": "^0.0.8",
-    "qiao-server-user": "^0.1.7"
+    "qiao-server": "^0.0.5"
   }
 }
