@@ -1,0 +1,19 @@
+{
+  "name": "qiao-server",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.18.1",
+    "qiao-file": "^0.3.6"
+  }
+}
