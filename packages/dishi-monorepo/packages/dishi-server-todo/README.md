@@ -31,6 +31,7 @@ q.todoService
 ## version
 ### 0.0.5.20220518
 1. ncu
+2. lerna
 
 ### 0.0.4.20210831
 1. add sql

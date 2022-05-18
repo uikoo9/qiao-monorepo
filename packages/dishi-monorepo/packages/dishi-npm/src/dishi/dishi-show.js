@@ -2,8 +2,8 @@
 
 // qiao
 var qiao = {};
-qiao.cli 		= require('qiao.plugin.cli');
-qiao.console 	= require('qiao.util.console');
+qiao.cli 		= require('qiao-cli');
+qiao.console 	= require('qiao-console');
 
 // log
 var log = require('../util/log.js');

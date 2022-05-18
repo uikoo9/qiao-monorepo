@@ -1,31 +1,27 @@
 {
   "name": "dishi",
   "version": "0.3.5",
-  "license": "MIT",
   "description": "dishi todo",
   "keywords": [
     "dishi",
     "todo"
   ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/insistime/dishi/tree/master/packages/dishi-npm#readme",
+  "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/dishi.git"
+  },
   "scripts": {},
   "bin": {
     "dishi": "./bin/dishi.js"
   },
   "dependencies": {
-    "qiao-ajax": "0.0.5",
-    "qiao-config": "0.0.5",
-    "qiao.plugin.cli": "0.1.0",
-    "qiao.util.console": "0.0.6"
-  },
-  "author": {
-    "name": "qiaowenbin",
-    "email": "npm@insistime.com",
-    "url": "https://insistime.com"
-  },
-  "funding": "http://uikoo9.com/donate",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/insistime-dishi/dishi-npm.git"
+    "qiao-ajax": "2.5.6",
+    "qiao-config": "0.2.7",
+    "qiao-cli": "0.2.5",
+    "qiao-console": "0.1.0"
   }
 }

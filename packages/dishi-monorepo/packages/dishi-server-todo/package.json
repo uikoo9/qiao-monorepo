@@ -6,11 +6,12 @@
   "author": "uikoo9 <uikoo9@qq.com>",
   "homepage": "https://github.com/insistime/dishi/tree/master/packages/dishi-server-todo#readme",
   "license": "MIT",
-  "scripts": {},
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/insistime/dishi.git"
   },
+  "scripts": {},
   "dependencies": {
     "qiao-json": "^0.0.8",
     "qiao-mysql": "^0.1.3"
