@@ -7,6 +7,7 @@ var cookieParser	= require('cookie-parser');
 
 // require
 var qiao = require('qiao-file');
+var mids = require('./mids.js');
 
 /**
  * init
@@ -37,6 +38,12 @@ exports.init = function(options){
     }
 
 	// auth
+    app.use(mids.crossDomain);
+    if(options.checkAuth){
+        app.use(mids.auth);
+    }
+
+    // mids
     if(options.mids){
         options.mids.forEach(function(mid){
             app.use(mid);

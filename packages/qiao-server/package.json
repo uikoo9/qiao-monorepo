@@ -15,6 +15,9 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
-    "qiao-file": "^0.3.6"
+    "qiao-encode": "^0.1.5",
+    "qiao-file": "^0.3.6",
+    "qiao-json": "^0.0.8",
+    "qiao-server-user": "^0.1.7"
   }
 }
