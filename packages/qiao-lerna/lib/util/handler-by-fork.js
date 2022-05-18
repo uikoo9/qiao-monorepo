@@ -1,35 +1,19 @@
 'use strict';
 
-// fs
-var fs = require('./fs.js');
-
 // q
-var q = {};
-q.console = require('qiao-console');
-q.parallel	= require('qiao-parallel');
+var q = require('qiao-parallel');
 
-// line
-exports.line;
+// vars
+var _funcs 	= require('./_funcs.js');
 
 /**
  * mult ncu
  */
 exports.multiNCU = async function(folders, line){
 	// line
-	exports.line = line;
+	_funcs.line = line;
 
 	// run
-	var jsPath = fs.path.resolve(__dirname, './handler-fork.js');
-	q.parallel.parallelByFork(jsPath, folders, callback, complete);
+	var jsPath = require('path').resolve(__dirname, './handler-fork.js');
+	q.parallelByFork(jsPath, folders, _funcs.callback, _funcs.complete);
 };
-
-// callback
-function callback(index, res){
-    q.console.writeLine(exports.line + index, res);
-}
-
-// complete
-function complete(l){
-	q.console.writeLine(exports.line + l, '');
-	q.console.writeLine(exports.line + l + 1, 'multi update npm packages end');
-}

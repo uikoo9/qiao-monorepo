@@ -1,16 +1,22 @@
 'use strict';
 
 // fs
-var fs = require('./fs.js');
+var fs = require('./_fs.js');
 
 // ncu
 var ncu = require('npm-check-updates');
 
 /**
- * ncu sub folders
- * @param {string} dir 
+ * handler
+ * @param {*} folderName 
+ * @returns 
  */
-exports.ncuSubFolders = async function(dir){
+module.exports = async function(folderName){
+	return await ncuSubFolders(folderName);
+};
+
+// ncu sub folders
+async function ncuSubFolders(dir){
     var packageFile = fs.path.resolve(dir, 'package.json');
     if(!fs.isExists(packageFile)) return 'package.json not exists';
     
@@ -21,7 +27,7 @@ exports.ncuSubFolders = async function(dir){
 
     var json = getJson(upgraded);
     return `${dir} : ${json}`;
-};
+}
 
 // get json
 function getJson(s){

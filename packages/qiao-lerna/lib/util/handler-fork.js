@@ -1,12 +1,12 @@
 'use strict';
 
-// ncu
-var ncu = require('./ncu.js');
+// handler
+var handler	= require('./_handler.js');
 
-// handler folder
-async function handlerFolder(){
-	var msg = await ncu.ncuSubFolders(process.argv[2]);
+// handler fork
+async function handlerFork(){
+	var msg = await handler(process.argv[2]);
 	process.send(msg);
 }
 
-handlerFolder();
+handlerFork();
