@@ -40,8 +40,8 @@ for(var i=0; i<serverFiles.files.length; i++){
 	if(/Controller\.js$/.test(file)) require(file)(app);
 }
 
-// qiao.cell.user
-require('qiao.cell.user').init(app);
+// qiao-server-user
+require('qiao-server-user').init(app);
 
 // dishi.cell.todo
 require('dishi.cell.todo').init(app);

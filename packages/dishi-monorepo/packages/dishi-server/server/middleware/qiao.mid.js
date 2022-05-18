@@ -2,7 +2,7 @@
 
 // qiao
 var qiao 	= require('../_qiao.js');
-qiao.user	= require('qiao.cell.user');
+qiao.user	= require('qiao-server-user');
 
 // vars
 var configServer = require('../config/config-server.json');
