@@ -51,10 +51,10 @@ exports.init = function(options){
     }
 	
 	// controller
-	var serverFiles = qiao.file.lsdir(__dirname + '/');
+    var serverFiles = qiao.file.lsdir(process.cwd() + '/');
 	for(var i=0; i<serverFiles.files.length; i++){
 		var file = serverFiles.files[i].path + serverFiles.files[i].name;
-		if(/Controller\.js$/.test(file)) require(file)(app);
+		if(!/node_modules/.test(file) && /Controller\.js$/.test(file)) require(file)(app);
 	}
 	
 	// inits
