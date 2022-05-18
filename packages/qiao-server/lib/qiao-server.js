@@ -6,7 +6,7 @@ var bodyParser 		= require('body-parser');
 var cookieParser	= require('cookie-parser');
 
 // require
-var qiao = require('qiao-file');
+var qiao = require('./_qiao.js');
 var mids = require('./mids.js');
 
 /**
@@ -51,14 +51,14 @@ exports.init = function(options){
     }
 	
 	// controller
-	var serverFiles = qiao.lsdir(__dirname + '/');
+	var serverFiles = qiao.file.lsdir(__dirname + '/');
 	for(var i=0; i<serverFiles.files.length; i++){
 		var file = serverFiles.files[i].path + serverFiles.files[i].name;
 		if(/Controller\.js$/.test(file)) require(file)(app);
 	}
 	
 	// inits
-    require('qiao-server-user').init(app);
+    qiao.user.init(app);
     if(options.inits){
         options.inits.forEach(function(init){
             init.init(app);

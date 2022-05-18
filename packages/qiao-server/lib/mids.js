@@ -1,10 +1,7 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.encode = require('qiao-encode');
-qiao.json 	= require('qiao-json');
-qiao.user	= require('qiao-server-user');
+var qiao = require('./_qiao.js');
 
 /**
  * cross domain
