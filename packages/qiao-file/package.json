@@ -13,8 +13,5 @@
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "prepublish": "npm run build"
-  },
-  "devDependencies": {
-    "rollup": "^2.73.0"
   }
 }

@@ -9,5 +9,9 @@
     "clean": "lerna clean -y",
     "ls": "lerna ls -l",
     "show": "lerna ls --graph"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.73.0"
   }
 }
