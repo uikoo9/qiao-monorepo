@@ -1,11 +1,8 @@
-// qiao
-var qiao = require('qiao-server');
+'use strict';
 
 /**
  * index
  */
 exports.index = function(req, res){
-	console.log(1);
-
-	res.send('hello');
+	res.send('hello world');
 };

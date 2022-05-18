@@ -3,6 +3,6 @@
   "private": true,
   "version": "0.0.2",
   "dependencies": {
-    "qiao-server": "^0.0.7"
+    "qiao-server": "^0.0.8"
   }
 }
