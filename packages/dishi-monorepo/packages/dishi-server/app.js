@@ -30,5 +30,6 @@ var options = {
 	staticPaths	: staticPaths,
 	mids		: mids,
 	inits		: inits,
+	checkAuth	: true,
 };
 q.init(options);

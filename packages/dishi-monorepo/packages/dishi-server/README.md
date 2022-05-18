@@ -13,6 +13,7 @@
 ### 0.0.8.20220518
 1. ncu
 2. lerna
+3. qiao-server
 
 ### 0.0.7.20210901
 1. qiao-server-user update
