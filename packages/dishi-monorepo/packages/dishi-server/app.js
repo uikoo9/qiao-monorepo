@@ -43,8 +43,8 @@ for(var i=0; i<serverFiles.files.length; i++){
 // qiao-server-user
 require('qiao-server-user').init(app);
 
-// dishi.cell.todo
-require('dishi.cell.todo').init(app);
+// dishi-server-todo
+require('dishi-server-todo').init(app);
 
 // port
 app.listen(port);

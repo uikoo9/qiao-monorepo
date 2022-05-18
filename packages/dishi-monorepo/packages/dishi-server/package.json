@@ -6,7 +6,7 @@
   "main": "app.js",
   "dependencies": {
     "cookie-parser": "^1.4.6",
-    "dishi.cell.todo": "^0.0.7",
+    "dishi-server-todo": "^0.0.7",
     "express": "^4.18.1",
     "qiao-server-user": "^0.1.7",
     "qiao-encode": "^0.1.5",
