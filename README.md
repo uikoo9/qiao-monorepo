@@ -93,6 +93,9 @@ nodejs下process能力
 ### [qiao-request](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-request#readme)
 nodejs下request常见api封装
 
+### [qiao-server](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server#readme)
+nodejs下基于express的mvc框架
+
 ### [qiao-server-user](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server-user#readme)
 nodejs下qiao-server中user部分
 
