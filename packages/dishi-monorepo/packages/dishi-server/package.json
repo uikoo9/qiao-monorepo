@@ -1,9 +1,7 @@
 {
   "name": "dishi-server",
+  "private": true,
   "version": "0.1.2",
-  "description": "",
-  "keywords": [],
-  "main": "app.js",
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "dishi-server-todo": "^0.0.7",

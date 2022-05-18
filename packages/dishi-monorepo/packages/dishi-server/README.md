@@ -2,15 +2,11 @@
 
 ## init database
 1. create database db_dishi character set utf8 collate utf8_general_ci;
-2. source server/node_modules/qiao-server-user/_sql/*.sql;
-3. source server/node_modules/dishi-server-todo/_sql/*.sql;
-
-## npm install
-1. cd server
-2. sudo npm i
+2. source node_modules/qiao-server-user/_sql/*.sql;
+3. source node_modules/dishi-server-todo/_sql/*.sql;
 
 ## tencent cloud sms
-1. modify server/config/config.json
+1. modify server/config.json
 2. add sms 
 
 ## version
