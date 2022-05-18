@@ -6,6 +6,7 @@ lerna tools
 ## version
 ### 0.0.7.20220518
 1. multi ncu
+2. pkg
 
 ### 0.0.6.20220517
 1. handler by parallel
