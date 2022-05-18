@@ -4,6 +4,9 @@ lerna tools
 ## api
 
 ## version
+### 0.0.7.20220518
+1. multi ncu
+
 ### 0.0.6.20220517
 1. handler by parallel
 2. handler by fork

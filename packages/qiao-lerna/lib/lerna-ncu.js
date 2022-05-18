@@ -34,8 +34,8 @@ module.exports = async function(folderName){
 	checkDir(folderName);
 
 	// parallel
-	// handlerByParallel.multiNCU(fs.subFolders, line);
-	handlerByFork.multiNCU(fs.subFolders, line);
+	handlerByParallel.multiNCU(fs.subFolders, line);
+	// handlerByFork.multiNCU(fs.subFolders, line);
 };
 
 // check dir
