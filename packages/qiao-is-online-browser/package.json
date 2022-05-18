@@ -1,6 +1,6 @@
 {
   "name": "qiao-is-online-browser",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "is online and offline to online on browser",
   "keywords": [
     "browser",
@@ -22,6 +22,6 @@
     "offline-to-online": "^0.1.1"
   },
   "devDependencies": {
-    "qiao-webpack": "^0.6.3"
+    "qiao-webpack": "^0.6.4"
   }
 }

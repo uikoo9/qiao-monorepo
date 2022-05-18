@@ -1,6 +1,6 @@
 {
   "name": "qiao.db.js",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "indexeddb tools",
   "keywords": [
     "indexeddb"
@@ -17,6 +17,6 @@
     "build": "qwebpack build ./webpack/qiao.webpack.js"
   },
   "devDependencies": {
-    "qiao-webpack": "^0.6.3"
+    "qiao-webpack": "^0.6.4"
   }
 }
