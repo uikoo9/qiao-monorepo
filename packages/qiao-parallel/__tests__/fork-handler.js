@@ -1,16 +1,10 @@
 'use strict';
 
 // handler
-function handler(timeout){
-    return new Promise(function(resolve, reject){
-        setTimeout(() => {
-            return resolve(timeout);
-        }, timeout);
-    });
-}
+var handler = require('./_handler.js');
 
-// cp
-async function cp(){
+// fork handler
+async function forkHandler(){
 	// check
 	if(!process || !process.argv) return;
 	
@@ -22,4 +16,4 @@ async function cp(){
 	process.send(msg);
 }
 
-cp();
+forkHandler();

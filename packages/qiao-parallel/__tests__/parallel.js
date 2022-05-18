@@ -1,43 +1,20 @@
 'use strict';
 
 // q
-var q = require('../index.js');
+var q = require('qiao-console');
 
-// qconsole
-var qconsole = require('qiao-console');
+// vars
+var values  = require('./_values.js');
+var handler = require('./_handler.js');
+var callback= require('./_callback.js');
+var complete= require('./_complete.js');
 
-// values
-var values = [
-    100,
-    300,
-    200,
-    400,
-];
-
-// handler
-function handler(timeout){
-    return new Promise(function(resolve, reject){
-        setTimeout(() => {
-            return resolve(timeout);
-        }, timeout);
-    });
-}
-
-// callback
-function callback(index, res){
-    qconsole.writeLine(index, `${index} ${res}`);
-}
-
-// complete
-function complete(l){
-    qconsole.writeLine(l, `complete`);
-}
+// parallel
+var parallel = require('../index.js');
 
 // test
-function test(){
-    qconsole.clear();
+(function(){
+    q.clear();
     
-    q.parallelByIIFE(handler, values, callback, complete);
-}
-
-test();
+    parallel.parallelByIIFE(handler, values, callback, complete);
+})()

@@ -1,29 +1,13 @@
 'use strict';
 
-// qconsole
-var qconsole = require('qiao-console');
+// q
+var q = require('qiao-console');
 
-// values
-var values = [
-    100,
-    300,
-    200,
-    400,
-];
-
-// handler
-function handler(timeout){
-    return new Promise(function(resolve, reject){
-        setTimeout(() => {
-            return resolve(timeout);
-        }, timeout);
-    });
-}
-
-// callback
-function callback(index, res){
-    qconsole.writeLine(index, `${index} ${res}`);
-}
+// vars
+var values  = require('./_values.js');
+var handler = require('./_handler.js');
+var callback= require('./_callback.js');
+var complete= require('./_complete.js');
 
 // normal
 async function normal(){
@@ -35,13 +19,14 @@ async function normal(){
         var res = await handler(value);
         callback(i, res);
     }
+    complete(values.length);
 
     console.timeEnd('qiao-parallel');
 }
 
 // test
-function test(){
+(function(){
+    q.clear();
+    
     normal();
-}
-
-test();
+})()
