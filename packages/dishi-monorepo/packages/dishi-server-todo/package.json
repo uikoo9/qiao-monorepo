@@ -1,19 +1,15 @@
 {
   "name": "dishi-server-todo",
   "version": "0.0.7",
-  "license": "MIT",
   "description": "",
   "keywords": [],
-  "main": "index.js",
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/insistime/dishi/tree/master/packages/dishi-server-todo#readme",
+  "license": "MIT",
   "scripts": {},
-  "author": {
-    "name": "qiaowenbin",
-    "email": "npm@insistime.com",
-    "url": "https://insistime.com"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/insistime/dishi-server-todo.git"
+    "url": "git+https://github.com/insistime/dishi.git"
   },
   "dependencies": {
     "qiao-mysql": "^0.1.3",
