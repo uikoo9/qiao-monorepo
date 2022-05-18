@@ -4,6 +4,6 @@
   "version": "0.1.6",
   "dependencies": {
     "dishi-server-todo": "^0.0.9",
-    "qiao-server": "^0.0.5"
+    "qiao-server": "^0.0.8"
   }
 }
