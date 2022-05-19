@@ -18,11 +18,12 @@ module.exports = [
   },
   
   {
-    type    : 'html',
-    inject  : 'body',
-    title   : 'index',
-    chunks  : ['index'],
-    filename: '../view/index.html',
-    template: templatePath
+    type        : 'html',
+    inject      : 'body',
+    title       : 'index',
+    chunks      : ['index'],
+    filename    : '../view/index.html',
+    publicPath  : 'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+    template    : templatePath
   },
 ];

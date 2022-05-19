@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "qwebpack dev ./webpack/qiao.webpack.js",
     "build": "qwebpack build ./webpack/qiao.webpack.js",
-    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
+    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js",
+    "upload1": "qcos fo /home/work/all_configs/0_insistime/config-cos.json /home/work/0_insistime/00_insistime/packages/insistime-server/web/static 00_insistime/static",
+    "upload2": "qcos fo ./config.json ../insistime-server/web/static 00_insistime/static"
   },
   "devDependencies": {
+    "qiao-cos": "^0.3.8",
     "qiao-webpack": "^0.6.4"
   },
   "dependencies": {
