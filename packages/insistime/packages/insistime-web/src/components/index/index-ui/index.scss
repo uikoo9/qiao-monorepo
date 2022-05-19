@@ -1,92 +1,11 @@
-$pageWidth: 300px;
-$pageHeight: 188px - 28px;
+.logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.2);
+}
 
-$pathHeight: 100px;
-$btnHeight: $pageHeight - $pathHeight;
-
-$pathDivHeight: 30px;
-
-$btnBtnWidth: 100px;
-$btnBtnHeight: 40px;
-
-#root {
-    width: $pageWidth;
-    height: $pageHeight;
-    background-color: #fff;
-
-    .index-container{
-        width: $pageWidth;
-        height: $pageHeight;
-
-        .index-path{
-            width: $pageWidth;
-            height: $pathHeight;
-
-            > div{
-                width: $pageWidth;
-                height: calc($pathHeight / 2);
-
-                > div{
-                    float: left;
-                }
-            }
-
-            .label{
-                width: 50px;
-                height: $pathDivHeight;
-                margin: calc((($pathHeight / 2) - $pathDivHeight) / 2) auto;
-                color: #333;
-                font-size: 16px;
-                text-align: center;
-                line-height: $pathDivHeight;
-                user-select: none;
-            }
-            .input{
-                width: 170px - 2px;
-                height: $pathDivHeight - 2px;
-                margin: calc((($pathHeight / 2) - $pathDivHeight) / 2) auto;
-                border: solid 1px #333;
-                background-color: rgb(199, 199, 199);
-
-                
-                input{
-                    width: 100%;
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
-                    border: none;
-                    
-                    font-size: 12px;
-                    line-height: $pathDivHeight - 2px;
-                    text-align: left;
-                }
-            }
-            .btn{
-                width: 60px;
-                height: $pathDivHeight;
-                margin: calc((($pathHeight / 2) - $pathDivHeight) / 2) 10px;
-            }
-        }
-        .index-btn{
-            width: $btnBtnWidth;
-            height: $btnBtnHeight;
-            padding-top: calc(($btnHeight - $btnBtnHeight) / 2);
-            padding-bottom: calc(($btnHeight - $btnBtnHeight) / 2);
-            padding-left: calc(($pageWidth - $btnBtnWidth) / 2);
-            padding-right: calc(($pageWidth - $btnBtnWidth) / 2);
-
-            .btn{
-                width: $btnBtnWidth;
-                height: $btnBtnHeight;
-                background-color: gray;
-                color: #fff;
-                font-size: 18px;
-                line-height: $btnBtnHeight;
-                text-align: center;
-                border-radius: 2px;
-                cursor: pointer;
-                user-select: none;
-            }
-        }
-    }
+.site-layout .site-layout-background {
+    background: #fff;
 }
