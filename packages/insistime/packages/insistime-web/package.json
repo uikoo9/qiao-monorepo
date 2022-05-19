@@ -1,0 +1,18 @@
+{
+  "name": "insistime-web",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "qwebpack dev ./webpack/qiao.webpack.js",
+    "build": "qwebpack build ./webpack/qiao.webpack.js",
+    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
+  },
+  "devDependencies": {
+    "qiao-webpack": "^0.6.4"
+  },
+  "dependencies": {
+    "antd": "^4.20.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}

@@ -3,6 +3,7 @@
 .settings
 .externalToolBuilders
 
+web
 dist
 jsdoc
 files_out
