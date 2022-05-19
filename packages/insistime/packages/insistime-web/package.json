@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "qiao-cos": "^0.3.8",
-    "qiao-webpack": "^0.6.4"
+    "qiao-webpack": "^0.6.5"
   },
   "dependencies": {
     "antd": "^4.20.5",

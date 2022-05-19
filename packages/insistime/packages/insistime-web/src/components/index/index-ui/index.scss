@@ -3,7 +3,16 @@
     width: 120px;
     height: 31px;
     margin: 16px 24px 16px 0;
-    background: rgba(255, 255, 255, 0.2);
+    background: #fff;
+    border-radius: 2px;
+
+    img {
+        display: block;
+        width: 31px;
+        height: 31px;
+        float: right;
+        border-radius: 2px;
+    }
 }
 
 .site-layout .site-layout-background {
