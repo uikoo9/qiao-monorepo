@@ -6,6 +6,7 @@
 2. insistime-web index init
 3. insistime-web static cos
 4. add beian
+5. add logo
 
 ### 0.0.1.20220518
 1. init project
