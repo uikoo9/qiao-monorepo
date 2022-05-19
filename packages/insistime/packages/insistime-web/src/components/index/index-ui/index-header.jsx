@@ -23,7 +23,7 @@ export default class IndexFooter extends React.Component {
                 }}
             >
                 <div className="logo">
-                    <img src={require('../index-assets/logo_31_31.png')} />
+                    <img src={require('../index-assets/logo_63_63.png')} />
                 </div>
 
                 <Menu
