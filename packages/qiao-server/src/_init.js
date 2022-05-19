@@ -1,20 +1,26 @@
 'use strict';
 
 // express
-var express 		= require('express');
-var bodyParser 		= require('body-parser');
-var cookieParser	= require('cookie-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
 // require
-var qiao = require('./_qiao.js');
-var mids = require('./mids.js');
+import { 
+    file as qfile,
+    user as quser,
+} from './_qiao.js';
+import {
+    auth as qauth,
+    crossDomain,
+} from './_mids.js';
 
 /**
  * init
  * @param {*} options 
  * @returns 
  */
-exports.init = function(options){
+export const init = (options) => {
     // check
     if(!options) return;
 
@@ -24,7 +30,7 @@ exports.init = function(options){
     }
 	
 	// app
-	var app = express();
+	const app = express();
 	app.use(cookieParser());
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended:true}));
@@ -32,35 +38,35 @@ exports.init = function(options){
 	
 	// static paths
     if(options.staticPaths){
-        options.staticPaths.forEach(function(staticPath){
+        options.staticPaths.forEach((staticPath) => {
             app.use(staticPath.name, express.static(staticPath.path, {maxAge: 0}));
         });
     }
 
 	// auth
-    app.use(mids.crossDomain);
+    app.use(crossDomain);
     if(options.checkAuth){
-        app.use(mids.auth);
+        app.use(qauth);
     }
 
     // mids
     if(options.mids){
-        options.mids.forEach(function(mid){
+        options.mids.forEach((mid) => {
             app.use(mid);
         });
     }
 	
 	// controller
-    var serverFiles = qiao.file.lsdir(process.cwd() + '/');
-	for(var i=0; i<serverFiles.files.length; i++){
-		var file = serverFiles.files[i].path + serverFiles.files[i].name;
+    const serverFiles = qfile.lsdir(process.cwd() + '/');
+	for(let i=0; i<serverFiles.files.length; i++){
+		const file = serverFiles.files[i].path + serverFiles.files[i].name;
 		if(!/node_modules/.test(file) && /Controller\.js$/.test(file)) require(file)(app);
 	}
 	
 	// inits
-    qiao.user.init(app);
+    quser.init(app);
     if(options.inits){
-        options.inits.forEach(function(init){
+        options.inits.forEach((init) => {
             init.init(app);
         });
     }
