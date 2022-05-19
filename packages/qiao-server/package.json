@@ -16,8 +16,10 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "art-template": "^4.13.2",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
+    "express-art-template": "^1.0.1",
     "qiao-encode": "^0.1.5",
     "qiao-file": "^0.3.6",
     "qiao-json": "^0.0.8",

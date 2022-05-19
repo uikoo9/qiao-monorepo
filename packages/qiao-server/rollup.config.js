@@ -11,9 +11,12 @@ export default {
         interop: false
     },
     external: [
+        'path',
         'express',
         'body-parser',
         'cookie-parser',
+        'art-template',
+        'express-art-template',
         'qiao-encode',
         'qiao-file',
         'qiao-json',

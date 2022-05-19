@@ -5,7 +5,7 @@ import {
 	encode as qencode,
 	json as qjson,
 	user as quser,
-} from './_qiao.js';
+} from '../_qiao.js';
 
 /**
  * cross domain

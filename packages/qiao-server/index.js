@@ -9,6 +9,45 @@ var quser = require('qiao-server-user');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var path = require('path');
+var artTemplate = require('art-template');
+var expressArtTemplate = require('express-art-template');
+
+// express
+
+/**
+ * init app
+ * @returns 
+ */
+var initApp = () => {
+	const app = express();
+	app.use(cookieParser());
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({extended:true}));
+	app.use(bodyParser.text({type:'text/xml'}));
+
+    return app;
+};
+
+// path
+
+/**
+ * init static
+ * @param {*} app 
+ * @param {*} options 
+ */
+var initStatic = (app, options) => {
+    // static
+    const staticPath = path.resolve(process.cwd(), './web/static');
+    app.use('/static', express.static(staticPath, {maxAge: 0}));
+
+    // options
+    if(options.staticPaths){
+        options.staticPaths.forEach((spath) => {
+            app.use(spath.name, express.static(spath.path, {maxAge: 0}));
+        });
+    }
+};
 
 /**
  * cross domain
@@ -82,36 +121,19 @@ const auth = async (req, res, next) => {
 	}
 };
 
+// mids
+
 /**
- * init
+ * init mids
+ * @param {*} app 
  * @param {*} options 
  * @returns 
  */
-const init = (options) => {
-    // check
-    if(!options) return;
-
-    // config
-    if(options.config){
-        global.config = options.config;
-    }
-	
-	// app
-	const app = express();
-	app.use(cookieParser());
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({extended:true}));
-	app.use(bodyParser.text({type:'text/xml'}));
-	
-	// static paths
-    if(options.staticPaths){
-        options.staticPaths.forEach((staticPath) => {
-            app.use(staticPath.name, express.static(staticPath.path, {maxAge: 0}));
-        });
-    }
-
-	// auth
+var initMids = (app, options) => {
+    // cross domain
     app.use(crossDomain);
+
+    // auth
     if(options.checkAuth){
         app.use(auth);
     }
@@ -122,23 +144,80 @@ const init = (options) => {
             app.use(mid);
         });
     }
-	
-	// controller
-    const serverFiles = qfile.lsdir(process.cwd() + '/');
-	for(let i=0; i<serverFiles.files.length; i++){
-		const file = serverFiles.files[i].path + serverFiles.files[i].name;
-		if(!/node_modules/.test(file) && /Controller\.js$/.test(file)) require(file)(app);
-	}
-	
-	// inits
+};
+
+// require
+
+/**
+ * init modules
+ * @param {*} app 
+ * @param {*} options 
+ */
+var initModules = (app, options) => {
+    // qiao-server-user
     quser.init(app);
-    if(options.inits){
-        options.inits.forEach((init) => {
-            init.init(app);
+
+    // others
+    if(options.modules){
+        options.modules.forEach((m) => {
+            m.init(app);
         });
     }
-	
-	// port
+};
+
+// qiao
+
+/**
+ * init controller
+ * @param {*} app 
+ */
+var initController = (app) => {
+    const serverFiles = qfile.lsdir(process.cwd() + '/');
+    serverFiles.forEach((serverFile) => {
+        const file = serverFile.path + serverFile.name;
+        if(!/node_modules/.test(file) && /Controller\.js$/.test(file)) require(file)(app);
+    });
+};
+
+// path
+
+/**
+ * init view
+ * @param {*} app 
+ */
+var initView = (app) => {
+    // view path
+    const viewPath = path.resolve(process.cwd(), './web/view');
+
+    // set
+    artTemplate.defaults.cache = false;
+    artTemplate.defaults.extname = '.html';
+    app.set('view engine', 'html');
+    app.set('views', viewPath);
+    app.engine('html', expressArtTemplate);
+};
+
+// init
+
+/**
+ * init
+ * @param {*} options 
+ * @returns 
+ */
+const init = (options) => {
+    // check
+    if(!options) return;
+
+    // config
+    if(options.config) global.config = options.config;
+
+	// init app
+    const app = initApp();
+    initStatic(app, options);
+    initMids(app, options);
+    initModules(app, options);
+    initController(app);
+    initView(app);
 	app.listen(global.config.port);
 
 	// return 
