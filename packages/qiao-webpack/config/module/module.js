@@ -6,6 +6,9 @@ var ruleForCss = require('./rule-for-css.js');
 // rule for sass
 var ruleForSass = require('./rule-for-sass.js');
 
+// rule for img
+var ruleForImg = require('./rule-for-img.js');
+
 // rule for react
 var ruleForReact = require('./rule-for-react.js');
 
@@ -19,6 +22,7 @@ module.exports = function(isDev, cssIncludes){
     rules: [
       ruleForCss(isDev, cssIncludes),
       ruleForSass(isDev),
+      ruleForImg,
       ruleForReact,
     ]
   };
