@@ -173,7 +173,7 @@ var initModules = (app, options) => {
  */
 var initController = (app) => {
     const serverFiles = qfile.lsdir(process.cwd() + '/');
-    serverFiles.forEach((serverFile) => {
+    serverFiles.files.forEach((serverFile) => {
         const file = serverFile.path + serverFile.name;
         if(!/node_modules/.test(file) && /Controller\.js$/.test(file)) require(file)(app);
     });
