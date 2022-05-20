@@ -13,7 +13,7 @@ export default class IndexHeader extends React.Component {
         <div className="logo nav-txt">insistime.com</div>
         <div className="navs">
           <div className="nav nav-txt">
-            <a href="https://github.com/insistime/insistime">Github</a>
+            <a target="_blank" href="https://github.com/insistime/insistime">Github</a>
           </div>
           <div className="nav nav-txt"></div>
           <div className="nav nav-txt"></div>
