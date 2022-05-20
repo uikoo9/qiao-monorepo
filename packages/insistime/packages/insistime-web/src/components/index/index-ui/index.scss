@@ -70,6 +70,19 @@ html, body{
         .nav{
             float: right;
             width: 100px;
+            
+            a:link { 
+                color: #333; text-decoration:none; 
+            }
+            a:visited { 
+                color: #333; text-decoration:none; 
+            } 
+            a:hover { 
+                color: #333; text-decoration:none; 
+            }
+            a:active { 
+                color: #333; text-decoration:none; 
+            }
         }
     }
 }
