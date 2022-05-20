@@ -1,6 +1,6 @@
 {
   "name": "qiao-slink",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "tiyee.cn URL Shortener Node.js and Browser module",
   "keywords": [
     "short",
@@ -21,9 +21,9 @@
     "build": "qwebpack build ./webpack/qiao.webpack.js"
   },
   "dependencies": {
-    "qiao-ajax": "^2.5.9"
+    "qiao-ajax": "^2.6.0"
   },
   "devDependencies": {
-    "qiao-webpack": "^0.6.7"
+    "qiao-webpack": "^0.6.8"
   }
 }
