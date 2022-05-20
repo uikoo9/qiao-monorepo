@@ -3,13 +3,11 @@
 // react
 import React from 'react';
 
-// antd
-import { Layout } from 'antd';
-
 // index
 import './index.scss';
 import IndexHeader from './index-header.jsx';
 import IndexContent from './index-content.jsx';
+import IndexInfo from './index-info.jsx';
 import IndexFooter from './index-footer.jsx';
 
 /**
@@ -18,11 +16,12 @@ import IndexFooter from './index-footer.jsx';
 export default class IndexComponent extends React.Component {
   render() {
     return (
-      <Layout>
+      <div className="container">
         <IndexHeader/>
         <IndexContent/>
+        <IndexInfo/>
         <IndexFooter/>
-      </Layout>
+      </div>
     );
   }
 }

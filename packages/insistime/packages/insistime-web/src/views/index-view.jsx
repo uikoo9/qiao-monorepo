@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import IndexContainer from '@components/home/index.jsx';
+import IndexContainer from '@components/index/index.jsx';
 
 /**
  * index view

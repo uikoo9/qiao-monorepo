@@ -3,33 +3,21 @@
 // react
 import React from 'react';
 
-// antd
-import { Layout } from 'antd';
-const { Content } = Layout;
-
 /**
- * index footer
+ * index content
  */
-export default class IndexFooter extends React.Component {
-    render() {
-        return (
-            <Content
-                className="site-layout"
-                style={{
-                    padding: '0 50px',
-                    marginTop: 64,
-                }}
-            >
-                <div
-                    className="site-layout-background"
-                    style={{
-                        padding: 24,
-                        minHeight: 1000,
-                    }}
-                >
-                    hello world
-                </div>
-            </Content>
-        );
-    }
+export default class IndexContent extends React.Component {
+  render() {
+    return (
+      <div className="content">
+        <div className="txt">
+          <div className="txt-container">
+            <div className="txt-main">insistime.com</div>  
+            <div className="txt-other">坚持，时机，创造，热爱</div>
+          </div>
+        </div>
+        <div className="pic"></div>
+      </div>
+    );
+  }
 }

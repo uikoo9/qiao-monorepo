@@ -3,39 +3,20 @@
 // react
 import React from 'react';
 
-// antd
-import { Layout, Menu } from 'antd';
-const { Header } = Layout;
-
 /**
- * index footer
+ * index header
  */
-export default class IndexFooter extends React.Component {
-    render() {
-        const menus = ['首页', '简介'];
-
-        return (
-            <Header
-                style={{
-                    position: 'fixed',
-                    zIndex: 1,
-                    width: '100%',
-                }}
-            >
-                <div className="logo">
-                    <img src={require('../index-assets/logo_63_63.png')} />
-                </div>
-
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    defaultSelectedKeys={['1']}
-                    items={menus.map((_, index) => ({
-                        key: String(index + 1),
-                        label: _,
-                    }))}
-                />
-            </Header>
-        );
-    }
+export default class IndexHeader extends React.Component {
+  render() {
+    return (
+      <div className="header">
+        <div className="logo nav-txt">insistime.com</div>
+        <div className="navs">
+          <div className="nav nav-txt">nav1</div>
+          <div className="nav nav-txt">nav2</div>
+          <div className="nav nav-txt">nav3</div>
+        </div>
+      </div>
+    );
+  }
 }

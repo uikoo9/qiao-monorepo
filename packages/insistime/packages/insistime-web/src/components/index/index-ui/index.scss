@@ -1,18 +1,178 @@
-.logo {
-    float: left;
-    width: 120px;
-    height: 64px;
-    margin: 0 24px 0 0;
-    background: #fff;
+$all: 100%;
+$marginAuto: 0 auto;
 
-    img {
-        display: block;
-        width: 64px;
-        height: 64px;
-        margin: 0 auto;
+$containerWidth : 1400px;
+
+$headerHeight: 60px;
+$logoWidth: 200px;
+$navsWidth: $containerWidth - $logoWidth;
+
+$contentHeight: 600px;
+$txtWidth: 600px;
+$txtTop: 150px;
+$txtleft: 100px;
+$txtContainerWidth: $txtWidth - $txtleft;
+$txtContainerHeight: $contentHeight - $txtTop;
+$txtMainHeight: 50px;
+$txtOtherHeight: 80px;
+
+$picWidth: $containerWidth - $txtWidth;
+
+$infoHeight: 400px;
+$footerHeight: 80px;
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: $all;
+    height: $all;
+}
+
+.nav-txt{
+    height: $headerHeight;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    line-height: $headerHeight;
+    user-select: none;
+    cursor: pointer;
+}
+.nav-txt:hover{
+    font-size: 18px;
+}
+
+#root{
+    width: $all;
+    height: $all;
+}
+
+.container{
+    width: $containerWidth;
+    height: $all;
+    margin: $marginAuto;
+}
+
+.header{
+    width: $all;
+    height: $headerHeight;
+    border-bottom: solid 1px #333;
+
+    .logo{
+        float: left;
+        width: $logoWidth;
+    }
+
+    .navs{
+        float: left;
+        width: $navsWidth;
+        height: $headerHeight;
+
+        .nav{
+            float: right;
+            width: 100px;
+        }
     }
 }
 
-.site-layout .site-layout-background {
-    background: #fff;
+.content{
+    width: $all;
+    height: $contentHeight;
+    border-bottom: solid 1px #333;
+
+    .txt{
+        float: left;
+        width: $txtWidth;
+        height: $contentHeight;
+
+        .txt-container{
+            width: $txtContainerWidth;
+            height: $txtContainerHeight;
+            margin-top: $txtTop;
+            margin-left: $txtleft;
+        }
+
+        .txt-main{
+            width: $txtContainerWidth;
+            height: $txtMainHeight;
+            color: #333;
+            font-size: 32px;
+            line-height: $txtMainHeight;
+        }
+        .txt-other{
+            width: $txtContainerWidth;
+            height: $txtOtherHeight;
+            color: #333;
+            font-size: 16px;
+            line-height: $txtOtherHeight;
+        }
+    }
+    .pic{
+        float: left;
+        width: $picWidth;
+        height: $contentHeight;
+        background-color: rgb(235, 235, 235);
+    }
+}
+
+.info{
+    width: $containerWidth;
+    height: $infoHeight;
+    border-bottom: solid 1px #333;
+
+    .row{
+        width: $containerWidth;
+    }
+    .row.top{
+        padding-top: 40px;
+        height: calc($infoHeight / 2) - 40px;
+    }
+    .row.bottom{
+        padding-bottom: 40px;
+        height: calc($infoHeight / 2) - 40px;
+    }
+    
+    .col{
+        float: left;
+        width: calc($containerWidth / 3);
+        height: calc($infoHeight / 2) - 40px;
+
+        .main{
+            width: $all;
+            height: 80px;
+            color: #333;
+            font-size: 18px;
+            text-align: center;
+            line-height: 80px;
+        }
+        .other{
+            width: $all;
+            height: 20px;
+            color: #333;
+            font-size: 14px;
+            text-align: center;
+            line-height: 20px;
+        }
+    }
+}
+
+.footer{
+    width: $all;
+    height: $footerHeight;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    line-height: $footerHeight;
+
+    a:link { 
+        color: #333; text-decoration:none; 
+    }
+    a:visited { 
+        color: #333; text-decoration:none; 
+    } 
+    a:hover { 
+        color: #333; text-decoration:none; 
+    }
+    a:active { 
+        color: #333; text-decoration:none; 
+    }
 }
