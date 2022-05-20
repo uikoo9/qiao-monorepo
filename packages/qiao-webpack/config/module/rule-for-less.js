@@ -12,7 +12,14 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
   var use = [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       'css-loader',
-      'less-loader',
+      {
+        loader: 'less-loader',
+        options: {
+          lessOptions: {
+            javascriptEnabled: true
+          },
+        },
+      },
   ];
 
   // return
