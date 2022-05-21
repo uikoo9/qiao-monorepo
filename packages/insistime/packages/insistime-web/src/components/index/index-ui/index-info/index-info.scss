@@ -1,0 +1,44 @@
+@use '../index';
+
+$infoHeight: 400px;
+
+.info{
+    width: index.$containerWidth;
+    height: $infoHeight;
+    border-bottom: index.$borderBottom;
+
+    .row{
+        width: index.$containerWidth;
+    }
+    .row.top{
+        padding-top: 40px;
+        height: calc($infoHeight / 2) - 40px;
+    }
+    .row.bottom{
+        padding-bottom: 40px;
+        height: calc($infoHeight / 2) - 40px;
+    }
+    
+    .col{
+        float: left;
+        width: calc(index.$containerWidth / 3);
+        height: calc($infoHeight / 2) - 40px;
+
+        .main{
+            width: index.$all;
+            height: 80px;
+            color: #333;
+            font-size: 18px;
+            text-align: center;
+            line-height: 80px;
+        }
+        .other{
+            width: index.$all;
+            height: 20px;
+            color: #333;
+            font-size: 14px;
+            text-align: center;
+            line-height: 20px;
+        }
+    }
+}

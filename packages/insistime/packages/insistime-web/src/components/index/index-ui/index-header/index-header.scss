@@ -1,0 +1,42 @@
+@use '../index';
+
+$headerHeight: 60px;
+$logoWidth: 200px;
+$navsWidth: index.$containerWidth - $logoWidth;
+
+.nav-txt{
+    height: $headerHeight;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    line-height: $headerHeight;
+    user-select: none;
+    cursor: pointer;
+}
+.nav-txt:hover{
+    font-size: 18px;
+}
+
+.header{
+    width: index.$all;
+    height: $headerHeight;
+    border-bottom: index.$borderBottom;
+
+    .logo{
+        float: left;
+        width: $logoWidth;
+    }
+
+    .navs{
+        float: left;
+        width: $navsWidth;
+        height: $headerHeight;
+
+        .nav{
+            float: right;
+            width: 100px;
+            
+            @include index.alink($color: #333);
+        }
+    }
+}

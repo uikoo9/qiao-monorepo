@@ -1,0 +1,14 @@
+@use '../index';
+
+$footerHeight: 80px;
+
+.footer{
+    width: index.$all;
+    height: $footerHeight;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    line-height: $footerHeight;
+
+    @include index.alink($color: #333);
+}

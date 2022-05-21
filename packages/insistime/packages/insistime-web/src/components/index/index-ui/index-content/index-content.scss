@@ -1,0 +1,52 @@
+@use '../index';
+
+$contentHeight: 600px;
+$txtWidth: 600px;
+$txtTop: 150px;
+$txtleft: 100px;
+$txtContainerWidth: $txtWidth - $txtleft;
+$txtContainerHeight: $contentHeight - $txtTop;
+$txtMainHeight: 50px;
+$txtOtherHeight: 80px;
+
+$picWidth: index.$containerWidth - $txtWidth;
+
+.content{
+    width: index.$all;
+    height: $contentHeight;
+    border-bottom: index.$borderBottom;
+
+    .txt{
+        float: left;
+        width: $txtWidth;
+        height: $contentHeight;
+
+        .txt-container{
+            width: $txtContainerWidth;
+            height: $txtContainerHeight;
+            margin-top: $txtTop;
+            margin-left: $txtleft;
+        }
+
+        .txt-main{
+            width: $txtContainerWidth;
+            height: $txtMainHeight;
+            color: #333;
+            font-size: 32px;
+            line-height: $txtMainHeight;
+        }
+        .txt-other{
+            width: $txtContainerWidth;
+            height: $txtOtherHeight;
+            color: #333;
+            font-size: 16px;
+            line-height: $txtOtherHeight;
+        }
+    }
+    .pic{
+        float: left;
+        width: $picWidth;
+        height: $contentHeight;
+        background-color: rgb(235, 235, 235);
+    }
+}
