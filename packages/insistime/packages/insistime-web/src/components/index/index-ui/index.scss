@@ -9,17 +9,14 @@ html, body{
     margin: 0;
     padding: 0;
     width: $all;
-    height: $all;
 }
 
 #root{
     width: $all;
-    height: $all;
 }
 
 .container{
     width: $containerWidth;
-    height: $all;
     margin: $marginAuto;
 }
 
