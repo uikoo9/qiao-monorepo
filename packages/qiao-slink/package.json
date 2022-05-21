@@ -22,8 +22,5 @@
   },
   "dependencies": {
     "qiao-ajax": "^2.6.0"
-  },
-  "devDependencies": {
-    "qiao-webpack": "^0.6.8"
   }
 }
