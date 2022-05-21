@@ -1,6 +1,6 @@
 {
   "name": "qiao-is-online",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "is online and offline to online on nodejs",
   "keywords": [
     "nodejs",
@@ -18,6 +18,6 @@
   "scripts": {},
   "dependencies": {
     "offline-to-online": "^0.1.1",
-    "qiao-ping": "^0.0.8"
+    "qiao-ping": "^0.0.9"
   }
 }
