@@ -1,0 +1,32 @@
+@use "../index";
+
+$infoHeight: 36rem;
+
+.info {
+  width: index.$containerWidth;
+  height: $infoHeight;
+  border-bottom: index.$borderBottom;
+
+  .col {
+    width: index.$containerWidth;
+    height: calc($infoHeight / 6);
+
+    .main {
+      width: index.$containerWidth;
+      height: 2rem;
+      padding-top: 1rem;
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+      line-height: 3rem;
+    }
+    .other {
+      width: index.$containerWidth;
+      height: 3rem;
+      color: #333;
+      font-size: 14px;
+      text-align: center;
+      line-height: 3rem;
+    }
+  }
+}

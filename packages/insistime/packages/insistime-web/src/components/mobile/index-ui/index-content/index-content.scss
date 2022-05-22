@@ -1,0 +1,29 @@
+@use "../index";
+
+$contentHeight: 6rem;
+$txtMainHeight: 4rem;
+$txtOtherHeight: 2rem;
+
+.content {
+  width: index.$all;
+  height: $contentHeight;
+  border-bottom: index.$borderBottom;
+
+  .txt-main {
+    width: index.$all;
+    height: $txtMainHeight;
+    margin-bottom: -1rem;
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+    line-height: $txtMainHeight;
+  }
+  .txt-other {
+    width: index.$all;
+    height: $txtOtherHeight;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    line-height: $txtOtherHeight;
+  }
+}

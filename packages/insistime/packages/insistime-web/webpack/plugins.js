@@ -4,7 +4,8 @@
 var path = require('path');
 
 // template path
-var templatePath = path.resolve(__dirname, './template.html');
+var indexPath = path.resolve(__dirname, './template/index.html');
+var mobilePath = path.resolve(__dirname, './template/mobile.html');
 
 /**
  * qiao.webpack.js
@@ -23,7 +24,16 @@ module.exports = [
     title       : 'index',
     chunks      : ['index'],
     filename    : '../view/index.html',
-    publicPath  : 'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
-    template    : templatePath
+    // publicPath  : 'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+    template    : indexPath
+  },
+  {
+    type        : 'html',
+    inject      : 'body',
+    title       : 'mobile',
+    chunks      : ['mobile'],
+    filename    : '../view/mobile.html',
+    // publicPath  : 'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+    template    : mobilePath
   },
 ];

@@ -33,6 +33,28 @@
     <link rel="apple-touch-icon-precomposed" href="https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/logo_144_144.png">
     
     <title>insistime.com</title>
+
+    <script coolieignore type="text/javascript">
+        (function(window, document){
+            window.qresize = {};
+            window.qresize.event = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            window.qresize.func = function(){
+                var docEl = document.documentElement;
+                
+                var clientWidth = docEl.clientWidth;
+                if(!clientWidth) return;
+                
+                var fontSize = 20 * (clientWidth / 320);
+                if(fontSize > 40) return;
+                docEl.style.fontSize = fontSize + 'px';
+            };
+        
+            if(!document.addEventListener) return;
+            window.addEventListener(window.qresize.event, window.qresize.func, false);
+            
+            window.qresize.func();
+        })(window, document);
+        </script>
 </head>
 
 <body>
