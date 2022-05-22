@@ -1,15 +1,23 @@
-'use strict';
+"use strict";
+
+// util
+var util = require("../util.js");
 
 /**
  * index
  */
-exports.index = function(req, res){
-	res.render('index.html');
+exports.index = function (req, res) {
+  var vendor = util.vendor(req.headers["user-agent"]);
+  if (vendor.mobile || vendor.android) {
+    res.render("index.html");
+  } else {
+    res.redirect("/mobile");
+  }
 };
 
 /**
  * mobile
  */
- exports.mobile = function(req, res){
-	res.render('mobile.html');
+exports.mobile = function (req, res) {
+  res.render("mobile.html");
 };
