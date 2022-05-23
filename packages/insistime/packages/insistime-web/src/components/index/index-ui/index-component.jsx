@@ -15,12 +15,20 @@ import IndexFooter from './index-footer/index-footer.jsx';
 export default class IndexComponent extends React.Component {
   render() {
     return (
-      <div className="container">
-        <IndexHeader/>
-        <IndexContent/>
-        <IndexInfo/>
-        <IndexFooter/>
-      </div>
+      <>
+        <IndexHeader
+          constant = {this.props.constant}
+        />
+        <IndexContent
+          constant = {this.props.constant}
+        />
+        <IndexInfo
+          constant = {this.props.constant}
+        />
+        <IndexFooter
+          constant = {this.props.constant}
+        />
+      </>
     );
   }
 }

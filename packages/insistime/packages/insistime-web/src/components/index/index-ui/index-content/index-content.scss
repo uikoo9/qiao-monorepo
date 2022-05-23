@@ -1,4 +1,4 @@
-@use '../index';
+@use "../base";
 
 $contentHeight: 600px;
 $txtWidth: 600px;
@@ -9,44 +9,39 @@ $txtContainerHeight: $contentHeight - $txtTop;
 $txtMainHeight: 50px;
 $txtOtherHeight: 80px;
 
-$picWidth: index.$containerWidth - $txtWidth;
+$picWidth: base.$containerWidth - $txtWidth;
 
-.content{
-    width: index.$all;
+.content {
+  width: base.$all;
+  height: $contentHeight;
+  border-bottom: base.$borderBottom;
+
+  .txt {
+    float: left;
+    width: $txtContainerWidth;
+    height: $txtContainerHeight;
+    padding-top: $txtTop;
+    padding-left: $txtleft;
+
+    .txt-main {
+      width: $txtContainerWidth;
+      height: $txtMainHeight;
+      color: #333;
+      font-size: 32px;
+      line-height: $txtMainHeight;
+    }
+    .txt-other {
+      width: $txtContainerWidth;
+      height: $txtOtherHeight;
+      color: #333;
+      font-size: 16px;
+      line-height: $txtOtherHeight;
+    }
+  }
+  .pic {
+    float: left;
+    width: $picWidth;
     height: $contentHeight;
-    border-bottom: index.$borderBottom;
-
-    .txt{
-        float: left;
-        width: $txtWidth;
-        height: $contentHeight;
-
-        .txt-container{
-            width: $txtContainerWidth;
-            height: $txtContainerHeight;
-            margin-top: $txtTop;
-            margin-left: $txtleft;
-        }
-
-        .txt-main{
-            width: $txtContainerWidth;
-            height: $txtMainHeight;
-            color: #333;
-            font-size: 32px;
-            line-height: $txtMainHeight;
-        }
-        .txt-other{
-            width: $txtContainerWidth;
-            height: $txtOtherHeight;
-            color: #333;
-            font-size: 16px;
-            line-height: $txtOtherHeight;
-        }
-    }
-    .pic{
-        float: left;
-        width: $picWidth;
-        height: $contentHeight;
-        background-color: rgb(235, 235, 235);
-    }
+    background-color: rgb(235, 235, 235);
+  }
 }

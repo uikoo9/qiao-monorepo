@@ -1,14 +1,14 @@
-@use '../index';
+@use "../base";
 
 $footerHeight: 80px;
 
-.footer{
-    width: index.$all;
-    height: $footerHeight;
-    color: #333;
-    font-size: 14px;
-    text-align: center;
-    line-height: $footerHeight;
+.footer {
+  width: base.$all;
+  height: $footerHeight;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+  line-height: $footerHeight;
 
-    @include index.alink($color: #333);
+  @include base.alink($color: #333);
 }
