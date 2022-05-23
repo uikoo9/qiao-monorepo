@@ -7,7 +7,7 @@ import React from 'react';
 import './index-header.scss';
 
 // constant
-import Constant from '@components/index/_constant.js';
+import Constant from '@components/mobile/_constant.js';
 
 /**
  * index header
