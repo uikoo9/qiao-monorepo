@@ -4,7 +4,7 @@
 import React from 'react';
 
 // constant
-import Constant from '@components/index/_constant.js';
+import Constant from './_constant.js';
 
 // index
 import IndexComponent from './index-ui/index-component.jsx';
