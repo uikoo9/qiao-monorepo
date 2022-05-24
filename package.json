@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "init": "lerna bootstrap",
+    "init": "lerna bootstrap --ignore=qiao-electron-demo",
     "check": "qlerna ncu ./packages",
     "pkg": "qlerna pkg ./packages",
     "dpkg": "qlerna pkg ./packages 1",
