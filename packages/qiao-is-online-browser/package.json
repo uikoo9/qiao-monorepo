@@ -22,5 +22,6 @@
   },
   "dependencies": {
     "offline-to-online": "^0.1.1"
-  }
+  },
+  "sideEffects": false
 }
