@@ -10,9 +10,9 @@ import Constant from './_constant.js';
 import IndexComponent from './index-ui/index-component.jsx';
 
 /**
- * index container
+ * index insistime container
  */
-export default class IndexContainer extends React.Component {
+export class IndexInsistimeContainer extends React.Component {
   render() {
     const _constant = this.props.constant || Constant;
     

@@ -1,1 +1,1 @@
-export * as IndexA from "./indexA/index.jsx";
+export { IndexInsistimeContainer } from "./index-insistime/index.jsx";

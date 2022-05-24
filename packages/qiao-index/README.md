@@ -1,6 +1,6 @@
 # qiao-index
 
-## indexA
+## index-insistime
 
 ### display
 
@@ -43,7 +43,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 // index
-import { IndexA } from "qiao-index";
+import { IndexInsistimeContainer } from "qiao-index";
 
 /**
  * index view
@@ -51,7 +51,7 @@ import { IndexA } from "qiao-index";
 class IndexView extends React.Component {
   render() {
     const constant = "xxx";
-    return <IndexA constant={constant} />;
+    return <IndexInsistimeContainer constant={constant} />;
   }
 }
 
