@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import IndexContainer from '@components/mobile/index.jsx';
+import { MobileInsistimeContainer } from 'qiao-index';
 
 /**
  * index view
@@ -13,7 +13,7 @@ import IndexContainer from '@components/mobile/index.jsx';
 class IndexView extends React.Component {
   render() {
     return (
-      <IndexContainer />
+      <MobileInsistimeContainer />
     );
   }
 }

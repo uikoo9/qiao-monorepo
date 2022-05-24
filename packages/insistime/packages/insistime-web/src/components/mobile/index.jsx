@@ -3,23 +3,25 @@
 // react
 import React from 'react';
 
+// constant
+import Constant from './_constant.js';
+
 // index ui
-import IndexComponent from './index-ui/index.jsx';
+import IndexComponent from './index-ui/index-component.jsx';
 
 /**
  * index container
  */
 export default class IndexContainer extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
+    const _constant = this.props.constant || Constant;
+
     return (
-      <IndexComponent/>
+      <div className="container">
+        <IndexComponent
+          constant = {_constant}
+        />
+      </div>
     );
   }
 }

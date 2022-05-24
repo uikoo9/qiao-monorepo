@@ -1,8 +1,8 @@
-@use "../index";
+@use "../base";
 
 $headerHeight: 2rem;
 $logoWidth: 6rem;
-$navsWidth: index.$containerWidth - $logoWidth;
+$navsWidth: base.$containerWidth - $logoWidth;
 
 .nav-txt {
   height: $headerHeight;
@@ -15,9 +15,9 @@ $navsWidth: index.$containerWidth - $logoWidth;
 }
 
 .header {
-  width: index.$all;
+  width: base.$all;
   height: $headerHeight;
-  border-bottom: index.$borderBottom;
+  border-bottom: base.$borderBottom;
 
   .logo {
     float: left;
@@ -33,7 +33,7 @@ $navsWidth: index.$containerWidth - $logoWidth;
       float: right;
       width: calc($navsWidth / 3);
 
-      @include index.alink($color: #333);
+      @include base.alink($color: #333);
     }
   }
 }

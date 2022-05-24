@@ -1,18 +1,18 @@
-@use "../index";
+@use "../base";
 
 $infoHeight: 36rem;
 
 .info {
-  width: index.$containerWidth;
+  width: base.$containerWidth;
   height: $infoHeight;
-  border-bottom: index.$borderBottom;
+  border-bottom: base.$borderBottom;
 
   .col {
-    width: index.$containerWidth;
+    width: base.$containerWidth;
     height: calc($infoHeight / 6);
 
     .main {
-      width: index.$containerWidth;
+      width: base.$containerWidth;
       height: 2rem;
       padding-top: 1rem;
       color: #333;
@@ -21,7 +21,7 @@ $infoHeight: 36rem;
       line-height: 3rem;
     }
     .other {
-      width: index.$containerWidth;
+      width: base.$containerWidth;
       height: 3rem;
       color: #333;
       font-size: 14px;
