@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "qiao-webpack": "^0.6.8",
-    "rollup": "^2.73.0"
+    "qiao-webpack": "^0.7.0",
+    "rollup": "^2.74.1"
   }
 }
