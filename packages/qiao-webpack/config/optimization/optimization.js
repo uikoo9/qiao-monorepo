@@ -1,25 +1,25 @@
-'use strict';
+"use strict";
 
 // mini
-var minimizer = require('./minimizer.js');
+var minimizer = require("./minimizer.js");
 
 // default cache groups
-var defaultCacheGroups = require('./cache-groups.js');
+var defaultCacheGroups = require("./cache-groups.js");
 
 /**
  * optimization
- * @param {*} cacheGroups 
- * @returns 
+ * @param {*} cacheGroups
+ * @returns
  */
-module.exports = function(isDev, cacheGroups){
+module.exports = function (isDev, cacheGroups) {
   // check
-  if(isDev) return {};
+  if (isDev) return {};
 
   // return
   return {
-    runtimeChunk: 'single',
-    minimizer   : minimizer,
-    splitChunks : {
+    // runtimeChunk: 'single',
+    minimizer: minimizer,
+    splitChunks: {
       cacheGroups: Object.assign(defaultCacheGroups, cacheGroups || {}),
     },
   };
