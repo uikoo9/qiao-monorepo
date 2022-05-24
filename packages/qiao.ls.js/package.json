@@ -17,10 +17,13 @@
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {
-    "test": "jest --config jest.config.js"
+    "test": "jest --config jest.config.js",
+    "build": "rollup --config rollup.config.js",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0"
-  }
+  },
+  "sideEffects": false
 }
