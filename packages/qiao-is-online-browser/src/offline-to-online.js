@@ -1,14 +1,10 @@
-'use strict';
+"use strict";
 
 // offline to online
-var o = require('offline-to-online');
+import o from "offline-to-online";
 
 // is online
-var isOnline = require('./is-online.js');
-
-// exports
-module.exports = offlineToOnline;
-
+import { isOnline } from "./is-online.js";
 /**
  * 
  * @param {string} src img src 
@@ -28,6 +24,6 @@ q.offlineToOnline(isOnlineImgSrc, function(){
     console.log('offline-to-online');
 }, 3 * 1000);
  */
-function offlineToOnline(src, callback, time){
-    o.offlineToOnlineWithSrc(src, isOnline, callback, time);
-}
+export const offlineToOnline = (src, callback, time) => {
+  o.offlineToOnlineWithSrc(src, isOnline, callback, time);
+};
