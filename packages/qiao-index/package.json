@@ -10,5 +10,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-  }
+  },
+  "sideEffects": [
+    "**/*.scss"
+  ]
 }
