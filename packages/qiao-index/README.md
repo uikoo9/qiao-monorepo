@@ -1,6 +1,6 @@
 # qiao-index
 
-## index-insistime
+## index-black-white
 
 ### display
 
@@ -43,7 +43,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 // index
-import { IndexInsistimeContainer } from "qiao-index";
+import { IndexBlackWhiteContainer } from "qiao-index";
 
 /**
  * index view
@@ -51,7 +51,7 @@ import { IndexInsistimeContainer } from "qiao-index";
 class IndexView extends React.Component {
   render() {
     const constant = "xxx";
-    return <IndexInsistimeContainer constant={constant} />;
+    return <IndexBlackWhiteContainer constant={constant} />;
   }
 }
 
@@ -60,7 +60,7 @@ const root = createRoot(container);
 root.render(<IndexView />);
 ```
 
-## mobile-insistime
+## mobile-black-white
 
 ### display
 
@@ -103,7 +103,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 // index
-import { MobileInsistimeContainer } from "qiao-index";
+import { MobileBlackWhiteContainer } from "qiao-index";
 
 /**
  * index view
@@ -111,7 +111,7 @@ import { MobileInsistimeContainer } from "qiao-index";
 class IndexView extends React.Component {
   render() {
     const constant = "xxx";
-    return <MobileInsistimeContainer constant={constant} />;
+    return <MobileBlackWhiteContainer constant={constant} />;
   }
 }
 
