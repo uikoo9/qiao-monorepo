@@ -1,3 +1,3 @@
 // insistime.com
-export { IndexInsistimeContainer } from "./index-insistime/index.jsx";
-export { MobileInsistimeContainer } from "./mobile-insistime/index.jsx";
+export { IndexBlackWhiteContainer } from "./index-black-white/index.jsx";
+export { MobileBlackWhiteContainer } from "./mobile-black-white/index.jsx";

@@ -4,10 +4,10 @@
 import React from 'react';
 
 // index
-import IndexHeader from './index-header/index-header.jsx';
-import IndexContent from './index-content/index-content.jsx';
-import IndexInfo from './index-info/index-info.jsx';
-import IndexFooter from './index-footer/index-footer.jsx';
+import IndexHeader from './header/header.jsx';
+import IndexContent from './content/content.jsx';
+import IndexInfo from './info/info.jsx';
+import IndexFooter from './footer/footer.jsx';
 
 /**
  * index component

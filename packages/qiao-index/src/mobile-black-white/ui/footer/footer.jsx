@@ -4,7 +4,7 @@
 import React from 'react';
 
 // css
-import './index-footer.scss';
+import './footer.scss';
 
 /**
  * index footer

@@ -7,12 +7,12 @@ import React from 'react';
 import Constant from './_constant.js';
 
 // index ui
-import IndexComponent from './index-ui/index-component.jsx';
+import IndexComponent from './ui/index-component.jsx';
 
 /**
- * mobile insistme container
+ * mobile black white container
  */
-export class MobileInsistimeContainer extends React.Component {
+export class MobileBlackWhiteContainer extends React.Component {
   render() {
     const _constant = this.props.constant || Constant;
 

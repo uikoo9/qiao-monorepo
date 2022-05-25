@@ -4,7 +4,7 @@
 import React from 'react';
 
 // css
-import './index-header.scss';
+import './header.scss';
 
 /**
  * index header

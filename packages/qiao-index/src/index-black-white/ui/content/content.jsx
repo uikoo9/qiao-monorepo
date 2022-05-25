@@ -4,7 +4,7 @@
 import React from 'react';
 
 // css
-import './index-content.scss';
+import './content.scss';
 
 /**
  * index content
