@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import { IndexInsistimeContainer } from 'qiao-index';
+import { IndexBlackWhiteContainer } from 'qiao-index';
 
 /**
  * index view
@@ -13,7 +13,7 @@ import { IndexInsistimeContainer } from 'qiao-index';
 class IndexView extends React.Component {
   render() {
     return (
-      <IndexInsistimeContainer />
+      <IndexBlackWhiteContainer />
     );
   }
 }
