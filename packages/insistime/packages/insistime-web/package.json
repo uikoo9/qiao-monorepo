@@ -10,11 +10,11 @@
     "upload2": "qcos fo ./config.json ../insistime-server/web/static 00_insistime/static"
   },
   "devDependencies": {
-    "qiao-cos": "^0.3.9",
-    "qiao-webpack": "^0.7.0"
+    "qiao-cos": "^0.4.0",
+    "qiao-webpack": "^0.7.1"
   },
   "dependencies": {
-    "qiao-index": "^0.0.7",
+    "qiao-index": "^0.0.8",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   }
