@@ -33,20 +33,24 @@ var initApp = () => {
 
 /**
  * init static
- * @param {*} app 
- * @param {*} options 
+ * @param {*} app
+ * @param {*} options
  */
 var initStatic = (app, options) => {
-    // static
-    const staticPath = path.resolve(process.cwd(), './web/static');
-    app.use('/static', express.static(staticPath, {maxAge: 0}));
+  // acme
+  const acmePath = path.resolve(process.cwd(), "./.well-known");
+  app.use("/.well-known", express.static(acmePath, { maxAge: 0 }));
 
-    // options
-    if(options.staticPaths){
-        options.staticPaths.forEach((spath) => {
-            app.use(spath.name, express.static(spath.path, {maxAge: 0}));
-        });
-    }
+  // static
+  const staticPath = path.resolve(process.cwd(), "./web/static");
+  app.use("/static", express.static(staticPath, { maxAge: 0 }));
+
+  // options
+  if (options.staticPaths) {
+    options.staticPaths.forEach((spath) => {
+      app.use(spath.name, express.static(spath.path, { maxAge: 0 }));
+    });
+  }
 };
 
 /**
