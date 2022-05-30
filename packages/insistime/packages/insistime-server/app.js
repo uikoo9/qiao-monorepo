@@ -12,6 +12,7 @@ var options = {
 	config		: config,
 	staticPaths	: staticPaths,
 	mids		: mids,
-	modules		: modules
+	modules		: modules,
+	isDev		: config.isDev
 };
 q.init(options);
