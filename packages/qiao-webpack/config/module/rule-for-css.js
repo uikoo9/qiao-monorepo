@@ -11,8 +11,8 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = function(isDev, cssIncludes){
     // css includes
     var defaultCssIncludes = [
-        /iconfont\.css$/,
         /node_modules[\\/]antd/,
+        /node_modules[\\/]iconfont\.css$/,
         /node_modules[\\/]normalize\.css/,
     ];
     var finalCssIncludes = defaultCssIncludes.concat(cssIncludes || []);

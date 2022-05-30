@@ -20,12 +20,15 @@ var webpack_optimization = require('./optimization/optimization.js');
  * @returns 
  */
 module.exports = function(isDev, qiaoWebpack, isAnalyzer){
-    return {
+    // options
+    var options = {
         mode            : isDev ? 'development' : 'production',
-        devtool         : isDev ? 'inline-source-map' : 'source-map',
         module          : webpack_module(isDev, qiaoWebpack.cssIncludes),
         plugins         : webpack_plugins(isDev, qiaoWebpack.plugins, isAnalyzer),
         performance     : qiaoWebpack.performance || webpack_performance,
         optimization    : webpack_optimization(isDev, qiaoWebpack.cacheGroups),
     };
+    if(isDev) options.devtool = 'inline-source-map';
+
+    return options;
 };
