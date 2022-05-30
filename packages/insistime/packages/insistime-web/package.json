@@ -9,7 +9,7 @@
     "upload": "qcos fo ./config.json ../insistime-server/web/static 00_insistime/static"
   },
   "devDependencies": {
-    "qiao-webpack": "^0.7.1"
+    "qiao-webpack": "^0.7.3"
   },
   "dependencies": {
     "qiao-index": "^0.0.8",
