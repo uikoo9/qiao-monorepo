@@ -1,8 +1,8 @@
 {
   "name": "insistime-server",
   "private": true,
-  "version": "0.1.8",
+  "version": "0.1.9",
   "dependencies": {
-    "qiao-server": "^0.1.6"
+    "qiao-server": "^0.1.7"
   }
 }
