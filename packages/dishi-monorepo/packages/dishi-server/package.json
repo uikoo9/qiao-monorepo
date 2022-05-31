@@ -1,9 +1,9 @@
 {
   "name": "dishi-server",
   "private": true,
-  "version": "0.1.7",
+  "version": "0.1.8",
   "dependencies": {
-    "dishi-server-todo": "^0.0.9",
+    "dishi-server-todo": "^0.1.0",
     "qiao-server": "^0.1.6"
   }
 }
