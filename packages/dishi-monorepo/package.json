@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "dishi-monorepo",
   "private": true,
   "scripts": {
     "init": "lerna bootstrap",
@@ -9,8 +9,5 @@
     "clean": "lerna clean -y",
     "ls": "lerna ls -l",
     "show": "lerna ls --graph"
-  },
-  "devDependencies": {
-    "lerna": "^4.0.0"
   }
 }
