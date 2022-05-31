@@ -5,6 +5,9 @@
 
 ## api
 ### openDB
+
+打开一个数据库
+
 ```javascript
 'use strict';
 
@@ -12,8 +15,8 @@ var q = require('qiao.db.js');
 
 var test = async function(){
 	try{
-		var databaseName 	= 'db_test';
-		var db 				= await q.openDB(databaseName);
+		var databaseName	= 'db_test';
+		var db				= await q.openDB(databaseName);
 		console.log(db);
 	}catch(e){
 		console.log(e);
@@ -24,6 +27,9 @@ test();
 ```
 
 ### listDB
+
+列出所有的本地数据库
+
 ```javascript
 'use strict';
 
@@ -42,6 +48,9 @@ test();
 ```
 
 ### delDB
+
+删除某个数据库
+
 ```javascript
 'use strict';
 
@@ -60,6 +69,9 @@ test();
 ```
 
 ### createTable
+
+创建一个数据库表
+
 ```javascript
 'use strict';
 
@@ -102,6 +114,9 @@ test();
 ```
 
 ### delTable
+
+删除一个数据库表
+
 ```javascript
 'use strict';
 
@@ -121,6 +136,9 @@ test();
 ```
 
 ### save
+
+保存数据
+
 ```javascript
 'use strict';
 
@@ -149,6 +167,9 @@ test();
 ```
 
 ### get
+
+获取数据
+
 ```javascript
 'use strict';
 
@@ -171,6 +192,9 @@ test();
 ```
 
 ### del
+
+删除数据
+
 ```javascript
 'use strict';
 
@@ -192,6 +216,9 @@ test();
 ```
 
 ### clear
+
+清空数据
+
 ```javascript
 'use strict';
 

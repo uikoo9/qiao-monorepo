@@ -8,7 +8,7 @@
 
 ### [qiao.ls.js](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.ls.js#readme)
 
-浏览器 localStorage 本地存储常见 api 封装
+浏览器 LocalStorage 本地存储常见 api 封装
 
 ### [qiao-easyui](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-easyui#readme)
 
