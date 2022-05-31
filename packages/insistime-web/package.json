@@ -6,7 +6,7 @@
     "dev": "qwebpack dev ./webpack/qiao.webpack.js",
     "build": "qwebpack build ./webpack/qiao.webpack.js",
     "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js",
-    "upload": "qcos fo ./config.json ../insistime-server/web/static 00_insistime/static"
+    "upload": "qcos fo ./config.json ../insistime-server/dist 00_insistime/static"
   },
   "dependencies": {
     "qiao-index": "^0.0.8",

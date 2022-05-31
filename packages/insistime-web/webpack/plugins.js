@@ -23,7 +23,7 @@ module.exports = [
     inject: "body",
     title: "index",
     chunks: ["index"],
-    filename: "../view/index.html",
+    filename: "../views/index.html",
     publicPath:
       "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
     template: indexPath,
@@ -33,7 +33,7 @@ module.exports = [
     inject: "body",
     title: "mobile",
     chunks: ["mobile"],
-    filename: "../view/mobile.html",
+    filename: "../views/mobile.html",
     publicPath:
       "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
     template: mobilePath,

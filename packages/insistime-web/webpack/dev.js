@@ -4,7 +4,7 @@
 var path = require('path');
 
 // dist path
-var distPath = path.resolve(__dirname, '../../insistime-server/web');
+var distPath = path.resolve(__dirname, '../../insistime-server/dist');
 
 /**
  * dev server
