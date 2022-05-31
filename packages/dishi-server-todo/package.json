@@ -1,7 +1,7 @@
 {
   "name": "dishi-server-todo",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "qiao-json": "^0.0.8",
     "qiao-mysql": "^0.1.5"
