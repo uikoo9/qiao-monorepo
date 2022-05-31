@@ -8,9 +8,6 @@
     "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js",
     "upload": "qcos fo ./config.json ../insistime-server/web/static 00_insistime/static"
   },
-  "devDependencies": {
-    "qiao-webpack": "^0.7.3"
-  },
   "dependencies": {
     "qiao-index": "^0.0.8",
     "react": "^18.1.0",
