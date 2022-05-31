@@ -6,7 +6,7 @@
 3. source node_modules/dishi-server-todo/_sql/*.sql;
 
 ## tencent cloud sms
-1. modify server/config.json
+1. modify config/config.json
 2. add sms 
 
 ## version
