@@ -193,7 +193,7 @@ var initController = (app) => {
  */
 var initView = (app) => {
     // view path
-    const viewPath = path.resolve(process.cwd(), './web/view');
+    const viewPath = path.resolve(process.cwd(), './views');
 
     // set
     artTemplate.defaults.cache = false;
