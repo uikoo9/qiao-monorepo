@@ -8,7 +8,8 @@
     "pkg": "qlerna pkg ./packages",
     "dpkg": "qlerna pkg ./packages 1",
     "ls": "lerna ls -l",
-    "show": "lerna ls --graph"
+    "show": "lerna ls --graph",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
