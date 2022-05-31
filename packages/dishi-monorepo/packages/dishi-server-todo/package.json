@@ -1,17 +1,7 @@
 {
   "name": "dishi-server-todo",
+  "private": true,
   "version": "0.1.0",
-  "description": "",
-  "keywords": [],
-  "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/dishi-monorepo/tree/master/packages/dishi-server-todo#readme",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uikoo9/dishi-monorepo.git"
-  },
-  "scripts": {},
   "dependencies": {
     "qiao-json": "^0.0.8",
     "qiao-mysql": "^0.1.5"
