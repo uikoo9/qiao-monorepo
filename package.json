@@ -2,16 +2,19 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "clean": "lerna clean -y",
     "init": "lerna bootstrap --ignore=qiao-electron-demo",
     "check": "qlerna ncu ./packages",
     "pkg": "qlerna pkg ./packages",
     "dpkg": "qlerna pkg ./packages 1",
-    "clean": "lerna clean -y",
     "ls": "lerna ls -l",
     "show": "lerna ls --graph"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "lerna": "^5.0.0",
+    "qiao-cos": "^0.4.1",
+    "qiao-lerna": "^0.3.0",
     "qiao-webpack": "^0.7.3",
     "rollup": "^2.75.3"
   }
