@@ -7,7 +7,7 @@ var q = require('qiao-config').c();
 var b = require('../util/b.js');
 
 // config
-var config = require('../config.json');
+var config = require('../server.json');
 
 // fetch
 var fetch = require('../util/fetch.js');

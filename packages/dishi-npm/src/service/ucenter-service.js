@@ -1,7 +1,7 @@
 'use strict';
 
 // config
-var config = require('../config.json');
+var config = require('../server.json');
 
 // fetch
 var fetch = require('../util/fetch.js');
