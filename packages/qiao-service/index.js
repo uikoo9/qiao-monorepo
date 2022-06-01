@@ -41,29 +41,17 @@ async function ajax(url, data, headers){
 	const time = Date.now() - s;
 
 	// res error
-	if(!res){
-		qiaoJson.danger(`${time}ms | request fail`);
-		return;
-	}
+	if(!res) return qiaoJson.danger(`${time}ms | request fail`);
 
 	// not 200
-	if(res.status != 200){
-		qiaoJson.danger(`${time}ms | request fail: ${res.status}`);
-		return;
-	}
+	if(res.status != 200) return qiaoJson.danger(`${time}ms | request fail: ${res.status}`);
 
 	// no data
 	const json = res.data;
-	if(!json){
-		qiaoJson.danger(`${time}ms | request fail: no data`);
-		return;
-	}
+	if(!json) return qiaoJson.danger(`${time}ms | request fail: no data`);
 
 	// danger
-	if(json.type == 'danger'){
-		qiaoJson.danger(`${time}ms | ${json.msg}`);
-		return;
-	}
+	if(json.type == 'danger') return qiaoJson.danger(`${time}ms | ${json.msg}`);
 
 	json.time = time;
     return json;
@@ -76,10 +64,7 @@ async function ajax(url, data, headers){
  * @returns 
  */
 const login = async (mobile, password) => {
-	if(!mobile || !password){
-		qiaoJson.danger('need mobile and password');
-		return;
-	}
+	if(!mobile || !password) return qiaoJson.danger('need mobile and password');
 
 	const url 	= config.host + config.login;
 	const data	= {
@@ -96,10 +81,7 @@ const login = async (mobile, password) => {
  * @returns 
  */
 const sendCode = async (mobile) => {
-	if(!mobile){
-		qiaoJson.danger('need mobile');
-		return;
-	}
+	if(!mobile) return qiaoJson.danger('need mobile');
 
 	const url 	= config.host + config.sendCode;
 	const data	= {
@@ -120,14 +102,8 @@ const sendCode = async (mobile) => {
  * @returns 
  */
 const register = async (mobile, password, repassword, code) => {
-	if(!mobile || !password || !repassword || !code){
-		qiaoJson.danger('need mobile, code, password');
-		return;
-	}
-	if(password != repassword){
-		qiaoJson.danger('the two password do not match');
-		return;
-	}
+	if(!mobile || !password || !repassword || !code) return qiaoJson.danger('need mobile, code, password');
+	if(password != repassword) return qiaoJson.danger('the two password do not match');
 
 	const url 	= config.host + config.register;
 	const data	= {

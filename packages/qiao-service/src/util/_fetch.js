@@ -18,10 +18,7 @@ export const post = async (url, data) => {
  */
 export const postWithToken = async (url, data) => {
 	const userinfo = global.userinfo;
-	if(!userinfo || !userinfo.userid || !userinfo.usertoken){
-		danger(`please login first`);
-		return;
-	}
+	if(!userinfo || !userinfo.userid || !userinfo.usertoken) return danger(`please login first`);
 
 	const headers = {
 		userid 		: userinfo.userid,
@@ -44,29 +41,17 @@ async function ajax(url, data, headers){
 	const time = Date.now() - s;
 
 	// res error
-	if(!res){
-		danger(`${time}ms | request fail`);
-		return;
-	}
+	if(!res) return danger(`${time}ms | request fail`);
 
 	// not 200
-	if(res.status != 200){
-		danger(`${time}ms | request fail: ${res.status}`);
-		return;
-	}
+	if(res.status != 200) return danger(`${time}ms | request fail: ${res.status}`);
 
 	// no data
 	const json = res.data;
-	if(!json){
-		danger(`${time}ms | request fail: no data`);
-		return;
-	}
+	if(!json) return danger(`${time}ms | request fail: no data`);
 
 	// danger
-	if(json.type == 'danger'){
-		danger(`${time}ms | ${json.msg}`);
-		return;
-	}
+	if(json.type == 'danger') return danger(`${time}ms | ${json.msg}`);
 
 	json.time = time;
     return json;

@@ -5,8 +5,10 @@ qiao.cli 	= require('qiao-cli');
 /**
  * log
  */
-exports.log = function(...msg){
-    console.log(...msg);
+exports.log = function(json){
+    if(!json) return;
+
+    if(json.type == 'danger') exports.danger(json.msg);
 };
 
 /**

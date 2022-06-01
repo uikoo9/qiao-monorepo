@@ -16,10 +16,7 @@ import { danger } from 'qiao-json';
  * @returns 
  */
 export const login = async (mobile, password) => {
-	if(!mobile || !password){
-		danger('need mobile and password');
-		return;
-	}
+	if(!mobile || !password) return danger('need mobile and password');
 
 	const url 	= config.host + config.login;
 	const data	= {
@@ -36,10 +33,7 @@ export const login = async (mobile, password) => {
  * @returns 
  */
 export const sendCode = async (mobile) => {
-	if(!mobile){
-		danger('need mobile');
-		return;
-	}
+	if(!mobile) return danger('need mobile');
 
 	const url 	= config.host + config.sendCode;
 	const data	= {
@@ -60,14 +54,8 @@ export const sendCode = async (mobile) => {
  * @returns 
  */
 export const register = async (mobile, password, repassword, code) => {
-	if(!mobile || !password || !repassword || !code){
-		danger('need mobile, code, password');
-		return;
-	}
-	if(password != repassword){
-		danger('the two password do not match');
-		return;
-	}
+	if(!mobile || !password || !repassword || !code) return danger('need mobile, code, password');
+	if(password != repassword) return danger('the two password do not match');
 
 	const url 	= config.host + config.register;
 	const data	= {

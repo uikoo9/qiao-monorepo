@@ -6,14 +6,17 @@ qiao.config	= require('qiao-config').c();
 qiao.log	= require('../util/log.js');
 
 // service
-var ucenterService = require('../service/ucenter-service');
+var ucenterService = require('qiao-service');
 
 /**
  * login
  */
 exports.login = async function(mobile, password){
 	var json = await ucenterService.login(mobile, password);
-	if(!json) return;
+	if(json.type != 'success'){
+		qiao.log.log(json);
+		return;
+	}
 
 	var userinfo 	= json.obj;
 	userinfo.mobile = mobile;
@@ -26,7 +29,10 @@ exports.login = async function(mobile, password){
  */
 exports.sendCode = async function(mobile){
 	var json = await ucenterService.sendCode(mobile);
-	if(!json) return;
+	if(json.type != 'success'){
+		qiao.log.log(json);
+		return;
+	}
 	
 	qiao.log.suc(`${json.time}ms | send code success`);
 	return true;
@@ -37,7 +43,10 @@ exports.sendCode = async function(mobile){
  */
 exports.register = async function(mobile, password, repassword, code){
 	var json = await ucenterService.register(mobile, password, repassword, code);
-	if(!json) return;
+	if(json.type != 'success'){
+		qiao.log.log(json);
+		return;
+	}
 	
 	qiao.log.suc(`${json.time}ms | register success`);
 };
