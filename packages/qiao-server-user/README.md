@@ -1,44 +1,5 @@
 # qiao-server-user
 
-## config
-```json
-{
-	"port"			: 9001,
-	"encryptKey" 	: "",
-	"db" 			: {
-		"connectionLimit" : 50,
-		"host"		: "127.0.0.1", 
-	    "port"		: 3306,
-	    "database"	: "",
-	    "user"		: "root",
-	    "password"	: ""
-	},
-	"sms"               : {
-		"appid"         : "",
-		"appkey"        : ""
-	}
-}
-```
-
-## api
-### init
-```javascript
-// app
-var app = express();
-
-// ...
-
-// qiao-server-user
-require('qiao-server-user').init(app);
-```
-
-### use
-```javascript
-var q = require('qiao-server-user');
-
-q.ucenterUserModel
-```
-
 ## version
 ### 0.0.8.20210929
 1. save return id

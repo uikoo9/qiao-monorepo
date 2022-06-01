@@ -1,47 +1,48 @@
 # qiao-server
 
+## init database
+1. create database db_xxx character set utf8 collate utf8_general_ci;
+2. source node_modules/qiao-server-user/_sql/*.sql;
+
+## tencent cloud sms
+1. modify config/config.json
+2. add sms 
+
 ## options
-### options.config
-```json
+```js
 {
-	"port"			: 9001,
-	"encryptKey" 	: "xxx",
-	"db" 			: {
-		"connectionLimit" : 50,
-		"host"		: "127.0.0.1", 
-	    "port"		: 3306,
-	    "database"	: "xxx",
-	    "user"		: "root",
-	    "password"	: "xxx"
+	// config
+	config : {
+		"port"			: 9001,
+		"encryptKey" 	: "xxx",
+		"db" 			: {
+			"connectionLimit" : 50,
+			"host"		: "127.0.0.1", 
+			"port"		: 3306,
+			"database"	: "xxx",
+			"user"		: "root",
+			"password"	: "xxx"
+		},
+		"sms"               : {
+			"appid"         : "xxx",
+			"appkey"        : "xxx"
+		},
+		"paths" : [
+			"/ucenter/user/reg",
+			"/ucenter/user/login",
+			"/ucenter/user/check",
+			"/ucenter/user/forget",
+			"/ucenter/code/send"
+		]
 	},
-	"sms"               : {
-		"appid"         : "xxx",
-		"appkey"        : "xxx"
-	},
-	"paths" : [
-		"/ucenter/user/reg",
-		"/ucenter/user/login",
-		"/ucenter/user/check",
-		"/ucenter/user/forget",
-		"/ucenter/code/send"
-	]
+	staticPaths : [{
+		name : '/files',
+		path : path.resolve(__dirname, './files')
+	}],
+	mids : [],
+	modules : [],
 }
 ```
-
-### staticPaths
-```js
-[{
-	name : '/files',
-	path : path.resolve(__dirname, './.well-known')
-},{
-	name : '/.well-known',
-	path : path.resolve(__dirname, './files')
-}]
-```
-
-### mids
-
-### inits
 
 ## use
 ```js
@@ -51,7 +52,7 @@
         config		: config,
         staticPaths	: staticPaths,
         mids		: mids,
-        inits		: inits,
+        modules		: modules,
         checkAuth	: true,
     });
 ```
