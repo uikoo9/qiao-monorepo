@@ -12,6 +12,7 @@
     "publish": "lerna publish"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "lerna": "^5.0.0",
     "qiao-cos": "^0.4.1",

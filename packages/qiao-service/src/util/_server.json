@@ -1,0 +1,6 @@
+{
+    "host": "https://insistime.com/",
+    "login": "ucenter/user/login",
+    "sendCode": "ucenter/code/send",
+    "register": "ucenter/user/reg"
+}
