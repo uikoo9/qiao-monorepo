@@ -39,7 +39,7 @@ exports.sendCode = async function(mobile){
 	var url 	= config.host + config.sendCode;
 	var data	= {
 		type	: 'reg',
-		sign	: '济元祥',
+		sign	: '坚时科技',
 		mobile	: mobile
 	};
 
