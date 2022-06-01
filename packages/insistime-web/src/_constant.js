@@ -1,7 +1,7 @@
 export default {
     'logo': 'insistime.com',
     'github': 'Github',
-    'githubUrl': 'https://github.com/insistime/insistime',
+    'githubUrl': 'https://github.com/uikoo9/qiao-monorepo',
     'webTitle': '网页开发',
     'webDesc': 'PC浏览器网页开发 手机H5页面开发',
     'wechatTitle': '微信开发',
