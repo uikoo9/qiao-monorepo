@@ -14,3 +14,15 @@ exports.index = function (req, res) {
     res.render("index-pc.html");
   }
 };
+
+/**
+ * login
+ */
+ exports.login = function (req, res) {
+  var vendor = util.vendor(req.headers["user-agent"]);
+  if (vendor.mobile || vendor.android) {
+    res.render("index-mobile.html");
+  } else {
+    res.render("login-pc.html");
+  }
+};

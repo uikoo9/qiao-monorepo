@@ -9,4 +9,9 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		service.index(req, res);
 	});
+
+	// login
+	app.get('/login', function(req, res){
+		service.login(req, res);
+	});
 };

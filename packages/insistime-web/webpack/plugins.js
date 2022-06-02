@@ -6,6 +6,7 @@ var path = require("path");
 // template path
 var indexPCPath     = path.resolve(__dirname, "./template/index-pc.html");
 var indexMobilePath = path.resolve(__dirname, "./template/index-mobile.html");
+var loginPCPath     = path.resolve(__dirname, "./template/login-pc.html");
 
 /**
  * qiao.webpack.js
@@ -37,5 +38,15 @@ module.exports = [
     publicPath:
       "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
     template: indexMobilePath,
+  },
+  {
+    type: "html",
+    inject: "body",
+    title: "login-pc",
+    chunks: ["login-pc"],
+    filename: "../views/login-pc.html",
+    publicPath:
+      "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
+    template: loginPCPath,
   },
 ];
