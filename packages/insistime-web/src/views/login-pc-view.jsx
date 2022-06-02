@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import { BlackWhiteLoginPCContainer } from '../black-white/login-pc/login.jsx';
+import { BlackWhiteLoginPCContainer } from 'qiao-index';
 
 /**
  * index view

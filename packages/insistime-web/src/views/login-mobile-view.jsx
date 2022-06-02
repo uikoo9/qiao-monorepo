@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import { BlackWhiteLoginMobileContainer } from '../black-white/login-mobile/login.jsx';
+import { BlackWhiteLoginMobileContainer } from 'qiao-index';
 
 /**
  * index view

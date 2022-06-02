@@ -8,13 +8,11 @@
     "pkg": "qlerna pkg ./packages",
     "dpkg": "qlerna pkg ./packages 1",
     "ls": "lerna ls -l",
-    "show": "lerna ls --graph",
-    "publish": "lerna publish"
+    "show": "lerna ls --graph"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "lerna": "^5.0.0",
     "qiao-cos": "^0.4.2",
     "qiao-lerna": "^0.3.1",
     "qiao-webpack": "^0.7.5",

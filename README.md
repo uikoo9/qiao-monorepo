@@ -1,5 +1,10 @@
 # qiao-monorepo
 
+## lerna
+```bash
+npm i -g lerna
+```
+
 ## usage
 
 ### clean
