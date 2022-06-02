@@ -11,11 +11,18 @@ module.exports = {
     priority: 0,
     reuseExistingChunk: true,
   },
+  axios: {
+    test: /[\\/]node_modules[\\/]axios[\\/]/,
+    name: 'axios',
+    chunks: 'all',
+    priority: -1,
+    reuseExistingChunk: true,
+  },
   antd: {
     test: /[\\/]node_modules[\\/]antd[\\/]/,
     name: 'antd',
     chunks: 'all',
-    priority: -1,
+    priority: -2,
     reuseExistingChunk: true,
   },
   default: {
