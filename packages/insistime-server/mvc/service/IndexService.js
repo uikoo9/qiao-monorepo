@@ -21,7 +21,7 @@ exports.index = function (req, res) {
  exports.login = function (req, res) {
   var vendor = util.vendor(req.headers['user-agent']);
   if (vendor.mobile || vendor.android) {
-    res.render('login-pc.html');
+    res.render('login-mobile.html');
   } else {
     res.render('login-pc.html');
   }

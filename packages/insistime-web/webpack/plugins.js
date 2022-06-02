@@ -1,53 +1,65 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // template path
-var indexPCPath     = path.resolve(__dirname, "./template/index-pc.html");
-var indexMobilePath = path.resolve(__dirname, "./template/index-mobile.html");
-var loginPCPath     = path.resolve(__dirname, "./template/login-pc.html");
+var indexPCPath     = path.resolve(__dirname, './template/index-pc.html');
+var indexMobilePath = path.resolve(__dirname, './template/index-mobile.html');
+var loginPCPath     = path.resolve(__dirname, './template/login-pc.html');
+var loginMobilePath = path.resolve(__dirname, './template/login-mobile.html');
 
 /**
  * qiao.webpack.js
  */
 module.exports = [
   {
-    type: "css",
-    filename: "[name].css",
-    chunkFilename: "[id].css",
+    type: 'css',
+    filename: '[name].css',
+    chunkFilename: '[id].css',
     ignoreOrder: true,
   },
 
   {
-    type: "html",
-    inject: "body",
-    title: "index-pc",
-    chunks: ["index-pc"],
-    filename: "../views/index-pc.html",
+    type: 'html',
+    inject: 'body',
+    title: 'index-pc',
+    chunks: ['index-pc'],
+    filename: '../views/index-pc.html',
     publicPath:
-      "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
+      'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
     template: indexPCPath,
   },
   {
-    type: "html",
-    inject: "body",
-    title: "index-mobile",
-    chunks: ["index-mobile"],
-    filename: "../views/index-mobile.html",
+    type: 'html',
+    inject: 'body',
+    title: 'index-mobile',
+    chunks: ['index-mobile'],
+    filename: '../views/index-mobile.html',
     publicPath:
-      "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
+      'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
     template: indexMobilePath,
   },
   {
-    type: "html",
-    inject: "body",
-    title: "login-pc",
-    chunks: ["login-pc"],
-    filename: "../views/login-pc.html",
+    type: 'html',
+    inject: 'body',
+    title: 'login-pc',
+    chunks: ['login-pc'],
+    filename: '../views/login-pc.html',
     publicPath:
-    "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
-    // filename: "login-pc.html",
+    'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+    // filename: 'login-pc.html',
     template: loginPCPath,
+  },
+  {
+    type: 'html',
+    inject: 'body',
+    title: 'login-mobile',
+    chunks: ['login-mobile'],
+    filename: '../views/login-mobile.html',
+    publicPath:
+    'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+    // filename: 'login-mobile.html',
+    template: loginMobilePath,
   },
 ];

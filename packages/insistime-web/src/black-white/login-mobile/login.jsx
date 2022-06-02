@@ -10,9 +10,9 @@ import { clickLoginBtn } from './fn/login.js';
 import LoginComponent from './ui/login-component.jsx';
 
 /**
- * black white login pc container
+ * black white login mobile container
  */
-export class BlackWhiteLoginPCContainer extends React.Component {
+export class BlackWhiteLoginMobileContainer extends React.Component {
   constructor(props) {
     super(props);
 

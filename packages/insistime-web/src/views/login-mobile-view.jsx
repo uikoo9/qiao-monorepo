@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import { BlackWhiteLoginPCContainer } from '../black-white/login-pc/login.jsx';
+import { BlackWhiteLoginMobileContainer } from '../black-white/login-mobile/login.jsx';
 
 /**
  * index view
@@ -13,7 +13,7 @@ import { BlackWhiteLoginPCContainer } from '../black-white/login-pc/login.jsx';
 class IndexView extends React.Component {
   render() {
     return (
-      <BlackWhiteLoginPCContainer />
+      <BlackWhiteLoginMobileContainer />
     );
   }
 }
