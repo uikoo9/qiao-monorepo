@@ -8,7 +8,7 @@ import { createRoot } from 'react-dom/client';
 import Constant from '../_constant.js';
 
 // index
-import { } from '../black-white/login-pc/index.jsx';
+import { BlackWhiteLoginContainer } from '../black-white/login-pc/index.jsx';
 
 /**
  * index view
@@ -16,7 +16,7 @@ import { } from '../black-white/login-pc/index.jsx';
 class IndexView extends React.Component {
   render() {
     return (
-      <IndexPCBlackWhiteContainer constant={Constant} />
+      <BlackWhiteLoginContainer constant={Constant} />
     );
   }
 }
