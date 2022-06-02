@@ -9,8 +9,8 @@ var util = require("../util.js");
 exports.index = function (req, res) {
   var vendor = util.vendor(req.headers["user-agent"]);
   if (vendor.mobile || vendor.android) {
-    res.render("mobile.html");
+    res.render("index-mobile.html");
   } else {
-    res.render("index.html");
+    res.render("index-pc.html");
   }
 };

@@ -4,8 +4,8 @@
 var path = require('path');
 
 // entry path
-var indexPath = path.resolve(__dirname, '../src/views/index-view.jsx');
-var mobilePath = path.resolve(__dirname, '../src/views/mobile-view.jsx');
+var indexPath = path.resolve(__dirname, '../src/views/index-pc-view.jsx');
+var mobilePath = path.resolve(__dirname, '../src/views/index-mobile-view.jsx');
 
 // entry
 module.exports = {

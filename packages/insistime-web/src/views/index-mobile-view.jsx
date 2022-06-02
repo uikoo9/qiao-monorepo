@@ -8,7 +8,7 @@ import { createRoot } from 'react-dom/client';
 import Constant from '../_constant.js';
 
 // index
-import { IndexBlackWhiteContainer } from 'qiao-index';
+import { IndexMobileBlackWhiteContainer } from 'qiao-index';
 
 /**
  * index view
@@ -16,7 +16,7 @@ import { IndexBlackWhiteContainer } from 'qiao-index';
 class IndexView extends React.Component {
   render() {
     return (
-      <IndexBlackWhiteContainer constant={Constant} />
+      <IndexMobileBlackWhiteContainer constant={Constant} />
     );
   }
 }

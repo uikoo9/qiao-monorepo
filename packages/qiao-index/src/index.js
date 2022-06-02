@@ -1,3 +1,3 @@
-// insistime.com
-export { IndexBlackWhiteContainer } from "./index-black-white/index.jsx";
-export { MobileBlackWhiteContainer } from "./mobile-black-white/index.jsx";
+// index black white
+export * as IndexPCBlackWhiteContainer from "./index-pc-black-white/index.jsx";
+export * as IndexMobileBlackWhiteContainer from "./index-mobile-black-white/index.jsx";
