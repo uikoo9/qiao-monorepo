@@ -7,7 +7,7 @@ import React from 'react';
 import IndexComponent from './ui/index-component.jsx';
 
 /**
- * index black white container
+ * black white login container
  */
 export class IndexBlackWhiteContainer extends React.Component {
   render() {

@@ -7,9 +7,9 @@ import React from 'react';
 import IndexComponent from './ui/index-component.jsx';
 
 /**
- * index mobile black white container
+ * black white index mobile container
  */
-export class IndexMobileBlackWhiteContainer extends React.Component {
+export class BlackWhiteIndexMobileContainer extends React.Component {
   render() {
     return (
       <div className="container">
