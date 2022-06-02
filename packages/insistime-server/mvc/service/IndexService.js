@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 // util
-var util = require("../util.js");
+var util = require('../util.js');
 
 /**
  * index
  */
 exports.index = function (req, res) {
-  var vendor = util.vendor(req.headers["user-agent"]);
+  var vendor = util.vendor(req.headers['user-agent']);
   if (vendor.mobile || vendor.android) {
-    res.render("index-mobile.html");
+    res.render('index-mobile.html');
   } else {
-    res.render("index-pc.html");
+    res.render('index-pc.html');
   }
 };
 
@@ -19,10 +19,10 @@ exports.index = function (req, res) {
  * login
  */
  exports.login = function (req, res) {
-  var vendor = util.vendor(req.headers["user-agent"]);
+  var vendor = util.vendor(req.headers['user-agent']);
   if (vendor.mobile || vendor.android) {
-    res.render("index-mobile.html");
+    res.render('login-pc.html');
   } else {
-    res.render("login-pc.html");
+    res.render('login-pc.html');
   }
 };
