@@ -24,7 +24,12 @@ export const clickLoginBtn = async (that) => {
     }
 
     const res = await login(username, password);
-    console.log(res);
+    if(res.type != 'success'){
+        setTips(that, res.msg);
+        return;
+    }
+
+    setTips(that, res.msg);
 };
 
 const setTips = (that, msg) => {
