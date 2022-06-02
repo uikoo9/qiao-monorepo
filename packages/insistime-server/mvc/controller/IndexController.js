@@ -9,9 +9,4 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		service.index(req, res);
 	});
-
-	// mobile
-	app.get('/mobile', function(req, res){
-		service.mobile(req, res);
-	});
 };
