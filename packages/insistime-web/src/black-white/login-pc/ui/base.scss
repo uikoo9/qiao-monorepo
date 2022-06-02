@@ -1,7 +1,7 @@
 $all: 100%;
 $marginAuto: 0 auto;
 
-$containerWidth: 1400px;
+$containerWidth: 300px;
 
 $borderBottom: solid 1px #333;
 
@@ -19,23 +19,4 @@ body {
 .container {
   width: $containerWidth;
   margin: $marginAuto;
-}
-
-@mixin alink($color: #333) {
-  a:link {
-    color: $color;
-    text-decoration: none;
-  }
-  a:visited {
-    color: $color;
-    text-decoration: none;
-  }
-  a:hover {
-    color: $color;
-    text-decoration: none;
-  }
-  a:active {
-    color: $color;
-    text-decoration: none;
-  }
 }

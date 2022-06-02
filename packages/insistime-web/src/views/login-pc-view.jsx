@@ -8,7 +8,7 @@ import { createRoot } from 'react-dom/client';
 import Constant from '../_constant.js';
 
 // index
-import { BlackWhiteLoginContainer } from '../black-white/login-pc/index.jsx';
+import { BlackWhiteLoginContainer } from '../black-white/login-pc/login.jsx';
 
 /**
  * index view
