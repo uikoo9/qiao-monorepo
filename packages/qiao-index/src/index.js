@@ -1,3 +1,3 @@
 // index black white
-export { IndexPCBlackWhiteContainer } from "./index-pc-black-white/index.jsx";
-export { IndexMobileBlackWhiteContainer } from "./index-mobile-black-white/index.jsx";
+export { IndexPCBlackWhiteContainer } from "./black-white/index-pc/index.jsx";
+export { IndexMobileBlackWhiteContainer } from "./black-white/index-mobile/index.jsx";
