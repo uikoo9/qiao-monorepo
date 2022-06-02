@@ -14,7 +14,12 @@ export default class LoginComponent extends React.Component {
     return (
       <>
         <LoginBox
-          constant={this.props.constant}
+          username={this.props.username}
+          password={this.props.password}
+          usernameChange={this.props.usernameChange}
+          passwordChange={this.props.passwordChange}
+          clickLogin={this.props.clickLogin}
+          tips={this.props.tips}
         />
       </>
     );

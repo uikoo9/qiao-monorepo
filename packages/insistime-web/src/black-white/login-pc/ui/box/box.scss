@@ -1,9 +1,9 @@
 @use "../base";
 
 $marginHeight: 200px;
-$boxHeight: 170px;
 
 $inputHeight: 50px;
+$boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20px) + $inputHeight + 20px;
 
 .box{
   width: base.$containerWidth;
@@ -14,6 +14,7 @@ $inputHeight: 50px;
     width: base.$containerWidth;
     height: $inputHeight;
     border-bottom: base.$borderBottom;
+    margin-bottom: 10px;
 
     input{
       width: base.$containerWidth - 20px;
@@ -28,10 +29,11 @@ $inputHeight: 50px;
       outline: none;
     }
   }
+
   .btn{
     width: base.$containerWidth;
-    height: $inputHeight;
-    margin-top: 20px;
+    height: $inputHeight + 2px;
+    padding-top: 20px;
 
     .ctx{
       width: 100px;
@@ -48,5 +50,15 @@ $inputHeight: 50px;
     .ctx:hover {
       font-size: 20px;
     }
+  }
+
+  .tips{
+    width: base.$containerWidth;
+    height: $inputHeight;
+    padding-top: 20px;
+    color: red;
+    font-size: 16px;
+    line-height: $inputHeight;
+    text-align: center;
   }
 }

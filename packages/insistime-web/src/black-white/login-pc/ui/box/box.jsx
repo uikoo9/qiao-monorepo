@@ -14,14 +14,15 @@ export default class LoginBox extends React.Component {
     return (
       <div className="box">
         <div className="input">
-          <input type="text" placeholder='username' />
+          <input type="text" placeholder='username' onChange={this.props.usernameChange} value={this.props.username} />
         </div>
         <div className="input">
-          <input type="password" placeholder='password' />
+          <input type="password" placeholder='password' onChange={this.props.passwordChange} value={this.props.password} />
         </div>
         <div className="btn">
-          <div className="ctx">Login</div>
+          <div className="ctx" onClick={this.props.clickLogin}>Login</div>
         </div>
+        <div className="tips">{this.props.tips}</div>
       </div>
     );
   }

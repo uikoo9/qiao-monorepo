@@ -46,7 +46,8 @@ module.exports = [
     chunks: ["login-pc"],
     filename: "../views/login-pc.html",
     publicPath:
-      "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
+    "https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/",
+    // filename: "login-pc.html",
     template: loginPCPath,
   },
 ];

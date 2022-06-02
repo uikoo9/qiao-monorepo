@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "qiao-index": "^0.1.6",
+    "qiao-service": "^0.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   }
