@@ -19,10 +19,13 @@
   },
   "scripts": {
     "dev": "qwebpack dev ./webpack/qiao.webpack.js",
-    "build": "qwebpack build ./webpack/qiao.webpack.js",
-    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
+    "dist": "qwebpack build ./webpack/qiao.webpack.js",
+    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js",
+    "build": "rollup --config rollup.config.js",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "axios": "0.27.2"
-  }
+  },
+  "sideEffects": false
 }

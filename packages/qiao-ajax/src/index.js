@@ -4,7 +4,7 @@
  * axios
  * 	https://www.npmjs.com/package/axios
  */
-exports.axios = require('axios');
+import { request } from 'axios';
 
 /**
  * get
@@ -12,7 +12,7 @@ exports.axios = require('axios');
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.get = function(url, config){
+export const get = (url, config) => {
 	return req(url, 'get', config);
 };
 
@@ -22,7 +22,7 @@ exports.get = function(url, config){
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.post = function(url, config){
+export const post = (url, config) => {
 	return req(url, 'post', config);
 };
 
@@ -32,7 +32,7 @@ exports.post = function(url, config){
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.put = function(url, config){
+export const put = (url, config) => {
 	return req(url, 'put', config);
 };
 
@@ -42,7 +42,7 @@ exports.put = function(url, config){
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.patch = function(url, config){
+export const patch = (url, config) => {
 	return req(url, 'patch', config);
 };
 
@@ -52,7 +52,7 @@ exports.patch = function(url, config){
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.delete = function(url, config){
+export const deleteReq = (url, config) => {
 	return req(url, 'delete', config);
 };
 
@@ -62,7 +62,7 @@ exports.delete = function(url, config){
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.head = function(url, config){
+export const head = (url, config) => {
 	return req(url, 'head', config);
 };
 
@@ -72,7 +72,7 @@ exports.head = function(url, config){
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-exports.options = function(url, config){
+export const options = (url, config) => {
 	return req(url, 'options', config);
 };
 
@@ -84,14 +84,12 @@ exports.options = function(url, config){
  * 
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-function req(url, method, config){
-	var options 	= {};
-	options.url		= url;
-	options.method 	= method;
-	
-	if(config){
-		options = Object.assign(options, config);
-	}
+const req = (url, method, config) => {
+	let options = {};
+	options.url = url;
+	options.method = method;
 
-	return exports.axios.request(options);
-}
+	if (config) options = Object.assign(options, config);
+
+	return request(options);
+};

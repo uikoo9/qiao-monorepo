@@ -16,5 +16,6 @@
   "dependencies": {
     "qiao-ajax": "^2.6.3",
     "qiao-json": "^0.0.8"
-  }
+  },
+  "sideEffects": false
 }
