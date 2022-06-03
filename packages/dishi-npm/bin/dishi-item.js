@@ -1,9 +1,10 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.dishi	= require('../src/dishi.js');
+var qiao = require('../src/util/qiao.js');
+
+// dishi
+var dishi = require('../src/dishi.js');
 
 // cmd for item-----------------------------------------------------
 // cmd for add
@@ -36,21 +37,21 @@ qiao.cli.cmd
 	.action(list);
 
 // list
-function list(){
-	qiao.dishi.list();
+function list() {
+	dishi.list();
 }
 
 // add
-function add(name){
-	qiao.dishi.add(name);
+function add(name) {
+	dishi.add(name);
 }
 
 // update
-function update(id, name){
-	qiao.dishi.update(id, name);
+function update(id, name) {
+	dishi.update(id, name);
 }
 
 // del
-function del(ids){
-	qiao.dishi.del(ids);
+function del(ids) {
+	dishi.del(ids);
 }

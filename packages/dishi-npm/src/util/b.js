@@ -1,17 +1,14 @@
 'use strict';
 
-// log
-var log = require('./log.js');
-
-// qiao-config
-var q = require('qiao-config').c();
+// qiao
+var qiao = require('./qiao.js');
 
 /**
  * get group id
  */
-exports.getGroupId = function(){
+exports.getGroupId = function () {
 	var group = exports.getGroup();
-	if(!group) return;
+	if (!group) return;
 
 	return group.id;
 };
@@ -19,10 +16,10 @@ exports.getGroupId = function(){
 /**
  * get group
  */
-exports.getGroup = function(){
-	var group = q.config('group');
-	if(!group){
-		log.danger('please select a todo group');
+exports.getGroup = function () {
+	var group = qiao.config.config('group');
+	if (!group) {
+		qiao.log.danger('please select a todo group');
 		return;
 	}
 

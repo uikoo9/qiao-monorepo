@@ -3,8 +3,7 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
+var qiao = require('../src/util/qiao.js');
 
 // cmd
 require('./dishi-version');

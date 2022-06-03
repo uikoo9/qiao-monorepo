@@ -4,9 +4,7 @@
 var b = require('../util/b.js');
 
 // qiao
-var qiao = {};
-qiao.config = require('qiao-config').c();
-qiao.log = require('../util/log.js');
+var qiao = require('../util/qiao.js');
 global.insistime_userinfo = qiao.config.config('userinfo');
 
 // service
@@ -45,6 +43,8 @@ exports.add = async function (name, group) {
 		qiao.log.suc(`${json.time}ms | add group success`);
 	} else {
 		var groupId = b.getGroupId();
+		if (!groupId) return;
+
 		var json = await dishiService.todoItemSave(name, null, groupId);
 		if (!json) return;
 
@@ -63,6 +63,8 @@ exports.update = async function (id, name, group) {
 		qiao.log.suc(`${json.time}ms | update group success`);
 	} else {
 		var groupId = b.getGroupId();
+		if (!groupId) return;
+
 		var json = await dishiService.todoItemSave(name, id, groupId);
 		if (!json) return;
 

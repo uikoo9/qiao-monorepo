@@ -1,9 +1,10 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.dishi	= require('../src/dishi.js');
+var qiao = require('../src/util/qiao.js');
+
+// dishi
+var dishi = require('../src/dishi.js');
 
 // cmd for operate-----------------------------------------------------
 // cmd for done
@@ -23,11 +24,11 @@ qiao.cli.cmd
 	.action(move);
 
 // done
-function done(id){
-	qiao.dishi.done(id);
+function done(id) {
+	dishi.done(id);
 }
 
 // move
-function move(id, groupId){
-	qiao.dishi.move(id, groupId);
+function move(id, groupId) {
+	dishi.move(id, groupId);
 }

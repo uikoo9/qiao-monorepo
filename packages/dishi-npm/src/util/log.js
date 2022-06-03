@@ -1,6 +1,7 @@
+'use strict';
+
 // qiao
-var qiao = {};
-qiao.cli = require('qiao-cli');
+var qiao = require('qiao-cli');
 
 /**
  * log
@@ -22,19 +23,19 @@ exports.normal = function (...msg) {
  * info
  */
 exports.info = function (...msg) {
-    console.log(qiao.cli.colors.blue(...msg));
+    console.log(qiao.colors.blue(...msg));
 };
 
 /**
  * suc
  */
 exports.suc = function (...msg) {
-    console.log(qiao.cli.colors.green(...msg));
+    console.log(qiao.colors.green(...msg));
 };
 
 /**
  * danger
  */
 exports.danger = function (...msg) {
-    console.log(qiao.cli.colors.red(...msg));
+    console.log(qiao.colors.red(...msg));
 };

@@ -1,9 +1,10 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.dishi	= require('../src/dishi.js');
+var qiao = require('../src/util/qiao.js');
+
+// dishi
+var dishi = require('../src/dishi.js');
 
 // cmd for show-----------------------------------------------------
 qiao.cli.cmd
@@ -14,6 +15,6 @@ qiao.cli.cmd
 	.action(show);
 
 // show
-function show(num){
-	qiao.dishi.show(num);
+function show(num) {
+	dishi.show(num);
 }

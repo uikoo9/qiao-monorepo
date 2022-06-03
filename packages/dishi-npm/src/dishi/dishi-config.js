@@ -1,9 +1,7 @@
 'use strict';
 
 // qiao
-var qiao = {};
-qiao.config = require('qiao-config').c();
-qiao.log = require('../util/log.js');
+var qiao = require('../util/qiao.js');
 global.insistime_userinfo = qiao.config.config('userinfo');
 
 // service

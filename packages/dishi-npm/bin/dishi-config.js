@@ -1,9 +1,10 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.dishi	= require('../src/dishi.js');
+var qiao = require('../src/util/qiao.js');
+
+// dishi
+var dishi = require('../src/dishi.js');
 
 // cmd for config-----------------------------------------------------
 // cmd for use
@@ -21,11 +22,11 @@ qiao.cli.cmd
 	.action(setRows);
 
 // use group id
-function useGroupId(id){
-	qiao.dishi.use(id);
+function useGroupId(id) {
+	dishi.use(id);
 }
 
 // set rows
-function setRows(rows){
-	qiao.dishi.rows(rows);
+function setRows(rows) {
+	dishi.rows(rows);
 }

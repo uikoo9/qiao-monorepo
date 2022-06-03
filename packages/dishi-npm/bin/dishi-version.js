@@ -3,11 +3,10 @@
 'use strict';
 
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
+var qiao = require('../src/util/qiao.js');
 
 // package
-var pkg = require('../package.json'); 
+var pkg = require('../package.json');
 
 // cmd for version
 qiao.cli.cmd
