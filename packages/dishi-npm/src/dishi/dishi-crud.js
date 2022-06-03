@@ -3,28 +3,33 @@
 // b
 var b = require('../util/b.js');
 
-// log
-var log = require('../util/log.js');
+// qiao
+var qiao = {};
+qiao.config = require('qiao-config').c();
+qiao.log = require('../util/log.js');
+global.insistime_userinfo = qiao.config.config('userinfo');
 
 // service
-var todoGroupService 	= require('../service/todo-group-service');
-var todoItemService		= require('../service/todo-item-service');
+var dishiService = require('dishi-service');
 
 /**
  * list
  */
-exports.list = async function(group){
-	if(group){
-		var json = await todoGroupService.list();
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | list group success`);
+exports.list = async function (group) {
+	if (group) {
+		var json = await dishiService.todoGroupList();
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | list group success`);
 		listGroups(json.obj.rows);
-	}else{
-		var json = await todoItemService.list();
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | list todo success`);
+	} else {
+		var groupId = b.getGroupId();
+		if (!groupId) return;
+
+		var json = await dishiService.todoItemList(groupId);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | list todo success`);
 		listTodos(json.obj);
 	}
 };
@@ -32,96 +37,98 @@ exports.list = async function(group){
 /**
  * add
  */
-exports.add = async function(name, group){
-	if(group){
-		var json = await todoGroupService.save(name);
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | add group success`);
-	}else{
-		var json = await todoItemService.save(name);
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | add todo success`);
+exports.add = async function (name, group) {
+	if (group) {
+		var json = await dishiService.todoGroupSave(name);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | add group success`);
+	} else {
+		var groupId = b.getGroupId();
+		var json = await dishiService.todoItemSave(name, null, groupId);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | add todo success`);
 	}
 };
 
 /**
  * update
  */
-exports.update = async function(id, name, group){
-	if(group){
-		var json = await todoGroupService.save(name, id);
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | update group success`);
-	}else{
-		var json = await todoItemService.save(name, id);
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | update todo success`);
+exports.update = async function (id, name, group) {
+	if (group) {
+		var json = await dishiService.todoGroupSave(name, id);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | update group success`);
+	} else {
+		var groupId = b.getGroupId();
+		var json = await dishiService.todoItemSave(name, id, groupId);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | update todo success`);
 	}
 };
 
 /**
  * del
  */
-exports.del = async function(ids, group){
-	if(group){
+exports.del = async function (ids, group) {
+	if (group) {
 		var idss = ids.split(',');
-		if(idss.includes('1')){
-			log.danger('can note delete default group');
+		if (idss.includes('1')) {
+			qiao.log.danger('can note delete default group');
 			return;
 		}
-		
-		var json = await todoGroupService.del(ids);
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | delete group success`);
-	}else{
-		var json = await todoItemService.del(ids);
-		if(!json) return;
-		
-		log.suc(`${json.time}ms | delete todo success`);
+
+		var json = await dishiService.todoGroupDel(ids);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | delete group success`);
+	} else {
+		var json = await dishiService.todoItemDel(ids);
+		if (!json) return;
+
+		qiao.log.suc(`${json.time}ms | delete todo success`);
 	}
 };
 
 // list groups
-function listGroups(rows){
-	log.log();
-	log.info(`id	group-name`);
+function listGroups(rows) {
+	qiao.log.normal();
+	qiao.log.info(`id	group-name`);
 
-	for(var i=0; i<rows.length; i++){
+	for (var i = 0; i < rows.length; i++) {
 		var item = rows[i];
-		log.log(`${item.id}	${item.todo_group_name}`);
+		qiao.log.normal(`${item.id}	${item.todo_group_name}`);
 	}
 }
 
 // list todos
-function listTodos(obj){
+function listTodos(obj) {
 	var group = b.getGroup();
-	if(!group) return;
+	if (!group) return;
 
-	log.log();
-	log.info('========================');
-	log.info(`todo group '${group.todo_group_name}[${group.id}]'`);
-	log.info('========================');
-	log.log();
+	qiao.log.normal();
+	qiao.log.info('========================');
+	qiao.log.info(`todo group '${group.todo_group_name}[${group.id}]'`);
+	qiao.log.info('========================');
+	qiao.log.normal();
 
 	var todoRows = obj.todoRows;
-	log.danger(`todo items`);
-	log.danger('------------------------');
-	for(var i=0; i<todoRows.length; i++){
+	qiao.log.danger(`todo items`);
+	qiao.log.danger('------------------------');
+	for (var i = 0; i < todoRows.length; i++) {
 		var item = todoRows[i];
-		log.log(`${item.id}	${item.todo_item_name}`);
+		qiao.log.normal(`${item.id}	${item.todo_item_name}`);
 	}
-	log.log();
+	qiao.log.normal();
 
 	var doneRows = obj.doneRows;
-	log.suc(`done items`);
-	log.suc('------------------------');
-	for(var i=0; i<doneRows.length; i++){
+	qiao.log.suc(`done items`);
+	qiao.log.suc('------------------------');
+	for (var i = 0; i < doneRows.length; i++) {
 		var item = doneRows[i];
-		log.log(`${item.id}	${item.todo_item_name}`);
+		qiao.log.normal(`${item.id}	${item.todo_item_name}`);
 	}
 }
