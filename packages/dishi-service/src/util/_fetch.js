@@ -18,7 +18,6 @@ export const post = async (url, data) => {
  */
 export const postWithToken = async (url, data) => {
 	const userinfo = global.insistime_userinfo;
-	console.log(userinfo);
 	if (!userinfo || !userinfo.userid || !userinfo.usertoken) return danger(`please login first`);
 
 	const headers = {
