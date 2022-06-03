@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.3.4",
   "dependencies": {
-    "dishi-server-todo": "^0.1.4",
+    "dishi-server": "^0.1.4",
     "qiao-server": "^0.2.2"
   }
 }

@@ -1,4 +1,4 @@
-# dishi-server-todo
+# dishi-server
 
 ## api
 ### init
@@ -8,13 +8,13 @@ var app = express();
 
 // ...
 
-// dishi-server-todo
-require('dishi-server-todo').init(app);
+// dishi-server
+require('dishi-server').init(app);
 ```
 
 ### use
 ```javascript
-var q = require('dishi-server-todo');
+var q = require('dishi-server');
 
 q.todoGroupController
 q.todoGroupService
