@@ -19,6 +19,7 @@
     "dishi": "./bin/dishi.js"
   },
   "dependencies": {
+    "dishi-service": "0.0.0",
     "qiao-ajax": "^2.6.4",
     "qiao-cli": "^0.2.9",
     "qiao-config": "^0.2.8",

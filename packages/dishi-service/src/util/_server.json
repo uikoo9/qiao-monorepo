@@ -1,0 +1,12 @@
+{
+    "host": "https://insistime.com/",
+    "todoList": "todo/list",
+    "todoGrouplist": "todo/group/list",
+    "todoGroupSave": "todo/group/save",
+    "todoGroupDel": "todo/group/del",
+    "todoGroupGet": "todo/group/get",
+    "todoItemlist": "todo/item/list",
+    "todoItemSave": "todo/item/save",
+    "todoItemDel": "todo/item/del",
+    "todoItemGet": "todo/item/get"
+}
