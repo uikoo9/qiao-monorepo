@@ -63,6 +63,16 @@ npm run ls
 npm run show
 ```
 
+## dishi
+### [dishi](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/dishi-npm#readme)
+dishi，cli下的todo list
+
+### [dishi-server](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/dishi-server#readme)
+dishi，todo list对应的server服务
+
+### [dishi-service](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/dishi-service#readme)
+dishi，todo list对应的浏览器请求
+
 ## Browser
 
 ### [qiao.db.js](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.db.js#readme)
