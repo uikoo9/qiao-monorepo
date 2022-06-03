@@ -4,9 +4,9 @@
 var path = require('path');
 
 // template path
-var indexPCPath     = path.resolve(__dirname, './template/index-pc.html');
+var indexPCPath = path.resolve(__dirname, './template/index-pc.html');
 var indexMobilePath = path.resolve(__dirname, './template/index-mobile.html');
-var loginPCPath     = path.resolve(__dirname, './template/login-pc.html');
+var loginPCPath = path.resolve(__dirname, './template/login-pc.html');
 var loginMobilePath = path.resolve(__dirname, './template/login-mobile.html');
 
 /**
@@ -27,7 +27,7 @@ module.exports = [
     chunks: ['index-pc'],
     filename: '../views/index-pc.html',
     publicPath:
-      'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+      'https://static.insistime.com/00_insistime/static/',
     template: indexPCPath,
   },
   {
@@ -37,7 +37,7 @@ module.exports = [
     chunks: ['index-mobile'],
     filename: '../views/index-mobile.html',
     publicPath:
-      'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+      'https://static.insistime.com/00_insistime/static/',
     template: indexMobilePath,
   },
   {
@@ -47,7 +47,7 @@ module.exports = [
     chunks: ['login-pc'],
     filename: '../views/login-pc.html',
     publicPath:
-    'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+      'https://static.insistime.com/00_insistime/static/',
     // filename: 'login-pc.html',
     template: loginPCPath,
   },
@@ -58,7 +58,7 @@ module.exports = [
     chunks: ['login-mobile'],
     filename: '../views/login-mobile.html',
     publicPath:
-    'https://insistime-1252774635.cos.ap-beijing.myqcloud.com/00_insistime/static/',
+      'https://static.insistime.com/00_insistime/static/',
     // filename: 'login-mobile.html',
     template: loginMobilePath,
   },
