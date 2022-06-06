@@ -14,6 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
   "sideEffects": [
     "**/*.scss"
   ]

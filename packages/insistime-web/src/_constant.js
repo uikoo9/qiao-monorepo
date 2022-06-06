@@ -16,8 +16,9 @@ export default {
     'otherDesc': '域名注册 服务器部署等',
     'insistime': 'insistime.com',
     'insistimeSolgan': '坚持，时机，创造，热爱',
-    'insistimeUrl': 'https://insistime.com/',
-    'beian': '京ICP备18041615号-1',
+    'companyName': 'insistime.com',
+    'companyUrl': 'https://insistime.com/',
+    'beianName': '京ICP备18041615号-1',
     'beianUrl': 'https://beian.miit.gov.cn/',
 
 };
