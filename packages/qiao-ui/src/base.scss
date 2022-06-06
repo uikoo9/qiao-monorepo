@@ -1,0 +1,20 @@
+$all: 100%;
+
+@mixin alink($color: #333) {
+  a:link {
+    color: $color;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $color;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $color;
+    text-decoration: none;
+  }
+  a:active {
+    color: $color;
+    text-decoration: none;
+  }
+}
