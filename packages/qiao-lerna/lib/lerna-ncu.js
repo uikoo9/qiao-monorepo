@@ -18,8 +18,8 @@ var q = require('qiao-console');
 var checkDir = require('./util/check-dir.js');
 
 // handler
-var handlerByFork		= require('./util/handler-ncu-fork.js');
-var handlerByParallel 	= require('./util/handler-ncu-parallel.js');
+var handlerByFork = require('./util/handler-ncu-fork.js');
+var handlerByParallel = require('./util/handler-ncu-parallel.js');
 
 // line
 var line = 0;
@@ -27,13 +27,13 @@ var line = 0;
 /**
  * mult ncu
  */
-module.exports = async function(folderName){
+module.exports = async function (folderName) {
 	// clear && start
 	q.clear();
 	q.writeLine(line++, `start operating folder: ${folderName}`);
 
 	// dir
-	var subFolders =  checkDir(folderName);
+	var subFolders = checkDir(folderName);
 
 	// parallel
 	handlerByParallel(subFolders, line);
