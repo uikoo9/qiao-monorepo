@@ -15,8 +15,8 @@ var loginMobilePath = path.resolve(__dirname, './template/login-mobile.html');
 module.exports = [
   {
     type: 'css',
-    filename: '[name].css',
-    chunkFilename: '[id].css',
+    filename: '[name].[contenthash:8].css',
+    chunkFilename: '[id].[contenthash:8].css',
     ignoreOrder: true,
   },
 

@@ -9,7 +9,7 @@ var distPath = path.resolve(__dirname, '../../insistime-server/dist');
 
 // output
 module.exports = {
-  filename: '[name].bundle.js',
+  filename: '[name].[contenthash:8].js',
   path: distPath,
   clean: true,
 };
