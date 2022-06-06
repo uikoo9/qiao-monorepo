@@ -11,5 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "qiao-process": "^0.0.5"
+  }
 }
