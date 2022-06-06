@@ -14,8 +14,8 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "qiao-cos": "^0.4.2",
-    "qiao-lerna": "^0.3.4",
-    "qiao-webpack": "^0.7.5",
+    "qiao-lerna": "^0.3.5",
+    "qiao-webpack": "^0.7.6",
     "rollup": "^2.75.5"
   }
 }

@@ -28,6 +28,7 @@ module.exports = [
     filename: '../views/index-pc.html',
     publicPath:
       'https://static.insistime.com/00_insistime/static/',
+    // filename: 'index-pc.html',
     template: indexPCPath,
   },
   {
