@@ -1,5 +1,9 @@
 $all: 100%;
 
+$containerWidth: 1400px;
+
+$borderBottom: solid 1px #333;
+
 @mixin alink($color: #333) {
   a:link {
     color: $color;

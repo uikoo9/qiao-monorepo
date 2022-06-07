@@ -4,10 +4,11 @@
 import React from 'react';
 
 // index
-import IndexHeader from './header/header.jsx';
 import IndexContent from './content/content.jsx';
 import IndexInfo from './info/info.jsx';
-import { Footer } from 'qiao-ui';
+
+// qiao-ui
+import { Header, Footer } from 'qiao-ui';
 
 /**
  * index component
@@ -16,8 +17,9 @@ export default class IndexComponent extends React.Component {
   render() {
     return (
       <>
-        <IndexHeader
-          constant={this.props.constant}
+        <Header
+          logo={this.props.constant.logo}
+          navs={this.props.constant.navs}
         />
         <IndexContent
           constant={this.props.constant}
