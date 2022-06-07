@@ -13,8 +13,8 @@ export class MobileFooter extends React.Component {
   render() {
     return (
       <div className="footer">
-        <a target="_blank" href={this.props.constant.companyUrl}>{this.props.constant.companyName}</a>&nbsp;&nbsp;&nbsp;
-        <a target="_blank" href={this.props.constant.beianUrl}>{this.props.constant.beianName}</a>
+        <a target="_blank" href={this.props.companyUrl}>{this.props.companyName}</a>&nbsp;&nbsp;&nbsp;
+        <a target="_blank" href={this.props.beianUrl}>{this.props.beianName}</a>
       </div>
     );
   }
