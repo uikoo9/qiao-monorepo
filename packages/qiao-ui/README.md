@@ -48,3 +48,17 @@ import { InfoList } from 'qiao-ui';
     infos={this.props.infos}
 />
 ```
+
+## LoginBox
+```js
+// content
+import { LoginBox } from 'qiao-ui';
+
+// use
+<LoginBox
+    usernameHolder={this.props.usernameHolder}
+    passwordHolder={this.props.passwordHolder}
+    loginBtn={this.props.loginBtn}
+    loginClick={loginBtnClick}
+/>
+```
