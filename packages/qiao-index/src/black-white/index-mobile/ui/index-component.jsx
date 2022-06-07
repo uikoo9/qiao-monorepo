@@ -6,11 +6,11 @@ import React from 'react';
 // index
 import IndexContent from './content/content.jsx';
 import IndexInfo from './info/info.jsx';
-import IndexFooter from './footer/footer.jsx';
 
 // qiao-ui
 import {
-  MobileHeader
+  MobileHeader,
+  MobileFooter,
 } from 'qiao-ui';
 
 /**
@@ -30,8 +30,11 @@ export default class IndexComponent extends React.Component {
         <IndexInfo
           constant={this.props.constant}
         />
-        <IndexFooter
-          constant={this.props.constant}
+        <MobileFooter
+          companyUrl={this.props.constant.companyUrl}
+          companyName={this.props.constant.companyName}
+          beianUrl={this.props.constant.beianUrl}
+          beianName={this.props.constant.beianName}
         />
       </>
     );

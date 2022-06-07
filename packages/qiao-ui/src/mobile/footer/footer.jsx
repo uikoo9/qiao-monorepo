@@ -7,9 +7,9 @@ import React from 'react';
 import './footer.scss';
 
 /**
- * index footer
+ * mobile footer
  */
-export default class IndexFooter extends React.Component {
+export class MobileFooter extends React.Component {
   render() {
     return (
       <div className="footer">
