@@ -1,8 +1,10 @@
 @use "../../base";
 
+$containerWidth: 1400px;
+
 $headerHeight: 60px;
 $logoWidth: 200px;
-$navsWidth: base.$containerWidth - $logoWidth;
+$navsWidth: $containerWidth - $logoWidth;
 
 .nav-txt {
   height: $headerHeight;

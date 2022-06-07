@@ -1,5 +1,7 @@
 @use "../../base";
 
+$containerWidth: 1400px;
+
 $contentHeight: 600px;
 $txtWidth: 600px;
 $txtTop: 150px;
@@ -9,7 +11,7 @@ $txtContainerHeight: $contentHeight - $txtTop;
 $txtMainHeight: 50px;
 $txtOtherHeight: 80px;
 
-$picWidth: base.$containerWidth - $txtWidth;
+$picWidth: $containerWidth - $txtWidth;
 
 .content {
   width: base.$all;

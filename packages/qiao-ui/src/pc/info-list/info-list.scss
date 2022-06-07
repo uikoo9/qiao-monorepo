@@ -1,9 +1,11 @@
 @use "../../base";
 
+$containerWidth: 1400px;
+
 $infoHeight: 300px;
 
 .info-list {
-  width: base.$containerWidth;
+  width: $containerWidth;
   height: $infoHeight;
   border-bottom: base.$borderBottom;
   padding-top: 40px;
@@ -11,7 +13,7 @@ $infoHeight: 300px;
 
   .info {
     float: left;
-    width: calc(base.$containerWidth / 3);
+    width: calc($containerWidth / 3);
     height: calc($infoHeight / 2);
 
     .title {
