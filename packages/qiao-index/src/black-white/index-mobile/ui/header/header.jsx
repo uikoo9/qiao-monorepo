@@ -11,7 +11,7 @@ import './header.scss';
  */
 export default class IndexHeader extends React.Component {
   render() {
-    const navs = this.props.navs && this.props.navs.map((nav, index) => {
+    const navs = this.props.constant.navs && this.props.constant.navs.map((nav, index) => {
       if (!nav.url || !nav.name) return;
 
       return <div className="nav nav-txt" key={index}>

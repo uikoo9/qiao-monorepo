@@ -11,7 +11,7 @@ import './info.scss';
  */
 export default class IndexInfo extends React.Component {
   render() {
-    const infos = this.props.infos && this.props.infos.map((info, index) => {
+    const infos = this.props.constant.infos && this.props.constant.infos.map((info, index) => {
       if (!info.title) return;
 
       return <div className="col" key={index}>
