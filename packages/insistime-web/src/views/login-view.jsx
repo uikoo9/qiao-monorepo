@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // index
-import { BlackWhiteLoginPCContainer } from 'qiao-index';
+import { BlackWhiteLoginContainer } from 'qiao-index';
 
 /**
  * index view
@@ -13,7 +13,7 @@ import { BlackWhiteLoginPCContainer } from 'qiao-index';
 class IndexView extends React.Component {
   render() {
     return (
-      <BlackWhiteLoginPCContainer
+      <BlackWhiteLoginContainer
         usernameHolder={'username'}
         passwordHolder={'password'}
         loginBtn={'Login'}

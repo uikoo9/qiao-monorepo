@@ -18,11 +18,6 @@ exports.index = function (req, res) {
 /**
  * login
  */
- exports.login = function (req, res) {
-  var vendor = util.vendor(req.headers['user-agent']);
-  if (vendor.mobile || vendor.android) {
-    res.render('login-mobile.html');
-  } else {
-    res.render('login-pc.html');
-  }
+exports.login = function (req, res) {
+  res.render('login.html');
 };
