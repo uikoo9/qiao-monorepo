@@ -1,6 +1,6 @@
 {
   "name": "qiao-index",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "",
   "keywords": [],
   "author": "uikoo9 <uikoo9@qq.com>",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "qiao-service": "^0.0.3",
-    "qiao-ui": "^0.0.8",
+    "qiao-ui": "^0.0.9",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
