@@ -1,30 +1,20 @@
 @use "../base";
 
-$infoHeight: 400px;
+$infoHeight: 300px;
 
-.info {
+.info-list {
   width: base.$containerWidth;
   height: $infoHeight;
   border-bottom: base.$borderBottom;
+  padding-top: 40px;
+  padding-bottom: 40px;
 
-  .row {
-    width: base.$containerWidth;
-  }
-  .row.top {
-    padding-top: 40px;
-    height: calc($infoHeight / 2) - 40px;
-  }
-  .row.bottom {
-    padding-bottom: 40px;
-    height: calc($infoHeight / 2) - 40px;
-  }
-
-  .col {
+  .info {
     float: left;
     width: calc(base.$containerWidth / 3);
-    height: calc($infoHeight / 2) - 40px;
+    height: calc($infoHeight / 2);
 
-    .main {
+    .title {
       width: base.$all;
       height: 80px;
       color: #333;
@@ -32,7 +22,7 @@ $infoHeight: 400px;
       text-align: center;
       line-height: 80px;
     }
-    .other {
+    .desc {
       width: base.$all;
       height: 20px;
       color: #333;
