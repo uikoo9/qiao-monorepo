@@ -11,15 +11,18 @@ import './header.scss';
  */
 export default class IndexHeader extends React.Component {
   render() {
+    const navs = this.props.navs && this.props.navs.map((nav, index) => {
+      if (!nav.url || !nav.name) return;
+
+      return <div className="nav nav-txt" key={index}>
+        <a target="_blank" href={nav.url}>{nav.name}</a>
+      </div>
+    });
+
     return (
       <div className="header">
         <div className="logo nav-txt">{this.props.constant.logo}</div>
-        <div className="navs">
-          <div className="nav nav-txt">
-            <a target="_blank" href={this.props.constant.githubUrl}>{this.props.constant.github}</a>
-          </div>
-          <div className="nav nav-txt"></div>
-        </div>
+        <div className="navs">{navs}</div>
       </div>
     );
   }
