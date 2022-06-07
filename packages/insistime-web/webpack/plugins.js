@@ -43,8 +43,8 @@ module.exports = [
   {
     type: 'html',
     inject: 'body',
-    title: 'login-pc',
-    chunks: ['login-pc'],
+    title: 'login',
+    chunks: ['login'],
     filename: '../views/login.html',
     publicPath:
       'https://static.insistime.com/00_insistime/static/',
