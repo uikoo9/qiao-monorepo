@@ -1,18 +1,20 @@
-@use "../base";
+@use "../../base";
+
+$containerWidth: 16rem;
 
 $infoHeight: 36rem;
 
-.info {
-  width: base.$containerWidth;
+.infos {
+  width: $containerWidth;
   height: $infoHeight;
   border-bottom: base.$borderBottom;
 
-  .col {
-    width: base.$containerWidth;
+  .info {
+    width: $containerWidth;
     height: calc($infoHeight / 6);
 
-    .main {
-      width: base.$containerWidth;
+    .title {
+      width: $containerWidth;
       height: 2rem;
       padding-top: 1rem;
       color: #333;
@@ -20,8 +22,8 @@ $infoHeight: 36rem;
       text-align: center;
       line-height: 3rem;
     }
-    .other {
-      width: base.$containerWidth;
+    .desc {
+      width: $containerWidth;
       height: 3rem;
       color: #333;
       font-size: 14px;

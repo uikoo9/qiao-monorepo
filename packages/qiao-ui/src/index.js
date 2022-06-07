@@ -8,6 +8,7 @@ export { InfoList } from './pc/info-list/info-list.jsx';
 export { MobileHeader } from './mobile/header/header.jsx';
 export { MobileFooter } from './mobile/footer/footer.jsx';
 export { MobileContent } from './mobile/content/content.jsx';
+export { MobileInfoList } from './mobile/info-list/info-list.jsx';
 
 // login box
 export { LoginBox } from './login-box/login-box.jsx';
