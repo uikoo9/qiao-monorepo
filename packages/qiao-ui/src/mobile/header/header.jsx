@@ -7,11 +7,11 @@ import React from 'react';
 import './header.scss';
 
 /**
- * index header
+ * mobile header
  */
-export default class IndexHeader extends React.Component {
+export class MobileHeader extends React.Component {
   render() {
-    const navs = this.props.constant.navs && this.props.constant.navs.map((nav, index) => {
+    const navs = this.props.navs && this.props.navs.map((nav, index) => {
       if (!nav.url || !nav.name) return;
 
       return <div className="nav nav-txt" key={index}>
@@ -21,7 +21,7 @@ export default class IndexHeader extends React.Component {
 
     return (
       <div className="header">
-        <div className="logo nav-txt">{this.props.constant.logo}</div>
+        <div className="logo nav-txt">{this.props.logo}</div>
         <div className="navs">{navs}</div>
       </div>
     );

@@ -4,10 +4,14 @@
 import React from 'react';
 
 // index
-import IndexHeader from './header/header.jsx';
 import IndexContent from './content/content.jsx';
 import IndexInfo from './info/info.jsx';
 import IndexFooter from './footer/footer.jsx';
+
+// qiao-ui
+import {
+  MobileHeader
+} from 'qiao-ui';
 
 /**
  * index component
@@ -16,17 +20,18 @@ export default class IndexComponent extends React.Component {
   render() {
     return (
       <>
-        <IndexHeader
-          constant = {this.props.constant}
+        <MobileHeader
+          logo={this.props.constant.logo}
+          navs={this.props.constant.navs}
         />
         <IndexContent
-          constant = {this.props.constant}
+          constant={this.props.constant}
         />
         <IndexInfo
-          constant = {this.props.constant}
+          constant={this.props.constant}
         />
         <IndexFooter
-          constant = {this.props.constant}
+          constant={this.props.constant}
         />
       </>
     );
