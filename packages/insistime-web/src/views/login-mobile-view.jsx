@@ -13,7 +13,7 @@ import { BlackWhiteLoginMobileContainer } from 'qiao-index';
 class IndexView extends React.Component {
   render() {
     return (
-      <BlackWhiteLoginPCContainer
+      <BlackWhiteLoginMobileContainer
         usernameHolder={'username'}
         passwordHolder={'password'}
         loginBtn={'Login'}
