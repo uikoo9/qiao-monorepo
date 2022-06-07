@@ -1,23 +1,25 @@
 @use "../base";
 
+$loginWidth: 300px;
+
 $marginHeight: 200px;
 
 $inputHeight: 50px;
 $boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20px) + $inputHeight + 20px;
 
 .box{
-  width: base.$containerWidth;
+  width: $loginWidth;
   height: $boxHeight;
   margin-top: $marginHeight;
 
   .input{
-    width: base.$containerWidth;
+    width: $loginWidth;
     height: $inputHeight;
     border-bottom: base.$borderBottom;
     margin-bottom: 10px;
 
     input{
-      width: base.$containerWidth - 20px;
+      width: $loginWidth - 20px;
       height: base.$all;
       margin: 0;
       padding: 0;
@@ -31,7 +33,7 @@ $boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20p
   }
 
   .btn{
-    width: base.$containerWidth;
+    width: $loginWidth;
     height: $inputHeight + 2px;
     padding-top: 20px;
 
@@ -53,7 +55,7 @@ $boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20p
   }
 
   .tips{
-    width: base.$containerWidth;
+    width: $loginWidth;
     height: $inputHeight;
     padding-top: 20px;
     color: red;
