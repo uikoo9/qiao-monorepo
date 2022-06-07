@@ -25,3 +25,15 @@ import { Footer } from 'qiao-ui';
     beianName={this.props.beianName}
 />
 ```
+
+## Content
+```js
+// content
+import { Content } from 'qiao-ui';
+
+// use
+<Content
+    contentName={this.props.contentName}
+    contentSolgan={this.props.contentSolgan}
+/>
+```
