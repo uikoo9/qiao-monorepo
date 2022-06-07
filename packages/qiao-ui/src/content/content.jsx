@@ -7,15 +7,15 @@ import React from 'react';
 import './content.scss';
 
 /**
- * index content
+ * content
  */
-export default class IndexContent extends React.Component {
+export class Content extends React.Component {
   render() {
     return (
       <div className="content">
         <div className="txt">
-            <div className="txt-main">{this.props.constant.insistime}</div>  
-            <div className="txt-other">{this.props.constant.insistimeSolgan}</div>
+          <div className="txt-main">{this.props.contentName}</div>
+          <div className="txt-other">{this.props.contentSolgan}</div>
         </div>
         <div className="pic"></div>
       </div>

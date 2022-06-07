@@ -8,6 +8,9 @@ export default {
     companyUrl: 'https://insistime.com/',
     beianName: '京ICP备18041615号-1',
     beianUrl: 'https://beian.miit.gov.cn/',
+    contentName: 'insistime.com',
+    contentSolgan: '坚持，时机，创造，热爱',
+
     webTitle: '网页开发',
     webDesc: 'PC浏览器网页开发 手机H5页面开发',
     wechatTitle: '微信开发',
@@ -20,6 +23,4 @@ export default {
     appDesc: 'iOS APP开发 Android APP开发',
     otherTitle: '其他服务',
     otherDesc: '域名注册 服务器部署等',
-    insistime: 'insistime.com',
-    insistimeSolgan: '坚持，时机，创造，热爱',
 };
