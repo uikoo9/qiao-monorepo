@@ -37,3 +37,14 @@ import { Content } from 'qiao-ui';
     contentSolgan={this.props.contentSolgan}
 />
 ```
+
+## InfoList
+```js
+// content
+import { InfoList } from 'qiao-ui';
+
+// use
+<InfoList
+    infos={this.props.infos}
+/>
+```
