@@ -2,6 +2,12 @@
 lerna tools
 
 ## cli
+### dc
+```shell
+# 列出文件夹下所有npm包上一个月的下载量
+qlerna dc ./packages
+```
+
 ### ncu
 使用[ncu](https://www.npmjs.com/package/npm-check-updates)检查文件夹下所有npm包是否有更新
 ```shell
