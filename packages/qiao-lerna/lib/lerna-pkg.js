@@ -21,7 +21,7 @@ module.exports = async function(folderName, isDev){
 	q.writeLine(line++, `start operating folder: ${folderName}`);
 
 	// dir
-	var subFolders =  checkDir(folderName);
+	var subFolders = checkDir(folderName);
 
 	// handler
 	handlerByParallel(subFolders, line, isDev);
