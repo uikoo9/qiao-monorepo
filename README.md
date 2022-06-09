@@ -1,65 +1,51 @@
 # qiao-monorepo
 
 ## lerna
-```bash
+[qiao-monorepo](https://github.com/uikoo9/qiao-monorepo)使用[lerna](https://lerna.js.org/)管理npm包，建议全局安装lerna
+```shell
 npm i -g lerna
 ```
 
 ## usage
-
 ### clean
-
-清空所有包下的node_modules
-
-```bash
+```shell
+# 清空所有包下的node_modules
 npm run clean
 ```
 
 ### init
-
-安装所有包下的依赖包
-
-```bash
+```shell
+# 安装所有包下的依赖包
 npm run init
 ```
 
 ### check
-
 通过[npm-check-updates](https://www.npmjs.com/package/npm-check-updates)检查所有包下的依赖是否有更新
-
-```bash
+```shell
 npm run check
 ```
 
 ### pkg
-
-列出所有包下的dependencies
-
-```bash
+```shell
+# 列出所有包下的dependencies
 npm run pkg
 ```
 
 ### dpkg
-
-列出所有包下的devDependencies
-
-```bash
+```shell
+# 列出所有包下的devDependencies
 npm run dpkg
 ```
 
 ### ls
-
-列出所有包信息
-
-```bash
+```shell
+# 列出所有包信息
 npm run ls
 ```
 
 ### show
-
-列出所有包详细信息
-
-```bash
+```shell
+# 列出所有包详细信息
 npm run show
 ```
 

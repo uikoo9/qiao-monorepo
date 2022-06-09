@@ -1,7 +1,21 @@
 # qiao-lerna
 lerna tools
 
-## api
+## cli
+### ncu
+使用[ncu](https://www.npmjs.com/package/npm-check-updates)检查文件夹下所有npm包是否有更新
+```shell
+qlerna ncu ./packages
+```
+
+### pkg
+```shell
+# 列出文件夹下所有npm包的dependencies
+qlerna pkg ./packages
+
+# 列出文件夹下所有npm包的devDependencies
+qlerna pkg ./packages dev
+```
 
 ## version
 ### 0.0.7.20220518
