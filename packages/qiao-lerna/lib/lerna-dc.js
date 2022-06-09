@@ -15,10 +15,10 @@ var line = 0;
 /**
  * download counts
  */
-module.exports = async function(folderName){
+module.exports = function(folderName){
 	// clear && start
-	// q.clear();
-	// q.writeLine(line++, `start operating folder: ${folderName}`);
+	q.clear();
+	q.writeLine(line++, `start operating folder: ${folderName}`);
 
 	// dir
 	var subFolders = checkDir(folderName);

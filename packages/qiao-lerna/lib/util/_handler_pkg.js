@@ -1,7 +1,7 @@
 'use strict';
 
-// fs
-var fs = require('./_fs.js');
+// pkg
+var pkg = require('./_pkg.js');
 
 // is dev
 exports.isDev;
@@ -12,22 +12,17 @@ exports.isDev;
  * @returns 
  */
 exports.handler = function(folderName){
-	return getDependencies(folderName);
-};
+    // pkg
+    var pkgInfo = pkg.getPkgInfo(folderName);
+    if(typeof pkgInfo == 'string') return pkgInfo;
 
-// get dependencies
-function getDependencies(dir){
-    var packageFile = fs.path.resolve(dir, 'package.json');
-    if(!fs.isExists(packageFile)) return 'package.json not exists';
+    // package json
+    var packageJson = pkgInfo.packageJson;
+    var res = exports.isDev ? packageJson.devDependencies : packageJson.dependencies;
     
-    var pkg = require(packageFile);
-    var res = exports.isDev ? pkg.devDependencies : pkg.dependencies;
-
     var json = getJson(res || {});
-    var dirs = dir.split('/');
-    var pkgName = dirs[dirs.length - 1];
-    return `${pkgName} : ${json}`;
-}
+    return `${pkgInfo.packageName} : ${json}`;
+};
 
 // get json
 function getJson(s){

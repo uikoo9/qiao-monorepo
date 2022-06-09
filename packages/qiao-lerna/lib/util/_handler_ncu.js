@@ -1,10 +1,10 @@
 'use strict';
 
-// fs
-var fs = require('./_fs.js');
-
 // ncu
 var ncu = require('npm-check-updates');
+
+// pkg
+var pkg = require('./_pkg.js');
 
 /**
  * handler
@@ -12,36 +12,19 @@ var ncu = require('npm-check-updates');
  * @returns 
  */
 module.exports = async function (folderName) {
-    return await ncuSubFolders(folderName);
-};
-
-// ncu sub folders
-async function ncuSubFolders(dir) {
-    // package file
-    var packageFile = fs.path.resolve(dir, 'package.json');
-    if (!fs.isExists(packageFile)) return `${dir} : package.json not exists`;
-
-    // package json
-    var packageJson = getPackage(packageFile);
-    if (packageJson.private) return `${dir} : private package`;
-
+    // pkg
+    var pkgInfo = pkg.getPkgInfo(folderName);
+    if(typeof pkgInfo == 'string') return pkgInfo;
+    
+    // ncu
     var upgraded = await ncu.run({
-        packageFile: packageFile,
+        packageFile: pkgInfo.packageFile,
         upgrade: false
     });
-
+    
     var json = getJson(upgraded);
-    return `${dir} : ${json}`;
-}
-
-// get package
-function getPackage(p) {
-    try {
-        return require(p);
-    } catch (e) {
-        return;
-    }
-}
+    return `${pkgInfo.packageName} : ${json}`;
+};
 
 // get json
 function getJson(s) {

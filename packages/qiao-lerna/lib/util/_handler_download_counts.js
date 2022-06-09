@@ -3,8 +3,8 @@
 // q
 var q = require('qiao-npms');
 
-// fs
-var fs = require('./_fs.js');
+// pkg
+var pkg = require('./_pkg.js');
 
 /**
  * handler
@@ -12,36 +12,17 @@ var fs = require('./_fs.js');
  * @returns 
  */
 exports.handler = async function(folderName){
-    return await downloadCounts(folderName);
-};
-
-// download counts
-async function downloadCounts(dir){
-    // package file
-    var packageFile = fs.path.resolve(dir, 'package.json');
-    if (!fs.isExists(packageFile)) return `${dir} : package.json not exists`;
-
-    // package json
-    var packageJson = getPackage(packageFile);
-    if (packageJson.private) return `${dir} : private package`;
+    // pkg
+    var pkgInfo = pkg.getPkgInfo(folderName);
+    if(typeof pkgInfo == 'string') return pkgInfo;
 
     // download counts
     try{
-        var packageName = packageJson.name;
-        var res = await q.downloadCountsLastMonth(packageName);
-        if(!res) return `${dir} : download counts err`;
+        var res = await q.downloadCountsLastMonth(pkgInfo.packageName);
+        if(!res) return `${pkgInfo.packageName} : download counts err`;
 
-        return `${dir} : ${res.downloads}`;
+        return `${pkgInfo.packageName} : ${res.downloads}`;
     }catch(e){
-        return `${dir} : download counts err`;
+        return `${pkgInfo.packageName} : download counts err`;
     }
-}
-
-// get package
-function getPackage(p) {
-    try {
-        return require(p);
-    } catch (e) {
-        return;
-    }
-}
+};
