@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "clean": "lerna clean -y",
-    "init": "lerna bootstrap --ignore=qiao-electron-demo",
+    "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
     "check": "qlerna ncu ./packages",
     "pkg": "qlerna pkg ./packages",
     "dpkg": "qlerna pkg ./packages 1",
