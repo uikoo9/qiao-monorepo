@@ -1,6 +1,8 @@
 # qiao-npms
 npm package info
 
+1. download counts, by [https://github.com/npm/registry/blob/master/docs/download-counts.md](https://github.com/npm/registry/blob/master/docs/download-counts.md)
+
 ## api
 ### downloadCountsLastDay
 ```javascript
@@ -19,6 +21,16 @@ var test = async function(){
 };
 
 test();
+```
+
+return
+```json
+{
+  downloads: 0,
+  start: '2022-06-08',
+  end: '2022-06-08',
+  package: 'qiao-cos'
+}
 ```
 
 ### downloadCountsLastWeek
@@ -40,6 +52,16 @@ var test = async function(){
 test();
 ```
 
+return
+```json
+{
+  downloads: 80,
+  start: '2022-06-02',
+  end: '2022-06-08',
+  package: 'qiao-cos'
+}
+```
+
 ### downloadCountsLastMonth
 ```javascript
 'use strict';
@@ -57,6 +79,16 @@ var test = async function(){
 };
 
 test();
+```
+
+return
+```json
+{
+  downloads: 763,
+  start: '2022-05-10',
+  end: '2022-06-08',
+  package: 'qiao-cos'
+}
 ```
 
 ## version
