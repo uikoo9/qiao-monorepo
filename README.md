@@ -25,6 +25,12 @@ npm run init
 npm run check
 ```
 
+### dc
+```shell
+# 列出文件夹下所有npm包上一个月的下载量
+npm run dc
+```
+
 ### pkg
 ```shell
 # 列出所有包下的dependencies
