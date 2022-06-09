@@ -111,6 +111,9 @@ dishi，todo list对应的浏览器请求
 
 浏览器和 ndoejs 下获取公网 ip
 
+### [qiao-npms](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-npms#readme)
+浏览器和nodejs下或者npm包信息
+
 ### [qiao-slink](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-slink#readme)
 
 浏览器和 nodejs 下生成短链接，by [tiyee](https://tiyee.cn)

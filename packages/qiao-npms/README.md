@@ -1,4 +1,4 @@
-# qiao-npm
+# qiao-npms
 npm package info
 
 ## api
@@ -6,7 +6,7 @@ npm package info
 ```javascript
 'use strict';
 
-var q = require('qiao-npm');
+var q = require('qiao-npms');
 
 var test = async function(){
     try{
@@ -25,7 +25,7 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao-npm');
+var q = require('qiao-npms');
 
 var test = async function(){
     try{
@@ -44,7 +44,7 @@ test();
 ```javascript
 'use strict';
 
-var q = require('qiao-npm');
+var q = require('qiao-npms');
 
 var test = async function(){
     try{
