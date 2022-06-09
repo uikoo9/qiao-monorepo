@@ -5,7 +5,7 @@ npm package info
 
 ## api
 ### downloadCountsLastDay
-```javascript
+```js
 'use strict';
 
 var q = require('qiao-npms');
@@ -24,7 +24,7 @@ test();
 ```
 
 return
-```json
+```js
 {
   downloads: 0,
   start: '2022-06-08',
@@ -34,7 +34,7 @@ return
 ```
 
 ### downloadCountsLastWeek
-```javascript
+```js
 'use strict';
 
 var q = require('qiao-npms');
@@ -53,7 +53,7 @@ test();
 ```
 
 return
-```json
+```js
 {
   downloads: 80,
   start: '2022-06-02',
@@ -63,7 +63,7 @@ return
 ```
 
 ### downloadCountsLastMonth
-```javascript
+```js
 'use strict';
 
 var q = require('qiao-npms');
@@ -82,7 +82,7 @@ test();
 ```
 
 return
-```json
+```js
 {
   downloads: 763,
   start: '2022-05-10',
