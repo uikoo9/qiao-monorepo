@@ -91,6 +91,35 @@ return
 }
 ```
 
+### downloadCounts
+```js
+'use strict';
+
+var q = require('qiao-npms');
+
+var test = async function(){
+    try{
+        var packageName = 'qiao-cos';
+        var res = await q.downloadCounts(packageName, 'last-day');
+        console.log(res);
+    }catch(e){
+        console.log(e);
+    }
+};
+
+test();
+```
+
+return
+```js
+{
+  downloads: 0,
+  start: '2022-06-08',
+  end: '2022-06-08',
+  package: 'qiao-cos'
+}
+```
+
 ## version
 ### 0.0.1.20220609
 1. init project
