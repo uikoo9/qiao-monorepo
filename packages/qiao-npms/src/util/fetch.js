@@ -2,12 +2,12 @@
 import { get } from 'qiao-ajax';
 
 /**
- * download counts
+ * get download counts
  * @param {*} packageName 
  * @param {*} type 
  * @returns 
  */
-export const downloadCounts = async (packageName, type) => {
+export const getDownloadCounts = async (packageName, type) => {
     // check
 	if(!packageName || !type) return;
 	

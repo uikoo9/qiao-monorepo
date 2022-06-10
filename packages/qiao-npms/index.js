@@ -7,12 +7,12 @@ var qiaoAjax = require('qiao-ajax');
 // qiao
 
 /**
- * download counts
+ * get download counts
  * @param {*} packageName 
  * @param {*} type 
  * @returns 
  */
-const downloadCounts = async (packageName, type) => {
+const getDownloadCounts = async (packageName, type) => {
     // check
 	if(!packageName || !type) return;
 	
@@ -30,13 +30,25 @@ const downloadCounts = async (packageName, type) => {
 // download counts
 
 /**
+ * downloadCounts
+ * @param {*} packageName 
+ * @param {*} type 
+ * @returns 
+ */
+ const downloadCounts = async (packageName, type) => {
+	if(!packageName || !type) return;
+
+	return await getDownloadCounts(packageName, type);
+};
+
+/**
  * downloadCountsLastDay
  * @param {*} packageName 
  */
 const downloadCountsLastDay = async (packageName) => {
 	if(!packageName) return;
 
-	return await downloadCounts(packageName, 'last-day');
+	return await getDownloadCounts(packageName, 'last-day');
 };
 
 /**
@@ -46,7 +58,7 @@ const downloadCountsLastDay = async (packageName) => {
 const downloadCountsLastWeek = async (packageName) => {
 	if(!packageName) return;
 
-	return await downloadCounts(packageName, 'last-week');
+	return await getDownloadCounts(packageName, 'last-week');
 };
 
 /**
@@ -56,9 +68,10 @@ const downloadCountsLastWeek = async (packageName) => {
 const downloadCountsLastMonth = async (packageName) => {
 	if(!packageName) return;
 
-	return await downloadCounts(packageName, 'last-month');
+	return await getDownloadCounts(packageName, 'last-month');
 };
 
+exports.downloadCounts = downloadCounts;
 exports.downloadCountsLastDay = downloadCountsLastDay;
 exports.downloadCountsLastMonth = downloadCountsLastMonth;
 exports.downloadCountsLastWeek = downloadCountsLastWeek;

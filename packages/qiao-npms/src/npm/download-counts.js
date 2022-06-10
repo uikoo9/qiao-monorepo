@@ -1,5 +1,17 @@
 // download counts
-import { downloadCounts } from '../util/fetch.js'
+import { getDownloadCounts } from '../util/fetch.js';
+
+/**
+ * downloadCounts
+ * @param {*} packageName 
+ * @param {*} type 
+ * @returns 
+ */
+ export const downloadCounts = async (packageName, type) => {
+	if(!packageName || !type) return;
+
+	return await getDownloadCounts(packageName, type);
+};
 
 /**
  * downloadCountsLastDay
@@ -8,7 +20,7 @@ import { downloadCounts } from '../util/fetch.js'
 export const downloadCountsLastDay = async (packageName) => {
 	if(!packageName) return;
 
-	return await downloadCounts(packageName, 'last-day');
+	return await getDownloadCounts(packageName, 'last-day');
 };
 
 /**
@@ -18,7 +30,7 @@ export const downloadCountsLastDay = async (packageName) => {
 export const downloadCountsLastWeek = async (packageName) => {
 	if(!packageName) return;
 
-	return await downloadCounts(packageName, 'last-week');
+	return await getDownloadCounts(packageName, 'last-week');
 };
 
 /**
@@ -28,5 +40,5 @@ export const downloadCountsLastWeek = async (packageName) => {
 export const downloadCountsLastMonth = async (packageName) => {
 	if(!packageName) return;
 
-	return await downloadCounts(packageName, 'last-month');
+	return await getDownloadCounts(packageName, 'last-month');
 };
