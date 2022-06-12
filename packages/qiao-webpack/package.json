@@ -21,6 +21,7 @@
   "dependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
     "babel-plugin-import": "^1.13.5",
     "clean-webpack-plugin": "^4.0.0",
@@ -29,6 +30,8 @@
     "html-webpack-plugin": "^5.5.0",
     "less-loader": "^11.0.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
     "qiao-cli": "^0.2.9",
     "sass": "^1.52.2",
     "sass-loader": "^13.0.0",

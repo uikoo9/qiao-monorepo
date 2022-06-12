@@ -29,4 +29,9 @@ module.exports = {
   performance: {
     hints: false,
   },
+  postcssConfig: {
+    plugins: [
+      require('autoprefixer')
+    ],
+  }
 };

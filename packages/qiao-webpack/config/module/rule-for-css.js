@@ -19,19 +19,31 @@ module.exports = function(isDev, cssIncludes){
 
     // use
     var use = [
-        isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+        // isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+        'style-loader',
         {
             loader: require.resolve('css-loader'),
             options: {
                 modules: false,
             },
-        }
+        },
+        {
+            loader: 'postcss-loader',
+            options: {
+                postcssOptions: {
+                    // config: path.resolve(__dirname, "custom.config.js"),
+                    plugins: [
+                        require('autoprefixer')
+                    ],
+                },
+            },
+        },
     ];
 
     // return
     return {
         test    : /\.css$/,
-        include : finalCssIncludes,
+        // include : finalCssIncludes,
         use     : use,
     };
 };
