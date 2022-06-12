@@ -12,7 +12,6 @@ var defaultPostcssConfig = require('./postcss.js');
  * @param {*} postCssConfig
  */
 module.exports = function (isDev, postCssConfig) {
-    console.log(Object.assign(defaultPostcssConfig, postCssConfig || {}));
     // use
     var use = [
         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
