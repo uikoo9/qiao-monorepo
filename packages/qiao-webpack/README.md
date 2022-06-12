@@ -1,5 +1,103 @@
 # qiao-webpack
 
+## config
+```js
+module.exports = {
+  // https://webpack.js.org/configuration/dev-server/
+  devServer: {},
+
+  // https://webpack.js.org/configuration/entry-context/#entry
+  entry: {},
+
+  // https://webpack.js.org/configuration/output/
+  output: {},
+
+  // https://webpack.js.org/configuration/resolve/
+  resolve: {},
+
+  // https://webpack.js.org/configuration/performance/
+  performance: {},
+
+  // plugins
+  plugins: {},
+
+  // cache groups
+  cacheGroups: {},
+
+  // css includes
+  cssIncludes: {},
+
+  // postcss config
+  postcssConfig: {}
+};
+```
+
+### plugins
+```js
+  {
+    type: 'css',
+    filename: '[name].[contenthash:8].css',
+    chunkFilename: '[id].[contenthash:8].css',
+    ignoreOrder: true,
+  },
+  {
+    type: 'html',
+    inject: 'body',
+    title: 'index-pc',
+    chunks: ['index-pc'],
+    filename: '../views/index-pc.html',
+    template: indexPCPath,
+  },
+```
+
+### cacheGroups
+```js
+{
+  react: {
+    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+    name: 'react',
+    chunks: 'all',
+    priority: 0,
+    reuseExistingChunk: true,
+  },
+  axios: {
+    test: /[\\/]node_modules[\\/]axios[\\/]/,
+    name: 'axios',
+    chunks: 'all',
+    priority: -1,
+    reuseExistingChunk: true,
+  },
+  antd: {
+    test: /[\\/]node_modules[\\/]antd[\\/]/,
+    name: 'antd',
+    chunks: 'all',
+    priority: -2,
+    reuseExistingChunk: true,
+  },
+  default: {
+    priority: -20,
+    reuseExistingChunk: true,
+  },
+}
+```
+
+### cssIncludes
+```js
+[
+  /node_modules[\\/]antd/,
+  /node_modules[\\/]iconfont\.css$/,
+  /node_modules[\\/]normalize\.css/,
+]
+```
+
+
+### postcssConfig
+```js
+  plugins: [
+    require('autoprefixer')
+  ]
+```
+
 ## cli
 ### build
 ```shell
@@ -17,6 +115,9 @@ qwebpack analyzer /{yourconfigpath}/qiao.webpack.js
 ```
 
 ## version
+### 0.0.9.20220612
+1. postcss
+
 ### 0.0.8.20220508
 1. optimization
 

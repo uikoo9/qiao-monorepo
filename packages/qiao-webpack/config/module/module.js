@@ -19,13 +19,14 @@ var ruleForReact = require('./rule-for-react.js');
  * module
  * @param {*} isDev 
  * @param {*} cssIncludes 
+ * @param {*} postCssConfig 
  */
-module.exports = function(isDev, cssIncludes){
+module.exports = function(isDev, cssIncludes, postCssConfig){
   return {
     rules: [
       ruleForCss(isDev, cssIncludes),
       ruleForLess(isDev),
-      ruleForSass(isDev),
+      ruleForSass(isDev, postCssConfig),
       ruleForImg,
       ruleForReact,
     ]
