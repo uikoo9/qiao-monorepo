@@ -26,23 +26,12 @@ module.exports = function(isDev, cssIncludes){
                 modules: false,
             },
         },
-        {
-            loader: 'postcss-loader',
-            options: {
-                postcssOptions: {
-                    // config: path.resolve(__dirname, "custom.config.js"),
-                    plugins: [
-                        require('autoprefixer')
-                    ],
-                },
-            },
-        },
     ];
 
     // return
     return {
         test    : /\.css$/,
-        // include : finalCssIncludes,
+        include : finalCssIncludes,
         use     : use,
     };
 };
