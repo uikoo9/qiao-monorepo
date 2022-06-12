@@ -19,8 +19,7 @@ module.exports = function(isDev, cssIncludes){
 
     // use
     var use = [
-        // isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-        'style-loader',
+        isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
         {
             loader: require.resolve('css-loader'),
             options: {
