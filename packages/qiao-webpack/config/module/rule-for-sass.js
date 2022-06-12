@@ -12,13 +12,16 @@ var defaultPostcssConfig = require('./postcss.js');
  * @param {*} postCssConfig
  */
 module.exports = function (isDev, postCssConfig) {
+    console.log(Object.assign(defaultPostcssConfig, postCssConfig || {}));
     // use
     var use = [
         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
         'css-loader',
         {
             loader: 'postcss-loader',
-            options: Object.assign(defaultPostcssConfig, postCssConfig || {}),
+            options: {
+                postcssOptions: Object.assign(defaultPostcssConfig, postCssConfig || {})
+            },
         },
         'sass-loader',
     ];
