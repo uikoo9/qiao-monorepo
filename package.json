@@ -19,6 +19,6 @@
     "rollup": "^2.75.6"
   },
   "dependencies": {
-    "qiao-webpack": "^0.8.1"
+    "qiao-webpack": "^0.8.2"
   }
 }
