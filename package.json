@@ -17,5 +17,8 @@
     "qiao-cos": "^0.4.2",
     "qiao-lerna": "^0.4.0",
     "rollup": "^2.75.6"
+  },
+  "dependencies": {
+    "qiao-webpack": "^0.7.9"
   }
 }
