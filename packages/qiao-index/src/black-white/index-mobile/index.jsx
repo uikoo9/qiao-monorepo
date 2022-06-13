@@ -6,13 +6,11 @@ import React from 'react';
 // css
 import './index.scss';
 
-// qiao-ui
-import {
-  MobileHeader,
-  MobileFooter,
-  MobileContent,
-  MobileInfoList,
-} from 'qiao-ui';
+// ui
+import { MobileHeader } from './header/header.jsx';
+import { MobileFooter } from './footer/footer.jsx';
+import { MobileContent } from './content/content.jsx';
+import { MobileInfoList } from './info-list/info-list.jsx';
 
 /**
  * black white index mobile container

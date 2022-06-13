@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "qiao-service": "^0.0.5",
-    "qiao-ui": "^0.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

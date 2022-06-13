@@ -1,0 +1,34 @@
+@use "../../base";
+
+$containerWidth: 16rem;
+
+$infoHeight: 36rem;
+
+.infos {
+  width: $containerWidth;
+  height: $infoHeight;
+  border-bottom: base.$borderBottom;
+
+  .info {
+    width: $containerWidth;
+    height: calc($infoHeight / 6);
+
+    .title {
+      width: $containerWidth;
+      height: 2rem;
+      padding-top: 1rem;
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+      line-height: 3rem;
+    }
+    .desc {
+      width: $containerWidth;
+      height: 3rem;
+      color: #333;
+      font-size: 14px;
+      text-align: center;
+      line-height: 3rem;
+    }
+  }
+}

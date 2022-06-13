@@ -1,0 +1,66 @@
+@use "../../base";
+
+$loginWidth: 300px;
+
+$marginHeight: 200px;
+
+$inputHeight: 50px;
+$boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20px) + $inputHeight + 20px;
+
+.box{
+  width: $loginWidth;
+  height: $boxHeight;
+  margin-top: $marginHeight;
+
+  .input{
+    width: $loginWidth;
+    height: $inputHeight;
+    border-bottom: base.$borderBottom;
+    margin-bottom: 10px;
+
+    input{
+      width: $loginWidth - 20px;
+      height: base.$all;
+      margin: 0;
+      padding: 0;
+      padding: 0 10px;
+      border: none;
+      color: #333;
+      font-size: 18px;
+      line-height: $inputHeight;
+      outline: none;
+    }
+  }
+
+  .btn{
+    width: $loginWidth;
+    height: $inputHeight + 2px;
+    padding-top: 20px;
+
+    .ctx{
+      width: 100px;
+      height: $inputHeight;
+      margin: 0 auto;
+      color: #333;
+      font-size: 18px;
+      line-height: $inputHeight;
+      text-align: center;
+      border: base.$borderBottom;
+      cursor: pointer;
+      user-select: none;
+    }
+    .ctx:hover {
+      font-size: 20px;
+    }
+  }
+
+  .tips{
+    width: $loginWidth;
+    height: $inputHeight;
+    padding-top: 20px;
+    color: red;
+    font-size: 16px;
+    line-height: $inputHeight;
+    text-align: center;
+  }
+}

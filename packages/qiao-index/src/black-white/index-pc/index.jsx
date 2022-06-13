@@ -6,13 +6,11 @@ import React from 'react';
 // css
 import './index.scss';
 
-// qiao-ui
-import {
-  Header,
-  Footer,
-  Content,
-  InfoList,
-} from 'qiao-ui';
+// ui
+import { Header } from './header/header.jsx';
+import { Footer } from './footer/footer.jsx';
+import { Content } from './content/content.jsx';
+import { InfoList } from './info-list/info-list.jsx';
 
 /**
  * black white index pc container
