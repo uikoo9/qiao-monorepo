@@ -22,7 +22,7 @@
     "qcos": "./bin/qcos.js"
   },
   "dependencies": {
-    "cos-nodejs-sdk-v5": "^2.11.9",
+    "cos-nodejs-sdk-v5": "^2.11.10",
     "qiao-cli": "^0.2.9",
     "qiao-file": "^0.3.7"
   }

@@ -22,8 +22,8 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0"
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1"
   },
   "sideEffects": false
 }
