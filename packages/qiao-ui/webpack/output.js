@@ -8,7 +8,7 @@ var distPath = path.resolve(__dirname, '../dist');
 
 // output
 module.exports = {
-  filename: '[name].[contenthash:8].js',
+  filename: '[name].js',
   path: distPath,
   clean: true,
 };
