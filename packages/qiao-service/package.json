@@ -1,6 +1,6 @@
 {
   "name": "qiao-service",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "uikoo9 <uikoo9@qq.com>",
   "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-service#readme",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "qiao-ajax": "^2.6.4",
+    "qiao-ajax": "^2.6.5",
     "qiao-json": "^0.0.8"
   },
   "sideEffects": false
