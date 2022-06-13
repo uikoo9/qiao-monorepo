@@ -15,7 +15,6 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "qiao-cos": "^0.4.3",
-    "qiao-webpack": "^0.8.3"
+    "qiao-cos": "^0.4.3"
   }
 }

@@ -15,8 +15,5 @@
   },
   "scripts": {
     "build": "qwebpack build ./webpack/qiao.webpack.js"
-  },
-  "devDependencies": {
-    "qiao-webpack": "^0.8.3"
   }
 }

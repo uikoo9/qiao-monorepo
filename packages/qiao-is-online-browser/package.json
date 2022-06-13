@@ -23,8 +23,5 @@
   "dependencies": {
     "offline-to-online": "^0.1.1"
   },
-  "sideEffects": false,
-  "devDependencies": {
-    "qiao-webpack": "^0.8.3"
-  }
+  "sideEffects": false
 }
