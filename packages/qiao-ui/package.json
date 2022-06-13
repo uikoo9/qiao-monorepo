@@ -9,10 +9,15 @@
   "author": "uikoo9 <uikoo9@qq.com>",
   "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-ui#readme",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "src/components/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "scripts": {
+    "dev": "qwebpack dev ./webpack/qiao.webpack.js",
+    "build": "qwebpack build ./webpack/qiao.webpack.js",
+    "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js"
   },
   "dependencies": {
     "react": "^18.1.0",
