@@ -13,7 +13,7 @@ var pkg = require('./_pkg.js');
  */
 exports.handler = async function(folderName){
     // pkg
-    var pkgInfo = pkg.getPkgInfo(folderName);
+    var pkgInfo = pkg.getPkgInfo(folderName, true);
     if(typeof pkgInfo == 'string') return pkgInfo;
 
     // download counts

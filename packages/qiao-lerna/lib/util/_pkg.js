@@ -8,7 +8,7 @@ var fs = require('./_fs.js');
  * @param {*} dir 
  * @returns 
  */
-exports.getPkgInfo = function(dir){
+exports.getPkgInfo = function(dir, checkPrivate){
     // package file
     var packageFile = fs.path.resolve(dir, 'package.json');
     if (!fs.isExists(packageFile)) return `${dir} : package.json not exists`;
@@ -19,7 +19,7 @@ exports.getPkgInfo = function(dir){
 
     // package name
     var packageName = packageJson.name;
-    if (packageJson.private) return `${packageName} : private package`;
+    if (packageJson.private && checkPrivate) return `${packageName} : private package`;
 
     // return
     return {
