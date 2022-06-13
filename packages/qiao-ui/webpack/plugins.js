@@ -12,8 +12,8 @@ var indexPath = path.resolve(__dirname, './template/index.html');
 module.exports = [
   {
     type: 'css',
-    filename: '[name].[contenthash:8].css',
-    chunkFilename: '[id].[contenthash:8].css',
+    filename: '[name].css',
+    chunkFilename: '[id].css',
     ignoreOrder: true,
   },
 

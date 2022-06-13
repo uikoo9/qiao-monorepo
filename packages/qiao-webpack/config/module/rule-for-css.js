@@ -12,6 +12,7 @@ module.exports = function(isDev, cssIncludes){
     // css includes
     var defaultCssIncludes = [
         /node_modules[\\/]antd/,
+        /node_modules[\\/]bulma/,
         /node_modules[\\/]iconfont\.css$/,
         /node_modules[\\/]normalize\.css/,
     ];

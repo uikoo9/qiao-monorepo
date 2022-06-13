@@ -25,6 +25,13 @@ module.exports = {
     priority: -2,
     reuseExistingChunk: true,
   },
+  bulma: {
+    test: /[\\/]node_modules[\\/]bulma[\\/]/,
+    name: 'bulma',
+    chunks: 'all',
+    priority: -3,
+    reuseExistingChunk: true,
+  },
   default: {
     priority: -20,
     reuseExistingChunk: true,
