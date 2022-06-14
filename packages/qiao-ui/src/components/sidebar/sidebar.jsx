@@ -15,7 +15,7 @@ export class Sidebar extends React.Component {
         const links = this.props.links && this.props.links.map((link, index) => {
             if (!link || !link.name) return;
       
-            return <a href={link.url} className="list-group-item list-group-item-action" key={index}>{link.name}</a>
+            return <a href={link.url} className="list-group-item list-group-item-action" key={index}>{link.name}</a>;
         });
 
         // return
