@@ -41,9 +41,9 @@ module.exports = [
   {
     type: 'html',
     inject: 'body',
-    title: 'login',
-    chunks: ['login'],
-    filename: '../views/login.html',
+    title: 'black-white-login',
+    chunks: ['black-white-login'],
+    filename: '../views/black-white/login.html',
     publicPath:
       'https://static.insistime.com/00_insistime/static/',
     template: pcPath,

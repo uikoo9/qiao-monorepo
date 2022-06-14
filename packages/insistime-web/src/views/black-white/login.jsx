@@ -2,13 +2,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-// index
+// login
 import { BlackWhiteLoginContainer } from 'qiao-index';
 
 /**
- * index view
+ * login view
  */
-class IndexView extends React.Component {
+class LoginView extends React.Component {
   render() {
     return (
       <BlackWhiteLoginContainer
@@ -22,4 +22,4 @@ class IndexView extends React.Component {
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<IndexView />);
+root.render(<LoginView />);

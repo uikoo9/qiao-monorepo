@@ -14,3 +14,10 @@ exports.blackWhite = function (req, res) {
     res.render('black-white/index-pc.html');
   }
 };
+
+/**
+ * black white login
+ */
+ exports.blackWhiteLogin = function (req, res) {
+  res.render('black-white/login.html');
+};

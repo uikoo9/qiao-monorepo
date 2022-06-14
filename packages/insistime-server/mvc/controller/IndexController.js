@@ -12,6 +12,6 @@ module.exports = function(app){
 
 	// login
 	app.get('/login', function(req, res){
-		service.login(req, res);
+		service.blackWhiteLogin(req, res);
 	});
 };
