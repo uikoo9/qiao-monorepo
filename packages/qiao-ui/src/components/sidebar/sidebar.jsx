@@ -1,10 +1,11 @@
-'use strict';
-
 // react
 import React from 'react';
 
 // css
 import './sidebar.scss';
+
+// js
+import { getLinks } from './sidebar-fn.jsx';
 
 /**
  * sidebar
@@ -12,11 +13,7 @@ import './sidebar.scss';
 export class Sidebar extends React.Component {
     render() {
         // const
-        const links = this.props.links && this.props.links.map((link, index) => {
-            if (!link || !link.name) return;
-      
-            return <a href={link.url} className="list-group-item list-group-item-action" key={index}>{link.name}</a>;
-        });
+        const links = getLinks(this);
 
         // return
         return (

@@ -59,10 +59,10 @@ class IndexView extends React.Component {
                             />
                         </div>
                         <div className="col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-8 col-7">
-                            {/* <Table
+                            <Table
                                 cols={cols}
                                 rows={rows}
-                            /> */}
+                            />
                         </div>
                     </div>
                 </div>
