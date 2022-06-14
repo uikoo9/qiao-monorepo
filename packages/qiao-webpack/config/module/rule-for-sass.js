@@ -27,7 +27,7 @@ module.exports = function (isDev, postCssConfig) {
 
     // return
     return {
-        test: /\.scss$/,
+        test: /\.(scss|sass)$/,
         use: use,
     };
 };
