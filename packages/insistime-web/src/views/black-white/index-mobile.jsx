@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // constant
-import Constant from '../_constant.js';
+import Constant from './_constant.js';
 
 // index
 import { BlackWhiteIndexMobileContainer } from 'qiao-index';

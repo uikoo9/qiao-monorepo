@@ -4,13 +4,13 @@
 var path = require('path');
 
 // entry path
-var indexPCPath = path.resolve(__dirname, '../src/views/index-pc-view.jsx');
-var indexMobilePath = path.resolve(__dirname, '../src/views/index-mobile-view.jsx');
+var blackWhiteIndexPc = path.resolve(__dirname, '../src/views/black-white/index-pc.jsx');
+var blackWhiteIndexMobile = path.resolve(__dirname, '../src/views/black-white/index-mobile.jsx');
 var loginPath = path.resolve(__dirname, '../src/views/login-view.jsx');
 
 // entry
 module.exports = {
-  'index-pc': indexPCPath,
-  'index-mobile': indexMobilePath,
+  'black-white-index-pc': blackWhiteIndexPc,
+  'black-white-index-mobile': blackWhiteIndexMobile,
   'login': loginPath,
 };
