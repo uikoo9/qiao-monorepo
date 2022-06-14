@@ -32,6 +32,13 @@ module.exports = {
     priority: -3,
     reuseExistingChunk: true,
   },
+  bootstrap: {
+    test: /[\\/]node_modules[\\/]bootstrap[\\/]/,
+    name: 'bootstrap',
+    chunks: 'all',
+    priority: -4,
+    reuseExistingChunk: true,
+  },
   default: {
     priority: -20,
     reuseExistingChunk: true,

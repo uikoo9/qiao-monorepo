@@ -7,17 +7,11 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
  * rule for css
  * @param {*} isDev 
  * @param {*} cssIncludes 
+ * [
+ *  /node_modules[\\/]antd/
+ * ]
  */
 module.exports = function(isDev, cssIncludes){
-    // css includes
-    var defaultCssIncludes = [
-        /node_modules[\\/]antd/,
-        /node_modules[\\/]bulma/,
-        /node_modules[\\/]iconfont\.css$/,
-        /node_modules[\\/]normalize\.css/,
-    ];
-    var finalCssIncludes = defaultCssIncludes.concat(cssIncludes || []);
-
     // use
     var use = [
         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -32,7 +26,7 @@ module.exports = function(isDev, cssIncludes){
     // return
     return {
         test    : /\.css$/,
-        include : finalCssIncludes,
+        include : cssIncludes || [],
         use     : use,
     };
 };
