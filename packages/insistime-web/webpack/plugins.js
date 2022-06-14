@@ -11,6 +11,7 @@ var mobilePath = path.resolve(__dirname, './template/mobile.html');
  * qiao.webpack.js
  */
 module.exports = [
+  // css
   {
     type: 'css',
     filename: '[name].[contenthash:8].css',
@@ -18,6 +19,7 @@ module.exports = [
     ignoreOrder: true,
   },
 
+  // black white
   {
     type: 'html',
     inject: 'body',
@@ -44,6 +46,18 @@ module.exports = [
     title: 'black-white-login',
     chunks: ['black-white-login'],
     filename: '../views/black-white/login.html',
+    publicPath:
+      'https://static.insistime.com/00_insistime/static/',
+    template: pcPath,
+  },
+
+  // index
+  {
+    type: 'html',
+    inject: 'body',
+    title: 'index',
+    chunks: ['index'],
+    filename: '../views/index/index.html',
     publicPath:
       'https://static.insistime.com/00_insistime/static/',
     template: pcPath,

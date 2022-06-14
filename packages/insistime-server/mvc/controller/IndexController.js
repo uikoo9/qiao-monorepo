@@ -7,7 +7,7 @@ var service	= require('../service/HomeService.js');
 module.exports = function(app){
 	// index
 	app.get('/', function(req, res){
-		service.blackWhite(req, res);
+		require('../service/IndexService.js').index(req, res);
 	});
 
 	// login
