@@ -4,7 +4,7 @@
 
 ### display
 
-[https://insistime.com/](https://insistime.com/)
+[https://insistime.com/black-white](https://insistime.com/black-white)
 
 ### constant
 
