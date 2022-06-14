@@ -1,5 +1,5 @@
 // service
-var service	= require('../service/IndexService.js');
+var service	= require('../service/HomeService.js');
 
 /**
  * index controller
@@ -7,7 +7,7 @@ var service	= require('../service/IndexService.js');
 module.exports = function(app){
 	// index
 	app.get('/', function(req, res){
-		service.index(req, res);
+		service.blackWhite(req, res);
 	});
 
 	// login
