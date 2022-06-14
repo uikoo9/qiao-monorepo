@@ -50,16 +50,4 @@ module.exports = [
       'https://static.insistime.com/00_insistime/static/',
     template: pcPath,
   },
-
-  // index
-  {
-    type: 'html',
-    inject: 'body',
-    title: 'index',
-    chunks: ['index'],
-    filename: '../views/index/index.html',
-    publicPath:
-      'https://static.insistime.com/00_insistime/static/',
-    template: pcPath,
-  },
 ];

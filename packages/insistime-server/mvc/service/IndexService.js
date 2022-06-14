@@ -1,15 +1,18 @@
 'use strict';
 
+// home service
+var homeService = require('./HomeService.js');
+
 /**
  * index
  */
 exports.index = function (req, res) {
-  res.render('index.html');
+    homeService.blackWhite(req, res);
 };
 
 /**
  * login
  */
 exports.login = function (req, res) {
-  res.render('login.html');
+    homeService.blackWhiteLogin(req, res);
 };
