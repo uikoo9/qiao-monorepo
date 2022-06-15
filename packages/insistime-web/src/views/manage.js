@@ -45,6 +45,5 @@ export const getRows = async (groupId) => {
         return row;
     });
 
-    console.log(rows);
     return rows;
 };

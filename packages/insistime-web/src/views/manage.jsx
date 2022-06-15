@@ -21,7 +21,7 @@ import {
  * index view
  */
 class IndexView extends React.Component {
-    render() {
+    async render() {
         // header
         const headerDark = true;
         const headerLogo = 'insistime.com';
@@ -41,7 +41,7 @@ class IndexView extends React.Component {
 
         // table
         const cols = getCols();
-        const rows = getRows('125');
+        const rows = await getRows('125');
 
         return (
             <>
