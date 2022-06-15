@@ -29,8 +29,22 @@ export const getRows = async (groupId) => {
         usertoken: usertoken
     };
     window.insistime_userinfo = insistime_userinfo;
+
+    const cols = getCols();
     
-    const rows = await todoItemList(groupId);
+    const res = await todoItemList(groupId);
+    const resRows = res.obj.rows;
+    const rows = resRows.map((row, index) => {
+        const keys = Object.keys(row);
+        keys.forEach((key) => {
+            if(!cols.includes(key)){
+                delete row[key];
+            }
+        });
+
+        return row;
+    });
+
     console.log(rows);
     return rows;
 };
