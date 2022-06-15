@@ -24,6 +24,7 @@ export class BlackWhiteLoginContainer extends React.Component {
           passwordHolder={this.props.passwordHolder}
           loginBtn={this.props.loginBtn}
           loginClick={loginBtnClick}
+          loginSucUrl={this.props.loginSucUrl}
         />
       </div>
     );

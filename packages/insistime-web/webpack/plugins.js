@@ -48,6 +48,7 @@ module.exports = [
         filename: '../views/black-white/login.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
+        // filename: 'login.html',
         template: pcPath,
     },
 

@@ -1,13 +1,20 @@
 'use strict';
 
+// cookie
+import Cookies from 'js-cookie';
+
 // qiao
 import { login } from 'qiao-service';
 
 /**
  * loginBtnClick
- * @param {*} that 
+ * @param {*} username 
+ * @param {*} password 
+ * @param {*} callback 
+ * @param {*} loginSucUrl 
+ * @returns 
  */
-export const loginBtnClick = async (username, password, callback) => {
+export const loginBtnClick = async (username, password, callback, loginSucUrl) => {
     // check
     callback('');
     if (!username) {
@@ -25,5 +32,9 @@ export const loginBtnClick = async (username, password, callback) => {
         return;
     }
 
+    // suc
     callback(res.msg);
+    Cookies.set('userid', res.obj.userid);
+    Cookies.set('usertoken', res.obj.usertoken);
+    location.href = loginSucUrl;
 };

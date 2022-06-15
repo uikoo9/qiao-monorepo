@@ -15,6 +15,7 @@ class LoginView extends React.Component {
         usernameHolder={'username'}
         passwordHolder={'password'}
         loginBtn={'Login'}
+        loginSucUrl={'/manage'}
       />
     );
   }
