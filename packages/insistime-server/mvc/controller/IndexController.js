@@ -15,6 +15,11 @@ module.exports = function (app) {
         service.login(req, res);
     });
 
+    // logout
+    app.get('/logout', function (req, res) {
+        service.logout(req, res);
+    });
+
     // login
     app.get('/manage', function (req, res) {
         service.manage(req, res);

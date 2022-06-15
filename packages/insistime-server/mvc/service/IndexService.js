@@ -18,6 +18,15 @@ exports.login = function (req, res) {
 };
 
 /**
+ * logout
+ */
+exports.logout = function (req, res) {
+    res.clearCookie('userid');
+    res.clearCookie('usertoken');
+    res.redirect('/');
+};
+
+/**
  * manage
  */
 exports.manage = function (req, res) {
