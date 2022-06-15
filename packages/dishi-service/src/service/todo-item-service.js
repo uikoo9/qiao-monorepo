@@ -13,7 +13,7 @@ import { danger } from 'qiao-json';
  * todoItemList
  */
 export const todoItemList = async (gid) => {
-	const url = config.host + config.todoList;
+	const url = config.host + config.todoItemlist;
 	const data = {
 		todoGroupId: gid,
 		rows: '10'

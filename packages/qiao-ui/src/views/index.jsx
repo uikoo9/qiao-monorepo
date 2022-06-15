@@ -22,6 +22,9 @@ class IndexView extends React.Component {
         const headerNavs = [{
             url: '/',
             name: '首页'
+        },{
+            url: '/logout',
+            name: '退出'
         }];
 
         // sidebar
