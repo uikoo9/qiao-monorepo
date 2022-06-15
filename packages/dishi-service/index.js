@@ -36,7 +36,10 @@ var config = {
  *  data
  */
 const postWithToken = async (url, data) => {
-	const userinfo = global.insistime_userinfo;
+    const root = global || window;
+    if(!root) return qiaoJson.danger(`no window or global`);
+
+	const userinfo = root.insistime_userinfo;
 	if (!userinfo || !userinfo.userid || !userinfo.usertoken) return qiaoJson.danger(`please login first`);
 
 	const headers = {
