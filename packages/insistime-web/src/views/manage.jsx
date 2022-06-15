@@ -11,6 +11,12 @@ import {
     Table,
 } from 'qiao-ui';
 
+// js
+import {
+    getCols,
+    getRows,
+} from './manage.js';
+
 /**
  * index view
  */
@@ -34,17 +40,8 @@ class IndexView extends React.Component {
         }];
 
         // table
-        const cols = [
-            'id',
-            'name',
-            'age',
-        ];
-        const rows = [
-            {id:1,name:'11',age:'111'},
-            {id:2,name:'22',age:'222'},
-            {id:3,name:'33',age:'333'},
-            {id:4,name:'44',age:'444'},
-        ];
+        const cols = getCols();
+        const rows = getRows('125');
 
         return (
             <>

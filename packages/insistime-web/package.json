@@ -9,6 +9,7 @@
     "upload": "qcos fo ./config.json ../insistime-server/dist 00_insistime/static"
   },
   "dependencies": {
+    "dishi-service": "^0.0.7",
     "qiao-index": "^0.4.1",
     "qiao-service": "^0.0.5",
     "qiao-ui": "^0.2.7",
