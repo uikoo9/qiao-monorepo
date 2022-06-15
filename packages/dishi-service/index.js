@@ -6,7 +6,7 @@ var qiaoAjax = require('qiao-ajax');
 var qiaoJson = require('qiao-json');
 
 var host = "https://insistime.com/";
-var todoList = "todo/list";
+var todoList$1 = "todo/list";
 var todoGrouplist = "todo/group/list";
 var todoGroupSave$1 = "todo/group/save";
 var todoGroupDel$1 = "todo/group/del";
@@ -17,7 +17,7 @@ var todoItemDel$1 = "todo/item/del";
 var todoItemGet$1 = "todo/item/get";
 var config = {
 	host: host,
-	todoList: todoList,
+	todoList: todoList$1,
 	todoGrouplist: todoGrouplist,
 	todoGroupSave: todoGroupSave$1,
 	todoGroupDel: todoGroupDel$1,
@@ -133,7 +133,7 @@ const todoGroupGet = async (id) => {
  * todoItemList
  */
 const todoItemList = async (gid) => {
-	const url = config.host + config.todoList;
+	const url = config.host + config.todoItemlist;
 	const data = {
 		todoGroupId: gid,
 		rows: '10'
@@ -187,6 +187,19 @@ const todoItemGet = async (id) => {
 	return item;
 };
 
+/**
+ * todoList
+ */
+const todoList = async (gid) => {
+	const url = config.host + config.todoList;
+	const data = {
+		todoGroupId: gid,
+		rows: '10'
+	};
+
+	return await postWithToken(url, data);
+};
+
 exports.todoGroupDel = todoGroupDel;
 exports.todoGroupGet = todoGroupGet;
 exports.todoGroupList = todoGroupList;
@@ -195,3 +208,4 @@ exports.todoItemDel = todoItemDel;
 exports.todoItemGet = todoItemGet;
 exports.todoItemList = todoItemList;
 exports.todoItemSave = todoItemSave;
+exports.todoList = todoList;

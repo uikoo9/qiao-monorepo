@@ -45,7 +45,7 @@ exports.show = async function (num) {
 	var finalNum = Math.min(n, groups.obj.rows.length);
 	for (var i = 0; i < finalNum; i++) {
 		var group = groups.obj.rows[i];
-		var items = await dishiService.todoItemList(group.id);
+		var items = await dishiService.todoList(group.id);
 		res.push({
 			group: group,
 			items: items

@@ -24,7 +24,7 @@ exports.list = async function (group) {
 		var groupId = b.getGroupId();
 		if (!groupId) return;
 
-		var json = await dishiService.todoItemList(groupId);
+		var json = await dishiService.todoList(groupId);
 		if (!json) return;
 
 		qiao.log.suc(`${json.time}ms | list todo success`);
