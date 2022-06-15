@@ -16,3 +16,10 @@ exports.index = function (req, res) {
 exports.login = function (req, res) {
     homeService.blackWhiteLogin(req, res);
 };
+
+/**
+ * manage
+ */
+exports.manage = function (req, res) {
+    res.render('manage.html');
+};
