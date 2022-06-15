@@ -14,7 +14,7 @@ export const getNavs = (that) => {
         if (!nav || !nav.name || !nav.url) return;
 
         return <li className="nav-item" key={index}>
-            <a className="nav-link active" aria-current="page" href={nav.url}>{nav.name}</a>
+            <a className="nav-link" aria-current="page" href={nav.url}>{nav.name}</a>
         </li>;
     });
 };
