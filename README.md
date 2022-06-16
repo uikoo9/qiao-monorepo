@@ -67,6 +67,10 @@ dishi，todo list对应的浏览器请求
 
 ## Browser
 
+### [qiao.cookie.js](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.cookie.js#readme)
+
+浏览器下cookie相关操作
+
 ### [qiao.db.js](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.db.js#readme)
 
 浏览器 IndexedDB 数据库常见 api 封装
