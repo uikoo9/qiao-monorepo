@@ -1,3 +1,6 @@
+// qiao
+import qiao from 'qiao.cookie.js';
+
 // dishi service
 import { todoItemList } from 'dishi-service';
 
@@ -22,19 +25,19 @@ export const getCols = () => {
  * @returns rows
  */
 export const getRows = async (groupId) => {
-    const userid = '1';
-    const usertoken = '/waCtX7d2el7WTE0fiVS29h9G8IMMaVYLA+6BgNKUW0zJ1iud3LmLOQov1pT5yzE';
-    const insistime_userinfo = {
-        userid: userid,
-        usertoken: usertoken
+    // userinfo
+    window.insistime_userinfo = {
+        userid: qiao.get('insistime_userid'),
+        usertoken: qiao.get('insistime_usertoken')
     };
-    window.insistime_userinfo = insistime_userinfo;
 
+    // cols
     const cols = getCols();
     
+    // rows
     const res = await todoItemList(groupId);
     const resRows = res.obj.rows;
-    const rows = resRows.map((row, index) => {
+    return resRows.map((row, index) => {
         const keys = Object.keys(row);
         keys.forEach((key) => {
             if(!cols.includes(key)){
@@ -44,6 +47,4 @@ export const getRows = async (groupId) => {
 
         return row;
     });
-
-    return rows;
 };
