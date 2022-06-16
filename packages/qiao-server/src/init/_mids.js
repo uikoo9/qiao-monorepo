@@ -44,8 +44,8 @@ export const auth = async (req, res, next) => {
     }
 
     // auth - has token
-    const userid = req.headers.userid || req.cookies.userid;
-    const usertoken = req.headers.usertoken || req.cookies.usertoken;
+    const userid = req.headers.userid || req.cookies.insistime_userid;
+    const usertoken = req.headers.usertoken || req.cookies.insistime_usertoken;
     if (!userid || !usertoken) {
         res.send(qjson.danger('缺少token！'));
         return;
