@@ -14,5 +14,5 @@ module.exports = {
   'black-white-index-pc': blackWhiteIndexPc,
   'black-white-index-mobile': blackWhiteIndexMobile,
   'black-white-login': blackWhiteLoginPath,
-  'manage': managePath,
+//   'manage': managePath,
 };

@@ -10,7 +10,7 @@ import './login.scss';
 import { loginBtnClick } from './login.js';
 
 // login ui
-import { LoginBox } from './login-box/login-box.jsx'
+import { LoginBox } from 'qiao-ui'
 
 /**
  * black white login container

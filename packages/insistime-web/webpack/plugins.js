@@ -28,6 +28,7 @@ module.exports = [
         filename: '../views/black-white/index-pc.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
+        // filename: 'index-pc.html',
         template: pcPath,
     },
     {
@@ -38,6 +39,7 @@ module.exports = [
         filename: '../views/black-white/index-mobile.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
+        // filename: 'index-mobile.html',
         template: mobilePath,
     },
     {
@@ -53,15 +55,15 @@ module.exports = [
     },
 
     // manage
-    {
-        type: 'html',
-        inject: 'body',
-        title: 'manage',
-        chunks: ['manage'],
-        filename: '../views/manage.html',
-        publicPath:
-            'https://static.insistime.com/00_insistime/static/',
-        // filename: 'manage.html',
-        template: pcPath,
-    },
+    // {
+    //     type: 'html',
+    //     inject: 'body',
+    //     title: 'manage',
+    //     chunks: ['manage'],
+    //     filename: '../views/manage.html',
+    //     publicPath:
+    //         'https://static.insistime.com/00_insistime/static/',
+    //     // filename: 'manage.html',
+    //     template: pcPath,
+    // },
 ];

@@ -7,10 +7,12 @@ import React from 'react';
 import './index.scss';
 
 // ui
-import { Header } from './header/header.jsx';
-import { Footer } from './footer/footer.jsx';
-import { Content } from './content/content.jsx';
-import { InfoList } from './info-list/info-list.jsx';
+import {
+    Header,
+    Footer,
+    Content,
+    InfoList,
+} from 'qiao-ui';
 
 /**
  * black white index pc container
