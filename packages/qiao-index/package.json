@@ -12,8 +12,8 @@
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
     },
     "dependencies": {
-        "js-cookie": "^3.0.1",
         "qiao-service": "^0.0.5",
+        "qiao.cookie.js": "^0.0.1",
         "react": "^18.1.0",
         "react-dom": "^18.1.0"
     },
