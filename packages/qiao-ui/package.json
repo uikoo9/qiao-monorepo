@@ -1,6 +1,6 @@
 {
   "name": "qiao-ui",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "qiao ui",
   "keywords": [
     "qiao",
@@ -14,8 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
