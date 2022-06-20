@@ -3,7 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // login
-import { BlackWhiteLoginContainer } from '@components/login/login.jsx';
+import { LoginContainer } from '@components/login/login.jsx';
 
 /**
  * login view
@@ -11,7 +11,7 @@ import { BlackWhiteLoginContainer } from '@components/login/login.jsx';
 class LoginView extends React.Component {
   render() {
     return (
-      <BlackWhiteLoginContainer
+      <LoginContainer
         usernameHolder={'username'}
         passwordHolder={'password'}
         loginBtn={'Login'}

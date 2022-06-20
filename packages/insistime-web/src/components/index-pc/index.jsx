@@ -13,9 +13,9 @@ import {
 } from 'qiao-ui';
 
 /**
- * black white index pc container
+ * index pc container
  */
-export class BlackWhiteIndexPCContainer extends React.Component {
+export class IndexPCContainer extends React.Component {
   render() {
     return (
       <div className="container">

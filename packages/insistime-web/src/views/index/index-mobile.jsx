@@ -8,7 +8,7 @@ import { createRoot } from 'react-dom/client';
 import Constant from './_constant.js';
 
 // index
-import { BlackWhiteIndexMobileContainer } from '@components/index-mobile/index.jsx';
+import { IndexMobileContainer } from '@components/index-mobile/index.jsx';
 
 /**
  * index view
@@ -16,7 +16,7 @@ import { BlackWhiteIndexMobileContainer } from '@components/index-mobile/index.j
 class IndexView extends React.Component {
   render() {
     return (
-      <BlackWhiteIndexMobileContainer constant={Constant} />
+      <IndexMobileContainer constant={Constant} />
     );
   }
 }

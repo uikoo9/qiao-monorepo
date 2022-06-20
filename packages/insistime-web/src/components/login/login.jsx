@@ -11,9 +11,9 @@ import { loginBtnClick } from './login.js';
 import { LoginBox } from 'qiao-ui'
 
 /**
- * black white login container
+ * login container
  */
-export class BlackWhiteLoginContainer extends React.Component {
+export class LoginContainer extends React.Component {
   render() {
     return (
       <div className="container">
