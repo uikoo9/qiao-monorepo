@@ -26,8 +26,8 @@ exports.login = function (req, res) {
  * logout
  */
 exports.logout = function (req, res) {
-    res.clearCookie('userid');
-    res.clearCookie('usertoken');
+    res.clearCookie('insistime_userid');
+    res.clearCookie('insistime_usertoken');
     res.redirect('/');
 };
 
