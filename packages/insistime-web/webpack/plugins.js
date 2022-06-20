@@ -23,9 +23,9 @@ module.exports = [
     {
         type: 'html',
         inject: 'body',
-        title: 'black-white-index-pc',
-        chunks: ['black-white-index-pc'],
-        filename: '../views/black-white/index-pc.html',
+        title: 'index-pc',
+        chunks: ['index-pc'],
+        filename: '../views/index/index-pc.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
         // filename: 'index-pc.html',
@@ -34,9 +34,9 @@ module.exports = [
     {
         type: 'html',
         inject: 'body',
-        title: 'black-white-index-mobile',
-        chunks: ['black-white-index-mobile'],
-        filename: '../views/black-white/index-mobile.html',
+        title: 'index-mobile',
+        chunks: ['index-mobile'],
+        filename: '../views/index/index-mobile.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
         // filename: 'index-mobile.html',
@@ -45,9 +45,9 @@ module.exports = [
     {
         type: 'html',
         inject: 'body',
-        title: 'black-white-login',
-        chunks: ['black-white-login'],
-        filename: '../views/black-white/login.html',
+        title: 'login',
+        chunks: ['login'],
+        filename: '../views/index/login.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
         // filename: 'login.html',

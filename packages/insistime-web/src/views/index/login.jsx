@@ -3,7 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // login
-import { BlackWhiteLoginContainer } from 'qiao-index';
+import { BlackWhiteLoginContainer } from '@components/login/login.jsx';
 
 /**
  * login view

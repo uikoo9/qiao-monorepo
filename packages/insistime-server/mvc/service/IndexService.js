@@ -1,20 +1,25 @@
 'use strict';
 
-// home service
-var homeService = require('./HomeService.js');
+// util
+var util = require('../util.js');
 
 /**
  * index
  */
 exports.index = function (req, res) {
-    homeService.blackWhite(req, res);
+    var vendor = util.vendor(req.headers['user-agent']);
+    if (vendor.mobile || vendor.android) {
+        res.render('index/index-mobile.html');
+    } else {
+        res.render('index/index-pc.html');
+    }
 };
 
 /**
  * login
  */
 exports.login = function (req, res) {
-    homeService.blackWhiteLogin(req, res);
+    res.render('index/login.html');
 };
 
 /**
@@ -30,5 +35,5 @@ exports.logout = function (req, res) {
  * manage
  */
 exports.manage = function (req, res) {
-    res.render('manage.html');
+    res.render('manage/manage.html');
 };
