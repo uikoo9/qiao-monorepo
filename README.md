@@ -83,10 +83,6 @@ dishi，todo list对应的浏览器请求
 
 [jquery-easyui](http://www.jeasyui.com)库常见 api 封装
 
-### [qiao-index](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-index#readme)
-
-浏览器下官网首页模版
-
 ### [qiao-is-online-browser](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-is-online-browser#readme)
 
 浏览器检测用户是否在线
