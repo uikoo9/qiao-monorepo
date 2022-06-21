@@ -19,7 +19,7 @@ module.exports = [
         ignoreOrder: true,
     },
 
-    // black white
+    // index
     {
         type: 'html',
         inject: 'body',
@@ -42,6 +42,8 @@ module.exports = [
         // filename: 'index-mobile.html',
         template: mobilePath,
     },
+
+    // login
     {
         type: 'html',
         inject: 'body',

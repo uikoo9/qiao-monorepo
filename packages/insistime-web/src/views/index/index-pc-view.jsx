@@ -8,19 +8,19 @@ import { createRoot } from 'react-dom/client';
 import Constant from './_constant.js';
 
 // index
-import { IndexMobileContainer } from '@components/index-mobile/index.jsx';
+import { IndexPCContainer } from '@components/index-pc/index.jsx';
 
 /**
- * index view
+ * index pc view
  */
-class IndexView extends React.Component {
+class IndexPCView extends React.Component {
   render() {
     return (
-      <IndexMobileContainer constant={Constant} />
+      <IndexPCContainer constant={Constant} />
     );
   }
 }
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<IndexView />);
+root.render(<IndexPCView />);
