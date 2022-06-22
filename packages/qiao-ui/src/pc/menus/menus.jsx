@@ -14,7 +14,7 @@ export class Menus extends React.Component {
         const menus = this.props.menus && this.props.menus.map((menu, index) => {
             if (!menu.name) return;
 
-            return <div className={`${menu.main ? 'menu main' : 'menu'}`}>
+            return <div className={`${menu.main ? 'menu main' : 'menu'}`} key={index}>
                 {
                     menu.url ? <a href={menu.url}>{menu.name}</a> : menu.name
                 }

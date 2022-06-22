@@ -10,7 +10,14 @@ import './manage.scss';
 import {
     Header,
     Menus,
+    Table
 } from 'qiao-ui';
+
+// js
+import {
+    getCols,
+    getRows,
+} from './manage.js';
 
 /**
  * manage container
@@ -18,6 +25,22 @@ import {
 export class ManageContainer extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            cols: '',
+            rows: '',
+        };
+    }
+
+    async componentDidMount(){
+        // table
+        const cols = getCols();
+        const rows = await getRows('108');
+
+        this.setState({
+            cols: cols,
+            rows: rows,
+        });
     }
 
     render() {
@@ -26,9 +49,17 @@ export class ManageContainer extends React.Component {
                 logo={this.props.constant.logo}
                 navs={this.props.constant.navs}
             />
-            <Menus 
-                menus={this.props.constant.menus}
-            />
+            <div className="content">
+                <Menus 
+                    menus={this.props.constant.menus}
+                />
+                <div className="data-container">
+                    <Table
+                        cols={this.state.cols}
+                        rows={this.state.rows}
+                    />
+                </div>
+            </div>
         </div>;
     }
 }

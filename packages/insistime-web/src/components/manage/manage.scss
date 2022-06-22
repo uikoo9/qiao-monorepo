@@ -1,15 +1,24 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 #root {
-  width: 100%;
+    width: 100%;
 }
 
 .container {
-  width: 1400px;
-  margin: 0 auto;
+    width: 1400px;
+    margin: 0 auto;
+
+    .content {
+        width: 1400px;
+
+        .data-container{
+            float: left;
+            width: 1200px;
+        }
+    }
 }

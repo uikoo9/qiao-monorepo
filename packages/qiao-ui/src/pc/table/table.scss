@@ -1,0 +1,29 @@
+@use "../../base";
+
+$tableWidth: 1100px;
+$tdHeight: 40px;
+$tdPadding: 5px;
+
+.table-container{
+    width: $tableWidth;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    table{
+        width: base.$all;
+        border-collapse:collapse;
+    }
+    
+    th{
+        height: $tdHeight;
+        padding: $tdPadding;
+        border: base.$border;
+    }
+
+    td{
+        height: $tdHeight;
+        padding: $tdPadding;
+        border: base.$border;
+        text-align: center;
+    }
+}

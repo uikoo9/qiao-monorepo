@@ -4,6 +4,7 @@ $menuWidth: 200px;
 $menuHeight: 40px;
 
 .menus{
+    float: left;
     width: $menuWidth;
 
     .menu{
