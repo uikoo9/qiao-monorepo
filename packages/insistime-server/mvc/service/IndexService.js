@@ -19,7 +19,7 @@ exports.index = function (req, res) {
  * login
  */
 exports.login = function (req, res) {
-    res.render('index/login.html');
+    res.render('login/login.html');
 };
 
 /**

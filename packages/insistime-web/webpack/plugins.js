@@ -49,7 +49,7 @@ module.exports = [
         inject: 'body',
         title: 'login',
         chunks: ['login'],
-        filename: '../views/index/login.html',
+        filename: '../views/login/login.html',
         publicPath:
             'https://static.insistime.com/00_insistime/static/',
         // filename: 'login.html',
@@ -57,15 +57,15 @@ module.exports = [
     },
 
     // manage
-    // {
-    //     type: 'html',
-    //     inject: 'body',
-    //     title: 'manage',
-    //     chunks: ['manage'],
-    //     filename: '../views/manage.html',
-    //     publicPath:
-    //         'https://static.insistime.com/00_insistime/static/',
-    //     // filename: 'manage.html',
-    //     template: pcPath,
-    // },
+    {
+        type: 'html',
+        inject: 'body',
+        title: 'manage',
+        chunks: ['manage'],
+        filename: '../views/manage/manage.html',
+        publicPath:
+            'https://static.insistime.com/00_insistime/static/',
+        // filename: 'manage.html',
+        template: pcPath,
+    },
 ];
