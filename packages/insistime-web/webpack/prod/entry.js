@@ -8,6 +8,7 @@ var indexPc = path.resolve(__dirname, '../../src/views/index/index-pc-view.jsx')
 var indexMobile = path.resolve(__dirname, '../../src/views/index/index-mobile-view.jsx');
 var login = path.resolve(__dirname, '../../src/views/login/login-view.jsx');
 var manage = path.resolve(__dirname, '../../src/views/manage/manage-view.jsx');
+var search = path.resolve(__dirname, '../../src/views/search/search-view.jsx');
 
 // entry
 module.exports = {
@@ -15,4 +16,5 @@ module.exports = {
   'index-mobile': indexMobile,
   'login': login,
   'manage': manage,
+  'search': search,
 };

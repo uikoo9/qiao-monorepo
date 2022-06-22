@@ -62,4 +62,15 @@ module.exports = [
         publicPath: 'https://static.insistime.com/00_insistime/static/',
         template: pcPath,
     },
+
+    // search
+    {
+        type: 'html',
+        inject: 'body',
+        title: 'search',
+        chunks: ['search'],
+        filename: '../views/search/search.html',
+        publicPath: 'https://static.insistime.com/00_insistime/static/',
+        template: pcPath,
+    },
 ];

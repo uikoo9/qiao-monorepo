@@ -56,4 +56,14 @@ module.exports = [
         filename: 'manage.html',
         template: pcPath,
     },
+
+    // search
+    {
+        type: 'html',
+        inject: 'body',
+        title: 'search',
+        chunks: ['search'],
+        filename: 'search.html',
+        template: pcPath,
+    },
 ];

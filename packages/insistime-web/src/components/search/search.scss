@@ -1,0 +1,70 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#root {
+    width: 100%;
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+
+    .search-container{
+        width: 1000px;
+        margin: 0 auto;
+        margin-top: 100px;
+
+        .search-input{
+            width: 743px;
+            height: 60px;
+            margin: 0 auto;
+
+            .input{
+                float: left;
+                width: 500px;
+                height: 58px;
+                padding-left: 20px;
+                padding-right: 20px;
+                border-left: solid 1px #333;
+                border-top: solid 1px #333;
+                border-bottom: solid 1px #333;
+
+                input{
+                    width: 500px;
+                    height: 58px;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    color: #333;
+                    font-size: 24px;
+                    line-height: 58px;
+                }
+                input:focus{
+                    outline: none;
+                }
+            }
+            .button{
+                float: left;
+                width: 200px;
+                height: 58px;
+                border: solid 1px #333;
+
+                color: #333;
+                font-size: 24px;
+                line-height: 58px;
+                text-align: center;
+                background-color: #fff;
+                cursor: pointer;
+                user-select: none;
+            }
+            .button:hover{
+                font-size: 26px;
+            }
+        }
+    }
+
+}
