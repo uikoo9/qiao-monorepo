@@ -2,6 +2,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+// constant
+import Constant from './_constant.js';
+
 // manage
 import { ManageContainer } from '@components/manage/manage.jsx';
 
@@ -11,8 +14,7 @@ import { ManageContainer } from '@components/manage/manage.jsx';
 class ManageView extends React.Component {
   render() {
     return (
-      <ManageContainer
-      />
+      <ManageContainer constant={Constant} />
     );
   }
 }

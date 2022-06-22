@@ -12,9 +12,6 @@ import {
     Footer,
 } from 'qiao-ui';
 
-// constant
-import Constant from '../../views/index/_constant.js';
-
 /**
  * manage container
  */
@@ -26,8 +23,8 @@ export class ManageContainer extends React.Component {
     render() {
         return <div className="container">
             <Header
-                logo={Constant.logo}
-                navs={Constant.navs}
+                logo={this.props.constant.logo}
+                navs={this.props.constant.navs}
             />
             <div className="menus">
                 <div className="menu main">用户管理</div>
