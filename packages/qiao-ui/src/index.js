@@ -4,6 +4,7 @@ export { Content } from './pc/content/content.jsx';
 export { InfoList } from './pc/info-list/info-list.jsx';
 export { Footer } from './pc/footer/footer.jsx';
 export { LoginBox } from './pc/login-box/login-box.jsx';
+export { Menus } from './pc/menus/menus.jsx';
 
 // mobile
 export { MobileHeader } from './mobile/header/header.jsx';

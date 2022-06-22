@@ -1,6 +1,7 @@
 $all: 100%;
 
 $borderBottom: solid 1px #333;
+$borderBottomDotted: dotted 1px #333;
 
 @mixin alink($color: #333) {
   a:link {

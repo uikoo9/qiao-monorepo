@@ -9,7 +9,7 @@ import './manage.scss';
 // ui
 import {
     Header,
-    Footer,
+    Menus,
 } from 'qiao-ui';
 
 /**
@@ -26,24 +26,9 @@ export class ManageContainer extends React.Component {
                 logo={this.props.constant.logo}
                 navs={this.props.constant.navs}
             />
-            <div className="menus">
-                <div className="menu main">用户管理</div>
-                <div className="menu">用户管理</div>
-                <div className="menu">菜单管理</div>
-                <div className="menu">权限管理</div>
-                <div className="menu main">用户管理</div>
-                <div className="menu">用户管理</div>
-                <div className="menu">菜单管理</div>
-                <div className="menu">权限管理</div>
-                <div className="menu main">用户管理</div>
-                <div className="menu">用户管理</div>
-                <div className="menu">菜单管理</div>
-                <div className="menu">权限管理</div>
-                <div className="menu main">用户管理</div>
-                <div className="menu">用户管理</div>
-                <div className="menu">菜单管理</div>
-                <div className="menu">权限管理</div>
-            </div>
+            <Menus 
+                menus={this.props.constant.menus}
+            />
         </div>;
     }
 }

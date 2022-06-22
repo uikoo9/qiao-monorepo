@@ -16,31 +16,3 @@ body {
   height: 100%;
   margin: 0 auto;
 }
-
-.menus{
-    width: 200px;
-    height: 100%;
-
-    .menu{
-        width: 200px;
-        height: 40px;
-        border-bottom: dotted 1px #333;
-        
-        color: #333;
-        font-size: 14px;
-        line-height: 50px;
-        text-align: center;
-        
-        cursor: pointer;
-        user-select: none;
-    }
-    .menu:hover{
-        font-size: 16px;
-    }
-    .menu.main{
-        height: 50px;
-        border-bottom: solid 1px #333;
-        font-size: 16px;
-    }
-    
-}
