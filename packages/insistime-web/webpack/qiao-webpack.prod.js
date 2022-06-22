@@ -1,25 +1,21 @@
 'use strict';
 
 // alias
-var alias = require('./alias.js');
-
-// dev
-var dev = require('./dev.js');
+var alias = require('./prod/alias.js');
 
 // entry
-var entry = require('./entry.js');
+var entry = require('./prod/entry.js');
 
 // output
-var output = require('./output.js');
+var output = require('./prod/output.js');
 
 // plugins
-var plugins = require('./plugins.js');
+var plugins = require('./prod/plugins.js');
 
 /**
  * qiao.webpack.js
  */
 module.exports = {
-  devServer: dev,
   entry: entry,
   output: output,
   plugins: plugins,

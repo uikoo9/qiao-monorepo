@@ -4,8 +4,7 @@
 var path = require('path');
 
 // dist path
-var distPath = path.resolve(__dirname, '../../insistime-server/dist');
-// var distPath = path.resolve(__dirname, '../dist');
+var distPath = path.resolve(__dirname, '../../../insistime-server/dist');
 
 // output
 module.exports = {
