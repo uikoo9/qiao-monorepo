@@ -1,7 +1,7 @@
 {
   "name": "insistime-server",
   "private": true,
-  "version": "0.8.3",
+  "version": "0.8.4",
   "dependencies": {
     "dishi-server": "^0.1.5",
     "qiao-server": "^0.2.6"
