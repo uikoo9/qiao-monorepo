@@ -15,7 +15,9 @@ export class Header extends React.Component {
       if (!nav.url || !nav.name) return;
 
       return <div className="nav nav-txt" key={index}>
-        <a target="_blank" href={nav.url}>{nav.name}</a>
+        {
+            nav.blank ? <a target="_blank" href={nav.url}>{nav.name}</a> : <a href={nav.url}>{nav.name}</a>
+        }
       </div>
     });
 

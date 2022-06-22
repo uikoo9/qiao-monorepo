@@ -2,6 +2,7 @@ export default {
     logo: 'insistime.com',
     navs: [{
         name: 'Github',
+        blank: true,
         url: 'https://github.com/uikoo9/qiao-monorepo'
     }],
 
