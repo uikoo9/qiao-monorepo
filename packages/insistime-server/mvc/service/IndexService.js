@@ -16,24 +16,8 @@ exports.index = function (req, res) {
 };
 
 /**
- * login
+ * search
  */
-exports.login = function (req, res) {
-    res.render('login/login.html');
-};
-
-/**
- * logout
- */
-exports.logout = function (req, res) {
-    res.clearCookie('insistime_userid');
-    res.clearCookie('insistime_usertoken');
-    res.redirect('/');
-};
-
-/**
- * manage
- */
-exports.manage = function (req, res) {
-    res.render('manage/manage.html');
+exports.search = function (req, res) {
+    res.render('search/search.html');
 };

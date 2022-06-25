@@ -7,11 +7,16 @@ import React from 'react';
 import './search.scss';
 
 // js
-import { searchClick } from './search.js';
+import { 
+    searchClick,
+    checkboxChange,
+} from './search.js';
 
 // ui
-import { SearchBox } from 'qiao-ui';
-import { CheckboxList } from 'qiao-ui';
+import { 
+    SearchBox,
+    CheckboxList,
+} from 'qiao-ui';
 
 /**
  * search container
@@ -24,21 +29,16 @@ export class SearchContainer extends React.Component {
             checkboxValues : [],
         };
 
+        this.searchClick = this.searchClick.bind(this);
         this.checkboxChange = this.checkboxChange.bind(this);
     }
 
-    checkboxChange(isChecked, value){
-        let checkboxValues = this.state.checkboxValues;
-        if(isChecked){
-            checkboxValues.push(value);
-        }else{
-            const index = checkboxValues.indexOf(value);
-            checkboxValues.splice(index, 1);
-        }
+    searchClick(value){
+        searchClick(this, value);
+    }
 
-        this.setState({
-            checkboxValues : checkboxValues
-        });
+    checkboxChange(isChecked, value){
+        checkboxChange(this, isChecked, value);
     }
 
     render() {
@@ -46,7 +46,7 @@ export class SearchContainer extends React.Component {
             <SearchBox
                 placeholder='all, express | npm, express'
                 searchBtnText='Search'
-                searchClick={searchClick}
+                searchClick={this.searchClick}
             />
             <CheckboxList 
                 text='all ='

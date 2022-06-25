@@ -10,18 +10,8 @@ module.exports = function (app) {
         service.index(req, res);
     });
 
-    // login
-    app.get('/login', function (req, res) {
-        service.login(req, res);
-    });
-
-    // logout
-    app.get('/logout', function (req, res) {
-        service.logout(req, res);
-    });
-
-    // login
-    app.get('/manage', function (req, res) {
-        service.manage(req, res);
+    // search
+    app.get('/search', function (req, res) {
+        service.search(req, res);
     });
 };
