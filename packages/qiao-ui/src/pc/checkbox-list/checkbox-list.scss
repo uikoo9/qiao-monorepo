@@ -1,16 +1,20 @@
+@use "../../base";
+
+$height : 20px;
+
 .checkbox-list{
     width: 743px;
-    height: 60px;
+    height: $height;
     margin: 0 auto;
     padding-top: 20px;
 
     .item{
         float: left;
-        height: 20px;
+        height: $height;
         padding-right: 10px;
         color: #333;
         font-size: 16px;
-        line-height: 20px;
+        line-height: $height;
 
         input{
             display: block;
