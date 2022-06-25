@@ -21,6 +21,7 @@
     "build": "qwebpack build ./webpack/qiao.webpack.js"
   },
   "dependencies": {
-    "qiao-ajax": "^2.6.6"
+    "qiao-ajax": "^2.6.6",
+    "qs": "^6.10.5"
   }
 }
