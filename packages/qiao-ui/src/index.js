@@ -6,6 +6,7 @@ export { Footer } from './pc/footer/footer.jsx';
 export { LoginBox } from './pc/login-box/login-box.jsx';
 export { Menus } from './pc/menus/menus.jsx';
 export { Table } from './pc/table/table.jsx';
+export { SearchBox } from './pc/search-box/search-box.jsx';
 
 // mobile
 export { MobileHeader } from './mobile/header/header.jsx';

@@ -1,0 +1,58 @@
+@use "../../base";
+
+$marginTop: 100px;
+
+$inputWidth: 500px;
+$btnWidth: 200px;
+$paddingWidth: 20px;
+$width: calc($inputWidth + $btnWidth + ($paddingWidth*2) + 3px);
+$height: 60px;
+
+.search-box{
+    width: $width;
+    height: $height;
+    margin: 0 auto;
+    margin-top: $marginTop;
+
+    .input{
+        float: left;
+        width: $inputWidth;
+        height: calc($height - 2px);
+        padding-left: $paddingWidth;
+        padding-right: $paddingWidth;
+        border-left: base.$border;
+        border-top: base.$border;
+        border-bottom: base.$border;
+
+        input{
+            width: $inputWidth;
+            height: calc($height - 2px);
+            margin: 0;
+            padding: 0;
+            border: none;
+            color: #333;
+            font-size: 24px;
+            line-height: calc($height - 2px);;
+        }
+        input:focus{
+            outline: none;
+        }
+    }
+    .button{
+        float: left;
+        width: $btnWidth;
+        height: calc($height - 2px);
+        border: base.$border;
+
+        color: #333;
+        font-size: 24px;
+        line-height: calc($height - 2px);;
+        text-align: center;
+        background-color: #fff;
+        cursor: pointer;
+        user-select: none;
+    }
+    .button:hover{
+        font-size: 26px;
+    }
+}

@@ -1,5 +1,3 @@
-'use strict';
-
 // react
 import React from 'react';
 

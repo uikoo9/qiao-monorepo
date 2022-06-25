@@ -6,56 +6,32 @@ import React from 'react';
 // css
 import './search.scss';
 
-// ui
-import {
-    Header,
-    Menus,
-    Table
-} from 'qiao-ui';
-
 // js
-import {
-    getCols,
-    getRows,
-} from './search.js';
+import { searchClick } from './search.js';
+
+// ui
+import { SearchBox } from 'qiao-ui';
+import { CheckboxList } from './checkbox-list/checkbox-list.jsx';
 
 /**
  * search container
  */
 export class SearchContainer extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            cols: '',
-            rows: '',
-        };
-    }
-
-    async componentDidMount(){
-        // table
-        const cols = getCols();
-        const rows = await getRows('108');
-
-        this.setState({
-            cols: cols,
-            rows: rows,
-        });
-    }
-
     render() {
         return <div className="container">
-            <div className="search-container">
-                <div className="search-input">
-                    <div className="input">
-                        <input type="text" placeholder='all, express | npm, express'/>
-                    </div>
-                    <div className="button">search</div>
-                </div>
-                <div className="search-checkbox">
-
-                </div>
-            </div>
+            <SearchBox
+                placeholder='all, express | npm, express'
+                searchBtnText='Search'
+                searchClick={searchClick}
+            />
+            <CheckboxList 
+                text='all ='
+                checkboxs = {[{
+                    name : 'npm'
+                },{
+                    name : 'express'
+                }]}
+            />
         </div>;
     }
 }
