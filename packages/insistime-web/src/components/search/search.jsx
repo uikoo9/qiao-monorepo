@@ -26,7 +26,7 @@ export class SearchContainer extends React.Component {
         super(props);
 
         this.state = {
-            checkboxValues : [],
+            checkboxValues : ['npm'],
         };
 
         this.searchClick = this.searchClick.bind(this);
@@ -51,9 +51,10 @@ export class SearchContainer extends React.Component {
             <CheckboxList 
                 text='all ='
                 checkboxs = {[{
-                    name : 'npm'
+                    name : 'npm',
+                    checked : true,
                 },{
-                    name : 'express'
+                    name : 'express',
                 }]}
                 checkboxChange = {this.checkboxChange}
             />
