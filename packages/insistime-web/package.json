@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "dishi-service": "^0.0.9",
+    "qiao-ajax": "^2.6.6",
     "qiao-service": "^0.0.5",
     "qiao-ui": "^0.3.6",
     "qiao.cookie.js": "^0.0.1",

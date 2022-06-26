@@ -1,5 +1,13 @@
 'use strict';
 
+// qiao
+var qiao = require('qiao-server');
+
+/**
+ * json
+ */
+exports.json = qiao.json;
+
 /**
  * vendor
  */

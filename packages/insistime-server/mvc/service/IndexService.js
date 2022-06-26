@@ -21,3 +21,10 @@ exports.index = function (req, res) {
 exports.search = function (req, res) {
     res.render('search/search.html');
 };
+
+/**
+ * search npm
+ */
+exports.searchNpm = function (req, res) {
+    res.send(util.json.success(req.body.pkg));
+};

@@ -1,3 +1,6 @@
+// qiao
+import { post } from 'qiao-ajax';
+
 /**
  * checkboxChange
  * @param {*} that 
@@ -26,5 +29,10 @@ export const checkboxChange = (that, isChecked, value) => {
 export const searchClick = async (that, value) => {
     const checkboxValues = that.state.checkboxValues;
 
-    console.log(checkboxValues, value);
+    const res = await post('https://insistime.com/search/npm', {
+        data: {
+            pkg: value
+        }
+    });
+    console.log(checkboxValues, value, res);
 };

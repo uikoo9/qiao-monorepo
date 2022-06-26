@@ -14,4 +14,9 @@ module.exports = function (app) {
     app.get('/search', function (req, res) {
         service.search(req, res);
     });
+
+    // search npm
+    app.post('/search/npm', function (req, res) {
+        service.searchNpm(req, res);
+    });
 };
