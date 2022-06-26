@@ -8,7 +8,8 @@ export default {
         format: 'cjs'
     },
     external: [
-        'qiao-ajax'
+        'qiao-ajax',
+        'libnpmsearch'
     ],
     plugins: []
 };

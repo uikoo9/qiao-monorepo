@@ -3,6 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var qiaoAjax = require('qiao-ajax');
+var search = require('libnpmsearch');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var search__default = /*#__PURE__*/_interopDefaultLegacy(search);
 
 // qiao
 
@@ -71,7 +76,29 @@ const downloadCountsLastMonth = async (packageName) => {
 	return await getDownloadCounts(packageName, 'last-month');
 };
 
+// search
+
+/**
+ * searchPackages
+ * @param {*} packageName 
+ * @param {*} options 
+ */
+const searchPackages = async (packageName, options) => {
+    // check
+    if(!packageName) return;
+
+    // default options
+    const defaultOptions = {
+        limit: 3,
+        sortBy: 'popularity'
+    };
+
+    // search
+    return await search__default["default"](packageName, options || defaultOptions);
+};
+
 exports.downloadCounts = downloadCounts;
 exports.downloadCountsLastDay = downloadCountsLastDay;
 exports.downloadCountsLastMonth = downloadCountsLastMonth;
 exports.downloadCountsLastWeek = downloadCountsLastWeek;
+exports.searchPackages = searchPackages;
