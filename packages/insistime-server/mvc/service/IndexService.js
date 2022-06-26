@@ -25,6 +25,13 @@ exports.search = function (req, res) {
 /**
  * search npm
  */
-exports.searchNpm = function (req, res) {
-    res.send(util.json.success(req.body.pkg));
+exports.searchNpm = async function (req, res) {
+    if(!req.body || !req.body.pkg){
+        res.send(util.json.danger('need req.body.pkg'));
+        return;
+    }
+
+    var pkgName = req.body.pkg;
+    var res = await util.searchNpm(pkgName);
+    res.send(util.json.success('suc', res));
 };

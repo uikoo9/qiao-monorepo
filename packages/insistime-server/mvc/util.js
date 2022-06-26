@@ -36,3 +36,14 @@ exports.vendor = function (ua) {
 
   return vendor;
 };
+
+/**
+ * searchNpm
+ * @param {*} pkgName 
+ * @returns 
+ */
+exports.searchNpm = async function(pkgName){
+    var search = require('qiao-npms');
+    var res = await search.searchPackages(pkgName);
+    return res;
+};
