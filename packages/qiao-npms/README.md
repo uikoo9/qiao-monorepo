@@ -163,6 +163,9 @@ return
 ```
 
 ## version
+### 0.0.2.20220626
+1. search packages
+
 ### 0.0.1.20220609
 1. init project
 2. download counts
