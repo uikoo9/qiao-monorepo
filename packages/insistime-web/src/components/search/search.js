@@ -29,7 +29,8 @@ export const checkboxChange = (that, isChecked, value) => {
 export const searchClick = async (that, value) => {
     const checkboxValues = that.state.checkboxValues;
 
-    const url = 'https://insistime.com/search/npm';
+    // const url = 'https://insistime.com/search/npm';
+    const url = 'http://localhost:9001/search/npm';
     const config = {
         data: {
             pkg : value
