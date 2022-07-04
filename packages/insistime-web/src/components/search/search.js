@@ -29,20 +29,29 @@ export const checkboxChange = (that, isChecked, value) => {
 export const searchClick = async (that, value) => {
     const checkboxValues = that.state.checkboxValues;
 
-    // const url = 'https://insistime.com/search/npm';
-    const url = 'http://localhost:9001/search/npm';
+    const res = await searchNpm(value);
+    that.setState({
+        searchRes: {
+            npm: res
+        }
+    });
+    console.log(res);
+};
+
+// search npm
+async function searchNpm(value){
+    // vars
+    const url = 'https://insistime.com/search/npm';
     const config = {
         data: {
             pkg : value
         }
     };
-    const res = await search(url, config);
-    console.log(res);
-};
 
-async function search(url, config){
+    // res
     const res = await post(url, config);
     if(!res || res.status != 200 || !res.data || res.data.type != 'success') return;
     
-    return res;
+    // return 
+    return res.data.obj;
 }
