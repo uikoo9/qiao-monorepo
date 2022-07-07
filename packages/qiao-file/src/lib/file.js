@@ -61,11 +61,11 @@ export const writeFile = (filePath, fileData, options) => {
 };
 
 /**
- * writeFileByLine
+ * writeFileFromLines
  * @param {*} filePath 
  * @param {*} lines 
  */
-export const writeFileByLine = (filePath, lines) => {
+export const writeFileFromLines = (filePath, lines) => {
     const f = fs.createWriteStream(filePath, {
         flags: 'a'
     });
