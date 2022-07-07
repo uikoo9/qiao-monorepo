@@ -1,6 +1,6 @@
 {
   "name": "qiao-coder",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "qiao-coder",
   "keywords": [],
   "author": "uikoo9 <uikoo9@qq.com>",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "art-template": "^4.13.2",
-    "qiao-cli": "^0.3.0",
+    "qiao-cli": "^0.3.1",
     "qiao-encode": "^0.1.8",
     "qiao-file": "^0.4.2",
     "qiao-mysql": "^0.1.6",
