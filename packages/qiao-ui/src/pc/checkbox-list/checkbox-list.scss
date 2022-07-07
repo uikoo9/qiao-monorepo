@@ -1,12 +1,13 @@
 @use "../../base";
 
 $height : 20px;
+$paddingTop : 20px;
 
 .checkbox-list{
-    width: 743px;
+    width: base.$all;
     height: $height;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: $paddingTop;
 
     .item{
         float: left;

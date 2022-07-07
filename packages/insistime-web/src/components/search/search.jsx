@@ -15,6 +15,7 @@ import {
 // ui
 import { 
     SearchBox,
+    SearchList,
     CheckboxList,
 } from 'qiao-ui';
 
@@ -35,7 +36,6 @@ export class SearchContainer extends React.Component {
     }
 
     componentDidMount(){
-        location.href = 'mqqapi://miniapp/open?_atype=0&_mappid=1109523715&_miniapptype=1&_mvid=&_path=pages%2Fauth%2Fauth%3Fa%3D12345668%26c%3Dauh-N5dG_078jlPGhXZ7pWeu&_vt=1&referer=2014&via=xsj_qqmusic&_sig=61078427';
     }
 
     searchClick(value){
@@ -47,19 +47,6 @@ export class SearchContainer extends React.Component {
     }
 
     render() {
-        const searchRes = this.state.searchRes;
-        const searchResKeys = Object.keys(searchRes);
-        const searchList = searchResKeys && searchResKeys.map((skey, index) => {
-            const searchResList = searchRes[skey];
-            const searchResItems = searchResList && searchResList.map((item, j) => {
-                return <div key={j}>{item.name}</div>
-            });
-
-            return <div key={index}>
-                {searchResItems}
-            </div>
-        });
-
         return <div className="container">
             <SearchBox
                 placeholder='all, express | npm, express'
@@ -76,7 +63,9 @@ export class SearchContainer extends React.Component {
                 }]}
                 checkboxChange = {this.checkboxChange}
             />
-            <div className='search-list'>{searchList}</div>
+            <SearchList
+                searchRes = {this.state.searchRes}
+            />
         </div>;
     }
 }

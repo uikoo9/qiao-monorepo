@@ -1,0 +1,59 @@
+@use "../../base";
+
+$marginTop: 20px;
+
+$titleHeight: 80px;
+$itemTitleHeight: 60px;
+$itemDescHeight: 40px;
+$itemOtherHeight: 40px;
+
+$fontWeight: 600;
+
+.search-list{
+    width: base.$all;
+    margin: 0 auto;
+    margin-top: $marginTop;
+
+    .search-list-item{
+        .title{
+            width: base.$all;
+            height: $titleHeight;
+            border-bottom: base.$borderBottom;
+            color: #333;
+            font-size: 24px;
+            font-weight: $fontWeight;
+            line-height: $titleHeight;
+        }
+        .item{
+            width: base.$all;
+            border-bottom: base.$borderBottomDotted;
+            
+            .item-title{
+                width: base.$all;
+                height: $itemTitleHeight;
+                color: #333;
+                font-size: 20px;
+                font-weight: $fontWeight;
+                line-height: $itemTitleHeight;
+
+                @include base.alink($color: #333);
+            }
+            .item-desc{
+                width: base.$all;
+                height: $itemDescHeight;
+                color: #888;
+                font-size: 14px;
+                line-height: $itemDescHeight;
+            }
+            .item-other{
+                width: base.$all;
+                height: $itemOtherHeight;
+                color: #333;
+                font-size: 14px;
+                line-height: $itemOtherHeight;
+
+                @include base.alink($color: #333);
+            }
+        }
+    }
+}

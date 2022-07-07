@@ -5,11 +5,10 @@ $marginTop: 100px;
 $inputWidth: 500px;
 $btnWidth: 200px;
 $paddingWidth: 20px;
-$width: calc($inputWidth + $btnWidth + ($paddingWidth*2) + 3px);
 $height: 60px;
 
 .search-box{
-    width: $width;
+    width: base.$all;
     height: $height;
     margin: 0 auto;
     margin-top: $marginTop;
