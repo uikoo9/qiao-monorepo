@@ -19,7 +19,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^9.3.0",
-    "inquirer": "^8.2.4",
+    "inquirer": "^9.0.0",
     "progress": "^2.0.3"
   }
 }
