@@ -149,6 +149,21 @@ var test = function(){
 test();
 ```
 
+### writeFileFromLines
+```javascript
+'use strict';
+
+var q = require('qiao-file');
+
+var test = function(){
+	var filePath = './1.js';
+    var lines = [];
+	q.writeFileFromLines(filePath, lines);
+};
+
+test();
+```
+
 ## is
 ### isExists
 ```javascript
@@ -167,6 +182,9 @@ test();
 ```
 
 ## version
+### 0.1.4.20220707
+1. write file from lines
+
 ### 0.1.3.20220420
 1. lstree path name
 2. mv
