@@ -1,6 +1,6 @@
 {
   "name": "qiao-coder",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "qiao-coder",
   "keywords": [],
   "author": "uikoo9 <uikoo9@qq.com>",
@@ -19,10 +19,10 @@
     "art-template": "^4.13.2",
     "qiao-cli": "^0.2.9",
     "qiao-encode": "^0.1.8",
-    "qiao-file": "^0.4.1",
+    "qiao-file": "^0.4.2",
     "qiao-mysql": "^0.1.6",
     "qiao-request": "^0.3.9",
     "qiao-string": "^0.0.8",
-    "qiao-zip": "^0.8.2"
+    "qiao-zip": "^0.8.3"
   }
 }
