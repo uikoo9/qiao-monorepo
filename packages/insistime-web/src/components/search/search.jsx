@@ -7,16 +7,16 @@ import React from 'react';
 import './search.scss';
 
 // js
-import { 
+import {
     searchClick,
     checkboxChange,
 } from './search.js';
 
 // ui
-import { 
+import {
     SearchBox,
-    SearchList,
     CheckboxList,
+    SearchList,
 } from 'qiao-ui';
 
 /**
@@ -27,7 +27,7 @@ export class SearchContainer extends React.Component {
         super(props);
 
         this.state = {
-            checkboxValues : ['npm'],
+            checkboxValues: ['npm'],
             searchRes: {},
         };
 
@@ -35,14 +35,14 @@ export class SearchContainer extends React.Component {
         this.checkboxChange = this.checkboxChange.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
     }
 
-    searchClick(value){
+    searchClick(value) {
         searchClick(this, value);
     }
 
-    checkboxChange(isChecked, value){
+    checkboxChange(isChecked, value) {
         checkboxChange(this, isChecked, value);
     }
 
@@ -53,18 +53,18 @@ export class SearchContainer extends React.Component {
                 searchBtnText='Search'
                 searchClick={this.searchClick}
             />
-            <CheckboxList 
+            <CheckboxList
                 text='all ='
-                checkboxs = {[{
-                    name : 'npm',
-                    checked : true,
-                },{
-                    name : 'express',
+                checkboxs={[{
+                    name: 'npm',
+                    checked: true,
+                }, {
+                    name: 'express',
                 }]}
-                checkboxChange = {this.checkboxChange}
+                checkboxChange={this.checkboxChange}
             />
             <SearchList
-                searchRes = {this.state.searchRes}
+                searchRes={this.state.searchRes}
             />
         </div>;
     }

@@ -1,7 +1,5 @@
 @use "../../base";
 
-$marginTop: 100px;
-
 $inputWidth: 500px;
 $btnWidth: 200px;
 $paddingWidth: 20px;
@@ -11,7 +9,6 @@ $height: 60px;
     width: base.$all;
     height: $height;
     margin: 0 auto;
-    margin-top: $marginTop;
 
     .input{
         float: left;
