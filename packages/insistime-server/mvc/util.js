@@ -3,6 +3,9 @@
 // qiao
 var qiao = require('qiao-server');
 
+// search
+var search = require('qiao-npms');
+
 /**
  * json
  */
@@ -43,7 +46,10 @@ exports.vendor = function (ua) {
  * @returns 
  */
 exports.searchNpm = async function(pkgName){
-    var search = require('qiao-npms');
-    var res = await search.searchPackages(pkgName);
-    return res;
+    var options = {
+        limit: 10,
+        sortBy: 'popularity'
+    };
+
+    return await search.searchPackages(pkgName, options);
 };
