@@ -284,6 +284,23 @@ const writeFile = (filePath, fileData, options) => {
     }
 };
 
+/**
+ * writeFileByLine
+ * @param {*} filePath 
+ * @param {*} lines 
+ */
+const writeFileByLine = (filePath, lines) => {
+    const f = fs.createWriteStream(filePath, {
+        flags: 'a'
+    });
+
+    for (let i = 0; i < lines.length; i++) {
+        f.write(`${lines[i]}\r\n`);
+    }
+
+    f.close();
+};
+
 exports.fs = fs;
 exports.path = path;
 exports.cp = cp;
@@ -296,3 +313,4 @@ exports.mv = mv;
 exports.readFile = readFile;
 exports.rm = rm;
 exports.writeFile = writeFile;
+exports.writeFileByLine = writeFileByLine;

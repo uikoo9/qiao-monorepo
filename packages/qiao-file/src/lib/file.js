@@ -59,3 +59,20 @@ export const writeFile = (filePath, fileData, options) => {
         return false;
     }
 };
+
+/**
+ * writeFileByLine
+ * @param {*} filePath 
+ * @param {*} lines 
+ */
+export const writeFileByLine = (filePath, lines) => {
+    const f = fs.createWriteStream(filePath, {
+        flags: 'a'
+    });
+
+    for (let i = 0; i < lines.length; i++) {
+        f.write(`${lines[i]}\r\n`);
+    }
+
+    f.close();
+};
