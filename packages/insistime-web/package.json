@@ -1,7 +1,7 @@
 {
   "name": "insistime-web",
   "private": true,
-  "version": "1.1.5",
+  "version": "1.1.6",
   "scripts": {
     "dev": "qwebpack dev ./webpack/qiao-webpack.dev.js",
     "build": "qwebpack build ./webpack/qiao-webpack.prod.js",
@@ -18,6 +18,6 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "qiao-cos": "^0.4.6"
+    "qiao-cos": "^0.4.7"
   }
 }

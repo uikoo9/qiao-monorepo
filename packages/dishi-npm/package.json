@@ -1,6 +1,6 @@
 {
   "name": "dishi",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "dishi todo",
   "keywords": [
     "dishi",
@@ -22,7 +22,7 @@
     "dishi-service": "^0.0.9",
     "qiao-ajax": "^2.6.6",
     "qiao-cli": "^0.2.9",
-    "qiao-config": "^0.3.1",
+    "qiao-config": "^0.3.2",
     "qiao-console": "0.1.0",
     "qiao-service": "^0.0.5"
   }
