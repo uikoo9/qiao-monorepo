@@ -135,6 +135,51 @@ var test = function(){
 test();
 ```
 
+### readFileLineByLine
+```javascript
+'use strict';
+
+// q
+var q = require('qiao-file');
+
+// run
+async function test(){
+    var filePath = './rm.js';
+    q.readFileLineByLine(filePath, onLine, onClose);
+}
+test();
+
+// on line
+function onLine(line){
+    console.log(line);
+}
+
+// on close
+function onClose(){
+    console.log('close');
+}
+```
+
+### readFileLineByLineSync
+```javascript
+'use strict';
+
+// q
+var q = require('qiao-file');
+
+// run
+async function test(){
+    var filePath = './rm.js';
+    var lines = await q.readFileLineByLineSync(filePath);
+    console.log(lines);
+
+    // clear
+    filePath = null;
+    lines = null;
+}
+test();
+```
+
 ### writeFile
 ```javascript
 'use strict';
@@ -153,14 +198,21 @@ test();
 ```javascript
 'use strict';
 
+// q
 var q = require('qiao-file');
 
-var test = function(){
-	var filePath = './1.js';
-    var lines = [];
-	q.writeFileFromLines(filePath, lines);
-};
+// run
+async function test(){
+    var filePath = './rm.js';
+    var destPath = '../dist/rm.js';
+    var lines = await q.readFileLineByLineSync(filePath);
+    q.writeFileFromLines(destPath, lines);
 
+    // clear
+    filePath = null;
+    destPath = null;
+    lines = null;
+};
 test();
 ```
 
@@ -184,6 +236,8 @@ test();
 ## version
 ### 0.1.4.20220707
 1. write file from lines
+2. read file line by line
+3. read file line by line sync
 
 ### 0.1.3.20220420
 1. lstree path name
