@@ -10,48 +10,51 @@ $itemOtherHeight: 60px;
 $fontWeight: 600;
 
 .search-list{
-    width: base.$all;
-    margin: 0 auto;
+    @include base.width();
+    @include base.marginAuto();
     margin-top: $marginTop;
 
     .search-list-item{
         .title{
-            width: base.$all;
+            @include base.width();
+
             height: $titleHeight;
-            border-bottom: base.$borderBottom;
-            color: #333;
-            font-size: 24px;
-            font-weight: $fontWeight;
             line-height: $titleHeight;
+            border-bottom: base.$borderSolid;
+            font-weight: $fontWeight;
+
+            @include base.font($size: 24px);
         }
         .item{
-            width: base.$all;
-            border-bottom: base.$borderBottomDotted;
+            @include base.width();
+
+            border-bottom: base.$borderDotted;
             
             .item-title{
-                width: base.$all;
-                height: $itemTitleHeight;
-                color: #333;
-                font-size: 20px;
-                font-weight: $fontWeight;
-                line-height: $itemTitleHeight;
+                @include base.width();
 
-                @include base.alink($color: #333);
+                height: $itemTitleHeight;
+                line-height: $itemTitleHeight;
+                font-weight: $fontWeight;
+
+                @include base.font($size: 20px);
+                @include base.alink();
             }
             .item-desc{
-                width: base.$all;
-                color: #888;
-                font-size: 14px;
+                @include base.width();
+
                 line-height: $itemDescHeight;
+
+                @include base.font($color: #888);
             }
             .item-other{
-                width: base.$all;
+                @include base.width();
+
                 height: $itemOtherHeight;
-                color: #333;
-                font-size: 14px;
                 line-height: $itemOtherHeight;
 
-                @include base.alink($color: #333);
+                @include base.font();
+                @include base.alink();
             }
         }
     }
