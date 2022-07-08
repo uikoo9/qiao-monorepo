@@ -11,6 +11,8 @@ import './info-list.scss';
  */
 export class MobileInfoList extends React.Component {
   render() {
+    console.log('qiao-ui/mobile/info: render');
+
     const infos = this.props.infos && this.props.infos.map((info, index) => {
       if (!info.title) return;
 

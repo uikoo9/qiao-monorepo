@@ -11,6 +11,8 @@ import './content.scss';
  */
 export class MobileContent extends React.Component {
   render() {
+    console.log('qiao-ui/mobile/content: render');
+
     return (
       <div className="content">
         <div className="txt-main">{this.props.contentName}</div>

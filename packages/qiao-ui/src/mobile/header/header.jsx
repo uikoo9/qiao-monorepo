@@ -11,6 +11,8 @@ import './header.scss';
  */
 export class MobileHeader extends React.Component {
   render() {
+    console.log('qiao-ui/mobile/header: render');
+
     const navs = this.props.navs && this.props.navs.map((nav, index) => {
       if (!nav.url || !nav.name) return;
 

@@ -11,6 +11,8 @@ import './footer.scss';
  */
 export class MobileFooter extends React.Component {
   render() {
+    console.log('qiao-ui/mobile/footer: render');
+
     return (
       <div className="footer">
         <a target="_blank" href={this.props.companyUrl}>{this.props.companyName}</a>&nbsp;&nbsp;&nbsp;
