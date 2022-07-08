@@ -10,6 +10,7 @@ import './manage.scss';
 import {
     Header,
     Menus,
+    Modal,
     Table
 } from 'qiao-ui';
 
@@ -47,6 +48,10 @@ export class ManageContainer extends React.Component {
         console.log('insistime-web/manage-container: componentDidMount');
     }
 
+    onClick(){
+        console.log(1);
+    }
+
     render() {
         console.log('insistime-web/manage-container: render');
 
@@ -60,10 +65,13 @@ export class ManageContainer extends React.Component {
                     menus={this.props.constant.menus}
                 />
                 <div className="data-container">
+                    <button onClick={this.onClick}>add</button>
                     <Table
                         cols={this.state.cols}
                         rows={this.state.rows}
                     />
+
+                    <Modal/>
                 </div>
             </div>
         </div>;
