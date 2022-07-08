@@ -4,18 +4,19 @@ $height : 20px;
 $paddingTop : 20px;
 
 .checkbox-list{
-    width: base.$all;
+    @include base.width();
+    @include base.marginAuto();
+
     height: $height;
-    margin: 0 auto;
     padding-top: $paddingTop;
 
     .item{
         float: left;
         height: $height;
-        padding-right: 10px;
-        color: #333;
-        font-size: 16px;
         line-height: $height;
+        padding-right: 10px;
+
+        @include base.font($size: 16px);
 
         input{
             display: block;

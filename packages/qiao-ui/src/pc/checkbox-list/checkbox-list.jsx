@@ -14,15 +14,21 @@ export class CheckboxList extends React.Component {
         super(props);
 
         this.checkboxChange = this.checkboxChange.bind(this);
+
+        console.log('qiao-ui/pc/checkbox-list: constructor');
     }
 
     checkboxChange(e) {
         if (!this.props.checkboxChange) return;
 
         this.props.checkboxChange(e.target.checked, e.target.value);
+
+        console.log('qiao-ui/pc/checkbox-list: checkboxChange');
     }
 
     render() {
+        console.log('qiao-ui/pc/checkbox-list: render');
+
         const checkboxs = this.props.checkboxs && this.props.checkboxs.map((ck, index) => {
             if (!ck.name) return;
 
