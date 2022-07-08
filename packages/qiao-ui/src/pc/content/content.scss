@@ -14,36 +14,39 @@ $txtOtherHeight: 80px;
 $picWidth: $containerWidth - $txtWidth;
 
 .content {
-  width: base.$all;
-  height: $contentHeight;
-  border-bottom: base.$borderBottom;
+    @include base.width();
 
-  .txt {
-    float: left;
-    width: $txtContainerWidth;
-    height: $txtContainerHeight;
-    padding-top: $txtTop;
-    padding-left: $txtleft;
-
-    .txt-main {
-      width: $txtContainerWidth;
-      height: $txtMainHeight;
-      color: #333;
-      font-size: 32px;
-      line-height: $txtMainHeight;
-    }
-    .txt-other {
-      width: $txtContainerWidth;
-      height: $txtOtherHeight;
-      color: #333;
-      font-size: 16px;
-      line-height: $txtOtherHeight;
-    }
-  }
-  .pic {
-    float: left;
-    width: $picWidth;
     height: $contentHeight;
-    background-color: rgb(235, 235, 235);
-  }
+    border-bottom: base.$borderSolid;
+
+    .txt {
+        float: left;
+        width: $txtContainerWidth;
+        height: $txtContainerHeight;
+        padding-top: $txtTop;
+        padding-left: $txtleft;
+
+        .txt-main {
+            width: $txtContainerWidth;
+            height: $txtMainHeight;
+            line-height: $txtMainHeight;
+
+            @include base.font($size: 32px);
+        }
+
+        .txt-other {
+            width: $txtContainerWidth;
+            height: $txtOtherHeight;
+            line-height: $txtOtherHeight;
+
+            @include base.font($size: 16px);
+        }
+    }
+
+    .pic {
+        float: left;
+        width: $picWidth;
+        height: $contentHeight;
+        background-color: rgb(235, 235, 235);
+    }
 }

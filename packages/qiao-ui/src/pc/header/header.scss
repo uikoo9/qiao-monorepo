@@ -5,6 +5,7 @@ $containerWidth: 1400px;
 $headerHeight: 60px;
 $logoWidth: 200px;
 $navsWidth: $containerWidth - $logoWidth;
+$navWidth: 100px;
 
 .nav-txt {
     height: $headerHeight;
@@ -36,7 +37,7 @@ $navsWidth: $containerWidth - $logoWidth;
 
         .nav {
             float: right;
-            width: 100px;
+            width: $navWidth;
 
             @include base.alink();
         }
