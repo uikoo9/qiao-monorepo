@@ -17,8 +17,5 @@
     "eslint": "eslint . --ext .js",
     "eslintfix": "eslint . --ext .js --fix",
     "build": "qwebpack build ./webpack/qiao.webpack.js"
-  },
-  "devDependencies": {
-    "eslint": "^8.19.0"
   }
 }
