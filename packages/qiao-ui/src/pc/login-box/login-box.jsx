@@ -21,18 +21,24 @@ export class LoginBox extends React.Component {
         this.passwordChange = this.passwordChange.bind(this);
         this.clickLogin = this.clickLogin.bind(this);
         this.setTips = this.setTips.bind(this);
+
+        console.log('qiao-ui/pc/login-box: constructor');
     }
 
     usernameChange(e) {
         this.setState({
             username: e.target.value
         });
+
+        console.log('qiao-ui/pc/login-box: usernameChange');
     }
 
     passwordChange(e) {
         this.setState({
             password: e.target.value
         });
+
+        console.log('qiao-ui/pc/login-box: passwordChange');
     }
 
     clickLogin() {
@@ -42,15 +48,21 @@ export class LoginBox extends React.Component {
         const loginSucUrl = this.props.loginSucUrl;
 
         this.props.loginClick(username, password, callback, loginSucUrl);
+
+        console.log('qiao-ui/pc/login-box: clickLogin');
     }
 
     setTips(msg) {
         this.setState({
             loginTips: msg
         });
+
+        console.log('qiao-ui/pc/login-box: setTips');
     }
 
     render() {
+        console.log('qiao-ui/pc/login-box: render');
+        
         return (
             <div className="box">
                 <div className="input">
