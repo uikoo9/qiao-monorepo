@@ -3,13 +3,17 @@
 $containerWidth: 1400px;
 
 $infoHeight: 300px;
+$infoPadding: 40px;
+
+$titleHeight: 80px;
+$descHeight: 20px;
 
 .info-list {
   width: $containerWidth;
   height: $infoHeight;
-  border-bottom: base.$borderBottom;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: $infoPadding;
+  padding-bottom: $infoPadding;
+  border-bottom: base.$borderSolid;
 
   .info {
     float: left;
@@ -17,20 +21,20 @@ $infoHeight: 300px;
     height: calc($infoHeight / 2);
 
     .title {
-      width: base.$all;
-      height: 80px;
-      color: #333;
-      font-size: 18px;
-      text-align: center;
-      line-height: 80px;
+      @include base.width();
+
+      height: $titleHeight;
+      line-height: $titleHeight;
+
+      @include base.font($size: 18px, $align: center);
     }
     .desc {
-      width: base.$all;
-      height: 20px;
-      color: #333;
-      font-size: 14px;
-      text-align: center;
-      line-height: 20px;
+      @include base.width();
+
+      height: $descHeight;
+      line-height: $descHeight;
+
+      @include base.font($align: center);
     }
   }
 }
