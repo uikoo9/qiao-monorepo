@@ -6,9 +6,10 @@ $paddingWidth: 20px;
 $height: 60px;
 
 .search-box{
-    width: base.$all;
+    @include base.width();
+    @include base.marginAuto();
+
     height: $height;
-    margin: 0 auto;
 
     .input{
         float: left;
@@ -16,19 +17,19 @@ $height: 60px;
         height: calc($height - 2px);
         padding-left: $paddingWidth;
         padding-right: $paddingWidth;
-        border-left: base.$border;
-        border-top: base.$border;
-        border-bottom: base.$border;
+        border-left: base.$borderSolid;
+        border-top: base.$borderSolid;
+        border-bottom: base.$borderSolid;
 
         input{
             width: $inputWidth;
             height: calc($height - 2px);
+            line-height: calc($height - 2px);;
             margin: 0;
             padding: 0;
             border: none;
-            color: #333;
-            font-size: 24px;
-            line-height: calc($height - 2px);;
+
+            @include base.font($size: 24px);
         }
         input:focus{
             outline: none;
@@ -38,15 +39,12 @@ $height: 60px;
         float: left;
         width: $btnWidth;
         height: calc($height - 2px);
-        border: base.$border;
-
-        color: #333;
-        font-size: 24px;
         line-height: calc($height - 2px);;
-        text-align: center;
+        border: base.$borderSolid;
         background-color: #fff;
-        cursor: pointer;
-        user-select: none;
+
+        @include base.font($size: 24px, $align: center);
+        @include base.cursor();
     }
     .button:hover{
         font-size: 26px;
