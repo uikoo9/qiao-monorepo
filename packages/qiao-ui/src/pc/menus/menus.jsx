@@ -9,6 +9,8 @@ import './menus.scss';
  */
 export class Menus extends React.Component {
     render() {
+        console.log('qiao-ui/pc/menus: render');
+
         const menus = this.props.menus && this.props.menus.map((menu, index) => {
             if (!menu.name) return;
 

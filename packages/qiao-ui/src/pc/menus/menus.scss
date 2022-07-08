@@ -10,17 +10,12 @@ $menuHeight: 40px;
     .menu{
         width: $menuWidth;
         height: $menuHeight;
-        border-bottom: base.$borderBottomDotted;
-        
-        color: #333;
-        font-size: 14px;
         line-height: $menuHeight;
-        text-align: center;
+        border-bottom: base.$borderDotted;
         
-        cursor: pointer;
-        user-select: none;
-
-        @include base.alink($color: #333);
+        @include base.font($align: center);
+        @include base.cursor();
+        @include base.alink();
     }
     .menu:hover{
         font-size: 16px;
@@ -29,6 +24,6 @@ $menuHeight: 40px;
         height: 50px;
         font-size: 16px;
         line-height: 50px;
-        border-bottom: base.$borderBottom;
+        border-bottom: base.$borderSolid;
     }
 }
