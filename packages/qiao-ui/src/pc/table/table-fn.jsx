@@ -7,6 +7,8 @@ import React from 'react';
  * @returns cols
  */
 export const getCols = (that) => {
+    console.log('qiao-ui/pc/table: getCols');
+
     const cols = that.props.cols;
     if (!cols) return;
 
@@ -23,6 +25,8 @@ export const getCols = (that) => {
  * @returns rows
  */
 export const getRows = (that) => {
+    console.log('qiao-ui/pc/table: getRows');
+
     const rows = that.props.rows;
     if (!rows) return;
 

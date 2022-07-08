@@ -6,24 +6,25 @@ $tdPadding: 5px;
 
 .table-container{
     width: $tableWidth;
-    margin: 0 auto;
+
+    @include base.marginAuto();
     margin-top: 20px;
 
     table{
-        width: base.$all;
+        @include base.width();
         border-collapse:collapse;
     }
     
     th{
         height: $tdHeight;
         padding: $tdPadding;
-        border: base.$border;
+        border: base.$borderSolid;
     }
 
     td{
         height: $tdHeight;
         padding: $tdPadding;
-        border: base.$border;
+        border: base.$borderSolid;
         text-align: center;
     }
 }

@@ -12,6 +12,8 @@ import { getCols, getRows } from './table-fn.jsx';
  */
 export class Table extends React.Component {
     render() {
+        console.log('qiao-ui/pc/table: render');
+
         // const
         const cols = getCols(this);
         const rows = getRows(this);
