@@ -7,38 +7,38 @@ $logoWidth: 200px;
 $navsWidth: $containerWidth - $logoWidth;
 
 .nav-txt {
-  height: $headerHeight;
-  color: #333;
-  font-size: 16px;
-  text-align: center;
-  line-height: $headerHeight;
-  user-select: none;
-  cursor: pointer;
+    height: $headerHeight;
+    line-height: $headerHeight;
+
+    @include base.font($size: 16px, $align: center);
+    @include base.cursor();
 }
+
 .nav-txt:hover {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .header {
-  width: base.$all;
-  height: $headerHeight;
-  border-bottom: base.$borderBottom;
+    @include base.width();
 
-  .logo {
-    float: left;
-    width: $logoWidth;
-  }
-
-  .navs {
-    float: left;
-    width: $navsWidth;
     height: $headerHeight;
+    border-bottom: base.$borderSolid;
 
-    .nav {
-      float: right;
-      width: 100px;
-
-      @include base.alink($color: #333);
+    .logo {
+        float: left;
+        width: $logoWidth;
     }
-  }
+
+    .navs {
+        float: left;
+        width: $navsWidth;
+        height: $headerHeight;
+
+        .nav {
+            float: right;
+            width: 100px;
+
+            @include base.alink();
+        }
+    }
 }
