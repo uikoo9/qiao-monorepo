@@ -9,6 +9,8 @@ import './search-list.scss';
  */
 export class SearchList extends React.Component {
     render() {
+        console.log('qiao-ui/pc/search-list: render');
+        
         const searchRes = this.props.searchRes;
         const searchResKeys = Object.keys(searchRes);
         const searchList = searchResKeys && searchResKeys.map((skey, index) => {
