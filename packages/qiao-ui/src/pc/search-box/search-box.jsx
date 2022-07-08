@@ -17,20 +17,28 @@ export class SearchBox extends React.Component {
 
         this.searchChange = this.searchChange.bind(this);
         this.searchClick = this.searchClick.bind(this);
+
+        console.log('qiao-ui/pc/search-box: constructor');
     }
 
     searchChange(e){
         this.setState({
             searchText: e.target.value
         });
+
+        console.log('qiao-ui/pc/search-box: searchChange');
     }
 
     searchClick() {
         const searchText = this.state.searchText;
         this.props.searchClick(searchText);
+
+        console.log('qiao-ui/pc/search-box: searchClick');
     }
 
     render() {
+        console.log('qiao-ui/pc/search-box: render');
+
         return <div className="search-box">
             <div className="input">
                 <input type="text" 
