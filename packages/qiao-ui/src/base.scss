@@ -19,6 +19,12 @@ $borderDotted: dotted 1px #333;
     text-align: $align;
 }
 
+// cursor
+@mixin cursor() {
+    user-select: none;
+    cursor: pointer;
+}
+
 // alink
 @mixin alink($color: #333) {
     a:link {
