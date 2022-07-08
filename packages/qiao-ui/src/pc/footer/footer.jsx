@@ -8,12 +8,14 @@ import './footer.scss';
  * footer
  */
 export class Footer extends React.Component {
-  render() {
-    return (
-      <div className="footer">
-        <a target="_blank" href={this.props.companyUrl}>{this.props.companyName}</a>&nbsp;&nbsp;&nbsp;
-        <a target="_blank" href={this.props.beianUrl}>{this.props.beianName}</a>
-      </div>
-    );
-  }
+    render() {
+        console.log('qiao-ui/pc/footer: render');
+
+        return (
+            <div className="footer">
+                <a target="_blank" href={this.props.companyUrl}>{this.props.companyName}</a>&nbsp;&nbsp;&nbsp;
+                <a target="_blank" href={this.props.beianUrl}>{this.props.beianName}</a>
+            </div>
+        );
+    }
 }
