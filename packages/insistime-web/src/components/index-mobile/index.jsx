@@ -17,6 +17,8 @@ import {
  */
 export class IndexMobileContainer extends React.Component {
   render() {
+    console.log('insistime-web/index-mobile-container: render');
+
     return (
       <div className="container">
         <MobileHeader

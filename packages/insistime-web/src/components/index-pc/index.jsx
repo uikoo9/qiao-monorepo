@@ -17,6 +17,8 @@ import {
  */
 export class IndexPCContainer extends React.Component {
   render() {
+    console.log('insistime-web/index-pc-container: render');
+
     return (
       <div className="container">
         <Header

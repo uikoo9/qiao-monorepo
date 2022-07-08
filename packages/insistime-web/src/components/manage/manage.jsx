@@ -30,6 +30,8 @@ export class ManageContainer extends React.Component {
             cols: '',
             rows: '',
         };
+
+        console.log('insistime-web/manage-container: constructor');
     }
 
     async componentDidMount(){
@@ -41,9 +43,13 @@ export class ManageContainer extends React.Component {
             cols: cols,
             rows: rows,
         });
+
+        console.log('insistime-web/manage-container: componentDidMount');
     }
 
     render() {
+        console.log('insistime-web/manage-container: render');
+
         return <div className="container">
             <Header
                 logo={this.props.constant.logo}

@@ -15,6 +15,8 @@ import { LoginBox } from 'qiao-ui'
  */
 export class LoginContainer extends React.Component {
   render() {
+    console.log('insistime-web/login-container: render');
+
     return (
       <div className="container">
         <LoginBox

@@ -33,20 +33,25 @@ export class SearchContainer extends React.Component {
 
         this.searchClick = this.searchClick.bind(this);
         this.checkboxChange = this.checkboxChange.bind(this);
-    }
 
-    componentDidMount() {
+        console.log('insistime-web/search-container: constructor');
     }
 
     searchClick(value) {
         searchClick(this, value);
+
+        console.log('insistime-web/search-container: searchClick');
     }
 
     checkboxChange(isChecked, value) {
         checkboxChange(this, isChecked, value);
+
+        console.log('insistime-web/search-container: checkboxChange');
     }
 
     render() {
+        console.log('insistime-web/search-container: render');
+
         return <div className="container">
             <SearchBox
                 placeholder='all, express | npm, express'
