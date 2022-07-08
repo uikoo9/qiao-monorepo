@@ -8,6 +8,7 @@ $borderSolid: solid 1px #333;
 $borderDotted: dotted 1px #333;
 
 // width
+// @include base.width();
 @mixin width() {
     width: 100%;
 }

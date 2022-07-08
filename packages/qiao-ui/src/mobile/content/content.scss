@@ -5,25 +5,26 @@ $txtMainHeight: 4rem;
 $txtOtherHeight: 2rem;
 
 .content {
-  width: base.$all;
+  @include base.width();
+
   height: $contentHeight;
-  border-bottom: base.$borderBottom;
+  border-bottom: base.$borderSolid;
 
   .txt-main {
-    width: base.$all;
+    @include base.width();
+
     height: $txtMainHeight;
-    margin-bottom: -1rem;
-    color: #333;
-    font-size: 28px;
-    text-align: center;
     line-height: $txtMainHeight;
+    margin-bottom: -1rem;
+
+    @include base.font($size: 28px, $align: center);
   }
   .txt-other {
-    width: base.$all;
+    @include base.width();
+    
     height: $txtOtherHeight;
-    color: #333;
-    font-size: 14px;
-    text-align: center;
     line-height: $txtOtherHeight;
+
+    @include base.font($size: 14px, $align: center);
   }
 }
