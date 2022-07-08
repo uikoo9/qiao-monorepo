@@ -14,11 +14,13 @@ import { IndexMobileContainer } from '@components/index-mobile/index.jsx';
  * index mobile view
  */
 class IndexMobileView extends React.Component {
-  render() {
-    return (
-      <IndexMobileContainer constant={Constant} />
-    );
-  }
+    render() {
+        console.log('insistime-web/index-mobile-view: render');
+
+        return (
+            <IndexMobileContainer constant={Constant} />
+        );
+    }
 }
 
 const container = document.getElementById('root');

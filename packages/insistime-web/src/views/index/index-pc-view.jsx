@@ -14,11 +14,13 @@ import { IndexPCContainer } from '@components/index-pc/index.jsx';
  * index pc view
  */
 class IndexPCView extends React.Component {
-  render() {
-    return (
-      <IndexPCContainer constant={Constant} />
-    );
-  }
+    render() {
+        console.log('insistime-web/index-pc-view: render');
+
+        return (
+            <IndexPCContainer constant={Constant} />
+        );
+    }
 }
 
 const container = document.getElementById('root');

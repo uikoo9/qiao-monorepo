@@ -12,11 +12,13 @@ import { ManageContainer } from '@components/manage/manage.jsx';
  * manage view
  */
 class ManageView extends React.Component {
-  render() {
-    return (
-      <ManageContainer constant={Constant} />
-    );
-  }
+    render() {
+        console.log('insistime-web/manage-view: render');
+
+        return (
+            <ManageContainer constant={Constant} />
+        );
+    }
 }
 
 const container = document.getElementById('root');

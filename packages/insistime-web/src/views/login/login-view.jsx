@@ -9,16 +9,18 @@ import { LoginContainer } from '@components/login/login.jsx';
  * login view
  */
 class LoginView extends React.Component {
-  render() {
-    return (
-      <LoginContainer
-        usernameHolder={'username'}
-        passwordHolder={'password'}
-        loginBtn={'Login'}
-        loginSucUrl={'/manage'}
-      />
-    );
-  }
+    render() {
+        console.log('insistime-web/login-view: render');
+
+        return (
+            <LoginContainer
+                usernameHolder={'username'}
+                passwordHolder={'password'}
+                loginBtn={'Login'}
+                loginSucUrl={'/manage'}
+            />
+        );
+    }
 }
 
 const container = document.getElementById('root');
