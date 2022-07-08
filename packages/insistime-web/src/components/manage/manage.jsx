@@ -30,9 +30,10 @@ export class ManageContainer extends React.Component {
         this.state = {
             cols: '',
             rows: '',
-            modalShow: true,
+            modalShow: false,
         };
 
+        this.onClick = this.onClick.bind(this);
         this.modalClose = this.modalClose.bind(this);
 
         console.log('insistime-web/manage-container: constructor');
@@ -52,7 +53,9 @@ export class ManageContainer extends React.Component {
     }
 
     onClick(){
-        console.log(1);
+        this.setState({
+            modalShow: true
+        });
     }
 
     modalClose(){
