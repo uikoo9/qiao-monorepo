@@ -3,12 +3,11 @@
 $footerHeight: 2rem;
 
 .footer {
-  width: base.$all;
+  @include base.width();
+
   height: $footerHeight;
-  color: #333;
-  font-size: 14px;
-  text-align: center;
   line-height: $footerHeight;
 
-  @include base.alink($color: #333);
+  @include base.font($align: center);
+  @include base.alink();
 }
