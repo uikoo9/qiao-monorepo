@@ -15,9 +15,9 @@
     },
     "scripts": {
         "dist": "qwebpack build ./webpack/qiao.webpack.js",
-        "eslint": "eslint . --ext .js",
-        "eslintfix": "eslint . --ext .js --fix",
-        "build": "rollup --config rollup.config.js",
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+        "build": "rollup --config _config.rollup.js",
         "prepublish": "npm run build && npm run eslintfix"
     }
 }
