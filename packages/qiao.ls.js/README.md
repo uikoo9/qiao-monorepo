@@ -23,7 +23,7 @@ console.log(q.ls('name')); // undefined
 
 ## version
 ### 0.1.0.20220709
-1. add eslint
+1. add eslint 
 
 ### 0.0.9.20220512
 1. lerna
