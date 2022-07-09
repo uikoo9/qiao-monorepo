@@ -36,6 +36,7 @@ test();
 ### 0.0.2.20220709
 1. add rollup
 2. add eslint
+3. add jest
    
 ### 0.0.1.20220616
 1. init project
