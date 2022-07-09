@@ -11,6 +11,9 @@ var test = async function(){
     q.set(key, value);
     console.log('set cookie test:' + q.get(key));
 
+    // has
+    console.log(q.has(key));
+
     // del
     q.del(key);
     console.log('del cookie test:' + q.get(key));

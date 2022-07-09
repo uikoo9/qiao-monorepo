@@ -1,11 +1,9 @@
-'use strict';
-
 /**
  * get
  * @param {*} sKey 
  * @returns 
  */
-exports.get = function(sKey){
+export const get = (sKey) => {
     return decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
 };
 
@@ -19,7 +17,7 @@ exports.get = function(sKey){
  * @param {*} bSecure 
  * @returns 
  */
-exports.set = function(sKey, sValue, vEnd, sPath, sDomain, bSecure){
+export const set = (sKey, sValue, vEnd, sPath, sDomain, bSecure) => {
     // eslint-disable-next-line
     if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
     var sExpires = '';
@@ -47,8 +45,8 @@ exports.set = function(sKey, sValue, vEnd, sPath, sDomain, bSecure){
  * @param {*} sDomain 
  * @returns 
  */
-exports.del = function(sKey, sPath, sDomain){
-    if (!sKey || !exports.has(sKey)) { return false; }
+export const del = (sKey, sPath, sDomain) => {
+    if (!sKey || !has(sKey)) { return false; }
     document.cookie = encodeURIComponent(sKey) + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' + ( sDomain ? '; domain=' + sDomain : '') + ( sPath ? '; path=' + sPath : '');
     return true;
 };
@@ -58,7 +56,7 @@ exports.del = function(sKey, sPath, sDomain){
  * @param {*} sKey 
  * @returns 
  */
-exports.has = function(sKey){
+export const has = (sKey) => {
     return (new RegExp('(?:^|;\\s*)' + encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
 };
 
@@ -66,7 +64,7 @@ exports.has = function(sKey){
  * keys
  * @returns 
  */
-exports.keys = function(){
+export const keys = () => {
     // eslint-disable-next-line
     var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
     for (var nIdx = 0; nIdx < aKeys.length; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
