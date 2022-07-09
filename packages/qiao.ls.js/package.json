@@ -21,9 +21,5 @@
     "build": "rollup --config rollup.config.js",
     "prepublish": "npm run build"
   },
-  "devDependencies": {
-    "jest": "^28.1.2",
-    "jest-environment-jsdom": "^28.1.2"
-  },
   "sideEffects": false
 }
