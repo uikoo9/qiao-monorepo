@@ -1,25 +1,27 @@
 {
-  "name": "qiao.ls.js",
-  "version": "0.2.7",
-  "description": "local storage expires",
-  "keywords": [
-    "local",
-    "storage",
-    "localStorage",
-    "expires"
-  ],
-  "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.ls.js#readme",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-  },
-  "scripts": {
-    "test": "jest --config jest.config.js",
-    "build": "rollup --config rollup.config.js",
-    "prepublish": "npm run build"
-  },
-  "sideEffects": false
+    "name": "qiao.ls.js",
+    "version": "0.2.7",
+    "description": "local storage expires",
+    "keywords": [
+        "local",
+        "storage",
+        "localStorage",
+        "expires"
+    ],
+    "author": "uikoo9 <uikoo9@qq.com>",
+    "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.ls.js#readme",
+    "license": "MIT",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+    },
+    "scripts": {
+        "eslint": "eslint . --ext .js",
+        "eslintfix": "eslint . --ext .js --fix",
+        "build": "rollup --config rollup.config.js",
+        "test": "jest --config jest.config.js",
+        "prepublish": "npm run build && npm run eslintfix"
+    },
+    "sideEffects": false
 }

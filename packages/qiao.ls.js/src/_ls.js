@@ -17,66 +17,66 @@
  * ls(name, null):
  */
 export const ls = (name, value, expires) => {
-  // remove
-  if (value === null) {
-    _removeItem(name);
-    return;
-  }
+    // remove
+    if (value === null) {
+        _removeItem(name);
+        return;
+    }
 
-  // get
-  if (typeof value == "undefined") {
-    return _getItem(name);
-  }
+    // get
+    if (typeof value == 'undefined') {
+        return _getItem(name);
+    }
 
-  // set
-  _setItem(name, value, expires);
+    // set
+    _setItem(name, value, expires);
 };
 
 // set item
 function _setItem(name, value, expires) {
-  if (!localStorage) {
-    console.log("unsupport localStorage");
-    return;
-  }
+    if (!localStorage) {
+        console.log('unsupport localStorage');
+        return;
+    }
 
-  let obj = {};
-  obj.value = value;
-  if (expires) obj.expires = Date.now() + expires;
+    let obj = {};
+    obj.value = value;
+    if (expires) obj.expires = Date.now() + expires;
 
-  localStorage.setItem(name, JSON.stringify(obj));
+    localStorage.setItem(name, JSON.stringify(obj));
 }
 
 // get item
 function _getItem(name) {
-  if (!localStorage) {
-    console.log("unsupport localStorage");
-    return;
-  }
+    if (!localStorage) {
+        console.log('unsupport localStorage');
+        return;
+    }
 
-  const objStr = localStorage.getItem(name);
-  let obj;
-  try {
-    obj = JSON.parse(objStr);
-  } catch (e) {
-    console.log("json parse error:");
-    console.log(e);
-  }
-  if (!obj) return;
+    const objStr = localStorage.getItem(name);
+    let obj;
+    try {
+        obj = JSON.parse(objStr);
+    } catch (e) {
+        console.log('json parse error:');
+        console.log(e);
+    }
+    if (!obj) return;
 
-  if (obj.expires && obj.expires < Date.now()) {
-    localStorage.removeItem(name);
-    return;
-  }
+    if (obj.expires && obj.expires < Date.now()) {
+        localStorage.removeItem(name);
+        return;
+    }
 
-  return obj.value;
+    return obj.value;
 }
 
 // remove item
 function _removeItem(name) {
-  if (!localStorage) {
-    console.log("unsupport localStorage");
-    return;
-  }
+    if (!localStorage) {
+        console.log('unsupport localStorage');
+        return;
+    }
 
-  localStorage.removeItem(name);
+    localStorage.removeItem(name);
 }
