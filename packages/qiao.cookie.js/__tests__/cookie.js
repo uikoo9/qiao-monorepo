@@ -2,27 +2,39 @@
 
 var q = require('../index.js');
 
-var test = async function(){
-    // vars
-    var key = 'test';
-    var value = 'test';
+// set and get
+test('set and get', function(){
+    var key = 'key';
+    var value = 'value';
 
-    // set & get
     q.set(key, value);
-    console.log('set cookie test:' + q.get(key));
+    expect(q.get(key)).toStrictEqual(value);
+});
 
-    // has
-    console.log(q.has(key));
+// has
+test('has', function(){
+    var key = 'key';
+    var value = 'value';
 
-    // del
+    q.set(key, value);
+    expect(q.has(key)).toBeTruthy();
+});
+
+// del
+test('del', function(){
+    var key = 'key';
+    var value = 'value';
+
+    q.set(key, value);
     q.del(key);
-    console.log('del cookie test:' + q.get(key));
+    expect(q.has(key)).toBeFalsy();
+});
 
-    // has
-    console.log(q.has(key));
+// keys
+test('keys', function(){
+    var key = 'key1';
+    var value = 'value';
 
-    // keys
-    console.log(q.keys());
-};
-
-test();
+    q.set(key, value);
+    expect(q.keys()).toBeDefined();
+});
