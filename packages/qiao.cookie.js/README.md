@@ -1,5 +1,10 @@
 # qiao.cookie.js
 
+[![npm version](https://img.shields.io/npm/v/qiao.cookie.js.svg?style=flat-square)](https://www.npmjs.org/package/qiao.cookie.js)
+[![npm downloads](https://img.shields.io/npm/dm/qiao.cookie.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.cookie.js)
+[![install size](https://packagephobia.now.sh/badge?p=qiao.cookie.js)](https://packagephobia.now.sh/result?p=qiao.cookie.js)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.cookie.js)
+
 ## documentation
 1. cookie, [https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
 
