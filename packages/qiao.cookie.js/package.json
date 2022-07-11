@@ -10,6 +10,7 @@
     "license": "MIT",
     "main": "index.js",
     "module": "src/index.js",
+    "files": ["src/index.js"],
     "sideEffets": false,
     "repository": {
         "type": "git",
