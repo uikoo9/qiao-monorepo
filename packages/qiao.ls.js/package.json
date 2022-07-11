@@ -1,6 +1,6 @@
 {
     "name": "qiao.ls.js",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "local storage expires",
     "keywords": [
         "local",
@@ -14,7 +14,9 @@
     "main": "index.js",
     "module": "src/index.js",
     "sideEffets": false,
-    "files": ["src"],
+    "files": [
+        "src"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
