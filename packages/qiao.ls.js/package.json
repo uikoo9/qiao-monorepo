@@ -23,5 +23,8 @@
         "test": "jest --config _config.jest.js",
         "prepublish": "npm run build && npm run eslintfix"
     },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+    },
     "sideEffects": false
 }
