@@ -9,6 +9,8 @@
     "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.cookie.js#readme",
     "license": "MIT",
     "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets":false,
     "repository": {
         "type": "git",
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"

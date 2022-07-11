@@ -1,5 +1,5 @@
 // qiao
-import qiao from 'qiao.cookie.js';
+import { get } from 'qiao.cookie.js';
 
 // dishi service
 import { todoItemList } from 'dishi-service';
@@ -27,8 +27,8 @@ export const getCols = () => {
 export const getRows = async (groupId) => {
     // userinfo
     window.insistime_userinfo = {
-        userid: qiao.get('insistime_userid'),
-        usertoken: qiao.get('insistime_usertoken')
+        userid: get('insistime_userid'),
+        usertoken: get('insistime_usertoken')
     };
 
     // cols

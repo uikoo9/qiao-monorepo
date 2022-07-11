@@ -25,6 +25,5 @@
     },
     "bugs": {
         "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-    },
-    "sideEffects": false
+    }
 }
