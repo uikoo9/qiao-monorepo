@@ -10,10 +10,8 @@
     "license": "MIT",
     "main": "index.js",
     "module": "src/index.js",
-    "files": [
-        "src/index.js"
-    ],
     "sideEffets": false,
+    "files": ["src"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
@@ -24,5 +22,8 @@
         "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
         "test": "jest --config _config.jest.js",
         "prepublish": "npm run build && npm run eslintfix"
+    },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
     }
 }
