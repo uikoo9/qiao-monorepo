@@ -1,6 +1,6 @@
 {
   "name": "qiao-is-online-browser",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "is online and offline to online on browser",
   "keywords": [
     "browser",
@@ -21,7 +21,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "offline-to-online": "^0.1.1"
+    "offline-to-online": "^0.1.2"
   },
   "sideEffects": false
 }
