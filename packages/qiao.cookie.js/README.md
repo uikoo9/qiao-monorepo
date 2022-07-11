@@ -4,32 +4,46 @@
 1. cookie, [https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
 
 ## api
+### commonjs
 ```js
-'use strict';
+// q
+const q = require('qiao.cookie.js');
 
-var q = require('qiao.cookie.js');
+// get
+q.get('key');
 
-var test = async function(){
-    // vars
-    var key = 'test';
-    var value = 'test';
+// set
+q.set('key', value);
 
-    // set & get
-    q.set(key, value);
-    console.log('set cookie test:' + q.get(key));
+// del
+q.del('key');
 
-    // del
-    q.del(key);
-    console.log('del cookie test:' + q.get(key));
+// has
+q.has('key');
 
-    // has
-    console.log(q.has(key));
+// keys
+q.keys();
+```
 
-    // keys
-    console.log(q.keys());
-};
+### es module
+```js
+// q
+import { get, set, del, has, keys} from 'qiao.cookie.js';
 
-test();
+// get
+get('key');
+
+// set
+set('key', value);
+
+// del
+del('key');
+
+// has
+has('key');
+
+// keys
+keys();
 ```
 
 ## version
