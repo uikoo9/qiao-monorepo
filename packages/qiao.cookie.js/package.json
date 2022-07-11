@@ -1,6 +1,6 @@
 {
     "name": "qiao.cookie.js",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "document cookie tools",
     "keywords": [
         "cookie"
@@ -10,7 +10,9 @@
     "license": "MIT",
     "main": "index.js",
     "module": "src/index.js",
-    "files": ["src/index.js"],
+    "files": [
+        "src/index.js"
+    ],
     "sideEffets": false,
     "repository": {
         "type": "git",
