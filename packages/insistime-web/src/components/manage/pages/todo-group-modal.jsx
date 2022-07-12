@@ -24,6 +24,7 @@ export class ToDoGroupModal extends React.Component {
 
         this.state = {
             show: false,
+            id: '',
             todo_group_name: '',
             todo_group_order: '',
         };
@@ -32,11 +33,16 @@ export class ToDoGroupModal extends React.Component {
     }
 
     // modal
-    modalShow = () => {
+    modalShow = (row) => {
+        const id = row && row.id;
+        const todo_group_name = row && row.todo_group_name;
+        const todo_group_order = row && row.todo_group_order;
+
         this.setState({
             show: true,
-            todo_group_name: '',
-            todo_group_order: '',
+            id: id || '',
+            todo_group_name: todo_group_name || '',
+            todo_group_order: todo_group_order || '',
         });
     }
     modalClose = () => {
@@ -70,6 +76,10 @@ export class ToDoGroupModal extends React.Component {
             show={this.state.show}
             closeModal={this.modalClose}
         >
+            <Input
+                type="hidden"
+                value={this.state.id}
+            />
             <Input
                 type="text"
                 placeholder="todo_group_name"

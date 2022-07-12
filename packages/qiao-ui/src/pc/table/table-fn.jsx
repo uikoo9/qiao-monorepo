@@ -41,10 +41,8 @@ export const getRows = (that) => {
                     if(item != 'op'){
                         return <td key={j}>{row[item]}</td>;
                     }else{
-                        const id = row.id;
-
                         return <td key={j} className="op">
-                            <div onClick={() => {that.props.editRow(id);}}>edit</div>
+                            <div onClick={() => {that.props.editRow(row);}}>edit</div>
                             <div onClick={() => {that.props.delRow(id);}}>del</div>
                         </td>;
                     }

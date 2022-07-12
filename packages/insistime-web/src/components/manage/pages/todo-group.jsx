@@ -52,8 +52,8 @@ export class ToDoGroup extends React.Component {
         console.log('insistime-web/manage/todo-group: modalShow');
     }
 
-    editRow = (id) => {
-        console.log(id);
+    editRow = (row) => {
+        this.todoGroupModalRef.current.modalShow(row);
     }
     delRow = (id) => {
         console.log(id);
