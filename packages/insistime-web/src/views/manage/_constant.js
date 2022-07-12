@@ -9,7 +9,7 @@ export default {
         main: true,
     },{
         name: '待办组管理',
-        url: '/todo/group'
+        url: '#/todo/group'
     },{
         name: '待办项管理',
         url: '/todo/item'

@@ -13,10 +13,10 @@ import {
 import {
     getCols,
     getRows,
-} from './manage.js';
+} from './todo.js';
 
 /**
- * manage container
+ * todo
  */
 export class ToDo extends React.Component {
     constructor(props) {
@@ -31,7 +31,7 @@ export class ToDo extends React.Component {
         this.onClick = this.onClick.bind(this);
         this.modalClose = this.modalClose.bind(this);
 
-        console.log('insistime-web/manage-container: constructor');
+        console.log('insistime-web/manage/todo-page: constructor');
     }
 
     async componentDidMount() {
@@ -44,7 +44,7 @@ export class ToDo extends React.Component {
             rows: rows,
         });
 
-        console.log('insistime-web/manage-container: componentDidMount');
+        console.log('insistime-web/manage/todo-page: componentDidMount');
     }
 
     onClick() {
@@ -60,7 +60,7 @@ export class ToDo extends React.Component {
     }
 
     render() {
-        console.log('insistime-web/manage-container: render');
+        console.log('insistime-web/manage/todo-page: render');
 
         return <div className="data-container">
             <button onClick={this.onClick}>add</button>
