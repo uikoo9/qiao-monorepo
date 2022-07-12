@@ -13,12 +13,12 @@ import {
 import {
     getCols,
     getRows,
-} from './todo.js';
+} from './todo-group.js';
 
 /**
- * todo
+ * todo group
  */
-export class ToDo extends React.Component {
+export class ToDoGroup extends React.Component {
     constructor(props) {
         super(props);
 
