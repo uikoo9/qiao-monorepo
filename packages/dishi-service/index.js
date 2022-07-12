@@ -81,6 +81,7 @@ async function ajax(url, data, headers) {
 
 /**
  * todoGroupList
+ * @returns 
  */
 const todoGroupList = async () => {
 	const url = config.host + config.todoGrouplist;
@@ -109,6 +110,8 @@ const todoGroupSave = async (name, order, id) => {
 
 /**
  * todoGroupDel
+ * @param {*} ids 
+ * @returns 
  */
 const todoGroupDel = async (ids) => {
 	const url = config.host + config.todoGroupDel;
@@ -119,6 +122,8 @@ const todoGroupDel = async (ids) => {
 
 /**
  * todoGroupGet
+ * @param {*} id 
+ * @returns 
  */
 const todoGroupGet = async (id) => {
 	if (!id) return qiaoJson.danger('need group id');

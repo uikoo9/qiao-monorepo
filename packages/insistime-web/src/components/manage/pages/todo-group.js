@@ -5,6 +5,7 @@ import { get } from 'qiao.cookie.js';
 import { 
     todoGroupList,
     todoGroupSave as save,
+    todoGroupDel as del,
 } from 'dishi-service';
 
 // cols
@@ -79,4 +80,14 @@ export const todoGroupSave = async (that, name, order, id) => {
 
     that.modalClose();
     that.props.reload();
+};
+
+export const todoGroupDel = async (that, id) => {
+    const res = await del(`${id}`);
+    if(!res || res.type != 'success'){
+        alert(res.msg);
+        return;
+    }
+
+    that.init();
 };

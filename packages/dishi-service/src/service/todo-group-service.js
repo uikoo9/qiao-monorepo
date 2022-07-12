@@ -11,6 +11,7 @@ import { danger } from 'qiao-json';
 
 /**
  * todoGroupList
+ * @returns 
  */
 export const todoGroupList = async () => {
 	const url = config.host + config.todoGrouplist;
@@ -39,6 +40,8 @@ export const todoGroupSave = async (name, order, id) => {
 
 /**
  * todoGroupDel
+ * @param {*} ids 
+ * @returns 
  */
 export const todoGroupDel = async (ids) => {
 	const url = config.host + config.todoGroupDel;
@@ -49,6 +52,8 @@ export const todoGroupDel = async (ids) => {
 
 /**
  * todoGroupGet
+ * @param {*} id 
+ * @returns 
  */
 export const todoGroupGet = async (id) => {
 	if (!id) return danger('need group id');

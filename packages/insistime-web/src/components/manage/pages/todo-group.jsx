@@ -14,6 +14,7 @@ import { ToDoGroupModal } from './todo-group-modal.jsx';
 // js
 import {
     initData,
+    todoGroupDel,
 } from './todo-group.js';
 
 /**
@@ -56,7 +57,7 @@ export class ToDoGroup extends React.Component {
         this.todoGroupModalRef.current.modalShow(row);
     }
     delRow = (id) => {
-        console.log(id);
+        todoGroupDel(this, id);
     }
 
     render() {

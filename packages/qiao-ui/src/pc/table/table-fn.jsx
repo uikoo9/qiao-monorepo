@@ -43,7 +43,7 @@ export const getRows = (that) => {
                     }else{
                         return <td key={j} className="op">
                             <div onClick={() => {that.props.editRow(row);}}>edit</div>
-                            <div onClick={() => {that.props.delRow(id);}}>del</div>
+                            <div onClick={() => {that.props.delRow(row.id);}}>del</div>
                         </td>;
                     }
                 })}
