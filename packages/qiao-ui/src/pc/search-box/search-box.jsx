@@ -15,13 +15,10 @@ export class SearchBox extends React.Component {
             searchText: '',
         };
 
-        this.searchChange = this.searchChange.bind(this);
-        this.searchClick = this.searchClick.bind(this);
-
         console.log('qiao-ui/pc/search-box: constructor');
     }
 
-    searchChange(e){
+    searchChange = (e) => {
         this.setState({
             searchText: e.target.value
         });
@@ -29,7 +26,7 @@ export class SearchBox extends React.Component {
         console.log('qiao-ui/pc/search-box: searchChange');
     }
 
-    searchClick() {
+    searchClick = () => {
         const searchText = this.state.searchText;
         this.props.searchClick(searchText);
 
