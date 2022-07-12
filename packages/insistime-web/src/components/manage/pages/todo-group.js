@@ -69,10 +69,6 @@ export const todoGroupSave = async (that, name, order, id) => {
         return;
     }
 
-    alert(res.msg);
-    that.setState({
-        modalShow: false
-    });
-
-    initData(that);
+    that.modalClose();
+    that.props.reload();
 };

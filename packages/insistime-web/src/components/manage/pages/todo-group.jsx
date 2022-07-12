@@ -5,16 +5,15 @@ import React from 'react';
 
 // ui
 import {
-    Modal,
     Table,
-    Input,
-    Button,
 } from 'qiao-ui';
+
+// modal
+import { ToDoGroupModal } from './todo-group-modal.jsx';
 
 // js
 import {
     initData,
-    todoGroupSave,
 } from './todo-group.js';
 
 /**
@@ -26,55 +25,31 @@ export class ToDoGroup extends React.Component {
 
         this.state = {
             cols: '',
-            rows: '',
-            modalShow: false,
-            todo_group_name: '',
-            todo_group_order: '',
+            rows: ''
         };
 
-        this.modalShow = this.modalShow.bind(this);
-        this.modalClose = this.modalClose.bind(this);
-        this.todoGroupNameChange = this.todoGroupNameChange.bind(this);
-        this.todoGroupOrderChange = this.todoGroupOrderChange.bind(this);
-        this.todoGroupAddClick = this.todoGroupAddClick.bind(this);
+        this.todoGroupModalRef = React.createRef();
 
-        console.log('insistime-web/manage/todo-page: constructor');
+        console.log('insistime-web/manage/todo-group: constructor');
     }
 
     // init
     componentDidMount() {
+        this.init();
+
+        console.log('insistime-web/manage/todo-group: componentDidMount');
+    }
+
+    // init
+    init = () => {
         initData(this);
-
-        console.log('insistime-web/manage/todo-page: componentDidMount');
     }
 
-    // modal
-    modalShow() {
-        this.setState({
-            modalShow: true
-        });
-    }
-    modalClose() {
-        this.setState({
-            modalShow: false
-        });
-    }
+    // modal show
+    modalShow = () => {
+        this.todoGroupModalRef.current.modalShow();
 
-    // form
-    todoGroupNameChange(e){
-        this.setState({
-            todo_group_name: e.target.value
-        });
-    }
-    todoGroupOrderChange(e){
-        this.setState({
-            todo_group_order: e.target.value
-        });
-    }
-    todoGroupAddClick(){
-        const todo_group_name = this.state.todo_group_name;
-        const todo_group_order = this.state.todo_group_order;
-        todoGroupSave(this, todo_group_name, todo_group_order);
+        console.log('insistime-web/manage/todo-group: modalShow');
     }
 
     render() {
@@ -87,27 +62,10 @@ export class ToDoGroup extends React.Component {
                 rows={this.state.rows}
             />
 
-            <Modal
-                modalShow={this.state.modalShow}
-                modalClose={this.modalClose}
-            >
-                <Input 
-                    type="text" 
-                    placeholder="todo_group_name"
-                    value={this.state.todo_group_name}
-                    onChange={this.todoGroupNameChange}
-                />
-                <Input 
-                    type="text" 
-                    placeholder="todo_group_order"
-                    value={this.state.todo_group_order}
-                    onChange={this.todoGroupOrderChange}
-                />
-                <Button
-                    onClick={this.todoGroupAddClick}
-                    text="submit"
-                />
-            </Modal>
+            <ToDoGroupModal 
+                ref={this.todoGroupModalRef}
+                reload={this.init}
+            />
         </div>;
     }
 }
