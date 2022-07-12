@@ -6,7 +6,8 @@ import React from 'react';
 // ui
 import {
     Modal,
-    Table
+    Table,
+    Input,
 } from 'qiao-ui';
 
 // js
@@ -26,10 +27,14 @@ export class ToDoGroup extends React.Component {
             cols: '',
             rows: '',
             modalShow: false,
+            todo_group_name: '',
+            todo_group_order: '',
         };
 
         this.onClick = this.onClick.bind(this);
         this.modalClose = this.modalClose.bind(this);
+        this.todoGroupNameChange = this.todoGroupNameChange.bind(this);
+        this.todoGroupOrderChange = this.todoGroupOrderChange.bind(this);
 
         console.log('insistime-web/manage/todo-page: constructor');
     }
@@ -59,6 +64,17 @@ export class ToDoGroup extends React.Component {
         });
     }
 
+    todoGroupNameChange(e){
+        this.setState({
+            todo_group_name: e.target.value
+        });
+    }
+    todoGroupOrderChange(e){
+        this.setState({
+            todo_group_order: e.target.value
+        });
+    }
+
     render() {
         console.log('insistime-web/manage/todo-page: render');
 
@@ -73,7 +89,18 @@ export class ToDoGroup extends React.Component {
                 modalShow={this.state.modalShow}
                 modalClose={this.modalClose}
             >
-                <div>1</div>
+                <Input 
+                    type="text" 
+                    placeholder="todo_group_name"
+                    value={this.state.todo_group_name}
+                    onChange={this.todoGroupNameChange}
+                />
+                <Input 
+                    type="text" 
+                    placeholder="todo_group_order"
+                    value={this.state.todo_group_order}
+                    onChange={this.todoGroupOrderChange}
+                />
             </Modal>
         </div>;
     }

@@ -12,6 +12,7 @@ export { Menus } from './pc/menus/menus.jsx';
 export { Modal } from './pc/modal/modal.jsx';
 export { Table } from './pc/table/table.jsx';
 export { Input } from './pc/input/input.jsx';
+export { Button } from './pc/button/button.jsx';
 
 // pc search
 export { SearchBox } from './pc/search-box/search-box.jsx';
