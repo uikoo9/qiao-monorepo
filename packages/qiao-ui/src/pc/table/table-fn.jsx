@@ -33,10 +33,21 @@ export const getRows = (that) => {
     return rows.map((row, index) => {
         if (!row) return;
 
+        const rowKeys = Object.keys(row);
+
         return (
             <tr key={index}>
-                {Object.keys(row).map((item, j) => {
-                    return <td key={j}>{row[item]}</td>;
+                {rowKeys.map((item, j) => {
+                    if(item != 'op'){
+                        return <td key={j}>{row[item]}</td>;
+                    }else{
+                        const id = row.id;
+
+                        return <td key={j} className="op">
+                            <div onClick={() => {that.props.editRow(id);}}>edit</div>
+                            <div onClick={() => {that.props.delRow(id);}}>del</div>
+                        </td>;
+                    }
                 })}
             </tr>
         );

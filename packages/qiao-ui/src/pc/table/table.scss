@@ -4,27 +4,44 @@ $tableWidth: 1100px;
 $tdHeight: 40px;
 $tdPadding: 5px;
 
-.table-container{
+.table-container {
     width: $tableWidth;
 
     @include base.marginAuto();
     margin-top: 20px;
 
-    table{
+    table {
         @include base.width();
-        border-collapse:collapse;
-    }
-    
-    th{
-        height: $tdHeight;
-        padding: $tdPadding;
-        border: base.$borderSolid;
+        border-collapse: collapse;
     }
 
-    td{
+    th {
         height: $tdHeight;
+        line-height: $tdHeight;
+
         padding: $tdPadding;
         border: base.$borderSolid;
-        text-align: center;
+
+        @include base.font($size: 16px, $align: center);
+    }
+
+    td {
+        height: $tdHeight;
+        line-height: $tdHeight;
+
+        padding: $tdPadding;
+        border: base.$borderSolid;
+
+        @include base.font($size: 14px, $align: center);
+    }
+
+    td.op>div {
+        float: left;
+        width: 50%;
+        height: $tdHeight;
+        line-height: $tdHeight;
+
+        @include base.font($size: 14px, $align: center);
+        @include base.cursor();
     }
 }

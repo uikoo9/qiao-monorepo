@@ -13,6 +13,7 @@ const cols = [
     'ucenter_user_id',
     'todo_group_name',
     'todo_group_order',
+    'op'
 ];
 
 /**
@@ -43,6 +44,11 @@ export const initData = async (that) => {
                 delete row[key];
             }
         });
+
+        // op
+        if(cols.includes('op')){
+            row.op = true;
+        }
 
         return row;
     });

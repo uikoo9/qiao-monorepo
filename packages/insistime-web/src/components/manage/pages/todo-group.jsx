@@ -52,6 +52,13 @@ export class ToDoGroup extends React.Component {
         console.log('insistime-web/manage/todo-group: modalShow');
     }
 
+    editRow = (id) => {
+        console.log(id);
+    }
+    delRow = (id) => {
+        console.log(id);
+    }
+
     render() {
         console.log('insistime-web/manage/todo-page: render');
 
@@ -60,6 +67,8 @@ export class ToDoGroup extends React.Component {
             <Table
                 cols={this.state.cols}
                 rows={this.state.rows}
+                editRow={this.editRow}
+                delRow={this.delRow}
             />
 
             <ToDoGroupModal 
