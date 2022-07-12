@@ -91,12 +91,16 @@ const todoGroupList = async () => {
 
 /**
  * todoGroupSave
+ * @param {*} name 
+ * @param {*} order 
+ * @param {*} id 
+ * @returns 
  */
-const todoGroupSave = async (name, id) => {
+const todoGroupSave = async (name, order, id) => {
 	const url = config.host + config.todoGroupSave;
 	let data = {
 		todoGroupName: name,
-		todoGroupOrder: '1'
+		todoGroupOrder: order || '1'
 	};
 	if (id) data.id = id;
 

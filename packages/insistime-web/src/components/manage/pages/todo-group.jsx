@@ -13,9 +13,8 @@ import {
 
 // js
 import {
-    getCols,
-    getRows,
-    todoGroupAdd,
+    initData,
+    todoGroupSave,
 } from './todo-group.js';
 
 /**
@@ -43,15 +42,8 @@ export class ToDoGroup extends React.Component {
     }
 
     // init
-    async componentDidMount() {
-        // table
-        const cols = getCols();
-        const rows = await getRows('108');
-
-        this.setState({
-            cols: cols,
-            rows: rows,
-        });
+    componentDidMount() {
+        initData(this);
 
         console.log('insistime-web/manage/todo-page: componentDidMount');
     }
@@ -82,7 +74,7 @@ export class ToDoGroup extends React.Component {
     todoGroupAddClick(){
         const todo_group_name = this.state.todo_group_name;
         const todo_group_order = this.state.todo_group_order;
-        todoGroupAdd(this, todo_group_name);
+        todoGroupSave(this, todo_group_name, todo_group_order);
     }
 
     render() {
