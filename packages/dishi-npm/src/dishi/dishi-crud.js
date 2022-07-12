@@ -57,7 +57,7 @@ exports.add = async function (name, group) {
  */
 exports.update = async function (id, name, group) {
 	if (group) {
-		var json = await dishiService.todoGroupSave(name, id);
+		var json = await dishiService.todoGroupSave(name, '1', id);
 		if (!json) return;
 
 		qiao.log.suc(`${json.time}ms | update group success`);
