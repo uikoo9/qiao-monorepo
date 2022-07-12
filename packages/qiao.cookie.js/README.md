@@ -6,7 +6,7 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.cookie.js)
 
 ## documentation
-1. cookie, [https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
+cookie, [https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
 
 ## api
 ### commonjs
@@ -18,7 +18,7 @@ const q = require('qiao.cookie.js');
 q.get('key');
 
 // set
-q.set('key', value);
+q.set('key', 'value');
 
 // del
 q.del('key');
@@ -52,6 +52,9 @@ keys();
 ```
 
 ## version
+### 0.0.3.20220712
+1. tree shaking
+   
 ### 0.0.2.20220709
 1. add rollup
 2. add eslint
