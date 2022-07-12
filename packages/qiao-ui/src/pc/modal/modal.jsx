@@ -12,7 +12,7 @@ export class Modal extends React.Component {
         console.log('qiao-ui/pc/modal: render');
 
         return <div className={this.props.show ? 'modal-container' : 'modal-container hide'}>
-            <div className="modal">
+            <div className="modal" style={{width: this.props.width}}>
                 <div className="modal-close" onClick={this.props.closeModal}>x</div>
                 {this.props.children}
             </div>

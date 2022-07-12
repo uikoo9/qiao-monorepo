@@ -66,6 +66,7 @@ export class ToDoGroupModal extends React.Component {
         console.log('insistime-web/manage/todo-page: render');
 
         return <Modal
+            width="300px"
             show={this.state.show}
             closeModal={this.modalClose}
         >
