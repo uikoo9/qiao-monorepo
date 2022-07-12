@@ -9,8 +9,8 @@
 cookie, [https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
 
 ## api
-### commonjs
-```js
+### cjs
+```javascript
 // q
 const q = require('qiao.cookie.js');
 
@@ -30,8 +30,8 @@ q.has('key');
 q.keys();
 ```
 
-### es module
-```js
+### mjs
+```javascript
 // q
 import { get, set, del, has, keys} from 'qiao.cookie.js';
 

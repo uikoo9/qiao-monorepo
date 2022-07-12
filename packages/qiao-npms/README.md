@@ -5,7 +5,7 @@ npm package info
 
 ## api
 ### downloadCountsLastDay
-```js
+```javascript
 'use strict';
 
 var q = require('qiao-npms');
@@ -24,7 +24,7 @@ test();
 ```
 
 return
-```js
+```javascript
 {
   downloads: 0,
   start: '2022-06-08',
@@ -34,7 +34,7 @@ return
 ```
 
 ### downloadCountsLastWeek
-```js
+```javascript
 'use strict';
 
 var q = require('qiao-npms');
@@ -53,7 +53,7 @@ test();
 ```
 
 return
-```js
+```javascript
 {
   downloads: 80,
   start: '2022-06-02',
@@ -63,7 +63,7 @@ return
 ```
 
 ### downloadCountsLastMonth
-```js
+```javascript
 'use strict';
 
 var q = require('qiao-npms');
@@ -82,7 +82,7 @@ test();
 ```
 
 return
-```js
+```javascript
 {
   downloads: 763,
   start: '2022-05-10',
@@ -92,7 +92,7 @@ return
 ```
 
 ### downloadCounts
-```js
+```javascript
 'use strict';
 
 var q = require('qiao-npms');
@@ -111,7 +111,7 @@ test();
 ```
 
 return
-```js
+```javascript
 {
   downloads: 0,
   start: '2022-06-08',
@@ -121,7 +121,7 @@ return
 ```
 
 ### searchPackages
-```js
+```javascript
 'use strict';
 
 var q = require('qiao-npms');
@@ -140,7 +140,7 @@ test();
 ```
 
 return
-```js
+```javascript
 [
   {
     name: 'qiao-cos',

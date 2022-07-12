@@ -1,7 +1,7 @@
 # qiao-webpack
 
 ## config
-```js
+```javascript
 module.exports = {
   // https://webpack.js.org/configuration/dev-server/
   devServer: {},
@@ -33,7 +33,7 @@ module.exports = {
 ```
 
 ### plugins
-```js
+```javascript
   {
     type: 'css',
     filename: '[name].[contenthash:8].css',
@@ -51,7 +51,7 @@ module.exports = {
 ```
 
 ### cacheGroups
-```js
+```javascript
 {
   react: {
     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
@@ -82,7 +82,7 @@ module.exports = {
 ```
 
 ### cssIncludes
-```js
+```javascript
 [
   /node_modules[\\/]antd/,
   /node_modules[\\/]iconfont\.css$/,
@@ -92,7 +92,7 @@ module.exports = {
 
 
 ### postcssConfig
-```js
+```javascript
   plugins: [
     require('autoprefixer')
   ]

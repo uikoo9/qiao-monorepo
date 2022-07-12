@@ -9,7 +9,7 @@
 2. add sms 
 
 ## options
-```js
+```javascript
 {
 	// config
 	config : {
@@ -45,7 +45,7 @@
 ```
 
 ## use
-```js
+```javascript
     // qiao-server
     var q = require('qiao-server');
     q.init({

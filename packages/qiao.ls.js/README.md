@@ -6,11 +6,10 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.ls.js)
 
 ## api
-### ls
+### cjs
 ```javascript
-'use strict';
-
-var q = require('qiao.ls.js');
+// q
+const q = require('qiao.ls.js');
 
 // set
 q.ls('name', 'value');
@@ -26,7 +25,29 @@ q.ls('name', null);
 console.log(q.ls('name')); // undefined
 ```
 
+### mjs
+```javascript
+// q
+import { ls } from 'qiao.ls.js';
+
+// set
+ls('name', 'value');
+
+// set 10s expires
+ls('name', 'value', 10 * 1000);
+
+// get
+console.log(ls('name')); // value
+
+// delete
+ls('name', null);
+console.log(ls('name')); // undefined
+```
+
 ## version
+### 0.1.1.20220711
+1. tree shaking
+
 ### 0.1.0.20220709
 1. add eslint 
 
