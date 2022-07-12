@@ -1,7 +1,7 @@
 {
   "name": "insistime-web",
   "private": true,
-  "version": "1.4.1",
+  "version": "1.4.2",
   "scripts": {
     "dev": "qwebpack dev ./webpack/qiao-webpack.dev.js",
     "build": "qwebpack build ./webpack/qiao-webpack.prod.js",
@@ -9,7 +9,7 @@
     "upload": "qcos fo ./config.json ../insistime-server/dist 00_insistime/static"
   },
   "dependencies": {
-    "dishi-service": "^0.0.9",
+    "dishi-service": "^0.1.0",
     "qiao-ajax": "^2.6.6",
     "qiao-service": "^0.0.5",
     "qiao-ui": "^0.4.7",
