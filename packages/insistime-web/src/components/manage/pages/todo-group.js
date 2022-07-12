@@ -2,7 +2,10 @@
 import { get } from 'qiao.cookie.js';
 
 // dishi service
-import { todoGroupList } from 'dishi-service';
+import { 
+    todoGroupList,
+    todoGroupSave,
+} from 'dishi-service';
 
 /**
  * getCols
@@ -44,5 +47,18 @@ export const getRows = async (groupId) => {
         });
 
         return row;
+    });
+};
+
+export const todoGroupAdd = async (that, name, id) => {
+    const res = await todoGroupSave(name);
+    if(!res || res.type != 'success'){
+        alert(res.msg);
+        return;
+    }
+
+    alert(res.msg);
+    that.setState({
+        modalShow: false
     });
 };

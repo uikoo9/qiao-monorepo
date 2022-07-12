@@ -8,12 +8,14 @@ import {
     Modal,
     Table,
     Input,
+    Button,
 } from 'qiao-ui';
 
 // js
 import {
     getCols,
     getRows,
+    todoGroupAdd,
 } from './todo-group.js';
 
 /**
@@ -31,14 +33,16 @@ export class ToDoGroup extends React.Component {
             todo_group_order: '',
         };
 
-        this.onClick = this.onClick.bind(this);
+        this.modalShow = this.modalShow.bind(this);
         this.modalClose = this.modalClose.bind(this);
         this.todoGroupNameChange = this.todoGroupNameChange.bind(this);
         this.todoGroupOrderChange = this.todoGroupOrderChange.bind(this);
+        this.todoGroupAddClick = this.todoGroupAddClick.bind(this);
 
         console.log('insistime-web/manage/todo-page: constructor');
     }
 
+    // init
     async componentDidMount() {
         // table
         const cols = getCols();
@@ -52,18 +56,19 @@ export class ToDoGroup extends React.Component {
         console.log('insistime-web/manage/todo-page: componentDidMount');
     }
 
-    onClick() {
+    // modal
+    modalShow() {
         this.setState({
             modalShow: true
         });
     }
-
     modalClose() {
         this.setState({
             modalShow: false
         });
     }
 
+    // form
     todoGroupNameChange(e){
         this.setState({
             todo_group_name: e.target.value
@@ -74,12 +79,17 @@ export class ToDoGroup extends React.Component {
             todo_group_order: e.target.value
         });
     }
+    todoGroupAddClick(){
+        const todo_group_name = this.state.todo_group_name;
+        const todo_group_order = this.state.todo_group_order;
+        todoGroupAdd(this, todo_group_name);
+    }
 
     render() {
         console.log('insistime-web/manage/todo-page: render');
 
         return <div className="data-container">
-            <button onClick={this.onClick}>add</button>
+            <button onClick={this.modalShow}>add</button>
             <Table
                 cols={this.state.cols}
                 rows={this.state.rows}
@@ -100,6 +110,10 @@ export class ToDoGroup extends React.Component {
                     placeholder="todo_group_order"
                     value={this.state.todo_group_order}
                     onChange={this.todoGroupOrderChange}
+                />
+                <Button
+                    onClick={this.todoGroupAddClick}
+                    text="submit"
                 />
             </Modal>
         </div>;
