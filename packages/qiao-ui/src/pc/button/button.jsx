@@ -13,7 +13,11 @@ export class Button extends React.Component {
 
         return (
             <div className="btn">
-                <div className="ctx" onClick={this.props.onClick}>{this.props.text}</div>
+                <div 
+                    className="ctx" 
+                    style={{width: this.props.width}}
+                    onClick={this.props.onClick}
+                >{this.props.text}</div>
             </div>
         );
     }
