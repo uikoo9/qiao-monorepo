@@ -28,41 +28,35 @@ export class ToDoGroupModal extends React.Component {
             todo_group_order: '',
         };
 
-        this.modalShow = this.modalShow.bind(this);
-        this.modalClose = this.modalClose.bind(this);
-        this.todoGroupNameChange = this.todoGroupNameChange.bind(this);
-        this.todoGroupOrderChange = this.todoGroupOrderChange.bind(this);
-        this.todoGroupAddClick = this.todoGroupAddClick.bind(this);
-
         console.log('insistime-web/manage/todo-group-modal: constructor');
     }
 
     // modal
-    modalShow(){
+    modalShow = () => {
         this.setState({
             show: true,
             todo_group_name: '',
             todo_group_order: '',
         });
     }
-    modalClose() {
+    modalClose = () => {
         this.setState({
             show: false
         });
     }
 
     // form
-    todoGroupNameChange(e) {
+    todoGroupNameChange = (e) => {
         this.setState({
             todo_group_name: e.target.value
         });
     }
-    todoGroupOrderChange(e) {
+    todoGroupOrderChange = (e) => {
         this.setState({
             todo_group_order: e.target.value
         });
     }
-    todoGroupAddClick() {
+    todoGroupAddClick = () => {
         const todo_group_name = this.state.todo_group_name;
         const todo_group_order = this.state.todo_group_order;
         todoGroupSave(this, todo_group_name, todo_group_order);
