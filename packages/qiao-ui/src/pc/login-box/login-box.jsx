@@ -4,6 +4,9 @@ import React from 'react';
 // css
 import './login-box.scss';
 
+// components
+import { Input } from '../../index.js'
+
 /**
  * login box
  */
@@ -25,15 +28,14 @@ export class LoginBox extends React.Component {
         console.log('qiao-ui/pc/login-box: constructor');
     }
 
-    usernameChange(e) {
+    usernameChange(e){
         this.setState({
             username: e.target.value
         });
 
         console.log('qiao-ui/pc/login-box: usernameChange');
     }
-
-    passwordChange(e) {
+    passwordChange(e){
         this.setState({
             password: e.target.value
         });
@@ -65,22 +67,18 @@ export class LoginBox extends React.Component {
         
         return (
             <div className="box">
-                <div className="input">
-                    <input
-                        type="text"
-                        placeholder={this.props.usernameHolder}
-                        onChange={this.usernameChange}
-                        value={this.state.username}
-                    />
-                </div>
-                <div className="input">
-                    <input
-                        type="password"
-                        placeholder={this.props.passwordHolder}
-                        onChange={this.passwordChange}
-                        value={this.state.password}
-                    />
-                </div>
+                <Input 
+                    type="text" 
+                    placeholder={this.props.usernameHolder}
+                    value={this.state.username}
+                    onChange={this.usernameChange}
+                />
+                <Input 
+                    type="password" 
+                    placeholder={this.props.passwordHolder}
+                    value={this.state.password}
+                    onChange={this.passwordChange}
+                />
                 <div className="btn">
                     <div className="ctx" onClick={this.clickLogin}>{this.props.loginBtn}</div>
                 </div>

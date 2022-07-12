@@ -13,13 +13,14 @@ $boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20p
     margin-top: $marginHeight;
 
     .input {
-        width: $loginWidth;
+        @include base.width();
+
         height: $inputHeight;
         border-bottom: base.$borderSolid;
         margin-bottom: 10px;
 
         input {
-            width: $loginWidth - 20px;
+            width: calc(100% - 20px);
             height: $inputHeight;
             line-height: $inputHeight;
 
