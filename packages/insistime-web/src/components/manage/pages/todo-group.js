@@ -69,9 +69,11 @@ export const initData = async (that) => {
  * @returns 
  */
 export const todoGroupSave = async (that, name, order, id) => {
-    const res = await save(name, order);
+    const res = await save(name, order, id);
     if(!res || res.type != 'success'){
-        alert(res.msg);
+        that.setState({
+            tips: res.msg
+        });
         return;
     }
 

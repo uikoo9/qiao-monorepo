@@ -8,6 +8,7 @@ import {
     Modal,
     Input,
     Button,
+    Tips,
 } from 'qiao-ui';
 
 // js
@@ -27,6 +28,7 @@ export class ToDoGroupModal extends React.Component {
             id: '',
             todo_group_name: '',
             todo_group_order: '',
+            tips: '',
         };
 
         console.log('insistime-web/manage/todo-group-modal: constructor');
@@ -43,6 +45,7 @@ export class ToDoGroupModal extends React.Component {
             id: id || '',
             todo_group_name: todo_group_name || '',
             todo_group_order: todo_group_order || '',
+            tips: '',
         });
     }
     modalClose = () => {
@@ -62,15 +65,17 @@ export class ToDoGroupModal extends React.Component {
             todo_group_order: e.target.value
         });
     }
-    todoGroupAddClick = () => {
+    todoGroupSavelick = () => {
+        const id = this.state.id;
         const todo_group_name = this.state.todo_group_name;
         const todo_group_order = this.state.todo_group_order;
-        todoGroupSave(this, todo_group_name, todo_group_order);
+        todoGroupSave(this, todo_group_name, todo_group_order, id);
     }
 
     render() {
         console.log('insistime-web/manage/todo-page: render');
 
+        const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
         return <Modal
             width="300px"
             show={this.state.show}
@@ -93,9 +98,10 @@ export class ToDoGroupModal extends React.Component {
                 onChange={this.todoGroupOrderChange}
             />
             <Button
-                onClick={this.todoGroupAddClick}
+                onClick={this.todoGroupSavelick}
                 text="submit"
             />
+            {tips}
         </Modal>;
     }
 }

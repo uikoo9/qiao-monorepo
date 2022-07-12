@@ -5,7 +5,7 @@ import React from 'react';
 import './login-box.scss';
 
 // components
-import { Input, Button } from '../../index.js'
+import { Input, Button, Tips } from '../../index.js'
 
 /**
  * login box
@@ -78,7 +78,9 @@ export class LoginBox extends React.Component {
                     onClick={this.clickLogin}
                     text={this.props.loginBtn}
                 />
-                <div className="tips">{this.state.loginTips}</div>
+                <Tips
+                    tips={this.state.loginTips}
+                />
             </div>
         );
     }
