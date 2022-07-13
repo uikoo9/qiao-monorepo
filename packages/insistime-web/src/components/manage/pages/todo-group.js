@@ -95,16 +95,13 @@ export const todoGroupSave = async (that, name, order, id) => {
 
 /**
  * todoGroupDel
- * @param {*} that 
- * @param {*} id 
+ * @param {*} ids 
  * @returns 
  */
-export const todoGroupDel = async (that, id) => {
-    const res = await del(`${id}`);
+export const todoGroupDel = async (ids) => {
+    const res = await del(`${ids}`);
     if (!res || res.type != 'success') {
         alert(res.msg);
         return;
     }
-
-    that.init();
 };

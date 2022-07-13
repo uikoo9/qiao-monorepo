@@ -22,20 +22,3 @@ body {
         }
     }
 }
-
-.toolbar{
-    width: 1100px;
-    height: 30px;
-    margin: 0 auto;
-    margin-top: 20px;
-
-    div{
-        float: left;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-
-        user-select: none;
-        cursor: pointer;
-    }
-}

@@ -1,0 +1,20 @@
+@use "../../base";
+
+$toolbarWidth: 1100px;
+$toolbarHeight: 30px;
+
+.toolbar{
+    width: $toolbarWidth;
+    height: $toolbarHeight;
+    @include base.marginAuto();
+    margin-top: 20px;
+
+    div{
+        float: left;
+        width: 100px;
+        height: $toolbarHeight;
+        line-height: $toolbarHeight;
+
+        @include base.cursor();
+    }
+}

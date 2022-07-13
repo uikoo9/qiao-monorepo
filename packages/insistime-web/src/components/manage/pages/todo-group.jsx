@@ -6,6 +6,7 @@ import React from 'react';
 // ui
 import {
     Table,
+    Toolbar,
 } from 'qiao-ui';
 
 // modal
@@ -47,18 +48,22 @@ export class ToDoGroup extends React.Component {
     }
 
     // init
-    init = () => {
-        initData(this);
+    init = (pagenumber) => {
+        initData(this, pagenumber);
     }
 
-    // modal show
-    modalShow = () => {
-        this.todoGroupModalRef.current.modalShow();
-
-        console.log('insistime-web/manage/todo-group: modalShow');
+    // edit row
+    editRow = (row) => {
+        this.todoGroupModalRef.current.modalShow(row);
     }
 
-    // ck
+    // del row
+    delRow = async (id) => {
+        await todoGroupDel(id);
+        this.init();
+    }
+
+    // toolbar
     checkboxChange = (e) => {
         const cks = this.state.cks;
 
@@ -74,74 +79,18 @@ export class ToDoGroup extends React.Component {
         });
     }
 
-    // del rows
-    delRows = () => {
-        const cks = this.state.cks;
-        if (!cks.length) {
-            alert('check del rows');
-            return;
-        }
-
-        todoGroupDel(this, cks.join(','));
-    }
-
-    // edit row
-    editRow = (row) => {
-        this.todoGroupModalRef.current.modalShow(row);
-    }
-
-    // del row
-    delRow = (id) => {
-        todoGroupDel(this, id);
-    }
-
-    // paging
-    firstPage = () => {
-        initData(this);
-    }
-    lastPage = () => {
-        initData(this, this.state.sumpage);
-    }
-    prevPage = () => {
-        const pagenumber = this.state.pagenumber;
-        if (pagenumber == 1) return;
-
-        initData(this, pagenumber - 1);
-    }
-    nextPage = () => {
-        const pagenumber = this.state.pagenumber;
-        if (pagenumber == this.state.sumpage) return;
-
-        initData(this, pagenumber + 1);
-    }
-    setPagesize = (pagesize) => {
-        window.pagesize = pagesize;
-        initData(this);
-    }
-
     render() {
         console.log('insistime-web/manage/todo-page: render');
 
-        // paging
-        const sumpage = this.state.sumpage;
-        const total = this.state.total;
-        const pagenumber = this.state.pagenumber;
-        const pagesize = this.state.pagesize;
-
         return <div className="data-container">
-            <div className='toolbar'>
-                <div onClick={this.modalShow}>add</div>
-                <div onClick={this.delRows}>del</div>
-                <div>/</div>
-                <div onClick={this.firstPage}>first</div>
-                <div onClick={this.prevPage}>prev</div>
-                <div onClick={this.nextPage}>next</div>
-                <div onClick={this.lastPage}>last</div>
-                <div>/</div>
-                <div onClick={() => { this.setPagesize(10) }}>10</div>
-                <div onClick={() => { this.setPagesize(50) }}>50</div>
-                <div onClick={() => { this.setPagesize(100) }}>100</div>
-            </div>
+            <Toolbar 
+                cks={this.state.cks}
+                modal={this.todoGroupModalRef}
+                delRows={this.delRow}
+                reload={this.init}
+                sumpage={this.state.sumpage}
+                pagenumber={this.state.pagenumber}
+            />
 
             <Table
                 cols={this.state.cols}
