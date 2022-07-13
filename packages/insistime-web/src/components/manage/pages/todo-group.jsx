@@ -14,8 +14,8 @@ import { ToDoGroupModal } from './todo-group-modal.jsx';
 
 // js
 import {
-    initData,
-    todoGroupDel,
+    init,
+    del,
 } from './todo-group.js';
 
 /**
@@ -23,6 +23,8 @@ import {
  */
 export class ToDoGroup extends React.Component {
     constructor(props) {
+        console.log('insistime-web/manage/page/todo-group: constructor');
+
         super(props);
 
         this.state = {
@@ -30,41 +32,45 @@ export class ToDoGroup extends React.Component {
             cols: null,
             rows: null,
             sumpage: null,
-            total: null,
             pagenumber: null,
-            pagesize: null,
         };
 
         this.todoGroupModalRef = React.createRef();
-
-        console.log('insistime-web/manage/todo-group: constructor');
     }
 
     // init
     componentDidMount() {
-        this.init();
+        console.log('insistime-web/manage/page/todo-group: componentDidMount');
 
-        console.log('insistime-web/manage/todo-group: componentDidMount');
+        this.reload();
     }
 
-    // init
-    init = (pagenumber) => {
-        initData(this, pagenumber);
+    // reload
+    reload = (pagenumber) => {
+        console.log('insistime-web/manage/page/todo-group: reload');
+
+        init(this, pagenumber);
     }
 
     // edit row
     editRow = (row) => {
+        console.log('insistime-web/manage/page/todo-group: editRow');
+
         this.todoGroupModalRef.current.modalShow(row);
     }
 
     // del row
     delRow = async (id) => {
-        await todoGroupDel(id);
-        this.init();
+        console.log('insistime-web/manage/page/todo-group: delRow');
+
+        await del(id);
+        this.reload();
     }
 
     // toolbar
     checkboxChange = (e) => {
+        console.log('insistime-web/manage/page/todo-group: checkboxChange');
+
         const cks = this.state.cks;
 
         if (e.target.checked) {
@@ -80,14 +86,14 @@ export class ToDoGroup extends React.Component {
     }
 
     render() {
-        console.log('insistime-web/manage/todo-page: render');
+        console.log('insistime-web/manage/page/todo-group: render');
 
         return <div className="data-container">
             <Toolbar 
                 cks={this.state.cks}
                 modal={this.todoGroupModalRef}
                 delRows={this.delRow}
-                reload={this.init}
+                reload={this.reload}
                 sumpage={this.state.sumpage}
                 pagenumber={this.state.pagenumber}
             />
@@ -102,7 +108,7 @@ export class ToDoGroup extends React.Component {
 
             <ToDoGroupModal
                 ref={this.todoGroupModalRef}
-                reload={this.init}
+                reload={this.reload}
             />
         </div>;
     }

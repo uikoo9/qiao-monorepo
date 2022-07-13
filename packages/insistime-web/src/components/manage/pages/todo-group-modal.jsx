@@ -13,7 +13,7 @@ import {
 
 // js
 import {
-    todoGroupSave,
+    save,
 } from './todo-group.js';
 
 /**
@@ -21,6 +21,8 @@ import {
  */
 export class ToDoGroupModal extends React.Component {
     constructor(props) {
+        console.log('insistime-web/manage/page/todo-group-modal: constructor');
+
         super(props);
 
         this.state = {
@@ -30,12 +32,12 @@ export class ToDoGroupModal extends React.Component {
             todo_group_order: '',
             tips: '',
         };
-
-        console.log('insistime-web/manage/todo-group-modal: constructor');
     }
 
     // modal
     modalShow = (row) => {
+        console.log('insistime-web/manage/page/todo-group-modal: modalShow');
+
         const id = row && row.id;
         const todo_group_name = row && row.todo_group_name;
         const todo_group_order = row && row.todo_group_order;
@@ -49,6 +51,8 @@ export class ToDoGroupModal extends React.Component {
         });
     }
     modalClose = () => {
+        console.log('insistime-web/manage/page/todo-group-modal: modalClose');
+
         this.setState({
             show: false
         });
@@ -56,24 +60,35 @@ export class ToDoGroupModal extends React.Component {
 
     // form
     todoGroupNameChange = (e) => {
+        console.log('insistime-web/manage/page/todo-group-modal: todoGroupNameChange');
+
         this.setState({
             todo_group_name: e.target.value
         });
     }
     todoGroupOrderChange = (e) => {
+        console.log('insistime-web/manage/page/todo-group-modal: todoGroupOrderChange');
+
         this.setState({
             todo_group_order: e.target.value
         });
     }
-    todoGroupSavelick = () => {
+
+    // save
+    saveClick = async () => {
+        console.log('insistime-web/manage/page/todo-group-modal: saveClick');
+
         const id = this.state.id;
         const todo_group_name = this.state.todo_group_name;
         const todo_group_order = this.state.todo_group_order;
-        todoGroupSave(this, todo_group_name, todo_group_order, id);
+        await save(todo_group_name, todo_group_order, id);
+
+        this.modalClose();
+        this.props.reload();
     }
 
     render() {
-        console.log('insistime-web/manage/todo-page: render');
+        console.log('insistime-web/manage/page/todo-group-modal: render');
 
         const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
         return <Modal
@@ -98,7 +113,7 @@ export class ToDoGroupModal extends React.Component {
                 onChange={this.todoGroupOrderChange}
             />
             <Button
-                onClick={this.todoGroupSavelick}
+                onClick={this.saveClick}
                 text="submit"
             />
             {tips}

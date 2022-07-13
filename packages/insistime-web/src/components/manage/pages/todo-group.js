@@ -1,11 +1,15 @@
-// qiao
-import { get } from 'qiao.cookie.js';
+// util
+import {
+    initData,
+    itemSave,
+    itemDel,
+} from './util.js';
 
 // dishi service
 import {
     todoGroupList,
-    todoGroupSave as save,
-    todoGroupDel as del,
+    todoGroupSave,
+    todoGroupDel,
 } from 'dishi-service';
 
 // cols
@@ -19,89 +23,37 @@ const cols = [
 ];
 
 /**
- * initData
+ * init
  * @param {*} that 
  * @returns 
  */
-export const initData = async (that, pagenumber) => {
-    // userinfo
-    window.insistime_userinfo = {
-        userid: get('insistime_userid'),
-        usertoken: get('insistime_usertoken')
-    };
-
-    // res
-    const res = await todoGroupList(pagenumber, window.pagesize);
-    console.log(res);
-    if (res.type != 'success') {
-        console.error(res);
-        return;
-    }
-
-    // rows
-    const resRows = res.obj.rows;
-    const rows = resRows.map((row, index) => {
-        // ck
-        const defaultRow = cols.includes('ck') ? { ck: true } : {};
-        const finalRow = Object.assign(defaultRow, row);
-
-        // other
-        const keys = Object.keys(finalRow);
-        keys.forEach((key) => {
-            if (!cols.includes(key)) {
-                delete finalRow[key];
-            }
-        });
-
-        // op
-        if (cols.includes('op')) {
-            finalRow.op = true;
-        }
-
-        return finalRow;
-    });
+export const init = async (that, pagenumber) => {
+    const obj = await initData(todoGroupList, pagenumber, cols);
 
     // set
     that.setState({
         cols: cols,
-        rows: rows,
-        sumpage: res.obj.sumpage,
-        total: res.obj.total,
-        pagenumber: res.obj.pagenumber,
-        pagesize: res.obj.pagesize,
+        rows: obj.rows,
+        sumpage: obj.sumpage,
+        pagenumber: obj.pagenumber,
     });
 };
 
 /**
- * todoGroupSave
- * @param {*} that 
+ * save
  * @param {*} name 
  * @param {*} order 
  * @param {*} id 
- * @returns 
  */
-export const todoGroupSave = async (that, name, order, id) => {
-    const res = await save(name, order, id);
-    if (!res || res.type != 'success') {
-        that.setState({
-            tips: res.msg
-        });
-        return;
-    }
-
-    that.modalClose();
-    that.props.reload();
+export const save = async (name, order, id) => {
+    await itemSave(todoGroupSave, name, order, id);
 };
 
 /**
- * todoGroupDel
+ * del
  * @param {*} ids 
  * @returns 
  */
-export const todoGroupDel = async (ids) => {
-    const res = await del(`${ids}`);
-    if (!res || res.type != 'success') {
-        alert(res.msg);
-        return;
-    }
+export const del = async (ids) => {
+    await itemDel(todoGroupDel, ids);
 };
