@@ -26,7 +26,8 @@ export class ToDoGroup extends React.Component {
 
         this.state = {
             cols: '',
-            rows: ''
+            rows: '',
+            cks: [],
         };
 
         this.todoGroupModalRef = React.createRef();
@@ -53,9 +54,39 @@ export class ToDoGroup extends React.Component {
         console.log('insistime-web/manage/todo-group: modalShow');
     }
 
+    // ck
+    checkboxChange = (e) => {
+        const cks = this.state.cks;
+
+        if (e.target.checked) {
+            cks.push(e.target.value);
+        } else {
+            const index = cks.indexOf(e.target.value);
+            cks.splice(index, 1);
+        }
+
+        this.setState({
+            cks: cks
+        });
+    }
+
+    // del rows
+    delRows = () => {
+        const cks = this.state.cks;
+        if(!cks.length){
+            alert('check del rows');
+            return;
+        }
+        
+        todoGroupDel(this, cks.join(','));
+    }
+
+    // edit row
     editRow = (row) => {
         this.todoGroupModalRef.current.modalShow(row);
     }
+
+    // del row
     delRow = (id) => {
         todoGroupDel(this, id);
     }
@@ -65,14 +96,16 @@ export class ToDoGroup extends React.Component {
 
         return <div className="data-container">
             <button onClick={this.modalShow}>add</button>
+            <button onClick={this.delRows}>del</button>
             <Table
                 cols={this.state.cols}
                 rows={this.state.rows}
                 editRow={this.editRow}
                 delRow={this.delRow}
+                checkboxChange={this.checkboxChange}
             />
 
-            <ToDoGroupModal 
+            <ToDoGroupModal
                 ref={this.todoGroupModalRef}
                 reload={this.init}
             />

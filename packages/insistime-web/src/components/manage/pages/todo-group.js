@@ -2,7 +2,7 @@
 import { get } from 'qiao.cookie.js';
 
 // dishi service
-import { 
+import {
     todoGroupList,
     todoGroupSave as save,
     todoGroupDel as del,
@@ -10,6 +10,7 @@ import {
 
 // cols
 const cols = [
+    'ck',
     'id',
     'ucenter_user_id',
     'todo_group_name',
@@ -31,7 +32,7 @@ export const initData = async (that) => {
 
     // res
     const res = await todoGroupList();
-    if(res.type != 'success'){
+    if (res.type != 'success') {
         console.error(res);
         return;
     }
@@ -39,19 +40,24 @@ export const initData = async (that) => {
     // rows
     const resRows = res.obj.rows;
     const rows = resRows.map((row, index) => {
-        const keys = Object.keys(row);
+        // ck
+        const defaultRow = cols.includes('ck') ? { ck: true } : {};
+        const finalRow = Object.assign(defaultRow, row);
+
+        // other
+        const keys = Object.keys(finalRow);
         keys.forEach((key) => {
-            if(!cols.includes(key)){
-                delete row[key];
+            if (!cols.includes(key)) {
+                delete finalRow[key];
             }
         });
 
         // op
-        if(cols.includes('op')){
-            row.op = true;
+        if (cols.includes('op')) {
+            finalRow.op = true;
         }
 
-        return row;
+        return finalRow;
     });
 
     // set
@@ -71,7 +77,7 @@ export const initData = async (that) => {
  */
 export const todoGroupSave = async (that, name, order, id) => {
     const res = await save(name, order, id);
-    if(!res || res.type != 'success'){
+    if (!res || res.type != 'success') {
         that.setState({
             tips: res.msg
         });
@@ -82,9 +88,15 @@ export const todoGroupSave = async (that, name, order, id) => {
     that.props.reload();
 };
 
+/**
+ * todoGroupDel
+ * @param {*} that 
+ * @param {*} id 
+ * @returns 
+ */
 export const todoGroupDel = async (that, id) => {
     const res = await del(`${id}`);
-    if(!res || res.type != 'success'){
+    if (!res || res.type != 'success') {
         alert(res.msg);
         return;
     }
