@@ -24,6 +24,12 @@ export const todoItemList = async (gid) => {
 
 /**
  * todoItemSave
+ * @param {*} name 
+ * @param {*} id 
+ * @param {*} groupId 
+ * @param {*} order 
+ * @param {*} status 
+ * @returns 
  */
 export const todoItemSave = async (name, id, groupId, order, status) => {
 	const url = config.host + config.todoItemSave;

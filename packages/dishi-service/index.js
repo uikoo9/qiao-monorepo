@@ -97,20 +97,18 @@ const todoGroupList = async (pagenumber, pagesize) => {
 
 /**
  * todoGroupSave
- * @param {*} name 
- * @param {*} order 
- * @param {*} id 
+ * @param {*} data 
  * @returns 
  */
-const todoGroupSave = async (name, order, id) => {
+const todoGroupSave = async (data) => {
 	const url = config.host + config.todoGroupSave;
-	let data = {
-		todoGroupName: name,
-		todoGroupOrder: order || '1'
+	let opt = {
+		todoGroupName: data.todo_group_name,
+		todoGroupOrder: data.todo_group_order || '1'
 	};
-	if (id) data.id = id;
+	if (data.id) opt.id = data.id;
 
-	return await postWithToken(url, data);
+	return await postWithToken(url, opt);
 };
 
 /**
@@ -161,6 +159,12 @@ const todoItemList = async (gid) => {
 
 /**
  * todoItemSave
+ * @param {*} name 
+ * @param {*} id 
+ * @param {*} groupId 
+ * @param {*} order 
+ * @param {*} status 
+ * @returns 
  */
 const todoItemSave = async (name, id, groupId, order, status) => {
 	const url = config.host + config.todoItemSave;

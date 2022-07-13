@@ -27,20 +27,18 @@ export const todoGroupList = async (pagenumber, pagesize) => {
 
 /**
  * todoGroupSave
- * @param {*} name 
- * @param {*} order 
- * @param {*} id 
+ * @param {*} data 
  * @returns 
  */
-export const todoGroupSave = async (name, order, id) => {
+export const todoGroupSave = async (data) => {
 	const url = config.host + config.todoGroupSave;
-	let data = {
-		todoGroupName: name,
-		todoGroupOrder: order || '1'
+	let opt = {
+		todoGroupName: data.todo_group_name,
+		todoGroupOrder: data.todo_group_order || '1'
 	};
-	if (id) data.id = id;
+	if (data.id) opt.id = data.id;
 
-	return await postWithToken(url, data);
+	return await postWithToken(url, opt);
 };
 
 /**

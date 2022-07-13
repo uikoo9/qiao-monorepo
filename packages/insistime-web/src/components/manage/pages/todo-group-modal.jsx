@@ -20,10 +20,8 @@ export class ToDoGroupModal extends React.Component {
 
         this.state = {
             show: false,
-            id: '',
-            todo_group_name: '',
-            todo_group_order: '',
             tips: '',
+            data: {},
         };
     }
 
@@ -31,16 +29,15 @@ export class ToDoGroupModal extends React.Component {
     modalShow = (row) => {
         console.log('insistime-web/manage/page/todo-group-modal: modalShow');
 
-        const id = row && row.id;
-        const todo_group_name = row && row.todo_group_name;
-        const todo_group_order = row && row.todo_group_order;
-
+        row = row || {};
         this.setState({
             show: true,
-            id: id || '',
-            todo_group_name: todo_group_name || '',
-            todo_group_order: todo_group_order || '',
             tips: '',
+            data: {
+                id: row.id || '',
+                todo_group_name: row.todo_group_name || '',
+                todo_group_order: row.todo_group_order || '',
+            }
         });
     }
     modalClose = () => {
@@ -55,15 +52,19 @@ export class ToDoGroupModal extends React.Component {
     todoGroupNameChange = (e) => {
         console.log('insistime-web/manage/page/todo-group-modal: todoGroupNameChange');
 
+        let data = this.state.data;
+        data.todo_group_name = e.target.value;
         this.setState({
-            todo_group_name: e.target.value
+            data: data
         });
     }
     todoGroupOrderChange = (e) => {
         console.log('insistime-web/manage/page/todo-group-modal: todoGroupOrderChange');
 
+        let data = this.state.data;
+        data.todo_group_order = e.target.value;
         this.setState({
-            todo_group_order: e.target.value
+            data: data
         });
     }
 
@@ -71,10 +72,7 @@ export class ToDoGroupModal extends React.Component {
     saveClick = async () => {
         console.log('insistime-web/manage/page/todo-group-modal: saveClick');
 
-        const id = this.state.id;
-        const todo_group_name = this.state.todo_group_name;
-        const todo_group_order = this.state.todo_group_order;
-        const isSuc = await gridSave(this, todoGroupSave, todo_group_name, todo_group_order, id);
+        const isSuc = await gridSave(this, todoGroupSave, this.state.data);
         if(!isSuc) return;
 
         this.modalClose();
@@ -92,18 +90,18 @@ export class ToDoGroupModal extends React.Component {
         >
             <Input
                 type="hidden"
-                value={this.state.id}
+                value={this.state.data.id}
             />
             <Input
                 type="text"
                 placeholder="todo_group_name"
-                value={this.state.todo_group_name}
+                value={this.state.data.todo_group_name}
                 onChange={this.todoGroupNameChange}
             />
             <Input
                 type="text"
                 placeholder="todo_group_order"
-                value={this.state.todo_group_order}
+                value={this.state.data.todo_group_order}
                 onChange={this.todoGroupOrderChange}
             />
             <Button

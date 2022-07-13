@@ -47,13 +47,11 @@ export const gridInit = async (listFunc, pagenumber, cols) => {
  * gridSave
  * @param {*} that 
  * @param {*} saveFunc 
- * @param {*} name 
- * @param {*} order 
- * @param {*} id 
+ * @param {*} data 
  * @returns 
  */
-export const gridSave = async (that, saveFunc, name, order, id) => {
-    const res = await saveFunc(name, order, id);
+export const gridSave = async (that, saveFunc, data) => {
+    const res = await saveFunc(data);
     if (!res || res.type != 'success') {
         that.setState({
             tips: res.msg
