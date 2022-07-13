@@ -25,9 +25,13 @@ export class ToDoGroup extends React.Component {
         super(props);
 
         this.state = {
-            cols: '',
-            rows: '',
             cks: [],
+            cols: null,
+            rows: null,
+            sumpage: null,
+            total: null,
+            pagenumber: null,
+            pagesize: null,
         };
 
         this.todoGroupModalRef = React.createRef();
@@ -73,11 +77,11 @@ export class ToDoGroup extends React.Component {
     // del rows
     delRows = () => {
         const cks = this.state.cks;
-        if(!cks.length){
+        if (!cks.length) {
             alert('check del rows');
             return;
         }
-        
+
         todoGroupDel(this, cks.join(','));
     }
 
@@ -91,12 +95,54 @@ export class ToDoGroup extends React.Component {
         todoGroupDel(this, id);
     }
 
+    // paging
+    firstPage = () => {
+        initData(this);
+    }
+    lastPage = () => {
+        initData(this, this.state.sumpage);
+    }
+    prevPage = () => {
+        const pagenumber = this.state.pagenumber;
+        if (pagenumber == 1) return;
+
+        initData(this, pagenumber - 1);
+    }
+    nextPage = () => {
+        const pagenumber = this.state.pagenumber;
+        if (pagenumber == this.state.sumpage) return;
+
+        initData(this, pagenumber + 1);
+    }
+    setPagesize = (pagesize) => {
+        window.pagesize = pagesize;
+        initData(this);
+    }
+
     render() {
         console.log('insistime-web/manage/todo-page: render');
 
+        // paging
+        const sumpage = this.state.sumpage;
+        const total = this.state.total;
+        const pagenumber = this.state.pagenumber;
+        const pagesize = this.state.pagesize;
+
         return <div className="data-container">
-            <button onClick={this.modalShow}>add</button>
-            <button onClick={this.delRows}>del</button>
+            <div className='toolbar'>
+                <div onClick={this.modalShow}>add</div>
+                <div onClick={this.delRows}>del</div>
+                <div>/</div>
+                <div onClick={this.firstPage}>first</div>
+                <div onClick={this.prevPage}>prev</div>
+                <div onClick={this.nextPage}>next</div>
+                <div onClick={this.lastPage}>last</div>
+                <div>/</div>
+                <div onClick={() => { this.setPagesize(10) }}>10</div>
+                <div onClick={() => { this.setPagesize(50) }}>50</div>
+                <div onClick={() => { this.setPagesize(100) }}>100</div>
+            </div>
+
             <Table
                 cols={this.state.cols}
                 rows={this.state.rows}

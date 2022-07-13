@@ -23,7 +23,7 @@ const cols = [
  * @param {*} that 
  * @returns 
  */
-export const initData = async (that) => {
+export const initData = async (that, pagenumber) => {
     // userinfo
     window.insistime_userinfo = {
         userid: get('insistime_userid'),
@@ -31,7 +31,8 @@ export const initData = async (that) => {
     };
 
     // res
-    const res = await todoGroupList();
+    const res = await todoGroupList(pagenumber, window.pagesize);
+    console.log(res);
     if (res.type != 'success') {
         console.error(res);
         return;
@@ -64,6 +65,10 @@ export const initData = async (that) => {
     that.setState({
         cols: cols,
         rows: rows,
+        sumpage: res.obj.sumpage,
+        total: res.obj.total,
+        pagenumber: res.obj.pagenumber,
+        pagesize: res.obj.pagesize,
     });
 };
 

@@ -11,11 +11,16 @@ import { danger } from 'qiao-json';
 
 /**
  * todoGroupList
+ * @param {*} pagenumber 
+ * @param {*} pagesize 
  * @returns 
  */
-export const todoGroupList = async () => {
+export const todoGroupList = async (pagenumber, pagesize) => {
 	const url = config.host + config.todoGrouplist;
-	const data = { rows: '10' };
+	const data = { 
+        page: pagenumber || '1',
+        rows: pagesize || '10' 
+    };
 
 	return await postWithToken(url, data);
 };

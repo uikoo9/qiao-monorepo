@@ -81,11 +81,16 @@ async function ajax(url, data, headers) {
 
 /**
  * todoGroupList
+ * @param {*} pagenumber 
+ * @param {*} pagesize 
  * @returns 
  */
-const todoGroupList = async () => {
+const todoGroupList = async (pagenumber, pagesize) => {
 	const url = config.host + config.todoGrouplist;
-	const data = { rows: '10' };
+	const data = { 
+        page: pagenumber || '1',
+        rows: pagesize || '10' 
+    };
 
 	return await postWithToken(url, data);
 };
