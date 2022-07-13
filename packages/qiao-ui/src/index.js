@@ -15,6 +15,8 @@ export { Button } from './pc/button/button.jsx';
 export { Tips } from './pc/tips/tips.jsx';
 export { Table } from './pc/table/table.jsx';
 export { Toolbar } from './pc/toolbar/toolbar.jsx';
+export { Grid } from './pc/grid/grid.jsx';
+export * from './pc/grid/grid.js';
 
 // pc search
 export { SearchBox } from './pc/search-box/search-box.jsx';

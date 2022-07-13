@@ -4,17 +4,10 @@
 import React from 'react';
 
 // ui
-import {
-    Modal,
-    Input,
-    Button,
-    Tips,
-} from 'qiao-ui';
+import { Modal, Input, Button, Tips, gridSave } from 'qiao-ui';
 
-// js
-import {
-    save,
-} from './todo-group.js';
+// dishi service
+import { todoGroupSave } from 'dishi-service';
 
 /**
  * todo group modal
@@ -81,7 +74,7 @@ export class ToDoGroupModal extends React.Component {
         const id = this.state.id;
         const todo_group_name = this.state.todo_group_name;
         const todo_group_order = this.state.todo_group_order;
-        await save(todo_group_name, todo_group_order, id);
+        await gridSave(todoGroupSave, todo_group_name, todo_group_order, id);
 
         this.modalClose();
         this.props.reload();

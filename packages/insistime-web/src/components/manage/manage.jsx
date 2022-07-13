@@ -1,21 +1,12 @@
-'use strict';
-
 // react
 import React from 'react';
-import {
-    HashRouter,
-    Routes,
-    Route,
-} from 'react-router-dom';
+import { HashRouter, Routes, Route} from 'react-router-dom';
 
 // css
 import './manage.scss';
 
 // ui
-import {
-    Header,
-    Menus,
-} from 'qiao-ui';
+import { Header, Menus } from 'qiao-ui';
 
 // components
 import { ToDoGroup } from './pages/todo-group.jsx';

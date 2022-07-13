@@ -1,20 +1,11 @@
-// qiao
-import { get } from 'qiao.cookie.js';
-
 /**
- * initData
+ * gridInit
  * @param {*} listFunc 
  * @param {*} pagenumber 
  * @param {*} cols 
  * @returns 
  */
-export const initData = async (listFunc, pagenumber, cols) => {
-    // userinfo
-    window.insistime_userinfo = {
-        userid: get('insistime_userid'),
-        usertoken: get('insistime_usertoken')
-    };
-
+export const gridInit = async (listFunc, pagenumber, cols) => {
     // res
     const res = await listFunc(pagenumber, window.pagesize);
     if (res.type != 'success') {
@@ -53,14 +44,14 @@ export const initData = async (listFunc, pagenumber, cols) => {
 };
 
 /**
- * itemSave
+ * gridSave
  * @param {*} saveFunc 
  * @param {*} name 
  * @param {*} order 
  * @param {*} id 
  * @returns 
  */
-export const itemSave = async (saveFunc, name, order, id) => {
+export const gridSave = async (saveFunc, name, order, id) => {
     const res = await saveFunc(name, order, id);
     if (!res || res.type != 'success') {
         that.setState({
@@ -71,12 +62,12 @@ export const itemSave = async (saveFunc, name, order, id) => {
 };
 
 /**
- * itemDel
+ * gridDel
  * @param {*} delFunc 
  * @param {*} ids 
  * @returns 
  */
-export const itemDel = async (delFunc, ids) => {
+export const gridDel = async (delFunc, ids) => {
     const res = await delFunc(`${ids}`);
     if (!res || res.type != 'success') {
         alert(res.msg);

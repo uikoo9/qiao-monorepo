@@ -1,115 +1,62 @@
-'use strict';
-
 // react
 import React from 'react';
 
-// ui
-import {
-    Table,
-    Toolbar,
-} from 'qiao-ui';
+// qiao
+import { get } from 'qiao.cookie.js';
 
-// modal
+// ui
+import { Grid, gridInit, gridDel } from 'qiao-ui';
+
+// dishi service
+import { todoGroupList, todoGroupDel } from 'dishi-service';
+
+// components
 import { ToDoGroupModal } from './todo-group-modal.jsx';
 
-// js
-import {
-    init,
-    del,
-} from './todo-group.js';
+// cols
+const cols = [
+    'ck',
+    'id',
+    'ucenter_user_id',
+    'todo_group_name',
+    'todo_group_order',
+    'op'
+];
 
 /**
  * todo group
  */
 export class ToDoGroup extends React.Component {
-    constructor(props) {
-        console.log('insistime-web/manage/page/todo-group: constructor');
-
-        super(props);
-
-        this.state = {
-            cks: [],
-            cols: null,
-            rows: null,
-            sumpage: null,
-            pagenumber: null,
+    // init
+    init = async (that, pagenumber) => {
+        // userinfo
+        window.insistime_userinfo = {
+            userid: get('insistime_userid'),
+            usertoken: get('insistime_usertoken')
         };
 
-        this.todoGroupModalRef = React.createRef();
-    }
-
-    // init
-    componentDidMount() {
-        console.log('insistime-web/manage/page/todo-group: componentDidMount');
-
-        this.reload();
-    }
-
-    // reload
-    reload = (pagenumber) => {
-        console.log('insistime-web/manage/page/todo-group: reload');
-
-        init(this, pagenumber);
-    }
-
-    // edit row
-    editRow = (row) => {
-        console.log('insistime-web/manage/page/todo-group: editRow');
-
-        this.todoGroupModalRef.current.modalShow(row);
-    }
-
-    // del row
-    delRow = async (id) => {
-        console.log('insistime-web/manage/page/todo-group: delRow');
-
-        await del(id);
-        this.reload();
-    }
-
-    // toolbar
-    checkboxChange = (e) => {
-        console.log('insistime-web/manage/page/todo-group: checkboxChange');
-
-        const cks = this.state.cks;
-
-        if (e.target.checked) {
-            cks.push(e.target.value);
-        } else {
-            const index = cks.indexOf(e.target.value);
-            cks.splice(index, 1);
-        }
-
-        this.setState({
-            cks: cks
+        // set
+        const obj = await gridInit(todoGroupList, pagenumber, cols);
+        that.setState({
+            cols: cols,
+            rows: obj.rows,
+            sumpage: obj.sumpage,
+            pagenumber: obj.pagenumber,
         });
+    }
+
+    // del
+    del = async (ids) => {
+        await gridDel(todoGroupDel, ids);
     }
 
     render() {
         console.log('insistime-web/manage/page/todo-group: render');
 
-        return <div className="data-container">
-            <Toolbar 
-                cks={this.state.cks}
-                modal={this.todoGroupModalRef}
-                delRows={this.delRow}
-                reload={this.reload}
-                sumpage={this.state.sumpage}
-                pagenumber={this.state.pagenumber}
-            />
-
-            <Table
-                cols={this.state.cols}
-                rows={this.state.rows}
-                editRow={this.editRow}
-                delRow={this.delRow}
-                checkboxChange={this.checkboxChange}
-            />
-
-            <ToDoGroupModal
-                ref={this.todoGroupModalRef}
-                reload={this.reload}
-            />
-        </div>;
+        return <Grid
+            init={this.init}
+            del={this.del}
+            modal={ToDoGroupModal}
+        />;
     }
 }
