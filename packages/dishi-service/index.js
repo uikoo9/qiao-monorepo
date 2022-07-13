@@ -144,68 +144,69 @@ const todoGroupGet = async (id) => {
 	return item;
 };
 
+// config
+
 /**
  * todoItemList
+ * @param {*} pagenumber 
+ * @param {*} pagesize 
+ * @returns 
  */
-const todoItemList = async (gid) => {
-	const url = config.host + config.todoItemlist;
-	const data = {
-		todoGroupId: gid,
-		rows: '10'
-	};
+const todoItemList = async (pagenumber, pagesize) => {
+    const url = config.host + config.todoItemlist;
+    const data = {
+        page: pagenumber || '1',
+        rows: pagesize || '10' 
+    };
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, data);
 };
 
 /**
  * todoItemSave
- * @param {*} name 
- * @param {*} id 
- * @param {*} groupId 
- * @param {*} order 
- * @param {*} status 
+ * @param {*} data 
  * @returns 
  */
-const todoItemSave = async (name, id, groupId, order, status) => {
-	const url = config.host + config.todoItemSave;
-	let data = {
-		todoGroupId: groupId,
-		todoItemName: name,
-		todoItemOrder: order || '1',
-		todoItemStatus: status || '0'
-	};
-	if (id) data.id = id;
+const todoItemSave = async (data) => {
+    const url = config.host + config.todoItemSave;
+    let opt = {
+        todoGroupId: data.todo_group_id,
+        todoItemName: data.todo_item_name,
+        todoItemOrder: data.todo_item_order || '1',
+        todoItemStatus: data.todo_item_status || '0'
+    };
+    if (data.id) opt.id = data.id;
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, opt);
 };
 
 /**
  * todoItemDel
  */
 const todoItemDel = async (ids) => {
-	const url = config.host + config.todoItemDel;
-	const data = { ids: ids };
+    const url = config.host + config.todoItemDel;
+    const data = { ids: ids };
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, data);
 };
 
 /**
  * todoItemGet
  */
 const todoItemGet = async (id) => {
-	if (!id) return qiaoJson.danger('need item id');
+    if (!id) return qiaoJson.danger('need item id');
 
-	const url = config.host + config.todoItemGet;
-	const data = { id: id };
+    const url = config.host + config.todoItemGet;
+    const data = { id: id };
 
-	const json = await postWithToken(url, data);
-	if (!json || !json.obj || !json.obj.rows || !json.obj.rows.length) {
-		return qiaoJson.danger(`can not find todo item by ${id}`);
-	}
+    const json = await postWithToken(url, data);
+    if (!json || !json.obj || !json.obj.rows || !json.obj.rows.length) {
+        return qiaoJson.danger(`can not find todo item by ${id}`);
+    }
 
-	let item = json.obj.rows[0];
-	item.time = json.time;
-	return item;
+    let item = json.obj.rows[0];
+    item.time = json.time;
+    return item;
 };
 
 /**

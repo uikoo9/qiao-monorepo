@@ -10,6 +10,7 @@ import { Header, Menus } from 'qiao-ui';
 
 // components
 import { ToDoGroup } from './pages/todo-group.jsx';
+import { ToDoItem } from './pages/todo-item.jsx';
 
 /**
  * manage container
@@ -30,6 +31,7 @@ export class ManageContainer extends React.Component {
                 <HashRouter>
                     <Routes>
                         <Route path='/todo/group' element={<ToDoGroup />}/>
+                        <Route path='/todo/item' element={<ToDoItem />}/>
                     </Routes>
                 </HashRouter>
             </div>

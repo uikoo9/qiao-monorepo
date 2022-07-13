@@ -1,5 +1,3 @@
-'use strict';
-
 // react
 import React from 'react';
 
@@ -20,12 +18,14 @@ export class ToDoItemModal extends React.Component {
 
         this.state = {
             show: false,
-            id: '',
-            todo_group_id: '',
-            todo_item_name: '',
-            todo_item_order: '',
-            todo_item_status: '',
             tips: '',
+            data: {
+                id: '',
+                todo_group_id: '',
+                todo_item_name: '',
+                todo_item_order: '',
+                todo_item_status: '',
+            },
         };
     }
 
@@ -33,15 +33,17 @@ export class ToDoItemModal extends React.Component {
     modalShow = (row) => {
         console.log('insistime-web/manage/page/todo-item-modal: modalShow');
 
-        if(!row) return;
+        row = row || {};
         this.setState({
             show: true,
-            id: row.id || '',
-            todo_group_id: row.todo_group_id || '',
-            todo_item_name: row.todo_item_name || '',
-            todo_item_order: row.todo_item_order || '',
-            todo_item_status: row.todo_item_status || '',
             tips: '',
+            data: {
+                id: row.id || '',
+                todo_group_id: row.todo_group_id || '',
+                todo_item_name: row.todo_item_name || '',
+                todo_item_order: row.todo_item_order || '',
+                todo_item_status: row.todo_item_status || '',
+            }
         });
     }
     modalClose = () => {
@@ -56,29 +58,37 @@ export class ToDoItemModal extends React.Component {
     todoGroupIdChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoGroupIdChange');
 
+        let data = this.state.data;
+        data.todo_group_id = e.target.value;
         this.setState({
-            todo_group_id: e.target.value
+            data: data
         });
     }
     todoItemNameChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoItemNameChange');
 
+        let data = this.state.data;
+        data.todo_item_name = e.target.value;
         this.setState({
-            todo_item_name: e.target.value
+            data: data
         });
     }
     todoItemOrderChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoItemOrderChange');
 
+        let data = this.state.data;
+        data.todo_item_order = e.target.value;
         this.setState({
-            todo_item_order: e.target.value
+            data: data
         });
     }
     todoItemStatusChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoItemStatusChange');
 
+        let data = this.state.data;
+        data.todo_item_status = e.target.value;
         this.setState({
-            todo_item_status: e.target.value
+            data: data
         });
     }
 
@@ -86,8 +96,8 @@ export class ToDoItemModal extends React.Component {
     saveClick = async () => {
         console.log('insistime-web/manage/page/todo-item-modal: saveClick');
 
-        const isSuc = await gridSave(this, todoItemSave, this.state);
-        if(!isSuc) return;
+        const isSuc = await gridSave(this, todoItemSave, this.state.data);
+        if (!isSuc) return;
 
         this.modalClose();
         this.props.reload();
@@ -96,7 +106,7 @@ export class ToDoItemModal extends React.Component {
     render() {
         console.log('insistime-web/manage/page/todo-item-modal: render');
 
-        const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
+        const tips = this.state.tips ? <Tips tips={this.state.tips} /> : null;
         return <Modal
             width="300px"
             show={this.state.show}
@@ -104,19 +114,31 @@ export class ToDoItemModal extends React.Component {
         >
             <Input
                 type="hidden"
-                value={this.state.id}
+                value={this.state.data.id}
             />
             <Input
                 type="text"
-                placeholder="todo_group_name"
-                value={this.state.todo_group_name}
-                onChange={this.todoGroupNameChange}
+                placeholder="todo_group_id"
+                value={this.state.data.todo_group_id}
+                onChange={this.todoGroupIdChange}
             />
             <Input
                 type="text"
-                placeholder="todo_group_order"
-                value={this.state.todo_group_order}
-                onChange={this.todoGroupOrderChange}
+                placeholder="todo_item_name"
+                value={this.state.data.todo_item_name}
+                onChange={this.todoItemNameChange}
+            />
+            <Input
+                type="text"
+                placeholder="todo_item_order"
+                value={this.state.data.todo_item_order}
+                onChange={this.todoItemOrderChange}
+            />
+            <Input
+                type="text"
+                placeholder="todo_item_status"
+                value={this.state.data.todo_item_status}
+                onChange={this.todoItemStatusChange}
             />
             <Button
                 onClick={this.saveClick}

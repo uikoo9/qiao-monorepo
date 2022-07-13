@@ -12,6 +12,6 @@ export default {
         url: '#/todo/group'
     },{
         name: '待办项管理',
-        url: '/todo/item'
+        url: '#/todo/item'
     }],
 };
