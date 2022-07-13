@@ -74,7 +74,8 @@ export class ToDoGroupModal extends React.Component {
         const id = this.state.id;
         const todo_group_name = this.state.todo_group_name;
         const todo_group_order = this.state.todo_group_order;
-        await gridSave(todoGroupSave, todo_group_name, todo_group_order, id);
+        const isSuc = await gridSave(this, todoGroupSave, todo_group_name, todo_group_order, id);
+        if(!isSuc) return;
 
         this.modalClose();
         this.props.reload();

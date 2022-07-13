@@ -45,13 +45,14 @@ export const gridInit = async (listFunc, pagenumber, cols) => {
 
 /**
  * gridSave
+ * @param {*} that 
  * @param {*} saveFunc 
  * @param {*} name 
  * @param {*} order 
  * @param {*} id 
  * @returns 
  */
-export const gridSave = async (saveFunc, name, order, id) => {
+export const gridSave = async (that, saveFunc, name, order, id) => {
     const res = await saveFunc(name, order, id);
     if (!res || res.type != 'success') {
         that.setState({
@@ -59,6 +60,8 @@ export const gridSave = async (saveFunc, name, order, id) => {
         });
         return;
     }
+
+    return true;
 };
 
 /**
@@ -73,4 +76,6 @@ export const gridDel = async (delFunc, ids) => {
         alert(res.msg);
         return;
     }
+
+    return true;
 }

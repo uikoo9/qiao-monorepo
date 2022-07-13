@@ -49,8 +49,13 @@ export class Grid extends React.Component {
     delRow = async (id) => {
         console.log('qiao-ui/pc/grid: delRow');
 
-        await this.props.del(id);
+        const isSuc = await this.props.del(id);
+        if(!isSuc) return;
+        
         this.reload();
+        this.setState({
+            cks: []
+        });
     }
 
     // toolbar

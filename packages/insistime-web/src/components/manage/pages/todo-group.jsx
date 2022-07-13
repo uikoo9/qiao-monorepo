@@ -37,6 +37,8 @@ export class ToDoGroup extends React.Component {
 
         // set
         const obj = await gridInit(todoGroupList, pagenumber, cols);
+        if(!obj) return;
+
         that.setState({
             cols: cols,
             rows: obj.rows,
@@ -47,7 +49,7 @@ export class ToDoGroup extends React.Component {
 
     // del
     del = async (ids) => {
-        await gridDel(todoGroupDel, ids);
+        return await gridDel(todoGroupDel, ids);
     }
 
     render() {
