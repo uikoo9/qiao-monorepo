@@ -16,7 +16,13 @@ exports.done = async function (id) {
 	if (!item) return;
 
 	// update item
-	var json = await dishiService.todoItemSave(item.todo_item_name, id, item.todo_group_id, item.todo_item_order, '1');
+	var json = await dishiService.todoItemSave({
+        id: id,
+        todo_group_id: item.todo_group_id,
+        todo_item_name: item.todo_item_name,
+        todo_item_order: item.todo_item_order,
+        todo_item_status: '1',
+    });
 	if (!json) return;
 
 	// suc
@@ -36,7 +42,13 @@ exports.move = async function (id, groupId) {
 	if (!item) return;
 
 	// update item
-	var json = await dishiService.todoItemSave(item.todo_item_name, id, groupId, item.todo_item_order, item.todo_group_status);
+	var json = await dishiService.todoItemSave({
+        id: id,
+        todo_group_id: group.id,
+        todo_item_name: item.todo_item_name,
+        todo_item_order: item.todo_item_order,
+        todo_item_status: item.todo_group_status,
+    });
 	if (!json) return;
 
 	// suc
