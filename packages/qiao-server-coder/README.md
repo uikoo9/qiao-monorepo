@@ -1,7 +1,7 @@
 # qiao-server-coder
 
 ## use
-qcoder -h
+qscoder -h
 
 ## code list
 ### 01
@@ -118,7 +118,7 @@ qcoder -h
 
 ### 0.1.9.20190305
 1. update qiao.util.all@0.2.4
-2. update qcoder 
+2. update qscoder 
 
 ### 0.1.8.20190127
 1. result.count --> result.total
@@ -137,7 +137,7 @@ qcoder -h
 ### 0.1.4.20181210
 1. code 01 save method add userinfo
 2. catch err for table columns
-3. qcoder
+3. qscoder
 4. service add userinfo
 
 ### 0.1.3.20181207
