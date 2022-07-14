@@ -89,7 +89,6 @@ export class Toolbar extends React.Component {
             <div onClick={this.lastPage}>last</div>
             <div>/</div>
             <div onClick={() => { this.setPagesize(10) }}>10</div>
-            <div onClick={() => { this.setPagesize(50) }}>50</div>
             <div onClick={() => { this.setPagesize(100) }}>100</div>
         </div>;
     }
