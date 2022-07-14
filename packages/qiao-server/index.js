@@ -20,11 +20,11 @@ var expressArtTemplate = require('express-art-template');
  * @returns 
  */
 var initApp = () => {
-	const app = express();
-	app.use(cookieParser());
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({extended:true}));
-	app.use(bodyParser.text({type:'text/xml'}));
+    const app = express();
+    app.use(cookieParser());
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended:true}));
+    app.use(bodyParser.text({type:'text/xml'}));
 
     return app;
 };
@@ -37,23 +37,25 @@ var initApp = () => {
  * @param {*} options
  */
 var initStatic = (app, options) => {
-  // acme
-  const acmePath = path.resolve(process.cwd(), "./.well-known");
-  app.use("/.well-known", express.static(acmePath, { maxAge: 0 }));
+    // acme
+    const acmePath = path.resolve(process.cwd(), './.well-known');
+    app.use('/.well-known', express.static(acmePath, { maxAge: 0 }));
 
-  // static
-  if(options.isDev){
-    const staticPath = path.resolve(process.cwd(), "./web/static");
-    app.use("/static", express.static(staticPath, { maxAge: 0 }));
-  }
+    // static
+    if(options.isDev){
+        const staticPath = path.resolve(process.cwd(), './web/static');
+        app.use('/static', express.static(staticPath, { maxAge: 0 }));
+    }
 
-  // options
-  if (options.staticPaths) {
-    options.staticPaths.forEach((spath) => {
-      app.use(spath.name, express.static(spath.path, { maxAge: 0 }));
-    });
-  }
+    // options
+    if (options.staticPaths) {
+        options.staticPaths.forEach((spath) => {
+            app.use(spath.name, express.static(spath.path, { maxAge: 0 }));
+        });
+    }
 };
+
+// qiao
 
 /**
  * cross domain
@@ -220,17 +222,17 @@ const init = (options) => {
     // config
     if(options.config) global.config = options.config;
 
-	// init app
+    // init app
     const app = initApp();
     initStatic(app, options);
     initMids(app, options);
     initModules(app, options);
     initController(app);
     initView(app);
-	app.listen(global.config.port);
+    app.listen(global.config.port);
 
-	// return 
-	return app;
+    // return 
+    return app;
 };
 
 exports.encode = qencode;

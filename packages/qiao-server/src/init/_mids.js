@@ -1,5 +1,3 @@
-'use strict';
-
 // qiao
 import {
     encode as qencode,

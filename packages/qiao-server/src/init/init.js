@@ -18,15 +18,15 @@ export const init = (options) => {
     // config
     if(options.config) global.config = options.config;
 
-	// init app
+    // init app
     const app = initApp();
     initStatic(app, options);
     initMids(app, options);
     initModules(app, options);
     initController(app);
     initView(app);
-	app.listen(global.config.port);
+    app.listen(global.config.port);
 
-	// return 
-	return app;
+    // return 
+    return app;
 };
