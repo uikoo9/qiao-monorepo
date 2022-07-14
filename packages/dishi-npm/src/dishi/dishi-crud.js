@@ -37,7 +37,9 @@ exports.list = async function (group) {
  */
 exports.add = async function (name, group) {
 	if (group) {
-		var json = await dishiService.todoGroupSave(name);
+		var json = await dishiService.todoGroupSave({
+            todo_group_name: name,
+        });
 		if (!json) return;
 
 		qiao.log.suc(`${json.time}ms | add group success`);
@@ -57,7 +59,11 @@ exports.add = async function (name, group) {
  */
 exports.update = async function (id, name, group) {
 	if (group) {
-		var json = await dishiService.todoGroupSave(name, '1', id);
+		var json = await dishiService.todoGroupSave({
+            id: id,
+            todo_group_name: name,
+            todo_group_order: '1',
+        });
 		if (!json) return;
 
 		qiao.log.suc(`${json.time}ms | update group success`);
