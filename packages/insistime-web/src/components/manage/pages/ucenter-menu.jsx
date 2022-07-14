@@ -7,7 +7,7 @@ import { get } from 'qiao.cookie.js';
 // ui
 import { Grid, gridInit, gridDel } from 'qiao-ui';
 
-// dishi service
+// qiao service
 import { ucenterMenuList, ucenterMenuDel } from 'qiao-service';
 
 // components
@@ -21,6 +21,7 @@ const cols = [
     'ucenter_menu_sn',
     'ucenter_menu_title',
     'ucenter_menu_url',
+    
     'op'
 ];
 
@@ -57,9 +58,9 @@ export class UcenterMenu extends React.Component {
         console.log('insistime-web/manage/page/ucenter-menu: render');
 
         return <Grid
-            init={this.init}
-            del={this.del}
-            modal={UcenterMenuModal}
+            init={ this.init }
+            del={ this.del }
+            modal={ UcenterMenuModal }
         />;
     }
 }

@@ -25,6 +25,7 @@ export class UcenterMenuModal extends React.Component {
                 ucenter_menu_sn: '',
                 ucenter_menu_title: '',
                 ucenter_menu_url: '',
+                
             },
         };
     }
@@ -34,7 +35,6 @@ export class UcenterMenuModal extends React.Component {
         console.log('insistime-web/manage/page/ucenter-menu-modal: modalShow');
 
         row = row || {};
-        console.log();
         this.setState({
             show: true,
             tips: '',
@@ -43,7 +43,8 @@ export class UcenterMenuModal extends React.Component {
                 ucenter_menu_parent: row.ucenter_menu_parent || '',
                 ucenter_menu_sn: row.ucenter_menu_sn || '',
                 ucenter_menu_title: row.ucenter_menu_title || '',
-                ucenter_menu_url: row.ucenter_menu_url || ''
+                ucenter_menu_url: row.ucenter_menu_url || '',
+                
             }
         });
     }
@@ -56,6 +57,7 @@ export class UcenterMenuModal extends React.Component {
     }
 
     // form
+    
     ucenterMenuParentChange = (e) => {
         console.log('insistime-web/manage/page/ucenter-menu-modal: ucenterMenuParentChange');
 
@@ -65,6 +67,7 @@ export class UcenterMenuModal extends React.Component {
             data: data
         });
     }
+    
     ucenterMenuSnChange = (e) => {
         console.log('insistime-web/manage/page/ucenter-menu-modal: ucenterMenuSnChange');
 
@@ -74,6 +77,7 @@ export class UcenterMenuModal extends React.Component {
             data: data
         });
     }
+    
     ucenterMenuTitleChange = (e) => {
         console.log('insistime-web/manage/page/ucenter-menu-modal: ucenterMenuTitleChange');
 
@@ -83,6 +87,7 @@ export class UcenterMenuModal extends React.Component {
             data: data
         });
     }
+    
     ucenterMenuUrlChange = (e) => {
         console.log('insistime-web/manage/page/ucenter-menu-modal: ucenterMenuUrlChange');
 
@@ -92,13 +97,14 @@ export class UcenterMenuModal extends React.Component {
             data: data
         });
     }
+    
 
     // save
     saveClick = async () => {
         console.log('insistime-web/manage/page/ucenter-menu-modal: saveClick');
 
         const isSuc = await gridSave(this, ucenterMenuSave, this.state.data);
-        if (!isSuc) return;
+        if(!isSuc) return;
 
         this.modalClose();
         this.props.reload();
@@ -107,7 +113,7 @@ export class UcenterMenuModal extends React.Component {
     render() {
         console.log('insistime-web/manage/page/ucenter-menu-modal: render');
 
-        const tips = this.state.tips ? <Tips tips={this.state.tips} /> : null;
+        const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
         return <Modal
             width="300px"
             show={this.state.show}
@@ -117,30 +123,35 @@ export class UcenterMenuModal extends React.Component {
                 type="hidden"
                 value={this.state.data.id}
             />
+            
             <Input
                 type="text"
                 placeholder="ucenter_menu_parent"
                 value={this.state.data.ucenter_menu_parent}
                 onChange={this.ucenterMenuParentChange}
             />
+            
             <Input
                 type="text"
                 placeholder="ucenter_menu_sn"
                 value={this.state.data.ucenter_menu_sn}
                 onChange={this.ucenterMenuSnChange}
             />
+            
             <Input
                 type="text"
                 placeholder="ucenter_menu_title"
                 value={this.state.data.ucenter_menu_title}
                 onChange={this.ucenterMenuTitleChange}
             />
+            
             <Input
                 type="text"
                 placeholder="ucenter_menu_url"
                 value={this.state.data.ucenter_menu_url}
                 onChange={this.ucenterMenuUrlChange}
             />
+            
             <Button
                 onClick={this.saveClick}
                 text="submit"
