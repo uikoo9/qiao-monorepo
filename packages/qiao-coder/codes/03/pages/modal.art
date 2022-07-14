@@ -1,0 +1,105 @@
+// react
+import React from 'react';
+
+// ui
+import { Modal, Input, Button, Tips, gridSave } from 'qiao-ui';
+
+// dishi service
+import { {{className2}}Save } from 'dishi-service';
+
+/**
+ * {{tableName1}} {{tableName2}} modal
+ */
+export class {{className1}}Modal extends React.Component {
+    constructor(props) {
+        console.log('insistime-web/manage/page/{{tableName1}}-{{tableName2}}-modal: constructor');
+
+        super(props);
+
+        this.state = {
+            show: false,
+            tips: '',
+            data: {
+                id: '',
+                {{each params}}{{if $value.name1 != 'ucenter_user_id'}}{{$value.name1}}: '',{{/if}}
+                {{/each}}
+            },
+        };
+    }
+
+    // modal
+    modalShow = (row) => {
+        console.log('insistime-web/manage/page/{{tableName1}}-{{tableName2}}-modal: modalShow');
+
+        row = row || {};
+        this.setState({
+            show: true,
+            tips: '',
+            data: {
+                id: row.id || '',
+                {{each params}}{{if $value.name1 != 'ucenter_user_id'}}{{$value.name1}}: row.{{$value.name1}} || '',{{/if}}
+                {{/each}}
+            }
+        });
+    }
+    modalClose = () => {
+        console.log('insistime-web/manage/page/{{tableName1}}-{{tableName2}}-modal: modalClose');
+
+        this.setState({
+            show: false
+        });
+    }
+
+    // form
+    {{each params}}{{if $value.name1 != 'ucenter_user_id'}}
+    {{$value.name2}}Change = (e) => {
+        console.log('insistime-web/manage/page/{{tableName1}}-{{tableName2}}-modal: {{$value.name2}}Change');
+
+        let data = this.state.data;
+        data.{{$value.name1}} = e.target.value;
+        this.setState({
+            data: data
+        });
+    }
+    {{/if}}{{/each}}
+
+    // save
+    saveClick = async () => {
+        console.log('insistime-web/manage/page/{{tableName1}}-{{tableName2}}-modal: saveClick');
+
+        const isSuc = await gridSave(this, {{className2}}Save, this.state.data);
+        if(!isSuc) return;
+
+        this.modalClose();
+        this.props.reload();
+    }
+
+    render() {
+        console.log('insistime-web/manage/page/{{tableName1}}-{{tableName2}}-modal: render');
+
+        const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
+        return <Modal
+            width="300px"
+            show={this.state.show}
+            closeModal={this.modalClose}
+        >
+            <Input
+                type="hidden"
+                value={this.state.data.id}
+            />
+            {{each params}}{{if $value.name1 != 'ucenter_user_id'}}
+            <Input
+                type="text"
+                placeholder="{{$value.name1}}"
+                value={this.state.data.{{$value.name1}}}
+                onChange={this.{{$value.name2}}Change}
+            />
+            {{/if}}{{/each}}
+            <Button
+                onClick={this.saveClick}
+                text="submit"
+            />
+            {tips}
+        </Modal>;
+    }
+}

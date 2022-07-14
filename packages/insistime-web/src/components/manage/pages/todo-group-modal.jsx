@@ -21,8 +21,10 @@ export class TodoGroupModal extends React.Component {
             tips: '',
             data: {
                 id: '',
+                
                 todo_group_name: '',
                 todo_group_order: '',
+                
             },
         };
     }
@@ -37,8 +39,10 @@ export class TodoGroupModal extends React.Component {
             tips: '',
             data: {
                 id: row.id || '',
+                
                 todo_group_name: row.todo_group_name || '',
                 todo_group_order: row.todo_group_order || '',
+                
             }
         });
     }
@@ -51,6 +55,7 @@ export class TodoGroupModal extends React.Component {
     }
 
     // form
+    
     todoGroupNameChange = (e) => {
         console.log('insistime-web/manage/page/todo-group-modal: todoGroupNameChange');
 
@@ -60,6 +65,7 @@ export class TodoGroupModal extends React.Component {
             data: data
         });
     }
+    
     todoGroupOrderChange = (e) => {
         console.log('insistime-web/manage/page/todo-group-modal: todoGroupOrderChange');
 
@@ -69,6 +75,7 @@ export class TodoGroupModal extends React.Component {
             data: data
         });
     }
+    
 
     // save
     saveClick = async () => {
@@ -94,18 +101,21 @@ export class TodoGroupModal extends React.Component {
                 type="hidden"
                 value={this.state.data.id}
             />
+            
             <Input
                 type="text"
                 placeholder="todo_group_name"
                 value={this.state.data.todo_group_name}
                 onChange={this.todoGroupNameChange}
             />
+            
             <Input
                 type="text"
                 placeholder="todo_group_order"
                 value={this.state.data.todo_group_order}
                 onChange={this.todoGroupOrderChange}
             />
+            
             <Button
                 onClick={this.saveClick}
                 text="submit"
