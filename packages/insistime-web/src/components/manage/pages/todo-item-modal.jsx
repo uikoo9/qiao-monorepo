@@ -10,7 +10,7 @@ import { todoItemSave } from 'dishi-service';
 /**
  * todo item modal
  */
-export class ToDoItemModal extends React.Component {
+export class TodoItemModal extends React.Component {
     constructor(props) {
         console.log('insistime-web/manage/page/todo-item-modal: constructor');
 
@@ -21,10 +21,12 @@ export class ToDoItemModal extends React.Component {
             tips: '',
             data: {
                 id: '',
+                
                 todo_group_id: '',
                 todo_item_name: '',
                 todo_item_order: '',
                 todo_item_status: '',
+                
             },
         };
     }
@@ -39,10 +41,12 @@ export class ToDoItemModal extends React.Component {
             tips: '',
             data: {
                 id: row.id || '',
+                
                 todo_group_id: row.todo_group_id || '',
                 todo_item_name: row.todo_item_name || '',
                 todo_item_order: row.todo_item_order || '',
                 todo_item_status: row.todo_item_status || '',
+                
             }
         });
     }
@@ -55,6 +59,7 @@ export class ToDoItemModal extends React.Component {
     }
 
     // form
+    
     todoGroupIdChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoGroupIdChange');
 
@@ -64,6 +69,7 @@ export class ToDoItemModal extends React.Component {
             data: data
         });
     }
+    
     todoItemNameChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoItemNameChange');
 
@@ -73,6 +79,7 @@ export class ToDoItemModal extends React.Component {
             data: data
         });
     }
+    
     todoItemOrderChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoItemOrderChange');
 
@@ -82,6 +89,7 @@ export class ToDoItemModal extends React.Component {
             data: data
         });
     }
+    
     todoItemStatusChange = (e) => {
         console.log('insistime-web/manage/page/todo-item-modal: todoItemStatusChange');
 
@@ -91,13 +99,14 @@ export class ToDoItemModal extends React.Component {
             data: data
         });
     }
+    
 
     // save
     saveClick = async () => {
         console.log('insistime-web/manage/page/todo-item-modal: saveClick');
 
         const isSuc = await gridSave(this, todoItemSave, this.state.data);
-        if (!isSuc) return;
+        if(!isSuc) return;
 
         this.modalClose();
         this.props.reload();
@@ -106,7 +115,7 @@ export class ToDoItemModal extends React.Component {
     render() {
         console.log('insistime-web/manage/page/todo-item-modal: render');
 
-        const tips = this.state.tips ? <Tips tips={this.state.tips} /> : null;
+        const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
         return <Modal
             width="300px"
             show={this.state.show}
@@ -116,30 +125,35 @@ export class ToDoItemModal extends React.Component {
                 type="hidden"
                 value={this.state.data.id}
             />
+            
             <Input
                 type="text"
                 placeholder="todo_group_id"
                 value={this.state.data.todo_group_id}
                 onChange={this.todoGroupIdChange}
             />
+            
             <Input
                 type="text"
                 placeholder="todo_item_name"
                 value={this.state.data.todo_item_name}
                 onChange={this.todoItemNameChange}
             />
+            
             <Input
                 type="text"
                 placeholder="todo_item_order"
                 value={this.state.data.todo_item_order}
                 onChange={this.todoItemOrderChange}
             />
+            
             <Input
                 type="text"
                 placeholder="todo_item_status"
                 value={this.state.data.todo_item_status}
                 onChange={this.todoItemStatusChange}
             />
+            
             <Button
                 onClick={this.saveClick}
                 text="submit"

@@ -11,7 +11,7 @@ import { Grid, gridInit, gridDel } from 'qiao-ui';
 import { todoItemList, todoItemDel } from 'dishi-service';
 
 // components
-import { ToDoItemModal } from './todo-item-modal.jsx';
+import { TodoItemModal } from './todo-item-modal.jsx';
 
 // cols
 const cols = [
@@ -22,13 +22,14 @@ const cols = [
     'todo_item_name',
     'todo_item_order',
     'todo_item_status',
+    
     'op'
 ];
 
 /**
  * todo item
  */
-export class ToDoItem extends React.Component {
+export class TodoItem extends React.Component {
     // init
     init = async (that, pagenumber) => {
         // userinfo
@@ -55,12 +56,12 @@ export class ToDoItem extends React.Component {
     }
 
     render() {
-        console.log('insistime-web/manage/page/todo-group: render');
+        console.log('insistime-web/manage/page/todo-item: render');
 
         return <Grid
-            init={this.init}
-            del={this.del}
-            modal={ToDoItemModal}
+            init={ this.init }
+            del={ this.del }
+            modal={ TodoItemModal }
         />;
     }
 }
