@@ -10,7 +10,7 @@ import { todoGroupSave } from 'dishi-service';
 /**
  * todo group modal
  */
-export class TodoGroupModal extends React.Component {
+export class ToDoGroupModal extends React.Component {
     constructor(props) {
         console.log('insistime-web/manage/page/todo-group-modal: constructor');
 

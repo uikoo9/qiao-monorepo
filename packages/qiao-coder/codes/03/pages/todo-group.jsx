@@ -11,7 +11,7 @@ import { Grid, gridInit, gridDel } from 'qiao-ui';
 import { todoGroupList, todoGroupDel } from 'dishi-service';
 
 // components
-import { TodoGroupModal } from './todo-group-modal.jsx';
+import { ToDoGroupModal } from './todo-group-modal.jsx';
 
 // cols
 const cols = [
@@ -20,14 +20,13 @@ const cols = [
     'ucenter_user_id',
     'todo_group_name',
     'todo_group_order',
-    
     'op'
 ];
 
 /**
  * todo group
  */
-export class TodoGroup extends React.Component {
+export class ToDoGroup extends React.Component {
     // init
     init = async (that, pagenumber) => {
         // userinfo
@@ -57,9 +56,9 @@ export class TodoGroup extends React.Component {
         console.log('insistime-web/manage/page/todo-group: render');
 
         return <Grid
-            init={ this.init }
-            del={ this.del }
-            modal={ TodoGroupModal }
+            init={this.init}
+            del={this.del}
+            modal={ToDoGroupModal}
         />;
     }
 }

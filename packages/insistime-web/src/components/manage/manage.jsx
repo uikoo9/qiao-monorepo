@@ -9,7 +9,7 @@ import './manage.scss';
 import { Header, Menus } from 'qiao-ui';
 
 // components
-import { ToDoGroup } from './pages/todo-group.jsx';
+import { TodoGroup } from './pages/todo-group.jsx';
 import { ToDoItem } from './pages/todo-item.jsx';
 import { UcenterMenu } from './pages/ucenter-menu.jsx';
 
@@ -31,7 +31,7 @@ export class ManageContainer extends React.Component {
                 />
                 <HashRouter>
                     <Routes>
-                        <Route path='/todo/group' element={<ToDoGroup />}/>
+                        <Route path='/todo/group' element={<TodoGroup />}/>
                         <Route path='/todo/item' element={<ToDoItem />}/>
                         <Route path='/ucenter/menu' element={<UcenterMenu />}/>
                     </Routes>
