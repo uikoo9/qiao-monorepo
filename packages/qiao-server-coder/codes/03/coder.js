@@ -2,7 +2,7 @@
 
 var path	= require('path');
 var qiao	= require('../../lib/_qiao.js');
-qiao.coder	= require('../../lib/qiao-coder.js');
+qiao.coder	= require('../../lib/qiao-server-coder.js');
 
 /**
  * gen

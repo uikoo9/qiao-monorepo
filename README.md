@@ -134,10 +134,6 @@ nodejs 下 cache 能力
 
 nodejs 下 cli 能力
 
-### [qiao-coder](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-coder#readme)
-
-nodejs 下 qiao-server 配套的代码生成工具，待完善
-
 ### [qiao-compress](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-compress#readme)
 
 nodejs 下压缩&解压缩能力，待完善
@@ -205,6 +201,10 @@ nodejs 下 request 常见 api 封装
 ### [qiao-server](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server#readme)
 
 nodejs 下基于 express 的 mvc 框架
+
+### [qiao-server-coder](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server-coder#readme)
+
+nodejs 下 qiao-server 配套的代码生成工具，待完善
 
 ### [qiao-server-user](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server-user#readme)
 
