@@ -10,8 +10,10 @@
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {
-    "build": "rollup --config rollup.config.js",
-    "prepublish": "npm run build"
+    "build": "rollup --config _config.rollup.js",
+    "eslint": "eslint . --ext .js -c _config.eslint.js",
+    "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+    "prepublish": "npm run build && npm run eslintfix"
   },
   "dependencies": {
     "qiao-ajax": "^2.6.6",
