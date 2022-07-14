@@ -1,7 +1,7 @@
 {
   "name": "insistime-web",
   "private": true,
-  "version": "1.5.0",
+  "version": "1.5.1",
   "scripts": {
     "dev": "qwebpack dev ./webpack/qiao-webpack.dev.js",
     "build": "qwebpack build ./webpack/qiao-webpack.prod.js",
@@ -11,7 +11,7 @@
   "dependencies": {
     "dishi-service": "^0.1.3",
     "qiao-ajax": "^2.6.6",
-    "qiao-service": "^0.0.5",
+    "qiao-service": "^0.0.6",
     "qiao-ui": "^0.5.5",
     "qiao.cookie.js": "^1.0.5",
     "react": "^18.2.0",
