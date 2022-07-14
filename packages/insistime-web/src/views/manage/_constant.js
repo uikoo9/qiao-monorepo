@@ -13,5 +13,11 @@ export default {
     },{
         name: '待办项管理',
         url: '#/todo/item'
+    },{
+        name: '用户管理',
+        main: true,
+    },{
+        name: '菜单管理',
+        url: '#/ucenter/menu'
     }],
 };

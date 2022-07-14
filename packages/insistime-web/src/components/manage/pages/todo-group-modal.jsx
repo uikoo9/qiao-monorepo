@@ -19,7 +19,11 @@ export class ToDoGroupModal extends React.Component {
         this.state = {
             show: false,
             tips: '',
-            data: {},
+            data: {
+                id: '',
+                todo_group_name: '',
+                todo_group_order: '',
+            },
         };
     }
 

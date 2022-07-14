@@ -10,6 +10,28 @@ import { post} from '../util/_fetch.js';
 import { danger } from 'qiao-json'; 
 
 /**
+ * register
+ * @param {*} mobile 
+ * @param {*} password 
+ * @param {*} repassword 
+ * @param {*} code 
+ * @returns 
+ */
+export const register = async (mobile, password, repassword, code) => {
+    if(!mobile || !password || !repassword || !code) return danger('need mobile, code, password');
+    if(password != repassword) return danger('the two password do not match');
+
+    const url 	= config.host + config.register;
+    const data	= {
+        username : mobile,
+        password : password,
+        usercode : code
+    };
+
+    return await post(url, data);
+};
+
+/**
  * login
  * @param {*} mobile 
  * @param {*} password 
@@ -40,28 +62,6 @@ export const sendCode = async (mobile) => {
         type	: 'reg',
         sign	: '坚时科技',
         mobile	: mobile
-    };
-
-    return await post(url, data);
-};
-
-/**
- * register
- * @param {*} mobile 
- * @param {*} password 
- * @param {*} repassword 
- * @param {*} code 
- * @returns 
- */
-export const register = async (mobile, password, repassword, code) => {
-    if(!mobile || !password || !repassword || !code) return danger('need mobile, code, password');
-    if(password != repassword) return danger('the two password do not match');
-
-    const url 	= config.host + config.register;
-    const data	= {
-        username : mobile,
-        password : password,
-        usercode : code
     };
 
     return await post(url, data);
