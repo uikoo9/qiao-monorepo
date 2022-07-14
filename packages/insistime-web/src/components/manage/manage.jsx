@@ -11,6 +11,7 @@ import { Header, Menus } from 'qiao-ui';
 // components
 import { TodoGroup } from './pages/todo-group.jsx';
 import { TodoItem } from './pages/todo-item.jsx';
+import { DiaryType } from './pages/diary-type.jsx';
 import { UcenterMenu } from './pages/ucenter-menu.jsx';
 
 /**
@@ -33,6 +34,7 @@ export class ManageContainer extends React.Component {
                     <Routes>
                         <Route path='/todo/group' element={<TodoGroup />}/>
                         <Route path='/todo/item' element={<TodoItem />}/>
+                        <Route path='/diary/type' element={<DiaryType />}/>
                         <Route path='/ucenter/menu' element={<UcenterMenu />}/>
                     </Routes>
                 </HashRouter>

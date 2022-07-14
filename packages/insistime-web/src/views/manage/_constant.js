@@ -14,6 +14,12 @@ export default {
         name: '待办项管理',
         url: '#/todo/item'
     },{
+        name: '日记管理',
+        main: true,
+    },{
+        name: '日记类型管理',
+        url: '#/diary/type'
+    },{
         name: '用户管理',
         main: true,
     },{
