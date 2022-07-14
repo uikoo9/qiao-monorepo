@@ -5,27 +5,27 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var qiaoAjax = require('qiao-ajax');
 var qiaoJson = require('qiao-json');
 
-var host = "https://insistime.com/";
-var todoList$1 = "todo/list";
-var todoGrouplist = "todo/group/list";
-var todoGroupSave$1 = "todo/group/save";
-var todoGroupDel$1 = "todo/group/del";
-var todoGroupGet$1 = "todo/group/get";
-var todoItemlist = "todo/item/list";
-var todoItemSave$1 = "todo/item/save";
-var todoItemDel$1 = "todo/item/del";
-var todoItemGet$1 = "todo/item/get";
+var host = 'https://insistime.com/';
+var todoList$1 = 'todo/list';
+var todoGrouplist = 'todo/group/list';
+var todoGroupSave$1 = 'todo/group/save';
+var todoGroupDel$1 = 'todo/group/del';
+var todoGroupGet$1 = 'todo/group/get';
+var todoItemlist = 'todo/item/list';
+var todoItemSave$1 = 'todo/item/save';
+var todoItemDel$1 = 'todo/item/del';
+var todoItemGet$1 = 'todo/item/get';
 var config = {
-	host: host,
-	todoList: todoList$1,
-	todoGrouplist: todoGrouplist,
-	todoGroupSave: todoGroupSave$1,
-	todoGroupDel: todoGroupDel$1,
-	todoGroupGet: todoGroupGet$1,
-	todoItemlist: todoItemlist,
-	todoItemSave: todoItemSave$1,
-	todoItemDel: todoItemDel$1,
-	todoItemGet: todoItemGet$1
+    host: host,
+    todoList: todoList$1,
+    todoGrouplist: todoGrouplist,
+    todoGroupSave: todoGroupSave$1,
+    todoGroupDel: todoGroupDel$1,
+    todoGroupGet: todoGroupGet$1,
+    todoItemlist: todoItemlist,
+    todoItemSave: todoItemSave$1,
+    todoItemDel: todoItemDel$1,
+    todoItemGet: todoItemGet$1
 };
 
 // qiao
@@ -37,47 +37,50 @@ var config = {
  */
 const postWithToken = async (url, data) => {
     const root = global || window;
-    if(!root) return qiaoJson.danger(`no window or global`);
+    if(!root) return qiaoJson.danger('no window or global');
 
-	const userinfo = root.insistime_userinfo;
-	if (!userinfo || !userinfo.userid || !userinfo.usertoken) return qiaoJson.danger(`please login first`);
+    const userinfo = root.insistime_userinfo;
+    if (!userinfo || !userinfo.userid || !userinfo.usertoken) return qiaoJson.danger('please login first');
 
-	const headers = {
-		userid: userinfo.userid,
-		usertoken: userinfo.usertoken
-	};
-	return await ajax(url, data, headers);
+    const headers = {
+        userid: userinfo.userid,
+        usertoken: userinfo.usertoken
+    };
+    return await ajax(url, data, headers);
 };
 
 // ajax
 async function ajax(url, data, headers) {
-	let options = { data: data };
-	if (headers) options.headers = headers;
+    let options = { data: data };
+    if (headers) options.headers = headers;
 
-	const s = Date.now();
-	let res;
-	try {
-		res = await qiaoAjax.post(url, options);
-	} catch (e) {
-	}
-	const time = Date.now() - s;
+    const s = Date.now();
+    let res;
+    try {
+        res = await qiaoAjax.post(url, options);
+    } catch (e) {
+        console.log(e);
+    }
+    const time = Date.now() - s;
 
-	// res error
-	if (!res) return qiaoJson.danger(`${time}ms | request fail`);
+    // res error
+    if (!res) return qiaoJson.danger(`${time}ms | request fail`);
 
-	// not 200
-	if (res.status != 200) return qiaoJson.danger(`${time}ms | request fail: ${res.status}`);
+    // not 200
+    if (res.status != 200) return qiaoJson.danger(`${time}ms | request fail: ${res.status}`);
 
-	// no data
-	const json = res.data;
-	if (!json) return qiaoJson.danger(`${time}ms | request fail: no data`);
+    // no data
+    const json = res.data;
+    if (!json) return qiaoJson.danger(`${time}ms | request fail: no data`);
 
-	// danger
-	if (json.type == 'danger') return qiaoJson.danger(`${time}ms | ${json.msg}`);
+    // danger
+    if (json.type == 'danger') return qiaoJson.danger(`${time}ms | ${json.msg}`);
 
-	json.time = time;
-	return json;
+    json.time = time;
+    return json;
 }
+
+// config
 
 /**
  * todoGroupList
@@ -86,13 +89,13 @@ async function ajax(url, data, headers) {
  * @returns 
  */
 const todoGroupList = async (pagenumber, pagesize) => {
-	const url = config.host + config.todoGrouplist;
-	const data = { 
+    const url = config.host + config.todoGrouplist;
+    const data = { 
         page: pagenumber || '1',
         rows: pagesize || '10' 
     };
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, data);
 };
 
 /**
@@ -101,14 +104,14 @@ const todoGroupList = async (pagenumber, pagesize) => {
  * @returns 
  */
 const todoGroupSave = async (data) => {
-	const url = config.host + config.todoGroupSave;
-	let opt = {
-		todoGroupName: data.todo_group_name,
-		todoGroupOrder: data.todo_group_order || '1'
-	};
-	if (data.id) opt.id = data.id;
+    const url = config.host + config.todoGroupSave;
+    let opt = {
+        todoGroupName: data.todo_group_name,
+        todoGroupOrder: data.todo_group_order || '1'
+    };
+    if (data.id) opt.id = data.id;
 
-	return await postWithToken(url, opt);
+    return await postWithToken(url, opt);
 };
 
 /**
@@ -117,10 +120,10 @@ const todoGroupSave = async (data) => {
  * @returns 
  */
 const todoGroupDel = async (ids) => {
-	const url = config.host + config.todoGroupDel;
-	const data = { ids: ids };
+    const url = config.host + config.todoGroupDel;
+    const data = { ids: ids };
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, data);
 };
 
 /**
@@ -129,19 +132,19 @@ const todoGroupDel = async (ids) => {
  * @returns 
  */
 const todoGroupGet = async (id) => {
-	if (!id) return qiaoJson.danger('need group id');
+    if (!id) return qiaoJson.danger('need group id');
 
-	const url = config.host + config.todoGroupGet;
-	const data = { id: id };
+    const url = config.host + config.todoGroupGet;
+    const data = { id: id };
 
-	const json = await postWithToken(url, data);
-	if (!json || !json.obj || !json.obj.rows || !json.obj.rows.length) {
-		return qiaoJson.danger(`can not find todo group by ${id}`);
-	}
+    const json = await postWithToken(url, data);
+    if (!json || !json.obj || !json.obj.rows || !json.obj.rows.length) {
+        return qiaoJson.danger(`can not find todo group by ${id}`);
+    }
 
-	var item = json.obj.rows[0];
-	item.time = json.time;
-	return item;
+    var item = json.obj.rows[0];
+    item.time = json.time;
+    return item;
 };
 
 // config
@@ -209,17 +212,19 @@ const todoItemGet = async (id) => {
     return item;
 };
 
+// config
+
 /**
  * todoList
  */
 const todoList = async (gid) => {
-	const url = config.host + config.todoList;
-	const data = {
-		todoGroupId: gid,
-		rows: '10'
-	};
+    const url = config.host + config.todoList;
+    const data = {
+        todoGroupId: gid,
+        rows: '10'
+    };
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, data);
 };
 
 exports.todoGroupDel = todoGroupDel;

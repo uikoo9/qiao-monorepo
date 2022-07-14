@@ -1,5 +1,3 @@
-'use strict';
-
 // config
 import config from '../util/_server.json';
 
@@ -10,11 +8,11 @@ import { postWithToken } from '../util/_fetch.js';
  * todoList
  */
 export const todoList = async (gid) => {
-	const url = config.host + config.todoList;
-	const data = {
-		todoGroupId: gid,
-		rows: '10'
-	};
+    const url = config.host + config.todoList;
+    const data = {
+        todoGroupId: gid,
+        rows: '10'
+    };
 
-	return await postWithToken(url, data);
+    return await postWithToken(url, data);
 };
