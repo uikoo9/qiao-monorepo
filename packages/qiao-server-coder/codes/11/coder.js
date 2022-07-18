@@ -14,11 +14,19 @@ exports.gen = async function(tableName, destFolder){
 	console.log(data);
     
 	// gen code
-	genPage(destFolder, data);
-    genModal(destFolder, data);
+    genController(destFolder, data);
+	// genPage(destFolder, data);
+    // genModal(destFolder, data);
 	
 	return;
 };
+
+// gen controller
+function genController(destFolder, data){
+	var pageTemp = path.resolve(__dirname, './server/controller.art');
+	var pageDest = path.resolve(destFolder, `./src/components/manage/pages/${data.tableName1}-${data.tableName2}.jsx`);
+	qiao.coder.genFileByData(pageTemp, data, pageDest);
+}
 
 // gen page
 function genPage(destFolder, data){

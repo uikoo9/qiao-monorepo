@@ -7,28 +7,25 @@ import { get } from 'qiao.cookie.js';
 // ui
 import { Grid, gridInit, gridDel } from 'qiao-ui';
 
-// qiao service
-import { ucenterMenuList, ucenterMenuDel } from 'qiao-service';
+// {{tableName1}} service
+import { {{className2}}List, {{className2}}Del } from '{{tableName1}}-service';
 
 // components
-import { UcenterMenuModal } from './ucenter-menu-modal.jsx';
+import { {{className1}}Modal } from './{{tableName1}}-{{tableName2}}-modal.jsx';
 
 // cols
 const cols = [
     'ck',
     'id',
-    'ucenter_menu_parent',
-    'ucenter_menu_sn',
-    'ucenter_menu_title',
-    'ucenter_menu_url',
-    
+    {{each params}}'{{$value.name1}}',
+    {{/each}}
     'op'
 ];
 
 /**
- * ucenter menu
+ * {{tableName1}} {{tableName2}}
  */
-export class UcenterMenu extends React.Component {
+export class {{className1}} extends React.Component {
     // init
     init = async (that, pagenumber) => {
         // userinfo
@@ -38,7 +35,7 @@ export class UcenterMenu extends React.Component {
         };
 
         // set
-        const obj = await gridInit(ucenterMenuList, pagenumber, cols);
+        const obj = await gridInit({{className2}}List, pagenumber, cols);
         if(!obj) return;
 
         that.setState({
@@ -51,16 +48,16 @@ export class UcenterMenu extends React.Component {
 
     // del
     del = async (ids) => {
-        return await gridDel(ucenterMenuDel, ids);
+        return await gridDel({{className2}}Del, ids);
     }
 
     render() {
-        console.log('insistime-web/manage/page/ucenter-menu: render');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}: render');
 
         return <Grid
             init={ this.init }
             del={ this.del }
-            modal={ UcenterMenuModal }
+            modal={ {{className1}}Modal }
         />;
     }
 }
