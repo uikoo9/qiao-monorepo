@@ -14,7 +14,7 @@ import { danger } from 'qiao-json';
  * @returns 
  */
 export const {{className2}}List = async (pagenumber, pagesize) => {
-    const url = config.host + config.{{className2}}list;
+    const url = config.host + config.{{className2}}List;
     const data = { 
         page: pagenumber || '1',
         rows: pagesize || '10' 
