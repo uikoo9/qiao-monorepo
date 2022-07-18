@@ -1,0 +1,35 @@
+// qiao
+var qiao = require('../../_qiao.js');
+
+/**
+ * {{tableName1}} {{tableName2}} sql
+ */
+exports.sql = require('./{{tableName1}}-{{tableName2}}-sql.json');
+
+/**
+ * {{tableName1}} {{tableName2}} get by id
+ */
+exports.{{className2}}GetById = function(params){
+	return qiao.mysql.query(global.config.db, exports.sql.{{className2}}GetById, params);
+};
+
+/**
+ * {{tableName1}} {{tableName2}} add
+ */
+exports.{{className2}}Add = function(params){
+	return qiao.mysql.query(global.config.db, exports.sql.{{className2}}Add, params);
+};
+
+/**
+ * {{tableName1}} {{tableName2}} edit
+ */
+exports.{{className2}}Edit = function(params){
+	return qiao.mysql.query(global.config.db, exports.sql.{{className2}}Edit, params);
+};
+
+/**
+ * {{tableName1}} {{tableName2}} del
+ */
+exports.{{className2}}Del = function(params){
+	return qiao.mysql.query(global.config.db, exports.sql.{{className2}}Del, params);
+};

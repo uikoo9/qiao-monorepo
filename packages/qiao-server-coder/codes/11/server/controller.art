@@ -1,27 +1,27 @@
 // service
-var service	= require('../service/TodoGroupService.js');
+var service	= require('../service/{{className1}}Service.js');
 
 /**
- * todo group controller
+ * {{tableName1}} {{tableName2}} controller
  */
 module.exports = function(app){
-	// todo group list
-	app.post('/todo/group/list', function(req, res){
-		service.todoGroupList(req, res);
+	// {{tableName1}} {{tableName2}} list
+	app.post('/{{tableName1}}/{{tableName2}}/list', function(req, res){
+		service.{{className2}}List(req, res);
 	});
 
-	// todo group get
-	app.post('/todo/group/get', function(req, res){
-		service.todoGroupGet(req, res);
+	// {{tableName1}} {{tableName2}} get
+	app.post('/{{tableName1}}/{{tableName2}}/get', function(req, res){
+		service.{{className2}}Get(req, res);
 	});
 	
-	// todo group save
-	app.post('/todo/group/save', function(req, res){
-		service.todoGroupSave(req, res);
+	// {{tableName1}} {{tableName2}} save
+	app.post('/{{tableName1}}/{{tableName2}}/save', function(req, res){
+		service.{{className2}}Save(req, res);
 	});
 
-	// todo group del
-	app.post('/todo/group/del', function(req, res){
-		service.todoGroupDel(req, res);
+	// {{tableName1}} {{tableName2}} del
+	app.post('/{{tableName1}}/{{tableName2}}/del', function(req, res){
+		service.{{className2}}Del(req, res);
 	});
 };

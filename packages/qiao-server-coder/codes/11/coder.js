@@ -15,8 +15,8 @@ exports.gen = async function(tableName, destFolder){
     
 	// gen code
     genController(destFolder, data);
-	// genPage(destFolder, data);
-    // genModal(destFolder, data);
+    genService(destFolder, data);
+    genModel(destFolder, data);
 	
 	return;
 };
@@ -24,20 +24,20 @@ exports.gen = async function(tableName, destFolder){
 // gen controller
 function genController(destFolder, data){
 	var pageTemp = path.resolve(__dirname, './server/controller.art');
-	var pageDest = path.resolve(destFolder, `./src/components/manage/pages/${data.tableName1}-${data.tableName2}.jsx`);
+	var pageDest = path.resolve(destFolder, `./lib/${data.tableName1}/controller/${data.className1}Controller.js`);
 	qiao.coder.genFileByData(pageTemp, data, pageDest);
 }
 
-// gen page
-function genPage(destFolder, data){
-	var pageTemp = path.resolve(__dirname, './pages/page.art');
-	var pageDest = path.resolve(destFolder, `./src/components/manage/pages/${data.tableName1}-${data.tableName2}.jsx`);
+// gen service
+function genService(destFolder, data){
+	var pageTemp = path.resolve(__dirname, './server/service.art');
+	var pageDest = path.resolve(destFolder, `./lib/${data.tableName1}/service/${data.className1}Service.js`);
 	qiao.coder.genFileByData(pageTemp, data, pageDest);
 }
 
-// gen modal
-function genModal(destFolder, data){
-	var pageTemp = path.resolve(__dirname, './pages/modal.art');
-	var pageDest = path.resolve(destFolder, `./src/components/manage/pages/${data.tableName1}-${data.tableName2}-modal.jsx`);
-	qiao.coder.genFileByData(pageTemp, data, pageDest);
+// gen model
+function genModel(destFolder, data){
+	var modelTemp 	= path.resolve(__dirname, './server/model.art');
+	var modelDest	= path.resolve(destFolder, `./lib/${data.tableName1}/model/${data.className1}Model.js`);
+	qiao.coder.genFileByData(modelTemp, data, modelDest);
 }
