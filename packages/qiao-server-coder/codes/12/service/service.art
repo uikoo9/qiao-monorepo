@@ -1,0 +1,73 @@
+// config
+import config from '../util/_server.json';
+
+// fetch
+import { postWithToken } from '../util/_fetch.js';
+
+// qjson
+import { danger } from 'qiao-json';
+
+/**
+ * {{className2}}List
+ * @param {*} pagenumber 
+ * @param {*} pagesize 
+ * @returns 
+ */
+export const {{className2}}List = async (pagenumber, pagesize) => {
+    const url = config.host + config.{{className2}}list;
+    const data = { 
+        page: pagenumber || '1',
+        rows: pagesize || '10' 
+    };
+
+    return await postWithToken(url, data);
+};
+
+/**
+ * {{className2}}Save
+ * @param {*} data 
+ * @returns 
+ */
+export const {{className2}}Save = async (data) => {
+    const url = config.host + config.{{className2}}Save;
+    let opt = {
+        {{each params}}{{$value.name2}} : data.{{$value.name1}},
+        {{/each}}
+    };
+    if (data.id) opt.id = data.id;
+
+    return await postWithToken(url, opt);
+};
+
+/**
+ * {{className2}}Del
+ * @param {*} ids 
+ * @returns 
+ */
+export const {{className2}}Del = async (ids) => {
+    const url = config.host + config.{{className2}}Del;
+    const data = { ids: ids };
+
+    return await postWithToken(url, data);
+};
+
+/**
+ * {{className2}}Get
+ * @param {*} id 
+ * @returns 
+ */
+export const {{className2}}Get = async (id) => {
+    if (!id) return danger('need group id');
+
+    const url = config.host + config.{{className2}}Get;
+    const data = { id: id };
+
+    const json = await postWithToken(url, data);
+    if (!json || !json.obj || !json.obj.rows || !json.obj.rows.length) {
+        return danger(`can not find {{tableName1}} {{tableName2}} by ${id}`);
+    }
+
+    var item = json.obj.rows[0];
+    item.time = json.time;
+    return item;
+};
