@@ -33,6 +33,11 @@ $tdPadding: 5px;
         border: base.$borderSolid;
 
         @include base.font($size: 14px, $align: center);
+
+        max-width: 100px;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
     }
 
     td.op>div {
