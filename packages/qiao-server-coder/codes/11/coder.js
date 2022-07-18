@@ -17,6 +17,7 @@ exports.gen = async function(tableName, destFolder){
     genController(destFolder, data);
     genService(destFolder, data);
     genModel(destFolder, data);
+    genSql(destFolder, data);
 	
 	return;
 };
@@ -40,4 +41,11 @@ function genModel(destFolder, data){
 	var modelTemp 	= path.resolve(__dirname, './server/model.art');
 	var modelDest	= path.resolve(destFolder, `./lib/${data.tableName1}/model/${data.className1}Model.js`);
 	qiao.coder.genFileByData(modelTemp, data, modelDest);
+}
+
+// gen sql
+function genSql(destFolder, data){
+	var sqlTemp = path.resolve(__dirname, './server/sql.art');
+	var sqlDest	= path.resolve(destFolder, `./lib/${data.tableName1}/model/${data.tableName1}-${data.tableName2}-sql.json`);
+	qiao.coder.genFileByData(sqlTemp, data, sqlDest);
 }
