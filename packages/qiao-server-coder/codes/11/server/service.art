@@ -10,8 +10,8 @@ var model	= require('../model/{{className1}}Model.js');
 exports.{{className2}}List = async function(req, res){
 	// vars
 	var ucenterUserId = req.body['express_userid'];
-    {{each params}}var {{$value.name2}} = req.body.{{$value.name2}};
-	{{/each}}
+    {{each params}}{{if $value.name1 != 'ucenter_user_id'}}var {{$value.name2}} = req.body.{{$value.name2}};{{/if}}
+    {{/each}}
 	
 	// sql and params
 	var sqlcount	= [model.sql.{{className2}}ListCount];
@@ -21,13 +21,13 @@ exports.{{className2}}List = async function(req, res){
 	var paramsquery	= [ucenterUserId];
 
 	// query
-	{{each params}}if({{$value.name2}}){
+	{{each params}}{{if $value.name1 != 'ucenter_user_id'}}if({{$value.name2}}){
 		sqlcount.push(' and t.{{$value.name1}} = ?');
 		paramscount.push({{$value.name2}});
 		
 		sqlquery.push(" and t.{{$value.name1}} = ?");
 		paramsquery.push({{$value.name2}});
-	}
+	}{{/if}}
 	{{/each}}
 	
 	// order and page
@@ -97,14 +97,14 @@ exports.{{className2}}Save = async function(req, res){
 		res.send(qiao.json.danger('缺少参数！'));
 		return;
 	}
-	{{each params}}if(!req.body.{{$value.name2}}){
+	{{each params}}{{if $value.name1 != 'ucenter_user_id'}}if(!req.body.{{$value.name2}}){
 		res.send(qiao.json.danger('缺少参数{{$value.name2}}！'));
 		return;
-	}
+	}{{/if}}
 	{{/each}}
 	// vars
 	var id = req.body.id;
-	{{each params}}var {{$value.name2}} = req.body.{{$value.name2}};
+	{{each params}}{{if $value.name1 != 'ucenter_user_id'}}var {{$value.name2}} = req.body.{{$value.name2}};{{/if}}
 	{{/each}}
 	// vars for userinfo
 	var express_userid 		= req.body.express_userid;
@@ -116,7 +116,7 @@ exports.{{className2}}Save = async function(req, res){
 		
 		if(!id){
 			params.push(express_userid);
-            {{each params}}params.push({{$value.name2}});
+            {{each params}}{{if $value.name1 != 'ucenter_user_id'}}params.push({{$value.name2}});{{/if}}
 			{{/each}}
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
@@ -126,7 +126,7 @@ exports.{{className2}}Save = async function(req, res){
 			var rs = await model.{{className2}}Add(params);
 			id = rs && rs.insertId ? rs.insertId : id;
 		}else{
-			{{each params}}params.push({{$value.name2}});
+			{{each params}}{{if $value.name1 != 'ucenter_user_id'}}params.push({{$value.name2}});{{/if}}
 			{{/each}}
 			params.push(express_userid || 1);
 			params.push(express_username || 'admin');
