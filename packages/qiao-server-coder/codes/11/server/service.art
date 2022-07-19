@@ -2,23 +2,21 @@
 var qiao = require('../../_qiao.js');
 
 // model
-var model	= require('../model/{{className1}}Model.js');
+var model = require('../model/{{className1}}Model.js');
 
 /**
  * {{tableName1}} {{tableName2}} list
  */
 exports.{{className2}}List = async function(req, res){
 	// vars
-	var ucenterUserId = req.body['express_userid'];
     {{each params}}{{if $value.name1 != 'ucenter_user_id'}}var {{$value.name2}} = req.body.{{$value.name2}};{{/if}}
     {{/each}}
-	
 	// sql and params
 	var sqlcount	= [model.sql.{{className2}}ListCount];
-	var paramscount	= [ucenterUserId];
+	var paramscount	= [];
 	
 	var sqlquery	= [model.sql.{{className2}}ListQuery];
-	var paramsquery	= [ucenterUserId];
+	var paramsquery	= [];
 
 	// query
 	{{each params}}{{if $value.name1 != 'ucenter_user_id'}}if({{$value.name2}}){
@@ -29,7 +27,6 @@ exports.{{className2}}List = async function(req, res){
 		paramsquery.push({{$value.name2}});
 	}{{/if}}
 	{{/each}}
-	
 	// order and page
 	sqlquery.push(' order by t.? ? limit ?,?');
 	var order		= req.body.order || 'desc';
@@ -79,7 +76,6 @@ exports.{{className2}}Get = async function(req, res){
 	try{
 		var params = [];
 		params.push(req.body.id);
-		params.push(req.body['express_userid']);
 
 		var rows = await model.{{className2}}GetById(params);
 		res.send(qiao.json.success('query success', {rows:rows}));
@@ -115,7 +111,6 @@ exports.{{className2}}Save = async function(req, res){
 		var params = [];
 		
 		if(!id){
-			params.push(express_userid);
             {{each params}}{{if $value.name1 != 'ucenter_user_id'}}params.push({{$value.name2}});{{/if}}
 			{{/each}}
 			params.push(express_userid || 1);
@@ -159,7 +154,6 @@ exports.{{className2}}Del = async function(req, res){
 	// db
 	try{
 		var params = [];
-		params.push(req.body['express_userid']);
 		params.push(req.body.ids.split(','));
 
 		await model.{{className2}}Del(params);

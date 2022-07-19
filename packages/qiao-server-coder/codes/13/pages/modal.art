@@ -21,7 +21,7 @@ export class {{className1}}Modal extends React.Component {
             tips: '',
             data: {
                 id: '',
-                {{each params}}{{if $value.name1 != 'ucenter_user_id'}}{{$value.name1}}: '',{{/if}}
+                {{each params}}{{$value.name1}}: '',
                 {{/each}}
             },
         };
@@ -37,7 +37,7 @@ export class {{className1}}Modal extends React.Component {
             tips: '',
             data: {
                 id: row.id || '',
-                {{each params}}{{if $value.name1 != 'ucenter_user_id'}}{{$value.name1}}: row.{{$value.name1}} || '',{{/if}}
+                {{each params}}{{$value.name1}}: row.{{$value.name1}} || '',
                 {{/each}}
             }
         });
@@ -87,14 +87,13 @@ export class {{className1}}Modal extends React.Component {
                 type="hidden"
                 value={this.state.data.id}
             />
-            {{each params}}{{if $value.name1 != 'ucenter_user_id'}}
+            {{each params}}
             <Input
                 type="text"
                 placeholder="{{$value.name1}}"
                 value={this.state.data.{{$value.name1}}}
                 onChange={this.{{$value.name2}}Change}
-            />
-            {{/if}}{{/each}}
+            />{{/each}}
             <Button
                 onClick={this.saveClick}
                 text="submit"

@@ -31,7 +31,7 @@ export const {{className2}}List = async (pagenumber, pagesize) => {
 export const {{className2}}Save = async (data) => {
     const url = config.host + config.{{className2}}Save;
     let opt = {
-        {{each params}}{{if $value.name1 != 'ucenter_user_id'}}{{$value.name2}} : data.{{$value.name1}},{{/if}}
+        {{each params}}{{$value.name2}} : data.{{$value.name1}},
         {{/each}}
     };
     if (data.id) opt.id = data.id;
