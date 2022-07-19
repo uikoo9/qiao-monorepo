@@ -17,9 +17,6 @@ $menuHeight: 40px;
         @include base.cursor();
         @include base.alink();
     }
-    .menu:hover{
-        font-size: 16px;
-    }
     .menu.main{
         height: 50px;
         font-size: 16px;
