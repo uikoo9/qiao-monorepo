@@ -11,6 +11,7 @@ $navWidth: 100px;
 
     @include base.font($size: 16px);
     @include base.cursor();
+    @include base.alink();
 }
 .nav-txt.right {
     text-align: right;
@@ -35,8 +36,6 @@ $navWidth: 100px;
         .nav {
             float: right;
             width: $navWidth;
-
-            @include base.alink();
         }
     }
 }
