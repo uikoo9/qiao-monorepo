@@ -14,7 +14,7 @@ export class Header extends React.Component {
         const navs = this.props.navs && this.props.navs.map((nav, index) => {
             if (!nav.url || !nav.name) return;
 
-            return <div className="nav nav-txt" key={index}>
+            return <div className="nav nav-txt right" key={index}>
                 {
                     nav.blank ? <a target="_blank" href={nav.url}>{nav.name}</a> : <a href={nav.url}>{nav.name}</a>
                 }

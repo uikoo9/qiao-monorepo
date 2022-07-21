@@ -9,8 +9,11 @@ $navWidth: 100px;
     height: $headerHeight;
     line-height: $headerHeight;
 
-    @include base.font($size: 16px, $align: center);
+    @include base.font($size: 16px);
     @include base.cursor();
+}
+.nav-txt.right {
+    text-align: right;
 }
 
 .nav-txt:hover {
