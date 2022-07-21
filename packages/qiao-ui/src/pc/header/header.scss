@@ -16,10 +16,6 @@ $navWidth: 100px;
     text-align: right;
 }
 
-.nav-txt:hover {
-    font-size: 18px;
-}
-
 .header {
     @include base.width();
 
