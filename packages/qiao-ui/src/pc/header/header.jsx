@@ -23,7 +23,9 @@ export class Header extends React.Component {
 
         return (
             <div className="header">
-                <div className="logo nav-txt">{this.props.logo}</div>
+                <div className="logo nav-txt">
+                    <a href={this.props.logoUrl}>{this.props.logo}</a>
+                </div>
                 <div className="navs">{navs}</div>
             </div>
         );
