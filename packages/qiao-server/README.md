@@ -52,14 +52,6 @@
         config		: config,
         staticPaths	: staticPaths,
         mids		: mids,
-        modules		: modules,
         checkAuth	: true,
     });
 ```
-
-## version
-### 0.0.2.20220530
-1. static add isdev
-
-### 0.0.1.20220518
-1. init
