@@ -8,11 +8,18 @@ import './toolbar.scss';
  * toolbar
  */
 export class Toolbar extends React.Component {
-    // modal show
-    modalShow = () => {
-        console.log('qiao-ui/pc/toolbar: modalShow');
+    // search modal show
+    searchModalShow = () => {
+        console.log('qiao-ui/pc/toolbar: searchModalShow');
 
-        this.props.modal.current.modalShow();
+        this.props.searchModal.current.modalShow();
+    }
+
+    // edit modal show
+    editModalShow = () => {
+        console.log('qiao-ui/pc/toolbar: editModalShow');
+
+        this.props.editModal.current.modalShow();
     }
 
     // del rows
@@ -80,7 +87,8 @@ export class Toolbar extends React.Component {
         console.log('qiao-ui/pc/toolbar: render');
 
         return <div className='toolbar'>
-            <div onClick={this.modalShow}>add</div>
+            <div onClick={this.searchModalShow}>search</div>
+            <div onClick={this.editModalShow}>add</div>
             <div onClick={this.delRows}>del</div>
             <div>/</div>
             <div onClick={this.firstPage}>first</div>

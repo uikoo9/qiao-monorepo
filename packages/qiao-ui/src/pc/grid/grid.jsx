@@ -21,7 +21,8 @@ export class Grid extends React.Component {
             pagenumber: null,
         };
 
-        this.modalRef = React.createRef();
+        this.editModalRef = React.createRef();
+        this.searchModalRef = React.createRef();
     }
 
     // init
@@ -42,7 +43,7 @@ export class Grid extends React.Component {
     editRow = (row) => {
         console.log('qiao-ui/pc/grid: editRow');
 
-        this.modalRef.current.modalShow(row);
+        this.editModalRef.current.modalShow(row);
     }
 
     // del row
@@ -50,8 +51,8 @@ export class Grid extends React.Component {
         console.log('qiao-ui/pc/grid: delRow');
 
         const isSuc = await this.props.del(id);
-        if(!isSuc) return;
-        
+        if (!isSuc) return;
+
         this.reload();
         this.setState({
             cks: []
@@ -80,10 +81,12 @@ export class Grid extends React.Component {
         console.log('qiao-ui/pc/grid: render');
 
         const EditModal = this.props.editModal;
+        const SearchModal = this.props.searchModal;
         return <div className="data-container">
-            <Toolbar 
+            <Toolbar
                 cks={this.state.cks}
-                modal={this.modalRef}
+                editModal={this.editModalRef}
+                searchModal={this.searchModalRef}
                 delRows={this.delRow}
                 reload={this.reload}
                 sumpage={this.state.sumpage}
@@ -99,7 +102,12 @@ export class Grid extends React.Component {
             />
 
             <EditModal
-                ref={this.modalRef}
+                ref={this.editModalRef}
+                reload={this.reload}
+            />
+
+            <SearchModal
+                ref={this.searchModalRef}
                 reload={this.reload}
             />
         </div>;
