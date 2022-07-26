@@ -7,7 +7,7 @@
  */
 export const gridInit = async (listFunc, pagenumber, cols) => {
     // res
-    const res = await listFunc(pagenumber, window.pagesize);
+    const res = await listFunc({}, pagenumber, window.pagesize);
     if (res.type != 'success') {
         console.error(res);
         return;
