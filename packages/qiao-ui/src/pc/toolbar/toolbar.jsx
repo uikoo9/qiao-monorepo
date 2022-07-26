@@ -52,7 +52,7 @@ export class Toolbar extends React.Component {
         const pagenumber = this.props.pagenumber;
         if (pagenumber == 1) return;
 
-        this.props.reload(pagenumber - 1);
+        this.props.reload({}, pagenumber - 1);
     }
 
     // last page
@@ -62,7 +62,7 @@ export class Toolbar extends React.Component {
         const pagenumber = this.props.pagenumber;
         if (pagenumber == this.props.sumpage) return;
 
-        this.props.reload(this.props.sumpage);
+        this.props.reload({}, this.props.sumpage);
     }
 
     // next page
@@ -72,7 +72,7 @@ export class Toolbar extends React.Component {
         const pagenumber = this.props.pagenumber;
         if (pagenumber == this.props.sumpage) return;
 
-        this.props.reload(pagenumber + 1);
+        this.props.reload({}, pagenumber + 1);
     }
 
     // set pagesize

@@ -1,13 +1,14 @@
 /**
  * gridInit
  * @param {*} listFunc 
+ * @param {*} data 
  * @param {*} pagenumber 
  * @param {*} cols 
  * @returns 
  */
-export const gridInit = async (listFunc, pagenumber, cols) => {
+export const gridInit = async (listFunc, data, pagenumber, cols) => {
     // res
-    const res = await listFunc({}, pagenumber, window.pagesize);
+    const res = await listFunc(data || {}, pagenumber, window.pagesize);
     if (res.type != 'success') {
         console.error(res);
         return;
@@ -72,25 +73,6 @@ export const gridDel = async (delFunc, ids) => {
     const res = await delFunc(`${ids}`);
     if (!res || res.type != 'success') {
         alert(res.msg);
-        return;
-    }
-
-    return true;
-};
-
-/**
- * gridSearch
- * @param {*} that 
- * @param {*} searchFunc 
- * @param {*} data 
- * @returns 
- */
-export const gridSearch = async (that, searchFunc, data) => {
-    const res = await searchFunc(data);
-    if (!res || res.type != 'success') {
-        that.setState({
-            tips: res.msg
-        });
         return;
     }
 

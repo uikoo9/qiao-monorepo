@@ -33,10 +33,10 @@ export class Grid extends React.Component {
     }
 
     // reload
-    reload = (pagenumber) => {
+    reload = (data, pagenumber) => {
         console.log('qiao-ui/pc/grid: reload');
 
-        this.props.init(this, pagenumber);
+        this.props.init(this, data, pagenumber);
     }
 
     // edit row
