@@ -9,18 +9,21 @@ import { danger } from 'qiao-json';
 
 /**
  * {{className2}}List
+ * @param {*} data 
  * @param {*} pagenumber 
  * @param {*} pagesize 
  * @returns 
  */
-export const {{className2}}List = async (pagenumber, pagesize) => {
+export const {{className2}}List = async (data, pagenumber, pagesize) => {
     const url = config.host + config.{{className2}}List;
-    const data = { 
+    const opt = { 
+        {{each params}}{{$value.name2}} : data.{{$value.name1}},
+        {{/each}}
         page: pagenumber || '1',
         rows: pagesize || '10' 
     };
 
-    return await postWithToken(url, data);
+    return await postWithToken(url, opt);
 };
 
 /**

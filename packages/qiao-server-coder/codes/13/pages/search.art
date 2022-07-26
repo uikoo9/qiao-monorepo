@@ -1,0 +1,87 @@
+// react
+import React from 'react';
+
+// ui
+import { Modal, Input, Button } from 'qiao-ui';
+
+/**
+ * {{tableName1}} {{tableName2}} search
+ */
+export class {{className1}}Search extends React.Component {
+    constructor(props) {
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-search: constructor');
+
+        super(props);
+
+        this.state = {
+            show: false,
+            data: {
+                {{each params}}{{$value.name1}}: '',
+                {{/each}}
+            }
+        };
+    }
+
+    // modal
+    modalShow = () => {
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-search: modalShow');
+
+        this.setState({
+            show: true,
+            data: {
+                {{each params}}{{$value.name1}}: row.{{$value.name1}} || '',
+                {{/each}}
+            }
+        });
+    }
+    modalClose = () => {
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-search: modalClose');
+
+        this.setState({
+            show: false
+        });
+    }
+
+    // form
+    {{each params}}{{if $value.name1 != 'ucenter_user_id'}}
+    {{$value.name2}}Change = (e) => {
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-search: {{$value.name2}}Change');
+
+        let data = this.state.data;
+        data.{{$value.name1}} = e.target.value;
+        this.setState({
+            data: data
+        });
+    }
+    {{/if}}{{/each}}
+
+    // search
+    searchClick = async () => {
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-search: searchClick');
+
+        this.modalClose();
+        this.props.reload(this.state.data);
+    }
+
+    render() {
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-search: render');
+
+        return <Modal
+            width="300px"
+            show={this.state.show}
+            closeModal={this.modalClose}
+        >
+            {{each params}}
+            <Input
+                type="text"
+                placeholder="{{$value.name1}}"
+                value={this.state.data.{{$value.name1}}}
+                onChange={this.{{$value.name2}}Change}
+            />{{/each}}
+            <Button
+                onClick={this.searchClick}
+                text="search"
+            />
+        </Modal>;
+    }
+}

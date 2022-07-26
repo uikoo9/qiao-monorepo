@@ -8,11 +8,11 @@ import { Modal, Input, Button, Tips, gridSave } from 'qiao-ui';
 import { {{className2}}Save } from '{{tableName1}}-service';
 
 /**
- * {{tableName1}} {{tableName2}} modal
+ * {{tableName1}} {{tableName2}} edit
  */
-export class {{className1}}Modal extends React.Component {
+export class {{className1}}Edit extends React.Component {
     constructor(props) {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-modal: constructor');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: constructor');
 
         super(props);
 
@@ -29,7 +29,7 @@ export class {{className1}}Modal extends React.Component {
 
     // modal
     modalShow = (row) => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-modal: modalShow');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: modalShow');
 
         row = row || {};
         this.setState({
@@ -43,7 +43,7 @@ export class {{className1}}Modal extends React.Component {
         });
     }
     modalClose = () => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-modal: modalClose');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: modalClose');
 
         this.setState({
             show: false
@@ -53,7 +53,7 @@ export class {{className1}}Modal extends React.Component {
     // form
     {{each params}}{{if $value.name1 != 'ucenter_user_id'}}
     {{$value.name2}}Change = (e) => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-modal: {{$value.name2}}Change');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: {{$value.name2}}Change');
 
         let data = this.state.data;
         data.{{$value.name1}} = e.target.value;
@@ -65,7 +65,7 @@ export class {{className1}}Modal extends React.Component {
 
     // save
     saveClick = async () => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-modal: saveClick');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: saveClick');
 
         const isSuc = await gridSave(this, {{className2}}Save, this.state.data);
         if(!isSuc) return;
@@ -75,7 +75,7 @@ export class {{className1}}Modal extends React.Component {
     }
 
     render() {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-modal: render');
+        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: render');
 
         const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
         return <Modal

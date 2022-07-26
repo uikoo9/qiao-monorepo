@@ -15,7 +15,8 @@ exports.gen = async function(tableName, destFolder){
     
 	// gen code
 	genPage(destFolder, data);
-    genModal(destFolder, data);
+    genEdit(destFolder, data);
+    genSearch(destFolder, data);
 	
 	return;
 };
@@ -27,9 +28,16 @@ function genPage(destFolder, data){
 	qiao.coder.genFileByData(pageTemp, data, pageDest);
 }
 
-// gen modal
-function genModal(destFolder, data){
-	var pageTemp = path.resolve(__dirname, './pages/modal.art');
-	var pageDest = path.resolve(destFolder, `./src/${data.tableName1}-${data.tableName2}-modal.jsx`);
+// gen edit
+function genEdit(destFolder, data){
+	var pageTemp = path.resolve(__dirname, './pages/edit.art');
+	var pageDest = path.resolve(destFolder, `./src/${data.tableName1}-${data.tableName2}-edit.jsx`);
+	qiao.coder.genFileByData(pageTemp, data, pageDest);
+}
+
+// gen search
+function genSearch(destFolder, data){
+	var pageTemp = path.resolve(__dirname, './pages/search.art');
+	var pageDest = path.resolve(destFolder, `./src/${data.tableName1}-${data.tableName2}-search.jsx`);
 	qiao.coder.genFileByData(pageTemp, data, pageDest);
 }
