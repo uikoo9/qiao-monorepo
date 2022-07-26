@@ -29,7 +29,7 @@ export class {{className1}}Search extends React.Component {
         this.setState({
             show: true,
             data: {
-                {{each params}}{{$value.name1}}: row.{{$value.name1}} || '',
+                {{each params}}{{$value.name1}}: '',
                 {{/each}}
             }
         });
