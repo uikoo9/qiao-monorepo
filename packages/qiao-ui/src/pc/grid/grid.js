@@ -76,4 +76,23 @@ export const gridDel = async (delFunc, ids) => {
     }
 
     return true;
-}
+};
+
+/**
+ * gridSearch
+ * @param {*} that 
+ * @param {*} searchFunc 
+ * @param {*} data 
+ * @returns 
+ */
+export const gridSearch = async (that, searchFunc, data) => {
+    const res = await searchFunc(data);
+    if (!res || res.type != 'success') {
+        that.setState({
+            tips: res.msg
+        });
+        return;
+    }
+
+    return true;
+};
