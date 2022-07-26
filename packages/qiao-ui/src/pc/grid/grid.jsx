@@ -79,7 +79,7 @@ export class Grid extends React.Component {
     render() {
         console.log('qiao-ui/pc/grid: render');
 
-        const Modal = this.props.modal;
+        const EditModal = this.props.editModal;
         return <div className="data-container">
             <Toolbar 
                 cks={this.state.cks}
@@ -98,7 +98,7 @@ export class Grid extends React.Component {
                 checkboxChange={this.checkboxChange}
             />
 
-            <Modal
+            <EditModal
                 ref={this.modalRef}
                 reload={this.reload}
             />
