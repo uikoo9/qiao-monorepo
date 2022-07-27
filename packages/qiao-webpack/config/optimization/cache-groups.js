@@ -39,6 +39,13 @@ module.exports = {
     priority: -4,
     reuseExistingChunk: true,
   },
+  quill: {
+    test: /[\\/]node_modules[\\/]quill[\\/]/,
+    name: 'quill',
+    chunks: 'all',
+    priority: -5,
+    reuseExistingChunk: true,
+  },
   default: {
     priority: -20,
     reuseExistingChunk: true,
