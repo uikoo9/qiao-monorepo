@@ -10,16 +10,16 @@
   "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-ui#readme",
   "license": "MIT",
   "main": "src/index.js",
+  "module": "src/index.js",
+  "sideEffects": [
+    "**/*.scss"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {},
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "sideEffects": [
-    "**/*.scss"
-  ]
+  }
 }
