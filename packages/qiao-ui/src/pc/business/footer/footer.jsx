@@ -4,6 +4,9 @@ import React from 'react';
 // css
 import './footer.scss';
 
+// ui
+import { Link } from '../../index.js';
+
 /**
  * footer
  */
@@ -13,8 +16,8 @@ export class Footer extends React.Component {
 
         return (
             <div className="footer">
-                <a target="_blank" href={this.props.companyUrl}>{this.props.companyName}</a>&nbsp;&nbsp;&nbsp;
-                <a target="_blank" href={this.props.beianUrl}>{this.props.beianName}</a>
+                <Link blank={true} url={this.props.companyUrl} txt={this.props.companyName}/>&nbsp;&nbsp;&nbsp;
+                <Link blank={true} url={this.props.beianUrl} txt={this.props.beianName}/>
             </div>
         );
     }

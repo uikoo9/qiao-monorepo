@@ -1,0 +1,5 @@
+@use "../../../base";
+
+.q-link {
+  @include base.alink();
+}

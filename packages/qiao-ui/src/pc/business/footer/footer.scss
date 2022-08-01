@@ -9,5 +9,4 @@ $footerHeight: 80px;
   line-height: $footerHeight;
 
   @include base.font($align: center);
-  @include base.alink();
 }
