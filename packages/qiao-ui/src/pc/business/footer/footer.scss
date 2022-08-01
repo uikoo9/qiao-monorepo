@@ -1,0 +1,13 @@
+@use "../../../base";
+
+$footerHeight: 80px;
+
+.footer {
+  @include base.width();
+
+  height: $footerHeight;
+  line-height: $footerHeight;
+
+  @include base.font($align: center);
+  @include base.alink();
+}

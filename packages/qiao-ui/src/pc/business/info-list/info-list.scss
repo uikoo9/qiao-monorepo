@@ -1,0 +1,40 @@
+@use "../../../base";
+
+$containerWidth: 1400px;
+
+$infoHeight: 300px;
+$infoPadding: 40px;
+
+$titleHeight: 80px;
+$descHeight: 20px;
+
+.info-list {
+  width: $containerWidth;
+  height: $infoHeight;
+  padding-top: $infoPadding;
+  padding-bottom: $infoPadding;
+  border-bottom: base.$borderSolid;
+
+  .info {
+    float: left;
+    width: calc($containerWidth / 3);
+    height: calc($infoHeight / 2);
+
+    .title {
+      @include base.width();
+
+      height: $titleHeight;
+      line-height: $titleHeight;
+
+      @include base.font($size: 18px, $align: center);
+    }
+    .desc {
+      @include base.width();
+
+      height: $descHeight;
+      line-height: $descHeight;
+
+      @include base.font($align: center);
+    }
+  }
+}
