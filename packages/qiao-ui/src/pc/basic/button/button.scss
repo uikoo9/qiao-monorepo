@@ -18,8 +18,4 @@ $inputHeight: 50px;
         @include base.font($size: 18px, $align: center);
         @include base.cursor();
     }
-
-    .ctx:hover {
-        font-size: 20px;
-    }
 }

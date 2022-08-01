@@ -16,7 +16,7 @@ export class Footer extends React.Component {
 
         return (
             <div className="footer">
-                <Link blank={true} url={this.props.companyUrl} txt={this.props.companyName}/>&nbsp;&nbsp;&nbsp;
+                <Link url={this.props.companyUrl} txt={this.props.companyName}/>&nbsp;&nbsp;&nbsp;
                 <Link blank={true} url={this.props.beianUrl} txt={this.props.beianName}/>
             </div>
         );

@@ -1,66 +1,9 @@
 @use "../../../base";
 
 $loginWidth: 300px;
-
 $marginHeight: 200px;
-
-$inputHeight: 50px;
-$boxHeight: calc(($inputHeight + 10px + 1px)* 2) + calc($inputHeight + 2px + 20px) + $inputHeight + 20px;
 
 .box {
     width: $loginWidth;
-    height: $boxHeight;
     margin-top: $marginHeight;
-
-    .input {
-        @include base.width();
-
-        height: $inputHeight;
-        border-bottom: base.$borderSolid;
-        margin-bottom: 10px;
-
-        input {
-            width: calc(100% - 20px);
-            height: $inputHeight;
-            line-height: $inputHeight;
-
-            margin: 0;
-            padding: 0;
-            padding: 0 10px;
-            border: none;
-            outline: none;
-
-            @include base.font($size: 18px);
-        }
-    }
-
-    .btn {
-        width: $loginWidth;
-        height: $inputHeight + 2px;
-        padding-top: 20px;
-
-        .ctx {
-            width: 100px;
-            height: $inputHeight;
-            line-height: $inputHeight;
-            border: base.$borderSolid;
-
-            @include base.marginAuto();
-            @include base.font($size: 18px, $align: center);
-            @include base.cursor();
-        }
-
-        .ctx:hover {
-            font-size: 20px;
-        }
-    }
-
-    .tips {
-        width: $loginWidth;
-        height: $inputHeight;
-        padding-top: 20px;
-        line-height: $inputHeight;
-
-        @include base.font($size: 16px, $align: center, $color: red);
-    }
 }
