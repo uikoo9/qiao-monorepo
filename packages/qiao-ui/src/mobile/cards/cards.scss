@@ -2,18 +2,18 @@
 
 $containerWidth: 16rem;
 
-$infoHeight: 6rem;
+$cardHeight: 6rem;
 $titleHeight: 2rem;
 $titlePaddingTop: 1rem;
 $descHeight: 3rem;
 
-.infos {
+.cards {
     width: $containerWidth;
 
-    .info {
+    .card {
         @include base.width();
 
-        height: $infoHeight;
+        height: $cardHeight;
         border-bottom: base.$borderDotted;
 
         .title {
