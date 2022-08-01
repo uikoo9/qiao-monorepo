@@ -2,23 +2,23 @@
 
 $containerWidth: 1400px;
 
-$infoHeight: 300px;
-$infoPadding: 40px;
+$cardHeight: 300px;
+$cardPadding: 40px;
 
 $titleHeight: 80px;
 $descHeight: 20px;
 
-.info-list {
+.cards {
   width: $containerWidth;
-  height: $infoHeight;
-  padding-top: $infoPadding;
-  padding-bottom: $infoPadding;
+  height: $cardHeight;
+  padding-top: $cardPadding;
+  padding-bottom: $cardPadding;
   border-bottom: base.$borderSolid;
 
-  .info {
+  .card {
     float: left;
     width: calc($containerWidth / 3);
-    height: calc($infoHeight / 2);
+    height: calc($cardHeight / 2);
 
     .title {
       @include base.width();

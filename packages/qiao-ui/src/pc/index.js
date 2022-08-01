@@ -8,7 +8,7 @@ export { Tips } from './basic/tips/tips.jsx';
 // business - index
 export { Header } from './business/header/header.jsx';
 export { Content } from './business/content/content.jsx';
-export { InfoList } from './business/info-list/info-list.jsx';
+export { Cards } from './business/cards/cards.jsx';
 export { Footer } from './business/footer/footer.jsx';
 
 // business - login
