@@ -15,7 +15,6 @@ $menuHeight: 40px;
         
         @include base.font($align: center);
         @include base.cursor();
-        @include base.alink();
     }
     .menu.main{
         height: 50px;

@@ -4,6 +4,9 @@ import React from 'react';
 // css
 import './menus.scss';
 
+// ui
+import { Link } from '../../index.js';
+
 /**
  * menus
  */
@@ -16,7 +19,7 @@ export class Menus extends React.Component {
 
             return <div className={`${menu.main ? 'menu main' : 'menu'}`} key={index}>
                 {
-                    menu.url ? <a href={menu.url}>{menu.name}</a> : menu.name
+                    menu.url ? <Link url={menu.url} txt={menu.name}/>: menu.name
                 }
             </div>;
         });
