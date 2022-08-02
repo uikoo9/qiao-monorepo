@@ -46,6 +46,13 @@ module.exports = {
     priority: -5,
     reuseExistingChunk: true,
   },
+  editor: {
+    test: /[\\/]node_modules[\\/]@wangeditor[\\/]/,
+    name: 'editor',
+    chunks: 'all',
+    priority: -6,
+    reuseExistingChunk: true,
+  },
   default: {
     priority: -20,
     reuseExistingChunk: true,
