@@ -22,6 +22,5 @@ export { Toolbar } from './business/toolbar/toolbar.jsx';
 export { Grid } from './business/grid/grid.jsx';
 export * from './business/grid/grid-fn.js';
 
-// business - search
-export { SearchBox } from './business/search-box/search-box.jsx';
-export { SearchList } from './business/search-list/search-list.jsx';
+// business - search & blog
+export { Info } from './business/info/info.jsx';
