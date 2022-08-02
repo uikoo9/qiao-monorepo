@@ -1,7 +1,8 @@
 @use "../../../base";
 
 $modalWidth : 800px;
-$modalHeight : 100px;
+$modalMinHeight : 100px;
+$modalMaxHeight : 900px;
 
 .modal-container{
     position: fixed;
@@ -15,7 +16,9 @@ $modalHeight : 100px;
     .modal{
         position: relative;
         width: $modalWidth;
-        min-height: $modalHeight;
+        min-height: $modalMinHeight;
+        max-height: $modalMaxHeight;
+        overflow: auto;
 
         @include base.marginAuto();
 
