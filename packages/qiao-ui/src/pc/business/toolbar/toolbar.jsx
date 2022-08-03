@@ -13,14 +13,14 @@ export class Toolbar extends React.Component {
         console.log('qiao-ui/pc/toolbar: searchModalShow');
 
         this.props.searchModal.current.modalShow();
-    }
+    };
 
     // edit modal show
     editModalShow = () => {
         console.log('qiao-ui/pc/toolbar: editModalShow');
 
         this.props.editModal.current.modalShow();
-    }
+    };
 
     // del rows
     delRows = () => {
@@ -33,7 +33,7 @@ export class Toolbar extends React.Component {
         }
 
         this.props.delRows(cks.join(','));
-    }
+    };
 
     // first page
     firstPage = () => {
@@ -43,7 +43,7 @@ export class Toolbar extends React.Component {
         if (pagenumber == 1) return;
 
         this.props.reload();
-    }
+    };
 
     // prev page
     prevPage = () => {
@@ -53,7 +53,7 @@ export class Toolbar extends React.Component {
         if (pagenumber == 1) return;
 
         this.props.reload({}, pagenumber - 1);
-    }
+    };
 
     // last page
     lastPage = () => {
@@ -63,7 +63,7 @@ export class Toolbar extends React.Component {
         if (pagenumber == this.props.sumpage) return;
 
         this.props.reload({}, this.props.sumpage);
-    }
+    };
 
     // next page
     nextPage = () => {
@@ -73,7 +73,7 @@ export class Toolbar extends React.Component {
         if (pagenumber == this.props.sumpage) return;
 
         this.props.reload({}, pagenumber + 1);
-    }
+    };
 
     // set pagesize
     setPagesize = (pagesize) => {
@@ -81,7 +81,7 @@ export class Toolbar extends React.Component {
 
         window.pagesize = pagesize;
         this.props.reload();
-    }
+    };
 
     render() {
         console.log('qiao-ui/pc/toolbar: render');
@@ -96,8 +96,8 @@ export class Toolbar extends React.Component {
             <div onClick={this.nextPage}>next</div>
             <div onClick={this.lastPage}>last</div>
             <div>/</div>
-            <div onClick={() => { this.setPagesize(10) }}>10</div>
-            <div onClick={() => { this.setPagesize(100) }}>100</div>
+            <div onClick={() => { this.setPagesize(10); }}>10</div>
+            <div onClick={() => { this.setPagesize(100); }}>100</div>
         </div>;
     }
 }

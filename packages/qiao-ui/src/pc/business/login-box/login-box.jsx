@@ -5,7 +5,7 @@ import React from 'react';
 import './login-box.scss';
 
 // components
-import { Input, Button, Tips } from '../../index.js'
+import { Input, Button, Tips } from '../../index.js';
 
 /**
  * login box
@@ -29,14 +29,14 @@ export class LoginBox extends React.Component {
         });
 
         console.log('qiao-ui/pc/login-box: usernameChange');
-    }
+    };
     passwordChange = (e) => {
         this.setState({
             password: e.target.value
         });
 
         console.log('qiao-ui/pc/login-box: passwordChange');
-    }
+    };
 
     clickLogin = () => {
         const username = this.state.username;
@@ -47,7 +47,7 @@ export class LoginBox extends React.Component {
         this.props.loginClick(username, password, callback, loginSucUrl);
 
         console.log('qiao-ui/pc/login-box: clickLogin');
-    }
+    };
 
     setTips = (msg) => {
         this.setState({
@@ -55,7 +55,7 @@ export class LoginBox extends React.Component {
         });
 
         console.log('qiao-ui/pc/login-box: setTips');
-    }
+    };
 
     render() {
         console.log('qiao-ui/pc/login-box: render');

@@ -7,16 +7,16 @@ import './checkbox-list.scss';
 /**
  * checkbox list
  */
-export function CheckboxList(props){
+export const CheckboxList = (props) => {
     console.log('qiao-ui/pc/checkbox-list: render');
 
     // change
-    function checkboxChange(e){
+    const checkboxChange = (e) => {
         console.log('qiao-ui/pc/checkbox-list: checkboxChange');
 
-        if(!props.checkboxChange) return;
+        if (!props.checkboxChange) return;
         props.checkboxChange(e.target.checked, e.target.value);
-    }    
+    };
 
     // checkboxs
     const checkboxs = props.checkboxs && props.checkboxs.map((ck, index) => {
@@ -41,7 +41,7 @@ export function CheckboxList(props){
         return <div className="item" key={index}>
             {ck.checked ? inputChecked : inputNormal}
             <label htmlFor={ck.id || ck.name}>{ck.name}</label>
-        </div>
+        </div>;
     });
 
     // return
@@ -53,4 +53,4 @@ export function CheckboxList(props){
             checkboxs
         }
     </div>;
-}
+};

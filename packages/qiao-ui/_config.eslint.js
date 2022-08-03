@@ -5,7 +5,10 @@ module.exports = {
         'es2022': true,
         'jest': true,
     },
-    'extends': 'eslint:recommended',
+    'extends': [
+        'eslint:recommended',
+        'plugin:react/recommended'
+    ],
     'parserOptions': {
         'ecmaVersion': 'latest',
         'sourceType': 'module'

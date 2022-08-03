@@ -10,22 +10,22 @@ import './header.scss';
  * mobile header
  */
 export class MobileHeader extends React.Component {
-  render() {
-    console.log('qiao-ui/mobile/header: render');
+    render() {
+        console.log('qiao-ui/mobile/header: render');
 
-    const navs = this.props.navs && this.props.navs.map((nav, index) => {
-      if (!nav.url || !nav.name) return;
+        const navs = this.props.navs && this.props.navs.map((nav, index) => {
+            if (!nav.url || !nav.name) return;
 
-      return <div className="nav nav-txt" key={index}>
-        <a target="_blank" href={nav.url}>{nav.name}</a>
-      </div>
-    });
+            return <div className="nav nav-txt" key={index}>
+                <a target="_blank" href={nav.url} rel="noreferrer">{nav.name}</a>
+            </div>;
+        });
 
-    return (
-      <div className="header">
-        <div className="logo nav-txt">{this.props.logo}</div>
-        <div className="navs">{navs}</div>
-      </div>
-    );
-  }
+        return (
+            <div className="header">
+                <div className="logo nav-txt">{this.props.logo}</div>
+                <div className="navs">{navs}</div>
+            </div>
+        );
+    }
 }

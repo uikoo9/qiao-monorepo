@@ -10,7 +10,7 @@ import { getCols, getRows } from './table-fn.jsx';
 /**
  * table
  */
-export function Table(props) {
+export const Table = (props) => {
     console.log('qiao-ui/pc/table: render');
 
     // const
@@ -28,4 +28,4 @@ export function Table(props) {
             </table>
         </div>
     );
-}
+};

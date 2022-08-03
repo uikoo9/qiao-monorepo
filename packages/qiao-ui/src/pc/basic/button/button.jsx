@@ -7,7 +7,7 @@ import './button.scss';
 /**
  * button
  */
-export function Button(props){
+export const Button = (props) => {
     console.log('qiao-ui/pc/button: render');
 
     return (
@@ -21,4 +21,4 @@ export function Button(props){
             </div>
         </div>
     );
-}
+};

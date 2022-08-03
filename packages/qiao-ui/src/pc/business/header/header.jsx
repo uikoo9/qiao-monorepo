@@ -18,7 +18,7 @@ export function Header(props) {
 
         return <div className="nav nav-txt right" key={index}>
             <Link blank={nav.blank} url={nav.url} txt={nav.name} />
-        </div>
+        </div>;
     });
 
     return (

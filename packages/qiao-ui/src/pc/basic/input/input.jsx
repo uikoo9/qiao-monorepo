@@ -7,7 +7,7 @@ import './input.scss';
 /**
  * input
  */
-export function Input(props) {
+export const Input = (props) => {
     console.log('qiao-ui/pc/input: render');
 
     const hiddenInput = <input
@@ -25,4 +25,4 @@ export function Input(props) {
     </div>;
 
     return props.type == 'hidden' ? hiddenInput : normalInput;
-}
+};

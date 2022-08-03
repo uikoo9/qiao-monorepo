@@ -19,4 +19,4 @@ export const Content = (props) => {
             <div className="pic"></div>
         </div>
     );
-}
+};

@@ -37,14 +37,14 @@ export class Grid extends React.Component {
         console.log('qiao-ui/pc/grid: reload');
 
         this.props.init(this, data, pagenumber);
-    }
+    };
 
     // edit row
     editRow = (row) => {
         console.log('qiao-ui/pc/grid: editRow');
 
         this.editModalRef.current.modalShow(row);
-    }
+    };
 
     // del row
     delRow = async (id) => {
@@ -57,7 +57,7 @@ export class Grid extends React.Component {
         this.setState({
             cks: []
         });
-    }
+    };
 
     // toolbar
     checkboxChange = (e) => {
@@ -75,7 +75,7 @@ export class Grid extends React.Component {
         this.setState({
             cks: cks
         });
-    }
+    };
 
     render() {
         console.log('qiao-ui/pc/grid: render');

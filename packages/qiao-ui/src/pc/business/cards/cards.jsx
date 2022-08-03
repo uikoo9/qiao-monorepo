@@ -17,7 +17,7 @@ export class Cards extends React.Component {
             return <div className="card" key={index}>
                 <div className="title">{card.title}</div>
                 <div className="desc">{card.desc}</div>
-            </div>
+            </div>;
         });
 
         return <div className="cards">{cards}</div>;
