@@ -7,18 +7,18 @@ import './button.scss';
 /**
  * button
  */
-export class Button extends React.Component {
-    render() {
-        console.log('qiao-ui/pc/button: render');
+export function Button(props){
+    console.log('qiao-ui/pc/button: render');
 
-        return (
-            <div className="btn">
-                <div 
-                    className="ctx" 
-                    style={{width: this.props.width}}
-                    onClick={this.props.onClick}
-                >{this.props.text}</div>
+    return (
+        <div className="btn">
+            <div 
+                className="ctx" 
+                style={{width: props.width}}
+                onClick={props.onClick}
+            >
+                {props.text}
             </div>
-        );
-    }
+        </div>
+    );
 }
