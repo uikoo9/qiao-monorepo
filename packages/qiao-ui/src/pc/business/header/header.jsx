@@ -10,7 +10,7 @@ import { Link } from '../../index.js';
 /**
  * header
  */
-export function Header(props) {
+ export const Header = (props) => {
     console.log('qiao-ui/pc/header: render');
 
     const navs = props.navs && props.navs.map((nav, index) => {
