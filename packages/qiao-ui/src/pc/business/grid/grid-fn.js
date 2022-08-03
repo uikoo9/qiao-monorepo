@@ -16,7 +16,7 @@ export const gridInit = async (listFunc, data, pagenumber, cols) => {
 
     // rows
     const resRows = res.obj.rows;
-    const rows = resRows.map((row, index) => {
+    const rows = resRows.map((row) => {
         // ck
         const defaultRow = cols.includes('ck') ? { ck: true } : {};
         const finalRow = Object.assign(defaultRow, row);

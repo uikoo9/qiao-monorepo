@@ -1,25 +1,39 @@
 {
-  "name": "qiao-ui",
-  "version": "0.8.4",
-  "description": "qiao ui",
-  "keywords": [
-    "qiao",
-    "ui"
-  ],
-  "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/qiao-ui",
-  "license": "MIT",
-  "main": "src/index.js",
-  "module": "src/index.js",
-  "sideEffects": [
-    "**/*.scss"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uikoo9/qiao-ui.git"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+    "name": "qiao-ui",
+    "version": "0.8.4",
+    "description": "qiao ui",
+    "keywords": [
+        "qiao",
+        "ui"
+    ],
+    "author": "uikoo9 <uikoo9@qq.com>",
+    "homepage": "https://github.com/uikoo9/qiao-ui",
+    "license": "MIT",
+    "main": "src/index.js",
+    "module": "src/index.js",
+    "sideEffects": [
+        "**/*.scss"
+    ],
+    "files": [
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uikoo9/qiao-ui.git"
+    },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-ui/issues"
+    },
+    "scripts": {
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js"
+    },
+    "devDependencies": {
+        "eslint": "^8.19.0",
+        "eslint-plugin-react-hooks": "^4.6.0"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
 }
