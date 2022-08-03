@@ -1,0 +1,30 @@
+@use "../../base";
+
+$contentHeight: 6rem;
+$txtMainHeight: 4rem;
+$txtOtherHeight: 2rem;
+
+.content {
+  @include base.width();
+
+  height: $contentHeight;
+  border-bottom: base.$borderSolid;
+
+  .txt-main {
+    @include base.width();
+
+    height: $txtMainHeight;
+    line-height: $txtMainHeight;
+    margin-bottom: -1rem;
+
+    @include base.font($size: 28px, $align: center);
+  }
+  .txt-other {
+    @include base.width();
+    
+    height: $txtOtherHeight;
+    line-height: $txtOtherHeight;
+
+    @include base.font($size: 14px, $align: center);
+  }
+}

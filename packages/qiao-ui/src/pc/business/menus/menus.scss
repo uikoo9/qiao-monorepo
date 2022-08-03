@@ -1,0 +1,25 @@
+@use "../../../base";
+
+$menuWidth: 200px;
+$menuHeight: 40px;
+
+.menus{
+    float: left;
+    width: $menuWidth;
+
+    .menu{
+        width: $menuWidth;
+        height: $menuHeight;
+        line-height: $menuHeight;
+        border-bottom: base.$borderDotted;
+        
+        @include base.font($align: center);
+        @include base.cursor();
+    }
+    .menu.main{
+        height: 50px;
+        font-size: 16px;
+        line-height: 50px;
+        border-bottom: base.$borderSolid;
+    }
+}

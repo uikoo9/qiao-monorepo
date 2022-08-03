@@ -1,0 +1,25 @@
+{
+  "name": "qiao-ui",
+  "version": "0.8.1",
+  "description": "qiao ui",
+  "keywords": [
+    "qiao",
+    "ui"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://github.com/uikoo9/qiao-ui/tree/master/packages/qiao-ui#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "sideEffects": [
+    "**/*.scss"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-ui.git"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
