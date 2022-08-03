@@ -20,4 +20,4 @@ export const Cards = (props) => {
     });
 
     return <div className="cards">{cards}</div>;
-}
+};

@@ -19,4 +19,4 @@ export const Footer = (props) => {
             <Link blank={true} url={props.beianUrl} txt={props.beianName} />
         </div>
     );
-}
+};

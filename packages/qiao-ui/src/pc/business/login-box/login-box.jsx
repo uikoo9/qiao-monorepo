@@ -1,5 +1,5 @@
 // react
-import React from 'react';
+import React, { useState } from 'react';
 
 // css
 import './login-box.scss';
@@ -10,78 +10,50 @@ import { Input, Button, Tips } from '../../index.js';
 /**
  * login box
  */
-export class LoginBox extends React.Component {
-    constructor(props) {
-        super(props);
+export const LoginBox = (props) => {
+    console.log('qiao-ui/pc/login-box: render');
 
-        this.state = {
-            username: '',
-            password: '',
-            loginTips: '',
-        };
+    // state
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [loginTips, setLoginTips] = useState('');
 
-        console.log('qiao-ui/pc/login-box: constructor');
-    }
-
-    usernameChange = (e) => {
-        this.setState({
-            username: e.target.value
-        });
-
-        console.log('qiao-ui/pc/login-box: usernameChange');
-    };
-    passwordChange = (e) => {
-        this.setState({
-            password: e.target.value
-        });
-
-        console.log('qiao-ui/pc/login-box: passwordChange');
-    };
-
-    clickLogin = () => {
-        const username = this.state.username;
-        const password = this.state.password;
-        const callback = this.setTips;
-        const loginSucUrl = this.props.loginSucUrl;
-
-        this.props.loginClick(username, password, callback, loginSucUrl);
-
+    // click login
+    const clickLogin = () => {
         console.log('qiao-ui/pc/login-box: clickLogin');
+
+        props.loginClick(username, password, setTips, props.loginSucUrl);
     };
 
-    setTips = (msg) => {
-        this.setState({
-            loginTips: msg
-        });
-
+    // set tips
+    const setTips = (msg) => {
         console.log('qiao-ui/pc/login-box: setTips');
+
+        setLoginTips(msg);
     };
 
-    render() {
-        console.log('qiao-ui/pc/login-box: render');
-        
-        return (
-            <div className="box">
-                <Input 
-                    type="text" 
-                    placeholder={this.props.usernameHolder}
-                    value={this.state.username}
-                    onChange={this.usernameChange}
-                />
-                <Input 
-                    type="password" 
-                    placeholder={this.props.passwordHolder}
-                    value={this.state.password}
-                    onChange={this.passwordChange}
-                />
-                <Button
-                    onClick={this.clickLogin}
-                    text={this.props.loginBtn}
-                />
-                <Tips
-                    tips={this.state.loginTips}
-                />
-            </div>
-        );
-    }
-}
+    // return
+    return (
+        <div className="box">
+            <Input
+                type="text"
+                placeholder={props.usernameHolder}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+            <Input
+                type="password"
+                placeholder={props.passwordHolder}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+                onClick={clickLogin}
+                text={props.loginBtn}
+            />
+            <Tips
+                tips={loginTips}
+            />
+        </div>
+    );
+};
