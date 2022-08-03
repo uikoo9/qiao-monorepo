@@ -20,4 +20,4 @@ export const Info = (props) => {
         <div className="item-desc">{props.desc}</div>
         <div className="item-other">{props.other}</div>
     </div>;
-}
+};

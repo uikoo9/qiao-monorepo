@@ -16,4 +16,4 @@ export const Modal = (props) => {
             {props.children}
         </div>
     </div>;
-}
+};

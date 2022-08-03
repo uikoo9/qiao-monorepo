@@ -98,4 +98,4 @@ export const Toolbar = (props) => {
         <div onClick={() => { setPagesize(10); }}>10</div>
         <div onClick={() => { setPagesize(100); }}>100</div>
     </div>;
-}
+};

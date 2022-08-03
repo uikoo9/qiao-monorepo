@@ -26,4 +26,4 @@ export const Menus = (props) => {
     return (
         <div className="menus">{menus}</div>
     );
-}
+};

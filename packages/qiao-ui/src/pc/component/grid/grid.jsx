@@ -101,4 +101,4 @@ export const Grid = (props) => {
             reload={reload}
         />
     </div>;
-}
+};

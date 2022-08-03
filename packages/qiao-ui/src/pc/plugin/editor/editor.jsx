@@ -21,7 +21,7 @@ export const Editor = (props) => {
 
             editor.destroy();
             setEditor(null);
-        }
+        };
     }, [editor]);
 
     // html
@@ -49,5 +49,5 @@ export const Editor = (props) => {
                 />
             </div>
         </>
-    )
+    );
 };
