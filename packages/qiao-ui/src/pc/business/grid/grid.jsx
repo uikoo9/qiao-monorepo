@@ -1,5 +1,5 @@
 // react
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // ui
 import { Table, Toolbar } from '../../index.js';
@@ -7,63 +7,58 @@ import { Table, Toolbar } from '../../index.js';
 /**
  * grid
  */
-export class Grid extends React.Component {
-    constructor(props) {
-        console.log('qiao-ui/pc/grid: constructor');
+export const Grid = (props) => {
+    console.log('qiao-ui/pc/grid: render');
 
-        super(props);
+    // state
+    const [cks, setCks] = useState([]);
+    const [cols, setCols] = useState(null);
+    const [rows, setRows] = useState(null);
+    const [sumpage, setSumpage] = useState(null);
+    const [pagenumber, setPagenumber] = useState(null);
 
-        this.state = {
-            cks: [],
-            cols: null,
-            rows: null,
-            sumpage: null,
-            pagenumber: null,
-        };
+    // ref
+    const editModalRef = useRef(null);
+    const searchModalRef = useRef(null);
 
-        this.editModalRef = React.createRef();
-        this.searchModalRef = React.createRef();
-    }
-
-    // init
-    componentDidMount() {
-        console.log('qiao-ui/pc/grid: componentDidMount');
-
-        this.reload();
-    }
+    // effect
+    useEffect(() => {
+        console.log('qiao-ui/pc/grid: useEffect');
+        reload();
+    });
 
     // reload
-    reload = (data, pagenumber) => {
+    const reload = async (data, pagenumber) => {
         console.log('qiao-ui/pc/grid: reload');
 
-        this.props.init(this, data, pagenumber);
+        const res = await props.init(this, data, pagenumber);
+        setCols(res.cols);
+        setRows(res.rows);
+        setSumpage(res.sumpage);
+        setPagenumber(res.pagenumber);
     };
 
     // edit row
-    editRow = (row) => {
+    const editRow = (row) => {
         console.log('qiao-ui/pc/grid: editRow');
 
-        this.editModalRef.current.modalShow(row);
+        editModalRef.current.modalShow(row);
     };
 
     // del row
-    delRow = async (id) => {
+    const delRow = async (id) => {
         console.log('qiao-ui/pc/grid: delRow');
 
-        const isSuc = await this.props.del(id);
+        const isSuc = await props.del(id);
         if (!isSuc) return;
 
-        this.reload();
-        this.setState({
-            cks: []
-        });
+        reload();
+        setCks([]);
     };
 
     // toolbar
-    checkboxChange = (e) => {
+    const checkboxChange = (e) => {
         console.log('qiao-ui/pc/grid: checkboxChange');
-
-        const cks = this.state.cks;
 
         if (e.target.checked) {
             cks.push(e.target.value);
@@ -72,44 +67,38 @@ export class Grid extends React.Component {
             cks.splice(index, 1);
         }
 
-        this.setState({
-            cks: cks
-        });
+        setCks(cks);
     };
 
-    render() {
-        console.log('qiao-ui/pc/grid: render');
+    const EditModal = props.editModal;
+    const SearchModal = props.searchModal;
+    return <div className="data-container">
+        <Toolbar
+            cks={cks}
+            editModal={editModalRef}
+            searchModal={searchModalRef}
+            delRows={delRow}
+            reload={reload}
+            sumpage={sumpage}
+            pagenumber={pagenumber}
+        />
 
-        const EditModal = this.props.editModal;
-        const SearchModal = this.props.searchModal;
-        return <div className="data-container">
-            <Toolbar
-                cks={this.state.cks}
-                editModal={this.editModalRef}
-                searchModal={this.searchModalRef}
-                delRows={this.delRow}
-                reload={this.reload}
-                sumpage={this.state.sumpage}
-                pagenumber={this.state.pagenumber}
-            />
+        <Table
+            cols={cols}
+            rows={rows}
+            editRow={editRow}
+            delRow={delRow}
+            checkboxChange={checkboxChange}
+        />
 
-            <Table
-                cols={this.state.cols}
-                rows={this.state.rows}
-                editRow={this.editRow}
-                delRow={this.delRow}
-                checkboxChange={this.checkboxChange}
-            />
+        <EditModal
+            ref={editModalRef}
+            reload={reload}
+        />
 
-            <EditModal
-                ref={this.editModalRef}
-                reload={this.reload}
-            />
-
-            <SearchModal
-                ref={this.searchModalRef}
-                reload={this.reload}
-            />
-        </div>;
-    }
+        <SearchModal
+            ref={searchModalRef}
+            reload={reload}
+        />
+    </div>;
 }

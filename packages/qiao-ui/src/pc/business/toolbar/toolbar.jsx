@@ -7,97 +7,95 @@ import './toolbar.scss';
 /**
  * toolbar
  */
-export class Toolbar extends React.Component {
+export const Toolbar = (props) => {
+    console.log('qiao-ui/pc/toolbar: render');
+
     // search modal show
-    searchModalShow = () => {
+    const searchModalShow = () => {
         console.log('qiao-ui/pc/toolbar: searchModalShow');
 
-        this.props.searchModal.current.modalShow();
+        props.searchModal.current.modalShow();
     };
 
     // edit modal show
-    editModalShow = () => {
+    const editModalShow = () => {
         console.log('qiao-ui/pc/toolbar: editModalShow');
 
-        this.props.editModal.current.modalShow();
+        props.editModal.current.modalShow();
     };
 
     // del rows
-    delRows = () => {
+    const delRows = () => {
         console.log('qiao-ui/pc/toolbar: delRows');
 
-        const cks = this.props.cks;
+        const cks = props.cks;
         if (!cks.length) {
             alert('check del rows');
             return;
         }
 
-        this.props.delRows(cks.join(','));
+        props.delRows(cks.join(','));
     };
 
     // first page
-    firstPage = () => {
+    const firstPage = () => {
         console.log('qiao-ui/pc/toolbar: firstPage');
 
-        const pagenumber = this.props.pagenumber;
+        const pagenumber = props.pagenumber;
         if (pagenumber == 1) return;
 
-        this.props.reload();
+        props.reload();
     };
 
     // prev page
-    prevPage = () => {
+    const prevPage = () => {
         console.log('qiao-ui/pc/toolbar: prevPage');
 
-        const pagenumber = this.props.pagenumber;
+        const pagenumber = props.pagenumber;
         if (pagenumber == 1) return;
 
-        this.props.reload({}, pagenumber - 1);
+        props.reload({}, pagenumber - 1);
     };
 
     // last page
-    lastPage = () => {
+    const lastPage = () => {
         console.log('qiao-ui/pc/toolbar: lastPage');
 
-        const pagenumber = this.props.pagenumber;
-        if (pagenumber == this.props.sumpage) return;
+        const pagenumber = props.pagenumber;
+        if (pagenumber == props.sumpage) return;
 
-        this.props.reload({}, this.props.sumpage);
+        props.reload({}, props.sumpage);
     };
 
     // next page
-    nextPage = () => {
+    const nextPage = () => {
         console.log('qiao-ui/pc/toolbar: nextPage');
 
-        const pagenumber = this.props.pagenumber;
-        if (pagenumber == this.props.sumpage) return;
+        const pagenumber = props.pagenumber;
+        if (pagenumber == props.sumpage) return;
 
-        this.props.reload({}, pagenumber + 1);
+        props.reload({}, pagenumber + 1);
     };
 
     // set pagesize
-    setPagesize = (pagesize) => {
+    const setPagesize = (pagesize) => {
         console.log('qiao-ui/pc/toolbar: setPagesize');
 
         window.pagesize = pagesize;
-        this.props.reload();
+        props.reload();
     };
 
-    render() {
-        console.log('qiao-ui/pc/toolbar: render');
-
-        return <div className='toolbar'>
-            <div onClick={this.searchModalShow}>search</div>
-            <div onClick={this.editModalShow}>add</div>
-            <div onClick={this.delRows}>del</div>
-            <div>/</div>
-            <div onClick={this.firstPage}>first</div>
-            <div onClick={this.prevPage}>prev</div>
-            <div onClick={this.nextPage}>next</div>
-            <div onClick={this.lastPage}>last</div>
-            <div>/</div>
-            <div onClick={() => { this.setPagesize(10); }}>10</div>
-            <div onClick={() => { this.setPagesize(100); }}>100</div>
-        </div>;
-    }
+    return <div className='toolbar'>
+        <div onClick={searchModalShow}>search</div>
+        <div onClick={editModalShow}>add</div>
+        <div onClick={delRows}>del</div>
+        <div>/</div>
+        <div onClick={firstPage}>first</div>
+        <div onClick={prevPage}>prev</div>
+        <div onClick={nextPage}>next</div>
+        <div onClick={lastPage}>last</div>
+        <div>/</div>
+        <div onClick={() => { setPagesize(10); }}>10</div>
+        <div onClick={() => { setPagesize(100); }}>100</div>
+    </div>;
 }
