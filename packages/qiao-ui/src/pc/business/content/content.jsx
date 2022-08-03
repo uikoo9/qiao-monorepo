@@ -7,18 +7,16 @@ import './content.scss';
 /**
  * content
  */
-export class Content extends React.Component {
-    render() {
-        console.log('qiao-ui/pc/content: render');
+export const Content = (props) => {
+    console.log('qiao-ui/pc/content: render');
 
-        return (
-            <div className="content">
-                <div className="txt">
-                    <div className="txt-main">{this.props.contentName}</div>
-                    <div className="txt-other">{this.props.contentSolgan}</div>
-                </div>
-                <div className="pic"></div>
+    return (
+        <div className="content">
+            <div className="txt">
+                <div className="txt-main">{props.contentName}</div>
+                <div className="txt-other">{props.contentSolgan}</div>
             </div>
-        );
-    }
+            <div className="pic"></div>
+        </div>
+    );
 }
