@@ -7,10 +7,8 @@ import './tips.scss';
 /**
  * tips
  */
-export class Tips extends React.Component {
-    render() {
-        console.log('qiao-ui/pc/tips: render');
-        
-        return <div className="tips">{this.props.tips}</div>;
-    }
+export function Tips(props) {
+    console.log('qiao-ui/pc/tips: render');
+
+    return <div className="tips">{props.tips}</div>;
 }
