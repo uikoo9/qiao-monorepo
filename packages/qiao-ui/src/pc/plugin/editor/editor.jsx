@@ -13,9 +13,13 @@ import { editorConfig, toolbarConfig } from './editor-config.js';
  * @returns 
  */
 export const Editor = (props) => {
+    console.log('qiao-ui/pc/editor: render');
+
     // editor
     const [editor, setEditor] = useState(null);
     useEffect(() => {
+        console.log('qiao-ui/pc/editor: useEffect');
+
         return () => {
             if (editor == null) return;
 
@@ -23,12 +27,6 @@ export const Editor = (props) => {
             setEditor(null);
         };
     }, [editor]);
-
-    // html
-    const [html, setHtml] = useState('');
-    useEffect(() => {
-        setHtml(props.content);
-    }, [props.content]);
 
     return (
         <>
@@ -41,9 +39,9 @@ export const Editor = (props) => {
                 />
                 <WangEditor
                     defaultConfig={editorConfig}
-                    value={html}
+                    value={props.content}
                     onCreated={setEditor}
-                    onChange={editor => setHtml(editor.getHtml())}
+                    onChange={editor => props.onChange(editor.getHtml())}
                     mode="default"
                     style={{ height: '400px', overflowY: 'hidden' }}
                 />
