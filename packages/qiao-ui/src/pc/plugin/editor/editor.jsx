@@ -5,16 +5,16 @@ import React, { useState, useEffect } from 'react';
 import '@wangeditor/editor/dist/css/style.css';
 import { Editor as WangEditor, Toolbar } from '@wangeditor/editor-for-react';
 
+// config
+import { editorConfig, toolbarConfig } from './editor-config.js';
+
 /**
  * Editor
  * @returns 
  */
 export const Editor = (props) => {
-    // state
+    // editor
     const [editor, setEditor] = useState(null);
-    const [html, setHtml] = useState(props.content || '');
-
-    // effect
     useEffect(() => {
         return () => {
             if (editor == null) return;
@@ -23,6 +23,12 @@ export const Editor = (props) => {
             setEditor(null);
         }
     }, [editor]);
+
+    // html
+    const [html, setHtml] = useState('');
+    useEffect(() => {
+        setHtml(props.content);
+    }, [props.content]);
 
     return (
         <>
@@ -44,54 +50,4 @@ export const Editor = (props) => {
             </div>
         </>
     )
-};
-
-// toolbar config
-const toolbarConfig = {
-    excludeKeys: [
-        'sup',
-        'sub',
-        'lineHeight',
-        'todo',
-        'group-indent',
-        'emotion',
-        'group-video',
-        'undo',
-        'redo',
-        'divider',
-    ],
-};
-
-// editor config
-const editorConfig = {
-    placeholder: '请输入内容...',
-    MENU_CONF: {
-        fontSize: {
-            fontSizeList: ['12px', '14px', '16px', '18px', '24px', '40px']
-        },
-        fontFamily: {
-            fontFamilyList: [
-                '黑体',
-                '仿宋',
-                '楷体',
-                '宋体',
-                '微软雅黑',
-                'Arial'
-            ]
-        },
-        codeSelectLang: {
-            codeLangs: [
-                { text: 'Bash', value: 'bash' },
-                { text: 'Markdown', value: 'markdown' },
-                { text: 'HTML', value: 'html' },
-                { text: 'XML', value: 'xml' },
-                { text: 'CSS', value: 'css' },
-                { text: 'Javascript', value: 'javascript' },
-                { text: 'Typescript', value: 'typescript' },
-                { text: 'JSX', value: 'jsx' },
-                { text: 'Java', value: 'java' },
-                { text: 'SQL', value: 'sql' },
-            ]
-        }
-    }
 };
