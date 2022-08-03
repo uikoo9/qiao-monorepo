@@ -3,13 +3,13 @@ import React from 'react';
 
 /**
  * get cols
- * @param {*} that 
+ * @param {*} props 
  * @returns cols
  */
-export const getCols = (that) => {
+export const getCols = (props) => {
     console.log('qiao-ui/pc/table: getCols');
 
-    const cols = that.props.cols;
+    const cols = props.cols;
     if (!cols) return;
 
     return cols.map((col, index) => {
@@ -21,13 +21,13 @@ export const getCols = (that) => {
 
 /**
  * get rows
- * @param {*} that 
+ * @param {*} props 
  * @returns rows
  */
-export const getRows = (that) => {
+export const getRows = (props) => {
     console.log('qiao-ui/pc/table: getRows');
 
-    const rows = that.props.rows;
+    const rows = props.rows;
     if (!rows) return;
 
     return rows.map((row, index) => {
@@ -44,7 +44,7 @@ export const getRows = (that) => {
                                 type="checkbox"
                                 name={row.id}
                                 value={row.id}
-                                onChange={that.props.checkboxChange}
+                                onChange={props.checkboxChange}
                             />
                         </td>;
                     }
@@ -52,8 +52,8 @@ export const getRows = (that) => {
                     // op
                     if (item == 'op') {
                         return <td key={`op_${row.id}_${j}`} className="op">
-                            <div onClick={() => { that.props.editRow(row); }}>edit</div>
-                            <div onClick={() => { that.props.delRow(row.id); }}>del</div>
+                            <div onClick={() => { props.editRow(row); }}>edit</div>
+                            <div onClick={() => { props.delRow(row.id); }}>del</div>
                         </td>;
                     }
 

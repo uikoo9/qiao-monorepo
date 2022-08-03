@@ -7,15 +7,13 @@ import './link.scss';
 /**
  * link
  */
-export class Link extends React.Component {
-    render() {
-        console.log('qiao-ui/pc/link: render');
+export function Link(props) {
+    console.log('qiao-ui/pc/link: render');
 
-        return (
-            this.props.blank ? 
-                <a href={this.props.url} className="q-link" target="_blank">{this.props.txt}</a>
-                :
-                <a href={this.props.url} className="q-link">{this.props.txt}</a>
-        );
-    }
+    return (
+        props.blank ?
+            <a href={props.url} className="q-link" target="_blank">{props.txt}</a>
+            :
+            <a href={props.url} className="q-link">{props.txt}</a>
+    );
 }
