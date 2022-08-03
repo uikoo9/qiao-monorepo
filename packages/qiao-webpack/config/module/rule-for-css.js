@@ -23,10 +23,15 @@ module.exports = function(isDev, cssIncludes){
         },
     ];
 
+    // default css includes
+    var defaultCssIncludes = [
+        /node_modules[\\/]@wangeditor/,
+    ];
+
     // return
     return {
         test    : /\.css$/,
-        include : cssIncludes || [],
+        include : defaultCssIncludes.concat(cssIncludes || []),
         use     : use,
     };
 };
