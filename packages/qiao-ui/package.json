@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-ui.git"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

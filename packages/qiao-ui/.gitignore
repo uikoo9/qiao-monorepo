@@ -11,3 +11,5 @@ node_modules
 config.json
 
 lerna-debug.log
+
+package-lock.json
