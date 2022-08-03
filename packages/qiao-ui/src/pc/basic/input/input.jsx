@@ -7,24 +7,22 @@ import './input.scss';
 /**
  * input
  */
-export class Input extends React.Component {
-    render() {
-        console.log('qiao-ui/pc/input: render');
+export function Input(props) {
+    console.log('qiao-ui/pc/input: render');
 
-        const hiddenInput = <input
-            type={this.props.type}
-            value={this.props.value}
-        />;
+    const hiddenInput = <input
+        type={props.type}
+        value={props.value}
+    />;
 
-        const normalInput = <div className="input">
-            <input
-                type={this.props.type}
-                placeholder={this.props.placeholder}
-                onChange={this.props.onChange}
-                value={this.props.value}
-            />
-        </div>;
+    const normalInput = <div className="input">
+        <input
+            type={props.type}
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+            value={props.value}
+        />
+    </div>;
 
-        return this.props.type == 'hidden' ? hiddenInput : normalInput;
-    }
+    return props.type == 'hidden' ? hiddenInput : normalInput;
 }
