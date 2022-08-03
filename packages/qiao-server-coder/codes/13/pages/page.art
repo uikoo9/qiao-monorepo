@@ -28,7 +28,7 @@ const cols = [
  */
 export class {{className1}} extends React.Component {
     // init
-    init = async (that, data, pagenumber) => {
+    init = async (data, pagenumber) => {
         // userinfo
         window.insistime_userinfo = {
             userid: get('insistime_userid'),
@@ -39,12 +39,13 @@ export class {{className1}} extends React.Component {
         const obj = await gridInit({{className2}}List, data, pagenumber, cols);
         if(!obj) return;
 
-        that.setState({
+        // return
+        return {
             cols: cols,
             rows: obj.rows,
             sumpage: obj.sumpage,
             pagenumber: obj.pagenumber,
-        });
+        };
     }
 
     // del
