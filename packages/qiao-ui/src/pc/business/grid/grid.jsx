@@ -31,7 +31,7 @@ export const Grid = (props) => {
     const reload = async (data, pagenumber) => {
         console.log('qiao-ui/pc/grid: reload');
 
-        const res = await props.init(this, data, pagenumber);
+        const res = await props.init(data, pagenumber);
         setCols(res.cols);
         setRows(res.rows);
         setSumpage(res.sumpage);
