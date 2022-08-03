@@ -25,7 +25,7 @@ export const Grid = (props) => {
     useEffect(() => {
         console.log('qiao-ui/pc/grid: useEffect');
         reload();
-    });
+    }, []);
 
     // reload
     const reload = async (data, pagenumber) => {
