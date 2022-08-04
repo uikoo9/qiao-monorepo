@@ -45,25 +45,6 @@ export const gridInit = async (listFunc, data, pagenumber, cols) => {
 };
 
 /**
- * gridSave
- * @param {*} that 
- * @param {*} saveFunc 
- * @param {*} data 
- * @returns 
- */
-export const gridSave = async (that, saveFunc, data) => {
-    const res = await saveFunc(data);
-    if (!res || res.type != 'success') {
-        that.setState({
-            tips: res.msg
-        });
-        return;
-    }
-
-    return true;
-};
-
-/**
  * gridDel
  * @param {*} delFunc 
  * @param {*} ids 
