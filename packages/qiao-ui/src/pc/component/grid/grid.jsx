@@ -25,7 +25,7 @@ export const Grid = (props) => {
     useEffect(() => {
         console.log('qiao-ui/pc/grid: useEffect');
         reload();
-    }, []);
+    }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
     // reload
     const reload = async (data, pagenumber) => {
