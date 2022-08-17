@@ -20,6 +20,7 @@ export const {{className1}}Edit = forwardRef((props, ref) => {
     const [id, setId] = useState('');
     {{each params}}const [{{$value.name2}}, set{{$value.name3}}] = useState('');
     {{/each}}
+    // modal
     useImperativeHandle(ref, () => ({
         modalShow: (row) => {
             console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: modalShow');
@@ -56,7 +57,10 @@ export const {{className1}}Edit = forwardRef((props, ref) => {
         props.reload();
     };
 
+    // tips
     const finalTips = tips ? <Tips tips={tips} /> : null;
+
+    // return
     return <Modal
         width="300px"
         show={ show }
@@ -64,7 +68,7 @@ export const {{className1}}Edit = forwardRef((props, ref) => {
     >
         <Input
             type="hidden"
-            value={id}
+            value={ id }
         />
         {{each params}}
         <Input
@@ -74,9 +78,9 @@ export const {{className1}}Edit = forwardRef((props, ref) => {
             onChange={ (e) => { set{{$value.name3}}(e.target.value) } }
         />{{/each}}
         <Button
-            onClick={saveClick}
+            onClick={ saveClick }
             text="submit"
         />
-        {finalTips}
+        { finalTips }
     </Modal>;
 });
