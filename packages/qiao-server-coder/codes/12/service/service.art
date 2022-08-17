@@ -17,7 +17,7 @@ import { danger } from 'qiao-json';
 export const {{className2}}List = async (data, pagenumber, pagesize) => {
     const url = config.host + config.{{className2}}List;
     const opt = { 
-        {{each params}}{{$value.name2}} : data.{{$value.name1}},
+        {{each params}}{{$value.name2}} : data.{{$value.name2}},
         {{/each}}
         page: pagenumber || '1',
         rows: pagesize || '10' 
@@ -34,7 +34,7 @@ export const {{className2}}List = async (data, pagenumber, pagesize) => {
 export const {{className2}}Save = async (data) => {
     const url = config.host + config.{{className2}}Save;
     let opt = {
-        {{each params}}{{$value.name2}} : data.{{$value.name1}},
+        {{each params}}{{$value.name2}} : data.{{$value.name2}},
         {{/each}}
     };
     if (data.id) opt.id = data.id;

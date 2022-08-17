@@ -55,6 +55,7 @@ exports.genData = async function(tableName){
 		obj.type	= qiao.mysql.getTypes(item.Type);
 		obj.name1 	= name1;
 		obj.name2 	= name2;
+        obj.name3 	= name3;
 		
 		// params
 		params.push(obj);

@@ -26,9 +26,11 @@ const cols = [
 /**
  * {{tableName1}} {{tableName2}}
  */
-export class {{className1}} extends React.Component {
+export const {{className1}} = () => {
+    console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}: render');
+
     // init
-    init = async (data, pagenumber) => {
+    const init = async (data, pagenumber) => {
         // userinfo
         window.insistime_userinfo = {
             userid: get('insistime_userid'),
@@ -46,21 +48,17 @@ export class {{className1}} extends React.Component {
             sumpage: obj.sumpage,
             pagenumber: obj.pagenumber,
         };
-    }
+    };
 
     // del
-    del = async (ids) => {
+    const del = async (ids) => {
         return await gridDel({{className2}}Del, ids);
-    }
+    };
 
-    render() {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}: render');
-
-        return <Grid
-            init={ this.init }
-            del={ this.del }
-            editModal={ {{className1}}Edit }
-            searchModal={ {{className1}}Search }
-        />;
-    }
+    return <Grid
+        init={ init }
+        del={ del }
+        editModal={ {{className1}}Edit }
+        searchModal={ {{className1}}Search }
+    />;
 }

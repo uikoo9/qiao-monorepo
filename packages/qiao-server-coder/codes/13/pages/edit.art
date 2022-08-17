@@ -1,8 +1,8 @@
 // react
-import React from 'react';
+import React, { forwardRef, useState, useImperativeHandle } from 'react';
 
 // ui
-import { Modal, Input, Button, Tips, gridSave } from 'qiao-ui';
+import { Modal, Input, Button, Tips } from 'qiao-ui';
 
 // {{tableName1}} service
 import { {{className2}}Save } from '{{tableName1}}-service';
@@ -10,95 +10,73 @@ import { {{className2}}Save } from '{{tableName1}}-service';
 /**
  * {{tableName1}} {{tableName2}} edit
  */
-export class {{className1}}Edit extends React.Component {
-    constructor(props) {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: constructor');
+export const {{className1}}Edit = forwardRef((props, ref) => {
+    console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: render');
 
-        super(props);
+    // state 
+    const [show, setShow] = useState(false);
+    const [tips, setTips] = useState('');
 
-        this.state = {
-            show: false,
-            tips: '',
-            data: {
-                id: '',
-                {{each params}}{{$value.name1}}: '',
-                {{/each}}
-            },
-        };
-    }
+    const [id, setId] = useState('');
+    {{each params}}const [{{$value.name2}}, set{{$value.name3}}] = useState('');
+    {{/each}}
+    useImperativeHandle(ref, () => ({
+        modalShow: (row) => {
+            console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: modalShow');
 
-    // modal
-    modalShow = (row) => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: modalShow');
-
-        row = row || {};
-        this.setState({
-            show: true,
-            tips: '',
-            data: {
-                id: row.id || '',
-                {{each params}}{{$value.name1}}: row.{{$value.name1}} || '',
-                {{/each}}
-            }
-        });
-    }
-    modalClose = () => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: modalClose');
-
-        this.setState({
-            show: false
-        });
-    }
-
-    // form
-    {{each params}}{{if $value.name1 != 'ucenter_user_id'}}
-    {{$value.name2}}Change = (e) => {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: {{$value.name2}}Change');
-
-        let data = this.state.data;
-        data.{{$value.name1}} = e.target.value;
-        this.setState({
-            data: data
-        });
-    }
-    {{/if}}{{/each}}
+            row = row || {};
+            setShow(true);
+            setTips('');
+            setId(row.id || '');
+            {{each params}}set{{$value.name3}}(row.{{$value.name1}} || '');
+            {{/each}}
+        }
+    }));
 
     // save
-    saveClick = async () => {
+    const saveClick = async () => {
         console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: saveClick');
 
-        const isSuc = await gridSave(this, {{className2}}Save, this.state.data);
-        if(!isSuc) return;
+        // data
+        const data = {
+            id: id,
+            {{each params}}{{$value.name2}}: {{$value.name2}},
+            {{/each}}
+        };
 
-        this.modalClose();
-        this.props.reload();
-    }
+        // save
+        const res = await {{className2}}Save(data);
+        if (!res || res.type != 'success') {
+            setTips(res.msg);
+            return;
+        }
 
-    render() {
-        console.log('{{tableName1}}-view/src/{{tableName1}}-{{tableName2}}-edit: render');
+        // reload
+        setShow(false);
+        props.reload();
+    };
 
-        const tips = this.state.tips ? <Tips tips={this.state.tips}/> : null;
-        return <Modal
-            width="300px"
-            show={this.state.show}
-            closeModal={this.modalClose}
-        >
-            <Input
-                type="hidden"
-                value={this.state.data.id}
-            />
-            {{each params}}
-            <Input
-                type="text"
-                placeholder="{{$value.name1}}"
-                value={this.state.data.{{$value.name1}}}
-                onChange={this.{{$value.name2}}Change}
-            />{{/each}}
-            <Button
-                onClick={this.saveClick}
-                text="submit"
-            />
-            {tips}
-        </Modal>;
-    }
-}
+    const finalTips = tips ? <Tips tips={tips} /> : null;
+    return <Modal
+        width="300px"
+        show={ show }
+        closeModal={ () => { setShow(false) } }
+    >
+        <Input
+            type="hidden"
+            value={id}
+        />
+        {{each params}}
+        <Input
+            type="text"
+            placeholder="{{$value.name2}}"
+            value={ {{$value.name2}} }
+            onChange={ (e) => { set{{$value.name3}}(e.target.value) } }
+        />{{/each}}
+        <Button
+            onClick={saveClick}
+            text="submit"
+        />
+        {finalTips}
+    </Modal>;
+});
