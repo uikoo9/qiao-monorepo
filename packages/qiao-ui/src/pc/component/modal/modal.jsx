@@ -10,10 +10,12 @@ import './modal.scss';
 export const Modal = (props) => {
     console.log('qiao-ui/pc/modal: render');
 
-    return <div className={props.show ? 'modal-container' : 'modal-container hide'}>
+    const modal = <div className="modal-container">
         <div className="modal" style={{ width: props.width }}>
             <div className="modal-close" onClick={props.closeModal}>x</div>
             {props.children}
         </div>
     </div>;
+
+    return props.show ? modal : null;
 };

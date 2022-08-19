@@ -17,12 +17,10 @@ $modalMaxHeight : 900px;
         position: relative;
         width: $modalWidth;
         min-height: $modalMinHeight;
-        max-height: $modalMaxHeight;
+        height: calc(100% - 200px);
         overflow: auto;
 
-        @include base.marginAuto();
-
-        margin-top: 100px;
+        margin: 60px auto;
         padding: 40px;
         border-radius: 8px;
         background-color: #fff;
@@ -39,7 +37,4 @@ $modalMaxHeight : 900px;
         @include base.font($size: 24px, $align: center);
         @include base.cursor();
     }
-}
-.modal-container.hide{
-    display: none;
 }
