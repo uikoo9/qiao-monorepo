@@ -6,6 +6,8 @@ $menuHeight: 40px;
 .menus{
     float: left;
     width: $menuWidth;
+    height: 100%;
+    overflow-y: scroll;
 
     .menu{
         width: $menuWidth;

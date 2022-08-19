@@ -5,8 +5,9 @@ $tdPadding: 5px;
 
 .table-container {
     width: calc(100% - 200px);
-    margin: 0 100px;
-    margin-top: 20px;
+    height: calc(100% - 90px);
+    margin: 20px 100px;
+    overflow-x: scroll;
 
     table {
         @include base.width();
