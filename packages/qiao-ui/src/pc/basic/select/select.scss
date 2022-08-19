@@ -14,5 +14,5 @@ $selectHeight: 50px;
 
     border-bottom: base.$borderSolid;
 
-    @include base.font();
+    @include base.font($size: 18px);
 }
