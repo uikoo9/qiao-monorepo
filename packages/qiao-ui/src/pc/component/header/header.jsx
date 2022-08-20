@@ -8,13 +8,13 @@ import './header.scss';
 import { Link } from '../../index.js';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * header
  */
 export const Header = (props) => {
-    logRed('qiao-ui/pc/header: render');
+    colorLog('qiao-ui/pc/header: render');
 
     const navs = props.navs && props.navs.map((nav, index) => {
         if (!nav.url || !nav.name) return;

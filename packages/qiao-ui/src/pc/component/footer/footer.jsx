@@ -8,13 +8,13 @@ import './footer.scss';
 import { Link } from '../../index.js';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * footer
  */
 export const Footer = (props) => {
-    logRed('qiao-ui/pc/footer: render');
+    colorLog('qiao-ui/pc/footer: render');
 
     return (
         <div className="footer">

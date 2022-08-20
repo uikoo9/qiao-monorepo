@@ -9,19 +9,19 @@ import { Editor as WangEditor, Toolbar } from '@wangeditor/editor-for-react';
 import { editorConfig, toolbarConfig } from './editor-config.js';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * Editor
  * @returns 
  */
 export const Editor = (props) => {
-    logRed('qiao-ui/pc/editor: render');
+    colorLog('qiao-ui/pc/editor: render');
 
     // editor
     const [editor, setEditor] = useState(null);
     useEffect(() => {
-        logRed('qiao-ui/pc/editor: useEffect');
+        colorLog('qiao-ui/pc/editor: useEffect');
 
         return () => {
             if (editor == null) return;

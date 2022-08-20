@@ -5,13 +5,13 @@ import React from 'react';
 import './link.scss';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * link
  */
 export const Link = (props) => {
-    logRed('qiao-ui/pc/link: render');
+    colorLog('qiao-ui/pc/link: render');
 
     return (
         props.blank ?

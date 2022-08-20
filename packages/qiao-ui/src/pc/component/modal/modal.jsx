@@ -5,13 +5,13 @@ import React from 'react';
 import './modal.scss';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * modal
  */
 export const Modal = (props) => {
-    logRed('qiao-ui/pc/modal: render');
+    colorLog('qiao-ui/pc/modal: render');
 
     const modal = <div className="modal-container">
         <div className="modal" style={{ width: props.width }}>

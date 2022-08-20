@@ -4,13 +4,13 @@
  * @param {*} color 
  */
 const normalLog = (msg, color) => {
-    logRed(`%c${msg}`, color);
+    console.log(`%c${msg}`, color);
 };
 
 /**
- * logRed
+ * colorLog
  * @param {*} msg 
  */
-export const logRed = (msg) => {
-    normalLog(msg, 'color: red');
+export const colorLog = (msg) => {
+    normalLog(msg, 'color: blue');
 };

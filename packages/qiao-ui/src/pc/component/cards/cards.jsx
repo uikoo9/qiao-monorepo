@@ -5,13 +5,13 @@ import React from 'react';
 import './cards.scss';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * cards
  */
 export const Cards = (props) => {
-    logRed('qiao-ui/pc/cards: render');
+    colorLog('qiao-ui/pc/cards: render');
 
     const cards = props.cards && props.cards.map((card, index) => {
         if (!card.title) return;

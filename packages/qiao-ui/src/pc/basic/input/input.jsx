@@ -5,13 +5,13 @@ import React from 'react';
 import './input.scss';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * input
  */
 export const Input = (props) => {
-    logRed('qiao-ui/pc/input: render');
+    colorLog('qiao-ui/pc/input: render');
 
     const hiddenInput = <input
         type={props.type}

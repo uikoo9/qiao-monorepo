@@ -5,13 +5,13 @@ import React from 'react';
 import './content.scss';
 
 // log
-import { logRed } from '../../util/log.js';
+import { colorLog } from '../../util/log.js';
 
 /**
  * mobile content
  */
 export const MobileContent = (props) => {
-    logRed('qiao-ui/mobile/content: render');
+    colorLog('qiao-ui/mobile/content: render');
 
     return (
         <div className="content">

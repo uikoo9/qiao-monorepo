@@ -5,13 +5,13 @@ import React from 'react';
 import './select.scss';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * select
  */
 export const Select = (props) => {
-    logRed('qiao-ui/pc/select: render');
+    colorLog('qiao-ui/pc/select: render');
 
     // options
     const options = props.options && props.options.map((opt, index) => {

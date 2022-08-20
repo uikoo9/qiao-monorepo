@@ -5,13 +5,13 @@ import React from 'react';
 import './footer.scss';
 
 // log
-import { logRed } from '../../util/log.js';
+import { colorLog } from '../../util/log.js';
 
 /**
  * mobile footer
  */
 export const MobileFooter = (props) => {
-    logRed('qiao-ui/mobile/footer: render');
+    colorLog('qiao-ui/mobile/footer: render');
 
     return (
         <div className="footer">

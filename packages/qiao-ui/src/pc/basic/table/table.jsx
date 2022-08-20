@@ -8,13 +8,13 @@ import './table.scss';
 import { getCols, getRows } from './table-fn.jsx';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * table
  */
 export const Table = (props) => {
-    logRed('qiao-ui/pc/table: render');
+    colorLog('qiao-ui/pc/table: render');
 
     // const
     const cols = getCols(props);

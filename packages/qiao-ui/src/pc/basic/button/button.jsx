@@ -5,13 +5,13 @@ import React from 'react';
 import './button.scss';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * button
  */
 export const Button = (props) => {
-    logRed('qiao-ui/pc/button: render');
+    colorLog('qiao-ui/pc/button: render');
 
     return (
         <div className="btn">

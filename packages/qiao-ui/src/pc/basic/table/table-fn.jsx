@@ -2,7 +2,7 @@
 import React from 'react';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * get cols
@@ -10,7 +10,7 @@ import { logRed } from '../../../util/log.js';
  * @returns cols
  */
 export const getCols = (props) => {
-    logRed('qiao-ui/pc/table: getCols');
+    colorLog('qiao-ui/pc/table: getCols');
 
     const cols = props.cols;
     if (!cols) return;
@@ -28,7 +28,7 @@ export const getCols = (props) => {
  * @returns rows
  */
 export const getRows = (props) => {
-    logRed('qiao-ui/pc/table: getRows');
+    colorLog('qiao-ui/pc/table: getRows');
 
     const rows = props.rows;
     if (!rows) return;

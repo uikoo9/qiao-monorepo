@@ -8,13 +8,13 @@ import './menus.scss';
 import { Link } from '../../index.js';
 
 // log
-import { logRed } from '../../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * menus
  */
 export const Menus = (props) => {
-    logRed('qiao-ui/pc/menus: render');
+    colorLog('qiao-ui/pc/menus: render');
 
     const menus = props.menus && props.menus.map((menu, index) => {
         if (!menu.name) return;
