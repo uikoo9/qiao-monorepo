@@ -8,17 +8,20 @@ import { Editor as WangEditor, Toolbar } from '@wangeditor/editor-for-react';
 // config
 import { editorConfig, toolbarConfig } from './editor-config.js';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * Editor
  * @returns 
  */
 export const Editor = (props) => {
-    console.log('qiao-ui/pc/editor: render');
+    logRed('qiao-ui/pc/editor: render');
 
     // editor
     const [editor, setEditor] = useState(null);
     useEffect(() => {
-        console.log('qiao-ui/pc/editor: useEffect');
+        logRed('qiao-ui/pc/editor: useEffect');
 
         return () => {
             if (editor == null) return;

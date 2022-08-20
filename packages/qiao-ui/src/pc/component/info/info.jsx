@@ -7,11 +7,14 @@ import './info.scss';
 // ui
 import { Link } from '../../index.js';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * info
  */
 export const Info = (props) => {
-    console.log('qiao-ui/pc/info: render');
+    logRed('qiao-ui/pc/info: render');
 
     return <div className="info">
         <div className="item-title">

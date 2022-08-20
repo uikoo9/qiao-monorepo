@@ -7,11 +7,14 @@ import './table.scss';
 // js
 import { getCols, getRows } from './table-fn.jsx';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * table
  */
 export const Table = (props) => {
-    console.log('qiao-ui/pc/table: render');
+    logRed('qiao-ui/pc/table: render');
 
     // const
     const cols = getCols(props);

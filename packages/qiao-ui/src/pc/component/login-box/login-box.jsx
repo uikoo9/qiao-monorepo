@@ -7,11 +7,14 @@ import './login-box.scss';
 // components
 import { Input, Button, Tips } from '../../index.js';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * login box
  */
 export const LoginBox = (props) => {
-    console.log('qiao-ui/pc/login-box: render');
+    logRed('qiao-ui/pc/login-box: render');
 
     // state
     const [username, setUsername] = useState('');
@@ -20,14 +23,14 @@ export const LoginBox = (props) => {
 
     // click login
     const clickLogin = () => {
-        console.log('qiao-ui/pc/login-box: clickLogin');
+        logRed('qiao-ui/pc/login-box: clickLogin');
 
         props.loginClick(username, password, setTips, props.loginSucUrl);
     };
 
     // set tips
     const setTips = (msg) => {
-        console.log('qiao-ui/pc/login-box: setTips');
+        logRed('qiao-ui/pc/login-box: setTips');
 
         setLoginTips(msg);
     };

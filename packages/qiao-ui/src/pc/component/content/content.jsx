@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './content.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * content
  */
 export const Content = (props) => {
-    console.log('qiao-ui/pc/content: render');
+    logRed('qiao-ui/pc/content: render');
 
     return (
         <div className="content">

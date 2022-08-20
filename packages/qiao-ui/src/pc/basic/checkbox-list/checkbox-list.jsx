@@ -4,15 +4,18 @@ import React from 'react';
 // css
 import './checkbox-list.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * checkbox list
  */
 export const CheckboxList = (props) => {
-    console.log('qiao-ui/pc/checkbox-list: render');
+    logRed('qiao-ui/pc/checkbox-list: render');
 
     // change
     const checkboxChange = (e) => {
-        console.log('qiao-ui/pc/checkbox-list: checkboxChange');
+        logRed('qiao-ui/pc/checkbox-list: checkboxChange');
 
         if (!props.checkboxChange) return;
         props.checkboxChange(e.target.checked, e.target.value);

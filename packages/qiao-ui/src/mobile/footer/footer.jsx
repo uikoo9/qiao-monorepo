@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './footer.scss';
 
+// log
+import { logRed } from '../../util/log.js';
+
 /**
  * mobile footer
  */
 export const MobileFooter = (props) => {
-    console.log('qiao-ui/mobile/footer: render');
+    logRed('qiao-ui/mobile/footer: render');
 
     return (
         <div className="footer">

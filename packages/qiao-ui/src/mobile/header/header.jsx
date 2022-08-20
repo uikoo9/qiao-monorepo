@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './header.scss';
 
+// log
+import { logRed } from '../../util/log.js';
+
 /**
  * mobile header
  */
 export const MobileHeader = (props) => {
-    console.log('qiao-ui/mobile/header: render');
+    logRed('qiao-ui/mobile/header: render');
 
     const navs = props.navs && props.navs.map((nav, index) => {
         if (!nav.url || !nav.name) return;

@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './input.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * input
  */
 export const Input = (props) => {
-    console.log('qiao-ui/pc/input: render');
+    logRed('qiao-ui/pc/input: render');
 
     const hiddenInput = <input
         type={props.type}

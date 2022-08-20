@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './modal.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * modal
  */
 export const Modal = (props) => {
-    console.log('qiao-ui/pc/modal: render');
+    logRed('qiao-ui/pc/modal: render');
 
     const modal = <div className="modal-container">
         <div className="modal" style={{ width: props.width }}>

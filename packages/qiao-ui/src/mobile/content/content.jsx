@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './content.scss';
 
+// log
+import { logRed } from '../../util/log.js';
+
 /**
  * mobile content
  */
 export const MobileContent = (props) => {
-    console.log('qiao-ui/mobile/content: render');
+    logRed('qiao-ui/mobile/content: render');
 
     return (
         <div className="content">

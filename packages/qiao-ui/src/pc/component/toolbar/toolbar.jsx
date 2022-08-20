@@ -4,29 +4,32 @@ import React from 'react';
 // css
 import './toolbar.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * toolbar
  */
 export const Toolbar = (props) => {
-    console.log('qiao-ui/pc/toolbar: render');
+    logRed('qiao-ui/pc/toolbar: render');
 
     // search modal show
     const searchModalShow = () => {
-        console.log('qiao-ui/pc/toolbar: searchModalShow');
+        logRed('qiao-ui/pc/toolbar: searchModalShow');
 
         props.searchModal.current.modalShow();
     };
 
     // edit modal show
     const editModalShow = () => {
-        console.log('qiao-ui/pc/toolbar: editModalShow');
+        logRed('qiao-ui/pc/toolbar: editModalShow');
 
         props.editModal.current.modalShow();
     };
 
     // del rows
     const delRows = () => {
-        console.log('qiao-ui/pc/toolbar: delRows');
+        logRed('qiao-ui/pc/toolbar: delRows');
 
         const cks = props.cks;
         if (!cks.length) {
@@ -39,7 +42,7 @@ export const Toolbar = (props) => {
 
     // first page
     const firstPage = () => {
-        console.log('qiao-ui/pc/toolbar: firstPage');
+        logRed('qiao-ui/pc/toolbar: firstPage');
 
         const pagenumber = props.pagenumber;
         if (pagenumber == 1) return;
@@ -49,7 +52,7 @@ export const Toolbar = (props) => {
 
     // prev page
     const prevPage = () => {
-        console.log('qiao-ui/pc/toolbar: prevPage');
+        logRed('qiao-ui/pc/toolbar: prevPage');
 
         const pagenumber = props.pagenumber;
         if (pagenumber == 1) return;
@@ -59,7 +62,7 @@ export const Toolbar = (props) => {
 
     // last page
     const lastPage = () => {
-        console.log('qiao-ui/pc/toolbar: lastPage');
+        logRed('qiao-ui/pc/toolbar: lastPage');
 
         const pagenumber = props.pagenumber;
         if (pagenumber == props.sumpage) return;
@@ -69,7 +72,7 @@ export const Toolbar = (props) => {
 
     // next page
     const nextPage = () => {
-        console.log('qiao-ui/pc/toolbar: nextPage');
+        logRed('qiao-ui/pc/toolbar: nextPage');
 
         const pagenumber = props.pagenumber;
         if (pagenumber == props.sumpage) return;
@@ -79,7 +82,7 @@ export const Toolbar = (props) => {
 
     // set pagesize
     const setPagesize = (pagesize) => {
-        console.log('qiao-ui/pc/toolbar: setPagesize');
+        logRed('qiao-ui/pc/toolbar: setPagesize');
 
         window.pagesize = pagesize;
         props.reload();

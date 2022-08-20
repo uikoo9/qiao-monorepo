@@ -4,11 +4,14 @@ import React, { useState, useEffect, useRef } from 'react';
 // ui
 import { Table, Toolbar } from '../../index.js';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * grid
  */
 export const Grid = (props) => {
-    console.log('qiao-ui/pc/grid: render');
+    logRed('qiao-ui/pc/grid: render');
 
     // state
     const [cks, setCks] = useState([]);
@@ -23,13 +26,13 @@ export const Grid = (props) => {
 
     // effect
     useEffect(() => {
-        console.log('qiao-ui/pc/grid: useEffect');
+        logRed('qiao-ui/pc/grid: useEffect');
         reload();
     }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
     // reload
     const reload = async (data, pagenumber) => {
-        console.log('qiao-ui/pc/grid: reload');
+        logRed('qiao-ui/pc/grid: reload');
 
         const res = await props.init(data, pagenumber);
         setCols(res.cols);
@@ -40,14 +43,14 @@ export const Grid = (props) => {
 
     // edit row
     const editRow = (row) => {
-        console.log('qiao-ui/pc/grid: editRow');
+        logRed('qiao-ui/pc/grid: editRow');
 
         editModalRef.current.modalShow(row);
     };
 
     // del row
     const delRow = async (id) => {
-        console.log('qiao-ui/pc/grid: delRow');
+        logRed('qiao-ui/pc/grid: delRow');
 
         const isSuc = await props.del(id);
         if (!isSuc) return;
@@ -58,7 +61,7 @@ export const Grid = (props) => {
 
     // toolbar
     const checkboxChange = (e) => {
-        console.log('qiao-ui/pc/grid: checkboxChange');
+        logRed('qiao-ui/pc/grid: checkboxChange');
 
         if (e.target.checked) {
             cks.push(e.target.value);

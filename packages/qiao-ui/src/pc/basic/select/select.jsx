@@ -4,10 +4,15 @@ import React from 'react';
 // css
 import './select.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * select
  */
 export const Select = (props) => {
+    logRed('qiao-ui/pc/select: render');
+
     // options
     const options = props.options && props.options.map((opt, index) => {
         if (!opt.txt || !opt.value) return;

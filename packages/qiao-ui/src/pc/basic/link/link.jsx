@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './link.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * link
  */
 export const Link = (props) => {
-    console.log('qiao-ui/pc/link: render');
+    logRed('qiao-ui/pc/link: render');
 
     return (
         props.blank ?

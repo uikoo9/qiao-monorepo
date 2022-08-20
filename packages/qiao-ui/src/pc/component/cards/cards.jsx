@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './cards.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * cards
  */
 export const Cards = (props) => {
-    console.log('qiao-ui/pc/cards: render');
+    logRed('qiao-ui/pc/cards: render');
 
     const cards = props.cards && props.cards.map((card, index) => {
         if (!card.title) return;

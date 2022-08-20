@@ -7,11 +7,14 @@ import './header.scss';
 // ui
 import { Link } from '../../index.js';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * header
  */
 export const Header = (props) => {
-    console.log('qiao-ui/pc/header: render');
+    logRed('qiao-ui/pc/header: render');
 
     const navs = props.navs && props.navs.map((nav, index) => {
         if (!nav.url || !nav.name) return;

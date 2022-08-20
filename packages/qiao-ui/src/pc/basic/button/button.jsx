@@ -4,11 +4,14 @@ import React from 'react';
 // css
 import './button.scss';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * button
  */
 export const Button = (props) => {
-    console.log('qiao-ui/pc/button: render');
+    logRed('qiao-ui/pc/button: render');
 
     return (
         <div className="btn">

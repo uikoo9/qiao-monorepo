@@ -1,13 +1,16 @@
 // react
 import React from 'react';
 
+// log
+import { logRed } from '../../../util/log.js';
+
 /**
  * get cols
  * @param {*} props 
  * @returns cols
  */
 export const getCols = (props) => {
-    console.log('qiao-ui/pc/table: getCols');
+    logRed('qiao-ui/pc/table: getCols');
 
     const cols = props.cols;
     if (!cols) return;
@@ -25,7 +28,7 @@ export const getCols = (props) => {
  * @returns rows
  */
 export const getRows = (props) => {
-    console.log('qiao-ui/pc/table: getRows');
+    logRed('qiao-ui/pc/table: getRows');
 
     const rows = props.rows;
     if (!rows) return;
