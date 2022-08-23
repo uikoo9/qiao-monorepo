@@ -17,7 +17,6 @@ $modalMaxHeight : 900px;
         position: relative;
         width: $modalWidth;
         min-height: $modalMinHeight;
-        height: calc(100% - 200px);
         overflow: auto;
 
         margin: 60px auto;
