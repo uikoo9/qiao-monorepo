@@ -19,6 +19,6 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "sqlite3": "^5.0.9"
+    "sqlite3": "^5.0.11"
   }
 }
