@@ -75,10 +75,6 @@ dishi，todo list对应的浏览器请求
 
 浏览器 IndexedDB 数据库常见 api 封装
 
-### [qiao.ls.js](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao.ls.js#readme)
-
-浏览器 LocalStorage 本地存储常见 api 封装
-
 ### [qiao-easyui](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-easyui#readme)
 
 [jquery-easyui](http://www.jeasyui.com)库常见 api 封装
@@ -90,10 +86,6 @@ dishi，todo list对应的浏览器请求
 ### [qiao-qrcode](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-qrcode#readme)
 
 浏览器生成二维码
-
-### [qiao-webpack](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-webpack#readme)
-
-[webpack](https://webpack.js.org)脚手架
 
 ### [qiao-weixinx](https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-weixinx#readme)
 
