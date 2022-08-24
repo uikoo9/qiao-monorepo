@@ -20,6 +20,11 @@ export const Toolbar = (props) => {
         props.searchModal.current.modalShow();
     };
 
+    // reset data
+    const resetData = () => {
+        props.reload();
+    };
+
     // edit modal show
     const editModalShow = () => {
         colorLog('qiao-ui/pc/toolbar: editModalShow');
@@ -89,14 +94,15 @@ export const Toolbar = (props) => {
     };
 
     return <div className='toolbar'>
-        <div onClick={searchModalShow}>search</div>
         <div onClick={editModalShow}>add</div>
         <div onClick={delRows}>del</div>
+        <div onClick={searchModalShow}>search</div>
+        <div onClick={resetData}>reset</div>
         <div>/</div>
-        <div onClick={firstPage}>first</div>
-        <div onClick={prevPage}>prev</div>
-        <div onClick={nextPage}>next</div>
-        <div onClick={lastPage}>last</div>
+        <div onClick={firstPage}>&lt;&lt;</div>
+        <div onClick={prevPage}>&lt;</div>
+        <div onClick={nextPage}>&gt;</div>
+        <div onClick={lastPage}>&gt;&gt;</div>
         <div>/</div>
         <div onClick={() => { setPagesize(10); }}>10</div>
         <div onClick={() => { setPagesize(100); }}>100</div>
