@@ -6,6 +6,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/qiao-webpack/badge.svg)](https://snyk.io/test/npm/qiao-webpack)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-webpack)
 
+[webpack](https://webpack.js.org)脚手架
+
 ## config
 ```javascript
 module.exports = {
