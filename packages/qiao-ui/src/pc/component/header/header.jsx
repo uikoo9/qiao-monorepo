@@ -25,7 +25,7 @@ export const Header = (props) => {
     });
 
     return (
-        <div className="header">
+        <div className={props.center ? 'header center' : 'header'}>
             <div className="logo nav-txt">
                 <Link url={props.logoUrl} txt={props.logo} />
             </div>
