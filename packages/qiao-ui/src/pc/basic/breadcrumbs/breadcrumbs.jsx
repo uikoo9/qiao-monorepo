@@ -22,7 +22,7 @@ export const Breadcrumbs = (props) => {
             <div
                 style={{ width: props.width }}
                 className={breadcrumbsActiveId == breadcrumb.id ? 'item active' : 'item'}
-                onClick={() => { props.onClick(breadcrumb) }}
+                onClick={() => { props.onClick(breadcrumb.id) }}
             >{breadcrumb.name}</div>
 
             {

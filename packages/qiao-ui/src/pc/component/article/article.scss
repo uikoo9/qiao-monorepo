@@ -1,0 +1,72 @@
+@use "../../../util/base";
+
+.article-container{
+    @include base.width();
+
+    .article-title{
+        @include base.width();
+
+        height: 80px;
+        line-height: 80px;
+        border-bottom: base.$borderDotted;
+
+        @include base.font($size: 24px);
+    }
+    
+    .article-date{
+        @include base.width();
+        height: 40px;
+        line-height: 40px;
+        
+        @include base.font();
+    }
+
+    .article-times{
+        @include base.width();
+
+        height: 40px;
+        line-height: 40px;
+        border-bottom: base.$borderDotted;
+
+        @include base.font();
+    }
+
+    .article-content{
+        @include base.width();
+        padding-bottom: 40px;
+        border-bottom: base.$borderDotted;
+
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .donate{
+        @include base.width();
+
+        padding: 40px 0;
+        border-bottom: base.$borderDotted;
+
+        .donate-img{
+            @include base.width();
+
+            img{
+                display: block;
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+        }
+
+        .donate-tip{
+            @include base.width();
+
+            height: 40px;
+            line-height: 40px;
+
+            padding-top: 20px;
+
+            @include base.font($size: 16px, $align: center);
+        }
+    }
+}
