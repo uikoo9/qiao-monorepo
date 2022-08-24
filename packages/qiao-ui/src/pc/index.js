@@ -31,6 +31,7 @@ export * from './component/grid/grid-fn.js';
 
 // blog
 export { Info } from './component/info/info.jsx';
+export { InfoList } from './component/info-list/info-list.jsx';
 export { Article } from './component/article/article.jsx';
 
 /**
