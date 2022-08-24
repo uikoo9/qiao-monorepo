@@ -1,6 +1,7 @@
 /**
  * basic
  */
+export { Breadcrumbs } from './basic/breadcrumbs/breadcrumbs.jsx';
 export { Button } from './basic/button/button.jsx';
 export { CheckboxList } from './basic/checkbox-list/checkbox-list.jsx';
 export { Input } from './basic/input/input.jsx';
