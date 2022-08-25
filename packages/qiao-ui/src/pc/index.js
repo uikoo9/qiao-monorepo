@@ -19,6 +19,9 @@ export { Content } from './component/content/content.jsx';
 export { Cards } from './component/cards/cards.jsx';
 export { Footer } from './component/footer/footer.jsx';
 
+// donate
+export { Donate } from './component/donate/donate.jsx';
+
 // login
 export { LoginBox } from './component/login-box/login-box.jsx';
 
