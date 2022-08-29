@@ -1,10 +1,11 @@
 @use "../../../util/base";
 
-$titleHeight: 80px;
-$contentHeight: 40px;
+$titleHeight: 2rem;
+$contentHeight: 1rem;
 
 .article-container{
-    @include base.width();
+    width: calc(100% - 20px);
+    padding: 10px;
 
     .article-title{
         @include base.width();
@@ -13,7 +14,7 @@ $contentHeight: 40px;
         line-height: $titleHeight;
         border-bottom: base.$borderDotted;
 
-        @include base.font($size: 24px);
+        @include base.font($size: 16px);
     }
     
     .article-date{
@@ -21,7 +22,7 @@ $contentHeight: 40px;
         height: $contentHeight;
         line-height: $contentHeight;
         
-        @include base.font();
+        @include base.font($size: 12px);
     }
 
     .article-times{
@@ -31,7 +32,7 @@ $contentHeight: 40px;
         line-height: $contentHeight;
         border-bottom: base.$borderDotted;
 
-        @include base.font();
+        @include base.font($size: 12px);
     }
 
     .article-content{
@@ -39,8 +40,14 @@ $contentHeight: 40px;
         padding-bottom: $contentHeight;
         border-bottom: base.$borderDotted;
 
+        @include base.font();
+        
         img{
             max-width: 100%;
+        }
+        pre{
+            white-space: pre-wrap;
+            word-wrap:break-word;
         }
     }
 }
