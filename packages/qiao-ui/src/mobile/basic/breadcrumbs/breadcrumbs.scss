@@ -1,14 +1,13 @@
 @use "../../../util/base";
 
-$height: 30px;
-$divWidth: 80px;
+$height: 2rem;
+$divWidth: 2.5rem;
 
 .breadcrumbs{
     @include base.width();
     @include base.marginAuto();
 
     height: $height;
-    padding: 20px 0;
     border-bottom: base.$borderDotted;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -24,15 +23,14 @@ $divWidth: 80px;
             height: $height;
             line-height: $height;
 
-            @include base.font($size: 16px, $align: center);
+            @include base.font($size: 14px, $align: center);
         }
 
         .item{
-            text-align: left;
             @include base.cursor();
         }
         .item.active{
-            font-size: 20px;
+            font-size: 16px;
         }
     }
 }
