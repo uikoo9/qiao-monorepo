@@ -4,6 +4,9 @@ import React from 'react';
 // css
 import './footer.scss';
 
+// ui
+import { Link } from '../../../index.js';
+
 // log
 import { colorLog } from '../../../util/log.js';
 
@@ -15,8 +18,8 @@ export const MobileFooter = (props) => {
 
     return (
         <div className="footer">
-            <a target="_blank" href={props.companyUrl} rel="noreferrer">{props.companyName}</a>&nbsp;&nbsp;&nbsp;
-            <a target="_blank" href={props.beianUrl} rel="noreferrer">{props.beianName}</a>
+            <Link url={props.companyUrl} txt={props.companyName} />&nbsp;&nbsp;&nbsp;
+            <Link blank={true} url={props.beianUrl} txt={props.beianName} />
         </div>
     );
 };

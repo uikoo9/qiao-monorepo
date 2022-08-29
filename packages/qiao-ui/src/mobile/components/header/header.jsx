@@ -4,6 +4,9 @@ import React from 'react';
 // css
 import './header.scss';
 
+// ui
+import { Link } from '../../../index.js';
+
 // log
 import { colorLog } from '../../../util/log.js';
 
@@ -17,14 +20,14 @@ export const MobileHeader = (props) => {
         if (!nav.url || !nav.name) return;
 
         return <div className="nav nav-txt right" key={index}>
-            <a target="_blank" href={nav.url} rel="noreferrer">{nav.name}</a>
+            <Link blank={nav.blank} url={nav.url} txt={nav.name} />
         </div>;
     });
 
     return (
         <div className={props.center ? 'header center' : 'header'}>
             <div className="logo nav-txt">
-                <a target="_blank" href={props.logoUrl} rel="noreferrer">{props.logo}</a>
+                <Link url={props.logoUrl} txt={props.logo} />
             </div>
             <div className="navs">{navs}</div>
         </div>
