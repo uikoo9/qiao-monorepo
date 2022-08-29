@@ -16,14 +16,16 @@ export const MobileHeader = (props) => {
     const navs = props.navs && props.navs.map((nav, index) => {
         if (!nav.url || !nav.name) return;
 
-        return <div className="nav nav-txt" key={index}>
+        return <div className="nav nav-txt right" key={index}>
             <a target="_blank" href={nav.url} rel="noreferrer">{nav.name}</a>
         </div>;
     });
 
     return (
-        <div className="header">
-            <div className="logo nav-txt">{props.logo}</div>
+        <div className={props.center ? 'header center' : 'header'}>
+            <div className="logo nav-txt">
+                <a target="_blank" href={props.logoUrl}>{props.logo}</a>
+            </div>
             <div className="navs">{navs}</div>
         </div>
     );

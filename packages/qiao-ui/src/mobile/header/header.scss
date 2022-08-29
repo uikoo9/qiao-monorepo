@@ -6,14 +6,6 @@ $headerHeight: 2rem;
 $logoWidth: 6rem;
 $navsWidth: $containerWidth - $logoWidth;
 
-.nav-txt {
-    height: $headerHeight;
-    line-height: $headerHeight;
-
-    @include base.font($size: 16px, $align: center);
-    @include base.cursor();
-}
-
 .header {
     @include base.width();
 
@@ -33,8 +25,29 @@ $navsWidth: $containerWidth - $logoWidth;
         .nav {
             float: right;
             width: calc($navsWidth / 3);
-
-            @include base.alink();
         }
+    }
+}
+
+.nav-txt {
+    height: $headerHeight;
+    line-height: $headerHeight;
+
+    @include base.font($size: 16px);
+    @include base.cursor();
+    @include base.alink();
+}
+
+.nav-txt.right {
+    text-align: right;
+}
+
+.header.center{
+    .nav-txt {
+        text-align: center;
+    }
+
+    .nav-txt.right {
+        text-align: center;
     }
 }
