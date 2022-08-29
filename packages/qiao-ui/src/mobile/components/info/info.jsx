@@ -5,16 +5,16 @@ import React from 'react';
 import './info.scss';
 
 // ui
-import { Link } from '../../index.js';
+import { Link } from '../../../index.js';
 
 // log
 import { colorLog } from '../../../util/log.js';
 
 /**
- * info
+ * mobile info
  */
-export const Info = (props) => {
-    colorLog('qiao-ui/pc/info: render');
+export const MobileInfo = (props) => {
+    colorLog('qiao-ui/mobile/info: render');
 
     return <div className="info">
         <div className="item-title">

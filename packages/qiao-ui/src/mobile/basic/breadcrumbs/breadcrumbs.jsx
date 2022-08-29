@@ -11,7 +11,7 @@ import { colorLog } from '../../../util/log.js';
  * mobile breadcrumbs
  */
 export const MobileBreadcrumbs = (props) => {
-    colorLog('qiao-ui/pc/breadcrumbs: render');
+    colorLog('qiao-ui/mobile/breadcrumbs: render');
 
     const breadcrumbs = props.breadcrumbs;
     const breadcrumbsActiveId = props.breadcrumbsActiveId;

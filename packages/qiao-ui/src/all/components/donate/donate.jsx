@@ -11,7 +11,7 @@ import { colorLog } from '../../../util/log.js';
  * donate
  */
 export const Donate = (props) => {
-    colorLog('qiao-ui/pc/donate: render');
+    colorLog('qiao-ui/all/donate: render');
 
     return (
         <div className="donate">

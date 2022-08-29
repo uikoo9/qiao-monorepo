@@ -5,21 +5,21 @@ import React from 'react';
 import './info-list.scss';
 
 // ui
-import { Info } from '../info/info.jsx';
+import { MobileInfo } from '../info/info.jsx';
 
 // log
 import { colorLog } from '../../../util/log.js';
 
 /**
- * info list
+ * mobile info list
  */
-export const InfoList = (props) => {
-    colorLog('qiao-ui/pc/info-list: render');
+export const MobileInfoList = (props) => {
+    colorLog('qiao-ui/mobile/info-list: render');
 
     const infoItems = props.infoList && props.infoList.map((item, index) => {
         if (!item) return;
 
-        return <Info
+        return <MobileInfo
             key={index}
             blank={props.blank}
             url={item.url}

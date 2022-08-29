@@ -1,24 +1,24 @@
 @use "../../../util/base";
 
-$itemTitleHeight: 60px;
-$itemDescHeight: 40px;
-$itemOtherHeight: 60px;
+$itemTitleHeight: 1.5rem;
+$itemDescHeight: 1rem;
+$itemOtherHeight: 1rem;
 
 $fontWeight: 600;
 
 .info{
-    @include base.width();
+    width: calc(100% - 20px);
+    padding: 10px;
 
     border-bottom: base.$borderDotted;
     
     .item-title{
         @include base.width();
 
-        height: $itemTitleHeight;
         line-height: $itemTitleHeight;
         font-weight: $fontWeight;
 
-        @include base.font($size: 20px);
+        @include base.font($size: 16px);
         @include base.alink();
     }
     .item-desc{
@@ -26,7 +26,7 @@ $fontWeight: 600;
 
         line-height: $itemDescHeight;
 
-        @include base.font($color: #888);
+        @include base.font($size: 12px, $color: #888);
     }
     .item-other{
         @include base.width();
@@ -34,7 +34,7 @@ $fontWeight: 600;
         height: $itemOtherHeight;
         line-height: $itemOtherHeight;
 
-        @include base.font();
+        @include base.font($size: 12px);
         @include base.alink();
     }
 }
