@@ -8,9 +8,9 @@ import './breadcrumbs.scss';
 import { colorLog } from '../../../util/log.js';
 
 /**
- * breadcrumbs
+ * mobile breadcrumbs
  */
-export const Breadcrumbs = (props) => {
+export const MobileBreadcrumbs = (props) => {
     colorLog('qiao-ui/pc/breadcrumbs: render');
 
     const breadcrumbs = props.breadcrumbs;

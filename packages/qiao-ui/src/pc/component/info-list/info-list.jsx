@@ -26,7 +26,7 @@ export const InfoList = (props) => {
             title={item.title}
             desc={item.desc}
             other={item.other}
-        />
+        />;
     });
 
     return (

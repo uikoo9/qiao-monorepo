@@ -5,7 +5,7 @@ import React from 'react';
 import './header.scss';
 
 // log
-import { colorLog } from '../../util/log.js';
+import { colorLog } from '../../../util/log.js';
 
 /**
  * mobile header
@@ -24,7 +24,7 @@ export const MobileHeader = (props) => {
     return (
         <div className={props.center ? 'header center' : 'header'}>
             <div className="logo nav-txt">
-                <a target="_blank" href={props.logoUrl}>{props.logo}</a>
+                <a target="_blank" href={props.logoUrl} rel="noreferrer">{props.logo}</a>
             </div>
             <div className="navs">{navs}</div>
         </div>
