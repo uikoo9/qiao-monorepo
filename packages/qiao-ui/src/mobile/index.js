@@ -1,7 +1,11 @@
-// basic
+/**
+ * basic
+ */
 export { MobileBreadcrumbs } from './basic/breadcrumbs/breadcrumbs.jsx';
 
-// components
+/**
+ * components
+ */
 export { MobileHeader } from './components/header/header.jsx';
 export { MobileContent } from './components/content/content.jsx';
 export { MobileCards } from './components/cards/cards.jsx';

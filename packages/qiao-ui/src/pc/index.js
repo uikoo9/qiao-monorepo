@@ -11,33 +11,30 @@ export { Table } from './basic/table/table.jsx';
 export { Tips } from './basic/tips/tips.jsx';
 
 /**
- * component
+ * components
  */
 // index
-export { Header } from './component/header/header.jsx';
-export { Content } from './component/content/content.jsx';
-export { Cards } from './component/cards/cards.jsx';
-export { Footer } from './component/footer/footer.jsx';
-
-// donate
-export { Donate } from './component/donate/donate.jsx';
+export { Header } from './components/header/header.jsx';
+export { Content } from './components/content/content.jsx';
+export { Cards } from './components/cards/cards.jsx';
+export { Footer } from './components/footer/footer.jsx';
 
 // login
-export { LoginBox } from './component/login-box/login-box.jsx';
+export { LoginBox } from './components/login-box/login-box.jsx';
 
 // manage
-export { Menus } from './component/menus/menus.jsx';
-export { Modal } from './component/modal/modal.jsx';
-export { Toolbar } from './component/toolbar/toolbar.jsx';
-export { Grid } from './component/grid/grid.jsx';
-export * from './component/grid/grid-fn.js';
+export { Menus } from './components/menus/menus.jsx';
+export { Modal } from './components/modal/modal.jsx';
+export { Toolbar } from './components/toolbar/toolbar.jsx';
+export { Grid } from './components/grid/grid.jsx';
+export * from './components/grid/grid-fn.js';
 
 // blog
-export { Info } from './component/info/info.jsx';
-export { InfoList } from './component/info-list/info-list.jsx';
-export { Article } from './component/article/article.jsx';
+export { Info } from './components/info/info.jsx';
+export { InfoList } from './components/info-list/info-list.jsx';
+export { Article } from './components/article/article.jsx';
 
 /**
- * plugin
+ * plugins
  */
-export { Editor } from './plugin/editor/editor.jsx';
+export { Editor } from './plugins/editor/editor.jsx';
