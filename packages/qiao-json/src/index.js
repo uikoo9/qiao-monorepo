@@ -1,14 +1,10 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 /**
  * json
  * 	type
  * 	msg
  * 	obj
  */
-const json = (type, msg, obj) => {
+export const json = (type, msg, obj) => {
     var json = {
         success: true,
         msg: '',
@@ -28,7 +24,7 @@ const json = (type, msg, obj) => {
  * 	msg
  * 	obj
  */
-const success = (msg, obj) => {
+export const success = (msg, obj) => {
     return json('success', msg, obj);
 };
 
@@ -37,7 +33,7 @@ const success = (msg, obj) => {
  * 	msg
  * 	obj
  */
-const info = (msg, obj) => {
+export const info = (msg, obj) => {
     return json('info', msg, obj);
 };
 
@@ -46,7 +42,7 @@ const info = (msg, obj) => {
  * 	msg
  * 	obj
  */
-const warning = (msg, obj) => {
+export const warning = (msg, obj) => {
     return json('warning', msg, obj);
 };
 
@@ -55,12 +51,6 @@ const warning = (msg, obj) => {
  * 	msg
  * 	obj
  */
-const danger = (msg, obj) => {
+export const danger = (msg, obj) => {
     return json('danger', msg, obj);
 };
-
-exports.danger = danger;
-exports.info = info;
-exports.json = json;
-exports.success = success;
-exports.warning = warning;
