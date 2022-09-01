@@ -1,11 +1,8 @@
 // react
-import React from 'react';
+import React, { useState } from 'react';
 
 // css
 import './menus.scss';
-
-// ui
-import { Link } from '../../../index.js';
 
 // log
 import { colorLog } from '../../../util/log.js';
@@ -16,14 +13,28 @@ import { colorLog } from '../../../util/log.js';
 export const Menus = (props) => {
     colorLog('qiao-ui/pc/menus: render');
 
+    // state
+    const [activeUrl, setActiveUrl] = useState(null);
+
+    // on click
+    const onclick = (menu) => {
+        colorLog('qiao-ui/pc/menus: onclick');
+
+        if(!menu.url) return;
+
+        setActiveUrl(menu.url);
+        location.href = menu.url;
+    };
+
+    // menus
     const menus = props.menus && props.menus.map((menu, index) => {
         if (!menu.name) return;
 
-        return <div className={`${menu.main ? 'menu main' : 'menu'}`} key={index}>
-            {
-                menu.url ? <Link url={menu.url} txt={menu.name} /> : menu.name
-            }
-        </div>;
+        return (
+            <div className={`${activeUrl == menu.url ? 'menu active' : 'menu'}`} key={index} onClick={ () => { onclick(menu); }}>
+                {menu.name}
+            </div>
+        );
     });
 
     return (

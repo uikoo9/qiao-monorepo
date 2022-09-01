@@ -18,10 +18,7 @@ $menuHeight: 40px;
         @include base.font($align: center);
         @include base.cursor();
     }
-    .menu.main{
-        height: 50px;
-        font-size: 16px;
-        line-height: 50px;
-        border-bottom: base.$borderSolid;
+    .menu.active{
+        font-weight: 600;
     }
 }
