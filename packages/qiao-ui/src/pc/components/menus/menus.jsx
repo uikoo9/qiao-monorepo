@@ -1,5 +1,5 @@
 // react
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // css
 import './menus.scss';
@@ -16,11 +16,24 @@ export const Menus = (props) => {
     // state
     const [activeUrl, setActiveUrl] = useState(null);
 
+    // effect
+    useEffect(() => {
+        colorLog('qiao-ui/pc/menus: useEffect');
+
+        let aurl;
+        try{
+            aurl = '#' + location.href.split('#')[1];
+            setActiveUrl(aurl);
+        }catch(e){
+            colorLog(e);
+        }
+    }, []);// eslint-disable-line react-hooks/exhaustive-deps
+
     // on click
     const onclick = (menu) => {
         colorLog('qiao-ui/pc/menus: onclick');
 
-        if(!menu.url) return;
+        if (!menu.url) return;
 
         setActiveUrl(menu.url);
         location.href = menu.url;
@@ -31,7 +44,7 @@ export const Menus = (props) => {
         if (!menu.name) return;
 
         return (
-            <div className={`${activeUrl == menu.url ? 'menu active' : 'menu'}`} key={index} onClick={ () => { onclick(menu); }}>
+            <div className={`${activeUrl == menu.url ? 'menu active' : 'menu'}`} key={index} onClick={() => { onclick(menu); }}>
                 {menu.name}
             </div>
         );
