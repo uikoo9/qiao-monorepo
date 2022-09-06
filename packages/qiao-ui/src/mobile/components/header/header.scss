@@ -24,7 +24,7 @@ $navsWidth: $containerWidth - $logoWidth;
 
         .nav {
             float: right;
-            width: calc($navsWidth / 3);
+            width: calc($navsWidth / 4);
         }
     }
 }
