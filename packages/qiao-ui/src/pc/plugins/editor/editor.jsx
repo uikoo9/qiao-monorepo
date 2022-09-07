@@ -46,7 +46,7 @@ export const Editor = (props) => {
                     onCreated={setEditor}
                     onChange={editor => props.onChange(editor.getHtml())}
                     mode="default"
-                    style={{ height: '400px', overflowY: 'hidden' }}
+                    style={{ height: props.height || '400px', overflowY: 'hidden' }}
                 />
             </div>
         </>
