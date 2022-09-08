@@ -8,19 +8,6 @@
                 "libraryDirectory": "es",
                 "style": "css"
             }
-        ],
-        [
-            "prismjs",
-            {
-                "languages": [
-                    "javascript",
-                    "css",
-                    "markup"
-                ],
-                "plugins": [],
-                "theme": "okaidia",
-                "css": true
-            }
         ]
     ]
 }
