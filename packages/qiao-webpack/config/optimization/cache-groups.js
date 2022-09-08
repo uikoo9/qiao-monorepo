@@ -69,6 +69,13 @@ module.exports = {
         priority: -42,
         reuseExistingChunk: true,
     },
+    prismjs: {
+        test: /[\\/]node_modules[\\/]prismjs[\\/]/,
+        name: 'prismjs',
+        chunks: 'all',
+        priority: -43,
+        reuseExistingChunk: true,
+    },
 
     // default
     default: {
