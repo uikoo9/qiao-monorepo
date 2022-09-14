@@ -1,10 +1,10 @@
 'use strict';
 
-var ucenterUserController 		= require('./lib/ucenter/controller/UcenterUserController.js');
-var ucenterMenuController 		= require('./lib/ucenter/controller/UcenterMenuController.js');
-var ucenterRoleController 		= require('./lib/ucenter/controller/UcenterRoleController.js');
-var ucenterRoleRMenuController 	= require('./lib/ucenter/controller/UcenterRoleRMenuController.js');
-var ucenterRoleRUserController	= require('./lib/ucenter/controller/UcenterRoleRUserController.js');
+var ucenterUserController 		= require('./src/ucenter/controller/UcenterUserController.js');
+var ucenterMenuController 		= require('./src/ucenter/controller/UcenterMenuController.js');
+var ucenterRoleController 		= require('./src/ucenter/controller/UcenterRoleController.js');
+var ucenterRoleRMenuController 	= require('./src/ucenter/controller/UcenterRoleRMenuController.js');
+var ucenterRoleRUserController	= require('./src/ucenter/controller/UcenterRoleRUserController.js');
 
 /**
  * init
@@ -34,4 +34,4 @@ exports.init = function(app){
 /**
  * ucenter user model
  */
-exports.ucenterUserModel = require('./lib/ucenter/model/UcenterUserModel.js');
+exports.ucenterUserModel = require('./src/ucenter/model/UcenterUserModel.js');
