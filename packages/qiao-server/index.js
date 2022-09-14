@@ -85,11 +85,22 @@ const checkPath = async (req, res, next) => {
     const normalVisitPath = global.config.paths;
     for (let i = 0; i < normalVisitPath.length; i++) {
         if (path == normalVisitPath[i]) normalVisit = true;
+        if (checkRegularPath(path, normalVisitPath[i])) normalVisit = true;
     }
     if (normalVisit) req.checkPath = true;
 
     // return
     next();
+};
+
+// check regular path
+const checkRegularPath = (reqPath, configPath) => {
+    // not regular path
+    if (!reqPath || !configPath || configPath.indexOf('*') < 0) return;
+    
+    // check
+    const configFinalPath = configPath.split('*')[0];
+    return reqPath.indexOf(configFinalPath) > -1;
 };
 
 /**
