@@ -11,7 +11,13 @@ var ucenterUserModel = require('./ucenter/model/UcenterUserModel.js');
  * @param {*} next 
  * @returns 
  */
-module.exports = async function(req, res, next){
+module.exports = async function (req, res, next) {
+    // auth - check path
+    if (req.checkPath) {
+        next();
+        return;
+    }
+
     // auth - has token
     const userid = req.headers.userid || req.cookies.insistime_userid;
     const usertoken = req.headers.usertoken || req.cookies.insistime_usertoken;
@@ -45,6 +51,8 @@ module.exports = async function(req, res, next){
         req.body['express_userid'] = userid;
         req.body['express_username'] = username;
 
+        // return
+        req.checkPath = true;
         next();
     } catch (e) {
         res.send(qiao.json.danger('校验token失败！', { errName: e.name, errMsg: e.message }));

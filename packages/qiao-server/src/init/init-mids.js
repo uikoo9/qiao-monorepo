@@ -1,5 +1,5 @@
 // mids
-import { checkPath, crossDomain } from './_mids.js';
+import { crossDomain, checkPath, checkFinal } from './_mids.js';
 
 /**
  * init mids
@@ -15,9 +15,12 @@ export default (app, options) => {
     app.use(checkPath);
 
     // mids
-    if(options.mids){
+    if (options.mids) {
         options.mids.forEach((mid) => {
             app.use(mid);
         });
     }
+
+    // final
+    app.use(checkFinal);
 };

@@ -86,12 +86,24 @@ const checkPath = async (req, res, next) => {
     for (let i = 0; i < normalVisitPath.length; i++) {
         if (path == normalVisitPath[i]) normalVisit = true;
     }
-    if (normalVisit) {
+    if (normalVisit) req.checkPath = true;
+
+    // return
+    next();
+};
+
+/**
+ * check final
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+const checkFinal = (req, res, next) => {
+    if (req.checkPath) {
         next();
         return;
     }
 
-    // return
     res.send(qiaoJson.danger('非法路径！'));
 };
 
@@ -111,11 +123,14 @@ var initMids = (app, options) => {
     app.use(checkPath);
 
     // mids
-    if(options.mids){
+    if (options.mids) {
         options.mids.forEach((mid) => {
             app.use(mid);
         });
     }
+
+    // final
+    app.use(checkFinal);
 };
 
 // qiao

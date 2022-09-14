@@ -32,11 +32,23 @@ export const checkPath = async (req, res, next) => {
     for (let i = 0; i < normalVisitPath.length; i++) {
         if (path == normalVisitPath[i]) normalVisit = true;
     }
-    if (normalVisit) {
+    if (normalVisit) req.checkPath = true;
+
+    // return
+    next();
+};
+
+/**
+ * check final
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+export const checkFinal = (req, res, next) => {
+    if (req.checkPath) {
         next();
         return;
     }
 
-    // return
     res.send(danger('非法路径！'));
 };
