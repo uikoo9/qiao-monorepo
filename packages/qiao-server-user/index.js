@@ -7,6 +7,11 @@ var ucenterRoleRMenuController 	= require('./src/ucenter/controller/UcenterRoleR
 var ucenterRoleRUserController	= require('./src/ucenter/controller/UcenterRoleRUserController.js');
 
 /**
+ * check user
+ */
+ exports.checkUser = require('./src/_check.js');
+
+/**
  * init
  * @param {*} app express app
  */
@@ -30,8 +35,3 @@ exports.init = function(app){
 	ucenterRoleRMenuController(app);
 	ucenterRoleRUserController(app);
 };
-
-/**
- * ucenter user model
- */
-exports.ucenterUserModel = require('./src/ucenter/model/UcenterUserModel.js');
