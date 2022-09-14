@@ -15,7 +15,7 @@ export const Link = (props) => {
 
     return (
         props.blank ?
-            <a href={props.url} className="q-link" target="_blank" rel="noreferrer">{props.txt}</a>
+            <a href={props.url} className="q-link" target="_blank">{props.txt}</a>
             :
             <a href={props.url} className="q-link">{props.txt}</a>
     );

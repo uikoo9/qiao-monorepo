@@ -16,7 +16,7 @@ export const Donate = (props) => {
     return (
         <div className="donate">
             <div className="donate-img">
-                <img src={require('./donate.png')} alt="donate" />
+                <img src="https://static.insistime.com/00_insistime/donate.png" alt="donate" />
             </div>
             {
                 props.tip ? <div className="donate-tip">{props.tip}</div> : null
