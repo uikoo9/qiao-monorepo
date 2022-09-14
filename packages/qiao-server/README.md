@@ -15,7 +15,9 @@
     isDev: false,
     checkAuth: false,
 	mids : [],
-	modules : [],
+	modules : [
+        require('qiao-server-user')
+    ],
 	staticPaths : [{
         name : '/files',
 		path : path.resolve(__dirname, './files')

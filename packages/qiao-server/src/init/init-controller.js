@@ -15,7 +15,7 @@ export default (app, options) => {
     // other controller
     if(options.modules){
         options.modules.forEach((module) => {
-            require(module).init(app);
+            module.init(app);
         });
     }
 };
