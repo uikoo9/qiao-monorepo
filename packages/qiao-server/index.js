@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var qencode = require('qiao-encode');
-var qfile = require('qiao-file');
+var qiaoFile = require('qiao-file');
 var qjson = require('qiao-json');
 var quser = require('qiao-server-user');
 var express = require('express');
@@ -161,18 +161,21 @@ var initMids = (app, options) => {
 
 /**
  * init controller
- * @param {*} app 
  */
-var initController = (app) => {
-    // qiao-server-user
-    quser.init(app);
-
-    // other controller
-    const serverFiles = qfile.lsdir(process.cwd() + '/');
+var initController = (app, options) => {
+    // app controller
+    const serverFiles = qiaoFile.lsdir(process.cwd() + '/');
     serverFiles.files.forEach((serverFile) => {
         const file = serverFile.path + serverFile.name;
         if(/Controller\.js$/.test(file)) require(file)(app);
     });
+
+    // other controller
+    if(options.modules){
+        options.modules.forEach((module) => {
+            module.init(app);
+        });
+    }
 };
 
 // path
@@ -220,7 +223,7 @@ const init = (options) => {
 };
 
 exports.encode = qencode;
-exports.file = qfile;
+exports.file = qiaoFile;
 exports.json = qjson;
 exports.user = quser;
 exports.init = init;
