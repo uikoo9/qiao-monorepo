@@ -13,10 +13,11 @@
 {
 	// config
     isDev: false,
-    checkAuth: false,
-	mids : [],
+	mids : [
+        require('qiao-server-user').checkUser
+    ],
 	modules : [
-        require('qiao-server-user')
+        require('qiao-server-user').init
     ],
 	staticPaths : [{
         name : '/files',
@@ -56,6 +57,5 @@
         config		: config,
         staticPaths	: staticPaths,
         mids		: mids,
-        checkAuth	: true,
     });
 ```

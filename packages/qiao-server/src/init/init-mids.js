@@ -1,8 +1,5 @@
 // mids
-import {
-    auth as qauth,
-    crossDomain,
-} from './_mids.js';
+import { checkPath, crossDomain } from './_mids.js';
 
 /**
  * init mids
@@ -14,10 +11,8 @@ export default (app, options) => {
     // cross domain
     app.use(crossDomain);
 
-    // auth
-    if(options.checkAuth){
-        app.use(qauth);
-    }
+    // check path
+    app.use(checkPath);
 
     // mids
     if(options.mids){

@@ -27,9 +27,7 @@
         "cookie-parser": "^1.4.6",
         "express": "^4.18.1",
         "express-art-template": "^1.0.1",
-        "qiao-encode": "^0.1.9",
         "qiao-file": "^0.4.3",
-        "qiao-json": "^0.0.9",
-        "qiao-server-user": "^0.2.5"
+        "qiao-json": "^0.0.9"
     }
 }
