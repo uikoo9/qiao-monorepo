@@ -1,21 +1,21 @@
 // qiao
-import { 
-    file as qfile,
-    user as quser,
-} from '../_qiao.js';
+import { lsdir } from 'qiao-file';
 
 /**
  * init controller
- * @param {*} app 
  */
-export default (app) => {
-    // qiao-server-user
-    quser.init(app);
-
-    // other controller
-    const serverFiles = qfile.lsdir(process.cwd() + '/');
+export default (app, options) => {
+    // app controller
+    const serverFiles = lsdir(process.cwd() + '/');
     serverFiles.files.forEach((serverFile) => {
         const file = serverFile.path + serverFile.name;
         if(/Controller\.js$/.test(file)) require(file)(app);
     });
+
+    // other controller
+    if(options.modules){
+        options.modules.forEach((module) => {
+            require(module).init(app);
+        });
+    }
 };

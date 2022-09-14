@@ -12,35 +12,37 @@
 ```javascript
 {
 	// config
-	config : {
-		"port"			: 9001,
-		"encryptKey" 	: "xxx",
-		"db" 			: {
-			"connectionLimit" : 50,
-			"host"		: "127.0.0.1", 
-			"port"		: 3306,
-			"database"	: "xxx",
-			"user"		: "root",
-			"password"	: "xxx"
-		},
-		"sms"               : {
-			"appid"         : "xxx",
-			"appkey"        : "xxx"
-		},
-		"paths" : [
-			"/ucenter/user/reg",
-			"/ucenter/user/login",
-			"/ucenter/user/check",
-			"/ucenter/user/forget",
-			"/ucenter/code/send"
-		]
-	},
-	staticPaths : [{
-		name : '/files',
-		path : path.resolve(__dirname, './files')
-	}],
+    isDev: false,
+    checkAuth: false,
 	mids : [],
 	modules : [],
+	staticPaths : [{
+        name : '/files',
+		path : path.resolve(__dirname, './files')
+	}],
+    config : {
+        "port"			: 9001,
+        "encryptKey" 	: "xxx",
+        "db" 			: {
+            "connectionLimit" : 50,
+            "host"		: "127.0.0.1", 
+            "port"		: 3306,
+            "database"	: "xxx",
+            "user"		: "root",
+            "password"	: "xxx"
+        },
+        "sms"           : {
+            "appid"     : "xxx",
+            "appkey"    : "xxx"
+        },
+        "paths" : [
+            "/ucenter/user/reg",
+            "/ucenter/user/login",
+            "/ucenter/user/check",
+            "/ucenter/user/forget",
+            "/ucenter/code/send"
+        ]
+    },
 }
 ```
 
