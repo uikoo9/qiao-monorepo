@@ -21,7 +21,7 @@ export const init = (options) => {
     const app = initApp();
     initStatic(app, options);
     initMids(app, options);
-    initController(app);
+    initController(app, options);
     initView(app);
     app.listen(global.config.port);
 
