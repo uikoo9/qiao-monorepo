@@ -1,6 +1,6 @@
 @use "../../../util/base";
 
-$titleHeight: 2rem;
+$titleHeight: 3rem;
 $contentHeight: 1rem;
 
 .article-container{
@@ -14,7 +14,8 @@ $contentHeight: 1rem;
         line-height: $titleHeight;
         border-bottom: base.$borderDotted;
 
-        @include base.font($size: 16px);
+        @include base.font($size: 24px, $align: center);
+        font-weight: 600;
     }
     
     .article-date{
