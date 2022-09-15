@@ -5,7 +5,7 @@ $contentHeight: 1rem;
 
 .article-container{
     width: calc(100% - 20px);
-    padding: 10px;
+    padding: 0 10px;
 
     .article-title{
         @include base.width();
