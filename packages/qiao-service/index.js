@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var qiaoAjax = require('qiao-ajax');
 var qiaoJson = require('qiao-json');
 
-var host = 'https://admin.insistime.com/';
+var host = 'https://api.insistime.com/';
 var login$1 = 'ucenter/user/login';
 var sendCode$1 = 'ucenter/code/send';
 var register$1 = 'ucenter/user/reg';
