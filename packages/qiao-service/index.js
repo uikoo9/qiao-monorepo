@@ -9,6 +9,7 @@ var host = 'https://api.insistime.com/';
 var login$1 = 'ucenter/user/login';
 var sendCode$1 = 'ucenter/code/send';
 var register$1 = 'ucenter/user/reg';
+var checkUser$1 = 'ucenter/user/check';
 var ucenterMenuList$1 = 'ucenter/menu/list';
 var ucenterMenuSave$1 = 'ucenter/menu/save';
 var ucenterMenuDel$1 = 'ucenter/menu/del';
@@ -18,6 +19,7 @@ var config = {
     login: login$1,
     sendCode: sendCode$1,
     register: register$1,
+    checkUser: checkUser$1,
     ucenterMenuList: ucenterMenuList$1,
     ucenterMenuSave: ucenterMenuSave$1,
     ucenterMenuDel: ucenterMenuDel$1,
@@ -94,14 +96,14 @@ async function ajax(url, data, headers){
  * @returns 
  */
 const register = async (mobile, password, repassword, code) => {
-    if(!mobile || !password || !repassword || !code) return qiaoJson.danger('need mobile, code, password');
-    if(password != repassword) return qiaoJson.danger('the two password do not match');
+    if (!mobile || !password || !repassword || !code) return qiaoJson.danger('need mobile, code, password');
+    if (password != repassword) return qiaoJson.danger('the two password do not match');
 
-    const url 	= config.host + config.register;
-    const data	= {
-        username : mobile,
-        password : password,
-        usercode : code
+    const url = config.host + config.register;
+    const data = {
+        username: mobile,
+        password: password,
+        usercode: code
     };
 
     return await post(url, data);
@@ -114,14 +116,14 @@ const register = async (mobile, password, repassword, code) => {
  * @returns 
  */
 const login = async (mobile, password) => {
-    if(!mobile || !password) return qiaoJson.danger('need mobile and password');
+    if (!mobile || !password) return qiaoJson.danger('need mobile and password');
 
-    const url 	= config.host + config.login;
-    const data	= {
+    const url = config.host + config.login;
+    const data = {
         username: mobile,
         password: password
     };
-	
+
     return await post(url, data);
 };
 
@@ -131,13 +133,32 @@ const login = async (mobile, password) => {
  * @returns 
  */
 const sendCode = async (mobile) => {
-    if(!mobile) return qiaoJson.danger('need mobile');
+    if (!mobile) return qiaoJson.danger('need mobile');
 
-    const url 	= config.host + config.sendCode;
-    const data	= {
-        type	: 'reg',
-        sign	: '坚时科技',
-        mobile	: mobile
+    const url = config.host + config.sendCode;
+    const data = {
+        type: 'reg',
+        sign: '坚时科技',
+        mobile: mobile
+    };
+
+    return await post(url, data);
+};
+
+/**
+ * checkUser
+ * @param {*} userid 
+ * @param {*} usertoken 
+ * @returns 
+ */
+const checkUser = async (userid, usertoken) => {
+    if (!userid) return qiaoJson.danger('need userid');
+    if (!usertoken) return qiaoJson.danger('need usertoken');
+
+    const url = config.host + config.checkUser;
+    const data = {
+        userid: userid,
+        usertoken: usertoken
     };
 
     return await post(url, data);
@@ -210,6 +231,7 @@ const ucenterMenuGet = async (id) => {
     return item;
 };
 
+exports.checkUser = checkUser;
 exports.login = login;
 exports.register = register;
 exports.sendCode = sendCode;

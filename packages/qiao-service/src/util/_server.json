@@ -4,6 +4,7 @@
     "login": "ucenter/user/login",
     "sendCode": "ucenter/code/send",
     "register": "ucenter/user/reg",
+    "checkUser": "ucenter/user/check",
 
     "ucenterMenuList": "ucenter/menu/list",
     "ucenterMenuSave": "ucenter/menu/save",
