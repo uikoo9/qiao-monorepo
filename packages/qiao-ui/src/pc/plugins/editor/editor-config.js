@@ -1,3 +1,6 @@
+// upload config
+import { uploadConfig } from './upload-config.js';
+
 // toolbar config
 export const toolbarConfig = {
     excludeKeys: [
@@ -44,6 +47,7 @@ export const editorConfig = {
                 { text: 'Java', value: 'java' },
                 { text: 'SQL', value: 'sql' },
             ]
-        }
+        },
+        uploadImage: uploadConfig
     }
 };
