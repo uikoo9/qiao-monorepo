@@ -6,7 +6,7 @@ import '@wangeditor/editor/dist/css/style.css';
 import { Editor as WangEditor, Toolbar } from '@wangeditor/editor-for-react';
 
 // config
-import { editorConfig, toolbarConfig } from './editor-config.js';
+import { getEditorConfig, getToolbarConfig } from './editor-config.js';
 
 // log
 import { colorLog } from '../../../util/log.js';
@@ -36,12 +36,12 @@ export const Editor = (props) => {
             <div style={{ border: '1px solid #ccc', zIndex: 100 }}>
                 <Toolbar
                     editor={editor}
-                    defaultConfig={toolbarConfig}
+                    defaultConfig={getToolbarConfig()}
                     mode="default"
                     style={{ borderBottom: '1px solid #ccc' }}
                 />
                 <WangEditor
-                    defaultConfig={editorConfig}
+                    defaultConfig={getEditorConfig(props.needUploadConfig, props.uploadConfig)}
                     value={props.content}
                     onCreated={setEditor}
                     onChange={editor => props.onChange(editor.getHtml())}

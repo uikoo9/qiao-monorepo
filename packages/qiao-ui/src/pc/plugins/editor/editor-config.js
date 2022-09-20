@@ -1,53 +1,29 @@
-// upload config
-import { uploadConfig } from './upload-config.js';
+// configs
+import toolbarConfig from './config/toolbar-config.js';
+import menuConfig from './config/menu-config.js';
 
-// toolbar config
-export const toolbarConfig = {
-    excludeKeys: [
-        'sup',
-        'sub',
-        'lineHeight',
-        'todo',
-        'group-indent',
-        'emotion',
-        'group-video',
-        'undo',
-        'redo',
-        'divider',
-    ],
+/**
+ * getToolbarConfig
+ * @returns toolbarConfig
+ */
+export const getToolbarConfig = () => {
+    return toolbarConfig;
 };
 
-// editor config
-export const editorConfig = {
-    placeholder: '请输入内容...',
-    MENU_CONF: {
-        fontSize: {
-            fontSizeList: ['12px', '14px', '16px', '18px', '24px', '40px']
-        },
-        fontFamily: {
-            fontFamilyList: [
-                '黑体',
-                '仿宋',
-                '楷体',
-                '宋体',
-                '微软雅黑',
-                'Arial'
-            ]
-        },
-        codeSelectLang: {
-            codeLangs: [
-                { text: 'Bash', value: 'bash' },
-                { text: 'Markdown', value: 'markdown' },
-                { text: 'HTML', value: 'html' },
-                { text: 'XML', value: 'xml' },
-                { text: 'CSS', value: 'css' },
-                { text: 'Javascript', value: 'javascript' },
-                { text: 'Typescript', value: 'typescript' },
-                { text: 'JSX', value: 'jsx' },
-                { text: 'Java', value: 'java' },
-                { text: 'SQL', value: 'sql' },
-            ]
-        },
-        uploadImage: uploadConfig
+/**
+ * getEditorConfig
+ * @returns config
+ */
+export const getEditorConfig = (needUploadConfig, uploadConfig) => {
+    const config = Object.assign({}, menuConfig);
+    
+    if(needUploadConfig){
+        if(!uploadConfig){
+            console.log('need upload config, see: https://www.wangeditor.com/v5/menu-config.html#%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87');
+        }else{
+            config.uploadImage = uploadConfig;
+        }
     }
+    
+    return config;
 };
