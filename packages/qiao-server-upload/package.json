@@ -1,5 +1,5 @@
 {
-  "name": "qiao-upload",
+  "name": "qiao-server-upload",
   "version": "0.1.3",
   "description": "nodejs multer tool",
   "keywords": [
@@ -11,7 +11,7 @@
     "formidable"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-upload#readme",
+  "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-server-upload#readme",
   "license": "MIT",
   "main": "index.js",
   "repository": {
