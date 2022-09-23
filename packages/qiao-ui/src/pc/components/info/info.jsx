@@ -20,7 +20,11 @@ export const Info = (props) => {
         <div className="item-title">
             <Link blank={props.blank} url={props.url} txt={props.title} />
         </div>
-        <div className="item-desc">{props.desc}</div>
-        <div className="item-other">{props.other}</div>
+        {
+            props.desc ? <div className="item-desc">{props.desc}</div> : null
+        }
+        {
+            props.other ? <div className="item-other">{props.other}</div> : null
+        }
     </div>;
 };
