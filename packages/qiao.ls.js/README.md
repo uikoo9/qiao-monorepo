@@ -6,43 +6,45 @@
 
 浏览器localStorage本地存储常见api封装和增强
 
-## api
-### cjs
-```javascript
-// q
-const q = require('qiao.ls.js');
+## install
+```bash
+npm i qiao.ls.js
+```
 
+## use
+```javascript
+// cjs
+const q = require('qiao.ls.js');
+q.ls
+
+// mjs
+import { ls } from 'qiao.ls.js';
+```
+
+## api
+### set
+```javascript
 // set
 q.ls('name', 'value');
+```
 
+### set with expires
+```javascript
 // set 10s expires
 q.ls('name', 'value', 10 * 1000);
+```
 
+### get
+```javascript
 // get
 console.log(q.ls('name')); // value
+```
 
+### delete
+```javascript
 // delete
 q.ls('name', null);
 console.log(q.ls('name')); // undefined
-```
-
-### mjs
-```javascript
-// q
-import { ls } from 'qiao.ls.js';
-
-// set
-ls('name', 'value');
-
-// set 10s expires
-ls('name', 'value', 10 * 1000);
-
-// get
-console.log(ls('name')); // value
-
-// delete
-ls('name', null);
-console.log(ls('name')); // undefined
 ```
 
 ## version
