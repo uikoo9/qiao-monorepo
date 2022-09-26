@@ -46,6 +46,10 @@ console.log(ls('name')); // undefined
 ```
 
 ## version
+### 0.1.2.20220926
+1. add synk
+2. modify md
+
 ### 0.1.1.20220711
 1. tree shaking
 
