@@ -2,9 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/qiao-webpack.svg?style=flat-square)](https://www.npmjs.org/package/qiao-webpack)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-webpack.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-webpack)
-[![install size](https://packagephobia.now.sh/badge?p=qiao-webpack)](https://packagephobia.now.sh/result?p=qiao-webpack)
-[![Known Vulnerabilities](https://snyk.io/test/npm/qiao-webpack/badge.svg)](https://snyk.io/test/npm/qiao-webpack)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-webpack)
+[![Known Vulnerabilities](https://snyk.io/test/npm/qiao-webpack/badge.svg)](https://snyk.io/test/npm/qiao-webpack)
 
 [webpack](https://webpack.js.org)脚手架
 
@@ -58,37 +57,6 @@ module.exports = {
   },
 ```
 
-### cacheGroups
-```javascript
-{
-  react: {
-    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-    name: 'react',
-    chunks: 'all',
-    priority: 0,
-    reuseExistingChunk: true,
-  },
-  axios: {
-    test: /[\\/]node_modules[\\/]axios[\\/]/,
-    name: 'axios',
-    chunks: 'all',
-    priority: -1,
-    reuseExistingChunk: true,
-  },
-  antd: {
-    test: /[\\/]node_modules[\\/]antd[\\/]/,
-    name: 'antd',
-    chunks: 'all',
-    priority: -2,
-    reuseExistingChunk: true,
-  },
-  default: {
-    priority: -20,
-    reuseExistingChunk: true,
-  },
-}
-```
-
 ### cssIncludes
 ```javascript
 [
@@ -97,7 +65,6 @@ module.exports = {
   /node_modules[\\/]normalize\.css/,
 ]
 ```
-
 
 ### postcssConfig
 ```javascript
@@ -123,6 +90,9 @@ qwebpack analyzer /{yourconfigpath}/qiao.webpack.js
 ```
 
 ## version
+### 0.1.0.20220926
+1. ncu
+   
 ### 0.0.9.20220612
 1. postcss
 
