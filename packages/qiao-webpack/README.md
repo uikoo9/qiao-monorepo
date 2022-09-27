@@ -6,6 +6,11 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/qiao-webpack/badge.svg)](https://snyk.io/test/npm/qiao-webpack)
 
 [webpack](https://webpack.js.org)脚手架
+- 内置了babel相关依赖和配置
+- 内置了react相关依赖和配置
+- 内置了css压缩相关依赖和配置
+- 内置了js压缩相关依赖和配置
+- 内置了sass，less，postcss相关依赖和配置
 
 ## config
 ```javascript
