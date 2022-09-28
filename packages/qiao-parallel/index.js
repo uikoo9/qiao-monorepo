@@ -46,6 +46,7 @@ async function parallel(func, values, callback, complete, jsPath){
         })(i, func, values[i], valuesLength);
     }
 }
+
 // handler by IIFE
 async function handlerByIIFE(index, func, value, valuesLength, callback, complete){
     const res = await func(value);
