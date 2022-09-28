@@ -1,0 +1,45 @@
+{
+    "name": "qiao-parallel",
+    "version": "0.0.7",
+    "description": "Execute multiple tasks in parallel",
+    "keywords": [
+        "execute",
+        "multiple",
+        "tasks",
+        "parallel"
+    ],
+    "author": "uikoo9 <uikoo9@qq.com>",
+    "homepage": "https://code.insistime.com/qiao-parallel",
+    "license": "MIT",
+    "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets": false,
+    "files": [
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uikoo9/qiao-parallel.git"
+    },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-parallel/issues"
+    },
+    "scripts": {
+        "build": "rollup --config _config.rollup.js",
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+        "prepublish": "npm run build && npm run eslintfix",
+        "test-normal": "node __tests__/normal.js",
+        "test-parallel": "node __tests__/parallel.js",
+        "test-fork": "node __tests__/fork.js",
+        "test": "npm run test-normal && npm run test-parallel && npm run test-fork"
+    },
+    "devDependencies": {
+        "eslint": "^8.22.0",
+        "qiao-console": "^0.1.1",
+        "rollup": "^2.75.6"
+    },
+    "dependencies": {
+        "qiao-process": "^0.0.5"
+    }
+}
