@@ -3,7 +3,6 @@
 [![npm version](https://img.shields.io/npm/v/qiao-webpack.svg?style=flat-square)](https://www.npmjs.org/package/qiao-webpack)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-webpack.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-webpack)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-webpack)
-[![Known Vulnerabilities](https://snyk.io/test/npm/qiao-webpack/badge.svg)](https://snyk.io/test/npm/qiao-webpack)
 
 [webpack](https://webpack.js.org)脚手架
 - 内置了babel相关依赖和配置
