@@ -19,10 +19,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/uikoo9/qiao.ls.js.git"
+        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
     },
     "bugs": {
-        "url": "https://github.com/uikoo9/qiao.ls.js/issues"
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
     },
     "scripts": {
         "build": "rollup --config _config.rollup.js",
@@ -30,11 +30,5 @@
         "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
         "prepublish": "npm run build && npm run eslintfix",
         "test": "jest --config _config.jest.js"
-    },
-    "devDependencies": {
-        "eslint": "^8.22.0",
-        "jest": "^28.1.2",
-        "jest-environment-jsdom": "^28.1.2",
-        "rollup": "^2.75.6"
     }
 }
