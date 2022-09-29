@@ -19,10 +19,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/uikoo9/qiao-parallel.git"
+        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
     },
     "bugs": {
-        "url": "https://github.com/uikoo9/qiao-parallel/issues"
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
     },
     "scripts": {
         "build": "rollup --config _config.rollup.js",
@@ -35,9 +35,7 @@
         "test": "npm run test-normal && npm run test-parallel && npm run test-fork"
     },
     "devDependencies": {
-        "eslint": "^8.22.0",
-        "qiao-console": "^0.1.1",
-        "rollup": "^2.75.6"
+        "qiao-console": "^0.1.1"
     },
     "dependencies": {
         "qiao-process": "^0.0.5"
