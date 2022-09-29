@@ -3,7 +3,7 @@
     "version": "0.0.9",
     "description": "nodejs json data",
     "author": "uikoo9 <uikoo9@qq.com>",
-    "homepage": "https://github.com/uikoo9/qiao-monorepo/tree/master/packages/qiao-json#readme",
+    "homepage": "https://code.insistime.com/qiao-json",
     "license": "MIT",
     "main": "index.js",
     "module": "src/index.js",
