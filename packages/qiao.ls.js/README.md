@@ -2,7 +2,6 @@
 [![npm version](https://img.shields.io/npm/v/qiao.ls.js.svg?style=flat-square)](https://www.npmjs.org/package/qiao.ls.js)
 [![npm downloads](https://img.shields.io/npm/dm/qiao.ls.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.ls.js)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.ls.js)
-[![Known Vulnerabilities](https://snyk.io/test/npm/qiao.ls.js/badge.svg)](https://snyk.io/test/npm/qiao.ls.js)
 
 浏览器localStorage本地存储常见api封装和增强
 
