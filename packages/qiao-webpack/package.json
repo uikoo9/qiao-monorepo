@@ -22,7 +22,7 @@
     },
     "scripts": {},
     "dependencies": {
-        "@babel/core": "^7.19.1",
+        "@babel/core": "^7.19.3",
         "@babel/preset-react": "^7.18.6",
         "autoprefixer": "^10.4.12",
         "babel-loader": "^8.2.5",

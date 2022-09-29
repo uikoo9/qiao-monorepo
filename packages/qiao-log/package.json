@@ -12,6 +12,6 @@
   },
   "scripts": {},
   "dependencies": {
-    "log4js": "^6.6.0"
+    "log4js": "^6.6.1"
   }
 }
