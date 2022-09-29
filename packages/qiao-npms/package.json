@@ -1,6 +1,6 @@
 {
   "name": "qiao-npms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "npm package info",
   "keywords": [
     "download counts"
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "libnpmsearch": "^5.0.4",
-    "qiao-ajax": "^2.6.6"
+    "qiao-ajax": "^2.6.7"
   },
   "gitHead": "3ee6a703cf9078dfa740a3528439ba84bb9a0990"
 }

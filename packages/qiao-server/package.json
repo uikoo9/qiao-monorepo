@@ -1,6 +1,6 @@
 {
     "name": "qiao-server",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "description": "",
     "keywords": [],
     "author": "uikoo9 <uikoo9@qq.com>",
@@ -27,7 +27,7 @@
         "cookie-parser": "^1.4.6",
         "express": "^4.18.1",
         "express-art-template": "^1.0.1",
-        "qiao-file": "^0.4.3",
-        "qiao-json": "^0.0.9"
+        "qiao-file": "^0.4.4",
+        "qiao-json": "^0.1.0"
     }
 }
