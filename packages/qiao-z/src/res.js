@@ -13,10 +13,22 @@ const out = require('./out.js');
 module.exports = function (response) {
     const res = {};
     res.response = response;
+    res.redirect = redirect;
     res.render = render;
-    
+
     return res;
 };
+
+/**
+ * redirect
+ * @param {*} url 
+ */
+function redirect(url) {
+    this.response.writeHead(302, {
+        'Location': url
+    });
+    this.response.end();
+}
 
 /**
  * render
