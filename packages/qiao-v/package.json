@@ -1,6 +1,6 @@
 {
     "name": "qiao-v",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "nodejs web app framework",
     "keywords": [
         "nodejs",
@@ -19,6 +19,5 @@
         "type": "git",
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
     },
-    "scripts": {},
-    "dependencies": {}
+    "scripts": {}
 }
