@@ -1,8 +1,5 @@
-// path
-const path = require('path');
-
-// http
-const http = require('node:http');
+// qiao
+const qiao = require('qiao-file');
 
 // out
 const out = require('./util/out.js');
@@ -18,12 +15,24 @@ const res = exports = module.exports = {};
  * @returns 
  */
 res.render = function (filePath) {
-    if(!filePath){
+    if (!filePath) {
         out.error(this.response, 'qz: no file path');
         return;
     }
 
-    const finalPath = path.resolve(process.cwd(), filePath);
+    const finalPath = qiao.path.resolve(process.cwd(), filePath);
+    if (!qiao.isExists(filePath)) {
+        out.error(this.response, 'qz: file path is not exists');
+        return;
+    }
 
-    console.log(finalPath);
+    const html = qiao.readFile(finalPath);
+    if(!html){
+        out.error(this.response, 'qz: read file error');
+        return;
+    }
+
+    this.response.writeHeader(200, {"Content-Type": "text/html"});  
+    this.response.write(html);  
+    this.response.end();  
 };
