@@ -20,5 +20,7 @@
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
     },
     "scripts": {},
-    "gitHead": "62dac1065f61f0d7a471130249bf4bb24761973e"
+    "dependencies": {
+        "qiao-file": "^1.0.0"
+    }
 }
