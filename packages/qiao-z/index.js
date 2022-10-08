@@ -1,43 +1,19 @@
-// listen
-const listen = require('./src/listen.js');
-
-// methods
-const methods = ['get'];
-
 // routers
 const routers = [];
+
+// init
+const initMethods = require('./src/init/init-methods.js');
+const initListen = require('./src/init/init-listen.js');
+const initController = require('./src/init/init-controller.js');
 
 /**
  * app
  */
 module.exports = function () {
     let app = {};
-    app = initListen(app);
-    app = initMethods(app);
+    initMethods(app, routers);
+    initListen(app, routers);
+    initController(app);
 
     return app;
 };
-
-// init listen
-function initListen(app) {
-    app.listen = function(port){
-        this.server = listen(port, routers);
-    };
-
-    return app;
-}
-
-// init method
-function initMethods(app){
-    methods.forEach(function(v){
-        app[v] = function(path, callback){
-            routers.push({
-                method: v,
-                path: path,
-                callback: callback
-            });
-        };
-    });
-
-    return app;
-}
