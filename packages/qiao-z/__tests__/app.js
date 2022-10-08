@@ -8,6 +8,6 @@ const app = v();
 app.listen(5277);
 
 // get
-app.get('/', function(req, res){
+app.get('/1', function(req, res){
     res.render('./__tests__/views/index.html');
 });
