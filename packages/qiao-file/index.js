@@ -27,22 +27,22 @@ const isExists = (fpath) => {
  * @param {*} files 
  */
 const getFoldersAndFiles = (fpath, folders, files) => {
-	fs.readdirSync(fpath).forEach(function(name){
-		const stat = fs.statSync(fpath + name);
-		if(stat.isDirectory()){
-			folders.push({
-				path : fpath,
-				name : name
-			});
+    fs.readdirSync(fpath).forEach(function(name){
+        const stat = fs.statSync(fpath + name);
+        if(stat.isDirectory()){
+            folders.push({
+                path : fpath,
+                name : name
+            });
 			
-			getFoldersAndFiles(fpath + name + '/', folders, files);
-		}else {
-			files.push({
-				path : fpath,
-				name : name
-			});
-		}
-	});
+            getFoldersAndFiles(fpath + name + '/', folders, files);
+        }else {
+            files.push({
+                path : fpath,
+                name : name
+            });
+        }
+    });
 };
 
 /**
@@ -52,28 +52,28 @@ const getFoldersAndFiles = (fpath, folders, files) => {
  * @param {*} ignores 
  */
 const getFileTree = (fpath, fileTree, ignores) => {
-	fs.readdirSync(fpath).forEach(function(name){
-		const rpath = fpath + name;
-		if(isFileTreeIgnore(rpath, ignores)) return;
+    fs.readdirSync(fpath).forEach(function(name){
+        const rpath = fpath + name;
+        if(isFileTreeIgnore(rpath, ignores)) return;
 
-		const stat = fs.statSync(rpath);
-		if(stat.isDirectory()){
-			let info = {};
-			info.path = fpath;
-			info.name = name;
-			info.children = [];
+        const stat = fs.statSync(rpath);
+        if(stat.isDirectory()){
+            let info = {};
+            info.path = fpath;
+            info.name = name;
+            info.children = [];
 			
-			fileTree.push(info);
+            fileTree.push(info);
 			
-			getFileTree(rpath + '/', info.children, ignores);
-		}else {
-			let info = {};
-			info.path = fpath;
-			info.name = name;
+            getFileTree(rpath + '/', info.children, ignores);
+        }else {
+            let info = {};
+            info.path = fpath;
+            info.name = name;
 
-			fileTree.push(info);
-		}
-	});
+            fileTree.push(info);
+        }
+    });
 };
 
 /**
@@ -82,24 +82,24 @@ const getFileTree = (fpath, fileTree, ignores) => {
  * @param {*} list 
  */
 const checkDir = (dir, list) => {
-	const pdir = path.dirname(dir);
+    const pdir = path.dirname(dir);
 	
-	if(!isExists(pdir)){
-		list.push(pdir);
-		checkDir(pdir, list);
-	}
+    if(!isExists(pdir)){
+        list.push(pdir);
+        checkDir(pdir, list);
+    }
 };
 
 // is file tree ignore
 const isFileTreeIgnore = (rpath, ignores) => {
-	if(!rpath || !ignores || !ignores.length) return;
+    if(!rpath || !ignores || !ignores.length) return;
 
-	let ignore = false;
-	for(let i=0; i<ignores.length; i++){
-		if(rpath.indexOf(ignores[i]) > -1) ignore = true;
-	}
+    let ignore = false;
+    for(let i=0; i<ignores.length; i++){
+        if(rpath.indexOf(ignores[i]) > -1) ignore = true;
+    }
 
-	return ignore;
+    return ignore;
 };
 
 /**
@@ -133,10 +133,10 @@ const mv = (oldPath, newPath) => {
     try{
         fs.renameSync(oldPath, newPath);
 
-		return true;
+        return true;
     }catch(e){
         console.log(e);
-		return false;
+        return false;
     }
 };
 
@@ -145,32 +145,32 @@ const mv = (oldPath, newPath) => {
  * 	fpath, file or folder path, folder must end with /
  */
 const rm = (fpath) => {
-	try{
-		// rm file
-		const pathStat = fs.statSync(fpath);
-		if(!pathStat.isDirectory()){
-			fs.unlinkSync(fpath);
+    try{
+        // rm file
+        const pathStat = fs.statSync(fpath);
+        if(!pathStat.isDirectory()){
+            fs.unlinkSync(fpath);
 			
-			return true;
-		}
+            return true;
+        }
 		
-		// ls dir
-		let folders = [];
-		let files 	= [];
-		getFoldersAndFiles(fpath, folders, files);
-		folders.reverse();
+        // ls dir
+        let folders = [];
+        let files 	= [];
+        getFoldersAndFiles(fpath, folders, files);
+        folders.reverse();
 		
-		// rm folder
-		for(let i=0; i<files.length; i++) fs.unlinkSync(files[i].path + files[i].name);
-		for(let i=0; i<folders.length; i++) fs.rmdirSync(folders[i].path + folders[i].name);
-		fs.rmdirSync(fpath);
+        // rm folder
+        for(let i=0; i<files.length; i++) fs.unlinkSync(files[i].path + files[i].name);
+        for(let i=0; i<folders.length; i++) fs.rmdirSync(folders[i].path + folders[i].name);
+        fs.rmdirSync(fpath);
 		
-		// return
-		return true;
-	}catch(e){
-		console.log(e);
-		return false;
-	}
+        // return
+        return true;
+    }catch(e){
+        console.log(e);
+        return false;
+    }
 };
 
 /**
@@ -289,7 +289,7 @@ const readFileLineByLine = (filePath, onLine, onClose) => {
  * @returns 
  */
 const readFileLineByLineSync = (filePath) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         // lines
         let lines = [];
 

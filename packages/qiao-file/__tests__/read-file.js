@@ -3,10 +3,10 @@
 var q = require('../index.js');
 
 var test = function(){
-	var filePath 	= './index.js';
-	var s 			= q.readFile(filePath);
+    var filePath 	= './index.js';
+    var s 			= q.readFile(filePath);
 	
-	console.log(s);
+    console.log(s);
 };
 
 test();

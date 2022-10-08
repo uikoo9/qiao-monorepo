@@ -14,5 +14,5 @@ async function test(){
     filePath = null;
     destPath = null;
     lines = null;
-};
+}
 test();

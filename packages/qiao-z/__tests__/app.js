@@ -9,8 +9,9 @@ app.listen(5277);
 
 // get
 app.get('/', function(req, res){
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
+    res.render('./__tests__/views/index.html');
+    res.response.writeHead(200, { 'Content-Type': 'application/json' });
+    res.response.end(JSON.stringify({
         data: 'Hello World!'
     }));
 });

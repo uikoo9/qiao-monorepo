@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * rollup.config.js
  */
@@ -13,5 +11,6 @@ export default {
     external: [
         'fs',
         'path',
+        'readline'
     ],
 };

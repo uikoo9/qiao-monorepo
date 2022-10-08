@@ -4,6 +4,9 @@ const http = require('node:http');
 // methods
 const METHODS = require('./util/methods.js');
 
+// res
+const res = require('./res.js');
+
 /**
  * app
  */
@@ -21,8 +24,29 @@ app.listen = function (port) {
     // listen
     server.listen(port || 5277);
 
-    // return
+    // server
     this.server = server;
+    this.server.on('checkContinue', () => {
+        console.log('checkContinue');
+    });
+    this.server.on('checkExpectation', () => {
+        console.log('checkExpectation');
+    });
+    this.server.on('clientError', (err) => {
+        console.log('clientError', err);
+    });
+    this.server.on('close', () => {
+        console.log('close');
+    });
+    this.server.on('connect', () => {
+        console.log('connect');
+    });
+    this.server.on('dropRequest', () => {
+        console.log('dropRequest');
+    });
+    this.server.on('upgrade', () => {
+        console.log('upgrade');
+    });
 };
 
 /**
@@ -40,6 +64,8 @@ app.get = function (path, callback) {
     this.server.on('request', (request, response) => {
         if (request.method != METHODS.get) return;
 
-        callback(request, response);
+        res.response = response;
+
+        callback(request, res);
     });
 };

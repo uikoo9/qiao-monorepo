@@ -67,7 +67,7 @@ export const readFileLineByLine = (filePath, onLine, onClose) => {
  * @returns 
  */
 export const readFileLineByLineSync = (filePath) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         // lines
         let lines = [];
 

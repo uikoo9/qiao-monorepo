@@ -1,1 +1,10 @@
-module.exports = require('./src/qiao-z.js');
+// app
+const app = require('./src/app.js');
+
+/**
+ * q
+ * @returns app
+ */
+module.exports = function(){
+    return app;
+};
