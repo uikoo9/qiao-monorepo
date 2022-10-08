@@ -1,13 +1,19 @@
-// v
-const v = require('../index.js');
+// q
+const q = require('../index.js');
 
 // app
-const app = v();
+const app = q();
 
 // listen
 app.listen(5277);
 
 // get
-app.get('/1', function(req, res){
-    res.render('./__tests__/views/index.html');
+app.get('/*', function(req, res){
+    const data = {
+        user: {
+            name: 'jack'
+        }
+    };
+
+    res.render('./__tests__/views/index.html', data);
 });

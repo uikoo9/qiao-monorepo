@@ -1,6 +1,9 @@
 // qiao
 const qiao = require('qiao-file');
 
+// template
+const template = require('art-template');
+
 // out
 const out = require('./out.js');
 
@@ -18,9 +21,10 @@ module.exports = function (response) {
 /**
  * render
  * @param {*} filePath 
+ * @param {*} data 
  * @returns 
  */
-function render(filePath) {
+function render(filePath, data) {
     if (!filePath) {
         out.error(this.response, 'render: please check file path!');
         return;
@@ -32,7 +36,7 @@ function render(filePath) {
         return;
     }
 
-    const html = qiao.readFile(finalPath);
+    var html = template(finalPath, data || {});
     if (!html) {
         out.error(this.response, 'render: read file error');
         return;
