@@ -19,7 +19,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@sentry/electron": "^4.0.2",
+    "@sentry/electron": "^4.0.3",
     "qiao-config": "^0.3.5",
     "qiao-file": "^0.4.4",
     "qiao-json": "^0.1.0",

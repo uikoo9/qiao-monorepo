@@ -24,7 +24,7 @@
     "uploaddmg": "qelectron ud ./qe-pack/qe.config.js"
   },
   "devDependencies": {
-    "electron": "^19.0.8",
+    "electron": "^21.1.0",
     "qiao-electron-cli": "^0.8.6"
   }
 }
