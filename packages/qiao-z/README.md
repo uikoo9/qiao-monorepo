@@ -12,6 +12,10 @@ npm i qiao-z
 
 ## 使用
 ```javascript
+/**
+ * |-- app.js
+ */
+
 // app
 const app = require('qiao-z')();
 
@@ -19,8 +23,29 @@ const app = require('qiao-z')();
 app.listen(5277);
 ```
 
-## req
-### req.url
+## controller
+### init
+
+约定大于配置，自动识别项目下以Controller.js结尾的文件
+
+```javascript
+/**
+ * |-- server
+ *      |-- controller
+ *              |-- IndexController.js
+ */
+
+// index controller
+module.exports = function (app) {
+    // index
+    app.get('/*', function (req, res) {
+        res.render('./views/index.html');
+    });
+};
+```
+
+### req
+#### req.url
 
 获取解析后的url
 
@@ -42,7 +67,7 @@ app.listen(5277);
 }
 ```
 
-### req.headers
+#### req.headers
 
 获取headers
 
@@ -66,8 +91,8 @@ app.listen(5277);
 }
 ```
 
-## res
-### res.redirect
+### res
+#### res.redirect
 
 重定向
 
@@ -75,7 +100,7 @@ app.listen(5277);
 res.redirect('/')
 ```
 
-### res.render
+#### res.render
 
 渲染html，支持模板渲染，基于[art-template](https://aui.github.io/art-template/zh-cn/docs/)
 
@@ -90,23 +115,6 @@ const data = {
 	}
 };
 res.render('./views/index.html', data);
-```
-
-## controller
-
-约定大于配置，自动识别项目下以Controller.js结尾的文件
-
-```javascript
-// 例如server/controller/IndexController
-/**
- * index controller
- */
-module.exports = function (app) {
-    // index
-    app.get('/*', function (req, res) {
-        res.render('./views/index.html');
-    });
-};
 ```
 
 ## version
