@@ -1,5 +1,5 @@
 // routers
-const routers = [];
+const routers = {};
 
 // init
 const initMethods = require('./src/init/init-methods.js');

@@ -57,4 +57,4 @@ function render(filePath, data) {
     this.response.writeHeader(200, { "Content-Type": "text/html" });
     this.response.write(html);
     this.response.end();
-};
+}

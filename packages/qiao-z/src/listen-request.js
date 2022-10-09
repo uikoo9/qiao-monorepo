@@ -3,37 +3,44 @@ const out = require('./out.js');
 
 /**
  * listen request
- * @param {*} routers 
  * @param {*} request 
  * @param {*} response 
+ * @param {*} routers 
  * @returns 
  */
-module.exports = function (routers, request, response) {
-    if (!routers || !routers.length) {
-        out.error(response, 'can not get router');
+module.exports = function (request, response, routers) {
+    if (Object.keys(routers).length === 0) {
+        out.error(response, 'no routers');
         return;
     }
 
-    // handle req
+    // req res
     const req = require('./req.js')(request);
-
-    // handle res
     const res = require('./res.js')(response);
 
+    // req method
+    const reqMethod = req.request.method.toLowerCase();
+    const reqRouters = routers[reqMethod];
+    if (!reqRouters || !reqRouters.length) {
+        out.error(response, 'no routers');
+        return;
+    }
+
     // check *
-    if (checkAll(routers, req, res)) return;
+    if (checkAll(reqRouters, req, res)) return;
 
     // check path
-    if (checkPath(routers, req, res)) return;
+    if (checkPath(reqRouters, req, res)) return;
 
     // check other
     let check;
-    for (let i = 0; i < routers.length; i++) {
-        const r = handleRequest(routers[i], req, res);
-        if (r) check = true;
+    for (let i = 0; i < reqRouters.length; i++) {
+        const r = handleRequest(reqRouters[i], req, res);
+        if (r){
+            check = true;
+            break;
+        }
     }
-
-    // res
     if (!check) {
         out.error(response, 'can not get router');
         return;
@@ -44,9 +51,6 @@ module.exports = function (routers, request, response) {
 function checkAll(routers, req, res) {
     let routerAll;
     for (let i = 0; i < routers.length; i++) {
-        // check method
-        if (routers[i].method.toUpperCase() != req.request.method) continue;
-
         // check *
         if (routers[i].path == '/*') {
             routerAll = routers[i];
@@ -62,9 +66,6 @@ function checkAll(routers, req, res) {
 function checkPath(routers, req, res) {
     let routerPath;
     for (let i = 0; i < routers.length; i++) {
-        // check method
-        if (routers[i].method.toUpperCase() != req.request.method) continue;
-
         // check path
         if (routers[i].path == req.url.pathname) {
             routerPath = routers[i];
@@ -77,9 +78,6 @@ function checkPath(routers, req, res) {
 
 // handle get request
 function handleRequest(r, req, res) {
-    // check method
-    if (r.method.toUpperCase() != req.request.method) return;
-
     // check path /:params
     if (r.path.indexOf(':') > -1) {
         const f = r.path.split(':')[0];

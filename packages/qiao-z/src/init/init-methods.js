@@ -10,8 +10,8 @@ const methods = ['get'];
 module.exports = function (app, routers) {
     methods.forEach(function(v){
         app[v] = function (path, callback) {
-            routers.push({
-                method: v,
+            routers[v] = routers[v] || [];
+            routers[v].push({
                 path: path,
                 callback: callback
             });

@@ -9,9 +9,9 @@ module.exports = function (app) {
     };
 
     // index
-    // app.get('/*', function (req, res) {
-    //     res.render('./__tests__/views/index.html', data);
-    // });
+    app.get('/*', function (req, res) {
+        res.render('./__tests__/views/index.html', data);
+    });
 
     // params
     app.get('/2', function (req, res) {

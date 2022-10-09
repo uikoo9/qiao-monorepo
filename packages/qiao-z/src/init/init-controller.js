@@ -12,11 +12,4 @@ module.exports = function (app) {
         
         if (/Controller\.js$/.test(file)) require(file)(app);
     });
-
-    // other controller
-    // if (options.modules) {
-    //     options.modules.forEach((init) => {
-    //         init(app);
-    //     });
-    // }
 };

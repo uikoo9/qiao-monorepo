@@ -39,7 +39,7 @@ module.exports = function (port, routers) {
 
     // request
     server.on('request', (request, response) => {
-        listenRequest(routers, request, response);
+        listenRequest(request, response, routers);
     });
 
     // listen
