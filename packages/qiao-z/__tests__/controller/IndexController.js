@@ -22,7 +22,4 @@ module.exports = function (app) {
         console.log(req.params.md);
         res.render('./__tests__/views/index.html', data);
     });
-
-    // static
-    app.static('/static', './__tests__/static');
 };
