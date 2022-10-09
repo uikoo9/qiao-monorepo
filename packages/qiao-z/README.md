@@ -27,6 +27,7 @@ app.listen(5277);
 ### 0.0.2.20221009
 1. headers
 2. docs
+3. static
 
 ### 0.0.1.20221008
 1. init project
