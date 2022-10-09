@@ -37,18 +37,26 @@ function redirect(url) {
  * @returns 
  */
 function render(filePath, data) {
+    // check
     if (!filePath) {
         out.error(this.response, 'render: please check file path!');
         return;
     }
 
+    // final path
     const finalPath = qiao.path.resolve(process.cwd(), filePath);
     if (!qiao.isExists(filePath)) {
         out.error(this.response, 'render: file path is not exists');
         return;
     }
 
-    var html = template(finalPath, data || {});
+    // html
+    let html;
+    if(qiao.extname(finalPath) != '.html'){
+        html = qiao.readFile(finalPath);
+    }else{
+        html = template(finalPath, data || {});
+    }
     if (!html) {
         out.error(this.response, 'render: read file error');
         return;
