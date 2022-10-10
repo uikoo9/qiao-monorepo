@@ -26,6 +26,9 @@ module.exports = function (request, response, routers) {
         return;
     }
 
+    // check static
+    if (checkStatic(reqRouters, req, res)) return;
+
     // check *
     if (checkAll(reqRouters, req, res)) return;
 
@@ -36,7 +39,7 @@ module.exports = function (request, response, routers) {
     let check;
     for (let i = 0; i < reqRouters.length; i++) {
         const r = handleRequest(reqRouters[i], req, res);
-        if (r){
+        if (r) {
             check = true;
             break;
         }
@@ -47,11 +50,22 @@ module.exports = function (request, response, routers) {
     }
 };
 
+// check static
+function checkStatic(routers, req, res) {
+    let routerStatic;
+    for (let i = 0; i < routers.length; i++) {
+        if (routers[i].static) {
+            routerStatic = handleRequest(routers[i], req, res);
+        }
+    }
+
+    return routerStatic;
+}
+
 // check all
 function checkAll(routers, req, res) {
     let routerAll;
     for (let i = 0; i < routers.length; i++) {
-        // check *
         if (routers[i].path == '/*') {
             routerAll = routers[i];
             routerAll.callback(req, res);
@@ -66,7 +80,6 @@ function checkAll(routers, req, res) {
 function checkPath(routers, req, res) {
     let routerPath;
     for (let i = 0; i < routers.length; i++) {
-        // check path
         if (routers[i].path == req.url.pathname) {
             routerPath = routers[i];
             routerPath.callback(req, res);

@@ -8,18 +8,21 @@ module.exports = function (app) {
         }
     };
 
-    // index
-    // app.get('/*', function (req, res) {
-    //     res.render('./__tests__/views/index.html', data);
-    // });
-
-    // params
-    app.get('/2', function (req, res) {
-        console.log(111);
-        res.render('./__tests__/views/index.html', data);
+    // check all
+    app.get('/*', function (req, res) {
+        console.log('/*', req.url);
+        res.render('./views/index.html', data);
     });
+
+    // check path
+    app.get('/2', function (req, res) {
+        console.log('/2', req.url);
+        res.render('./views/index.html', data);
+    });
+
+    // check params
     app.get('/2/:md', function (req, res) {
-        console.log(req.params.md);
-        res.render('./__tests__/views/index.html', data);
+        console.log('/2/:md', req.params.md, req.url);
+        res.render('./views/index.html', data);
     });
 };

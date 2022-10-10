@@ -13,7 +13,7 @@ const initController = require('./init/init-controller.js');
 module.exports = function () {
     let app = {};
     initMethods(app, routers);
-    initStatic(app);
+    initStatic(app, routers);
     initListen(app, routers);
     initController(app);
 
