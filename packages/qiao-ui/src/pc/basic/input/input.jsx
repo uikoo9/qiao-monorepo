@@ -22,8 +22,9 @@ export const Input = (props) => {
         <input
             type={props.type}
             placeholder={props.placeholder}
-            onChange={props.onChange}
             value={props.value}
+            onChange={props.onChange}
+            onKeyPress={props.onKeyPress}
         />
     </div>;
 
