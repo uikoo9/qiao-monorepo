@@ -25,7 +25,7 @@
     "dependencies": {
         "art-template": "^4.13.2",
         "cookie-parser": "^1.4.6",
-        "express": "^4.18.1",
+        "express": "^4.18.2",
         "express-art-template": "^1.0.1",
         "qiao-file": "^1.0.1",
         "qiao-json": "^0.1.0"
