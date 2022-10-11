@@ -125,7 +125,9 @@ module.exports = {
     // runner: "jest-runner",
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    // setupFiles: [],
+    "setupFiles": [
+        "fake-indexeddb/auto"
+    ],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
     // setupFilesAfterEnv: [],
@@ -147,8 +149,8 @@ module.exports = {
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
-    // "**/__tests__/**/*.[jt]s?(x)",
-    // "**/?(*.)+(spec|test).[tj]s?(x)",
+        // "**/__tests__/**/*.[jt]s?(x)",
+        // "**/?(*.)+(spec|test).[tj]s?(x)",
         '**/__tests__/*.js'
     ],
 
