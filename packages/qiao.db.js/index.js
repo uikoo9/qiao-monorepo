@@ -70,7 +70,7 @@ const newDB = async (db) => {
     if (!databaseName || !databaseVersion) return;
     db.close();
 
-    return await exports.openDB(databaseName, ++databaseVersion);
+    return await openDB(databaseName, ++databaseVersion);
 };
 
 // db
