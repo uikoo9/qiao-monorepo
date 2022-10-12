@@ -1,6 +1,6 @@
 {
   "name": "qiao-lerna",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "lerna tools",
   "keywords": [
     "lerna",
@@ -22,7 +22,7 @@
     "npm-check-updates": "^16.3.11",
     "qiao-cli": "^0.3.3",
     "qiao-console": "^0.1.2",
-    "qiao-npms": "^0.1.4",
+    "qiao-npms": "^0.1.5",
     "qiao-parallel": "^1.0.2"
   },
   "gitHead": "3ee6a703cf9078dfa740a3528439ba84bb9a0990"
