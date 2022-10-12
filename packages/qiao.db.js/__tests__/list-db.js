@@ -2,11 +2,11 @@
 
 var q = require('../index.js');
 
-var test = async function(){
-    try{
+var test = async function () {
+    try {
         var dbs = await q.listDB();
         console.log(dbs);
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
 };

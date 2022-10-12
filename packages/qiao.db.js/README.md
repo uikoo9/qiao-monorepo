@@ -20,14 +20,16 @@ npm i qiao.db.js
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	try{
-		var databaseName	= 'db_test';
-		var db				= await q.openDB(databaseName);
-		console.log(db);
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+    var databaseName = 'db_test';
+    var tableName = 't_test1';
+
+    try {
+        var db = await q.openDB(databaseName);
+        await q.clear(db, tableName);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -42,13 +44,13 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	try{
-		var dbs = await q.listDB();
-		console.log(dbs);
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+    try {
+        var dbs = await q.listDB();
+        console.log(dbs);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -63,13 +65,13 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	try{
-		var databaseName = 'db_test';
-		await q.delDB(databaseName);
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+    try {
+        var databaseName = 'db_test';
+        await q.delDB(databaseName);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -84,37 +86,37 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	var databaseName	= 'db_test';
-	var tables 			= [{
-		name : 't_test1',
-		key : 'id',
-		index : [{
-			name : 'name',
-			index: 'name',
-			unique : false
-		}]
-	},{
-		name : 't_test2',
-		key : 'auto',
-		index : [{
-			name : 'name',
-			index: 'name',
-			unique : false
-		},{
-			name : 'email',
-			index: ['name', 'email'],
-			unique : true
-		}]
-	}];
+var test = async function () {
+    var databaseName = 'db_test';
+    var tables = [{
+        name: 't_test1',
+        key: 'id',
+        index: [{
+            name: 'name',
+            index: 'name',
+            unique: false
+        }]
+    }, {
+        name: 't_test2',
+        key: 'auto',
+        index: [{
+            name: 'name',
+            index: 'name',
+            unique: false
+        }, {
+            name: 'email',
+            index: ['name', 'email'],
+            unique: true
+        }]
+    }];
 
-	try{
-		var db 	= await q.openDB(databaseName);
-		var res = await q.createTable(db, tables);
-		console.log(res);
-	}catch(e){
-		console.log(e);
-	}
+    try {
+        var db = await q.openDB(databaseName);
+        var res = await q.createTable(db, tables);
+        console.log(res);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -129,14 +131,14 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	try{
-		var databaseName	= 'db_test';
-		var db 				= await q.openDB(databaseName);
-		await q.delTable(db, 't_test2');
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+    try {
+        var databaseName = 'db_test';
+        var db = await q.openDB(databaseName);
+        await q.delTable(db, 't_test2');
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -151,23 +153,23 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	try{
-		var databaseName 	= 'db_test';
-		var db 				= await q.openDB(databaseName);
+var test = async function () {
+    try {
+        var databaseName = 'db_test';
+        var db = await q.openDB(databaseName);
 
-		var tableName 	= 't_test1';
-		var data 		= { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		await q.save(db, tableName, data.id, data);
+        var tableName = 't_test1';
+        var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
+        await q.save(db, tableName, data.id, data);
 
-		data.name = '1';
-		await q.save(db, tableName, data.id, data);
+        data.name = '1';
+        await q.save(db, tableName, data.id, data);
 
-		var data1 		= { id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' };
-		await q.save(db, tableName, data1.id, data1);
-	}catch(e){
-		console.log(e);
-	}
+        var data1 = { id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' };
+        await q.save(db, tableName, data1.id, data1);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -182,17 +184,17 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	var databaseName 	= 'db_test';
-	var tableName		= 't_test1';
+var test = async function () {
+    var databaseName = 'db_test';
+    var tableName = 't_test1';
 
-	try{
-		var db 	= await q.openDB(databaseName);
-		var s 	= await q.get(db, tableName, 1);
-		console.log(s);
-	}catch(e){
-		console.log(e);
-	}
+    try {
+        var db = await q.openDB(databaseName);
+        var s = await q.get(db, tableName, 1);
+        console.log(s);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -207,16 +209,16 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	var databaseName 	= 'db_test';
-	var tableName		= 't_test1';
+var test = async function () {
+    var databaseName = 'db_test';
+    var tableName = 't_test1';
 
-	try{
-		var db = await q.openDB(databaseName);
-		await q.del(db, tableName, 2);
-	}catch(e){
-		console.log(e);
-	}
+    try {
+        var db = await q.openDB(databaseName);
+        await q.del(db, tableName, 2);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -231,16 +233,16 @@ test();
 
 var q = require('qiao.db.js');
 
-var test = async function(){
-	var databaseName 	= 'db_test';
-	var tableName		= 't_test1';
+var test = async function () {
+    var databaseName = 'db_test';
+    var tableName = 't_test1';
 
-	try{
-		var db = await q.openDB(databaseName);
-		await q.clear(db, tableName);
-	}catch(e){
-		console.log(e);
-	}
+    try {
+        var db = await q.openDB(databaseName);
+        await q.clear(db, tableName);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();

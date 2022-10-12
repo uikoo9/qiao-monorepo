@@ -2,11 +2,11 @@
 
 var q = require('../index.js');
 
-var test = async function(){
-    try{
+var test = async function () {
+    try {
         var databaseName = 'db_test';
         await q.delDB(databaseName);
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
 };
