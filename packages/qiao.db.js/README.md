@@ -5,6 +5,11 @@
 
 浏览器IndexedDB数据库常见api封装
 
+## install
+```bash
+npm i qiao.db.js
+```
+
 ## api
 ### openDB
 
@@ -242,6 +247,9 @@ test();
 ```
 
 ## version
+### 0.1.1.20221012
+1. 1.0.0 publish
+   
 ### 0.1.0.20220513
 1. lerna
 
