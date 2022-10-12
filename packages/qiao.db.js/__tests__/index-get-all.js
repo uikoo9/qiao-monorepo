@@ -9,7 +9,7 @@ var test = async function(){
 
     try{
         var db 	= await q.openDB(databaseName);
-        var s 	= await q.igetAll(db, tableName, indexName);
+        var s 	= await q.getAll(db, tableName, indexName);
         console.log(s);
     }catch(e){
         console.log(e);

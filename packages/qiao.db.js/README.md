@@ -1,7 +1,9 @@
 # qiao.db.js
+[![npm version](https://img.shields.io/npm/v/qiao.db.js.svg?style=flat-square)](https://www.npmjs.org/package/qiao.db.js)
+[![npm downloads](https://img.shields.io/npm/dm/qiao.db.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.db.js)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.db.js)
 
-## documentation
-1. indexeddb, [https://wangdoc.com/javascript/bom/indexeddb.html](https://wangdoc.com/javascript/bom/indexeddb.html)
+浏览器IndexedDB数据库常见api封装
 
 ## api
 ### openDB

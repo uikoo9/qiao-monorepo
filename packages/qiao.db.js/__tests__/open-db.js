@@ -2,11 +2,14 @@
 
 var q = require('../index.js');
 
-// open db
-test('open db', async function () {
-    var databaseName = 'db_test';
-    var db = await q.openDB(databaseName);
-    console.log(db);
+var test = async function(){
+    try{
+        var databaseName 	= 'db_test';
+        var db 				= await q.openDB(databaseName);
+        console.log(db);
+    }catch(e){
+        console.log(e);
+    }
+};
 
-    expect(db).toBeDefined();
-});
+test();

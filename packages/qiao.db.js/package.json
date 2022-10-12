@@ -26,7 +26,6 @@
         "eslint": "eslint . --ext .js -c _config.eslint.js",
         "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
         "prepublish": "npm run build && npm run eslintfix",
-        "pack": "qwebpack build ./webpack/qiao.webpack.js",
-        "test": "jest --config _config.jest.js"
+        "dist": "qwebpack build ./webpack/qiao.webpack.js"
     }
 }
