@@ -4,7 +4,8 @@
  * axios
  * 	https://www.npmjs.com/package/axios
  */
-const axios = require('axios').default;
+const fakeAxios = require('axios');
+const axios = fakeAxios.default || fakeAxios;
 
 /**
  * get
