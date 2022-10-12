@@ -2,7 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var axios = require('axios');
+/**
+ * axios
+ * 	https://www.npmjs.com/package/axios
+ */
+const axios = require('axios').default;
 
 /**
  * get
@@ -89,7 +93,7 @@ const req = (url, method, config) => {
 
     if (config) options = Object.assign(options, config);
 
-    return axios.default.request(options);
+    return axios.request(options);
 };
 
 exports.deleteReq = deleteReq;

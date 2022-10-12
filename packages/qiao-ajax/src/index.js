@@ -4,7 +4,7 @@
  * axios
  * 	https://www.npmjs.com/package/axios
  */
-import axios from 'axios';
+const axios = require('axios').default;
 
 /**
  * get
@@ -91,5 +91,5 @@ const req = (url, method, config) => {
 
     if (config) options = Object.assign(options, config);
 
-    return axios.default.request(options);
+    return axios.request(options);
 };
