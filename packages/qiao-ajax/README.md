@@ -1,4 +1,7 @@
 # qiao-ajax
+[![npm version](https://img.shields.io/npm/v/qiao-ajax.svg?style=flat-square)](https://www.npmjs.org/package/qiao-ajax)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-ajax.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-ajax)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-ajax)
 
 ## api
 ### get
@@ -28,6 +31,9 @@ test();
 ### options
 
 ## version
+### 0.0.7.20221012
+1. axios.default
+   
 ### 0.0.6.20220510
 1. ncu
 
