@@ -235,9 +235,15 @@ const clear = (db, tableName) => {
 
 // get data
 function getData(db, tableName, key, cb) {
+    // check
+    if(!db || !tableName || !key){
+        cb(null);
+        return;
+    }
+
+    // get
     const tx = db.transaction([tableName], 'readonly');
     const request = tx.objectStore(tableName).get(key);
-
     request.onerror = () => {
         if (cb) cb(null);
     };
