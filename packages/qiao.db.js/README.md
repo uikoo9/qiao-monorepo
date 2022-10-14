@@ -3,7 +3,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/qiao.db.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.db.js)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.db.js)
 
-浏览器IndexedDB数据库常见api封装
+浏览器IndexedDB数据库常见api封装，详情：[一篇文章学会IndexedDB](https://blog.insistime.com/indexeddb)
 
 ## install
 ```bash
