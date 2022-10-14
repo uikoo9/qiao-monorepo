@@ -1,4 +1,4 @@
-# qiao.db.js
+## qiao.db.js
 [![npm version](https://img.shields.io/npm/v/qiao.db.js.svg?style=flat-square)](https://www.npmjs.org/package/qiao.db.js)
 [![npm downloads](https://img.shields.io/npm/dm/qiao.db.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.db.js)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.db.js)
@@ -240,6 +240,32 @@ var test = async function () {
     try {
         var db = await q.openDB(databaseName);
         await q.clear(db, tableName);
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+test();
+```
+
+### getAll
+
+按索引获取所有数据
+
+```javascript
+'use strict';
+
+var q = require('qiao.db.js');
+
+var test = async function () {
+    var databaseName = 'db_test';
+    var tableName = 't_test1';
+    var indexName = 'name';
+
+    try {
+        var db = await q.openDB(databaseName);
+        var s = await q.getAll(db, tableName, indexName);
+        console.log(s);
     } catch (e) {
         console.log(e);
     }
