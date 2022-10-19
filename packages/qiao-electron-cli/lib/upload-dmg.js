@@ -24,7 +24,7 @@ module.exports = async function(config){
     var client      = q.client(cosConfig);
     
     // dest path
-    var dmgName     = `${config.appName}-${config.appEnv}-${config.appVersion}`;
+    var dmgName     = `${config.appName}-${config.appEnv}-${config.appVersion}-${config.arch}`;
     var dmgPath     = path.resolve(process.cwd(), `${config.outPath}/dmg/${dmgName}.dmg`);
     var destPath	= `${cosConfig.destPath}${dmgName}.dmg`;
     
