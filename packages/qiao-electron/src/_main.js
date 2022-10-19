@@ -3,9 +3,6 @@
 // dialog
 export * from './dialog/dialog-main/dialog-main.js';
 
-// qiao-file
-export * from 'qiao-file';
-
 // log
 export * from './log/_log.js';
 
@@ -14,9 +11,6 @@ export * from './ls/_ls.js';
 
 // menu
 export * from './menu/menu.js';
-
-// sentry
-export * from './sentry/sentry.js';
 
 // shell
 export * from './shell/shell-main.js';

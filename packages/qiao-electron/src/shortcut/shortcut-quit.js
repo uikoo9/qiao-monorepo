@@ -7,7 +7,7 @@ import { app, globalShortcut } from 'electron';
  * shortcutInit
  */
 export const shortcutInit = () => {
-  app.on('will-quit', () => {
-    globalShortcut.unregisterAll();
-  });
+    app.on('will-quit', () => {
+        globalShortcut.unregisterAll();
+    });
 };

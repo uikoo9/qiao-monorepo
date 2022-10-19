@@ -1,4 +1,8 @@
-# qiao-electron
+## qiao-electron
+[![npm version](https://img.shields.io/npm/v/qiao-electron.svg?style=flat-square)](https://www.npmjs.org/package/qiao-electron)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-electron.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-electron)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-electron)
+
 封装了一些常见的electron主进程操作
 
 ## ipc

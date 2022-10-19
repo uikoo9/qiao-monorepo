@@ -34,4 +34,4 @@ export function windowOpenByFile(filePath, options, supportNode){
 
     // return
     return win;
-};
+}

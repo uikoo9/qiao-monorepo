@@ -18,7 +18,7 @@ export const shortcutReg = (shortcutKey, shortcutCallback) => {
  * shortcutUnReg
  * @param {*} shortcutKey 
  */
- export const shortcutUnReg = (shortcutKey) => {
+export const shortcutUnReg = (shortcutKey) => {
     if(!shortcutKey) return;
     
     return globalShortcut.unregister(shortcutKey);

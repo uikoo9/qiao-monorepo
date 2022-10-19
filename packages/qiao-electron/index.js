@@ -7,7 +7,6 @@ var qiaoFile = require('qiao-file');
 var path = require('path');
 var qiaoLog = require('qiao-log');
 var qiaoConfig = require('qiao-config');
-var electron$1 = require('@sentry/electron');
 var qiaoSqlite = require('qiao-sqlite');
 var qiaoJson = require('qiao-json');
 
@@ -20,10 +19,10 @@ const IPC_APP_GET_VERSION = 'ipc-app-get-version';
  * appIPCInit
  */
 const appIPCInit = (version) => {
-  // ipc get app version
-  electron.ipcMain.handle(IPC_APP_GET_VERSION, () => {
-    return version;
-  });
+    // ipc get app version
+    electron.ipcMain.handle(IPC_APP_GET_VERSION, () => {
+        return version;
+    });
 };
 
 /**
@@ -36,18 +35,18 @@ const IPC_DARKMODE_GET   = 'ipc-darkmode-get';
  * darkModeIPCInit
  */
 const darkModeIPCInit = () => {
-  // native theme updated
-  electron.nativeTheme.on('updated', () => {
-    const wins = electron.BrowserWindow.getAllWindows();
-    for(let win of wins){
-      win.webContents.send(IPC_DARKMODE_CHANGE, electron.nativeTheme.shouldUseDarkColors);
-    }
-  });
+    // native theme updated
+    electron.nativeTheme.on('updated', () => {
+        const wins = electron.BrowserWindow.getAllWindows();
+        for(let win of wins){
+            win.webContents.send(IPC_DARKMODE_CHANGE, electron.nativeTheme.shouldUseDarkColors);
+        }
+    });
 
-  // ipc darkmode get
-  electron.ipcMain.handle(IPC_DARKMODE_GET, () => {
-    return electron.nativeTheme.shouldUseDarkColors;
-  });
+    // ipc darkmode get
+    electron.ipcMain.handle(IPC_DARKMODE_GET, () => {
+        return electron.nativeTheme.shouldUseDarkColors;
+    });
 };
 
 /**
@@ -115,20 +114,20 @@ async function openDialog(options, defaultProps){
  * dialogIPCInit
  */
 const dialogIPCInit = () => {
-  // ipc dialog open file
-  electron.ipcMain.handle(IPC_DIALOG_OPEN_FILE, async (event, options) => {
-    return await dialogOpenFile(options);
-  });
+    // ipc dialog open file
+    electron.ipcMain.handle(IPC_DIALOG_OPEN_FILE, async (event, options) => {
+        return await dialogOpenFile(options);
+    });
 
-  // ipc dialog open folder
-  electron.ipcMain.handle(IPC_DIALOG_OPEN_FOLDER, async (event, options) => {
-    return await dialogOpenFolder(options);
-  });
+    // ipc dialog open folder
+    electron.ipcMain.handle(IPC_DIALOG_OPEN_FOLDER, async (event, options) => {
+        return await dialogOpenFolder(options);
+    });
 
-  // ipc dialog open file and folder
-  electron.ipcMain.handle(IPC_DIALOG_OPEN_FILE_FOLDER, async (event, options) => {
-    return await dialogOpenFileAndFolder(options);
-  });
+    // ipc dialog open file and folder
+    electron.ipcMain.handle(IPC_DIALOG_OPEN_FILE_FOLDER, async (event, options) => {
+        return await dialogOpenFileAndFolder(options);
+    });
 };
 
 /**
@@ -145,47 +144,47 @@ const IPC_FS_WRITE_FILE  = 'ipc-fs-write-file';
  * fsIPCInit
  */
 const fsIPCInit = () => {
-  // ipc fs rm
-  electron.ipcMain.handle(IPC_FS_RM, (event, rmPath) => {
-    if(!rmPath) return;
+    // ipc fs rm
+    electron.ipcMain.handle(IPC_FS_RM, (event, rmPath) => {
+        if(!rmPath) return;
 
-    return qiaoFile.rm(rmPath);
-  });
+        return qiaoFile.rm(rmPath);
+    });
 
-  // ipc fs mkdir
-  electron.ipcMain.handle(IPC_FS_MKDIR, (event, dir) => {
-    if(!dir) return;
+    // ipc fs mkdir
+    electron.ipcMain.handle(IPC_FS_MKDIR, (event, dir) => {
+        if(!dir) return;
 
-    return qiaoFile.mkdir(dir);
-  });
+        return qiaoFile.mkdir(dir);
+    });
 
-  // ipc fs rename
-  electron.ipcMain.handle(IPC_FS_RENAME, (event, oldPath, newPath) => {
-    if(!oldPath || !newPath) return;
+    // ipc fs rename
+    electron.ipcMain.handle(IPC_FS_RENAME, (event, oldPath, newPath) => {
+        if(!oldPath || !newPath) return;
 
-    return qiaoFile.mv(oldPath, newPath);
-  });
+        return qiaoFile.mv(oldPath, newPath);
+    });
   
-  // ipc fs get tree
-  electron.ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignores) => {
-    if(!dir) return;
+    // ipc fs get tree
+    electron.ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignores) => {
+        if(!dir) return;
 
-    return qiaoFile.lstree(dir, ignores);
-  });
+        return qiaoFile.lstree(dir, ignores);
+    });
 
-  // ipc fs read file
-  electron.ipcMain.handle(IPC_FS_READ_FILE, (event, filePath) => {
-    if(!filePath) return;
+    // ipc fs read file
+    electron.ipcMain.handle(IPC_FS_READ_FILE, (event, filePath) => {
+        if(!filePath) return;
 
-    return qiaoFile.readFile(filePath);
-  });
+        return qiaoFile.readFile(filePath);
+    });
 
-  // ipc fs write file
-  electron.ipcMain.handle(IPC_FS_WRITE_FILE, (event, filePath, fileData) => {
-    if(!filePath) return;
+    // ipc fs write file
+    electron.ipcMain.handle(IPC_FS_WRITE_FILE, (event, filePath, fileData) => {
+        if(!filePath) return;
 
-    return qiaoFile.writeFile(filePath, fileData);
-  });
+        return qiaoFile.writeFile(filePath, fileData);
+    });
 };
 
 /**
@@ -208,20 +207,20 @@ const IPC_LOG = 'ipc-log';
  * logIPCInit
  */
 const logIPCInit = () => {
-  // Logger
-  const Logger = logInit();
+    // Logger
+    const Logger = logInit();
 
-  // ipc log
-  electron.ipcMain.on(IPC_LOG, (event, arg) => {
+    // ipc log
+    electron.ipcMain.on(IPC_LOG, (event, arg) => {
     // check
-    if(!arg || !arg.msg) return;
+        if(!arg || !arg.msg) return;
   
-    // log
-    let type = arg.type || 'info';
-    if(type == 'info')  Logger.info(arg.msg);
-    if(type == 'warn')  Logger.warn(arg.msg);
-    if(type == 'error') Logger.error(arg.msg);
-  });
+        // log
+        let type = arg.type || 'info';
+        if(type == 'info')  Logger.info(arg.msg);
+        if(type == 'warn')  Logger.warn(arg.msg);
+        if(type == 'error') Logger.error(arg.msg);
+    });
 };
 
 /**
@@ -248,38 +247,38 @@ const IPC_LS_DEL = 'ipc-ls-del';
  * lsIPCInit
  */
 const lsIPCInit = () => {
-  const _ls = ls();
+    const _ls = ls();
 
-  // ipc ls all
-  electron.ipcMain.handle(IPC_LS_ALL, () => {
-    return _ls.all();
-  });
+    // ipc ls all
+    electron.ipcMain.handle(IPC_LS_ALL, () => {
+        return _ls.all();
+    });
   
-  // ipc ls get
-  electron.ipcMain.handle(IPC_LS_GET, (event, key) => {
-    return _ls.config(key);
-  });
+    // ipc ls get
+    electron.ipcMain.handle(IPC_LS_GET, (event, key) => {
+        return _ls.config(key);
+    });
   
-  // ipc ls set
-  electron.ipcMain.handle(IPC_LS_SET, (event, args) => {
+    // ipc ls set
+    electron.ipcMain.handle(IPC_LS_SET, (event, args) => {
     // check
-    if(!args || !args.key || !args.value) return;
+        if(!args || !args.key || !args.value) return;
   
-    // set
-    _ls.config(args.key, args.value);
+        // set
+        _ls.config(args.key, args.value);
   
-    // return
-    return true;
-  });
+        // return
+        return true;
+    });
   
-  // ipc ls del
-  electron.ipcMain.handle(IPC_LS_DEL, (event, key) => {
+    // ipc ls del
+    electron.ipcMain.handle(IPC_LS_DEL, (event, key) => {
     // del
-    _ls.config(key, null);
+        _ls.config(key, null);
   
-    //return
-    return true;
-  });
+        //return
+        return true;
+    });
 };
 
 /**
@@ -292,7 +291,7 @@ const IPC_SHELL_SHOW_PATH    = 'ipc-shell-show-path';
  * shellOpenURL
  */
 const shellOpenURL = (url) => {
-  electron.shell.openExternal(url, { activate:true });
+    electron.shell.openExternal(url, { activate:true });
 };
 
 /**
@@ -300,44 +299,44 @@ const shellOpenURL = (url) => {
  * @param {*} path 
  */
 const shellShowPath = (path) => {
-  try{
-    const stat = qiaoFile.fs.statSync(path);
-    if(stat.isDirectory()){
-      electron.shell.openPath(path);
-    }else {
-      electron.shell.showItemInFolder(path);
+    try{
+        const stat = qiaoFile.fs.statSync(path);
+        if(stat.isDirectory()){
+            electron.shell.openPath(path);
+        }else {
+            electron.shell.showItemInFolder(path);
+        }
+    }catch(e){
+        console.log(e);
     }
-  }catch(e){
-    console.log(e);
-  }
 };
 
 /**
  * shellIPCInit
  */
 const shellIPCInit = () => {
-  // ipc shell open url
-  electron.ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
-    if(!url) return;
+    // ipc shell open url
+    electron.ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
+        if(!url) return;
   
-    shellOpenURL(url);
-  });
+        shellOpenURL(url);
+    });
 
-  // ipc shell show path
-  electron.ipcMain.on(IPC_SHELL_SHOW_PATH, (event, path) => {
-    if(!path) return;
+    // ipc shell show path
+    electron.ipcMain.on(IPC_SHELL_SHOW_PATH, (event, path) => {
+        if(!path) return;
   
-    shellShowPath(path);
-  });
+        shellShowPath(path);
+    });
 };
 
 /**
  * shortcutInit
  */
 const shortcutInit = () => {
-  electron.app.on('will-quit', () => {
-    electron.globalShortcut.unregisterAll();
-  });
+    electron.app.on('will-quit', () => {
+        electron.globalShortcut.unregisterAll();
+    });
 };
 
 /**
@@ -349,13 +348,13 @@ const IPC_WINDOW_RESIZE_TO = 'ipc-window-resize-to';
  * windowIPCInit
  */
 const windowIPCInit = () => {
-  // ipc window resize to
-  electron.ipcMain.on(IPC_WINDOW_RESIZE_TO, (event, width, height) => {
-    if(!event || !event.sender || !width || !height) return;
+    // ipc window resize to
+    electron.ipcMain.on(IPC_WINDOW_RESIZE_TO, (event, width, height) => {
+        if(!event || !event.sender || !width || !height) return;
 
-    const win = electron.BrowserWindow.fromWebContents(event.sender);
-    win.setSize(width, height);
-  });
+        const win = electron.BrowserWindow.fromWebContents(event.sender);
+        win.setSize(width, height);
+    });
 };
 
 /**
@@ -429,7 +428,7 @@ const fsMkdirIPC = async (dir) => {
 /**
  * fsRenameIPC
  */
- const fsRenameIPC = async (oldPath, newPath) => {
+const fsRenameIPC = async (oldPath, newPath) => {
     return await electron.ipcRenderer.invoke(IPC_FS_RENAME, oldPath, newPath);
 };
 
@@ -676,20 +675,6 @@ const setApplicationMenu = (menus) => {
     electron.Menu.setApplicationMenu(electron.Menu.buildFromTemplate(finalMenus));
 };
 
-// sentry
-
-/**
- * sentry init
- * @param {*} options 
- */
-const sentryInit = (options) => {
-  // check
-  if(!options || !options.dsn) return;
-
-  // init
-  electron$1.init(options);
-};
-
 /**
  * shortcutReg
  * @param {*} shortcutKey 
@@ -705,7 +690,7 @@ const shortcutReg = (shortcutKey, shortcutCallback) => {
  * shortcutUnReg
  * @param {*} shortcutKey 
  */
- const shortcutUnReg = (shortcutKey) => {
+const shortcutUnReg = (shortcutKey) => {
     if(!shortcutKey) return;
     
     return electron.globalShortcut.unregister(shortcutKey);
@@ -755,7 +740,7 @@ const dbCreateTable = async (sql) => {
  * @param {*} tableName 
  * @returns 
  */
- const dbDropTable = async (tableName) => {
+const dbDropTable = async (tableName) => {
     // check
     if(!tableName) return jsonDanger('need tableName');
 
@@ -775,7 +760,7 @@ const dbCreateTable = async (sql) => {
  * dbShowTables
  * @returns 
  */
- const dbShowTables = async () => {
+const dbShowTables = async () => {
     // db
     const db = sqlite();
 
@@ -816,7 +801,7 @@ const dbInsertData = async (sql, params) => {
  * @param {*} params 
  * @returns 
  */
- const dbDeleteData = async (sql, params) => {
+const dbDeleteData = async (sql, params) => {
     // check
     if(!sql) return jsonDanger('need delete data sql');
 
@@ -838,7 +823,7 @@ const dbInsertData = async (sql, params) => {
  * @param {*} params 
  * @returns 
  */
- const dbModifyData = async (sql, params) => {
+const dbModifyData = async (sql, params) => {
     // check
     if(!sql) return jsonDanger('need modify data sql');
 
@@ -860,7 +845,7 @@ const dbInsertData = async (sql, params) => {
  * @param {*} params 
  * @returns 
  */
- const dbSelectData = async (sql, params) => {
+const dbSelectData = async (sql, params) => {
     // check
     if(!sql) return jsonDanger('need select data sql');
 
@@ -1014,7 +999,6 @@ exports.jsonSuccess = jsonSuccess;
 exports.jsonWarning = jsonWarning;
 exports.logInit = logInit;
 exports.ls = ls;
-exports.sentryInit = sentryInit;
 exports.setAboutVersion = setAboutVersion;
 exports.setApplicationMenu = setApplicationMenu;
 exports.shellOpenURL = shellOpenURL;
@@ -1026,9 +1010,3 @@ exports.windowGetByEvent = windowGetByEvent;
 exports.windowOpenByFile = windowOpenByFile;
 exports.windowOpenByUrl = windowOpenByUrl;
 exports.windowOpenByUrlAndFile = windowOpenByUrlAndFile;
-Object.keys(qiaoFile).forEach(function (k) {
-  if (k !== 'default' && !exports.hasOwnProperty(k)) Object.defineProperty(exports, k, {
-    enumerable: true,
-    get: function () { return qiaoFile[k]; }
-  });
-});

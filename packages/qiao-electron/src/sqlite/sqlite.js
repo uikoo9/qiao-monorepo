@@ -22,7 +22,7 @@ import {
 import {
     jsonSuccess,
     jsonDanger
-} from './json.js'
+} from './json.js';
 
 /**
  * sqlite
@@ -63,7 +63,7 @@ export const dbCreateTable = async (sql) => {
  * @param {*} tableName 
  * @returns 
  */
- export const dbDropTable = async (tableName) => {
+export const dbDropTable = async (tableName) => {
     // check
     if(!tableName) return jsonDanger('need tableName');
 
@@ -83,7 +83,7 @@ export const dbCreateTable = async (sql) => {
  * dbShowTables
  * @returns 
  */
- export const dbShowTables = async () => {
+export const dbShowTables = async () => {
     // db
     const db = sqlite();
 
@@ -124,7 +124,7 @@ export const dbInsertData = async (sql, params) => {
  * @param {*} params 
  * @returns 
  */
- export const dbDeleteData = async (sql, params) => {
+export const dbDeleteData = async (sql, params) => {
     // check
     if(!sql) return jsonDanger('need delete data sql');
 
@@ -146,7 +146,7 @@ export const dbInsertData = async (sql, params) => {
  * @param {*} params 
  * @returns 
  */
- export const dbModifyData = async (sql, params) => {
+export const dbModifyData = async (sql, params) => {
     // check
     if(!sql) return jsonDanger('need modify data sql');
 
@@ -168,7 +168,7 @@ export const dbInsertData = async (sql, params) => {
  * @param {*} params 
  * @returns 
  */
- export const dbSelectData = async (sql, params) => {
+export const dbSelectData = async (sql, params) => {
     // check
     if(!sql) return jsonDanger('need select data sql');
 

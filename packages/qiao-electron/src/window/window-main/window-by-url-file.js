@@ -22,4 +22,4 @@ export function windowOpenByUrlAndFile(urlPath, filePath, options){
     // file
     opt.show =false;
     return windowOpenByFile(filePath, opt);
-};
+}

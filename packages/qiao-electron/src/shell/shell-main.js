@@ -10,7 +10,7 @@ import { fs } from 'qiao-file';
  * shellOpenURL
  */
 export const shellOpenURL = (url) => {
-  shell.openExternal(url, { activate:true });
+    shell.openExternal(url, { activate:true });
 };
 
 /**
@@ -18,14 +18,14 @@ export const shellOpenURL = (url) => {
  * @param {*} path 
  */
 export const shellShowPath = (path) => {
-  try{
-    const stat = fs.statSync(path);
-    if(stat.isDirectory()){
-      shell.openPath(path);
-    }else{
-      shell.showItemInFolder(path);
+    try{
+        const stat = fs.statSync(path);
+        if(stat.isDirectory()){
+            shell.openPath(path);
+        }else{
+            shell.showItemInFolder(path);
+        }
+    }catch(e){
+        console.log(e);
     }
-  }catch(e){
-    console.log(e);
-  }
 };

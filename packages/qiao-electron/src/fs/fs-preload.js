@@ -11,7 +11,7 @@ import {
     IPC_FS_GET_TREE, 
     IPC_FS_READ_FILE,
     IPC_FS_WRITE_FILE,
-  } from './fs-constant.js';
+} from './fs-constant.js';
 
 /**
  * fsRmIPC
@@ -30,7 +30,7 @@ export const fsMkdirIPC = async (dir) => {
 /**
  * fsRenameIPC
  */
- export const fsRenameIPC = async (oldPath, newPath) => {
+export const fsRenameIPC = async (oldPath, newPath) => {
     return await ipcRenderer.invoke(IPC_FS_RENAME, oldPath, newPath);
 };
 

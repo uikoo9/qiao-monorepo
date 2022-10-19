@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * rollup.config.js
  */
@@ -13,7 +11,6 @@ export default {
     external: [
         'path',
         'electron', 
-        '@sentry/electron',
         'qiao-config',
         'qiao-file',
         'qiao-json',

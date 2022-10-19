@@ -1,7 +1,6 @@
 ## qiao-electron-cli
 [![npm version](https://img.shields.io/npm/v/qiao-electron-cli.svg?style=flat-square)](https://www.npmjs.org/package/qiao-electron-cli)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-electron-cli.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-electron-cli)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-electron-cli)
 
 electron脚手架
 

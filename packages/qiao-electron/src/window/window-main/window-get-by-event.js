@@ -14,4 +14,4 @@ export function windowGetByEvent(event){
 
     // return
     return BrowserWindow.fromWebContents(event.sender);
-};
+}

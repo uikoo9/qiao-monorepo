@@ -1,7 +1,7 @@
 'use strict';
 
 // electron
-import { ipcMain, shell } from 'electron';
+import { ipcMain } from 'electron';
 
 // const
 import { IPC_SHELL_OPEN_URL, IPC_SHELL_SHOW_PATH } from './shell-constant.js';
@@ -13,17 +13,17 @@ import { shellOpenURL, shellShowPath } from './shell-main.js';
  * shellIPCInit
  */
 export const shellIPCInit = () => {
-  // ipc shell open url
-  ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
-    if(!url) return;
+    // ipc shell open url
+    ipcMain.on(IPC_SHELL_OPEN_URL, (event, url) => {
+        if(!url) return;
   
-    shellOpenURL(url);
-  });
+        shellOpenURL(url);
+    });
 
-  // ipc shell show path
-  ipcMain.on(IPC_SHELL_SHOW_PATH, (event, path) => {
-    if(!path) return;
+    // ipc shell show path
+    ipcMain.on(IPC_SHELL_SHOW_PATH, (event, path) => {
+        if(!path) return;
   
-    shellShowPath(path);
-  });
+        shellShowPath(path);
+    });
 };

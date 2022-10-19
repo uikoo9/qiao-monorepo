@@ -29,4 +29,4 @@ export function windowOpenByUrl(url, options, supportNode, isDev){
 
     // return
     return win;
-};
+}
