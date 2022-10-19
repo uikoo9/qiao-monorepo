@@ -11,7 +11,7 @@ var q = require('qiao-file');
  */
 module.exports = function(destPath){
     var src = path.resolve(__dirname, '../_demo');
-    var dest= path.resolve(destPath, './qe');
+    var dest= path.resolve(destPath, './electron');
 
     q.cp(src, dest);
 };

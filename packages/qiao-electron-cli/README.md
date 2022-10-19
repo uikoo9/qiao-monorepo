@@ -1,11 +1,16 @@
-# qiao-electron-cli
-[electron](https://www.electronjs.org/)打包工具，
+## qiao-electron-cli
+[![npm version](https://img.shields.io/npm/v/qiao-electron-cli.svg?style=flat-square)](https://www.npmjs.org/package/qiao-electron-cli)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-electron-cli.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-electron-cli)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-electron-cli)
 
-使用[electron-packager](https://github.com/electron/electron-packager)打包应用，
+electron脚手架
 
-使用[electron-installer-dmg](https://github.com/electron-userland/electron-installer-dmg)打包dmg安装包
+## install
+```bash
+npm i -D qiao-electron-cli
+```
 
-## qe.config.js
+## qiao-electron.config.js
 ```javascript
 'use strict';
 
@@ -73,36 +78,57 @@ module.exports = config;
 ## cli
 
 ### init
-```shell
-qelectron init          /{youprojectpath}
+
+初始化一个electron项目
+
+```bash
+qelectron init /{youprojectpath}
 ```
 
 ### icon
-```shell
-qelectron icon          /{youprojectpath}/static/icon/pic.png
+
+生成mac下的icns图标
+
+```bash
+qelectron icon /{youprojectpath}/static/icon/pic.png
 ```
 
 ### dist
-```shell
-qelectron dist|d        /{yourconfigpath}/qe.config.js
+
+复制electron src文件到dist文件夹
+
+```bash
+qelectron dist|d /{yourconfigpath}/qiao-electron.config.js
 ```
 
 ### packmac
-```shell
-qelectron packmac|pm 	/{yourconfigpath}/qe.config.js
+
+打包mac下应用
+
+```bash
+qelectron packmac|pm /{yourconfigpath}/qiao-electron.config.js
 ```
 
 ### packdmg
-```shell
-qelectron packdmg|pd 	/{yourconfigpath}/qe.config.js
+
+打包mac下安装包dmg文件
+
+```bash
+qelectron packdmg|pd /{yourconfigpath}/qiao-electron.config.js
 ```
 
 ### uploaddmg
-```shell
-qelectron uploaddmg|ud 	/{yourconfigpath}/qe.config.js
+
+上传dmg文件到cos
+
+```bash
+qelectron uploaddmg|ud /{yourconfigpath}/qiao-electron.config.js
 ```
 
 ## version
+
+### 0.0.6.20221019
+1. 1.0.0
 
 ### 0.0.5.20220503
 1. mac icns
