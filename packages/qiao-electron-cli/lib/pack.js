@@ -5,7 +5,7 @@ var packager = require('electron-packager');
 var checker = require('./_check.js');
 
 /**
- * pack mac
+ * pack
  * @param {*} config 
  * @returns 
  */

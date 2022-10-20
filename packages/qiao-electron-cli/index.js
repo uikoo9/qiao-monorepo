@@ -16,9 +16,9 @@ exports.icon = require('./lib/icon.js');
 exports.dist = require('./lib/dist.js');
 
 /**
- * pack mac
+ * pack
  */
-exports.packMac = require('./lib/pack-mac.js');
+exports.pack = require('./lib/pack.js');
 
 /**
  * pack dmg

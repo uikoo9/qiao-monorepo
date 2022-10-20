@@ -10,7 +10,7 @@ qiao.cli = require('qiao-cli');
 require('./qelectron-init.js');
 require('./qelectron-icon.js');
 require('./qelectron-dist.js');
-require('./qelectron-pack-mac.js');
+require('./qelectron-pack.js');
 require('./qelectron-pack-dmg.js');
 require('./qelectron-upload-dmg.js');
 require('./qelectron-version.js');

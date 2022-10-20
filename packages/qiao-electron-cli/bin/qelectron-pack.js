@@ -12,21 +12,28 @@ qiao.qec = require('../index.js');
 qiao.cli.cmd
 	.command('packmac <configPath>')
 	.alias('pm')
-	.description('pack electron application for mac')
-	.action(packMac);
+	.description('pack electron application')
+	.action(pack);
 
-// pack mac
-async function packMac(configPath){
+// cmd for packwin
+qiao.cli.cmd
+    .command('packwin <configPath>')
+    .alias('pw')
+    .description('pack electron application')
+    .action(pack);
+
+// pack
+async function pack(configPath){
 	try{
         var cwd = process.cwd();
         if(configPath.startsWith('./')) configPath = path.resolve(cwd, configPath);
 		
-		await qiao.qec.packMac(require(configPath));
+		await qiao.qec.pack(require(configPath));
 
-		console.log('pack electron application for mac success!');
+		console.log('pack electron application success!');
 		console.log();
 	}catch(e){
-		console.log('pack electron application for mac fail!');
+		console.log('pack electron application fail!');
 		console.log();
 		
 		console.log(e);
