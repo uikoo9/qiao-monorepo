@@ -19,11 +19,8 @@ async function build(opts) {
   };
   const specContents = JSON.stringify(spec, null, 2);
 
-  console.log('DMG spec is:\n', spec);
-
   const specDir = await fs.mkdtemp(path.join(os.tmpdir(), 'qiao-electron-cli-'));
   const specPath = path.join(specDir, 'appdmg.json');
-  console.log('writing config to `%s`', specPath);
 
   await fs.writeFile(specPath, specContents);
   console.log('creating dmg...');
@@ -37,7 +34,6 @@ async function build(opts) {
       }
     }).on('finish', async () => {
       console.log('appdmg finished!');
-      console.log('cleaning up temp config at `%s`', specDir);
       await fs.rm(specDir, { recursive: true, maxRetries: 2 });
       resolve(opts);
     }).on('error', reject);
