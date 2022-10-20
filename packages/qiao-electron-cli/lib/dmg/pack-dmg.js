@@ -9,6 +9,9 @@ var appDMG = require('./appdmg.js');
 // checker
 var checker = require('../_check.js');
 
+// util
+var util = require('./_util.js');
+
 /**
  * pack dmg
  * @param {*} config 
@@ -24,7 +27,6 @@ module.exports = async function(config){
     var appEnv          = config.appEnv;
     var appName         = config.appName;
     var appVersion      = config.appVersion;
-    var appIconPath     = config.appIconPath;
     var dmgIconSize     = config.dmgIconSize;
     var dmgBackground   = config.dmgBackground;
 
@@ -37,7 +39,7 @@ module.exports = async function(config){
     // options
     var options = {
         name        : dmgName,
-        icon        : appIconPath,
+        icon        : util.getIcon(config.appIconPath),
 
         overwrite   : true,
         debug       : false,

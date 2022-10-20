@@ -27,8 +27,8 @@ let config = {
     // app版本号，会显示在dmg安装包名以及关于面板上，默认从主进程下的package.json中获取
     appVersion      : srcPkg.version,
 	
-    // app应用图标，可以通过icon命令生成icns
-    appIconPath     : 'pack/img/icon/icon.icns',
+    // app应用图标，mac下自动寻找icon.icns，windows下自动寻找icon.ico
+    appIconPath     : 'pack/icon/icon',
 	
     // app权限声明，会显示在关于面板上
     appCopyright    : 'Copyright © 2022 xxx版权所有',

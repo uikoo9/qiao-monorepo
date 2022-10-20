@@ -1,8 +1,13 @@
+'use strict';
+
 // electron pakcager
 var packager = require('electron-packager');
 
 // checker
 var checker = require('./_check.js');
+
+// util
+var util = require('./_util.js');
 
 /**
  * pack
@@ -21,7 +26,7 @@ module.exports = async function(config){
         arch        : config.arch,
         asar        : !!config.asar,
         name        : config.appName,
-        icon        : config.appIconPath,
+        icon        : util.getIcon(config.appIconPath),
         appVersion  : config.appVersion,
         appCopyright: config.appCopyright,
     };
