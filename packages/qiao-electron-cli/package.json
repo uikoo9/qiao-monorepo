@@ -25,7 +25,7 @@
     },
     "scripts": {},
     "dependencies": {
-        "electron-installer-dmg": "^4.0.0",
+        "appdmg": "^0.6.4",
         "electron-packager": "^16.0.0",
         "qiao-cli": "^0.3.3",
         "qiao-cos": "^1.0.3",

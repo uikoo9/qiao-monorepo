@@ -23,7 +23,7 @@ exports.packMac = require('./lib/pack-mac.js');
 /**
  * pack dmg
  */
-exports.packDmg = require('./lib/pack-dmg.js');
+exports.packDmg = require('./lib/dmg/pack-dmg.js');
 
  /**
  * upload dmg

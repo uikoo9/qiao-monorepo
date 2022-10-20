@@ -22,8 +22,6 @@ exports.checkConfig = function(config){
     var appVersion      = config.appVersion;
     var appCopyright    = config.appCopyright;
 
-    var dmgBackground   = config.dmgBackground;
-
     // check vars
     if(!srcPath)        throw new Error('need config.srcPath params');
     if(!distPath)       throw new Error('need config.distPath params');
@@ -37,8 +35,6 @@ exports.checkConfig = function(config){
     if(!appIconPath)    throw new Error('need config.appIconPath params');
     if(!appVersion)     throw new Error('need config.appVersion params');
     if(!appCopyright)   throw new Error('need config.appCopyright params');
-
-    if(!dmgBackground)  throw new Error('need config.dmgBackground params');
 };
 
 /**

@@ -3,11 +3,11 @@
 // path
 var path = require('path');
 
-// electron installer dmg
-var electronDMG = require('electron-installer-dmg');
+// appdmg
+var appDMG = require('./appdmg.js');
 
 // checker
-var checker = require('./_check.js');
+var checker = require('../_check.js');
 
 /**
  * pack dmg
@@ -57,9 +57,5 @@ module.exports = async function(config){
     };
 
     // dmg
-    return new Promise(function(resolve, reject){
-        electronDMG(options, function(err){
-            return err ? reject(err) : resolve();
-        });
-    });
+    return await appDMG(options);
 };
