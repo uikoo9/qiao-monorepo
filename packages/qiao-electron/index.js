@@ -7,8 +7,6 @@ var qiaoFile = require('qiao-file');
 var path = require('path');
 var qiaoLog = require('qiao-log');
 var qiaoConfig = require('qiao-config');
-var qiaoSqlite = require('qiao-sqlite');
-var qiaoJson = require('qiao-json');
 
 /**
  * app constant
@@ -696,171 +694,6 @@ const shortcutUnReg = (shortcutKey) => {
     return electron.globalShortcut.unregister(shortcutKey);
 };
 
-const jsonSuccess = qiaoJson.success;
-const jsonInfo = qiaoJson.info;
-const jsonWarning = qiaoJson.warning;
-const jsonDanger = qiaoJson.danger;
-
-/**
- * sqlite
- * @returns 
- */
-const sqlite = () => {
-    const userDataPath = electron.app.getPath('userData');
-    const dbPath = path.resolve(userDataPath, './electron.db');
-    const db = qiaoSqlite.createDb(dbPath);
-
-    return db;
-};
-
-/**
- * dbCreateTable
- * @param {*} sql 
- * @returns 
- */
-const dbCreateTable = async (sql) => {
-    // check
-    if(!sql) return jsonDanger('need create table sql');
-
-    // db
-    const db = sqlite();
-
-    // create table
-    try{
-        await qiaoSqlite.createTable(db, sql);
-        return jsonSuccess('create table success');
-    }catch(e){
-        // return jsonDanger('create table fail', e);
-        return jsonSuccess('create table success');
-    }
-};
-
-/**
- * dbDropTable
- * @param {*} tableName 
- * @returns 
- */
-const dbDropTable = async (tableName) => {
-    // check
-    if(!tableName) return jsonDanger('need tableName');
-
-    // db
-    const db = sqlite();
-
-    // drop table
-    try{
-        await qiaoSqlite.dropTable(db, tableName);
-        return jsonSuccess('drop table success');
-    }catch(e){
-        return jsonSuccess('drop table success');
-    }
-};
-
-/**
- * dbShowTables
- * @returns 
- */
-const dbShowTables = async () => {
-    // db
-    const db = sqlite();
-
-    // show tables
-    try{
-        const rows = await qiaoSqlite.showTables(db);
-        return jsonSuccess('show table success', rows);
-    }catch(e){
-        return jsonSuccess('show table success');
-    }
-};
-
-/**
- * dbInsertData
- * @param {*} sql 
- * @param {*} params 
- * @returns 
- */
-const dbInsertData = async (sql, params) => {
-    // check
-    if(!sql) return jsonDanger('need insert data sql');
-
-    // db
-    const db = sqlite();
-
-    // insert data
-    try{
-        await qiaoSqlite.insertData(db, sql, params);
-        return jsonSuccess('insert data success');
-    }catch(e){
-        return jsonDanger('insert data fail', e);
-    }
-};
-
-/**
- * dbDeleteData
- * @param {*} sql 
- * @param {*} params 
- * @returns 
- */
-const dbDeleteData = async (sql, params) => {
-    // check
-    if(!sql) return jsonDanger('need delete data sql');
-
-    // db
-    const db = sqlite();
-
-    // delete data
-    try{
-        await qiaoSqlite.deleteData(db, sql, params);
-        return jsonSuccess('delete data success');
-    }catch(e){
-        return jsonDanger('delete data fail', e);
-    }
-};
-
-/**
- * dbModifyData
- * @param {*} sql 
- * @param {*} params 
- * @returns 
- */
-const dbModifyData = async (sql, params) => {
-    // check
-    if(!sql) return jsonDanger('need modify data sql');
-
-    // db
-    const db = sqlite();
-
-    // modify data
-    try{
-        await qiaoSqlite.modifyData(db, sql, params);
-        return jsonSuccess('modify data success');
-    }catch(e){
-        return jsonDanger('modify data fail', e);
-    }
-};
-
-/**
- * dbSelectData
- * @param {*} sql 
- * @param {*} params 
- * @returns 
- */
-const dbSelectData = async (sql, params) => {
-    // check
-    if(!sql) return jsonDanger('need select data sql');
-
-    // db
-    const db = sqlite();
-
-    // select data
-    try{
-        const rows = await qiaoSqlite.selectData(db, sql, params);
-        return jsonSuccess('select data success', rows);
-    }catch(e){
-        return jsonDanger('select data fail', e);
-    }
-};
-
 /**
  * get window options
  * @param {*} options 
@@ -981,22 +814,11 @@ function windowGetByEvent(event){
     return electron.BrowserWindow.fromWebContents(event.sender);
 }
 
-exports.dbCreateTable = dbCreateTable;
-exports.dbDeleteData = dbDeleteData;
-exports.dbDropTable = dbDropTable;
-exports.dbInsertData = dbInsertData;
-exports.dbModifyData = dbModifyData;
-exports.dbSelectData = dbSelectData;
-exports.dbShowTables = dbShowTables;
 exports.dialogOpenFile = dialogOpenFile;
 exports.dialogOpenFileAndFolder = dialogOpenFileAndFolder;
 exports.dialogOpenFolder = dialogOpenFolder;
 exports.getPreloads = getPreloads;
 exports.ipcInit = ipcInit;
-exports.jsonDanger = jsonDanger;
-exports.jsonInfo = jsonInfo;
-exports.jsonSuccess = jsonSuccess;
-exports.jsonWarning = jsonWarning;
 exports.logInit = logInit;
 exports.ls = ls;
 exports.setAboutVersion = setAboutVersion;
@@ -1005,7 +827,6 @@ exports.shellOpenURL = shellOpenURL;
 exports.shellShowPath = shellShowPath;
 exports.shortcutReg = shortcutReg;
 exports.shortcutUnReg = shortcutUnReg;
-exports.sqlite = sqlite;
 exports.windowGetByEvent = windowGetByEvent;
 exports.windowOpenByFile = windowOpenByFile;
 exports.windowOpenByUrl = windowOpenByUrl;

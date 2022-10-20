@@ -15,6 +15,5 @@ export default {
         'qiao-file',
         'qiao-json',
         'qiao-log',
-        'qiao-sqlite',
     ],
 };

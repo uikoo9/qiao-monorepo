@@ -187,54 +187,6 @@ shortcutReg(shortcutKey, shortcutCallback);
 shortcutUnReg(shortcutKey);
 ```
 
-### sqlite
-```javascript
-// 在userData下生成一个electron.db的sqlite3数据库
-sqlite();
-```
-
-### dbCreateTable
-```javascript
-// 创建一个sqlite3的table
-dbCreateTable(sql);
-```
-
-### dbDropTable
-```javascript
-// 删除一个sqlite3的table
-dbDropTable(tableName);
-```
-
-### dbShowTables
-```javascript
-// 显示数据库内有哪些表格
-dbShowTables();
-```
-
-### dbInsertData
-```javascript
-// 插入sqlite3中table的数据
-dbInsertData(sql, params);
-```
-
-### dbDeleteData
-```javascript
-// 删除sqlite3中table的数据
-dbDeleteData(sql, params);
-```
-
-### dbModifyData
-```javascript
-// 更新sqlite3中table的数据
-dbModifyData(sql, params);
-```
-
-### dbSelectData
-```javascript
-// 查询sqlite3中table的数据
-dbSelectData(sql, params);
-```
-
 ### windowOpenByFile
 ```javascript
 // 通过本地文件打开一个window
