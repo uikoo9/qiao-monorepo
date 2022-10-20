@@ -10,7 +10,7 @@ var appDMG = require('./appdmg.js');
 var checker = require('../_check.js');
 
 // util
-var util = require('./_util.js');
+var util = require('../_util.js');
 
 /**
  * pack dmg
