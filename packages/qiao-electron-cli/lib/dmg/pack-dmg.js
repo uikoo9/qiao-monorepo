@@ -33,12 +33,6 @@ module.exports = async function(config){
     var appPath         = path.resolve(root, `${outPath}/${appName}-darwin-${arch}/${appName}.app`);
     var dmgName         = `${appName}-${appEnv}-${appVersion}-${arch}`;
     var dmgOutPath      = path.resolve(root, `${outPath}/dmg`);
-    var dmgContents     = () => {
-        return [ 
-            { x: 520, y: 200, type: 'link', path: '/Applications' },
-            { x: 120, y: 200, type: 'file', path: appPath } 
-        ];
-    };
 
     // options
     var options = {
@@ -51,7 +45,6 @@ module.exports = async function(config){
         appPath     : appPath,
         iconSize    : dmgIconSize || 80,
         background  : dmgBackground,
-        contents    : dmgContents,
 
         out         : dmgOutPath,
     };
