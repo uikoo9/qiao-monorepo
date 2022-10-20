@@ -51,6 +51,6 @@ function sips(options, callback){
 
 // icns
 function icns(options, callback){
-    var cmd = 'iconutil -c icns tmp.iconset -o Icon.icns';
+    var cmd = 'iconutil -c icns tmp.iconset -o icon.icns';
     child_process.exec(cmd, options, callback);
 }
