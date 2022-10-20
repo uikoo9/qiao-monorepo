@@ -18,7 +18,6 @@ exports.checkConfig = function(config){
 
     var appEnv          = config.appEnv;
     var appName         = config.appName;
-    var appIconPath     = config.appIconPath;
     var appVersion      = config.appVersion;
     var appCopyright    = config.appCopyright;
 
@@ -32,7 +31,6 @@ exports.checkConfig = function(config){
 
     if(!appEnv)         throw new Error('need config.appEnv params');
     if(!appName)        throw new Error('need config.appName params');
-    if(!appIconPath)    throw new Error('need config.appIconPath params');
     if(!appVersion)     throw new Error('need config.appVersion params');
     if(!appCopyright)   throw new Error('need config.appCopyright params');
 };

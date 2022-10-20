@@ -27,8 +27,8 @@ let config = {
     // app版本号，会显示在dmg安装包名以及关于面板上，默认从主进程下的package.json中获取
     appVersion      : srcPkg.version,
 	
-    // app应用图标
-    appIconPath     : 'pack/static/icon/icon.icns',
+    // app应用图标，可以通过icon命令生成icns
+    appIconPath     : 'pack/img/icon/icon.icns',
 	
     // app权限声明，会显示在关于面板上
     appCopyright    : 'Copyright © 2022 xxx版权所有',
@@ -40,7 +40,7 @@ let config = {
     asar            : false,
 
     // app中主进程src路径
-    srcPath         : 'src/app',
+    srcPath         : 'src',
 	
     // 最终要打包到app应用包中的文件和文件夹，在dist这一步会复制出去
     srcFiles        : [ 
@@ -56,7 +56,7 @@ let config = {
     // app应用包及dmg安装包生成的路径
     outPath         : 'out',
 	
-    // app安装包dmg中的背景图
+    // app安装包dmg中的背景图，不填则使用默认背景图
     dmgBackground   : 'pack/static/bg.png',
 };
 
@@ -125,6 +125,9 @@ qelectron uploaddmg|ud /{yourconfigpath}/qiao-electron.config.js
 ```
 
 ## version
+
+### 0.0.7.20221020
+1. pack win
 
 ### 0.0.6.20221019
 1. 1.0.0
