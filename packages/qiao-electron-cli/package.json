@@ -25,10 +25,12 @@
     },
     "scripts": {},
     "dependencies": {
-        "appdmg": "^0.6.4",
         "electron-packager": "^16.0.0",
         "qiao-cli": "^0.3.3",
         "qiao-cos": "^1.0.3",
         "qiao-file": "^1.0.1"
+    },
+    "optionalDependencies": {
+        "appdmg": "^0.6.4"
     }
 }
