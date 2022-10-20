@@ -13,7 +13,6 @@ export default {
         'electron', 
         'qiao-config',
         'qiao-file',
-        'qiao-json',
         'qiao-log',
     ],
 };

@@ -31,7 +31,6 @@
     "dependencies": {
         "qiao-config": "^0.3.7",
         "qiao-file": "^1.0.1",
-        "qiao-json": "^0.1.0",
         "qiao-log": "^0.2.4"
     }
 }
