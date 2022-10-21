@@ -45,9 +45,6 @@ q.qrcodeImg('img', 'https://insistime.com/');
 // q
 var q = require('qiao-qrcode');
 
-// url
-var url = 'https://insistime.com/';
-
 // svg
 // <div id="svg"></div>
 q.qrcodeSvg('svg', 'https://insistime.com/');
@@ -56,6 +53,8 @@ q.qrcodeSvg('svg', 'https://insistime.com/');
 ## version
 ### 0.0.3.20221021
 1. add eslint
+2. 3.0.0
+   
 ### 0.0.2.20220415
 1. add lerna
 
