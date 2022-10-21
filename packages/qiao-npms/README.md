@@ -1,10 +1,14 @@
-# qiao-npms
-npm package info
+## qiao-npms
+[![npm version](https://img.shields.io/npm/v/qiao-npms.svg?style=flat-square)](https://www.npmjs.org/package/qiao-npms)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-npms.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-npms)
 
-1. download counts, by [https://github.com/npm/registry/blob/master/docs/download-counts.md](https://github.com/npm/registry/blob/master/docs/download-counts.md)
+浏览器和nodejs下获取npm信息
 
 ## api
 ### downloadCountsLastDay
+
+获取前一天的npm包下载量
+
 ```javascript
 'use strict';
 
@@ -34,6 +38,9 @@ return
 ```
 
 ### downloadCountsLastWeek
+
+获取前一周的npm包下载量
+
 ```javascript
 'use strict';
 
@@ -63,6 +70,9 @@ return
 ```
 
 ### downloadCountsLastMonth
+
+获取前一月的npm包下载量
+
 ```javascript
 'use strict';
 
@@ -92,6 +102,9 @@ return
 ```
 
 ### downloadCounts
+
+获取npm包下载量
+
 ```javascript
 'use strict';
 
@@ -120,7 +133,32 @@ return
 }
 ```
 
+### getVersion
+
+获取npm包最新版本号
+
+```javascript
+'use strict';
+
+var q = require('qiao-npms');
+
+var test = async function(){
+    try{
+        var packageName = 'qiao-qrcode';
+        var res = await q.getVersion(packageName);
+        console.log(res);
+    }catch(e){
+        console.log(e);
+    }
+};
+
+test();
+```
+
 ### searchPackages
+
+搜索npm包
+
 ```javascript
 'use strict';
 
@@ -163,6 +201,9 @@ return
 ```
 
 ## version
+### 0.0.3.20221021
+1. get version
+   
 ### 0.0.2.20220626
 1. search packages
 

@@ -1,25 +1,34 @@
 {
-  "name": "qiao-npms",
-  "version": "0.1.5",
-  "description": "npm package info",
-  "keywords": [
-    "download counts"
-  ],
-  "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://code.insistime.com/qiao-npms",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-  },
-  "scripts": {
-    "build": "rollup --config rollup.config.js",
-    "prepublish": "npm run build"
-  },
-  "dependencies": {
-    "libnpmsearch": "^5.0.4",
-    "qiao-ajax": "^2.7.1"
-  },
-  "gitHead": "3ee6a703cf9078dfa740a3528439ba84bb9a0990"
+    "name": "qiao-npms",
+    "version": "0.1.5",
+    "description": "npm package info",
+    "keywords": [
+        "download counts"
+    ],
+    "author": "uikoo9 <uikoo9@qq.com>",
+    "homepage": "https://code.insistime.com/qiao-npms",
+    "license": "MIT",
+    "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets": false,
+    "files": [
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+    },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+    },
+    "scripts": {
+        "build": "rollup --config _config.rollup.js",
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+        "prepublish": "npm run build && npm run eslintfix"
+    },
+    "dependencies": {
+        "libnpmsearch": "^5.0.4",
+        "qiao-ajax": "^2.7.1"
+    }
 }
