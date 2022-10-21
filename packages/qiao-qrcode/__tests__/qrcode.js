@@ -7,22 +7,10 @@ var q = require('../index.js');
 var url = 'https://baidu.com/';
 
 // canvas
-q.qrcode({
-    type: 'canvas',
-    id: 'canvas',
-    text: url
-});
+q.qrcodeCanvas('canvas', url);
 
 // img
-q.qrcode({
-    type: 'img',
-    id: 'img',
-    text: url
-});
+q.qrcodeImg('img', url);
 
 // svg
-q.qrcode({
-    type: 'svg',
-    id: 'svg',
-    text: url
-});
+q.qrcodeSvg('svg', url);

@@ -8,5 +8,5 @@ var qrcodePath = path.resolve(__dirname, '../__tests__/qrcode.js');
 
 // entry
 module.exports = {
-  qrcode: qrcodePath,
+    qrcode: qrcodePath,
 };

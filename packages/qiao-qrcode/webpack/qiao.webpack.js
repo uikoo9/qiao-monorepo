@@ -16,8 +16,8 @@ var plugins = require('./plugins.js');
  * qiao.webpack.js
  */
 module.exports = {
-  devServer : dev,
-  entry     : entry,
-  output    : output,
-  plugins   : plugins,
+    devServer : dev,
+    entry     : entry,
+    output    : output,
+    plugins   : plugins,
 };

@@ -8,7 +8,7 @@ var distPath = path.resolve(__dirname, '../dist');
 
 // output
 module.exports = {
-  filename  : '[name].bundle.js',
-  path      : distPath,
-  clean     : true,
+    filename  : '[name].bundle.js',
+    path      : distPath,
+    clean     : true,
 };
