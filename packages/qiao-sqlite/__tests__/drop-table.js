@@ -4,7 +4,7 @@
 var q = require('../index.js');
 
 // db
-var db = q.createDb('./__tests__/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // test
 async function test(){

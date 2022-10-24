@@ -1,8 +1,14 @@
-# qiao-sqlite
-sqlite tools
+## qiao-sqlite
+[![npm version](https://img.shields.io/npm/v/qiao-sqlite.svg?style=flat-square)](https://www.npmjs.org/package/qiao-sqlite)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-sqlite.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-sqlite)
+
+本地数据库sqlite常见api封装
 
 ## api
-### createDb
+### createDB
+
+创建数据库
+
 ```javascript
 'use strict';
 
@@ -10,11 +16,14 @@ sqlite tools
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 console.log(db);
 ```
 
 ### createTable
+
+创建表格
+
 ```javascript
 'use strict';
 
@@ -22,10 +31,10 @@ console.log(db);
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // table
-var sql = 'CREATE TABLE t_project (project_name TEXT, project_appid TEXT, project_icon_url TEXT) if not exists';
+var sql = 'CREATE TABLE if not exists t_project (project_name TEXT, project_appid TEXT, project_icon_url TEXT)';
 
 // test
 async function test(){
@@ -41,6 +50,9 @@ test();
 ```
 
 ### dropTable
+
+删除表格
+
 ```javascript
 'use strict';
 
@@ -48,7 +60,7 @@ test();
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // test
 async function test(){
@@ -66,6 +78,9 @@ test();
 ```
 
 ### showTables
+
+列出表格
+
 ```javascript
 'use strict';
 
@@ -73,7 +88,7 @@ test();
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // test
 async function test(){
@@ -90,6 +105,9 @@ test();
 ```
 
 ### insertData
+
+插入数据
+
 ```javascript
 'use strict';
 
@@ -97,7 +115,7 @@ test();
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // data
 var sql = 'insert into t_project values (?, ?, ?)';
@@ -116,6 +134,9 @@ test();
 ```
 
 ### deleteData
+
+删除数据
+
 ```javascript
 'use strict';
 
@@ -123,7 +144,7 @@ test();
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // data
 var sql = 'delete from t_project where rowid=?';
@@ -141,7 +162,10 @@ async function test(){
 test();
 ```
 
-### deleteData
+### modifyData
+
+修改数据
+
 ```javascript
 'use strict';
 
@@ -149,7 +173,7 @@ test();
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // data
 var sql = 'update t_project set project_name=?';
@@ -168,6 +192,9 @@ test();
 ```
 
 ### selectData
+
+查询数据
+
 ```javascript
 'use strict';
 
@@ -175,10 +202,10 @@ test();
 var q = require('qiao-sqlite');
 
 // db
-var db = q.createDb('./test/test.db');
+var db = q.createDB('./__tests__/test.db');
 
 // sql
-var sql = 'SELECT * FROM t_project';
+var sql = 'SELECT rowid,* FROM t_project';
 
 // test
 async function test(){
@@ -195,6 +222,9 @@ test();
 ```
 
 ## version
+### 0.0.5.20221024
+1. 1.0.0
+   
 ### 0.0.4.20220417
 1. add lerna
 

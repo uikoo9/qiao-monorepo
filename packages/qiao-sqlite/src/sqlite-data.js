@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * insertData
  * @param {*} db 
@@ -8,14 +6,14 @@
  * @returns 
  */
 export const insertData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
   
-    let _params = params || [];
-    db.run(sql, _params, (e) => {
-      return e ? reject(e) : resolve();
+        let _params = params || [];
+        db.run(sql, _params, (e) => {
+            return e ? reject(e) : resolve();
+        });
     });
-  });
 };
 
 /**
@@ -26,14 +24,14 @@ export const insertData = (db, sql, params) => {
  * @returns 
  */
 export const deleteData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
 
-    let _params = params || [];
-    db.run(sql, _params, (e) => {
-      return e ? reject(e) : resolve();
+        let _params = params || [];
+        db.run(sql, _params, (e) => {
+            return e ? reject(e) : resolve();
+        });
     });
-  });
 };
 
 
@@ -44,15 +42,15 @@ export const deleteData = (db, sql, params) => {
  * @param {*} params 
  * @returns 
  */
- export const modifyData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+export const modifyData = (db, sql, params) => {
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
 
-    let _params = params || [];
-    db.run(sql, _params, (e) => {
-      return e ? reject(e) : resolve();
+        let _params = params || [];
+        db.run(sql, _params, (e) => {
+            return e ? reject(e) : resolve();
+        });
     });
-  });
 };
 
 /**
@@ -63,12 +61,12 @@ export const deleteData = (db, sql, params) => {
  * @returns 
  */
 export const selectData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
 
-    let _params = params || [];
-    db.all(sql, _params, (err, row) => {
-      return err ? reject(err) : resolve(row);
+        let _params = params || [];
+        db.all(sql, _params, (err, row) => {
+            return err ? reject(err) : resolve(row);
+        });
     });
-  });
 };

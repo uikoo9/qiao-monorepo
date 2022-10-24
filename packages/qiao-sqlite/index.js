@@ -4,15 +4,17 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var sqlite3 = require('sqlite3');
 
+// sqlite3
+
 /**
- * createDb
+ * createDB
  * @param {*} dbName 
  */
-const createDb = (dbName) => {
-  if(!dbName) throw new Error('need db name');
+const createDB = (dbName) => {
+    if(!dbName) throw new Error('need db name');
 
-  const sqlite = sqlite3.verbose();
-  return new sqlite.Database(dbName);
+    const sqlite = sqlite3.verbose();
+    return new sqlite.Database(dbName);
 };
 
 /**
@@ -55,7 +57,7 @@ const showTables = (db) => {
     return new Promise((resolve, reject) => {
         if(!db) return reject(new Error('need db'));
 
-        const sql = `select name from sqlite_master where type='table' order by name`;
+        const sql = 'select name from sqlite_master where type=\'table\' order by name';
         db.all(sql, (e, rows) => {
             return e ? reject(e) : resolve(rows);
         });
@@ -70,14 +72,14 @@ const showTables = (db) => {
  * @returns 
  */
 const insertData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
   
-    let _params = params || [];
-    db.run(sql, _params, (e) => {
-      return e ? reject(e) : resolve();
+        let _params = params || [];
+        db.run(sql, _params, (e) => {
+            return e ? reject(e) : resolve();
+        });
     });
-  });
 };
 
 /**
@@ -88,14 +90,14 @@ const insertData = (db, sql, params) => {
  * @returns 
  */
 const deleteData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
 
-    let _params = params || [];
-    db.run(sql, _params, (e) => {
-      return e ? reject(e) : resolve();
+        let _params = params || [];
+        db.run(sql, _params, (e) => {
+            return e ? reject(e) : resolve();
+        });
     });
-  });
 };
 
 
@@ -106,15 +108,15 @@ const deleteData = (db, sql, params) => {
  * @param {*} params 
  * @returns 
  */
- const modifyData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+const modifyData = (db, sql, params) => {
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
 
-    let _params = params || [];
-    db.run(sql, _params, (e) => {
-      return e ? reject(e) : resolve();
+        let _params = params || [];
+        db.run(sql, _params, (e) => {
+            return e ? reject(e) : resolve();
+        });
     });
-  });
 };
 
 /**
@@ -125,17 +127,17 @@ const deleteData = (db, sql, params) => {
  * @returns 
  */
 const selectData = (db, sql, params) => {
-  return new Promise((resolve, reject) => {
-    if(!db || !sql) return reject(new Error('need db and sql'));
+    return new Promise((resolve, reject) => {
+        if(!db || !sql) return reject(new Error('need db and sql'));
 
-    let _params = params || [];
-    db.all(sql, _params, (err, row) => {
-      return err ? reject(err) : resolve(row);
+        let _params = params || [];
+        db.all(sql, _params, (err, row) => {
+            return err ? reject(err) : resolve(row);
+        });
     });
-  });
 };
 
-exports.createDb = createDb;
+exports.createDB = createDB;
 exports.createTable = createTable;
 exports.deleteData = deleteData;
 exports.dropTable = dropTable;

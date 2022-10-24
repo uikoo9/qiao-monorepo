@@ -1,5 +1,3 @@
-'use strict';
-
 // db
 export * from './sqlite-db.js';
 
