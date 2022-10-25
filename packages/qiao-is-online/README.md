@@ -1,6 +1,8 @@
-# qiao-is-online
-1. is online on nodejs by ping hosts: tmall.com, baidu.com, qq.com, taobao.com
-2. offline to online on nodejs
+## qiao-is-online
+[![npm version](https://img.shields.io/npm/v/qiao-is-online.svg?style=flat-square)](https://www.npmjs.org/package/qiao-is-online)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-is-online.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-is-online)
+
+nodejs下判断是否在线
 
 ## api
 ### isOnline
@@ -39,6 +41,9 @@ q.offlineToOnline(function(){
 ```
 
 ## version
+### 0.0.6.20221025
+1. 1.0.0
+   
 ### 0.0.5.20220512
 1. lerna
 

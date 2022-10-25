@@ -1,9 +1,5 @@
-'use strict';
-
-var qiaoPing = require('qiao-ping');
-var o = require('offline-to-online');
-
 // ping
+import { ping } from 'qiao-ping';
 
 // domains
 const domains = [
@@ -18,7 +14,7 @@ const domains = [
  * @param {*} strictMode 
  * @returns 
  */
-const isOnline = async (strictMode) => {
+export const isOnline = async (strictMode) => {
     const res = await pingDomains(domains);
     if (!res || res.length != domains.length) throw new Error('no res');
 
@@ -47,7 +43,7 @@ const pingDomains = async (hosts) => {
     if (!hosts || !hosts.length) return res;
 
     for (let i = 0; i < hosts.length; i++) {
-        const r = await qiaoPing.ping(hosts[i]);
+        const r = await ping(hosts[i]);
         res.push({
             host: r.host,
             alive: r.alive,
@@ -57,17 +53,3 @@ const pingDomains = async (hosts) => {
 
     return res;
 };
-
-// offline to online
-
-/**
- * offlineToOnline
- * @param {*} callback 
- * @param {*} time 
- */
-const offlineToOnline = (callback, time) => {
-    o.offlineToOnline(null, isOnline, callback, time);
-};
-
-exports.isOnline = isOnline;
-exports.offlineToOnline = offlineToOnline;
