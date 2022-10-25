@@ -1,6 +1,6 @@
 {
     "name": "qiao-parallel",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Execute multiple tasks in parallel",
     "keywords": [
         "execute",
