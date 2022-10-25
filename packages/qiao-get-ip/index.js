@@ -5,8 +5,8 @@ var q = require('qiao-ajax');
 const word = '[a-fA-F\\d:]';
 
 const boundry = options => options && options.includeBoundaries
-	? `(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))`
-	: '';
+    ? `(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))`
+    : '';
 
 const v4 = '(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}';
 
@@ -31,8 +31,8 @@ const v4exact = new RegExp(`^${v4}$`);
 const v6exact = new RegExp(`^${v6}$`);
 
 const ipRegex = options => options && options.exact
-	? v46Exact
-	: new RegExp(`(?:${boundry(options)}${v4}${boundry(options)})|(?:${boundry(options)}${v6}${boundry(options)})`, 'g');
+    ? v46Exact
+    : new RegExp(`(?:${boundry(options)}${v4}${boundry(options)})|(?:${boundry(options)}${v6}${boundry(options)})`, 'g');
 
 ipRegex.v4 = options => options && options.exact ? v4exact : new RegExp(`${boundry(options)}${v4}${boundry(options)}`, 'g');
 ipRegex.v6 = options => options && options.exact ? v6exact : new RegExp(`${boundry(options)}${v6}${boundry(options)}`, 'g');
@@ -49,25 +49,25 @@ const notIpErr$1	= new Error('not ip');
  * @returns 
  */
 const getIpByIcanhazip = () => {
-	return new Promise(function(resolve, reject){
-		q.get(hipUrl)
-			.then(function(res){
-				// not 200
-				if(!res || res.status != 200 || !res.data){
-					return reject(hipErr);
-				}
+    return new Promise(function(resolve, reject){
+        q.get(hipUrl)
+            .then(function(res){
+                // not 200
+                if(!res || res.status != 200 || !res.data){
+                    return reject(hipErr);
+                }
 	
-				// ip
-				const ip = res.data.replace(/\n/g, '');
-				if(!ip) return reject(hipErr);
+                // ip
+                const ip = res.data.replace(/\n/g, '');
+                if(!ip) return reject(hipErr);
 	
-				const isIp = ipRegex.v4({exact: true}).test(ip);
-				return isIp ? resolve(ip) : reject(notIpErr$1);
-			})
-			.catch(function(e){
-				reject(e);
-			});
-	});
+                const isIp = ipRegex.v4({exact: true}).test(ip);
+                return isIp ? resolve(ip) : reject(notIpErr$1);
+            })
+            .catch(function(e){
+                reject(e);
+            });
+    });
 };
 
 // urls
@@ -82,26 +82,26 @@ const notIpErr= new Error('not ip');
  * @returns 
  */
 const getIpBySohu = () => {
-	return new Promise(function(resolve, reject){
-		q.get(sohuUrl)
-			.then(function(res){
-				// not 200
-				if(!res || res.status != 200 || !res.data){
-					return reject(sohuErr);
-				}
+    return new Promise(function(resolve, reject){
+        q.get(sohuUrl)
+            .then(function(res){
+                // not 200
+                if(!res || res.status != 200 || !res.data){
+                    return reject(sohuErr);
+                }
 	
-				// ip
-				const s 	= res.data.match(/\d+\.\d+\.\d+\.\d+/g);
-				const ip 	= s && s.length ? s[0] : null;
-				if(!ip) return reject(sohuErr);
+                // ip
+                const s 	= res.data.match(/\d+\.\d+\.\d+\.\d+/g);
+                const ip 	= s && s.length ? s[0] : null;
+                if(!ip) return reject(sohuErr);
 	
-				const isIp 	= ipRegex.v4({exact: true}).test(ip);
-				return isIp ? resolve(ip) : reject(notIpErr);
-			})
-			.catch(function(e){
-				reject(e);
-			});
-	});
+                const isIp 	= ipRegex.v4({exact: true}).test(ip);
+                return isIp ? resolve(ip) : reject(notIpErr);
+            })
+            .catch(function(e){
+                reject(e);
+            });
+    });
 };
 
 /**
@@ -109,21 +109,21 @@ const getIpBySohu = () => {
  * @returns 
  */
 const getIp = async () => {
-	let ip;
+    let ip;
 	
-	// by sohu
-	try{
-		ip = await getIpBySohu();
-	}catch(e1){
-		// by icanhazip
-		try{
-			ip = await getIpByIcanhazip();
-		}catch(e2){
-			console.log(e1, e2);
-		}
-	}
+    // by sohu
+    try{
+        ip = await getIpBySohu();
+    }catch(e1){
+        // by icanhazip
+        try{
+            ip = await getIpByIcanhazip();
+        }catch(e2){
+            console.log(e1, e2);
+        }
+    }
 	
-	return ip;
+    return ip;
 };
 
 exports.getIp = getIp;

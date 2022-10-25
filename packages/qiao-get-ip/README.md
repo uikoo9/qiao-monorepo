@@ -1,5 +1,8 @@
-# qiao-get-ip
-get public ip on nodejs and browser
+## qiao-get-ip
+[![npm version](https://img.shields.io/npm/v/qiao-get-ip.svg?style=flat-square)](https://www.npmjs.org/package/qiao-get-ip)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-get-ip.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-get-ip)
+
+浏览器和ndoejs下获取公网ip
 
 ## api
 ### getIp
@@ -21,6 +24,9 @@ test();
 ```
 
 ## version
+### 0.0.4.20221025
+1. 1.0.0
+   
 ### 0.0.3.20220512
 1. ncu
 

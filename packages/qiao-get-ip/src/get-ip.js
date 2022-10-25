@@ -1,5 +1,3 @@
-'use strict';
-
 // get ip by sohu
 import { getIpBySohu } from './get-ip-by-sohu.js';
 
@@ -11,19 +9,19 @@ import { getIpByIcanhazip } from './get-ip-by-icanhazip.js';
  * @returns 
  */
 export const getIp = async () => {
-	let ip;
-	
-	// by sohu
-	try{
-		ip = await getIpBySohu();
-	}catch(e1){
-		// by icanhazip
-		try{
-			ip = await getIpByIcanhazip();
-		}catch(e2){
-			console.log(e1, e2);
-		}
-	}
-	
-	return ip;
-}
+    let ip;
+
+    // by sohu
+    try {
+        ip = await getIpBySohu();
+    } catch (e1) {
+        // by icanhazip
+        try {
+            ip = await getIpByIcanhazip();
+        } catch (e2) {
+            console.log(e1, e2);
+        }
+    }
+
+    return ip;
+};

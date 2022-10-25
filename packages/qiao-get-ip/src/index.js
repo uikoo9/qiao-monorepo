@@ -1,5 +1,3 @@
-'use strict';
-
 // get ip by icanhazip
 export * from './get-ip-by-icanhazip.js';
 
