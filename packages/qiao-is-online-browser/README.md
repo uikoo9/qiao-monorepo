@@ -3,7 +3,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/qiao-is-online-browser.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-is-online-browser)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-is-online-browser)
 
-浏览器检测用户是否在线
+浏览器检测用户是否在线，详见：[一篇文章判断用户是否在线](https://blog.insistime.com/is-online)
 
 ## api
 ### isOnline

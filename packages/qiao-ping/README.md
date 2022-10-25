@@ -2,7 +2,7 @@
 [![npm version](https://img.shields.io/npm/v/qiao-ping.svg?style=flat-square)](https://www.npmjs.org/package/qiao-ping)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-ping.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-ping)
 
-ping on nodejs
+nodejs下ping能力，详见：[一篇文章判断用户是否在线](https://blog.insistime.com/is-online)
 
 ## api
 ### ping
