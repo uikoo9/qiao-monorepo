@@ -1,4 +1,7 @@
-# qiao-ping
+## qiao-ping
+[![npm version](https://img.shields.io/npm/v/qiao-ping.svg?style=flat-square)](https://www.npmjs.org/package/qiao-ping)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-ping.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-ping)
+
 ping on nodejs
 
 ## api
@@ -8,12 +11,12 @@ ping on nodejs
 
 var q = require('qiao-ping');
 
-var test = async function(){
-    try{
-        var host    = 'baidu.com';
-        var res     = await q.ping(host);
+var test = async function () {
+    try {
+        var host = 'baidu.com';
+        var res = await q.ping(host);
         console.log(res);
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
 };
@@ -22,6 +25,9 @@ test();
 ```
 
 ## version
+### 0.0.3.20221025
+1. 1.0.0
+
 ### 0.0.2.20220512
 1. lerna
 

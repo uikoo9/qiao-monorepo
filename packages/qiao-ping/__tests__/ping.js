@@ -1,13 +1,13 @@
 'use strict';
 
-var q = require('../lib/qiao-ping');
+var q = require('../index.js');
 
-var test = async function(){
-    try{
-        var host    = 'baidu.com';
-        var res     = await q.ping(host);
+var test = async function () {
+    try {
+        var host = 'baidu.com';
+        var res = await q.ping(host);
         console.log(res);
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
 };
