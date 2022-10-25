@@ -1,8 +1,11 @@
-# offline-to-online
-offline to online on nodejs and browser
+## offline-to-online
+[![npm version](https://img.shields.io/npm/v/offline-to-online.svg?style=flat-square)](https://www.npmjs.org/package/offline-to-online)
+[![npm downloads](https://img.shields.io/npm/dm/offline-to-online.svg?style=flat-square)](https://npm-stat.com/charts.html?package=offline-to-online)
+
+浏览器和nodejs下检测用户从离线到在线
 
 ## install
-```
+```bash
 -- on nodejs
 npm install qiao-is-online
 
@@ -41,6 +44,9 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 ```
 
 ## version
+### 0.0.5.20221025
+1. 1.0.0
+   
 ### 0.0.4.20220512
 1. lerna
 

@@ -1,5 +1,3 @@
-'use strict';
-
 // vars
 let offlineOne = false;
 let offlineTwo = false;
@@ -11,7 +9,7 @@ let intervalId = null;
  * @param {function} calllback callback function 
  * @param {number} time interval time(ms), default is 3 * 1000ms 
  */
-const offlineToOnlineWithSrc = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
+export const offlineToOnlineWithSrc = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
     // check
     if(!isOnlineImgSrc){
         console.log('need is online img src');
@@ -28,7 +26,7 @@ const offlineToOnlineWithSrc = (isOnlineImgSrc, isOnlineFunction, calllback, tim
  * @param {function} calllback callback function 
  * @param {number} time interval time(ms), default is 3 * 1000ms 
  */
-const offlineToOnline = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
+export const offlineToOnline = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
     // check
     if(!isOnlineFunction){
         console.log('need is online function');
@@ -82,6 +80,3 @@ const isNetworkChanged = async (isOnlineImgSrc, isOnlineFunction) => {
 
     return false;
 };
-
-exports.offlineToOnline = offlineToOnline;
-exports.offlineToOnlineWithSrc = offlineToOnlineWithSrc;
