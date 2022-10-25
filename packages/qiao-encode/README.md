@@ -1,4 +1,13 @@
-# qiao-encode
+## qiao-encode
+[![npm version](https://img.shields.io/npm/v/qiao-encode.svg?style=flat-square)](https://www.npmjs.org/package/qiao-encode)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-encode.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-encode)
+
+nodejs下加密，随机等能力
+
+## install
+```bash
+npm i qiao-encode
+```
 
 ## md5
 ```javascript
@@ -6,12 +15,12 @@
 
 var q = require('qiao-encode');
 
-var data 	= '{"nihao":"name"}';
-var s		= q.md5(data);
+var data = '{"nihao":"name"}';
+var s = q.md5(data);
 console.log(s);
 
 // or use encoding, hex or base64
-var ss		= q.md5(data, 'hex');
+var ss = q.md5(data, 'hex');
 console.log(ss);
 ```
 
@@ -22,59 +31,70 @@ console.log(ss);
 var q = require('qiao-encode');
 
 // uuid v4
-var uuid0 = q.uuid();
-console.log(uuid0);
+console.log(q.uuid());
 
 // uuid v1
-var uuid1 = q.uuid(1);
-console.log(uuid1);
+console.log(q.uuid(1));
 
 // uuid v3
-var uuid3 = q.uuid(3);
-console.log(uuid3);
+console.log(q.uuid(3));
 
 // uuid v4
-var uuid4 = q.uuid(4);
-console.log(uuid4);
+console.log(q.uuid(4));
 
 // uuid v5
-var uuid5 = q.uuid(5);
-console.log(uuid5);
+console.log(q.uuid(5));
 ```
 
-## random
-### random
+## aes
 ```javascript
 'use strict';
 
 var q = require('qiao-encode');
 
-// random number
-var type	= 0;
-var length	= 4;
-for(var i=0; i<10; i++) console.log(q.random(type, length));
+var data = '{"nihao":"name"}';
+var key = '12345612345612345612345612345611';
+var s = q.AESEncrypt(data, key);
+console.log(s);
 
-// random lower letter
-var type	= 1;
-var length	= 4;
-for(var i=0; i<10; i++) console.log(q.random(type, length));
+var ss = q.AESDecrypt(s, key);
+console.log(ss);
 
-// random upper letter
-var type	= 2;
-var length	= 4;
-for(var i=0; i<10; i++) console.log(q.random(type, length));
+// or use iv and encoding(hex, base64)
+var iv = '';
+var encoding = 'hex';
+var s1 = q.AESEncrypt(data, key, iv, encoding);
+console.log(s1);
 
-// random all letter
-var type	= 3;
-var length	= 4;
-for(var i=0; i<10; i++) console.log(q.random(type, length));
-
-// random all letter and number
-var type	= 4;
-var length	= 4;
-for(var i=0; i<10; i++) console.log(q.random(type, length));
+var ss1 = q.AESDecrypt(s1, key, iv, encoding);
+console.log(ss1);
 ```
 
+## 3des
+```javascript
+'use strict';
+
+var q = require('qiao-encode');
+
+var data = '{"nihao":"name"}';
+var key = '123456123456123456112233';
+var s = q.TDESEncrypt(data, key);
+console.log(s);
+
+var ss = q.TDESDecrypt(s, key);
+console.log(ss);
+
+// or use iv and encoding(hex, base64)
+var iv = '';
+var encoding = 'hex';
+var s1 = q.TDESEncrypt(data, key, iv, encoding);
+console.log(s1);
+
+var ss1 = q.TDESDecrypt(s1, key, iv, encoding);
+console.log(ss1);
+```
+
+## random
 ### random number
 ```javascript
 'use strict';
@@ -157,55 +177,10 @@ var max = 9;
 for(var i=0; i<10; i++) console.log(q.randomIn(min, max));
 ```
 
-## aes
-```javascript
-'use strict';
-
-var q = require('qiao-encode');
-
-var data 	= '{"nihao":"name"}';
-var key		= '12345612345612345612345612345611';
-var s		= q.AESEncrypt(data, key);
-console.log(s);
-
-var ss		= q.AESDecrypt(s, key);
-console.log(ss);
-
-// or use iv and encoding(hex, base64)
-var iv		= '';
-var encoding= 'hex';
-var s1		= q.AESEncrypt(data, key, iv, encoding);
-console.log(s1);
-
-var ss1		= q.AESDecrypt(s1, key, iv, encoding);
-console.log(ss1);
-```
-
-## 3des
-```javascript
-'use strict';
-
-var q = require('qiao-encode');
-
-var data 	= '{"nihao":"name"}';
-var key		= '123456123456123456112233';
-var s		= q.TDESEncrypt(data, key);
-console.log(s);
-
-var ss		= q.TDESDecrypt(s, key);
-console.log(ss);
-
-// or use iv and encoding(hex, base64)
-var iv		= '';
-var encoding= 'hex';
-var s1		= q.TDESEncrypt(data, key, iv, encoding);
-console.log(s1);
-
-var ss1		= q.TDESDecrypt(s1, key, iv, encoding);
-console.log(ss1);
-```
-
 ## version
+### 0.1.0.20221025
+1. 1.0.0
+   
 ### 0.0.9.20220511
 1. qiao-encode
 
