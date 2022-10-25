@@ -1,29 +1,27 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var qiaoAjax = require('qiao-ajax');
 var qiaoJson = require('qiao-json');
 
-var host = 'https://api.insistime.com/';
-var login$1 = 'ucenter/user/login';
-var sendCode$1 = 'ucenter/code/send';
-var register$1 = 'ucenter/user/reg';
-var checkUser$1 = 'ucenter/user/check';
-var ucenterMenuList$1 = 'ucenter/menu/list';
-var ucenterMenuSave$1 = 'ucenter/menu/save';
-var ucenterMenuDel$1 = 'ucenter/menu/del';
-var ucenterMenuGet$1 = 'ucenter/menu/get';
+var host = "https://api.insistime.com/";
+var login$1 = "ucenter/user/login";
+var sendCode$1 = "ucenter/code/send";
+var register$1 = "ucenter/user/reg";
+var checkUser$1 = "ucenter/user/check";
+var ucenterMenuList$1 = "ucenter/menu/list";
+var ucenterMenuSave$1 = "ucenter/menu/save";
+var ucenterMenuDel$1 = "ucenter/menu/del";
+var ucenterMenuGet$1 = "ucenter/menu/get";
 var config = {
-    host: host,
-    login: login$1,
-    sendCode: sendCode$1,
-    register: register$1,
-    checkUser: checkUser$1,
-    ucenterMenuList: ucenterMenuList$1,
-    ucenterMenuSave: ucenterMenuSave$1,
-    ucenterMenuDel: ucenterMenuDel$1,
-    ucenterMenuGet: ucenterMenuGet$1
+	host: host,
+	login: login$1,
+	sendCode: sendCode$1,
+	register: register$1,
+	checkUser: checkUser$1,
+	ucenterMenuList: ucenterMenuList$1,
+	ucenterMenuSave: ucenterMenuSave$1,
+	ucenterMenuDel: ucenterMenuDel$1,
+	ucenterMenuGet: ucenterMenuGet$1
 };
 
 // qiao

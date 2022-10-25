@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var electron = require('electron');
 var qiaoFile = require('qiao-file');
 var path = require('path');

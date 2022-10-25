@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var qiaoFile = require('qiao-file');
 var qiaoJson = require('qiao-json');
 var express = require('express');
@@ -10,6 +8,26 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var artTemplate = require('art-template');
 var expressArtTemplate = require('express-art-template');
+
+function _interopNamespaceDefault(e) {
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () { return e[k]; }
+                });
+            }
+        });
+    }
+    n.default = e;
+    return Object.freeze(n);
+}
+
+var qiaoFile__namespace = /*#__PURE__*/_interopNamespaceDefault(qiaoFile);
+var qiaoJson__namespace = /*#__PURE__*/_interopNamespaceDefault(qiaoJson);
 
 // express
 
@@ -209,6 +227,6 @@ const init = (options) => {
     return app;
 };
 
-exports.file = qiaoFile;
-exports.json = qiaoJson;
+exports.file = qiaoFile__namespace;
+exports.json = qiaoJson__namespace;
 exports.init = init;

@@ -1,12 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var q = require('qiao-process');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var q__default = /*#__PURE__*/_interopDefaultLegacy(q);
 
 // q
 
@@ -56,7 +50,7 @@ async function handlerByIIFE(index, func, value, valuesLength, callback, complet
 
 // handler by fork
 function handlerByFork(index, jsPath, value, valuesLength, callback, complete){
-    q__default['default'].fork(jsPath, [value], function(res){
+    q.fork(jsPath, [value], function(res){
         onCallback(callback, index, res);
     }, function(){
         onComplete(complete, valuesLength);

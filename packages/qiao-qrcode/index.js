@@ -1,12 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var qrcode = require('qrcode');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var qrcode__default = /*#__PURE__*/_interopDefaultLegacy(qrcode);
 
 // qrcode
 
@@ -33,7 +27,7 @@ const qrcodeCanvas = (id, text) => {
 
     // render
     options.width = options.width || $div.offsetWidth;
-    qrcode__default['default'].toCanvas(document.getElementById(cid), text, options, (error) => {
+    qrcode.toCanvas(document.getElementById(cid), text, options, (error) => {
         if (error) {
             console.error(error);
             return;
@@ -62,7 +56,7 @@ const qrcodeImg = (id, text) => {
 
     // render
     options.width = options.width || $div.offsetWidth;
-    qrcode__default['default'].toDataURL(text, options, (error, url) => {
+    qrcode.toDataURL(text, options, (error, url) => {
         if (error) {
             console.error(error);
             return;
@@ -98,7 +92,7 @@ const qrcodeSvg = (id, text) => {
 
     // render
     options.width = options.width || $div.offsetWidth;
-    qrcode__default['default'].toString(text, options, (error, svg) => {
+    qrcode.toString(text, options, (error, svg) => {
         if (error) {
             console.error(error);
             return;

@@ -1,9 +1,9 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 
 /**
  * rollup.config.js
  */
-export default {
+module.exports = {
     input: 'src/index.js',
     output: {
         file: 'index.js',

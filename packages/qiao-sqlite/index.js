@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var sqlite3 = require('sqlite3');
 
 // sqlite3

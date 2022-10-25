@@ -1,9 +1,7 @@
-'use strict';
-
 /**
  * rollup.config.js
  */
-export default {
+module.exports = {
     input: 'src/index.js',
     output: {
         file: 'index.js',

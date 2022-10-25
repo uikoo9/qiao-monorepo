@@ -1,12 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var o = require('offline-to-online');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var o__default = /*#__PURE__*/_interopDefaultLegacy(o);
 
 /**
  * 
@@ -64,7 +58,7 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 }, 3 * 1000);
  */
 const offlineToOnline = (src, callback, time) => {
-  o__default["default"].offlineToOnlineWithSrc(src, isOnline, callback, time);
+  o.offlineToOnlineWithSrc(src, isOnline, callback, time);
 };
 
 exports.isOnline = isOnline;

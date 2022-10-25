@@ -25,7 +25,7 @@
     },
     "scripts": {},
     "dependencies": {
-        "electron-packager": "^16.0.0",
+        "electron-packager": "^17.0.0",
         "qiao-cli": "^0.3.3",
         "qiao-cos": "^2.0.1",
         "qiao-file": "^1.0.2"

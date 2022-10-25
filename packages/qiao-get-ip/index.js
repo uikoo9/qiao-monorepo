@@ -1,12 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var q = require('qiao-ajax');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var q__default = /*#__PURE__*/_interopDefaultLegacy(q);
 
 const word = '[a-fA-F\\d:]';
 
@@ -56,7 +50,7 @@ const notIpErr$1	= new Error('not ip');
  */
 const getIpByIcanhazip = () => {
 	return new Promise(function(resolve, reject){
-		q__default["default"].get(hipUrl)
+		q.get(hipUrl)
 			.then(function(res){
 				// not 200
 				if(!res || res.status != 200 || !res.data){
@@ -89,7 +83,7 @@ const notIpErr= new Error('not ip');
  */
 const getIpBySohu = () => {
 	return new Promise(function(resolve, reject){
-		q__default["default"].get(sohuUrl)
+		q.get(sohuUrl)
 			.then(function(res){
 				// not 200
 				if(!res || res.status != 200 || !res.data){

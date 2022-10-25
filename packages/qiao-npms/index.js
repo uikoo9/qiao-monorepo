@@ -1,13 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var qiaoAjax = require('qiao-ajax');
 var search = require('libnpmsearch');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var search__default = /*#__PURE__*/_interopDefaultLegacy(search);
 
 // qiao
 
@@ -119,7 +113,7 @@ const searchPackages = async (packageName, options) => {
     };
 
     // search
-    return await search__default['default'](packageName, options || defaultOptions);
+    return await search(packageName, options || defaultOptions);
 };
 
 // get latest
