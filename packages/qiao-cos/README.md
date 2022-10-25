@@ -1,6 +1,11 @@
-# qiao-cos
+## qiao-cos
+[![npm version](https://img.shields.io/npm/v/qiao-cos.svg?style=flat-square)](https://www.npmjs.org/package/qiao-cos)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-cos.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-cos)
+
+nodejs下腾讯cos常见api封装
+
 ## config.json
-```json
+```javascript
 {
 	"SecretId"	: "your secret id",
 	"SecretKey"	: "your secret key",
@@ -11,6 +16,9 @@
 
 ## api
 ### uploadFileSync
+
+同步上传文件
+
 ```javascript
 'use strict';
 
@@ -37,6 +45,9 @@ test();
 ```
 
 ### uploadFolderSync
+
+同步上传文件夹
+
 ```javascript
 'use strict';
 
@@ -63,6 +74,9 @@ test();
 ```
 
 ### uploadFile
+
+异步上传文件
+
 ```javascript
 'use strict';
 
@@ -86,6 +100,9 @@ test();
 ```
 
 ### uploadFolder
+
+异步上传文件夹
+
 ```javascript
 'use strict';
 
@@ -108,7 +125,10 @@ var test = function(){
 test();
 ```
 
-## also in cli
+## cli
+
+cli下也可以使用
+
 ```shell
 npm install -g qiao-cos
 
