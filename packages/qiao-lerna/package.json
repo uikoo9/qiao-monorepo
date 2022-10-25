@@ -1,29 +1,31 @@
 {
-  "name": "qiao-lerna",
-  "version": "1.0.5",
-  "description": "lerna tools",
-  "keywords": [
-    "lerna",
-    "tools"
-  ],
-  "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://code.insistime.com/qiao-lerna",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-  },
-  "scripts": {},
-  "bin": {
-    "qlerna": "./bin/qlerna.js"
-  },
-  "dependencies": {
-    "npm-check-updates": "^16.3.15",
-    "qiao-cli": "^0.3.3",
-    "qiao-console": "^0.1.2",
-    "qiao-npms": "^1.0.3",
-    "qiao-parallel": "^1.0.5"
-  },
-  "gitHead": "3ee6a703cf9078dfa740a3528439ba84bb9a0990"
+    "name": "qiao-lerna",
+    "version": "1.0.5",
+    "description": "lerna tools",
+    "keywords": [
+        "lerna",
+        "tools"
+    ],
+    "author": "uikoo9 <uikoo9@qq.com>",
+    "homepage": "https://code.insistime.com/qiao-lerna",
+    "license": "MIT",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+    },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+    },
+    "scripts": {},
+    "bin": {
+        "qlerna": "./bin/qlerna.js"
+    },
+    "dependencies": {
+        "npm-check-updates": "^16.3.15",
+        "qiao-cli": "^0.3.3",
+        "qiao-console": "^0.1.2",
+        "qiao-npms": "^1.0.3",
+        "qiao-parallel": "^1.0.5"
+    }
 }

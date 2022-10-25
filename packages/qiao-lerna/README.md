@@ -1,4 +1,7 @@
-# qiao-lerna
+## qiao-lerna
+[![npm version](https://img.shields.io/npm/v/qiao-lerna.svg?style=flat-square)](https://www.npmjs.org/package/qiao-lerna)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-lerna.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-lerna)
+
 lerna tools
 
 ## cli
