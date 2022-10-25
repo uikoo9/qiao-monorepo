@@ -37,72 +37,78 @@ const ipRegex = options => options && options.exact
 ipRegex.v4 = options => options && options.exact ? v4exact : new RegExp(`${boundry(options)}${v4}${boundry(options)}`, 'g');
 ipRegex.v6 = options => options && options.exact ? v6exact : new RegExp(`${boundry(options)}${v6}${boundry(options)}`, 'g');
 
+// qiao-ajax
+
 // urls
-const hipUrl	= 'http://icanhazip.com/';
-const hipErr 	= new Error('get ip by icanhazip failed');
+const hipUrl = 'http://icanhazip.com/';
+const hipErr = new Error('get ip by icanhazip failed');
 
 // not ip
-const notIpErr$1	= new Error('not ip');
+const notIpErr$1 = new Error('not ip');
 
 /**
  * getIpByIcanhazip
  * @returns 
  */
 const getIpByIcanhazip = () => {
-    return new Promise(function(resolve, reject){
+    return new Promise(function (resolve, reject) {
         q.get(hipUrl)
-            .then(function(res){
+            .then(function (res) {
                 // not 200
-                if(!res || res.status != 200 || !res.data){
+                if (!res || res.status != 200 || !res.data) {
                     return reject(hipErr);
                 }
-	
+
                 // ip
                 const ip = res.data.replace(/\n/g, '');
-                if(!ip) return reject(hipErr);
-	
-                const isIp = ipRegex.v4({exact: true}).test(ip);
+                if (!ip) return reject(hipErr);
+
+                const isIp = ipRegex.v4({ exact: true }).test(ip);
                 return isIp ? resolve(ip) : reject(notIpErr$1);
             })
-            .catch(function(e){
+            .catch(function (e) {
                 reject(e);
             });
     });
 };
+
+// qiao-ajax
 
 // urls
 const sohuUrl = 'http://txt.go.sohu.com/ip/soip';
 const sohuErr = new Error('get ip by sohu failed');
 
 // not ip
-const notIpErr= new Error('not ip');
+const notIpErr = new Error('not ip');
 
 /**
  * getIpBySohu
  * @returns 
  */
 const getIpBySohu = () => {
-    return new Promise(function(resolve, reject){
+    return new Promise(function (resolve, reject) {
         q.get(sohuUrl)
-            .then(function(res){
+            .then(function (res) {
                 // not 200
-                if(!res || res.status != 200 || !res.data){
+                if (!res || res.status != 200 || !res.data) {
                     return reject(sohuErr);
                 }
-	
+
                 // ip
-                const s 	= res.data.match(/\d+\.\d+\.\d+\.\d+/g);
-                const ip 	= s && s.length ? s[0] : null;
-                if(!ip) return reject(sohuErr);
-	
-                const isIp 	= ipRegex.v4({exact: true}).test(ip);
+                const s = res.data.match(/\d+\.\d+\.\d+\.\d+/g);
+                const ip = s && s.length ? s[0] : null;
+                if (!ip) return reject(sohuErr);
+
+                const isIp = ipRegex.v4({ exact: true }).test(ip);
                 return isIp ? resolve(ip) : reject(notIpErr);
             })
-            .catch(function(e){
+            .catch(function (e) {
                 reject(e);
             });
     });
 };
+
+// get ip by sohu
 
 /**
  * getIp
@@ -110,19 +116,19 @@ const getIpBySohu = () => {
  */
 const getIp = async () => {
     let ip;
-	
+
     // by sohu
-    try{
+    try {
         ip = await getIpBySohu();
-    }catch(e1){
+    } catch (e1) {
         // by icanhazip
-        try{
+        try {
             ip = await getIpByIcanhazip();
-        }catch(e2){
+        } catch (e2) {
             console.log(e1, e2);
         }
     }
-	
+
     return ip;
 };
 
