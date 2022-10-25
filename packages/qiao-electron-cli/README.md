@@ -2,14 +2,17 @@
 [![npm version](https://img.shields.io/npm/v/qiao-electron-cli.svg?style=flat-square)](https://www.npmjs.org/package/qiao-electron-cli)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-electron-cli.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-electron-cli)
 
-electron脚手架
+electron脚手架，详见：[一篇文章学会Electron](https://blog.insistime.com/electron)
 
 ## install
 ```bash
 npm i -D qiao-electron-cli
 ```
 
-## qiao-electron.config.js
+## config
+
+配置文件qiao-electron.config.js
+
 ```javascript
 'use strict';
 

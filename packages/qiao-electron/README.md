@@ -3,7 +3,12 @@
 [![npm downloads](https://img.shields.io/npm/dm/qiao-electron.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-electron)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-electron)
 
-封装了一些常见的electron主进程操作
+封装了一些常见的electron主进程操作，详见：[一篇文章学会Electron](https://blog.insistime.com/electron)
+
+## install
+```bash
+npm i qiao-electron
+```
 
 ## ipc
 提供了一些在渲染进程中可以使用的常见方法
