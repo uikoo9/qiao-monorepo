@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/qiao-webpack.svg?style=flat-square)](https://www.npmjs.org/package/qiao-webpack)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-webpack.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-webpack)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-webpack)
 
 开箱即用的webpack脚手架，详见：一篇文章学会[Webpack5.x](https://blog.insistime.com/webpack)
 

@@ -1,7 +1,6 @@
 # qiao-file
 [![npm version](https://img.shields.io/npm/v/qiao-file.svg?style=flat-square)](https://www.npmjs.org/package/qiao-file)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-file.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-file)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-file)
 
 nodejs下文件相关封装
 

@@ -1,7 +1,6 @@
 # qiao-z
 [![npm version](https://img.shields.io/npm/v/qiao-z.svg?style=flat-square)](https://www.npmjs.org/package/qiao-z)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-z.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-z)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-z)
 
 nodejs下极简的web框架, [docs](https://code.insistime.com/qiao-z)
 
