@@ -1,6 +1,9 @@
-# qiao-is-online-browser
-1. is online on browser by load img
-2. offline to online on browser
+## qiao-is-online-browser
+[![npm version](https://img.shields.io/npm/v/qiao-is-online-browser.svg?style=flat-square)](https://www.npmjs.org/package/qiao-is-online-browser)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-is-online-browser.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-is-online-browser)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-is-online-browser)
+
+浏览器检测用户是否在线
 
 ## api
 ### isOnline
@@ -39,6 +42,9 @@ q.offlineToOnline(isOnlineImgSrc, function(){
 ```
 
 ## version
+### 0.0.5.20221025
+1. 1.0.0
+   
 ### 0.0.4.20220512
 1. lerna
 
