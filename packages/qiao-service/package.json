@@ -1,6 +1,6 @@
 {
   "name": "qiao-service",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "uikoo9 <uikoo9@qq.com>",
   "homepage": "https://code.insistime.com/qiao-service",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "prepublish": "npm run build && npm run eslintfix"
   },
   "dependencies": {
-    "qiao-ajax": "^2.7.2",
+    "qiao-ajax": "^2.7.3",
     "qiao-json": "^0.1.1"
   },
   "sideEffects": false
