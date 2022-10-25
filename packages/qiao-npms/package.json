@@ -28,7 +28,7 @@
         "prepublish": "npm run build && npm run eslintfix"
     },
     "dependencies": {
-        "libnpmsearch": "^5.0.4",
+        "libnpmsearch": "^6.0.0",
         "qiao-ajax": "^2.7.2"
     }
 }
