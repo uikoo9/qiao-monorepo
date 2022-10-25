@@ -19,7 +19,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.2.2",
     "jest-environment-jsdom": "^29.2.2",
-    "qiao-lerna": "^1.0.4",
+    "qiao-lerna": "^1.0.5",
     "qiao-webpack": "^1.2.2",
     "rollup": "^3.2.3"
   }
