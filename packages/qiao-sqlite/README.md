@@ -2,7 +2,7 @@
 [![npm version](https://img.shields.io/npm/v/qiao-sqlite.svg?style=flat-square)](https://www.npmjs.org/package/qiao-sqlite)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-sqlite.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-sqlite)
 
-本地数据库sqlite常见api封装
+本地数据库sqlite常见api封装，详见：[一篇文章学会SQLite](https://blog.insistime.com/sqlite)
 
 ## api
 ### createDB
