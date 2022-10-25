@@ -4,8 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/qiao.cookie.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.cookie.js)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.cookie.js)
 
-## documentation
-cookie，[https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
+浏览器Cookie相关操作封装，详见：[cookie文档](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
 
 ## api
 ### cjs
