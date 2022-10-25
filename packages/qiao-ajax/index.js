@@ -1,11 +1,11 @@
 'use strict';
 
+var axios = require('axios');
+
 /**
  * axios
  * 	https://www.npmjs.com/package/axios
  */
-const fakeAxios = require('axios');
-const axios = fakeAxios.default || fakeAxios;
 
 /**
  * get
