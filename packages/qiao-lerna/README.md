@@ -2,7 +2,7 @@
 [![npm version](https://img.shields.io/npm/v/qiao-lerna.svg?style=flat-square)](https://www.npmjs.org/package/qiao-lerna)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-lerna.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-lerna)
 
-lerna tools
+lerna tools，详见：[一篇文章学会Lerna](https://blog.insistime.com/lerna)
 
 ## cli
 ### dc
