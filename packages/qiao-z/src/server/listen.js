@@ -46,7 +46,4 @@ export default (port, routers) => {
 
     // listen
     server.listen(port);
-
-    // return
-    return server;
 };

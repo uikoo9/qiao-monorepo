@@ -1,6 +1,9 @@
 // parseurl
 import parseurl from 'parseurl';
 
+// useragent
+import useragent from './useragent/index.js';
+
 /**
  * req
  * @param {*} request 
@@ -11,6 +14,7 @@ export default (request) => {
     req.request = request;
     req.url = parseurl(request);
     req.headers = handleHeaders(request);
+    req.useragent = useragent(req);
 
     return req;
 };
