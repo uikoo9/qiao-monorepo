@@ -1,20 +1,26 @@
 // path
-const path = require('path');
+import { resolve } from 'path';
 
 /**
  * init static
  */
-module.exports = function (app, routers) {
-    app.static = function (router, filePath) {
+export default (app, routers) => {
+    // check
+    if (!app || !routers) return;
+
+    // static
+    app.static = (router, filePath) => {
+        // router and callback
         const mpath = `${router}/:opath`;
-        const callback = function (req, res) {
+        const callback = (req, res) => {
             const opath = req.params.opath;
             const rpath = `${filePath}/${opath}`;
-            const fpath = path.resolve(process.cwd(), rpath);
+            const fpath = resolve(process.cwd(), rpath);
 
             res.render(fpath);
         };
 
+        // get
         routers.get = routers.get || [];
         routers.get.push({
             path: mpath,

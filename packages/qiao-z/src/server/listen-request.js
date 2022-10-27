@@ -1,5 +1,11 @@
+// req
+import reqFn from './req.js';
+
+// res
+import resFn from './res.js';
+
 // out
-const out = require('./out.js');
+import { error } from './out.js';
 
 /**
  * listen request
@@ -8,21 +14,21 @@ const out = require('./out.js');
  * @param {*} routers 
  * @returns 
  */
-module.exports = function (request, response, routers) {
+export default (request, response, routers) => {
     if (Object.keys(routers).length === 0) {
-        out.error(response, 'no routers');
+        error(response, 'no routers');
         return;
     }
 
     // req res
-    const req = require('./req.js')(request);
-    const res = require('./res.js')(response);
+    const req = reqFn(request);
+    const res = resFn(response);
 
     // req method
     const reqMethod = req.request.method.toLowerCase();
     const reqRouters = routers[reqMethod];
     if (!reqRouters || !reqRouters.length) {
-        out.error(response, 'no routers');
+        error(response, 'no routers');
         return;
     }
 
@@ -45,7 +51,7 @@ module.exports = function (request, response, routers) {
         }
     }
     if (!check) {
-        out.error(response, 'can not get router');
+        error(response, 'can not get router');
         return;
     }
 };

@@ -5,4 +5,4 @@ const q = require('../index.js');
 const app = q();
 
 // listen
-app.listen(5277);
+app.listen();

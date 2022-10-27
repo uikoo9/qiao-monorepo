@@ -1,8 +1,8 @@
 // http
-const http = require('node:http');
+import http from 'http';
 
 // listen request
-const listenRequest = require('./listen-request.js');
+import listenRequest from './listen-request.js';
 
 /**
  * listen
@@ -10,7 +10,9 @@ const listenRequest = require('./listen-request.js');
  * @param {*} routers 
  * @returns 
  */
-module.exports = function (port, routers) {
+export default (port, routers) => {
+    if(!routers) return;
+
     // server
     const server = http.createServer();
 
@@ -43,7 +45,7 @@ module.exports = function (port, routers) {
     });
 
     // listen
-    server.listen(port || 5277);
+    server.listen(port);
 
     // return
     return server;

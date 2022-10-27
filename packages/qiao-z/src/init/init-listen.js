@@ -1,5 +1,8 @@
 // listen
-const listen = require('../listen.js');
+import listen from '../server/listen.js';
+
+// port
+const defaultPort = '5277';
 
 /**
  * init listen
@@ -7,8 +10,14 @@ const listen = require('../listen.js');
  * @param {*} routers 
  * @returns 
  */
-module.exports = function (app, routers) {
-    app.listen = function (port) {
-        this.server = listen(port, routers);
+export default (app, routers) => {
+    // check
+    if (!app || !routers) return;
+
+    // init
+    app.listen = (port) => {
+        port = port || defaultPort;
+
+        listen(port, routers);
     };
 };

@@ -7,9 +7,13 @@ const methods = ['get'];
  * @param {*} routers 
  * @returns 
  */
-module.exports = function (app, routers) {
-    methods.forEach(function(v){
-        app[v] = function (path, callback) {
+export default (app, routers) => {
+    //check
+    if (!app || !routers) return;
+
+    // init
+    methods.forEach((v) => {
+        app[v] = (path, callback) => {
             routers[v] = routers[v] || [];
             routers[v].push({
                 path: path,

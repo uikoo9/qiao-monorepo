@@ -1,12 +1,12 @@
 // parseurl
-const parseurl = require('parseurl');
+import parseurl from 'parseurl';
 
 /**
  * req
  * @param {*} request 
  * @returns 
  */
-module.exports = function(request){
+export default (request) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
@@ -16,16 +16,16 @@ module.exports = function(request){
 };
 
 // handle headers
-function handleHeaders(request){
+function handleHeaders(request) {
     const headers = {};
 
     // check
     const rawHeaders = request.rawHeaders;
-    if(!rawHeaders || !rawHeaders.length) return headers;
+    if (!rawHeaders || !rawHeaders.length) return headers;
 
     // handle
     rawHeaders.forEach((h, i) => {
-        if(i % 2 == 0) headers[h.toLowerCase()] = rawHeaders[i+1];
+        if (i % 2 == 0) headers[h.toLowerCase()] = rawHeaders[i + 1];
     });
     return headers;
 }
