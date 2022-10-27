@@ -1,5 +1,5 @@
 // req
-import reqFn from './req.js';
+import reqFn from './req/req.js';
 
 // res
 import resFn from './res.js';
@@ -14,14 +14,14 @@ import { error } from './out.js';
  * @param {*} routers 
  * @returns 
  */
-export default (request, response, routers) => {
+export default async (request, response, routers) => {
     if (Object.keys(routers).length === 0) {
         error(response, 'no routers');
         return;
     }
 
     // req res
-    const req = reqFn(request);
+    const req = await reqFn(request);
     const res = resFn(response);
 
     // req method

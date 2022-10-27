@@ -1,26 +1,9 @@
-// parseurl
-import parseurl from 'parseurl';
-
-// useragent
-import useragent from './useragent/index.js';
-
 /**
- * req
+ * handle headers
  * @param {*} request 
  * @returns 
  */
 export default (request) => {
-    const req = {};
-    req.request = request;
-    req.url = parseurl(request);
-    req.headers = handleHeaders(request);
-    req.useragent = useragent(req);
-
-    return req;
-};
-
-// handle headers
-function handleHeaders(request) {
     const headers = {};
 
     // check
@@ -32,4 +15,4 @@ function handleHeaders(request) {
         if (i % 2 == 0) headers[h.toLowerCase()] = rawHeaders[i + 1];
     });
     return headers;
-}
+};

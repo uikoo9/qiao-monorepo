@@ -11,6 +11,7 @@ module.exports = {
         'path',
         'http',
         'parseurl',
+        'raw-body',
         'art-template',
         'qiao-file',
     ],

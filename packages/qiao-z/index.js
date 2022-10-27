@@ -3,11 +3,12 @@
 var path = require('path');
 var http = require('http');
 var parseurl = require('parseurl');
+var getRawBody = require('raw-body');
 var qiaoFile = require('qiao-file');
 var template = require('art-template');
 
 // methods
-const methods = ['get'];
+const methods = ['get', 'post'];
 
 /**
  * init methods
@@ -63,6 +64,25 @@ var initStatic = (app, routers) => {
 
     // acme
     app.static('/.well-known', './.well-known');
+};
+
+/**
+ * handle headers
+ * @param {*} request 
+ * @returns 
+ */
+var handleHeaders = (request) => {
+    const headers = {};
+
+    // check
+    const rawHeaders = request.rawHeaders;
+    if (!rawHeaders || !rawHeaders.length) return headers;
+
+    // handle
+    rawHeaders.forEach((h, i) => {
+        if (i % 2 == 0) headers[h.toLowerCase()] = rawHeaders[i + 1];
+    });
+    return headers;
 };
 
 // NOTE: this list must be up-to-date with browsers listed in
@@ -2248,7 +2268,7 @@ class Parser {
 /**
  * useragent
  */
-var useragent = (req) => {
+var handleUseragent = (req) => {
     // check
     if(!req || !req.headers || !req.headers['user-agent']) return {};
 
@@ -2264,6 +2284,46 @@ var useragent = (req) => {
     return parserRes;
 };
 
+// raw body
+
+/**
+ * handle body
+ * @param {*} req 
+ * @returns 
+ */
+var handleBody = async (req) => {
+    const body = {};
+
+    try{
+        // options
+        const options = {
+            length: req.headers['content-length'],
+            limit: '1mb',
+            encoding: true
+        };
+
+        // body str
+        const bodyString = await getRawBody(req.request, options);
+        if(!bodyString) return body;
+
+        // split
+        const bodySplit = bodyString.split('&');
+        if(!bodySplit || !bodySplit.length) return body;
+
+        // each
+        bodySplit.forEach(v => {
+            const vv = v.split('=');
+            if(!vv || vv.length != 2) return;
+
+            body[vv[0]] = vv[1];
+        });
+    }catch(e){
+        console.log(e);
+    }
+
+    return body;
+};
+
 // parseurl
 
 /**
@@ -2271,30 +2331,16 @@ var useragent = (req) => {
  * @param {*} request 
  * @returns 
  */
-var reqFn = (request) => {
+var reqFn = async (request) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
     req.headers = handleHeaders(request);
-    req.useragent = useragent(req);
+    req.useragent = handleUseragent(req);
+    req.body = await handleBody(req);
 
     return req;
 };
-
-// handle headers
-function handleHeaders(request) {
-    const headers = {};
-
-    // check
-    const rawHeaders = request.rawHeaders;
-    if (!rawHeaders || !rawHeaders.length) return headers;
-
-    // handle
-    rawHeaders.forEach((h, i) => {
-        if (i % 2 == 0) headers[h.toLowerCase()] = rawHeaders[i + 1];
-    });
-    return headers;
-}
 
 /**
  * error
@@ -2384,14 +2430,14 @@ function render(filePath, data) {
  * @param {*} routers 
  * @returns 
  */
-var listenRequest = (request, response, routers) => {
+var listenRequest = async (request, response, routers) => {
     if (Object.keys(routers).length === 0) {
         error(response, 'no routers');
         return;
     }
 
     // req res
-    const req = reqFn(request);
+    const req = await reqFn(request);
     const res = resFn(response);
 
     // req method
@@ -2493,7 +2539,7 @@ function handleRequest(r, req, res) {
  * @returns 
  */
 var listen = (port, routers) => {
-    if(!routers) return;
+    if (!routers) return;
 
     // server
     const server = http.createServer();

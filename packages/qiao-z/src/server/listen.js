@@ -11,7 +11,7 @@ import listenRequest from './listen-request.js';
  * @returns 
  */
 export default (port, routers) => {
-    if(!routers) return;
+    if (!routers) return;
 
     // server
     const server = http.createServer();

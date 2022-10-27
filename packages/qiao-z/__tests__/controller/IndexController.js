@@ -25,4 +25,10 @@ module.exports = function (app) {
         console.log('/2/:md', req.params.md, req.url);
         res.render('./views/index.html', data);
     });
+
+    // post
+    app.post('/blog/list', function (req, res) {
+        console.log(req.body);
+        res.render('./views/index.html', data);
+    });
 };
