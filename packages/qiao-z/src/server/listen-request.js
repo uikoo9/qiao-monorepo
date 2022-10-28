@@ -4,9 +4,6 @@ import reqFn from './req/req.js';
 // res
 import resFn from './res.js';
 
-// out
-import { error } from './out.js';
-
 /**
  * listen request
  * @param {*} request 
@@ -15,20 +12,21 @@ import { error } from './out.js';
  * @returns 
  */
 export default async (request, response, routers) => {
-    if (Object.keys(routers).length === 0) {
-        error(response, 'no routers');
-        return;
-    }
-
     // req res
     const req = await reqFn(request);
     const res = resFn(response);
+    
+    // check routers
+    if (Object.keys(routers).length === 0) {
+        res.send('no routers');
+        return;
+    }
 
     // req method
     const reqMethod = req.request.method.toLowerCase();
     const reqRouters = routers[reqMethod];
     if (!reqRouters || !reqRouters.length) {
-        error(response, 'no routers');
+        res.send('no routers');
         return;
     }
 
@@ -51,7 +49,7 @@ export default async (request, response, routers) => {
         }
     }
     if (!check) {
-        error(response, 'can not get router');
+        res.send('can not get router');
         return;
     }
 };

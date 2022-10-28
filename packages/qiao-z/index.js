@@ -2346,20 +2346,6 @@ var reqFn = async (request) => {
     return req;
 };
 
-/**
- * error
- * @param {*} res 
- * @param {*} msg 
- */
-const error = (res, msg) => {
-    // check
-    if (!res || !msg) return;
-
-    // res
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(msg);
-};
-
 // path
 
 /**
@@ -2369,54 +2355,111 @@ var resFn = (response) => {
     const res = {};
     res.response = response;
     res.redirect = redirect;
+    res.send = send;
+    res.json = json;
+    res.jsonSuccess = jsonSuccess;
+    res.jsonFail = jsonFail;
     res.render = render;
 
     return res;
 };
 
-/**
- * redirect
- * @param {*} url 
- */
+// redirect
 function redirect(url) {
-    this.response.writeHead(302, {
-        'Location': url
-    });
+    // check
+    if (!url) return;
+
+    // redirect
+    this.response.writeHead(302, { 'Location': url });
     this.response.end();
 }
 
-/**
- * render
- * @param {*} filePath 
- * @param {*} data 
- * @returns 
- */
-function render(filePath, data) {
+// send
+function send(msg) {
+    if (!msg) return;
+
+    this.response.writeHead(200, { 'Content-Type': 'text/plain' });
+    this.response.end(msg);
+}
+
+// json
+function json(obj) {
+    // check
+    if (!obj) return;
+
+    try {
+        const msg = JSON.stringify(obj);
+        this.response.writeHead(200, { 'Content-Type': 'application/json' });
+        this.response.end(msg);
+    } catch (error) {
+        console.log(error);
+        this.send('res.json obj error');
+    }
+}
+
+// json success
+function jsonSuccess(msg, obj) {
+    // check
+    if (!msg) return;
+
+    // json
+    const jsonObj = {
+        type: true,
+        msg: msg,
+    };
+
+    // obj
+    if (obj) jsonObj.obj = obj;
+
+    // send
+    this.json(jsonObj);
+}
+
+// json fail
+function jsonFail(msg, obj) {
+    // check
+    if (!msg) return;
+
+    // json
+    const jsonObj = {
+        type: false,
+        msg: msg,
+    };
+
+    // obj
+    if (obj) jsonObj.obj = obj;
+
+    // send
+    this.json(jsonObj);
+}
+
+// render
+function render(filePath, data){
     // check
     if (!filePath) {
-        error(this.response, 'render: please check file path!');
+        this.send('render: please check file path!');
         return;
     }
 
     // final path
     const finalPath = path.resolve(process.cwd(), filePath);
     if (!qiaoFile.isExists(filePath)) {
-        error(this.response, 'render: file path is not exists');
+        this.send('render: file path is not exists');
         return;
     }
 
     // file
     let file;
     let contentType;
-    if(qiaoFile.extname(finalPath) == '.html'){
+    if (qiaoFile.extname(finalPath) == '.html') {
         file = template(finalPath, data || {});
         contentType = 'text/html';
-    }else {
+    } else {
         file = qiaoFile.readFile(finalPath);
         contentType = 'text/plain';
     }
     if (!file) {
-        error(this.response, 'render: read file error');
+        this.send('render: read file error');
         return;
     }
 
@@ -2435,20 +2478,21 @@ function render(filePath, data) {
  * @returns 
  */
 var listenRequest = async (request, response, routers) => {
-    if (Object.keys(routers).length === 0) {
-        error(response, 'no routers');
-        return;
-    }
-
     // req res
     const req = await reqFn(request);
     const res = resFn(response);
+    
+    // check routers
+    if (Object.keys(routers).length === 0) {
+        res.send('no routers');
+        return;
+    }
 
     // req method
     const reqMethod = req.request.method.toLowerCase();
     const reqRouters = routers[reqMethod];
     if (!reqRouters || !reqRouters.length) {
-        error(response, 'no routers');
+        res.send('no routers');
         return;
     }
 
@@ -2471,7 +2515,7 @@ var listenRequest = async (request, response, routers) => {
         }
     }
     if (!check) {
-        error(response, 'can not get router');
+        res.send('can not get router');
         return;
     }
 };

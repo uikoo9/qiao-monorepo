@@ -9,10 +9,10 @@ module.exports = function (app) {
     };
 
     // check all
-    app.get('/*', function (req, res) {
-        console.log('/*', req.url, req.query);
-        res.render('./views/index.html', data);
-    });
+    // app.get('/*', function (req, res) {
+    //     console.log('/*', req.url, req.query);
+    //     res.render('./views/index.html', data);
+    // });
 
     // check path
     app.get('/2', function (req, res) {
@@ -24,6 +24,27 @@ module.exports = function (app) {
     app.get('/2/:md', function (req, res) {
         console.log('/2/:md', req.params.md, req.url);
         res.render('./views/index.html', data);
+    });
+
+    // send
+    app.get('/send', function (req, res) {
+        res.send('send ok');
+    });
+
+    // json
+    app.get('/json', function (req, res) {
+        const obj = {
+            test: 'nihao'
+        };
+        res.json(obj);
+    });
+
+    // jsonSuccess
+    app.get('/jsonSuccess', function (req, res) {
+        const obj = {
+            test: 'nihao'
+        };
+        res.jsonSuccess('1', obj);
     });
 
     // post
