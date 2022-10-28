@@ -2,62 +2,27 @@
  * index controller
  */
 module.exports = function (app) {
-    const data = {
-        user: {
-            name: 'jack'
-        }
-    };
+    // app
+    require('./app/app-index.js')(app);
+    require('./app/app-get.js')(app);
+    require('./app/app-static.js')(app);
 
-    // check all
-    // app.get('/*', function (req, res) {
-    //     console.log('/*', req.url, req.query);
-    //     res.render('./views/index.html', data);
-    // });
+    // req
+    require('./req/req-url.js')(app);
+    require('./req/req-query.js')(app);
+    require('./req/req-params.js')(app);
+    require('./req/req-body.js')(app);
+    require('./req/req-headers.js')(app);
+    require('./req/req-useragent.js')(app);
+    require('./req/req-cookies.js')(app);
 
-    // check path
-    app.get('/2', function (req, res) {
-        console.log('/2', req.url);
-        res.render('./views/index.html', data);
-    });
-
-    // check params
-    app.get('/2/:md', function (req, res) {
-        console.log('/2/:md', req.params.md, req.url);
-        res.render('./views/index.html', data);
-    });
-
-    // send
-    app.get('/send', function (req, res) {
-        res.send('send ok');
-    });
-
-    // json
-    app.get('/json', function (req, res) {
-        const obj = {
-            test: 'nihao'
-        };
-        res.json(obj);
-    });
-
-    // jsonSuccess
-    app.get('/jsonSuccess', function (req, res) {
-        const obj = {
-            test: 'nihao'
-        };
-        res.jsonSuccess('1', obj);
-    });
-
-    // cookie
-    app.get('/cookie', function (req, res) {
-        console.log(req.cookies);
-        res.clearCookie('insistime_userid');
-        
-        res.jsonSuccess('1');
-    });
-
-    // post
-    app.post('/blog/list', function (req, res) {
-        console.log(req.body);
-        res.render('./views/index.html', data);
-    });
-};
+    // res
+    require('./res/res-redirect.js')(app);
+    require('./res/res-send.js')(app);
+    require('./res/res-json.js')(app);
+    require('./res/res-json-success.js')(app);
+    require('./res/res-json-fail.js')(app);
+    require('./res/res-clear-cookie.js')(app);
+    require('./res/res-render-file.js')(app);
+    require('./res/res-render-html.js')(app);
+}

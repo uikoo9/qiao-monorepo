@@ -22,7 +22,36 @@ const app = require('qiao-z')();
 app.listen(5277);
 ```
 
+## examples
+```bash
+git clone ...
+cd __tests__
+node app.js
+
+# open http://localhost:5277
+```
+
 ## version
+### 0.0.3.20221028
+1. app.get
+2. app.post
+3. app.static
+4. app.listen
+5. req.url
+6. req.quer
+7. req.params
+8. req.body
+9. req.headers
+10. req.useragent
+11. req.cookies
+12. res.redirect
+13. res.send
+14. res.json
+15. res.jsonSuccess
+16. res.jsonFail
+17. res.clearCookie
+18. res.render
+
 ### 0.0.2.20221009
 1. headers
 2. docs
