@@ -14,5 +14,6 @@ module.exports = {
         'raw-body',
         'art-template',
         'qiao-file',
+        'qs'
     ],
 };

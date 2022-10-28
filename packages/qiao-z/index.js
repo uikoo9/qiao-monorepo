@@ -4,6 +4,7 @@ var path = require('path');
 var http = require('http');
 var parseurl = require('parseurl');
 var getRawBody = require('raw-body');
+var qs = require('qs');
 var qiaoFile = require('qiao-file');
 var template = require('art-template');
 
@@ -2306,17 +2307,8 @@ var handleBody = async (req) => {
         const bodyString = await getRawBody(req.request, options);
         if(!bodyString) return body;
 
-        // split
-        const bodySplit = bodyString.split('&');
-        if(!bodySplit || !bodySplit.length) return body;
-
-        // each
-        bodySplit.forEach(v => {
-            const vv = v.split('=');
-            if(!vv || vv.length != 2) return;
-
-            body[vv[0]] = vv[1];
-        });
+        // return
+        return qs.parse(bodyString);
     }catch(e){
         console.log(e);
     }
