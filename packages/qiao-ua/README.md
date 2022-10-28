@@ -1,96 +1,36 @@
-## qiao.ls.js
-[![npm version](https://img.shields.io/npm/v/qiao.ls.js.svg?style=flat-square)](https://www.npmjs.org/package/qiao.ls.js)
-[![npm downloads](https://img.shields.io/npm/dm/qiao.ls.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.ls.js)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.ls.js)
+## qiao-ua
+[![npm version](https://img.shields.io/npm/v/qiao-ua.svg?style=flat-square)](https://www.npmjs.org/package/qiao-ua)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-ua.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-ua)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-ua)
 
-浏览器localStorage本地存储常见api封装和增强，详情：[一篇文章学会LocalStorage](https://blog.insistime.com/localstorage)
+解析user-agent，返回浏览器，平台，操作系统等信息，fork自[bowser](https://www.npmjs.com/package/bowser)（由于2年没有维护），并做了一些改动
 
 ## install
 ```bash
-npm i qiao.ls.js
+npm i qiao-ua
 ```
 
 ## use
 ```javascript
-// cjs
-const q = require('qiao.ls.js');
-q.ls
+// ua
+var ua = require('qiao-ua');
 
-// mjs
-import { ls } from 'qiao.ls.js';
+var useragent = 'xxx';
+var res = ua(useragent);
+console.log(res);
 ```
 
-## api
-### set
+return
 ```javascript
-// set
-q.ls('name', 'value');
-```
-
-### set with expires
-```javascript
-// set 10s expires
-q.ls('name', 'value', 10 * 1000);
-```
-
-### get
-```javascript
-// get
-console.log(q.ls('name')); // value
-```
-
-### delete
-```javascript
-// delete
-q.ls('name', null);
-console.log(q.ls('name')); // undefined
+{
+  browser: { name: 'Chrome', version: '106.0.0.0' },
+  os: { name: 'macOS', version: '10.15.7', versionName: 'Catalina' },
+  platform: { type: 'desktop', vendor: 'Apple' },
+  engine: { name: 'Blink' },
+  isMobile: false
+}
 ```
 
 ## version
-### 0.1.2.20220926
-1. add synk
-2. modify md
-3. modify homepage
-
-### 0.1.1.20220711
-1. tree shaking
-
-### 0.1.0.20220709
-1. add eslint 
-
-### 0.0.9.20220512
-1. lerna
-
-### 0.0.8.20210215
-1. qls --> q
-
-### 0.0.7.20210214
-1. add jsdoc
-
-### 0.0.6.20210209
-1. add jest
-2. expires to ms
-3. md
-
-### 0.0.5.20201022
-1. export ls and cache
-
-### 0.0.4.20200803
-1. ncu
-
-### 0.0.3.20200414
-1. set cache
-2. get cache
-3. remove cache
-4. clear cache
-5. add cache and ls
-
-### 0.0.2.20191206
-1. add funding
-
-### 0.0.1.20190624
+### 0.0.1.20221028
 1. init project
-2. set item
-3. get item
-4. remove item
-5. modify expires

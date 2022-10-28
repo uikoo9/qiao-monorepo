@@ -8,7 +8,7 @@ import Parser from './parser.js';
  */
 function parseUserAgent(useragent) {
     // check
-    if (!useragent) return;
+    if (!useragent) return {};
 
     // parse
     const parserRes = (new Parser(useragent)).getResult();

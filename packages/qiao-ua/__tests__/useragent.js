@@ -1,26 +1,7 @@
 'use strict';
 
-var q = require('../index.js');
+var ua = require('../index.js');
 
-// set value, get value
-test('set value, get value', function(){
-    var name    = 'cache.group';
-    var key     = 'team-123';
-    var value   = false;
-
-    q.cache(name, key, value);
-
-    expect(q.cache(name, key)).toStrictEqual(value);
-});
-
-// del value
-test('del value', function(){
-    var name    = 'cache.group';
-    var key     = 'team-123';
-    var value   = false;
-
-    expect(q.cache(name, key)).toStrictEqual(value);
-
-    q.cache(name, key, null);
-    expect(q.cache(name, key)).toBeUndefined();
-});
+var useragent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36';
+var res = ua(useragent);
+console.log(res);
