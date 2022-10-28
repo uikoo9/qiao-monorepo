@@ -4,15 +4,50 @@ import getRawBody from 'raw-body';
 // qs
 import qs from 'qs';
 
+// default body
+const defaultBody = {};
+
 /**
  * handle body
  * @param {*} req 
  * @returns 
  */
 export default async (req) => {
-    const body = {};
+    // check
+    if(!req || !req.headers || !req.headers['content-type']) return defaultBody;
 
-    try{
+    // body string
+    const bodyString = await getBodyString(req);
+    if(!bodyString) return defaultBody;
+
+    // body
+    let body;
+    try {
+        // content type
+        const contentType = req.headers['content-type'];
+
+        // xfrom
+        if(contentType == 'application/x-www-form-urlencoded'){
+            body = qs.parse(bodyString);
+            console.log(contentType, body);
+        }
+    
+        // json
+        if(contentType == 'application/json'){
+            body = JSON.parse(bodyString);
+            console.log(contentType, body);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+    // return
+    return body || defaultBody;
+};
+
+// get body string
+async function getBodyString(req){
+    try {
         // options
         const options = {
             length: req.headers['content-length'],
@@ -21,14 +56,9 @@ export default async (req) => {
         };
 
         // body str
-        const bodyString = await getRawBody(req.request, options);
-        if(!bodyString) return body;
-
-        // return
-        return qs.parse(bodyString);
-    }catch(e){
+        return await getRawBody(req.request, options);
+    } catch (e) {
         console.log(e);
+        return null;
     }
-
-    return body;
-};
+}

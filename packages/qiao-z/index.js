@@ -2298,15 +2298,50 @@ var handleQuery = (req) => {
 
 // raw body
 
+// default body
+const defaultBody = {};
+
 /**
  * handle body
  * @param {*} req 
  * @returns 
  */
 var handleBody = async (req) => {
-    const body = {};
+    // check
+    if(!req || !req.headers || !req.headers['content-type']) return defaultBody;
 
-    try{
+    // body string
+    const bodyString = await getBodyString(req);
+    if(!bodyString) return defaultBody;
+
+    // body
+    let body;
+    try {
+        // content type
+        const contentType = req.headers['content-type'];
+
+        // xfrom
+        if(contentType == 'application/x-www-form-urlencoded'){
+            body = qs.parse(bodyString);
+            console.log(contentType, body);
+        }
+    
+        // json
+        if(contentType == 'application/json'){
+            body = JSON.parse(bodyString);
+            console.log(contentType, body);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+    // return
+    return body || defaultBody;
+};
+
+// get body string
+async function getBodyString(req){
+    try {
         // options
         const options = {
             length: req.headers['content-length'],
@@ -2315,17 +2350,12 @@ var handleBody = async (req) => {
         };
 
         // body str
-        const bodyString = await getRawBody(req.request, options);
-        if(!bodyString) return body;
-
-        // return
-        return qs.parse(bodyString);
-    }catch(e){
+        return await getRawBody(req.request, options);
+    } catch (e) {
         console.log(e);
+        return null;
     }
-
-    return body;
-};
+}
 
 // parseurl
 
