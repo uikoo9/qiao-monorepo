@@ -47,6 +47,13 @@ module.exports = function (app) {
         res.jsonSuccess('1', obj);
     });
 
+    // cookie
+    app.get('/cookie', function (req, res) {
+        console.log(req.headers);
+        console.log(require('qs').parse(req.headers.cookie));
+        res.jsonSuccess('1');
+    });
+
     // post
     app.post('/blog/list', function (req, res) {
         console.log(req.body);
