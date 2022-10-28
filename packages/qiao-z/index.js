@@ -3,8 +3,8 @@
 var path = require('path');
 var http = require('http');
 var parseurl = require('parseurl');
-var getRawBody = require('raw-body');
 var qs = require('qs');
+var getRawBody = require('raw-body');
 var qiaoFile = require('qiao-file');
 var template = require('art-template');
 
@@ -2285,6 +2285,17 @@ var handleUseragent = (req) => {
     return parserRes;
 };
 
+// qs
+
+/**
+ * handle query
+ * @param {*} req 
+ * @returns 
+ */
+var handleQuery = (req) => {
+    return (!req || !req.url || !req.url.query) ? {} : qs.parse(req.url.query);
+};
+
 // raw body
 
 /**
@@ -2329,6 +2340,7 @@ var reqFn = async (request) => {
     req.url = parseurl(request);
     req.headers = handleHeaders(request);
     req.useragent = handleUseragent(req);
+    req.query = handleQuery(req);
     req.body = await handleBody(req);
 
     return req;

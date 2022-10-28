@@ -10,7 +10,7 @@ module.exports = function (app) {
 
     // check all
     app.get('/*', function (req, res) {
-        console.log('/*', req.url, req.useragent);
+        console.log('/*', req.url, req.query);
         res.render('./views/index.html', data);
     });
 
