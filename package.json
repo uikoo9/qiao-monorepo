@@ -1,26 +1,27 @@
 {
-  "name": "root",
-  "private": true,
-  "scripts": {
-    "clean": "lerna clean -y",
-    "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
-    "check": "qlerna ncu ./packages",
-    "dc": "qlerna dc ./packages",
-    "pkg": "qlerna pkg ./packages",
-    "dpkg": "qlerna pkg ./packages 1",
-    "ls": "lerna ls -l",
-    "show": "lerna ls --graph"
-  },
-  "devDependencies": {
-    "@rollup/plugin-json": "^5.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "eslint": "^8.26.0",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "jest": "^29.2.2",
-    "jest-environment-jsdom": "^29.2.2",
-    "qiao-lerna": "^1.0.7",
-    "qiao-webpack": "^1.2.2",
-    "rollup": "^3.2.3"
-  }
+    "name": "root",
+    "private": true,
+    "scripts": {
+        "check": "qlerna ncu ./packages",
+        "ncu": "lerna exec 'ncu -u'",
+        "clean": "lerna clean -y",
+        "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
+        "dc": "qlerna dc ./packages",
+        "pkg": "qlerna pkg ./packages",
+        "dpkg": "qlerna pkg ./packages 1",
+        "ls": "lerna ls -l",
+        "show": "lerna ls --graph"
+    },
+    "devDependencies": {
+        "@rollup/plugin-json": "^5.0.1",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "eslint": "^8.26.0",
+        "eslint-plugin-react": "^7.31.10",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "jest": "^29.2.2",
+        "jest-environment-jsdom": "^29.2.2",
+        "qiao-lerna": "^1.0.7",
+        "qiao-webpack": "^1.2.2",
+        "rollup": "^3.2.3"
+    }
 }

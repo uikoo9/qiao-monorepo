@@ -25,4 +25,4 @@ module.exports = function (app) {
     require('./res/res-clear-cookie.js')(app);
     require('./res/res-render-file.js')(app);
     require('./res/res-render-html.js')(app);
-}
+};
