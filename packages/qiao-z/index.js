@@ -217,6 +217,8 @@ var reqFn = async (request) => {
 var resFn = (response) => {
     const res = {};
     res.response = response;
+    res.head = head;
+    res.end = end;
     res.redirect = redirect;
     res.send = send;
     res.json = json;
@@ -228,22 +230,57 @@ var resFn = (response) => {
     return res;
 };
 
+// head
+function head(status, options){
+    this.heads = this.heads || [];
+    this.heads.push({
+        status: status,
+        options: options
+    });
+}
+
+// end
+function end(msg){
+    // clear cookies
+    if(this.clearCookies && this.clearCookies.length){
+        this.response.setHeader('Set-Cookie', this.clearCookies);
+        delete this.clearCookies;
+    }
+
+    // heads
+    if(this.heads && this.heads.length){
+        const that = this;
+        this.heads.forEach((v) => {
+            that.response.writeHead(v.status, v.options);
+        });
+
+        delete this.heads;
+    }
+
+    // delete
+    delete this.head;
+    delete this.end;
+
+    // end
+    this.response.end(msg);
+}
+
 // redirect
 function redirect(url) {
     // check
     if (!url) return;
 
     // redirect
-    this.response.writeHead(302, { 'Location': url });
-    this.response.end();
+    this.head(302, { 'Location': url });
+    this.end();
 }
 
 // send
 function send(msg) {
     if (!msg) return;
 
-    this.response.writeHead(200, { 'Content-Type': 'text/plain' });
-    this.response.end(msg);
+    this.head(200, { 'Content-Type': 'text/plain' });
+    this.end(msg);
 }
 
 // json
@@ -253,8 +290,8 @@ function json(obj) {
 
     try {
         const msg = JSON.stringify(obj);
-        this.response.writeHead(200, { 'Content-Type': 'application/json' });
-        this.response.end(msg);
+        this.head(200, { 'Content-Type': 'application/json' });
+        this.end(msg);
     } catch (error) {
         console.log(error);
         this.send('res.json obj error');
@@ -300,7 +337,8 @@ function jsonFail(msg, obj) {
 // clear cookie
 function clearCookie(name){
     const str = cookie.serialize(name, '', { expires: new Date(1), path: '/' });
-    this.response.setHeader('Set-Cookie', [str]);
+    this.clearCookies = this.clearCookies || [];
+    this.clearCookies.push(str);
 }
 
 // render
@@ -335,7 +373,7 @@ function render(filePath, data){
 
     this.response.writeHeader(200, { 'Content-Type': contentType });
     this.response.write(file);
-    this.response.end();
+    this.end();
 }
 
 // req
