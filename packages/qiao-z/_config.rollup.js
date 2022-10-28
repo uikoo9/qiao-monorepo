@@ -16,5 +16,6 @@ module.exports = {
         'path',
         'art-template',
         'qiao-file',
+        'qiao-ua',
     ],
 };

@@ -8,7 +8,7 @@ import handleHeaders from './req-headers.js';
 import handleCookies from './req-cookies.js';
 
 // useragent
-import handleUseragent from './useragent/index.js';
+import handleUseragent from './req-useragent.js';
 
 // query
 import handleQuery from './req-query.js';
