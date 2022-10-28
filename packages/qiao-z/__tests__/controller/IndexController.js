@@ -49,8 +49,9 @@ module.exports = function (app) {
 
     // cookie
     app.get('/cookie', function (req, res) {
-        console.log(req.headers);
-        console.log(require('qs').parse(req.headers.cookie));
+        console.log(req.cookies);
+        res.clearCookie('insistime_userid');
+        
         res.jsonSuccess('1');
     });
 

@@ -8,12 +8,13 @@ module.exports = {
         format: 'cjs',
     },
     external: [
-        'path',
         'http',
         'parseurl',
+        'cookie',
+        'qs',
         'raw-body',
+        'path',
         'art-template',
         'qiao-file',
-        'qs'
     ],
 };

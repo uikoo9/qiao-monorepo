@@ -3,6 +3,7 @@
 var path = require('path');
 var http = require('http');
 var parseurl = require('parseurl');
+var cookie = require('cookie');
 var qs = require('qs');
 var getRawBody = require('raw-body');
 var qiaoFile = require('qiao-file');
@@ -84,6 +85,24 @@ var handleHeaders = (request) => {
         if (i % 2 == 0) headers[h.toLowerCase()] = rawHeaders[i + 1];
     });
     return headers;
+};
+
+// cookie
+
+// default cookie
+const defaultCookies = {};
+
+/**
+ * handle cookies
+ * @param {*} req 
+ * @returns 
+ */
+var handleCookies = (req) => {
+    // check
+    if (!req || !req.headers || !req.headers['cookie']) return defaultCookies;
+
+    // return
+    return cookie.parse(req.headers['cookie']);
 };
 
 // NOTE: this list must be up-to-date with browsers listed in
@@ -2369,6 +2388,7 @@ var reqFn = async (request) => {
     req.request = request;
     req.url = parseurl(request);
     req.headers = handleHeaders(request);
+    req.cookies = handleCookies(req);
     req.useragent = handleUseragent(req);
     req.query = handleQuery(req);
     req.body = await handleBody(req);
@@ -2376,7 +2396,7 @@ var reqFn = async (request) => {
     return req;
 };
 
-// path
+// cookie
 
 /**
  * res
@@ -2389,6 +2409,7 @@ var resFn = (response) => {
     res.json = json;
     res.jsonSuccess = jsonSuccess;
     res.jsonFail = jsonFail;
+    res.clearCookie = clearCookie;
     res.render = render;
 
     return res;
@@ -2461,6 +2482,12 @@ function jsonFail(msg, obj) {
 
     // send
     this.json(jsonObj);
+}
+
+// clear cookie
+function clearCookie(name){
+    const str = cookie.serialize(name, '', { expires: new Date(1), path: '/' });
+    this.response.setHeader('Set-Cookie', [str]);
 }
 
 // render

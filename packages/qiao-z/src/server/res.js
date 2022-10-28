@@ -1,3 +1,6 @@
+// cookie
+import cookie from 'cookie';
+
 // path
 import { resolve } from 'path';
 
@@ -18,6 +21,7 @@ export default (response) => {
     res.json = json;
     res.jsonSuccess = jsonSuccess;
     res.jsonFail = jsonFail;
+    res.clearCookie = clearCookie;
     res.render = render;
 
     return res;
@@ -90,6 +94,12 @@ function jsonFail(msg, obj) {
 
     // send
     this.json(jsonObj);
+}
+
+// clear cookie
+function clearCookie(name){
+    const str = cookie.serialize(name, '', { expires: new Date(1), path: '/' });
+    this.response.setHeader('Set-Cookie', [str]);
 }
 
 // render
