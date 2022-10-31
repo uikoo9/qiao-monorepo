@@ -29,13 +29,11 @@ export default async (req) => {
         // xfrom
         if(contentType == 'application/x-www-form-urlencoded'){
             body = qs.parse(bodyString);
-            console.log(contentType, body);
         }
     
         // json
         if(contentType == 'application/json'){
             body = JSON.parse(bodyString);
-            console.log(contentType, body);
         }
     } catch (error) {
         console.log(error);
