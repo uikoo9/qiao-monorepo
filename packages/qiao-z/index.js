@@ -30,6 +30,19 @@ var initCros = (app) => {
     };
 };
 
+/**
+ * init check
+ */
+var initCheck = (app) => {
+    // check
+    if (!app) return;
+
+    // app.check
+    app.check = (checks) => {
+        app._checks = checks;
+    };
+};
+
 // methods
 const methods = ['get', 'post'];
 
@@ -524,6 +537,26 @@ const handleAll = (routers, req, res) => {
 };
 
 /**
+ * handle checks
+ * @param {*} routers 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handleChecks = (app, req, res) => {
+    let checkRes;
+    for (let i = 0; i < app._checks.length; i++) {
+        const check = app._checks[i];
+        if (check(req, res)) continue;
+
+        checkRes = true;
+        break;
+    }
+
+    return checkRes;
+};
+
+/**
  * handle path
  * @param {*} routers 
  * @param {*} req 
@@ -577,43 +610,48 @@ const handleParams = (routers, req, res) => {
  * @param {*} request 
  * @param {*} response 
  * @param {*} routers 
+ * @param {*} app 
  * @returns 
  */
-var listenRequest = async (request, response, routers, cros) => {
+const listenRequest = async (request, response, routers, app) => {
     // req res
     const req = await reqFn(request);
-    const res = resFn(response, cros);
+    const res = resFn(response, app._cros);
 
     // handle cros
-    handleCros(res, cros);
+    handleCros(res, app._cros);
 
     // handle options
     const optionsRes = handleOptions(req, res);
-    if(optionsRes) return;
-    
+    if (optionsRes) return;
+
     // handle routers
     const routersRes = handleRouters(routers, req, res);
-    if(routersRes) return;
+    if (routersRes) return;
 
     // routers
     const reqMethod = req.request.method.toLowerCase();
-    const reqRouters = routers[reqMethod]; 
+    const reqRouters = routers[reqMethod];
 
     // handle static
     const staticRes = handleStatic(reqRouters, req, res);
-    if(staticRes) return;
+    if (staticRes) return;
 
     // handle all
     const allRes = handleAll(reqRouters, req, res);
-    if(allRes) return;
+    if (allRes) return;
+
+    // handle checks
+    const checkRes = handleChecks(app, req, res);
+    if (checkRes) return;
 
     // handle path
     const pathRes = handlePath(reqRouters, req, res);
-    if(pathRes) return;
+    if (pathRes) return;
 
     // handle params
     const paramsRes = handleParams(reqRouters, req, res);
-    if(paramsRes) return;
+    if (paramsRes) return;
 
     // other
     res.send('can not get router');
@@ -626,9 +664,10 @@ var listenRequest = async (request, response, routers, cros) => {
  * listen
  * @param {*} port 
  * @param {*} routers 
+ * @param {*} app 
  * @returns 
  */
-var listen = (port, routers, cros) => {
+const listen = (port, routers, app) => {
     if (!routers) return;
 
     // server
@@ -659,7 +698,7 @@ var listen = (port, routers, cros) => {
 
     // request
     server.on('request', (request, response) => {
-        listenRequest(request, response, routers, cros);
+        listenRequest(request, response, routers, app);
     });
 
     // listen
@@ -685,7 +724,7 @@ var initListen = (app, routers) => {
     app.listen = (port) => {
         port = port || defaultPort;
 
-        listen(port, routers, app._cros);
+        listen(port, routers, app);
     };
 };
 
@@ -737,10 +776,19 @@ const routers = {};
  */
 var index = () => {
     let app = {};
+
+    // cros
     initCros(app);
+    initCheck(app);
+
+    // methods
     initMethods(app, routers);
     initStatic(app, routers);
+
+    // listen
     initListen(app, routers);
+
+    // controller
     initController(app);
     initModules(app);
 

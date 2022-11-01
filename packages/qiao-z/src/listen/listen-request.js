@@ -10,6 +10,7 @@ import handleOptions from './handle-options.js';
 import handleRouters from './handle-routers.js';
 import handleStatic from './handle-static.js';
 import handleAll from './handle-all.js';
+import handleChecks from './handle-checks.js';
 import handlePath from './handle-path.js';
 import handleParams from './handle-params.js';
 
@@ -49,14 +50,8 @@ const listenRequest = async (request, response, routers, app) => {
     const allRes = handleAll(reqRouters, req, res);
     if (allRes) return;
 
-    let checkRes;
-    for (let i = 0; i < app._checks.length; i++) {
-        const check = app._checks[i];
-        if (check(req, res)) continue;
-
-        checkRes = true;
-        break;
-    }
+    // handle checks
+    const checkRes = handleChecks(app, req, res);
     if (checkRes) return;
 
     // handle path
