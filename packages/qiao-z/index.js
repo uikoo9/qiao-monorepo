@@ -404,6 +404,172 @@ function render(filePath, data){
     this.end();
 }
 
+/**
+ * handle cros
+ * @param {*} res 
+ * @param {*} cros 
+ * @returns 
+ */
+const handleCros = (res, cros) => {
+    if (!cros) return;
+
+    res.head(200, cros);
+};
+
+/**
+ * handle options
+ * @param {*} req 
+ * @param {*} res 
+ */
+const handleOptions = (req, res) => {
+    // check
+    const reqMethod = req.request.method.toLowerCase();
+    if (reqMethod != 'options') return;
+
+    // return
+    res.end('');
+    return true;
+};
+
+/**
+ * handle routers
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handleRouters = (routers, req, res) => {
+    // check
+    const reqMethod = req.request.method.toLowerCase();
+    const reqRouters = routers[reqMethod];
+    if (reqRouters && reqRouters.length) return;
+
+    // return
+    res.send('no routers');
+    return true;
+};
+
+/**
+ * handle params router
+ * @param {*} router 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handleParamsRouter = (router, req, res) => {
+    // check :
+    if (router.path.indexOf(':') == -1) return;
+
+    // check start
+    const f = router.path.split(':')[0];
+    if (req.url.pathname.indexOf(f) !== 0) return;
+
+    // params
+    const param = router.path.substring(f.length + 1);
+    req.params = {};
+    req.params[param] = req.url.pathname.substring(f.length);
+
+    // callback
+    router.callback(req, res);
+    return true;
+};
+
+// handle params router
+
+/**
+ * handle static
+ * @param {*} routers 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handleStatic = (routers, req, res) => {
+    let check;
+    for (let i = 0; i < routers.length; i++) {
+        const router = routers[i];
+
+        // check static
+        if (!router.static) continue;
+
+        // params
+        const paramsRouterRes = handleParamsRouter(router, req, res);
+        if (!paramsRouterRes) continue;
+
+        // return 
+        check = true;
+        break;
+    }
+
+    return check;
+};
+
+/**
+ * handle all
+ * @param {*} routers 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handleAll = (routers, req, res) => {
+    let check;
+    for (let i = 0; i < routers.length; i++) {
+        const router = routers[i];
+        if (router.path != '/*') continue;
+
+        router.callback(req, res);
+        check = true;
+        break;
+    }
+
+    return check;
+};
+
+/**
+ * handle path
+ * @param {*} routers 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handlePath = (routers, req, res) => {
+    let check;
+    for (let i = 0; i < routers.length; i++) {
+        const router = routers[i];
+        if (router.path != req.url.pathname) continue;
+
+        router.callback(req, res);
+        check = true;
+        break;
+    }
+
+    return check;
+};
+
+// handle params router
+
+/**
+ * handle params
+ * @param {*} routers 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const handleParams = (routers, req, res) => {
+    let check;
+    for (let i = 0; i < routers.length; i++) {
+        const router = routers[i];
+
+        // params
+        const paramsRouterRes = handleParamsRouter(router, req, res);
+        if(!paramsRouterRes) continue;
+
+        // return 
+        check = true;
+        break;
+    }
+
+    return check;
+};
+
 // req
 
 /**
@@ -418,112 +584,41 @@ var listenRequest = async (request, response, routers, cros) => {
     const req = await reqFn(request);
     const res = resFn(response, cros);
 
-    // check routers
-    if (Object.keys(routers).length === 0) {
-        res.send('no routers');
-        return;
-    }
+    // handle cros
+    handleCros(res, cros);
 
-    // init cros
-    if(cros){
-        res.head(200, cros);
-    }
+    // handle options
+    const optionsRes = handleOptions(req, res);
+    if(optionsRes) return;
     
-    // req method
+    // handle routers
+    const routersRes = handleRouters(routers, req, res);
+    if(routersRes) return;
+
+    // routers
     const reqMethod = req.request.method.toLowerCase();
-    if(reqMethod == 'options'){
-        res.end('');
-        return;
-    }
+    const reqRouters = routers[reqMethod]; 
 
-    // check router 
-    const reqRouters = routers[reqMethod];
-    if (!reqRouters || !reqRouters.length) {
-        res.send('no routers');
-        return;
-    }
+    // handle static
+    const staticRes = handleStatic(reqRouters, req, res);
+    if(staticRes) return;
 
-    // check static
-    if (checkStatic(reqRouters, req, res)) return;
+    // handle all
+    const allRes = handleAll(reqRouters, req, res);
+    if(allRes) return;
 
-    // check *
-    if (checkAll(reqRouters, req, res)) return;
+    // handle path
+    const pathRes = handlePath(reqRouters, req, res);
+    if(pathRes) return;
 
-    // check path
-    if (checkPath(reqRouters, req, res)) return;
+    // handle params
+    const paramsRes = handleParams(reqRouters, req, res);
+    if(paramsRes) return;
 
-    // check other
-    let check;
-    for (let i = 0; i < reqRouters.length; i++) {
-        const r = handleRequest(reqRouters[i], req, res);
-        if (r) {
-            check = true;
-            break;
-        }
-    }
-    if (!check) {
-        res.send('can not get router');
-        return;
-    }
+    // other
+    res.send('can not get router');
+    return;
 };
-
-// check static
-function checkStatic(routers, req, res) {
-    let routerStatic;
-    for (let i = 0; i < routers.length; i++) {
-        if (routers[i].static) {
-            routerStatic = handleRequest(routers[i], req, res);
-        }
-    }
-
-    return routerStatic;
-}
-
-// check all
-function checkAll(routers, req, res) {
-    let routerAll;
-    for (let i = 0; i < routers.length; i++) {
-        if (routers[i].path == '/*') {
-            routerAll = routers[i];
-            routerAll.callback(req, res);
-            break;
-        }
-    }
-
-    return routerAll;
-}
-
-// check path
-function checkPath(routers, req, res) {
-    let routerPath;
-    for (let i = 0; i < routers.length; i++) {
-        if (routers[i].path == req.url.pathname) {
-            routerPath = routers[i];
-            routerPath.callback(req, res);
-        }
-    }
-
-    return routerPath;
-}
-
-// handle get request
-function handleRequest(r, req, res) {
-    // check path /:params
-    if (r.path.indexOf(':') > -1) {
-        const f = r.path.split(':')[0];
-        if (req.url.pathname.indexOf(f) === 0) {
-            const param = r.path.substring(f.length + 1);
-            req.params = {};
-            req.params[param] = req.url.pathname.substring(f.length);
-
-            r.callback(req, res);
-            return true;
-        }
-    }
-
-    // return
-    return false;
-}
 
 // http
 

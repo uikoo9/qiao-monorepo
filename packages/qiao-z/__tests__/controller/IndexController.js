@@ -3,6 +3,7 @@
  */
 module.exports = function (app) {
     // app
+    // require('./app/app-all.js')(app);
     require('./app/app-index.js')(app);
     require('./app/app-get.js')(app);
     require('./app/app-static.js')(app);

@@ -1,5 +1,5 @@
 // listen
-import listen from '../server/listen.js';
+import listen from '../listen/listen.js';
 
 // port
 const defaultPort = '5277';
