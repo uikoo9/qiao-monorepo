@@ -13,9 +13,10 @@ import template from 'art-template';
 /**
  * res
  */
-export default (response) => {
+export default (response, cros) => {
     const res = {};
     res.response = response;
+    res.cros = cros;
     res.head = head;
     res.end = end;
     res.redirect = redirect;
@@ -50,9 +51,18 @@ function end(msg){
     if(this.heads && this.heads.length){
         const that = this;
         this.heads.forEach((v) => {
-            that.response.writeHead(v.status, v.options);
+            // opt
+            let opt = v.options;
+
+            // cros
+            if(that.cros && v.status == 200) opt = Object.assign({}, that.cros, v.options);
+
+            // head
+            that.response.writeHead(v.status, opt);
         });
 
+        // delete
+        delete this.cros;
         delete this.heads;
     }
 

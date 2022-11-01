@@ -10,6 +10,26 @@ var getRawBody = require('raw-body');
 var qiaoFile = require('qiao-file');
 var template = require('art-template');
 
+/**
+ * init cros
+ */
+var initCros = (app) => {
+    // check
+    if (!app) return;
+
+    // default options
+    const defaultOptions = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Headers': '*',
+    };
+
+    // cros
+    app.cros = (opt) => {
+        app._cros = opt === true ? defaultOptions : (opt || {});
+    };
+};
+
 // methods
 const methods = ['get', 'post'];
 
@@ -33,39 +53,6 @@ var initMethods = (app, routers) => {
             });
         };
     });
-};
-
-/**
- * init options
- */
-var initOptions = (app, routers) => {
-    // check
-    if (!app || !routers) return;
-
-    // options
-    app.options = () => {
-        // callback
-        const callback = (req, res) => {
-            console.log(1111);
-            res.response.writeHead(200, {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': '*',
-                'Access-Control-Allow-Headers': '*',
-            });
-            res.end();
-        };
-
-        // options
-        routers.options = routers.options || [];
-        routers.options.push({
-            path: null,
-            callback: callback,
-            options: true,
-        });
-    };
-
-    // run
-    app.options();
 };
 
 // path
@@ -245,9 +232,10 @@ var reqFn = async (request) => {
 /**
  * res
  */
-var resFn = (response) => {
+var resFn = (response, cros) => {
     const res = {};
     res.response = response;
+    res.cros = cros;
     res.head = head;
     res.end = end;
     res.redirect = redirect;
@@ -282,9 +270,18 @@ function end(msg){
     if(this.heads && this.heads.length){
         const that = this;
         this.heads.forEach((v) => {
-            that.response.writeHead(v.status, v.options);
+            // opt
+            let opt = v.options;
+
+            // cros
+            if(that.cros && v.status == 200) opt = Object.assign({}, that.cros, v.options);
+
+            // head
+            that.response.writeHead(v.status, opt);
         });
 
+        // delete
+        delete this.cros;
         delete this.heads;
     }
 
@@ -416,10 +413,10 @@ function render(filePath, data){
  * @param {*} routers 
  * @returns 
  */
-var listenRequest = async (request, response, routers) => {
+var listenRequest = async (request, response, routers, cros) => {
     // req res
     const req = await reqFn(request);
-    const res = resFn(response);
+    const res = resFn(response, cros);
 
     // check routers
     if (Object.keys(routers).length === 0) {
@@ -427,16 +424,24 @@ var listenRequest = async (request, response, routers) => {
         return;
     }
 
+    // init cros
+    if(cros){
+        res.head(200, cros);
+    }
+    
     // req method
     const reqMethod = req.request.method.toLowerCase();
+    if(reqMethod == 'options'){
+        res.end('');
+        return;
+    }
+
+    // check router 
     const reqRouters = routers[reqMethod];
     if (!reqRouters || !reqRouters.length) {
         res.send('no routers');
         return;
     }
-
-    // check options
-    if (checkOptions(reqRouters, req, res)) return;
 
     // check static
     if (checkStatic(reqRouters, req, res)) return;
@@ -461,19 +466,6 @@ var listenRequest = async (request, response, routers) => {
         return;
     }
 };
-
-// check options
-function checkOptions(routers, req, res) {
-    let routerOptions;
-    for (let i = 0; i < routers.length; i++) {
-        if (routers[i].options) {
-            routers[i].callback(req, res);
-            routerOptions = true;
-        }
-    }
-
-    return routerOptions;
-}
 
 // check static
 function checkStatic(routers, req, res) {
@@ -541,7 +533,7 @@ function handleRequest(r, req, res) {
  * @param {*} routers 
  * @returns 
  */
-var listen = (port, routers) => {
+var listen = (port, routers, cros) => {
     if (!routers) return;
 
     // server
@@ -572,7 +564,7 @@ var listen = (port, routers) => {
 
     // request
     server.on('request', (request, response) => {
-        listenRequest(request, response, routers);
+        listenRequest(request, response, routers, cros);
     });
 
     // listen
@@ -598,7 +590,7 @@ var initListen = (app, routers) => {
     app.listen = (port) => {
         port = port || defaultPort;
 
-        listen(port, routers);
+        listen(port, routers, app._cros);
     };
 };
 
@@ -631,8 +623,8 @@ const routers = {};
  */
 var index = () => {
     let app = {};
+    initCros(app);
     initMethods(app, routers);
-    initOptions(app, routers);
     initStatic(app, routers);
     initListen(app, routers);
     initController(app);

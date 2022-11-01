@@ -10,7 +10,7 @@ import listenRequest from './listen-request.js';
  * @param {*} routers 
  * @returns 
  */
-export default (port, routers) => {
+export default (port, routers, cros) => {
     if (!routers) return;
 
     // server
@@ -41,7 +41,7 @@ export default (port, routers) => {
 
     // request
     server.on('request', (request, response) => {
-        listenRequest(request, response, routers);
+        listenRequest(request, response, routers, cros);
     });
 
     // listen
