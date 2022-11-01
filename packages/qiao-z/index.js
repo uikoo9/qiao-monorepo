@@ -1,47 +1,14 @@
 'use strict';
 
 var path = require('path');
+var qiaoFile = require('qiao-file');
 var http = require('http');
 var parseurl = require('parseurl');
 var cookie = require('cookie');
 var ua = require('qiao-ua');
 var qs = require('qs');
 var getRawBody = require('raw-body');
-var qiaoFile = require('qiao-file');
 var template = require('art-template');
-
-/**
- * init cros
- */
-var initCros = (app) => {
-    // check
-    if (!app) return;
-
-    // default options
-    const defaultOptions = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': '*',
-        'Access-Control-Allow-Headers': '*',
-    };
-
-    // cros
-    app.cros = (opt) => {
-        app._cros = opt === true ? defaultOptions : (opt || {});
-    };
-};
-
-/**
- * init check
- */
-var initCheck = (app) => {
-    // check
-    if (!app) return;
-
-    // app.check
-    app.check = (checks) => {
-        app._checks = checks;
-    };
-};
 
 // methods
 const methods = ['get', 'post'];
@@ -100,6 +67,27 @@ var initStatic = (app, routers) => {
 
     // acme
     app.static('/.well-known', './.well-known');
+};
+
+// qiao
+
+/**
+ * init controller
+ */
+var initController = (app) => {
+    // check
+    if (!app) return;
+
+    // files
+    const serverFiles = qiaoFile.lsdir(process.cwd() + '/');
+    if (!serverFiles || !serverFiles.files || !serverFiles.files.length) return;
+
+    // init
+    serverFiles.files.forEach((serverFile) => {
+        const file = serverFile.path + serverFile.name;
+
+        if (/Controller\.js$/.test(file)) require(file)(app);
+    });
 };
 
 /**
@@ -705,68 +693,7 @@ const listen = (port, routers, app) => {
     server.listen(port);
 };
 
-// listen
-
-// port
-const defaultPort = '5277';
-
-/**
- * init listen
- * @param {*} app 
- * @param {*} routers 
- * @returns 
- */
-var initListen = (app, routers) => {
-    // check
-    if (!app || !routers) return;
-
-    // init
-    app.listen = (port) => {
-        port = port || defaultPort;
-
-        listen(port, routers, app);
-    };
-};
-
-// qiao
-
-/**
- * init controller
- */
-var initController = (app) => {
-    // check
-    if (!app) return;
-
-    // files
-    const serverFiles = qiaoFile.lsdir(process.cwd() + '/');
-    if (!serverFiles || !serverFiles.files || !serverFiles.files.length) return;
-
-    // init
-    serverFiles.files.forEach((serverFile) => {
-        const file = serverFile.path + serverFile.name;
-
-        if (/Controller\.js$/.test(file)) require(file)(app);
-    });
-};
-
-/**
- * init modules
- */
-var initModules = (app) => {
-    // check
-    if (!app) return;
-
-    app.modules = (config, modules) => {
-        // check
-        if (!config) return;
-        if (!modules || !modules.length) return;
-
-        // init
-        modules.forEach(m => {
-            m.init(app, config);
-        });
-    };
-};
+// init
 
 // routers
 const routers = {};
@@ -774,25 +701,45 @@ const routers = {};
 /**
  * app
  */
-var index = () => {
-    let app = {};
-
-    // cros
-    initCros(app);
-    initCheck(app);
-
-    // methods
-    initMethods(app, routers);
-    initStatic(app, routers);
-
-    // listen
-    initListen(app, routers);
-
-    // controller
-    initController(app);
-    initModules(app);
+var app = () => {
+    const app = {};
+    app.init = init;
+    app.listen = listenServer;
 
     return app;
 };
 
-module.exports = index;
+// init app
+function init(options) {
+    if (!options) return;
+
+    // cros
+    if (options.cros) this._cros = options.cros;
+
+    // checks
+    if (options.checks) this._checks = options.checks;
+
+    // methods
+    initMethods(this, routers);
+
+    // static
+    initStatic(this, routers);
+
+    // controller
+    initController(this);
+
+    // modules
+    if (options.modules && options.config) {
+        const that = this;
+        options.modules.forEach(m => {
+            m(that, options.config);
+        });
+    }
+}
+
+// listen
+function listenServer(port){
+    listen(port || '5277', routers, this);
+}
+
+module.exports = app;

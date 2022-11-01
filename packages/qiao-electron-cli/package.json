@@ -1,36 +1,32 @@
 {
-    "name": "qiao-electron-cli",
-    "version": "1.2.2",
-    "description": "electron cli tools",
-    "keywords": [
-        "electron",
-        "tools",
-        "packager",
-        "dmg",
-        "icns"
-    ],
-    "author": "uikoo9 <uikoo9@qq.com>",
-    "homepage": "https://code.insistime.com/qiao-electron-cli",
-    "license": "MIT",
-    "main": "index.js",
-    "bin": {
-        "qelectron": "./bin/qelectron.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-    },
-    "bugs": {
-        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-    },
-    "scripts": {},
-    "dependencies": {
-        "electron-packager": "^17.0.0",
-        "qiao-cli": "^0.3.3",
-        "qiao-cos": "^2.0.2",
-        "qiao-file": "^1.0.3"
-    },
-    "optionalDependencies": {
-        "appdmg": "^0.6.4"
-    }
+	"name": "qiao-electron-cli",
+	"version": "1.2.2",
+	"description": "electron cli tools",
+	"keywords": [
+		"electron",
+		"tools",
+		"packager",
+		"dmg",
+		"icns"
+	],
+	"author": "uikoo9 <uikoo9@qq.com>",
+	"homepage": "https://code.insistime.com/qiao-electron-cli",
+	"license": "MIT",
+	"main": "index.js",
+	"bin": {
+		"qelectron": "./bin/qelectron.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+	},
+	"bugs": {
+		"url": "https://github.com/uikoo9/qiao-monorepo/issues"
+	},
+	"dependencies": {
+		"electron-packager": "^17.0.0"
+	},
+	"optionalDependencies": {
+		"appdmg": "^0.6.4"
+	}
 }

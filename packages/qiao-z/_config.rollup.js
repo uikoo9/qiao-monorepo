@@ -2,7 +2,7 @@
  * rollup.config.js
  */
 module.exports = {
-    input: 'src/index.js',
+    input: 'src/app.js',
     output: {
         file: 'index.js',
         format: 'cjs',

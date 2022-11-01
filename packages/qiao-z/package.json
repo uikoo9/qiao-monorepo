@@ -12,7 +12,7 @@
     "homepage": "https://code.insistime.com/qiao-z",
     "license": "MIT",
     "main": "index.js",
-    "module": "src/index.js",
+    "module": "src/app.js",
     "sideEffets": false,
     "files": [
         "src"
