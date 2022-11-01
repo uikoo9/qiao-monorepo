@@ -615,6 +615,25 @@ var initController = (app) => {
     });
 };
 
+/**
+ * init modules
+ */
+var initModules = (app) => {
+    // check
+    if (!app) return;
+
+    app.modules = (config, modules) => {
+        // check
+        if (!config) return;
+        if (!modules || !modules.length) return;
+
+        // init
+        modules.forEach(m => {
+            m.init(app, config);
+        });
+    };
+};
+
 // routers
 const routers = {};
 
@@ -628,6 +647,7 @@ var index = () => {
     initStatic(app, routers);
     initListen(app, routers);
     initController(app);
+    initModules(app);
 
     return app;
 };
