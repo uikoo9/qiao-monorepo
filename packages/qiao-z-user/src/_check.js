@@ -1,5 +1,5 @@
-// qiao
-var qiao = require('./_qiao.js');
+// encode
+var encode = require('qiao-encode');
 
 // model
 var ucenterUserModel = require('./ucenter/model/UcenterUserModel.js');
@@ -22,7 +22,7 @@ module.exports = async function (req, res, next) {
     const userid = req.headers.userid || req.cookies.insistime_userid;
     const usertoken = req.headers.usertoken || req.cookies.insistime_usertoken;
     if (!userid || !usertoken) {
-        res.send(qiao.json.danger('缺少token！'));
+        res.jsonFail('缺少token！');
         return;
     }
 
@@ -31,7 +31,7 @@ module.exports = async function (req, res, next) {
         // get user
         const rows = await ucenterUserModel.ucenterUserGetById(userid);
         if (!rows || rows.length != 1) {
-            res.send(qiao.json.danger('缺少用户信息！'));
+            res.jsonFail('缺少用户信息！');
             return;
         }
 
@@ -39,11 +39,11 @@ module.exports = async function (req, res, next) {
         const user = rows[0];
         const username = user['ucenter_user_name'];
         const password = user['ucenter_user_password'];
-        const rUsertoken = qiao.encode.AESEncrypt(username + password, global.config.encryptKey);
+        const rUsertoken = encode.AESEncrypt(username + password, global.QIAO_USER_CONFIG.encryptKey);
 
         // send
         if (usertoken != rUsertoken) {
-            res.send(qiao.json.danger('非法token！'));
+            res.jsonFail('非法token！');
             return;
         }
 
@@ -55,6 +55,6 @@ module.exports = async function (req, res, next) {
         req.checkPath = true;
         next();
     } catch (e) {
-        res.send(qiao.json.danger('校验token失败！', { errName: e.name, errMsg: e.message }));
+        res.jsonFail('校验token失败！', { errName: e.name, errMsg: e.message });
     }
 };

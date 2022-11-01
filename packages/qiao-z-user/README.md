@@ -1,4 +1,6 @@
-# qiao-server-user
+## qiao-z-user
+
+qiao-z user module
 
 ## version
 ### 0.0.8.20210929
@@ -13,7 +15,7 @@
 2. add sql
 
 ### 0.0.6.20210823
-1. del qiao-server-user.js
+1. del qiao-z-user.js
 
 ### 0.0.5.20210818
 1. md
@@ -26,7 +28,7 @@
 1. cell_config --> config
 
 ### 0.0.2.20210805
-1. qiao-server-user
+1. qiao-z-user
 2. add qiao.util.all
 3. del qiao.util.all
 

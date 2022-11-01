@@ -1,5 +1,5 @@
-// qiao
-var qiao = require('../../_qiao.js');
+// mysql
+var mysql = require('qiao-mysql');
 
 /**
  * ucenter role sql
@@ -13,21 +13,21 @@ exports.ucenterRoleGetById = function(id){
 	var params = [];
 	params.push(id);
 
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterRoleGetById, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterRoleGetById, params);
 };
 
 /**
  * ucenter role add
  */
 exports.ucenterRoleAdd = function(params){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterRoleAdd, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterRoleAdd, params);
 };
 
 /**
  * ucenter role edit
  */
 exports.ucenterRoleEdit = function(params){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterRoleEdit, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterRoleEdit, params);
 };
 
 /**
@@ -37,5 +37,5 @@ exports.ucenterRoleDel = function(ids){
 	var params = [];
 	params.push(ids);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterRoleDel, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterRoleDel, params);
 };

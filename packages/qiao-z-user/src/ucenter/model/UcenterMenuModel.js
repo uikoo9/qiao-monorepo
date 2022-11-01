@@ -1,5 +1,5 @@
-// qiao
-var qiao = require('../../_qiao.js');
+// mysql
+var mysql = require('qiao-mysql');
 
 /**
  * ucenter menu sql
@@ -13,21 +13,21 @@ exports.ucenterMenuGetById = function(id){
 	var params = [];
 	params.push(id);
 
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterMenuGetById, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterMenuGetById, params);
 };
 
 /**
  * ucenter menu add
  */
 exports.ucenterMenuAdd = function(params){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterMenuAdd, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterMenuAdd, params);
 };
 
 /**
  * ucenter menu edit
  */
 exports.ucenterMenuEdit = function(params){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterMenuEdit, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterMenuEdit, params);
 };
 
 /**
@@ -37,5 +37,5 @@ exports.ucenterMenuDel = function(ids){
 	var params = [];
 	params.push(ids);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterMenuDel, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterMenuDel, params);
 };

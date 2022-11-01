@@ -1,5 +1,5 @@
-// qiao
-var qiao = require('../../_qiao.js');
+// mysql
+var mysql = require('qiao-mysql');
 
 // model
 var model	= require('../model/UcenterMenuModel.js');
@@ -58,15 +58,15 @@ exports.ucenterMenuList = async function(req, res){
 	var pagesize	= parseInt(req.body.rows || 10);
 	var pagenumber	= parseInt(req.body.page || 1);
 	var start		= (pagenumber - 1) * pagesize;
-	paramsquery.push(qiao.mysql.lib.raw(orderby));
-	paramsquery.push(qiao.mysql.lib.raw(order));
+	paramsquery.push(mysql.lib.raw(orderby));
+	paramsquery.push(mysql.lib.raw(order));
 	paramsquery.push(start);
 	paramsquery.push(pagesize);
 	
 	// db
 	try{
-		var rs 		= await qiao.mysql.query(global.config.db, sqlcount.join(''), paramscount);
-		var rows 	= await qiao.mysql.query(global.config.db, sqlquery.join(''), paramsquery);
+		var rs 		= await mysql.query(global.QIAO_USER_CONFIG.db, sqlcount.join(''), paramscount);
+		var rows 	= await mysql.query(global.QIAO_USER_CONFIG.db, sqlquery.join(''), paramsquery);
 		
 		// result
 		var result = {};
@@ -76,9 +76,9 @@ exports.ucenterMenuList = async function(req, res){
 		result.pagenumber 	= pagenumber;
 		result.pagesize		= pagesize;
 		
-		res.send(qiao.json.success('query success', result));
+		res.jsonSuccess('query success', result);
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('query failed', {errName:e.name,errMsg:e.message});
 	}
 };
 
@@ -88,11 +88,11 @@ exports.ucenterMenuList = async function(req, res){
 exports.ucenterMenuGet = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
+		res.jsonFail('缺少参数！');
 		return;
 	}
 	if(!req.body.id){
-		res.send(qiao.json.danger('缺少参数id！'));
+		res.jsonFail('缺少参数id！');
 		return;
 	}
 	
@@ -100,9 +100,9 @@ exports.ucenterMenuGet = async function(req, res){
 	try{
 		var rows = await model.ucenterMenuGetById(req.body.id);
 		
-		res.send(qiao.json.success('query success', {rows:rows}));
+		res.jsonSuccess('query success', {rows:rows});
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('query failed', {errName:e.name,errMsg:e.message});
 	}
 };
 
@@ -112,23 +112,23 @@ exports.ucenterMenuGet = async function(req, res){
 exports.ucenterMenuSave = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
+		res.jsonFail('缺少参数！');
 		return;
 	}
 	if(!req.body.ucenterMenuParent){
-		res.send(qiao.json.danger('缺少参数ucenterMenuParent！'));
+		res.jsonFail('缺少参数ucenterMenuParent！');
 		return;
 	}
 	if(!req.body.ucenterMenuSn){
-		res.send(qiao.json.danger('缺少参数ucenterMenuSn！'));
+		res.jsonFail('缺少参数ucenterMenuSn！');
 		return;
 	}
 	if(!req.body.ucenterMenuTitle){
-		res.send(qiao.json.danger('缺少参数ucenterMenuTitle！'));
+		res.jsonFail('缺少参数ucenterMenuTitle！');
 		return;
 	}
 	if(!req.body.ucenterMenuUrl){
-		res.send(qiao.json.danger('缺少参数ucenterMenuUrl！'));
+		res.jsonFail('缺少参数ucenterMenuUrl！');
 		return;
 	}
 	
@@ -174,9 +174,9 @@ exports.ucenterMenuSave = async function(req, res){
 			await model.ucenterMenuEdit(params);
 		}
 		
-		res.send(qiao.json.success('save success', {id:id}));
+		res.jsonSuccess('save success', {id:id});
 	}catch(e){
-		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('save failed', {errName:e.name,errMsg:e.message});
 	}
 };
 
@@ -186,19 +186,19 @@ exports.ucenterMenuSave = async function(req, res){
 exports.ucenterMenuDel = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
+		res.jsonFail('缺少参数！');
 		return;
 	}
 	if(!req.body.ids){
-		res.send(qiao.json.danger('缺少参数ids！'));
+		res.jsonFail('缺少参数ids！');
 		return;
 	}
 	
 	// db
 	try{
 		await model.ucenterMenuDel(req.body.ids.split(','));
-		res.send(qiao.json.success('del success'));
+		res.jsonSuccess('del success');
 	}catch(e){
-		res.send(qiao.json.danger('del failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('del failed', {errName:e.name,errMsg:e.message});
 	}
 };

@@ -1,5 +1,5 @@
-// qiao
-var qiao = require('../../_qiao.js');
+// mysql
+var mysql = require('qiao-mysql');
 
 /**
  * share item sql
@@ -10,14 +10,14 @@ exports.sql = require('./ucenter-user-sql.json');
  * ucenter user get by id
  */
 exports.ucenterUserGetById = function(id){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserGetById, [id]);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterUserGetById, [id]);
 };
 
 /**
  * ucenter user get by mobile
  */
 exports.ucenterUserGetByMobile = function(id){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserGetByMobile, [id]);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterUserGetByMobile, [id]);
 };
 
 /**
@@ -28,7 +28,7 @@ exports.ucenterUserLogin = function(username, password){
 	params.push(username);
 	params.push(password);
 
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserLogin, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterUserLogin, params);
 };
 
 /**
@@ -39,7 +39,7 @@ exports.ucenterUserReg = function(username, password){
 	params.push(username);
 	params.push(password);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserReg, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterUserReg, params);
 };
 
 /**
@@ -50,7 +50,7 @@ exports.ucenterUserForget = function(userid, password){
 	params.push(password);
 	params.push(userid);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserForget, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterUserForget, params);
 };
 
 /**
@@ -61,7 +61,7 @@ exports.ucenterCodeGet = function(type, mobile){
 	params.push(type);
 	params.push(mobile);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterCodeGet, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterCodeGet, params);
 };
 
 /**
@@ -73,7 +73,7 @@ exports.ucenterCodeAdd = function(type, mobile, code){
 	params.push(mobile);
 	params.push(code);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterCodeAdd, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterCodeAdd, params);
 };
 
 /**
@@ -85,7 +85,7 @@ exports.ucenterCodeUpdate = function(type, mobile, code){
 	params.push(type);
 	params.push(mobile);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterCodeUpdate, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterCodeUpdate, params);
 };
 
 /**
@@ -96,12 +96,12 @@ exports.ucenterCodeDel = function(type, mobile){
 	params.push(type);
 	params.push(mobile);
 	
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterCodeDel, params);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterCodeDel, params);
 };
 
 /**
  * ucenter user menus
  */
 exports.ucenterUserMenus = function(id){
-	return qiao.mysql.query(global.config.db, exports.sql.ucenterUserMenus, [id]);
+	return mysql.query(global.QIAO_USER_CONFIG.db, exports.sql.ucenterUserMenus, [id]);
 };

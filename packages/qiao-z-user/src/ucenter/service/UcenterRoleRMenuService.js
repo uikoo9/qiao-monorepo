@@ -1,5 +1,5 @@
-// qiao
-var qiao = require('../../_qiao.js');
+// mysql
+var mysql = require('qiao-mysql');
 
 // model
 var model	= require('../model/UcenterRoleRMenuModel.js');
@@ -42,15 +42,15 @@ exports.ucenterRoleRMenuList = async function(req, res){
 	var pagesize	= parseInt(req.body.rows || 10);
 	var pagenumber	= parseInt(req.body.page || 1);
 	var start		= (pagenumber - 1) * pagesize;
-	paramsquery.push(qiao.mysql.lib.raw(orderby));
-	paramsquery.push(qiao.mysql.lib.raw(order));
+	paramsquery.push(mysql.lib.raw(orderby));
+	paramsquery.push(mysql.lib.raw(order));
 	paramsquery.push(start);
 	paramsquery.push(pagesize);
 	
 	// db
 	try{
-		var rs 		= await qiao.mysql.query(global.config.db, sqlcount.join(''), paramscount);
-		var rows 	= await qiao.mysql.query(global.config.db, sqlquery.join(''), paramsquery);
+		var rs 		= await mysql.query(global.QIAO_USER_CONFIG.db, sqlcount.join(''), paramscount);
+		var rows 	= await mysql.query(global.QIAO_USER_CONFIG.db, sqlquery.join(''), paramsquery);
 		
 		// result
 		var result = {};
@@ -60,9 +60,9 @@ exports.ucenterRoleRMenuList = async function(req, res){
 		result.pagenumber 	= pagenumber;
 		result.pagesize		= pagesize;
 		
-		res.send(qiao.json.success('query success', result));
+		res.jsonSuccess('query success', result);
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('query failed', {errName:e.name,errMsg:e.message});
 	}
 };
 
@@ -72,11 +72,11 @@ exports.ucenterRoleRMenuList = async function(req, res){
 exports.ucenterRoleRMenuGet = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
+		res.jsonFail('缺少参数！');
 		return;
 	}
 	if(!req.body.id){
-		res.send(qiao.json.danger('缺少参数id！'));
+		res.jsonFail('缺少参数id！');
 		return;
 	}
 	
@@ -84,9 +84,9 @@ exports.ucenterRoleRMenuGet = async function(req, res){
 	try{
 		var rows = await model.ucenterRoleRMenuGetById(req.body.id);
 		
-		res.send(qiao.json.success('query success', {rows:rows}));
+		res.jsonSuccess('query success', {rows:rows});
 	}catch(e){
-		res.send(qiao.json.danger('query failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('query failed', {errName:e.name,errMsg:e.message});
 	}
 };
 
@@ -96,15 +96,15 @@ exports.ucenterRoleRMenuGet = async function(req, res){
 exports.ucenterRoleRMenuSave = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
+		res.jsonFail('缺少参数！');
 		return;
 	}
 	if(!req.body.ucenterRoleId){
-		res.send(qiao.json.danger('缺少参数ucenterRoleId！'));
+		res.jsonFail('缺少参数ucenterRoleId！');
 		return;
 	}
 	if(!req.body.ucenterMenuId){
-		res.send(qiao.json.danger('缺少参数ucenterMenuId！'));
+		res.jsonFail('缺少参数ucenterMenuId！');
 		return;
 	}
 	
@@ -144,9 +144,9 @@ exports.ucenterRoleRMenuSave = async function(req, res){
 			await model.ucenterRoleRMenuEdit(params);
 		}
 		
-		res.send(qiao.json.success('save success', {id:id}));
+		res.jsonSuccess('save success', {id:id});
 	}catch(e){
-		res.send(qiao.json.danger('save failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('save failed', {errName:e.name,errMsg:e.message});
 	}
 };
 
@@ -156,19 +156,19 @@ exports.ucenterRoleRMenuSave = async function(req, res){
 exports.ucenterRoleRMenuDel = async function(req, res){
 	// check
 	if(!req.body){
-		res.send(qiao.json.danger('缺少参数！'));
+		res.jsonFail('缺少参数！');
 		return;
 	}
 	if(!req.body.ids){
-		res.send(qiao.json.danger('缺少参数ids！'));
+		res.jsonFail('缺少参数ids！');
 		return;
 	}
 	
 	// db
 	try{
 		await model.ucenterRoleRMenuDel(req.body.ids.split(','));
-		res.send(qiao.json.success('del success'));
+		res.jsonSuccess('del success');
 	}catch(e){
-		res.send(qiao.json.danger('del failed', {errName:e.name,errMsg:e.message}));
+		res.jsonFail('del failed', {errName:e.name,errMsg:e.message});
 	}
 };
