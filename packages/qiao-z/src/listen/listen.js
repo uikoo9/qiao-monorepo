@@ -8,9 +8,10 @@ import listenRequest from './listen-request.js';
  * listen
  * @param {*} port 
  * @param {*} routers 
+ * @param {*} app 
  * @returns 
  */
-export default (port, routers, cros) => {
+const listen = (port, routers, app) => {
     if (!routers) return;
 
     // server
@@ -41,9 +42,11 @@ export default (port, routers, cros) => {
 
     // request
     server.on('request', (request, response) => {
-        listenRequest(request, response, routers, cros);
+        listenRequest(request, response, routers, app);
     });
 
     // listen
     server.listen(port);
 };
+
+export default listen;

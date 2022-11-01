@@ -18,6 +18,6 @@ export default (app, routers) => {
     app.listen = (port) => {
         port = port || defaultPort;
 
-        listen(port, routers, app._cros);
+        listen(port, routers, app);
     };
 };
