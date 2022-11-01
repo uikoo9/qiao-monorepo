@@ -35,6 +35,39 @@ var initMethods = (app, routers) => {
     });
 };
 
+/**
+ * init options
+ */
+var initOptions = (app, routers) => {
+    // check
+    if (!app || !routers) return;
+
+    // options
+    app.options = () => {
+        // callback
+        const callback = (req, res) => {
+            console.log(1111);
+            res.response.writeHead(200, {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': '*',
+                'Access-Control-Allow-Headers': '*',
+            });
+            res.end();
+        };
+
+        // options
+        routers.options = routers.options || [];
+        routers.options.push({
+            path: null,
+            callback: callback,
+            options: true,
+        });
+    };
+
+    // run
+    app.options();
+};
+
 // path
 
 /**
@@ -387,7 +420,7 @@ var listenRequest = async (request, response, routers) => {
     // req res
     const req = await reqFn(request);
     const res = resFn(response);
-    
+
     // check routers
     if (Object.keys(routers).length === 0) {
         res.send('no routers');
@@ -401,6 +434,9 @@ var listenRequest = async (request, response, routers) => {
         res.send('no routers');
         return;
     }
+
+    // check options
+    if (checkOptions(reqRouters, req, res)) return;
 
     // check static
     if (checkStatic(reqRouters, req, res)) return;
@@ -425,6 +461,19 @@ var listenRequest = async (request, response, routers) => {
         return;
     }
 };
+
+// check options
+function checkOptions(routers, req, res) {
+    let routerOptions;
+    for (let i = 0; i < routers.length; i++) {
+        if (routers[i].options) {
+            routers[i].callback(req, res);
+            routerOptions = true;
+        }
+    }
+
+    return routerOptions;
+}
 
 // check static
 function checkStatic(routers, req, res) {
@@ -583,6 +632,7 @@ const routers = {};
 var index = () => {
     let app = {};
     initMethods(app, routers);
+    initOptions(app, routers);
     initStatic(app, routers);
     initListen(app, routers);
     initController(app);

@@ -15,7 +15,7 @@ export default async (request, response, routers) => {
     // req res
     const req = await reqFn(request);
     const res = resFn(response);
-    
+
     // check routers
     if (Object.keys(routers).length === 0) {
         res.send('no routers');
@@ -29,6 +29,9 @@ export default async (request, response, routers) => {
         res.send('no routers');
         return;
     }
+
+    // check options
+    if (checkOptions(reqRouters, req, res)) return;
 
     // check static
     if (checkStatic(reqRouters, req, res)) return;
@@ -53,6 +56,19 @@ export default async (request, response, routers) => {
         return;
     }
 };
+
+// check options
+function checkOptions(routers, req, res) {
+    let routerOptions;
+    for (let i = 0; i < routers.length; i++) {
+        if (routers[i].options) {
+            routers[i].callback(req, res);
+            routerOptions = true;
+        }
+    }
+
+    return routerOptions;
+}
 
 // check static
 function checkStatic(routers, req, res) {
