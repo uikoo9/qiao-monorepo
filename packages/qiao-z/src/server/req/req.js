@@ -31,11 +31,11 @@ export default async (request, upload) => {
     req.query = handleQuery(req);
 
     // body or upload
-    if(!upload){
-        req.body = await handleBody(req);
-    }else{
-        req.upload = await upload.uploadSync(request);
-    }
+    req.body = await handleBody(req);
+    // if(!upload){
+    // }else{
+    //     req.upload = await upload.uploadSync(request);
+    // }
 
     return req;
 };
