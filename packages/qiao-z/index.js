@@ -633,7 +633,7 @@ const listenRequest = async (request, response, routers, app) => {
     if (allRes) return;
 
     // handle checks
-    const checkRes = handleChecks(app, req, res);
+    const checkRes = await handleChecks(app, req, res);
     if (checkRes) return;
 
     // handle path
