@@ -63,4 +63,9 @@ function init(options) {
             m(that, options.config);
         });
     }
+
+    // upload
+    if (options.upload) {
+        this._upload = options.upload;
+    }
 }

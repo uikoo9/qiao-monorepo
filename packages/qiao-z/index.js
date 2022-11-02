@@ -215,7 +215,7 @@ async function getBodyString(req){
  * @param {*} request 
  * @returns 
  */
-var reqFn = async (request) => {
+var reqFn = async (request, upload) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
@@ -223,7 +223,13 @@ var reqFn = async (request) => {
     req.cookies = handleCookies(req);
     req.useragent = handleUseragent(req);
     req.query = handleQuery(req);
-    req.body = await handleBody(req);
+
+    // body or upload
+    if(!upload){
+        req.body = await handleBody(req);
+    }else {
+        req.upload = await upload.uploadSync(request);
+    }
 
     return req;
 };
@@ -606,7 +612,7 @@ const handleParams = (routers, req, res) => {
  */
 const listenRequest = async (request, response, routers, app) => {
     // req res
-    const req = await reqFn(request);
+    const req = await reqFn(request, app._upload);
     const res = resFn(response, app._cros);
 
     // handle cros
@@ -754,6 +760,11 @@ function init(options) {
         options.modules.forEach(m => {
             m(that, options.config);
         });
+    }
+
+    // upload
+    if (options.upload) {
+        this._upload = options.upload;
     }
 }
 

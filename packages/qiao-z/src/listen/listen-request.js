@@ -24,7 +24,7 @@ import handleParams from './handle-params.js';
  */
 const listenRequest = async (request, response, routers, app) => {
     // req res
-    const req = await reqFn(request);
+    const req = await reqFn(request, app._upload);
     const res = resFn(response, app._cros);
 
     // handle cros

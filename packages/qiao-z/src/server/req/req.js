@@ -21,7 +21,7 @@ import handleBody from './req-body.js';
  * @param {*} request 
  * @returns 
  */
-export default async (request) => {
+export default async (request, upload) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
@@ -29,7 +29,13 @@ export default async (request) => {
     req.cookies = handleCookies(req);
     req.useragent = handleUseragent(req);
     req.query = handleQuery(req);
-    req.body = await handleBody(req);
+
+    // body or upload
+    if(!upload){
+        req.body = await handleBody(req);
+    }else{
+        req.upload = await upload.uploadSync(request);
+    }
 
     return req;
 };
