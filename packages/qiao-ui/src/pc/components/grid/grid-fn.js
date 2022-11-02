@@ -9,7 +9,7 @@
 export const gridInit = async (listFunc, data, pagenumber, cols) => {
     // res
     const res = await listFunc(data || {}, pagenumber, window.pagesize);
-    if (res.type != 'success') {
+    if (!res || !res.type) {
         console.error(res);
         return;
     }
@@ -52,7 +52,7 @@ export const gridInit = async (listFunc, data, pagenumber, cols) => {
  */
 export const gridDel = async (delFunc, ids) => {
     const res = await delFunc(`${ids}`);
-    if (!res || res.type != 'success') {
+    if (!res || !res.type) {
         alert(res.msg);
         return;
     }

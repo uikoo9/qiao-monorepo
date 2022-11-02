@@ -47,7 +47,7 @@ export const {{className1}}Edit = forwardRef((props, ref) => {
 
         // save
         const res = await {{className2}}Save(data);
-        if (!res || res.type != 'success') {
+        if (!res || !res.type) {
             setTips(res.msg);
             return;
         }
