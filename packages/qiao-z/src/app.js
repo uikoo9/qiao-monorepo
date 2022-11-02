@@ -1,7 +1,6 @@
 // init
-import initGet from './init/init-get.js';
+import initMethods from './init/init-methods.js';
 import initStatic from './init/init-static.js';
-import initPost from './init/init-post.js';
 import initController from './init/init-controller.js';
 
 // listen
@@ -23,6 +22,15 @@ const crosOptions = {
 export default () => {
     const app = {};
 
+    // init methods
+    initMethods(app, routers);
+
+    // init static
+    initStatic(app, routers);
+
+    // init controller
+    initController(app);
+
     // init
     app.init = init;
 
@@ -30,18 +38,6 @@ export default () => {
     app.listen = (port) => {
         listen(port || '5277', routers, app);
     };
-
-    // init get
-    initGet(app, routers);
-
-    // init static
-    initStatic(app, routers);
-
-    // init post
-    initPost(app, routers);
-
-    // init controller
-    initController(app);
 
     return app;
 };

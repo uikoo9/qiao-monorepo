@@ -10,15 +10,12 @@ const defaultBody = {};
 /**
  * handle body
  * @param {*} req 
+ * @param {*} upload 
  * @returns 
  */
-export default async (req) => {
+const handleBody = async (req, upload) => {
     // check
-    if(!req || !req.headers || !req.headers['content-type']) return defaultBody;
-
-    // body string
-    const bodyString = await getBodyString(req);
-    if(!bodyString) return defaultBody;
+    if (!req || !req.headers || !req.headers['content-type']) return defaultBody;
 
     // body
     let body;
@@ -26,14 +23,25 @@ export default async (req) => {
         // content type
         const contentType = req.headers['content-type'];
 
-        // xfrom
-        if(contentType == 'application/x-www-form-urlencoded'){
-            body = qs.parse(bodyString);
-        }
-    
-        // json
-        if(contentType == 'application/json'){
-            body = JSON.parse(bodyString);
+        // upload
+        if (contentType.indexOf('multipart/form-data') > -1) {
+            if(!upload) return defaultBody;
+
+            return await upload.uploadSync(req.request);
+        } else {
+            // body string
+            const bodyString = await getBodyString(req);
+            if (!bodyString) return defaultBody;
+
+            // xfrom
+            if (contentType.indexOf('application/x-www-form-urlencoded') > -1) {
+                body = qs.parse(bodyString);
+            }
+
+            // json
+            if (contentType.indexOf('application/json') > -1) {
+                body = JSON.parse(bodyString);
+            }
         }
     } catch (error) {
         console.log(error);
@@ -44,7 +52,7 @@ export default async (req) => {
 };
 
 // get body string
-async function getBodyString(req){
+async function getBodyString(req) {
     try {
         // options
         const options = {
@@ -60,3 +68,5 @@ async function getBodyString(req){
         return null;
     }
 }
+
+export default handleBody;

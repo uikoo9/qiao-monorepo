@@ -1,33 +1,38 @@
 'use strict';
 
 var path = require('path');
-var getRawBody = require('raw-body');
-var qs = require('qs');
 var qiaoFile = require('qiao-file');
 var http = require('http');
 var parseurl = require('parseurl');
 var cookie = require('cookie');
 var ua = require('qiao-ua');
+var qs = require('qs');
+var getRawBody = require('raw-body');
 var template = require('art-template');
 
+// methods
+const methods = ['get', 'post'];
+
 /**
- * init get
+ * init methods
  * @param {*} app 
  * @param {*} routers 
  * @returns 
  */
-var initGet = (app, routers) => {
+var initMethods = (app, routers) => {
     //check
     if (!app || !routers) return;
 
     // init
-    app.get = (path, callback) => {
-        routers.get = routers.get || [];
-        routers.get.push({
-            path: path,
-            callback: callback
-        });
-    };
+    methods.forEach((v) => {
+        app[v] = (path, callback) => {
+            routers[v] = routers[v] || [];
+            routers[v].push({
+                path: path,
+                callback: callback
+            });
+        };
+    });
 };
 
 // path
@@ -62,95 +67,6 @@ var initStatic = (app, routers) => {
 
     // acme
     app.static('/.well-known', './.well-known');
-};
-
-// raw body
-
-// default body
-const defaultBody = {};
-
-/**
- * handle body
- * @param {*} req 
- * @returns 
- */
-var handleBody = async (req) => {
-    // check
-    if(!req || !req.headers || !req.headers['content-type']) return defaultBody;
-
-    // body string
-    const bodyString = await getBodyString(req);
-    if(!bodyString) return defaultBody;
-
-    // body
-    let body;
-    try {
-        // content type
-        const contentType = req.headers['content-type'];
-
-        // xfrom
-        if(contentType == 'application/x-www-form-urlencoded'){
-            body = qs.parse(bodyString);
-        }
-    
-        // json
-        if(contentType == 'application/json'){
-            body = JSON.parse(bodyString);
-        }
-    } catch (error) {
-        console.log(error);
-    }
-
-    // return
-    return body || defaultBody;
-};
-
-// get body string
-async function getBodyString(req){
-    try {
-        // options
-        const options = {
-            length: req.headers['content-length'],
-            limit: '1mb',
-            encoding: true
-        };
-
-        // body str
-        return await getRawBody(req.request, options);
-    } catch (e) {
-        console.log(e);
-        return null;
-    }
-}
-
-// body
-
-/**
- * init post
- * @param {*} app 
- * @param {*} routers 
- * @returns 
- */
-var initPost = (app, routers) => {
-    //check
-    if (!app || !routers) return;
-
-    // init
-    app.post = (path, callback) => {
-        // callback
-        const finalCallback = async (req, res) => {
-            req.body = await handleBody(req);
-
-            callback(req, res);
-        };
-
-        // post
-        routers.post = routers.post || [];
-        routers.post.push({
-            path: path,
-            callback: finalCallback
-        });
-    };
 };
 
 // qiao
@@ -233,6 +149,73 @@ var handleQuery = (req) => {
     return (!req || !req.url || !req.url.query) ? {} : qs.parse(req.url.query);
 };
 
+// raw body
+
+// default body
+const defaultBody = {};
+
+/**
+ * handle body
+ * @param {*} req 
+ * @param {*} upload 
+ * @returns 
+ */
+const handleBody = async (req, upload) => {
+    // check
+    if (!req || !req.headers || !req.headers['content-type']) return defaultBody;
+
+    // body
+    let body;
+    try {
+        // content type
+        const contentType = req.headers['content-type'];
+
+        // upload
+        if (contentType.indexOf('multipart/form-data') > -1) {
+            if(!upload) return defaultBody;
+
+            return await upload.uploadSync(req.request);
+        } else {
+            // body string
+            const bodyString = await getBodyString(req);
+            if (!bodyString) return defaultBody;
+
+            // xfrom
+            if (contentType.indexOf('application/x-www-form-urlencoded') > -1) {
+                body = qs.parse(bodyString);
+            }
+
+            // json
+            if (contentType.indexOf('application/json') > -1) {
+                body = JSON.parse(bodyString);
+            }
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+    // return
+    return body || defaultBody;
+};
+
+// get body string
+async function getBodyString(req) {
+    try {
+        // options
+        const options = {
+            length: req.headers['content-length'],
+            limit: '1mb',
+            encoding: true
+        };
+
+        // body str
+        return await getRawBody(req.request, options);
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
+}
+
 // parseurl
 
 /**
@@ -240,7 +223,7 @@ var handleQuery = (req) => {
  * @param {*} request 
  * @returns 
  */
-var reqFn = async (request) => {
+var reqFn = async (request, upload) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
@@ -248,6 +231,7 @@ var reqFn = async (request) => {
     req.cookies = handleCookies(req);
     req.useragent = handleUseragent(req);
     req.query = handleQuery(req);
+    req.body = await handleBody(req, upload);
 
     return req;
 };
@@ -738,6 +722,15 @@ const crosOptions = {
 var app = () => {
     const app = {};
 
+    // init methods
+    initMethods(app, routers);
+
+    // init static
+    initStatic(app, routers);
+
+    // init controller
+    initController(app);
+
     // init
     app.init = init;
 
@@ -745,18 +738,6 @@ var app = () => {
     app.listen = (port) => {
         listen(port || '5277', routers, app);
     };
-
-    // init get
-    initGet(app, routers);
-
-    // init static
-    initStatic(app, routers);
-
-    // init post
-    initPost(app, routers);
-
-    // init controller
-    initController(app);
 
     return app;
 };
