@@ -21,7 +21,7 @@ import handleBody from './req-body.js';
  * @param {*} request 
  * @returns 
  */
-export default async (request, upload) => {
+export default async (request) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
