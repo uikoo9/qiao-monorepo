@@ -700,6 +700,13 @@ const listen = (port, routers, app) => {
 // routers
 const routers = {};
 
+// cros options
+const crosOptions = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': '*',
+    'Access-Control-Allow-Headers': '*',
+};
+
 /**
  * app
  */
@@ -719,7 +726,9 @@ var app = () => {
     initController(app);
 
     // listen
-    app.listen = listenServer;
+    app.listen = (port) => {
+        listen(port || '5277', routers, app);
+    };
 
     return app;
 };
@@ -729,10 +738,14 @@ function init(options) {
     if (!options) return;
 
     // cros
-    if (options.cros) this._cros = options.cros;
+    if (options.cros) {
+        this._cros = options.cros === true ? crosOptions : (options.cros || {});
+    }
 
     // checks
-    if (options.checks) this._checks = options.checks;
+    if (options.checks) {
+        this._checks = options.checks;
+    }
 
     // modules
     if (options.modules && options.config) {
@@ -741,11 +754,6 @@ function init(options) {
             m(that, options.config);
         });
     }
-}
-
-// listen
-function listenServer(port) {
-    listen(port || '5277', routers, this);
 }
 
 module.exports = app;
