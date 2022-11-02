@@ -22,17 +22,17 @@ const crosOptions = {
 export default () => {
     const app = {};
 
-    // init
-    app.init = init;
-
-    // methods
+    // init methods
     initMethods(app, routers);
 
-    // static
+    // init static
     initStatic(app, routers);
 
-    // controller
+    // init controller
     initController(app);
+
+    // init
+    app.init = init;
 
     // listen
     app.listen = (port) => {
