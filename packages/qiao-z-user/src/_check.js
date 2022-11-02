@@ -11,6 +11,16 @@ var ucenterUserModel = require('./ucenter/model/UcenterUserModel.js');
  * @returns 
  */
 module.exports = async function (req, res) {
+    // normal visit
+    let normalVisit = false;
+    if(global.QIAO_USER_CONFIG && global.QIAO_USER_CONFIG.paths && global.QIAO_USER_CONFIG.paths.length){
+        const normalVisitPath = global.QIAO_USER_CONFIG.paths;
+        for (let i = 0; i < normalVisitPath.length; i++) {
+            if (req.url.pathname == normalVisitPath[i]) normalVisit = true;
+        }
+    }
+    if (normalVisit) return true;
+
     // auth - has token
     const userid = req.headers.userid || req.cookies.insistime_userid;
     const usertoken = req.headers.usertoken || req.cookies.insistime_usertoken;
