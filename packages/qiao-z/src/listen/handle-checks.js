@@ -6,6 +6,8 @@
  * @returns 
  */
 const handleChecks = (app, req, res) => {
+    if(!app || !app._checks || !app._checks.length) return;
+    
     let checkRes;
     for (let i = 0; i < app._checks.length; i++) {
         const check = app._checks[i];

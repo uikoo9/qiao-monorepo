@@ -532,6 +532,8 @@ const handleAll = (routers, req, res) => {
  * @returns 
  */
 const handleChecks = (app, req, res) => {
+    if(!app || !app._checks || !app._checks.length) return;
+    
     let checkRes;
     for (let i = 0; i < app._checks.length; i++) {
         const check = app._checks[i];
@@ -703,7 +705,20 @@ const routers = {};
  */
 var app = () => {
     const app = {};
+
+    // init
     app.init = init;
+
+    // methods
+    initMethods(app, routers);
+
+    // static
+    initStatic(app, routers);
+
+    // controller
+    initController(app);
+
+    // listen
     app.listen = listenServer;
 
     return app;
@@ -719,15 +734,6 @@ function init(options) {
     // checks
     if (options.checks) this._checks = options.checks;
 
-    // methods
-    initMethods(this, routers);
-
-    // static
-    initStatic(this, routers);
-
-    // controller
-    initController(this);
-
     // modules
     if (options.modules && options.config) {
         const that = this;
@@ -738,7 +744,7 @@ function init(options) {
 }
 
 // listen
-function listenServer(port){
+function listenServer(port) {
     listen(port || '5277', routers, this);
 }
 
