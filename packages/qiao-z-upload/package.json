@@ -1,6 +1,6 @@
 {
     "name": "qiao-z-upload",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "description": "nodejs multer tool",
     "keywords": [
         "nodejs",
