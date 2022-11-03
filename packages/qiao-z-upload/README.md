@@ -9,7 +9,7 @@
 ```javascript
 const upload = require('qiao-z-upload');
 
-aap.post('/upload', (req, res) => {
+app.post('/upload', (req, res) => {
     const body = upload.uploadSync(req.request);
     console.log(body);
 });
