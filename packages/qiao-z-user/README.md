@@ -1,6 +1,9 @@
 ## qiao-z-user
 
-qiao-z user module
+[![npm version](https://img.shields.io/npm/v/qiao-z-user.svg?style=flat-square)](https://www.npmjs.org/package/qiao-z-user)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-z-user.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-z-user)
+
+[qiao-z](https://www.npmjs.com/package/qiao-z) user module
 
 ## version
 ### 0.0.8.20210929
