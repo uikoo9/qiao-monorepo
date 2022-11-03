@@ -3,7 +3,7 @@
     "private": true,
     "scripts": {
         "check": "qlerna ncu ./packages",
-        "ncu": "lerna exec 'ncu -u'",
+        "ncu": "lerna exec --ignore=qiao-cli 'ncu -u'",
         "clean": "lerna clean -y",
         "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
         "dc": "qlerna dc ./packages",

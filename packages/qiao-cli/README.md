@@ -1,4 +1,9 @@
-# qiao-cli
+## qiao-cli
+
+[![npm version](https://img.shields.io/npm/v/qiao.ls.js.svg?style=flat-square)](https://www.npmjs.org/package/qiao.ls.js)
+[![npm downloads](https://img.shields.io/npm/dm/qiao.ls.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.ls.js)
+
+nodejs下cli能力
 
 ## api
 ### colors
@@ -17,16 +22,16 @@ console.log(q.colors.green('hello'));
 
 var q = require('qiao-cli');
 
-var test = function(){
-	var bar		= new q.progress(':bar', { total: 10 });
-	var timer 	= setInterval(function () {
-		bar.tick();
-		
-		if(bar.complete){
-			console.log('\ncomplete\n');
-			clearInterval(timer);
-		}
-	}, 100);
+var test = function () {
+    var bar = new q.progress(':bar', { total: 10 });
+    var timer = setInterval(function () {
+        bar.tick();
+
+        if (bar.complete) {
+            console.log('\ncomplete\n');
+            clearInterval(timer);
+        }
+    }, 100);
 };
 
 test();
@@ -38,16 +43,16 @@ test();
 
 var q = require('qiao-cli');
 
-var test = async function(){
-	var questions = [{
-	    type	: 'list',
-	    name	: 'type',
-	    message	: 'What type of code do you want to generate?',
-	    choices	: ['front', 'server', 'manage']
-	}];
-	
-	var answers = await q.ask(questions);
-	console.log(answers);
+var test = async function () {
+    var questions = [{
+        type: 'list',
+        name: 'type',
+        message: 'What type of code do you want to generate?',
+        choices: ['front', 'server', 'manage']
+    }];
+
+    var answers = await q.ask(questions);
+    console.log(answers);
 };
 
 test();
@@ -61,20 +66,23 @@ var q = require('qiao-cli');
 
 // cmd
 q.cmd
-	.version('0.0.1', '-v, --version')
-	.usage('<command> [options]')
-	.description('qiao-cli is a nodejs cli tool')
-	.command('test <dir>')
-	.option('-s --ss', 'ss')
-	.action(function(dir, options){
-		console.log(dir, options);
-	});
+    .version('0.0.1', '-v, --version')
+    .usage('<command> [options]')
+    .description('qiao-cli is a nodejs cli tool')
+    .command('test <dir>')
+    .option('-s --ss', 'ss')
+    .action(function (dir, options) {
+        console.log(dir, options);
+    });
 
 // parse
 q.cmd.parse(process.argv);
 ```
 
 ## version
+### 0.0.9.20221103
+1. 1.0.0
+   
 ### 0.0.8.20200803
 1. ncu
 
