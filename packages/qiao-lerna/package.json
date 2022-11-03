@@ -22,7 +22,7 @@
         "qlerna": "./bin/qlerna.js"
     },
     "dependencies": {
-        "npm-check-updates": "^16.3.15",
+        "npm-check-updates": "^16.3.16",
         "qiao-cli": "^0.3.3",
         "qiao-console": "^0.1.2",
         "qiao-npms": "^1.0.3",

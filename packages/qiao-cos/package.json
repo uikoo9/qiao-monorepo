@@ -25,7 +25,7 @@
     },
     "scripts": {},
     "dependencies": {
-        "cos-nodejs-sdk-v5": "^2.11.14",
+        "cos-nodejs-sdk-v5": "^2.11.15",
         "qiao-cli": "^0.3.3",
         "qiao-file": "^1.0.3"
     }

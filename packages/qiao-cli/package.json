@@ -18,8 +18,8 @@
   "scripts": {},
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^9.4.0",
-    "inquirer": "^8.2.4",
+    "commander": "^9.4.1",
+    "inquirer": "^9.1.4",
     "progress": "^2.0.3"
   }
 }

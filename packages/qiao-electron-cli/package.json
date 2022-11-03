@@ -24,7 +24,7 @@
 		"url": "https://github.com/uikoo9/qiao-monorepo/issues"
 	},
 	"dependencies": {
-		"electron-packager": "^17.0.0"
+		"electron-packager": "^17.1.1"
 	},
 	"optionalDependencies": {
 		"appdmg": "^0.6.4"
