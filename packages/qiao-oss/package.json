@@ -23,5 +23,6 @@
     "ali-oss": "^6.17.1",
     "qiao-cli": "^1.0.1",
     "qiao-file": "^1.0.3"
-  }
+  },
+  "gitHead": "3c78b1162039bad904dab3bc43dd8a204c08c373"
 }
