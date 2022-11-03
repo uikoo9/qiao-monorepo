@@ -1,6 +1,6 @@
 {
   "name": "qiao-server-coder",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "description": "qiao-server-coder",
   "keywords": [],
   "author": "uikoo9 <uikoo9@qq.com>",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "art-template": "^4.13.2",
-    "qiao-cli": "^1.0.0",
+    "qiao-cli": "^1.0.1",
     "qiao-encode": "^1.0.0",
     "qiao-file": "^1.0.3",
     "qiao-mysql": "^0.1.7",
