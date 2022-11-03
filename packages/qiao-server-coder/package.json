@@ -24,6 +24,5 @@
     "qiao-request": "^0.4.0",
     "qiao-string": "^0.0.9",
     "qiao-zip": "^0.8.9"
-  },
-  "gitHead": "3c78b1162039bad904dab3bc43dd8a204c08c373"
+  }
 }
