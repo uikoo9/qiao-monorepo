@@ -752,18 +752,18 @@ const routers = {};
  */
 var app = (options) => {
     const app = {};
+    
+    // init methods
+    initMethods(app, routers);
+    
+    // init static
+    initStatic(app, routers);
+    
+    // init controller
+    initController(app);
 
     // init app
     initApp(app, options);
-
-    // init methods
-    initMethods(app, routers);
-
-    // init static
-    initStatic(app, routers);
-
-    // init controller
-    initController(app);
 
     // listen
     app.listen = (port) => {
