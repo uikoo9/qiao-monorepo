@@ -15,11 +15,14 @@ npm i qiao-z
  * |-- app.js
  */
 
+// qz
+const qz = require('qiao-z');
+
 // app
-const app = require('qiao-z')();
+const app = qz();
 
 // listen
-app.listen(5277);
+app.listen();
 ```
 
 ## examples

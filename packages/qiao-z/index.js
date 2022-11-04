@@ -10,6 +10,44 @@ var qs = require('qs');
 var getRawBody = require('raw-body');
 var template = require('art-template');
 
+// cros options
+const crosOptions = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': '*',
+    'Access-Control-Allow-Headers': '*',
+};
+
+/**
+ * init app
+ * @param {*} options 
+ * @returns 
+ */
+const initApp = (app, options) => {
+    if (!app || !options) return;
+
+    // cros
+    if (options.cros) {
+        app._cros = options.cros === true ? crosOptions : (options.cros || {});
+    }
+
+    // checks
+    if (options.checks) {
+        app._checks = options.checks;
+    }
+
+    // modules
+    if (options.modules && options.config) {
+        options.modules.forEach(m => {
+            m(app, options.config);
+        });
+    }
+
+    // upload
+    if (options.upload) {
+        app._upload = options.upload;
+    }
+};
+
 // methods
 const methods = ['get', 'post'];
 
@@ -709,18 +747,14 @@ const listen = (port, routers, app) => {
 // routers
 const routers = {};
 
-// cros options
-const crosOptions = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': '*',
-    'Access-Control-Allow-Headers': '*',
-};
-
 /**
  * app
  */
-var app = () => {
+var app = (options) => {
     const app = {};
+
+    // init app
+    initApp(app, options);
 
     // init methods
     initMethods(app, routers);
@@ -731,9 +765,6 @@ var app = () => {
     // init controller
     initController(app);
 
-    // init
-    app.init = init;
-
     // listen
     app.listen = (port) => {
         listen(port || '5277', routers, app);
@@ -741,33 +772,5 @@ var app = () => {
 
     return app;
 };
-
-// init app
-function init(options) {
-    if (!options) return;
-
-    // cros
-    if (options.cros) {
-        this._cros = options.cros === true ? crosOptions : (options.cros || {});
-    }
-
-    // checks
-    if (options.checks) {
-        this._checks = options.checks;
-    }
-
-    // modules
-    if (options.modules && options.config) {
-        const that = this;
-        options.modules.forEach(m => {
-            m(that, options.config);
-        });
-    }
-
-    // upload
-    if (options.upload) {
-        this._upload = options.upload;
-    }
-}
 
 module.exports = app;

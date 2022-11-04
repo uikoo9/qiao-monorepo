@@ -1,8 +1,8 @@
-// q
-const q = require('../index.js');
+// qz
+const qz = require('../index.js');
 
 // app
-const app = q();
+const app = qz();
 
 // listen
 app.listen();
