@@ -13,6 +13,11 @@
     "homepage": "https://code.insistime.com/qiao-cos",
     "license": "MIT",
     "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets": false,
+    "files": [
+        "src"
+    ],
     "bin": {
         "qcos": "./bin/qcos.js"
     },
@@ -23,7 +28,12 @@
     "bugs": {
         "url": "https://github.com/uikoo9/qiao-monorepo/issues"
     },
-    "scripts": {},
+    "scripts": {
+        "build": "rollup --config _config.rollup.js",
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+        "prepublish": "npm run build && npm run eslintfix"
+    },
     "dependencies": {
         "cos-nodejs-sdk-v5": "^2.11.15",
         "qiao-cli": "^1.0.3",

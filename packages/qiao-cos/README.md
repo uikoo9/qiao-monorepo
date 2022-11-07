@@ -2,16 +2,46 @@
 [![npm version](https://img.shields.io/npm/v/qiao-cos.svg?style=flat-square)](https://www.npmjs.org/package/qiao-cos)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-cos.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-cos)
 
-nodejs下腾讯cos常见api封装
+nodejs下腾讯云cos常见api封装
+
+## install
+```bash
+npm i -g qiao-cos
+```
+
+## cli
+```bash
+# 帮助
+qcos
+qcos -h
+
+# 上传文件
+qcos file|fi z:/workspaces/qiao-cos/test/config.json d:/test.js test.js	
+
+# 上传文件夹
+qcos folder|fo	z:/workspaces/qiao-cos/test/config.json d:/test/cocos test9
+```
 
 ## config.json
 ```javascript
 {
-	"SecretId"	: "your secret id",
-	"SecretKey"	: "your secret key",
-	"Region"	: "your region",
-	"Bucket"	: "your bucket"
+    "SecretId": "your secret id",
+    "SecretKey": "your secret key",
+    "Region": "your bucket",
+    "Bucket": "your bucket",
 }
+```
+
+## use
+```javascript
+// config
+const config = require('./config.json');
+
+// q
+const q = require('../index.js')(config);
+
+// use
+q.uploadfile
 ```
 
 ## api
@@ -20,25 +50,23 @@ nodejs下腾讯cos常见api封装
 同步上传文件
 
 ```javascript
-'use strict';
-
-var q 		= require('qiao-cos');
-var client	= q.client(require('./config.json'));
+const q = require('qiao-cos');
+const client = q.client(require('./config.json'));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
-var test = async function(){
-	try{
-		var destPath	= 'test/test.js';
-		var sourceFile 	= 'd:/test.js';
-		
-		var rs = await q.uploadFileSync(client, destPath, sourceFile);
-		console.log(rs);
-	}catch(e){
-		console.log(e);
-	}
+const test = async function () {
+    try {
+        const destPath = 'test/test.js';
+        const sourceFile = 'd:/test.js';
+
+        const rs = await q.uploadFileSync(client, destPath, sourceFile);
+        console.log(rs);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -49,25 +77,23 @@ test();
 同步上传文件夹
 
 ```javascript
-'use strict';
-
-var q 		= require('qiao-cos');
-var client	= q.client(require('./config.json'));
+const q = require('qiao-cos');
+const client = q.client(require('./config.json'));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
-var test = async function(){
-	try{
-		var destPath		= 'static';
-		var sourceFolder	= 'd:/static';
-		
-		var rs = await q.uploadFolderSync(client, destPath, sourceFolder);
-		console.log(rs);
-	}catch(e){
-		console.log(e);
-	}
+const test = async function () {
+    try {
+        const destPath = 'static';
+        const sourceFolder = 'd:/static';
+
+        const rs = await q.uploadFolderSync(client, destPath, sourceFolder);
+        console.log(rs);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
@@ -78,22 +104,20 @@ test();
 异步上传文件
 
 ```javascript
-'use strict';
-
-var q 		= require('qiao-cos');
-var client	= q.client(require('./config.json'));
+const q = require('qiao-cos');
+const client = q.client(require('./config.json'));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
-var test = function(){
-		var destPath	= 'test/test.js';
-		var sourceFile 	= 'd:/test.js';
-		
-		q.uploadFile(client, destPath, sourceFile, function(err, data){
-			console.log(err, data);
-		});
+const test = function () {
+    const destPath = 'test/test.js';
+    const sourceFile = 'd:/test.js';
+
+    q.uploadFile(client, destPath, sourceFile, function (err, data) {
+        console.log(err, data);
+    });
 };
 
 test();
@@ -104,45 +128,23 @@ test();
 异步上传文件夹
 
 ```javascript
-'use strict';
-
-var q 		= require('qiao-cos');
-var client	= q.client(require('./config.json'));
+const q = require('qiao-cos');
+const client = q.client(require('./config.json'));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
-var test = function(){
-	var destPath		= 'static';
-	var sourceFolder	= 'd:/static';
-	
-	q.uploadFolder(client, destPath, sourceFolder, function(rs){
-		console.log(rs);
-	});
+const test = function () {
+    const destPath = 'static';
+    const sourceFolder = 'd:/static';
+
+    q.uploadFolder(client, destPath, sourceFolder, function (rs) {
+        console.log(rs);
+    });
 };
 
 test();
-```
-
-## cli
-
-cli下也可以使用
-
-```shell
-npm install -g qiao-cos
-
-qcos file 	z:/workspaces/qiao-cos/test/config.json 	d:/test.js	test.js	
-qcos folder	z:/workspaces/qiao-cos/test/config.json 	d:/test/cocos	test9 	-i
-
-or
-
-qcos fi 	z:/workspaces/qiao-cos/test/config.json 	d:/test.js 	test.js	
-qcos fo		z:/workspaces/qiao-cos/test/config.json 	d:/test/cocos 	test9 	-i
-
-or
-
-qcos | qcos -h for help
 ```
 
 ## version

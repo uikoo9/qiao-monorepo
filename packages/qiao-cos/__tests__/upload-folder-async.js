@@ -1,19 +1,20 @@
-'use strict';
+// config
+const config = require('./config.json');
 
-var q 		= require('../index.js');
-var client	= q.client(require('./config.json'));
+// q
+const q = require('../index.js')(config);
 
 /**
  * upload folder
- * upload d:/test folder's files to your bucket's test folder
+ * upload /your/folder folder's files to your bucket's test folder
  */
-var test = function(){
-	var destPath		= 'static';
-	var sourceFolder	= 'd:/static';
-	
-	q.uploadFolder(client, destPath, sourceFolder, function(rs){
-		console.log(rs);
-	});
+const test = () => {
+    const destPath = 'test';
+    const sourceFolder = '/your/folder';
+
+    q.uploadFolder(destPath, sourceFolder, (rs) => {
+        console.log(rs);
+    });
 };
 
 test();

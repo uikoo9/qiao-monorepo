@@ -1,22 +1,23 @@
-'use strict';
+// config
+const config = require('./config.json');
 
-var q 		= require('../index.js');
-var client	= q.client(require('./config.json'));
+// q
+const q = require('../index.js')(config);
 
 /**
  * upload file demo
- * upload d:/test.js to your bucket's test/test.js
+ * upload /your/test.js to your bucket's test/test.js
  */
-var test = async function(){
-	try{
-		var destPath	= 'test/test.js';
-		var sourceFile 	= 'd:/test.js';
-		
-		var rs = await q.uploadFileSync(client, destPath, sourceFile);
-		console.log(rs);
-	}catch(e){
-		console.log(e);
-	}
+const test = async () => {
+    try {
+        const destPath = 'test/test.js';
+        const sourceFile = '/your/test.js';
+
+        const rs = await q.uploadFileSync(destPath, sourceFile);
+        console.log(rs);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();

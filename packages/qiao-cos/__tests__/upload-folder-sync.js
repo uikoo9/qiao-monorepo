@@ -1,22 +1,23 @@
-'use strict';
+// config
+const config = require('./config.json');
 
-var q 		= require('../index.js');
-var client	= q.client(require('./config.json'));
+// q
+const q = require('../index.js')(config);
 
 /**
  * upload folder
- * upload d:/test folder's files to your bucket's test folder
+ * upload /your/folder folder's files to your bucket's test folder
  */
-var test = async function(){
-	try{
-		var destPath		= 'static';
-		var sourceFolder	= 'd:/static';
-		
-		var rs = await q.uploadFolderSync(client, destPath, sourceFolder);
-		console.log(rs);
-	}catch(e){
-		console.log(e);
-	}
+const test = async () => {
+    try {
+        const destPath = 'test';
+        const sourceFolder = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-cos/src';
+
+        const rs = await q.uploadFolderSync(destPath, sourceFolder);
+        console.log(rs);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 test();
