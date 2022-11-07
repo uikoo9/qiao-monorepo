@@ -1,8 +1,0 @@
-{
-	"ucenterMenuGetById"	: "select * from t_ucenter_menu where id=? and del_tag='0'",
-	"ucenterMenuAdd"		: "insert into t_ucenter_menu(id, ucenter_menu_parent, ucenter_menu_sn, ucenter_menu_title, ucenter_menu_url, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
-	"ucenterMenuEdit"		: "update t_ucenter_menu set ucenter_menu_parent=?, ucenter_menu_sn=?, ucenter_menu_title=?, ucenter_menu_url=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
-	"ucenterMenuDel"		: "update t_ucenter_menu set del_tag='1' where id in (?)",
-	"ucenterMenuListCount"	: "SELECT count(*) tcount FROM t_ucenter_menu t WHERE t.del_tag='0'",
-	"ucenterMenuListQuery"	: "SELECT * FROM t_ucenter_menu t WHERE t.del_tag='0'"
-}

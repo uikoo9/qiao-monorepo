@@ -1,8 +1,0 @@
-{
-	"ucenterRoleRUserGetById"	: "select * from t_ucenter_role_r_user where id=? and del_tag='0'",
-	"ucenterRoleRUserAdd"		: "insert into t_ucenter_role_r_user(id, ucenter_role_id, ucenter_user_id, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
-	"ucenterRoleRUserEdit"		: "update t_ucenter_role_r_user set ucenter_role_id=?, ucenter_user_id=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
-	"ucenterRoleRUserDel"		: "update t_ucenter_role_r_user set del_tag='1' where id in (?)",
-	"ucenterRoleRUserListCount"	: "SELECT count(*) FROM t_ucenter_role_r_user t, t_ucenter_user t2, t_ucenter_role t3 WHERE t.ucenter_user_id=t2.id AND t.ucenter_role_id=t3.id AND t.del_tag='0' AND t2.del_tag='0' AND t3.del_tag='0'",
-	"ucenterRoleRUserListQuery"	: "SELECT t.*, t2.ucenter_user_name, t3.ucenter_role_name, t3.ucenter_role_url FROM t_ucenter_role_r_user t, t_ucenter_user t2, t_ucenter_role t3 WHERE t.ucenter_user_id=t2.id AND t.ucenter_role_id=t3.id AND t.del_tag='0' AND t2.del_tag='0' AND t3.del_tag='0'"
-}

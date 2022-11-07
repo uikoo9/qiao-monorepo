@@ -1,8 +1,0 @@
-{
-	"ucenterRoleRMenuGetById"		: "select * from t_ucenter_role_r_menu where id=? and del_tag='0'",
-	"ucenterRoleRMenuAdd"			: "insert into t_ucenter_role_r_menu(id, ucenter_role_id, ucenter_menu_id, cdate, cuser_id, cuser_name, udate, uuser_id, uuser_name, del_tag) values(null, ?, ?, now(), ?, ?, now(), ?, ?, '0')",
-	"ucenterRoleRMenuEdit"		: "update t_ucenter_role_r_menu set ucenter_role_id=?, ucenter_menu_id=?, udate=now(), uuser_id=?, uuser_name=? where id=? and del_tag='0'",
-	"ucenterRoleRMenuDel"			: "update t_ucenter_role_r_menu set del_tag='1' where id in (?)",
-	"ucenterRoleRMenuListCount"	: "SELECT count(*) tcount FROM t_ucenter_role_r_menu t WHERE t.del_tag='0'",
-	"ucenterRoleRMenuListQuery"	: "SELECT * FROM t_ucenter_role_r_menu t WHERE t.del_tag='0'"
-}
