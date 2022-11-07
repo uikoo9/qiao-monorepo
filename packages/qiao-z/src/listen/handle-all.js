@@ -6,6 +6,10 @@
  * @returns 
  */
 const handleAll = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
+    // check
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];
@@ -16,6 +20,7 @@ const handleAll = (routers, req, res) => {
         break;
     }
 
+    // return
     return check;
 };
 

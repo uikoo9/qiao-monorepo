@@ -7,6 +7,7 @@ const crosOptions = {
 
 /**
  * init app
+ * @param {*} app 
  * @param {*} options 
  * @returns 
  */

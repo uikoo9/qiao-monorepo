@@ -3,7 +3,7 @@
  * @param {*} request 
  * @returns 
  */
-export default (request) => {
+const handleHeaders = (request) => {
     const headers = {};
 
     // check
@@ -16,3 +16,5 @@ export default (request) => {
     });
     return headers;
 };
+
+export default handleHeaders;

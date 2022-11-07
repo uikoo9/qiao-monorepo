@@ -3,8 +3,10 @@ import { lsdir } from 'qiao-file';
 
 /**
  * init controller
+ * @param {*} app 
+ * @returns 
  */
-export default (app) => {
+const initController = (app) => {
     // check
     if (!app) return;
 
@@ -19,3 +21,5 @@ export default (app) => {
         if (/Controller\.js$/.test(file)) require(file)(app);
     });
 };
+
+export default initController;

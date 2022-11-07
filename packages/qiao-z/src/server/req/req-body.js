@@ -25,7 +25,7 @@ const handleBody = async (req, upload) => {
 
         // upload
         if (contentType.indexOf('multipart/form-data') > -1) {
-            if(!upload) return defaultBody;
+            if (!upload) return defaultBody;
 
             return await upload.uploadSync(req.request);
         } else {

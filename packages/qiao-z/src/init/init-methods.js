@@ -7,7 +7,7 @@ const methods = ['get', 'post'];
  * @param {*} routers 
  * @returns 
  */
-export default (app, routers) => {
+const initMethods = (app, routers) => {
     //check
     if (!app || !routers) return;
 
@@ -22,3 +22,5 @@ export default (app, routers) => {
         };
     });
 };
+
+export default initMethods;

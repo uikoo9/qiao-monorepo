@@ -6,6 +6,9 @@
  * @returns 
  */
 const handlePath = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];

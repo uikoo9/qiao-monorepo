@@ -19,6 +19,7 @@ const crosOptions = {
 
 /**
  * init app
+ * @param {*} app 
  * @param {*} options 
  * @returns 
  */
@@ -57,7 +58,7 @@ const methods = ['get', 'post'];
  * @param {*} routers 
  * @returns 
  */
-var initMethods = (app, routers) => {
+const initMethods = (app, routers) => {
     //check
     if (!app || !routers) return;
 
@@ -78,7 +79,7 @@ var initMethods = (app, routers) => {
 /**
  * init static
  */
-var initStatic = (app, routers) => {
+const initStatic = (app, routers) => {
     // check
     if (!app || !routers) return;
 
@@ -111,8 +112,10 @@ var initStatic = (app, routers) => {
 
 /**
  * init controller
+ * @param {*} app 
+ * @returns 
  */
-var initController = (app) => {
+const initController = (app) => {
     // check
     if (!app) return;
 
@@ -133,7 +136,7 @@ var initController = (app) => {
  * @param {*} request 
  * @returns 
  */
-var handleHeaders = (request) => {
+const handleHeaders = (request) => {
     const headers = {};
 
     // check
@@ -157,7 +160,7 @@ const defaultCookies = {};
  * @param {*} req 
  * @returns 
  */
-var handleCookies = (req) => {
+const handleCookies = (req) => {
     // check
     if (!req || !req.headers || !req.headers['cookie']) return defaultCookies;
 
@@ -172,7 +175,7 @@ var handleCookies = (req) => {
  * @param {*} req 
  * @returns 
  */
-var handleUseragent = (req) => {
+const handleUseragent = (req) => {
     return (!req || !req.headers || !req.headers['user-agent']) ? {} : ua(req.headers['user-agent']);
 };
 
@@ -183,7 +186,7 @@ var handleUseragent = (req) => {
  * @param {*} req 
  * @returns 
  */
-var handleQuery = (req) => {
+const handleQuery = (req) => {
     return (!req || !req.url || !req.url.query) ? {} : qs.parse(req.url.query);
 };
 
@@ -210,7 +213,7 @@ const handleBody = async (req, upload) => {
 
         // upload
         if (contentType.indexOf('multipart/form-data') > -1) {
-            if(!upload) return defaultBody;
+            if (!upload) return defaultBody;
 
             return await upload.uploadSync(req.request);
         } else {
@@ -259,9 +262,10 @@ async function getBodyString(req) {
 /**
  * req
  * @param {*} request 
+ * @param {*} upload 
  * @returns 
  */
-var reqFn = async (request, upload) => {
+const handleRequest = async (request, upload) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
@@ -274,109 +278,125 @@ var reqFn = async (request, upload) => {
     return req;
 };
 
-// cookie
-
 /**
- * res
+ * res.head
+ * @param {*} res 
+ * @param {*} status 
+ * @param {*} options 
+ * @returns 
  */
-var resFn = (response, cros) => {
-    const res = {};
-    res.response = response;
-    res.cros = cros;
-    res.head = head;
-    res.end = end;
-    res.redirect = redirect;
-    res.send = send;
-    res.json = json;
-    res.jsonSuccess = jsonSuccess;
-    res.jsonFail = jsonFail;
-    res.clearCookie = clearCookie;
-    res.render = render;
+const head = (res, status, options) => {
+    // check
+    if(!res) return;
 
-    return res;
-};
-
-// head
-function head(status, options){
-    this.heads = this.heads || [];
-    this.heads.push({
+    // heads
+    res.heads = res.heads || [];
+    res.heads.push({
         status: status,
         options: options
     });
-}
+};
 
-// end
-function end(msg){
+/**
+ * res.end
+ * @param {*} res 
+ * @param {*} msg 
+ */
+const end = (res, msg) => {
+    // check
+    if (!res) return;
+
     // clear cookies
-    if(this.clearCookies && this.clearCookies.length){
-        this.response.setHeader('Set-Cookie', this.clearCookies);
-        delete this.clearCookies;
+    if (res.clearCookies && res.clearCookies.length) {
+        res.response.setHeader('Set-Cookie', res.clearCookies);
+        delete res.clearCookies;
     }
 
     // heads
-    if(this.heads && this.heads.length){
-        const that = this;
-        this.heads.forEach((v) => {
+    if (res.heads && res.heads.length) {
+        res.heads.forEach((v) => {
             // opt
             let opt = v.options;
 
             // cros
-            if(that.cros && v.status == 200) opt = Object.assign({}, that.cros, v.options);
+            if (res.cros && v.status == 200) opt = Object.assign({}, res.cros, v.options);
 
             // head
-            that.response.writeHead(v.status, opt);
+            res.response.writeHead(v.status, opt);
         });
 
         // delete
-        delete this.cros;
-        delete this.heads;
+        delete res.cros;
+        delete res.heads;
     }
 
     // delete
-    delete this.head;
-    delete this.end;
+    delete res.head;
+    delete res.end;
 
     // end
-    this.response.end(msg);
-}
+    res.response.end(msg);
+};
 
-// redirect
-function redirect(url) {
+/**
+ * res.redirect
+ * @param {*} res 
+ * @param {*} url 
+ * @returns 
+ */
+const redirect = (res, url) => {
     // check
-    if (!url) return;
+    if (!res || !url) return;
 
     // redirect
-    this.head(302, { 'Location': url });
-    this.end();
-}
+    res.head(302, { 'Location': url });
+    res.end();
+};
 
-// send
-function send(msg) {
-    if (!msg) return;
+/**
+ * res.send
+ * @param {*} res 
+ * @param {*} msg 
+ * @returns 
+ */
+const send = (res, msg) => {
+    if (!res || !msg) return;
 
-    this.head(200, { 'Content-Type': 'text/plain' });
-    this.end(msg);
-}
+    res.head(200, { 'Content-Type': 'text/plain' });
+    res.end(msg);
+};
 
-// json
-function json(obj) {
+/**
+ * res.json
+ * @param {*} res 
+ * @param {*} obj 
+ * @returns 
+ */
+const json = (res, obj) => {
     // check
-    if (!obj) return;
+    if (!res || !obj) return;
 
+    // json
     try {
         const msg = JSON.stringify(obj);
-        this.head(200, { 'Content-Type': 'application/json' });
-        this.end(msg);
+        res.head(200, { 'Content-Type': 'application/json' });
+        res.end(msg);
     } catch (error) {
         console.log(error);
-        this.send('res.json obj error');
+        res.send('res.json obj error');
     }
-}
+};
 
-// json success
-function jsonSuccess(msg, obj) {
+/**
+ * res.jsonSuccess
+ * @param {*} res 
+ * @param {*} msg 
+ * @param {*} obj 
+ * @returns 
+ */
+const jsonSuccess = (res, msg, obj) => {
     // check
-    if (!msg) return;
+    if (!res || !msg) return;
 
     // json
     const jsonObj = {
@@ -388,13 +408,19 @@ function jsonSuccess(msg, obj) {
     if (obj) jsonObj.obj = obj;
 
     // send
-    this.json(jsonObj);
-}
+    json(res, jsonObj);
+};
 
-// json fail
-function jsonFail(msg, obj) {
+/**
+ * res.jsonFail
+ * @param {*} res 
+ * @param {*} msg 
+ * @param {*} obj 
+ * @returns 
+ */
+const jsonFail = (res, msg, obj) => {
     // check
-    if (!msg) return;
+    if (!res || !msg) return;
 
     // json
     const jsonObj = {
@@ -406,28 +432,49 @@ function jsonFail(msg, obj) {
     if (obj) jsonObj.obj = obj;
 
     // send
-    this.json(jsonObj);
-}
+    json(res, jsonObj);
+};
 
-// clear cookie
-function clearCookie(name){
+// cookie
+
+/**
+ * res.clearCookie
+ * @param {*} res 
+ * @param {*} name 
+ */
+const clearCookie = (res, name) => {
+    // check
+    if (!res || !name) return;
+
+    // clear cookies
     const str = cookie.serialize(name, '', { expires: new Date(1), path: '/' });
-    this.clearCookies = this.clearCookies || [];
-    this.clearCookies.push(str);
-}
+    res.clearCookies = res.clearCookies || [];
+    res.clearCookies.push(str);
+};
 
-// render
-function render(filePath, data){
+// path
+
+/**
+ * res.render
+ * @param {*} res 
+ * @param {*} filePath 
+ * @param {*} data 
+ * @returns 
+ */
+const render = (res, filePath, data) => {
+    // check res
+    if (!res) return;
+
     // check
     if (!filePath) {
-        this.send('render: please check file path!');
+        res.send('render: please check file path!');
         return;
     }
 
     // final path
     const finalPath = path.resolve(process.cwd(), filePath);
     if (!qiaoFile.isExists(filePath)) {
-        this.send('render: file path is not exists');
+        res.send('render: file path is not exists');
         return;
     }
 
@@ -442,14 +489,39 @@ function render(filePath, data){
         contentType = 'text/plain';
     }
     if (!file) {
-        this.send('render: read file error');
+        res.send('render: read file error');
         return;
     }
 
-    this.response.writeHeader(200, { 'Content-Type': contentType });
-    this.response.write(file);
-    this.end();
-}
+    res.response.writeHeader(200, { 'Content-Type': contentType });
+    res.response.write(file);
+    res.end();
+};
+
+// res methods
+
+/**
+ * res
+ * @param {*} response 
+ * @param {*} cros 
+ * @returns 
+ */
+const handleRes = (response, cros) => {
+    const res = {};
+    res.response = response;
+    res.cros = cros;
+    res.head = (status, options) => { head(res, status, options); };
+    res.end = (msg) => { end(res, msg); };
+    res.redirect = (url) => { redirect(res, url); };
+    res.send = (msg) => { send(res, msg); };
+    res.json = (obj) => { json(res, obj); };
+    res.jsonSuccess = (msg, obj) => { jsonSuccess(res, msg, obj); };
+    res.jsonFail = (msg, obj) => { jsonFail(res, msg, obj); };
+    res.clearCookie = (name) => { clearCookie(res, name); };
+    res.render = (filePath, data) => { render(res, filePath, data); };
+
+    return res;
+};
 
 /**
  * handle cros
@@ -530,6 +602,10 @@ const handleParamsRouter = (router, req, res) => {
  * @returns 
  */
 const handleStatic = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
+    // check
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];
@@ -546,6 +622,7 @@ const handleStatic = (routers, req, res) => {
         break;
     }
 
+    // return
     return check;
 };
 
@@ -557,6 +634,10 @@ const handleStatic = (routers, req, res) => {
  * @returns 
  */
 const handleAll = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
+    // check
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];
@@ -567,6 +648,7 @@ const handleAll = (routers, req, res) => {
         break;
     }
 
+    // return
     return check;
 };
 
@@ -578,8 +660,10 @@ const handleAll = (routers, req, res) => {
  * @returns 
  */
 const handleChecks = async (app, req, res) => {
-    if(!app || !app._checks || !app._checks.length) return;
-    
+    // check
+    if (!app || !app._checks || !app._checks.length) return;
+
+    // check
     let r;
     for (let i = 0; i < app._checks.length; i++) {
         const check = app._checks[i];
@@ -590,6 +674,7 @@ const handleChecks = async (app, req, res) => {
         break;
     }
 
+    // return
     return r;
 };
 
@@ -601,6 +686,9 @@ const handleChecks = async (app, req, res) => {
  * @returns 
  */
 const handlePath = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];
@@ -624,13 +712,16 @@ const handlePath = (routers, req, res) => {
  * @returns 
  */
 const handleParams = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];
 
         // params
         const paramsRouterRes = handleParamsRouter(router, req, res);
-        if(!paramsRouterRes) continue;
+        if (!paramsRouterRes) continue;
 
         // return 
         check = true;
@@ -652,8 +743,8 @@ const handleParams = (routers, req, res) => {
  */
 const listenRequest = async (request, response, routers, app) => {
     // req res
-    const req = await reqFn(request, app._upload);
-    const res = resFn(response, app._cros);
+    const req = await handleRequest(request, app._upload);
+    const res = handleRes(response, app._cros);
 
     // handle cros
     handleCros(res, app._cros);

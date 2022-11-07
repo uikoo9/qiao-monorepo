@@ -2,7 +2,7 @@
 import reqFn from '../server/req/req.js';
 
 // res
-import resFn from '../server/res.js';
+import resFn from '../server/res/res.js';
 
 // handle
 import handleCros from './handle-cros.js';

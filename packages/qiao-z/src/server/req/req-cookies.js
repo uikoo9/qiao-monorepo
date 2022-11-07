@@ -9,10 +9,12 @@ const defaultCookies = {};
  * @param {*} req 
  * @returns 
  */
-export default (req) => {
+const handleCookies = (req) => {
     // check
     if (!req || !req.headers || !req.headers['cookie']) return defaultCookies;
 
     // return
     return cookie.parse(req.headers['cookie']);
 };
+
+export default handleCookies;

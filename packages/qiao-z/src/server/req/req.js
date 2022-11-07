@@ -19,9 +19,10 @@ import handleBody from './req-body.js';
 /**
  * req
  * @param {*} request 
+ * @param {*} upload 
  * @returns 
  */
-export default async (request, upload) => {
+const handleRequest = async (request, upload) => {
     const req = {};
     req.request = request;
     req.url = parseurl(request);
@@ -33,3 +34,5 @@ export default async (request, upload) => {
 
     return req;
 };
+
+export default handleRequest;

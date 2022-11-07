@@ -6,6 +6,8 @@ import ua from 'qiao-ua';
  * @param {*} req 
  * @returns 
  */
-export default (req) => {
+const handleUseragent = (req) => {
     return (!req || !req.headers || !req.headers['user-agent']) ? {} : ua(req.headers['user-agent']);
 };
+
+export default handleUseragent;

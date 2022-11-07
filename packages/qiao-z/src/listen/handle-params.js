@@ -9,13 +9,16 @@ import handleParamsRouter from './handle-params-router.js';
  * @returns 
  */
 const handleParams = (routers, req, res) => {
+    // check
+    if (!routers || !routers.length || !req || !res) return;
+
     let check;
     for (let i = 0; i < routers.length; i++) {
         const router = routers[i];
 
         // params
         const paramsRouterRes = handleParamsRouter(router, req, res);
-        if(!paramsRouterRes) continue;
+        if (!paramsRouterRes) continue;
 
         // return 
         check = true;

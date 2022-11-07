@@ -6,6 +6,8 @@ import qs from 'qs';
  * @param {*} req 
  * @returns 
  */
-export default (req) => {
+const handleQuery = (req) => {
     return (!req || !req.url || !req.url.query) ? {} : qs.parse(req.url.query);
 };
+
+export default handleQuery;

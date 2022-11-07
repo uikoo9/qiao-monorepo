@@ -4,7 +4,7 @@ import { resolve } from 'path';
 /**
  * init static
  */
-export default (app, routers) => {
+const initStatic = (app, routers) => {
     // check
     if (!app || !routers) return;
 
@@ -32,3 +32,5 @@ export default (app, routers) => {
     // acme
     app.static('/.well-known', './.well-known');
 };
+
+export default initStatic;

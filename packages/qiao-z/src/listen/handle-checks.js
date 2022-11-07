@@ -6,8 +6,10 @@
  * @returns 
  */
 const handleChecks = async (app, req, res) => {
-    if(!app || !app._checks || !app._checks.length) return;
-    
+    // check
+    if (!app || !app._checks || !app._checks.length) return;
+
+    // check
     let r;
     for (let i = 0; i < app._checks.length; i++) {
         const check = app._checks[i];
@@ -18,6 +20,7 @@ const handleChecks = async (app, req, res) => {
         break;
     }
 
+    // return
     return r;
 };
 
