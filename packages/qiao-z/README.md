@@ -2,7 +2,10 @@
 [![npm version](https://img.shields.io/npm/v/qiao-z.svg?style=flat-square)](https://www.npmjs.org/package/qiao-z)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-z.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-z)
 
-nodejs下极简的web框架, [docs](https://code.insistime.com/qiao-z)
+nodejs下极简的web框架，详见：[一篇文章开发Node.js-Web-Server](https://blog.insistime.com/nodejs-web-server)
+
+## 官网 
+[https://code.insistime.com/qiao-z](https://code.insistime.com/qiao-z)
 
 ## 安装
 ```bash
