@@ -10,6 +10,15 @@
     "homepage": "https://code.insistime.com/qiao-lerna",
     "license": "MIT",
     "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets": false,
+    "files": [
+        "bin",
+        "src"
+    ],
+    "bin": {
+        "qlerna": "./bin/qlerna.js"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
@@ -17,9 +26,11 @@
     "bugs": {
         "url": "https://github.com/uikoo9/qiao-monorepo/issues"
     },
-    "scripts": {},
-    "bin": {
-        "qlerna": "./bin/qlerna.js"
+    "scripts": {
+        "build": "rollup --config _config.rollup.js",
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+        "prepublish": "npm run build && npm run eslintfix"
     },
     "dependencies": {
         "npm-check-updates": "^16.3.16",

@@ -1,28 +1,26 @@
-'use strict';
-
 // ncu
-var ncu = require('npm-check-updates');
+import { run } from 'npm-check-updates';
 
 // pkg
-var pkg = require('./_pkg.js');
+import { getPkgInfo } from './_pkg.js';
 
 /**
  * handler
  * @param {*} folderName 
  * @returns 
  */
-module.exports = async function (folderName) {
+export const handler = async (folderName) => {
     // pkg
-    var pkgInfo = pkg.getPkgInfo(folderName);
-    if(typeof pkgInfo == 'string') return pkgInfo;
-    
+    const pkgInfo = getPkgInfo(folderName);
+    if (typeof pkgInfo == 'string') return pkgInfo;
+
     // ncu
-    var upgraded = await ncu.run({
+    const upgraded = await run({
         packageFile: pkgInfo.packageFile,
         upgrade: false
     });
-    
-    var json = getJson(upgraded);
+
+    const json = getJson(upgraded);
     return `${pkgInfo.packageName} : ${json}`;
 };
 

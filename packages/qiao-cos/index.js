@@ -1,5 +1,9 @@
 'use strict';
 
+var COS = require('cos-nodejs-sdk-v5');
+var qiaoFile = require('qiao-file');
+var qiaoCli = require('qiao-cli');
+
 /**
  * upload file
  * @param {*} app 
@@ -43,8 +47,6 @@ const uploadFileSync = (app, dest, source) => {
 };
 
 // qiao
-const cli = require('qiao-cli');
-const qfile = require('qiao-file');
 
 /**
  * upload folder
@@ -61,9 +63,9 @@ const uploadFolder = (app, destFolder, sourceFolder, cb) => {
     console.time('total use');
 
     // files
-    const paths = qfile.lsdir(sourceFolder + '/');
+    const paths = qiaoFile.lsdir(sourceFolder + '/');
     const files = paths.files;
-    const bar = new cli.progress('uploading files... :current/:total', { total: files.length });
+    const bar = new qiaoCli.progress('uploading files... :current/:total', { total: files.length });
 
     // vars
     const allFiles = [];
@@ -121,7 +123,6 @@ const uploadFolderSync = (app, destFolder, sourceFolder) => {
 };
 
 // cos
-const COS = require('cos-nodejs-sdk-v5');
 
 /**
  * init app

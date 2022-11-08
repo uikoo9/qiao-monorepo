@@ -1,6 +1,6 @@
 // qiao
-const cli = require('qiao-cli');
-const qfile = require('qiao-file');
+import { lsdir } from 'qiao-file';
+import { progress } from 'qiao-cli';
 
 // upload file
 import { uploadFile } from './upload-file.js';
@@ -20,9 +20,9 @@ export const uploadFolder = (app, destFolder, sourceFolder, cb) => {
     console.time('total use');
 
     // files
-    const paths = qfile.lsdir(sourceFolder + '/');
+    const paths = lsdir(sourceFolder + '/');
     const files = paths.files;
-    const bar = new cli.progress('uploading files... :current/:total', { total: files.length });
+    const bar = new progress('uploading files... :current/:total', { total: files.length });
 
     // vars
     const allFiles = [];

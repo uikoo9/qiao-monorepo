@@ -8,8 +8,11 @@ module.exports = {
         format: 'cjs',
     },
     external: [
-        'cos-nodejs-sdk-v5',
-        'qiao-file',
-        'qiao-cli',
+        'fs',
+        'path',
+        'npm-check-updates',
+        'qiao-console',
+        'qiao-parallel',
+        'qiao-npms',
     ],
 };

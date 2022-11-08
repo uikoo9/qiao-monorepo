@@ -1,5 +1,5 @@
 // cos
-const COS = require('cos-nodejs-sdk-v5');
+import COS from 'cos-nodejs-sdk-v5';
 
 // upload
 import { uploadFile, uploadFileSync } from './upload-file.js';

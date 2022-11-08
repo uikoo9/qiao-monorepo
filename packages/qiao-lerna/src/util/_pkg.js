@@ -1,24 +1,23 @@
-'use strict';
-
 // fs
-var fs = require('./_fs.js');
+import { path, isExists } from './_fs.js';
 
 /**
- * getPkgInfo
+ * get pkg info
  * @param {*} dir 
+ * @param {*} checkPrivate 
  * @returns 
  */
-exports.getPkgInfo = function(dir, checkPrivate){
+export const getPkgInfo = (dir, checkPrivate) => {
     // package file
-    var packageFile = fs.path.resolve(dir, 'package.json');
-    if (!fs.isExists(packageFile)) return `${dir} : package.json not exists`;
+    const packageFile = path.resolve(dir, 'package.json');
+    if (!isExists(packageFile)) return `${dir} : package.json not exists`;
 
     // package json
-    var packageJson = getPackage(packageFile);
+    const packageJson = getPackage(packageFile);
     if(!packageJson) return `${dir} : package.json err`;
 
     // package name
-    var packageName = packageJson.name;
+    const packageName = packageJson.name;
     if (packageJson.private && checkPrivate) return `${packageName} : private package`;
 
     // return
@@ -27,7 +26,7 @@ exports.getPkgInfo = function(dir, checkPrivate){
         packageJson: packageJson,
         packageName: packageName
     };
-}
+};
 
 // get package
 function getPackage(p) {
