@@ -1,8 +1,8 @@
 // config
 const config = require('./config.json');
 
-// q
-const q = require('../index.js')(config);
+// qiao-cos
+const qcos = require('../index.js')(config);
 
 /**
  * upload file demo
@@ -13,7 +13,7 @@ const test = async () => {
         const destPath = 'test/test.js';
         const sourceFile = '/your/test.js';
 
-        const rs = await q.uploadFileSync(destPath, sourceFile);
+        const rs = await qcos.uploadFileSync(destPath, sourceFile);
         console.log(rs);
     } catch (e) {
         console.log(e);

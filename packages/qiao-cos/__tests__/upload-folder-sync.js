@@ -1,8 +1,8 @@
 // config
 const config = require('./config.json');
 
-// q
-const q = require('../index.js')(config);
+// qiao-cos
+const qcos = require('../index.js')(config);
 
 /**
  * upload folder
@@ -11,9 +11,9 @@ const q = require('../index.js')(config);
 const test = async () => {
     try {
         const destPath = 'test';
-        const sourceFolder = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-cos/src';
+        const sourceFolder = '/your/folder';
 
-        const rs = await q.uploadFolderSync(destPath, sourceFolder);
+        const rs = await qcos.uploadFolderSync(destPath, sourceFolder);
         console.log(rs);
     } catch (e) {
         console.log(e);

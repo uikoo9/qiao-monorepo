@@ -1,8 +1,8 @@
 // config
 const config = require('./config.json');
 
-// q
-const q = require('../index.js')(config);
+// qiao-cos
+const qcos = require('../index.js')(config);
 
 /**
  * upload file demo
@@ -12,7 +12,7 @@ const test = () => {
     const destPath = 'test/test.js';
     const sourceFile = '/your/test.js';
 
-    q.uploadFile(destPath, sourceFile, (err, data) => {
+    qcos.uploadFile(destPath, sourceFile, (err, data) => {
         console.log(err, data);
     });
 };
