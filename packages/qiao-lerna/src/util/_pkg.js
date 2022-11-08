@@ -1,5 +1,5 @@
 // fs
-import { path, isExists } from './_fs.js';
+import { path, isExists } from 'qiao-file';
 
 /**
  * get pkg info

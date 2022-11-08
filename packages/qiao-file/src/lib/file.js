@@ -1,5 +1,3 @@
-'use strict';
-
 // fs
 import fs from 'fs';
 

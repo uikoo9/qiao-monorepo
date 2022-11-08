@@ -1,66 +1,28 @@
 'use strict';
 
 var qiaoConsole = require('qiao-console');
-var fs = require('fs');
-var path = require('path');
+var qiaoFile = require('qiao-file');
 var qiaoParallel = require('qiao-parallel');
 var qiaoNpms = require('qiao-npms');
 var npmCheckUpdates = require('npm-check-updates');
 
-function _interopNamespaceDefault(e) {
-    var n = Object.create(null);
-    if (e) {
-        Object.keys(e).forEach(function (k) {
-            if (k !== 'default') {
-                var d = Object.getOwnPropertyDescriptor(e, k);
-                Object.defineProperty(n, k, d.get ? d : {
-                    enumerable: true,
-                    get: function () { return e[k]; }
-                });
-            }
-        });
-    }
-    n.default = e;
-    return Object.freeze(n);
-}
+// qiao
 
-var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
-
-// fs
+// line
+let line$4 = 0;
 
 // sub folders
 const subFolders = [];
 
-/**
- * is exists
- * @param {string} dir 
- */
-const isExists = (dir) => {
-    try {
-        fs.accessSync(dir);
-        return true;
-    } catch (e) {
-        return false;
-    }
-};
-
-/**
- * ls dir
- * @param {string} dir 
- */
+// ls dir
 const lsdir = (dir) => {
-    fs.readdirSync(dir).forEach(function (name) {
-        const stat = fs.statSync(dir + name);
+    qiaoFile.fs.readdirSync(dir).forEach((name) => {
+        const stat = qiaoFile.fs.statSync(dir + name);
         if (!stat.isDirectory()) return;
 
         subFolders.push(dir + name);
     });
 };
-
-// qiao-console
-
-// line
-let line$4 = 0;
 
 /**
  * check dir
@@ -75,11 +37,10 @@ const checkDir = (folderName) => {
     }
 
     // dir
-    const dir = path__namespace.resolve(process.cwd(), folderName) + path__namespace.sep;
+    const dir = qiaoFile.path.resolve(process.cwd(), folderName) + qiaoFile.path.sep;
 
     // check dir is folder
-    const isExist = isExists(dir);
-    if (!isExist) {
+    if (!qiaoFile.isExists(dir)) {
         qiaoConsole.writeLine(line$4, 'folder is not exists');
         return;
     }
@@ -135,8 +96,8 @@ const complete = (l) => {
  */
 const getPkgInfo = (dir, checkPrivate) => {
     // package file
-    const packageFile = path__namespace.resolve(dir, 'package.json');
-    if (!isExists(packageFile)) return `${dir} : package.json not exists`;
+    const packageFile = qiaoFile.path.resolve(dir, 'package.json');
+    if (!qiaoFile.isExists(packageFile)) return `${dir} : package.json not exists`;
 
     // package json
     const packageJson = getPackage(packageFile);

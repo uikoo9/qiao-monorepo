@@ -1,11 +1,22 @@
-// qiao-console
+// qiao
 import { writeLine } from 'qiao-console';
-
-// fs
-import * as fs from './_fs.js';
+import { fs, path, isExists } from 'qiao-file';
 
 // line
 let line = 0;
+
+// sub folders
+const subFolders = [];
+
+// ls dir
+const lsdir = (dir) => {
+    fs.readdirSync(dir).forEach((name) => {
+        const stat = fs.statSync(dir + name);
+        if (!stat.isDirectory()) return;
+
+        subFolders.push(dir + name);
+    });
+};
 
 /**
  * check dir
@@ -20,23 +31,22 @@ const checkDir = (folderName) => {
     }
 
     // dir
-    const dir = fs.path.resolve(process.cwd(), folderName) + fs.path.sep;
+    const dir = path.resolve(process.cwd(), folderName) + path.sep;
 
     // check dir is folder
-    const isExist = fs.isExists(dir);
-    if (!isExist) {
+    if (!isExists(dir)) {
         writeLine(line, 'folder is not exists');
         return;
     }
 
     // get sub folders
-    fs.lsdir(dir);
-    if (!fs.subFolders || !fs.subFolders.length) {
+    lsdir(dir);
+    if (!subFolders || !subFolders.length) {
         writeLine(line, 'empty folder');
         return;
     }
 
-    return fs.subFolders;
+    return subFolders;
 };
 
 export default checkDir;

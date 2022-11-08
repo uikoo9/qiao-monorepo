@@ -12,7 +12,8 @@ module.exports = {
         'path',
         'npm-check-updates',
         'qiao-console',
-        'qiao-parallel',
+        'qiao-file',
         'qiao-npms',
+        'qiao-parallel',
     ],
 };

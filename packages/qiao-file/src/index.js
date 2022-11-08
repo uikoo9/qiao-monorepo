@@ -1,5 +1,3 @@
-'use strict';
-
 // fs
 export * as fs from 'fs';
 
