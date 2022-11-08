@@ -5,6 +5,8 @@ var progressFn = require('progress');
 var inquirer = require('inquirer');
 var commander = require('commander');
 
+// colors
+
 /**
  * colors
  * 	colors, https://www.npmjs.com/package/colors

@@ -1,10 +1,12 @@
 'use strict';
 
-var q = require('../index.js');
+// qiao-cli
+const cli = require('../index.js');
 
-var test = function () {
-    var bar = new q.progress(':bar', { total: 10 });
-    var timer = setInterval(function () {
+// test
+const test = () => {
+    const bar = new cli.progress(':bar', { total: 10 });
+    const timer = setInterval(() => {
         bar.tick();
 
         if (bar.complete) {
@@ -14,4 +16,5 @@ var test = function () {
     }, 100);
 };
 
+// run
 test();

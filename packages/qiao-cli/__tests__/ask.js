@@ -1,17 +1,20 @@
 'use strict';
 
-var q = require('../index.js');
+// qiao-cli
+const cli = require('../index.js');
 
-var test = async function () {
-    var questions = [{
+// test
+const test = async () => {
+    const questions = [{
         type: 'list',
         name: 'type',
         message: 'What type of code do you want to generate?',
         choices: ['front', 'server', 'manage']
     }];
 
-    var answers = await q.ask(questions);
+    const answers = await cli.ask(questions);
     console.log(answers);
 };
 
+// run
 test();

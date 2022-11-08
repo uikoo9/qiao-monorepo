@@ -1,6 +1,7 @@
 'use strict';
 
-var q = require('../index.js');
+// qiao-cli
+const cli = require('../index.js');
 
 // colors
-console.log(q.colors.green('hello'));
+console.log(cli.colors.green('hello'));

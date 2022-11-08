@@ -1,5 +1,3 @@
-'use strict';
-
 // colors
 import colorsFn from 'colors';
 

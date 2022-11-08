@@ -11,6 +11,11 @@
     "homepage": "https://code.insistime.com/qiao-cli",
     "license": "MIT",
     "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets": false,
+    "files": [
+        "src"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
