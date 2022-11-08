@@ -41,7 +41,7 @@ qcos -h
 qcos file|fi z:/workspaces/qiao-cos/test/config.json d:/test.js test.js	
 
 # 上传文件夹
-qcos folder|fo	z:/workspaces/qiao-cos/test/config.json d:/test/cocos test9
+qcos folder|fo z:/workspaces/qiao-cos/test/config.json d:/test/cocos test9
 ```
 
 ## api
@@ -51,7 +51,7 @@ qcos folder|fo	z:/workspaces/qiao-cos/test/config.json d:/test/cocos test9
 const config = require('./config.json');
 
 // qiao-cos
-const qcos = require('../index.js')(config);
+const qcos = require('qiao-cos')(config);
 ```
 
 ### uploadFileSync
