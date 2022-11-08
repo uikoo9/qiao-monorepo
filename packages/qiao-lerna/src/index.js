@@ -1,14 +1,3 @@
-/**
- * download counts
- */
-export { downloadCounts } from './lerna-dc.js';
-
-/**
- * multi ncu
- */
-export { multiNCU } from './lerna-ncu.js';
-
-/**
- * pkg
- */
-export { pkg } from './lerna-pkg.js';
+export * from './lerna-dc.js';
+export * from './lerna-ncu.js';
+export * from './lerna-pkg.js';
