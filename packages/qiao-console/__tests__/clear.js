@@ -1,5 +1,6 @@
 'use strict';
 
-var q = require('../index.js');
+// qiao-console
+const q = require('../index.js');
 
 q.clear();

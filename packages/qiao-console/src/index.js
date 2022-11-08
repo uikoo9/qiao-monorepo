@@ -1,9 +1,7 @@
-'use strict';
-
 /**
  * clear
  */
-const clear = () => {
+export const clear = () => {
     process.stdout.cursorTo(0, 0);
     process.stdout.clearScreenDown();
 };
@@ -11,7 +9,7 @@ const clear = () => {
 /**
  * clear line
  */
-const clearLine = () => {
+export const clearLine = () => {
     process.stdout.clearLine();
 };
 
@@ -20,7 +18,7 @@ const clearLine = () => {
  * @param {*} x 
  * @param {*} y 
  */
-const moveTo = (x, y) => {
+export const moveTo = (x, y) => {
     process.stdout.cursorTo(x, y);
 };
 
@@ -28,7 +26,7 @@ const moveTo = (x, y) => {
  * write
  * @param {*} msg 
  */
-const write = (msg) => {
+export const write = (msg) => {
     process.stdout.write(msg);
 };
 
@@ -38,7 +36,7 @@ const write = (msg) => {
  * @param {*} y 
  * @param {*} msg 
  */
-const writeLineXY = (x, y, msg) => {
+export const writeLineXY = (x, y, msg) => {
     process.stdout.cursorTo(x, y);
     process.stdout.clearLine();
     process.stdout.write(msg);
@@ -50,16 +48,9 @@ const writeLineXY = (x, y, msg) => {
  * @param {*} y 
  * @param {*} msg 
  */
-const writeLine = (y, msg) => {
+export const writeLine = (y, msg) => {
     process.stdout.cursorTo(0, y);
     process.stdout.clearLine();
     process.stdout.write(msg);
     process.stdout.write('\n');
 };
-
-exports.clear = clear;
-exports.clearLine = clearLine;
-exports.moveTo = moveTo;
-exports.write = write;
-exports.writeLine = writeLine;
-exports.writeLineXY = writeLineXY;

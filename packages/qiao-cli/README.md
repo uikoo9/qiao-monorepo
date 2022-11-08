@@ -90,7 +90,7 @@ cli.cmd.parse(process.argv);
 ## version
 ### 0.0.9.20221103
 1. 1.0.0
-   
+
 ### 0.0.8.20200803
 1. ncu
 

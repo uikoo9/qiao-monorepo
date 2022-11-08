@@ -1,11 +1,17 @@
-# qiao-console
+## qiao-console
+
+[![npm version](https://img.shields.io/npm/v/qiao-console.svg?style=flat-square)](https://www.npmjs.org/package/qiao-console)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-console.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-console)
+
+nodejs下console常见api封装
 
 ## api
 ### clear
 ```javascript
 'use strict';
 
-var q = require('qiao-console');
+// qiao-console
+const q = require('qiao-console');
 
 q.clear();
 ```
@@ -14,7 +20,8 @@ q.clear();
 ```javascript
 'use strict';
 
-var q = require('qiao-console');
+// qiao-console
+const q = require('qiao-console');
 
 q.clear();
 q.writeLine(1, 'hello');
@@ -24,7 +31,8 @@ q.writeLine(1, 'hello');
 ```javascript
 'use strict';
 
-var q = require('qiao-console');
+// qiao-console
+const q = require('qiao-console');
 
 // clear line
 q.clearLine();
@@ -40,6 +48,9 @@ q.writeLineXY(x, y, msg);
 ```
 
 ## version
+### 0.0.6.20221108
+1. es6
+
 ### 0.0.5.20220422
 1. add lerna
 
