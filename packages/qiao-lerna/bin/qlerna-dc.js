@@ -1,17 +1,16 @@
-'use strict';
-
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.lerna  = require('../index.js');
+const cli = require('qiao-cli');
+const lerna = require('../index.js');
+
+/**
+ * dc
+ */
+const dc = (destPath) => {
+    lerna.downloadCounts(destPath);
+};
 
 // cmd for dc
-qiao.cli.cmd
+cli.cmd
     .command('dc <destPath>')
     .description('download counts in path')
     .action(dc);
-
-// dc
-function dc(destPath){
-    qiao.lerna.downloadCounts(destPath);
-}

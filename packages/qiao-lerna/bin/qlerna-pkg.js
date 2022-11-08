@@ -1,17 +1,18 @@
-'use strict';
-
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.lerna  = require('../index.js');
+const cli = require('qiao-cli');
+const lerna = require('../index.js');
+
+/**
+ * pkg
+ * @param {*} destPath 
+ * @param {*} isDev 
+ */
+const pkg = (destPath, isDev) => {
+    lerna.pkg(destPath, isDev);
+};
 
 // cmd for pkg
-qiao.cli.cmd
+cli.cmd
     .command('pkg <destPath> [isDev]')
     .description('get package.json in path')
     .action(pkg);
-
-// pkg
-function pkg(destPath, isDev){
-    qiao.lerna.pkg(destPath, isDev);
-}

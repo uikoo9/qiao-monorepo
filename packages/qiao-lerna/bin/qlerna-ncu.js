@@ -1,17 +1,17 @@
-'use strict';
-
 // qiao
-var qiao 	= {};
-qiao.cli 	= require('qiao-cli');
-qiao.lerna  = require('../index.js');
+const cli = require('qiao-cli');
+const lerna = require('../index.js');
+
+/**
+ * ncu
+ * @param {*} destPath 
+ */
+const ncu = (destPath) => {
+    lerna.multiNCU(destPath);
+};
 
 // cmd for ncu
-qiao.cli.cmd
+cli.cmd
     .command('ncu <destPath>')
     .description('multi ncu in path')
     .action(ncu);
-
-// ncu
-function ncu(destPath){
-    qiao.lerna.multiNCU(destPath);
-}

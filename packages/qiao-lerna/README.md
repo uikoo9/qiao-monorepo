@@ -27,6 +27,9 @@ qlerna pkg ./packages dev
 ```
 
 ## version
+### 0.0.8.20221108
+1. es6 
+
 ### 0.0.7.20220518
 1. multi ncu
 2. pkg
