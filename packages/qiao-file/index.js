@@ -24,6 +24,8 @@ function _interopNamespaceDefault(e) {
 var fs__namespace = /*#__PURE__*/_interopNamespaceDefault(fs);
 var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
 
+// fs
+
 /**
  * isExists
  * 	fpath : file or folder path
@@ -37,6 +39,8 @@ const isExists = (fpath) => {
         return false;
     }
 };
+
+// fs
 
 /**
  * get folders and files
@@ -120,6 +124,8 @@ const isFileTreeIgnore = (rpath, ignores) => {
     return ignore;
 };
 
+// fs
+
 /**
  * cp
  * @param {*} src file or folder src path
@@ -191,6 +197,8 @@ const rm = (fpath) => {
     }
 };
 
+// fs
+
 /**
 * ls dir
 * 	dir : must end with /
@@ -248,6 +256,8 @@ const mkdir = (dir) => {
         return false;
     }
 };
+
+// fs
 
 /**
  * extname
