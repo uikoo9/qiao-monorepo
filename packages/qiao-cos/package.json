@@ -16,6 +16,7 @@
     "module": "src/index.js",
     "sideEffets": false,
     "files": [
+        "bin",
         "src"
     ],
     "bin": {
