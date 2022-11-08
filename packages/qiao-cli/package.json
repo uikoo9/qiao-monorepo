@@ -1,6 +1,6 @@
 {
     "name": "qiao-cli",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "nodejs cli tool",
     "keywords": [
         "nodejs",
