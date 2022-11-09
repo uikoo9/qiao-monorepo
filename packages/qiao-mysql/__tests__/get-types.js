@@ -1,6 +1,8 @@
-'use strict';
+// config
+const config = require('./config.json');
 
-var q = require('../index.js');
+// client
+const client = require('../index.js')(config);
 
-var type = q.getTypes('varchar(10)');
+const type = client.getTypes('varchar(10)');
 console.log(type);

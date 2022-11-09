@@ -1,15 +1,12 @@
-'use strict';
-
-var mysql = require('mysql');
-
 // mysql
+import mysql from 'mysql';
 
 /**
  * get connection
  * @param {*} app 
  * @returns 
  */
-const getConnection = (app) => {
+export const getConnection = (app) => {
     // check
     if (!app || !app.config) return;
 
@@ -26,7 +23,7 @@ const getConnection = (app) => {
  * @param {*} app 
  * @returns 
  */
-const getPool = (app) => {
+export const getPool = (app) => {
     // check
     if (!app || !app.config) return;
 
@@ -45,7 +42,7 @@ const getPool = (app) => {
  * @param {*} params 
  * @returns 
  */
-const query = async (app, sql, params) => {
+export const query = async (app, sql, params) => {
     // check
     if (!app) return;
 
@@ -93,7 +90,7 @@ function queryByPool(pool, sql, params) {
  * @param {*} tableName 
  * @returns 
  */
-const getColumns = async (app, tableName) => {
+export const getColumns = async (app, tableName) => {
     return await query(app, 'SHOW COLUMNS FROM ?', mysql.raw(tableName));
 };
 
@@ -102,7 +99,7 @@ const getColumns = async (app, tableName) => {
  * @param {*} mysqlType 
  * @returns 
  */
-const getTypes = (mysqlType) => {
+export const getTypes = (mysqlType) => {
     // check
     if(!mysqlType) return 'string';
 	
@@ -117,29 +114,3 @@ const getTypes = (mysqlType) => {
 
     return 'string';
 };
-
-// util
-
-/**
- * init
- * @param {*} config 
- * @returns 
- */
-const init = (config) => {
-    // check
-    if (!config) return;
-
-    // app
-    const app = {};
-    app.config = config;
-    app.connection = getConnection(app);
-    app.pool = getPool(app);
-    app.query = async (sql, params) => { return await query(app, sql, params); };
-    app.getColumns = async (tableName) => { return await getColumns(app, tableName); };
-    app.getTypes = getTypes;
-
-    // return
-    return app;
-};
-
-module.exports = init;

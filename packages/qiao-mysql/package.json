@@ -1,22 +1,35 @@
 {
-  "name": "qiao-mysql",
-  "version": "0.1.7",
-  "description": "nodejs mysql plugin",
-  "keywords": [
-    "nodejs",
-    "mysql",
-    "plugin"
-  ],
-  "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://code.insistime.com/qiao-mysql",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-  },
-  "scripts": {},
-  "dependencies": {
-    "mysql": "^2.18.1"
-  }
+    "name": "qiao-mysql",
+    "version": "0.1.7",
+    "description": "nodejs mysql plugin",
+    "keywords": [
+        "nodejs",
+        "mysql",
+        "plugin"
+    ],
+    "author": "uikoo9 <uikoo9@qq.com>",
+    "homepage": "https://code.insistime.com/qiao-mysql",
+    "license": "MIT",
+    "main": "index.js",
+    "module": "src/index.js",
+    "sideEffets": false,
+    "files": [
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+    },
+    "bugs": {
+        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+    },
+    "scripts": {
+        "build": "rollup --config _config.rollup.js",
+        "eslint": "eslint . --ext .js -c _config.eslint.js",
+        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
+        "prepublish": "npm run build && npm run eslintfix"
+    },
+    "dependencies": {
+        "mysql": "^2.18.1"
+    }
 }

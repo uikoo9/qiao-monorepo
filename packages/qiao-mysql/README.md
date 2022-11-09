@@ -1,100 +1,70 @@
-# qiao-mysql
+## qiao-mysql
+[![npm version](https://img.shields.io/npm/v/qiao-mysql.svg?style=flat-square)](https://www.npmjs.org/package/qiao-mysql)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-mysql.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-mysql)
+
+nodejs下mysql能力
+
+## install
+
+安装
+
+```bash
+npm i qiao-mysql
+```
+
+## config
+
+配置文件，如果传入connectionLimit会使用connection pool
+
+```json
+{
+    "connectionLimit": 10,
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "xxx",
+    "user": "xxx",
+    "password": "xxx"
+}
+```
+
+## client
+```javascript
+// config
+const config = require('./config.json');
+
+// client
+const client = require('qiao-mysql')(config);
+```
 
 ## api
-### connection
-```javascript
-'use strict';
-
-var q = require('qiao-mysql');
-
-var connection = q.connection(require('./_config.json'));
-console.log(connection);
-```
-
-### query
-```javascript
-'use strict';
-
-var q = require('qiao-mysql');
-
-var test = async function(){
-	try{
-		var rows = await q.query(require('./_config.json'), 'select * from t_share_type where id=?', [1]);
-		console.log(rows);
-	}catch(e){
-		console.log(e);
-	}
-};
-
-test();
-```
 
 ### getColumns
+
+获取表的列属性
+
 ```javascript
-'use strict';
-
-var q = require('qiao-mysql');
-
-var test = async function(){
-	try{
-		var res = await q.getColumns(require('./_config.json'), 't_share_type');
-		console.log(res);
-	}catch(e){
-		console.log(e);
-	}
-};
-
-test();
+const res = await client.getColumns('t_todo_item');
+console.log(res);
 ```
 
 ### getTypes
+
+获取表字段类型对应的js类型
+
 ```javascript
-'use strict';
-
-var q = require('qiao-mysql');
-
-var type = q.getTypes('varchar(10)');
+const type = client.getTypes('varchar(10)');
 console.log(type);
 ```
 
-### poolConnection
+### query
+
+查询数据库
+如果配置文件中没有connectionLimit属性，则每次创建connection后查询
+如果配置文件中有connectionLimit，则使用connection pool查询
+
 ```javascript
-'use strict';
-
-var q = require('qiao-mysql');
-
-var test = async function(){
-	try{
-		q.poolInit(require('./_config.json'));
-		
-		var connection = await q.poolConnection();
-		console.log(connection);
-	}catch(e){
-		console.log(e);
-	}
-};
-
-test();
-```
-
-### poolQuery
-```javascript
-'use strict';
-
-var q = require('qiao-mysql');
-
-var test = async function(){
-	try{
-		q.poolInit(require('./_config.json'));
-		
-		var rows = await q.poolQuery('select * from t_share_type where id=?', [1]);
-		console.log(rows);
-	}catch(e){
-		console.log(e);
-	}
-};
-
-test();
+const rows = await client.query('select * from t_todo_item where id=?', [8]);
+console.log(rows);
 ```
 
 ## version
