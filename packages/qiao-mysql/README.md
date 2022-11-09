@@ -59,7 +59,9 @@ console.log(type);
 ### query
 
 查询数据库
+
 如果配置文件中没有connectionLimit属性，则每次创建connection后查询
+
 如果配置文件中有connectionLimit，则使用connection pool查询
 
 ```javascript
@@ -68,6 +70,9 @@ console.log(rows);
 ```
 
 ## version
+### 0.0.9.20221109
+1. es6
+
 ### 0.0.8.20200803
 1. ncu
 
