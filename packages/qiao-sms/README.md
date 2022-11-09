@@ -1,4 +1,8 @@
-# qiao-sms
+## qiao-sms
+[![npm version](https://img.shields.io/npm/v/qiao-sms.svg?style=flat-square)](https://www.npmjs.org/package/qiao-sms)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-sms.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-sms)
+
+nodejs下腾讯云sms常见api封装
 
 ## api
 ### send
@@ -72,6 +76,9 @@ test();
 ```
 
 ## version
+### 0.0.5.20221109
+1. es6
+
 ### 0.0.4.20220512
 1. lerna
 

@@ -1,8 +1,5 @@
-'use strict';
-
-var txsms = require('qcloudsms_js');
-
 // txsms
+import txsms from 'qcloudsms_js';
 
 /**
  * send
@@ -18,7 +15,7 @@ var txsms = require('qcloudsms_js');
  * @param {*} callback 
  * @returns 
  */
-const send = (options, callback) => {
+export const send = (options, callback) => {
     // vars
     const appid = options.appid;
     const appkey = options.appkey;
@@ -94,7 +91,7 @@ const send = (options, callback) => {
  * @param {*} options 
  * @returns 
  */
-const sendSync = (options) => {
+export const sendSync = (options) => {
     return new Promise((resolve, reject) => {
         send(options, (err, res) => {
             // err
@@ -120,6 +117,3 @@ const sendSync = (options) => {
         });
     });
 };
-
-exports.send = send;
-exports.sendSync = sendSync;
