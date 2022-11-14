@@ -48,9 +48,7 @@ exports.dev = function(configPath, target){
 
     // server
     var server = new WebpackDevServer(devServerOptions, compiler);
-    server.startCallback(function(){
-        console.log('Successfully started server on http://localhost:8080');
-    });
+    server.start();
 };
 
 // webpack compiler
