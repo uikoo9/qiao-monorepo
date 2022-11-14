@@ -45,7 +45,6 @@ exports.dev = function(configPath, target){
 
     // dev server options
     var devServerOptions = configJs.devServer;
-    devServerOptions.open = true;
 
     // server
     var server = new WebpackDevServer(devServerOptions, compiler);
