@@ -1,6 +1,6 @@
 {
     "name": "qiao-electron",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "description": "electron tools",
     "keywords": [
         "electron",
@@ -29,7 +29,7 @@
         "prepublish": "npm run build && npm run eslintfix"
     },
     "dependencies": {
-        "qiao-config": "^0.4.1",
+        "qiao-config": "^1.0.0",
         "qiao-file": "^1.0.5",
         "qiao-log": "^0.2.4"
     }
