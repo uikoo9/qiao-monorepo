@@ -1,66 +1,50 @@
-# qiao-config
-json config to local file
+## qiao-config
+[![npm version](https://img.shields.io/npm/v/qiao-config.svg?style=flat-square)](https://www.npmjs.org/package/qiao-config)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-config.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-config)
 
-## api
-### c
-```javascript
-'use strict';
+nodejs下基于本地文件的config能力
 
-var q = require('qiao-config');
-
-// default path
-var _c1 = q.c();
-console.log(_c1);
-
-// custom path
-var _c2 = q.c('../');
-console.log(_c2);
+## install
+```bash
+npm i qiao-config
 ```
 
+## db
+```javascript
+// default
+const db = require('qiao-config')();
+
+// custom
+const db = require('qiao-config')('your path');
+```
+
+## api
 ### all
 ```javascript
-'use strict';
-
-var q = require('qiao-config');
-
-var _c  = q.c();
-var s   = _c.all();
-console.log(s); // { test: 'hello' }
+db.all();
 ```
 
 ### clear
 ```javascript
-'use strict';
-
-var q = require('qiao-config');
-
-var _c = q.c();
-_c.clear();
-console.log(_c.all()); // {}
+db.clear();
 ```
 
 ### config
 ```javascript
-'use strict';
-
-var q = require('qiao-config');
-
-var _c = q.c();
+// get
+db.config(key);
 
 // set
-_c.config('test', 'hello');
-console.log(_c.all()); // { test: 'hello' }
-
-// get
-var s = _c.config('test');
-console.log(s); // hello
+db.config(key, value);
 
 // del
-_c.config('test', null);
-console.log(_c.all()); // {}
+db.config(key, null);
 ```
 
 ## version
+### 0.0.4.20221118
+1. 1.0.0
+
 ### 0.0.3.20201105
 1. c --> config
 2. custom path
