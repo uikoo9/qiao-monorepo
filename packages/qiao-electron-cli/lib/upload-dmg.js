@@ -21,7 +21,7 @@ module.exports = async function(config){
 
     // cos config
     var cosConfig   = config.cosConfig;
-    var client      = q.client(cosConfig);
+    var client      = q(cosConfig);
     
     // dest path
     var dmgName     = `${config.appName}-${config.appEnv}-${config.appVersion}-${config.arch}`;
