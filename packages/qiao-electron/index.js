@@ -4,7 +4,7 @@ var electron = require('electron');
 var qiaoFile = require('qiao-file');
 var path = require('path');
 var qiaoLog = require('qiao-log');
-var qiaoConfig = require('qiao-config');
+var q = require('qiao-config');
 
 /**
  * app constant
@@ -226,7 +226,7 @@ const logIPCInit = () => {
 const ls = () => {
     const userDataPath = electron.app.getPath('userData');
     const configPath = path.resolve(userDataPath, './electron.config');
-    const config = qiaoConfig.c(configPath);
+    const config = q(configPath);
 
     return config;
 };
