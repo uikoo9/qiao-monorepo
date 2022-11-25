@@ -1,6 +1,6 @@
 {
   "name": "qiao-electron-demo",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "description": "qiao-electron-cli demo",
   "keywords": [],
@@ -25,6 +25,6 @@
   },
   "devDependencies": {
     "electron": "^21.3.0",
-    "qiao-electron-cli": "^1.2.5"
+    "qiao-electron-cli": "^1.2.6"
   }
 }
