@@ -7,7 +7,7 @@ import path from 'path';
 import { app } from 'electron';
 
 // c
-import { c } from 'qiao-config';
+import q from 'qiao-config';
 
 /**
  * ls
@@ -16,7 +16,7 @@ import { c } from 'qiao-config';
 export const ls = () => {
     const userDataPath = app.getPath('userData');
     const configPath = path.resolve(userDataPath, './electron.config');
-    const config = c(configPath);
+    const config = q(configPath);
 
     return config;
 };
