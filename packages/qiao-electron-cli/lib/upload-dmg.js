@@ -29,7 +29,7 @@ module.exports = async function(config){
     var destPath	= `${cosConfig.destPath}${dmgName}.dmg`;
     
     // rs
-    var rs = await q.uploadFileSync(client, destPath, dmgPath);
+    var rs = await client.uploadFileSync(destPath, dmgPath);
     if(!rs || !rs.Location) return;
 
     // return
