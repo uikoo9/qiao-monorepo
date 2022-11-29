@@ -21,14 +21,22 @@ export const pkg = async (folderName, isDev) => {
 
   // for
   subFolders.forEach((item) => {
+    // pkg
     const pkg = getPkgInfo(item);
+
+    // no pkg.json
+    if(typeof pkg === "string"){
+      console.log(colors.white(pkg));
+      console.log();
+      return;
+    }
+
+    // log
     console.log(colors.white(pkg.packageName));
 
     // package json
     const packageJson = pkg.packageJson;
     const json = isDev ? packageJson.devDependencies : packageJson.dependencies;
-
-    // log
     console.log(colors.grey(json || {}));
     console.log();
   });
