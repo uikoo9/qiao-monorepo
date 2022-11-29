@@ -1,20 +1,20 @@
-'use strict';
+"use strict";
 
 // electron
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow } = require("electron");
 
 // win
-const win = require('../window/window.js');
+const win = require("../window/window.js");
 
 // open window
 const openWindow = () => {
-    win.windowOpenIndex();
+  win.windowOpenIndex();
 };
 
 // open window
 openWindow();
 
 // activate
-app.on('activate', () => {
-    if(BrowserWindow.getAllWindows().length === 0) openWindow();
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) openWindow();
 });

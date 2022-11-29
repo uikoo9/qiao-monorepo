@@ -1,24 +1,28 @@
 // react
-import React from 'react';
+import React from "react";
 
 // css
-import './modal.scss';
+import "./modal.scss";
 
 // log
-import { colorLog } from '../../../util/log.js';
+import { colorLog } from "../../../util/log.js";
 
 /**
  * modal
  */
 export const Modal = (props) => {
-    colorLog('qiao-ui/pc/modal: render');
+  colorLog("qiao-ui/pc/modal: render");
 
-    const modal = <div className="modal-container">
-        <div className="modal" style={{ width: props.width }}>
-            <div className="modal-close" onClick={props.closeModal}>x</div>
-            {props.children}
+  const modal = (
+    <div className="modal-container">
+      <div className="modal" style={{ width: props.width }}>
+        <div className="modal-close" onClick={props.closeModal}>
+          x
         </div>
-    </div>;
+        {props.children}
+      </div>
+    </div>
+  );
 
-    return props.show ? modal : null;
+  return props.show ? modal : null;
 };

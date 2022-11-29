@@ -1,5 +1,5 @@
 // crypto
-import crypto from 'crypto';
+import crypto from "crypto";
 
 /**
  * md5
@@ -7,5 +7,8 @@ import crypto from 'crypto';
  * 	encoding	base64 or hex
  */
 export const md5 = (data, encoding) => {
-    return crypto.createHash('md5').update(data).digest(encoding || 'base64');
+  return crypto
+    .createHash("md5")
+    .update(data)
+    .digest(encoding || "base64");
 };

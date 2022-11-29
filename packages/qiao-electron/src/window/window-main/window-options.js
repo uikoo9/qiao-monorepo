@@ -1,33 +1,33 @@
-'use strict';
+"use strict";
 
 /**
  * get window options
- * @param {*} options 
- * @param {*} supportNode 
- * @param {*} isDev 
- * @returns 
+ * @param {*} options
+ * @param {*} supportNode
+ * @param {*} isDev
+ * @returns
  */
 export const getWindowOptions = (options, supportNode, isDev) => {
-    // opt
-    let opt = options || {};
+  // opt
+  let opt = options || {};
 
-    // support node
-    if (supportNode) {
-        let webPreferences = opt.webPreferences || {};
-        webPreferences.nodeIntegration = true;
-        webPreferences.contextIsolation = false;
+  // support node
+  if (supportNode) {
+    let webPreferences = opt.webPreferences || {};
+    webPreferences.nodeIntegration = true;
+    webPreferences.contextIsolation = false;
 
-        opt.webPreferences = webPreferences;
-    }
+    opt.webPreferences = webPreferences;
+  }
 
-    // is dev
-    if (isDev) {
-        let webPreferences = opt.webPreferences || {};
-        webPreferences.webSecurity = false;
+  // is dev
+  if (isDev) {
+    let webPreferences = opt.webPreferences || {};
+    webPreferences.webSecurity = false;
 
-        opt.webPreferences = webPreferences;
-    }
+    opt.webPreferences = webPreferences;
+  }
 
-    // return
-    return opt;
+  // return
+  return opt;
 };

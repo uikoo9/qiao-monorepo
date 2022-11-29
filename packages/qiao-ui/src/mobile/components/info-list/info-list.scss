@@ -1,5 +1,5 @@
 @use "../../../util/base";
 
 .info-container {
-    @include base.width();
+  @include base.width();
 }

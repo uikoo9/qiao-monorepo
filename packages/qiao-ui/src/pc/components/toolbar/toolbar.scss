@@ -2,18 +2,18 @@
 
 $toolbarHeight: 30px;
 
-.toolbar{
-    width: calc(100% - 200px);
+.toolbar {
+  width: calc(100% - 200px);
+  height: $toolbarHeight;
+  margin: 0 100px;
+  margin-top: 20px;
+
+  div {
+    float: left;
+    width: 80px;
     height: $toolbarHeight;
-    margin: 0 100px;
-    margin-top: 20px;
+    line-height: $toolbarHeight;
 
-    div{
-        float: left;
-        width: 80px;
-        height: $toolbarHeight;
-        line-height: $toolbarHeight;
-
-        @include base.cursor();
-    }
+    @include base.cursor();
+  }
 }

@@ -1,40 +1,37 @@
 {
-    "name": "qiao-encode",
-    "version": "1.0.0",
-    "description": "nodejs crypto tool",
-    "keywords": [
-        "nodejs",
-        "crypto",
-        "tool",
-        "aes",
-        "3des",
-        "uuid",
-        "random",
-        "md5"
-    ],
-    "author": "uikoo9 <uikoo9@qq.com>",
-    "homepage": "https://code.insistime.com/qiao-encode",
-    "license": "MIT",
-    "main": "index.js",
-    "module": "src/index.js",
-    "sideEffets": false,
-    "files": [
-        "src"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-    },
-    "bugs": {
-        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-    },
-    "scripts": {
-        "build": "rollup --config _config.rollup.js",
-        "eslint": "eslint . --ext .js -c _config.eslint.js",
-        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
-        "prepublish": "npm run build && npm run eslintfix"
-    },
-    "dependencies": {
-        "uuid": "^9.0.0"
-    }
+  "name": "qiao-encode",
+  "version": "1.0.0",
+  "description": "nodejs crypto tool",
+  "keywords": [
+    "nodejs",
+    "crypto",
+    "tool",
+    "aes",
+    "3des",
+    "uuid",
+    "random",
+    "md5"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://code.insistime.com/qiao-encode",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  },
+  "scripts": {
+    "build": "rollup --config _config.rollup.js"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
 }

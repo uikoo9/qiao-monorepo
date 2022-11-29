@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @function ls
@@ -19,138 +19,138 @@
  * ls(name, null):
  */
 const ls = (name, value, expires) => {
-    // remove
-    if (value === null) {
-        _removeItem(name);
-        return;
-    }
+  // remove
+  if (value === null) {
+    _removeItem(name);
+    return;
+  }
 
-    // get
-    if (typeof value == 'undefined') {
-        return _getItem(name);
-    }
+  // get
+  if (typeof value == "undefined") {
+    return _getItem(name);
+  }
 
-    // set
-    _setItem(name, value, expires);
+  // set
+  _setItem(name, value, expires);
 };
 
 // set item
 function _setItem(name, value, expires) {
-    if (!localStorage) {
-        console.log('unsupport localStorage');
-        return;
-    }
+  if (!localStorage) {
+    console.log("unsupport localStorage");
+    return;
+  }
 
-    let obj = {};
-    obj.value = value;
-    if (expires) obj.expires = Date.now() + expires;
+  let obj = {};
+  obj.value = value;
+  if (expires) obj.expires = Date.now() + expires;
 
-    localStorage.setItem(name, JSON.stringify(obj));
+  localStorage.setItem(name, JSON.stringify(obj));
 }
 
 // get item
 function _getItem(name) {
-    if (!localStorage) {
-        console.log('unsupport localStorage');
-        return;
-    }
+  if (!localStorage) {
+    console.log("unsupport localStorage");
+    return;
+  }
 
-    const objStr = localStorage.getItem(name);
-    let obj;
-    try {
-        obj = JSON.parse(objStr);
-    } catch (e) {
-        console.log('json parse error:');
-        console.log(e);
-    }
-    if (!obj) return;
+  const objStr = localStorage.getItem(name);
+  let obj;
+  try {
+    obj = JSON.parse(objStr);
+  } catch (e) {
+    console.log("json parse error:");
+    console.log(e);
+  }
+  if (!obj) return;
 
-    if (obj.expires && obj.expires < Date.now()) {
-        localStorage.removeItem(name);
-        return;
-    }
+  if (obj.expires && obj.expires < Date.now()) {
+    localStorage.removeItem(name);
+    return;
+  }
 
-    return obj.value;
+  return obj.value;
 }
 
 // remove item
 function _removeItem(name) {
-    if (!localStorage) {
-        console.log('unsupport localStorage');
-        return;
-    }
+  if (!localStorage) {
+    console.log("unsupport localStorage");
+    return;
+  }
 
-    localStorage.removeItem(name);
+  localStorage.removeItem(name);
 }
 
 // ls
 
 // cache
 const cache = (name, key, value, expires) => {
-    if (!name) return;
+  if (!name) return;
 
-    // clear
-    if (key === null) {
-        _clearCache(name);
-        return;
-    }
+  // clear
+  if (key === null) {
+    _clearCache(name);
+    return;
+  }
 
-    // remove
-    if (value === null) {
-        _removeCache(name, key);
-        return;
-    }
+  // remove
+  if (value === null) {
+    _removeCache(name, key);
+    return;
+  }
 
-    // get
-    if (typeof value == 'undefined') {
-        return _getCache(name, key);
-    }
+  // get
+  if (typeof value == "undefined") {
+    return _getCache(name, key);
+  }
 
-    // set
-    _setCache(name, key, value, expires);
+  // set
+  _setCache(name, key, value, expires);
 };
 
 // set cache
 function _setCache(name, key, value, exp) {
-    if (!localStorage) {
-        console.log('unsupport localStorage');
-        return;
-    }
+  if (!localStorage) {
+    console.log("unsupport localStorage");
+    return;
+  }
 
-    if (!name || !key) return;
+  if (!name || !key) return;
 
-    let data = ls(name) || {};
-    data[key] = value;
+  let data = ls(name) || {};
+  data[key] = value;
 
-    ls(name, data, exp || 7 * 24 * 60 * 60 * 1000);
+  ls(name, data, exp || 7 * 24 * 60 * 60 * 1000);
 }
 
 // get cache
 function _getCache(name, key) {
-    if (!name || !key) return;
+  if (!name || !key) return;
 
-    const data = ls(name);
-    if (!data) return;
+  const data = ls(name);
+  if (!data) return;
 
-    return data[key];
+  return data[key];
 }
 
 // remove cache
 function _removeCache(name, key) {
-    if (!name || !key) return;
+  if (!name || !key) return;
 
-    let data = ls(name);
-    if (!data) return;
+  let data = ls(name);
+  if (!data) return;
 
-    delete data[key];
-    ls(name, data);
+  delete data[key];
+  ls(name, data);
 }
 
 // clear cache
 function _clearCache(name) {
-    if (!name) return;
+  if (!name) return;
 
-    ls(name, null);
+  ls(name, null);
 }
 
 exports.cache = cache;

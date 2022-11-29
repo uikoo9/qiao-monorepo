@@ -3,19 +3,19 @@
 $inputHeight: 50px;
 
 .btn {
-    @include base.width();
+  @include base.width();
 
-    height: $inputHeight + 2px;
-    padding-top: 20px;
+  height: $inputHeight + 2px;
+  padding-top: 20px;
 
-    .ctx {
-        width: 100px;
-        height: $inputHeight;
-        line-height: $inputHeight;
-        border: base.$borderSolid;
+  .ctx {
+    width: 100px;
+    height: $inputHeight;
+    line-height: $inputHeight;
+    border: base.$borderSolid;
 
-        @include base.marginAuto();
-        @include base.font($size: 18px, $align: center);
-        @include base.cursor();
-    }
+    @include base.marginAuto();
+    @include base.font($size: 18px, $align: center);
+    @include base.cursor();
+  }
 }

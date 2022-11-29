@@ -1,5 +1,5 @@
 // crypt
-import { crypt } from './_crypt.js';
+import { crypt } from "./_crypt.js";
 
 /**
  * 3des encrypt
@@ -9,15 +9,23 @@ import { crypt } from './_crypt.js';
  * 	encoding
  */
 export const TDESEncrypt = (data, key, iv, encoding) => {
-    // check
-    if (!data || !key || key.length != 24) return;
+  // check
+  if (!data || !key || key.length != 24) return;
 
-    // vars
-    const cipherIv = iv || '';
-    const clearEncoding = 'utf8';
-    const cipherEncoding = encoding || 'base64';
+  // vars
+  const cipherIv = iv || "";
+  const clearEncoding = "utf8";
+  const cipherEncoding = encoding || "base64";
 
-    return crypt('en', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt(
+    "en",
+    "des-ede3",
+    key,
+    cipherIv,
+    data,
+    clearEncoding,
+    cipherEncoding
+  );
 };
 
 /**
@@ -28,13 +36,21 @@ export const TDESEncrypt = (data, key, iv, encoding) => {
  * 	encoding
  */
 export const TDESDecrypt = (data, key, iv, encoding) => {
-    // check
-    if (!data || !key || key.length != 24) return;
+  // check
+  if (!data || !key || key.length != 24) return;
 
-    // vars
-    const cipherIv = iv || '';
-    const clearEncoding = 'utf8';
-    const cipherEncoding = encoding || 'base64';
+  // vars
+  const cipherIv = iv || "";
+  const clearEncoding = "utf8";
+  const cipherEncoding = encoding || "base64";
 
-    return crypt('de', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt(
+    "de",
+    "des-ede3",
+    key,
+    cipherIv,
+    data,
+    clearEncoding,
+    cipherEncoding
+  );
 };

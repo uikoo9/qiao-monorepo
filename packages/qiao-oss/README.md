@@ -1,128 +1,135 @@
 # qiao-oss
 
 ## config.json
+
 ```json
 {
-	"accessKeyId"		: "your access key id",
-	"accessKeySecret"	: "your access secret",
-	"region"		: "your region",
-	"bucket"		: "your bucket"
+  "accessKeyId": "your access key id",
+  "accessKeySecret": "your access secret",
+  "region": "your region",
+  "bucket": "your bucket"
 }
 ```
 
 ## api
-### uploadFileSync
-```javascript
-'use strict';
 
-var q 		= require('qiao-oss');
-var client	= q.client(require('./config.json'));
+### uploadFileSync
+
+```javascript
+"use strict";
+
+var q = require("qiao-oss");
+var client = q.client(require("./config.json"));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
-var test = async function(){
-	try{
-		var destPath	= 'test/test.js';
-		var sourceFile 	= 'd:/test.js';
-		
-		var rs = await q.uploadFileSync(client, destPath, sourceFile);
-		console.log(rs);
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+  try {
+    var destPath = "test/test.js";
+    var sourceFile = "d:/test.js";
+
+    var rs = await q.uploadFileSync(client, destPath, sourceFile);
+    console.log(rs);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 test();
 ```
 
 ### uploadFolderSync
-```javascript
-'use strict';
 
-var q 		= require('qiao-oss');
-var client	= q.client(require('./config.json'));
+```javascript
+"use strict";
+
+var q = require("qiao-oss");
+var client = q.client(require("./config.json"));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
-var test = async function(){
-	try{
-		var destPath		= 'test';
-		var sourceFolder	= 'd:/test/cocos';
-		
-		var rs = await q.uploadFolderSync(client, destPath, sourceFolder);
-		console.log(rs);
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+  try {
+    var destPath = "test";
+    var sourceFolder = "d:/test/cocos";
+
+    var rs = await q.uploadFolderSync(client, destPath, sourceFolder);
+    console.log(rs);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 test();
 ```
 
 ### uploadFile
-```javascript
-'use strict';
 
-var q 		= require('qiao-oss');
-var client	= q.client(require('./config.json'));
+```javascript
+"use strict";
+
+var q = require("qiao-oss");
+var client = q.client(require("./config.json"));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
-var test = function(){
-	var destPath	= 'test/test.js';
-	var sourceFile 	= 'd:/test.js';
-	
-	q.uploadFile(client, destPath, sourceFile, function(err, rs){
-		if(err) throw err;
-		
-		console.log(rs);
-	});
+var test = function () {
+  var destPath = "test/test.js";
+  var sourceFile = "d:/test.js";
+
+  q.uploadFile(client, destPath, sourceFile, function (err, rs) {
+    if (err) throw err;
+
+    console.log(rs);
+  });
 };
 
 test();
 ```
 
 ### uploadFolder
-```javascript
-'use strict';
 
-var q 		= require('qiao-oss');
-var client	= q.client(require('./config.json'));
+```javascript
+"use strict";
+
+var q = require("qiao-oss");
+var client = q.client(require("./config.json"));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
-var test = function(){
-	var destPath		= 'test';
-	var sourceFolder	= 'd:/test/cocos';
-	
-	q.uploadFolder(client, destPath, sourceFolder, function(err, rs){
-		if(err) throw err;
-		
-		console.log(rs);
-	});
+var test = function () {
+  var destPath = "test";
+  var sourceFolder = "d:/test/cocos";
+
+  q.uploadFolder(client, destPath, sourceFolder, function (err, rs) {
+    if (err) throw err;
+
+    console.log(rs);
+  });
 };
 
 test();
 ```
 
 ## also in cli
+
 ```shell
 npm install -g qiao-oss
 
-qoss file 	z:/workspaces/qiao-oss/test/config.json 	d:/test.js	test.js	
+qoss file 	z:/workspaces/qiao-oss/test/config.json 	d:/test.js	test.js
 qoss folder	z:/workspaces/qiao-oss/test/config.json 	d:/test/cocos	test9 	-i
 
 or
 
-qoss fi 	z:/workspaces/qiao-oss/test/config.json 	d:/test.js 	test.js	
+qoss fi 	z:/workspaces/qiao-oss/test/config.json 	d:/test.js 	test.js
 qoss fo		z:/workspaces/qiao-oss/test/config.json 	d:/test/cocos 	test9 	-i
 
 or
@@ -131,100 +138,125 @@ qoss | qoss -h for help
 ```
 
 ## version
+
 ### 0.2.4.20200803
+
 1. ncu
 
 ### 0.2.3.20191206
+
 1. update packages
 
 ### 0.2.2.20191204
+
 1. update packages
 2. add funding
 
 ### 0.2.1.20190318
+
 1. modify client options
 
 ### 0.2.0.20190128
+
 1. 代码优化
 
 ### 0.1.9.20190127
+
 1. del test/config.json
 
 ### 0.1.8.20190109
+
 1. update qiao-cli@0.0.6
-2. 调整qoss中client的判断时机
+2. 调整 qoss 中 client 的判断时机
 3. output help
 
 ### 0.1.7.20190107
+
 1. update ali-oss@6.1.0
 2. ali oss upload tool on nodejs
 
 ### 0.1.6.20181205
+
 1. qoss with qiao-cli
 2. update ali-oss@6.0.1
-3. qiao-ext-oss --> qoss 
+3. qiao-ext-oss --> qoss
 4. modify md
 
 ### 0.1.5.20181127
+
 1. modify method name
 2. del .js
 3. index.js
 
 ### 0.1.4.20181122
+
 1. npm audit
 
 ### 0.1.3.20181012
+
 1. npm audit
 
 ### 0.1.2.20180720
+
 1. https homepage
 
 ### 0.1.1.20180719
+
 1. modify readme.md
 2. readme.md add homepage
 3. readme.md add urls
 
 ### 0.1.0.20180210
+
 1. highlight md
 
 ### 0.0.9.20180208
+
 1. update git url
 
 ### 0.0.8.20180117
+
 1. add log
 2. add time
 
 ### 0.0.7.20180113
+
 1. 代码优化
 2. 0.2.0
 3. 0.2.1
 
 ### 0.0.6.20180112
+
 1. add qiao-ext-oss
 2. modify markdown
 3. file --> folder
 
 ### 0.0.5.20171229
-1. 修改readme.md的示例代码
+
+1. 修改 readme.md 的示例代码
 
 ### 0.0.4.20171228
+
 1. test js use strict
 2. update package.json
 
 ### 0.0.3.20171217
+
 1. upload file async
 2. upload file sync
 3. upload folder async
 4. upload folder sync
 
 ### 0.0.2.20171213
+
 1. 删除无关文件
-2. 添加npmignore
-3. 更新readme文件
+2. 添加 npmignore
+3. 更新 readme 文件
 4. exports
 5. upload file
 6. upload folder
 
 ### 0.0.1.20171212
+
 1. 初始化项目
-2. 添加gitignore文件
+2. 添加 gitignore 文件

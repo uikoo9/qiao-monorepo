@@ -1,60 +1,60 @@
-'use strict';
+"use strict";
 
 /**
  * clear
  */
 const clear = () => {
-    process.stdout.cursorTo(0, 0);
-    process.stdout.clearScreenDown();
+  process.stdout.cursorTo(0, 0);
+  process.stdout.clearScreenDown();
 };
 
 /**
  * clear line
  */
 const clearLine = () => {
-    process.stdout.clearLine();
+  process.stdout.clearLine();
 };
 
 /**
  * move to
- * @param {*} x 
- * @param {*} y 
+ * @param {*} x
+ * @param {*} y
  */
 const moveTo = (x, y) => {
-    process.stdout.cursorTo(x, y);
+  process.stdout.cursorTo(x, y);
 };
 
 /**
  * write
- * @param {*} msg 
+ * @param {*} msg
  */
 const write = (msg) => {
-    process.stdout.write(msg);
+  process.stdout.write(msg);
 };
 
 /**
  * write line x y
- * @param {*} x 
- * @param {*} y 
- * @param {*} msg 
+ * @param {*} x
+ * @param {*} y
+ * @param {*} msg
  */
 const writeLineXY = (x, y, msg) => {
-    process.stdout.cursorTo(x, y);
-    process.stdout.clearLine();
-    process.stdout.write(msg);
-    process.stdout.write('\n');
+  process.stdout.cursorTo(x, y);
+  process.stdout.clearLine();
+  process.stdout.write(msg);
+  process.stdout.write("\n");
 };
 
 /**
  * write line
- * @param {*} y 
- * @param {*} msg 
+ * @param {*} y
+ * @param {*} msg
  */
 const writeLine = (y, msg) => {
-    process.stdout.cursorTo(0, y);
-    process.stdout.clearLine();
-    process.stdout.write(msg);
-    process.stdout.write('\n');
+  process.stdout.cursorTo(0, y);
+  process.stdout.clearLine();
+  process.stdout.write(msg);
+  process.stdout.write("\n");
 };
 
 exports.clear = clear;

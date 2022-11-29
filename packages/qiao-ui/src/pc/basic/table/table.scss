@@ -4,49 +4,49 @@ $tdHeight: 40px;
 $tdPadding: 5px;
 
 .table-container {
-    width: calc(100% - 200px);
-    height: calc(100% - 90px);
-    margin: 20px 100px;
-    overflow-x: scroll;
+  width: calc(100% - 200px);
+  height: calc(100% - 90px);
+  margin: 20px 100px;
+  overflow-x: scroll;
 
-    table {
-        @include base.width();
-        border-collapse: collapse;
-    }
+  table {
+    @include base.width();
+    border-collapse: collapse;
+  }
 
-    th {
-        height: $tdHeight;
-        line-height: $tdHeight;
+  th {
+    height: $tdHeight;
+    line-height: $tdHeight;
 
-        padding: $tdPadding;
-        border: base.$borderSolid;
+    padding: $tdPadding;
+    border: base.$borderSolid;
 
-        @include base.font($size: 16px, $align: center);
-    }
+    @include base.font($size: 16px, $align: center);
+  }
 
-    td {
-        height: $tdHeight;
-        line-height: $tdHeight;
+  td {
+    height: $tdHeight;
+    line-height: $tdHeight;
 
-        padding: $tdPadding;
-        border: base.$borderSolid;
+    padding: $tdPadding;
+    border: base.$borderSolid;
 
-        @include base.font($size: 14px, $align: center);
+    @include base.font($size: 14px, $align: center);
 
-        min-width: 100px;
-        max-width: 100px;
-        overflow:hidden;
-        white-space:nowrap;
-        text-overflow:ellipsis;
-    }
+    min-width: 100px;
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 
-    td.op>div {
-        float: left;
-        width: 50%;
-        height: $tdHeight;
-        line-height: $tdHeight;
+  td.op > div {
+    float: left;
+    width: 50%;
+    height: $tdHeight;
+    line-height: $tdHeight;
 
-        @include base.font($size: 14px, $align: center);
-        @include base.cursor();
-    }
+    @include base.font($size: 14px, $align: center);
+    @include base.cursor();
+  }
 }

@@ -2,12 +2,10 @@
  * rollup.config.js
  */
 module.exports = {
-    input: 'src/index.js',
-    output: {
-        file: 'index.js',
-        format: 'cjs',
-    },
-    external: [
-        'offline-to-online'
-    ],
+  input: "src/index.js",
+  output: {
+    file: "index.js",
+    format: "cjs",
+  },
+  external: ["offline-to-online"],
 };

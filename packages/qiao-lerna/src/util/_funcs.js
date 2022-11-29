@@ -1,31 +1,31 @@
 // qiao-console
-import { writeLine } from 'qiao-console';
+import { writeLine } from "qiao-console";
 
 // line
 let line;
 
 /**
  * set line
- * @param {*} l 
+ * @param {*} l
  */
 export const setLine = (l) => {
-    line = l;
+  line = l;
 };
 
 /**
  * callback
- * @param {*} index 
- * @param {*} res 
+ * @param {*} index
+ * @param {*} res
  */
 export const callback = (index, res) => {
-    writeLine(line + index, res);
+  writeLine(line + index, res);
 };
 
 /**
  * complete
- * @param {*} l 
+ * @param {*} l
  */
 export const complete = (l) => {
-    writeLine(line + l, '');
-    writeLine(line + l + 1, 'qiao-lerna end');
+  writeLine(line + l, "");
+  writeLine(line + l + 1, "qiao-lerna end");
 };

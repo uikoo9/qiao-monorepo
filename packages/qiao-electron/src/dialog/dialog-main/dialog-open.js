@@ -1,58 +1,62 @@
-'use strict';
+"use strict";
 
 // electron
-import { dialog } from 'electron';
+import { dialog } from "electron";
 
 /**
  * dialogOpenFile
  *  https://www.electronjs.org/zh/docs/latest/api/dialog#dialogshowopendialogbrowserwindow-options
- * @param {*} options 
- * @returns 
+ * @param {*} options
+ * @returns
  */
 export const dialogOpenFile = async (options) => {
-    return await openDialog(options, ['openFile']);
+  return await openDialog(options, ["openFile"]);
 };
 
 /**
  * dialogOpenFolder
  *  https://www.electronjs.org/zh/docs/latest/api/dialog#dialogshowopendialogbrowserwindow-options
- * @param {*} options 
- * @returns 
+ * @param {*} options
+ * @returns
  */
 export const dialogOpenFolder = async (options) => {
-    return await openDialog(options, ['openDirectory']);
+  return await openDialog(options, ["openDirectory"]);
 };
 
 /**
  * dialogOpenFileAndFolder
  *  https://www.electronjs.org/zh/docs/latest/api/dialog#dialogshowopendialogbrowserwindow-options
- * @param {*} options 
- * @returns 
+ * @param {*} options
+ * @returns
  */
 export const dialogOpenFileAndFolder = async (options) => {
-    return await openDialog(options, ['openFile', 'openDirectory']);
+  return await openDialog(options, ["openFile", "openDirectory"]);
 };
 
 // openDialog
-async function openDialog(options, defaultProps){
-    // opt
-    let opt = options || {};
+async function openDialog(options, defaultProps) {
+  // opt
+  let opt = options || {};
 
-    // properties
-    opt.properties = opt.properties || defaultProps;
+  // properties
+  opt.properties = opt.properties || defaultProps;
 
-    // win
-    const win = opt.win;
+  // win
+  const win = opt.win;
 
-    // filter
-    if(opt.files){
-        opt.filters = [{ 
-            name: 'files', 
-            extensions: opt.files 
-        }];
-        delete opt.files;
-    }
+  // filter
+  if (opt.files) {
+    opt.filters = [
+      {
+        name: "files",
+        extensions: opt.files,
+      },
+    ];
+    delete opt.files;
+  }
 
-    // return
-    return win ? await dialog.showOpenDialog(win, opt) : await dialog.showOpenDialog(opt);
+  // return
+  return win
+    ? await dialog.showOpenDialog(win, opt)
+    : await dialog.showOpenDialog(opt);
 }

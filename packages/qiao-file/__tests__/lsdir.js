@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-var q = require('../index.js');
+var q = require("../index.js");
 
-var test = function(){
-    var foldersAndFiles = q.lsdir('./');
-    console.log(foldersAndFiles);
+var test = function () {
+  var foldersAndFiles = q.lsdir("./");
+  console.log(foldersAndFiles);
 };
 
 test();

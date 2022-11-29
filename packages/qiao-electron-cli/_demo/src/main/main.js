@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // init
-require('./init/init.js');
+require("./init/init.js");

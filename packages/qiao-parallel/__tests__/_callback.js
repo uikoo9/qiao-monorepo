@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
 // q
-var q = require('qiao-console');
+var q = require("qiao-console");
 
 /**
  * callback
- * @param {*} index 
- * @param {*} res 
+ * @param {*} index
+ * @param {*} res
  */
-module.exports = function(index, res){
-    q.writeLine(index, `${index} ${res}`);
+module.exports = function (index, res) {
+  q.writeLine(index, `${index} ${res}`);
 };

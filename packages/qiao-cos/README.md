@@ -1,8 +1,9 @@
 ## qiao-cos
+
 [![npm version](https://img.shields.io/npm/v/qiao-cos.svg?style=flat-square)](https://www.npmjs.org/package/qiao-cos)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-cos.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-cos)
 
-nodejs下腾讯云cos常见api封装
+nodejs 下腾讯云 cos 常见 api 封装
 
 ## install
 
@@ -27,7 +28,7 @@ npm i qiao-cos
 
 ## cli
 
-也可以在cli下使用
+也可以在 cli 下使用
 
 ```bash
 # 全局安装
@@ -38,20 +39,22 @@ qcos
 qcos -h
 
 # 上传文件
-qcos file|fi z:/workspaces/qiao-cos/test/config.json d:/test.js test.js	
+qcos file|fi z:/workspaces/qiao-cos/test/config.json d:/test.js test.js
 
 # 上传文件夹
 qcos folder|fo z:/workspaces/qiao-cos/test/config.json d:/test/cocos test9
 ```
 
 ## api
+
 ### qcos
+
 ```javascript
 // config
-const config = require('./config.json');
+const config = require("./config.json");
 
 // qiao-cos
-const qcos = require('qiao-cos')(config);
+const qcos = require("qiao-cos")(config);
 ```
 
 ### uploadFileSync
@@ -59,8 +62,8 @@ const qcos = require('qiao-cos')(config);
 同步上传文件
 
 ```javascript
-const destPath = 'test/test.js';
-const sourceFile = '/your/test.js';
+const destPath = "test/test.js";
+const sourceFile = "/your/test.js";
 
 const rs = await qcos.uploadFileSync(destPath, sourceFile);
 console.log(rs);
@@ -71,8 +74,8 @@ console.log(rs);
 同步上传文件夹
 
 ```javascript
-const destPath = 'test';
-const sourceFolder = '/your/folder';
+const destPath = "test";
+const sourceFolder = "/your/folder";
 
 const rs = await qcos.uploadFolderSync(destPath, sourceFolder);
 console.log(rs);
@@ -83,11 +86,11 @@ console.log(rs);
 异步上传文件
 
 ```javascript
-const destPath = 'test/test.js';
-const sourceFile = '/your/test.js';
+const destPath = "test/test.js";
+const sourceFile = "/your/test.js";
 
 qcos.uploadFile(destPath, sourceFile, (err, data) => {
-    console.log(err, data);
+  console.log(err, data);
 });
 ```
 
@@ -96,45 +99,56 @@ qcos.uploadFile(destPath, sourceFile, (err, data) => {
 异步上传文件夹
 
 ```javascript
-const destPath = 'test';
-const sourceFolder = '/your/folder';
+const destPath = "test";
+const sourceFolder = "/your/folder";
 
 qcos.uploadFolder(destPath, sourceFolder, (rs) => {
-    console.log(rs);
+  console.log(rs);
 });
 ```
 
 ## version
+
 ### 0.1.1.20221108
+
 1. es6
-   
+
 ### 0.1.0.20220401
+
 1. ncu
 
 ### 0.0.9.20200718
+
 1. ncu
 
 ### 0.0.8.20200403
+
 1. ncu
 
 ### 0.0.7.20191219
+
 1. fix folderPath bug
 
 ### 0.0.6.20191206
+
 1. add funding
 2. update packages
 
 ### 0.0.5.20190808
+
 1. cos-nodejs-sdk-v5@2.5.9
 2. qiao-cli@0.0.8
 
 ### 0.0.4.20190622
+
 1. qcos fix ./
 
 ### 0.0.3.20190529
+
 1. check region and bucket
 
 ### 0.0.2.20190130
+
 1. upload file async
 2. upload file sync
 3. upload folder async
@@ -143,9 +157,10 @@ qcos.uploadFolder(destPath, sourceFolder, (rs) => {
 6. 优化代码，并行上传
 
 ### 0.0.1.20190128
+
 1. 初始化项目
 2. upload file
-3. upload folder 
+3. upload folder
 4. qcos ok
 5. modify md
 6. modify qiao-cos

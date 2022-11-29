@@ -3,22 +3,22 @@
 $menuWidth: 200px;
 $menuHeight: 40px;
 
-.menus{
-    float: left;
-    width: $menuWidth;
-    height: 100%;
-    overflow-y: scroll;
+.menus {
+  float: left;
+  width: $menuWidth;
+  height: 100%;
+  overflow-y: scroll;
 
-    .menu{
-        width: $menuWidth;
-        height: $menuHeight;
-        line-height: $menuHeight;
-        border-bottom: base.$borderDotted;
-        
-        @include base.font($align: center);
-        @include base.cursor();
-    }
-    .menu.active{
-        font-weight: 600;
-    }
+  .menu {
+    width: $menuWidth;
+    height: $menuHeight;
+    line-height: $menuHeight;
+    border-bottom: base.$borderDotted;
+
+    @include base.font($align: center);
+    @include base.cursor();
+  }
+  .menu.active {
+    font-weight: 600;
+  }
 }

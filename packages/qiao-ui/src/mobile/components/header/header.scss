@@ -7,47 +7,47 @@ $logoWidth: 6rem;
 $navsWidth: $containerWidth - $logoWidth;
 
 .header {
-    @include base.width();
+  @include base.width();
 
+  height: $headerHeight;
+  border-bottom: base.$borderSolid;
+
+  .logo {
+    float: left;
+    width: $logoWidth;
+  }
+
+  .navs {
+    float: left;
+    width: $navsWidth;
     height: $headerHeight;
-    border-bottom: base.$borderSolid;
 
-    .logo {
-        float: left;
-        width: $logoWidth;
+    .nav {
+      float: right;
+      width: calc($navsWidth / 4);
     }
-
-    .navs {
-        float: left;
-        width: $navsWidth;
-        height: $headerHeight;
-
-        .nav {
-            float: right;
-            width: calc($navsWidth / 4);
-        }
-    }
+  }
 }
 
 .nav-txt {
-    height: $headerHeight;
-    line-height: $headerHeight;
+  height: $headerHeight;
+  line-height: $headerHeight;
 
-    @include base.font($size: 16px);
-    @include base.cursor();
-    @include base.alink();
+  @include base.font($size: 16px);
+  @include base.cursor();
+  @include base.alink();
 }
 
 .nav-txt.right {
-    text-align: right;
+  text-align: right;
 }
 
-.header.center{
-    .nav-txt {
-        text-align: center;
-    }
+.header.center {
+  .nav-txt {
+    text-align: center;
+  }
 
-    .nav-txt.right {
-        text-align: center;
-    }
+  .nav-txt.right {
+    text-align: center;
+  }
 }

@@ -1,4 +1,3 @@
-nihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihao
+nihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihao;
 
-
-中文中文中文中文中文中文中文中文中文
+中文中文中文中文中文中文中文中文中文;

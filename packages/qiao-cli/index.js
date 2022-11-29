@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var colorsFn = require('colors');
-var progressFn = require('progress');
-var inquirer = require('inquirer');
-var commander = require('commander');
+var colorsFn = require("colors");
+var progressFn = require("progress");
+var inquirer = require("inquirer");
+var commander = require("commander");
 
 // colors
 
@@ -24,7 +24,7 @@ const progress = progressFn;
  * 	questions, https://github.com/SBoudrias/Inquirer.js
  */
 const ask = (questions) => {
-    return inquirer.prompt(questions);
+  return inquirer.prompt(questions);
 };
 
 /**

@@ -1,14 +1,14 @@
 // colors
-import colorsFn from 'colors';
+import colorsFn from "colors";
 
 // progress
-import progressFn from 'progress';
+import progressFn from "progress";
 
 // inquirer
-import inquirer from 'inquirer';
+import inquirer from "inquirer";
 
 // commander
-import commander from 'commander';
+import commander from "commander";
 
 /**
  * colors
@@ -27,7 +27,7 @@ export const progress = progressFn;
  * 	questions, https://github.com/SBoudrias/Inquirer.js
  */
 export const ask = (questions) => {
-    return inquirer.prompt(questions);
+  return inquirer.prompt(questions);
 };
 
 /**

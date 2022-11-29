@@ -1,0 +1,12 @@
+node_modules
+
+packages/qiao-compress/files_in
+packages/qiao-electron-demo
+packages/qiao-regedit
+packages/qiao-request
+packages/qiao-server-coder
+packages/qiao-timer
+packages/qiao-weixin
+packages/qiao-weixinx
+packages/qiao-zip
+packages/qiao.cookie.js

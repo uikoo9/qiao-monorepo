@@ -3,11 +3,11 @@
 $inputHeight: 50px;
 
 .tips {
-    @include base.width();
+  @include base.width();
 
-    height: $inputHeight;
-    line-height: $inputHeight;
-    padding-top: 20px;
+  height: $inputHeight;
+  line-height: $inputHeight;
+  padding-top: 20px;
 
-    @include base.font($size: 16px, $align: center, $color: red);
+  @include base.font($size: 16px, $align: center, $color: red);
 }

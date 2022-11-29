@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-var p = require('ping');
+var p = require("ping");
 
 // ping
 
@@ -11,7 +11,7 @@ var p = require('ping');
  * 	return res, https://www.npmjs.com/package/ping#output-specification
  */
 const ping = (host, config) => {
-    return p.promise.probe(host, config || {});
+  return p.promise.probe(host, config || {});
 };
 
 exports.ping = ping;

@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 // html webpack plugin
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 /**
 https://github.com/jantimon/html-webpack-plugin#options
@@ -26,6 +26,6 @@ chunksSortMode	{String|Function}	auto	Allows to control how chunks should be sor
 excludeChunks	{Array.<string>}	``	Allows you to skip some chunks (e.g don't add the unit-test chunk)
 xhtml	{Boolean}	false	If true render the link tags as self-closing (XHTML compliant)
 */
-module.exports = function(plugin){
-    return new HtmlWebpackPlugin(plugin);
+module.exports = function (plugin) {
+  return new HtmlWebpackPlugin(plugin);
 };

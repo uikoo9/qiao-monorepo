@@ -1,25 +1,26 @@
 // react
-import React from 'react';
+import React from "react";
 
 // css
-import './footer.scss';
+import "./footer.scss";
 
 // ui
-import { Link } from '../../../index.js';
+import { Link } from "../../../index.js";
 
 // log
-import { colorLog } from '../../../util/log.js';
+import { colorLog } from "../../../util/log.js";
 
 /**
  * footer
  */
 export const Footer = (props) => {
-    colorLog('qiao-ui/pc/footer: render');
+  colorLog("qiao-ui/pc/footer: render");
 
-    return (
-        <div className="footer">
-            <Link url={props.companyUrl} txt={props.companyName} />&nbsp;&nbsp;&nbsp;
-            <Link blank={true} url={props.beianUrl} txt={props.beianName} />
-        </div>
-    );
+  return (
+    <div className="footer">
+      <Link url={props.companyUrl} txt={props.companyName} />
+      &nbsp;&nbsp;&nbsp;
+      <Link blank={true} url={props.beianUrl} txt={props.beianName} />
+    </div>
+  );
 };

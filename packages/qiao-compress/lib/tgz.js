@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 // require
-var _compress       = require('./_compress.js');
-var _uncompress     = require('./_uncompress.js');
+var _compress = require("./_compress.js");
+var _uncompress = require("./_uncompress.js");
 
 /**
  * tgz file
@@ -11,12 +11,18 @@ var _uncompress     = require('./_uncompress.js');
  *  onSuccess
  *  onFail
  */
-exports.tgzFile = function(sourceFile, destPath, onSuccess, onFail){
-    _compress.compressFile('tgz', sourceFile, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
+exports.tgzFile = function (sourceFile, destPath, onSuccess, onFail) {
+  _compress.compressFile(
+    "tgz",
+    sourceFile,
+    destPath,
+    function () {
+      if (onSuccess) onSuccess();
+    },
+    function (e) {
+      if (onFail) onFail(e);
+    }
+  );
 };
 
 /**
@@ -24,14 +30,19 @@ exports.tgzFile = function(sourceFile, destPath, onSuccess, onFail){
  *  sourceFile
  *  destPath
  */
-exports.tgzFileSync = function(sourceFile, destPath){
-	return new Promise(function(resolve, reject){
-        exports.tgzFile(sourceFile, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.tgzFileSync = function (sourceFile, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.tgzFile(
+      sourceFile,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };
 
 /**
@@ -41,12 +52,18 @@ exports.tgzFileSync = function(sourceFile, destPath){
  *  onSuccess
  *  onFail
  */
-exports.tgzFolder = function(sourceFolder, destPath, onSuccess, onFail){
-    _compress.compressFolder('tgz', sourceFolder, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
+exports.tgzFolder = function (sourceFolder, destPath, onSuccess, onFail) {
+  _compress.compressFolder(
+    "tgz",
+    sourceFolder,
+    destPath,
+    function () {
+      if (onSuccess) onSuccess();
+    },
+    function (e) {
+      if (onFail) onFail(e);
+    }
+  );
 };
 
 /**
@@ -54,14 +71,19 @@ exports.tgzFolder = function(sourceFolder, destPath, onSuccess, onFail){
  *  sourceFolder
  *  destPath
  */
-exports.tgzFolderSync = function(sourceFolder, destPath){
-	return new Promise(function(resolve, reject){
-        exports.tgzFolder(sourceFolder, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.tgzFolderSync = function (sourceFolder, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.tgzFolder(
+      sourceFolder,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };
 
 /**
@@ -71,12 +93,18 @@ exports.tgzFolderSync = function(sourceFolder, destPath){
  *  onSuccess
  *  onFail
  */
-exports.untgz = function(compressFile, destPath, onSuccess, onFail){
-    _uncompress.uncompress('tgz', compressFile, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
+exports.untgz = function (compressFile, destPath, onSuccess, onFail) {
+  _uncompress.uncompress(
+    "tgz",
+    compressFile,
+    destPath,
+    function () {
+      if (onSuccess) onSuccess();
+    },
+    function (e) {
+      if (onFail) onFail(e);
+    }
+  );
 };
 
 /**
@@ -84,12 +112,17 @@ exports.untgz = function(compressFile, destPath, onSuccess, onFail){
  *  compressFile
  *  destPath
  */
-exports.untgzSync = function(compressFile, destPath){
-	return new Promise(function(resolve, reject){
-        exports.untgz(compressFile, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.untgzSync = function (compressFile, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.untgz(
+      compressFile,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };

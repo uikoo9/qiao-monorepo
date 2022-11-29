@@ -1,71 +1,64 @@
-'use strict';
+"use strict";
 
 // electron
-import { ipcMain } from 'electron';
+import { ipcMain } from "electron";
 
 // q
-import { 
-    mv, 
-    rm, 
-    mkdir,
-    lstree, 
-    readFile,
-    writeFile,
-} from 'qiao-file';
+import { mv, rm, mkdir, lstree, readFile, writeFile } from "qiao-file";
 
 // const
-import { 
-    IPC_FS_RM, 
-    IPC_FS_MKDIR,
-    IPC_FS_RENAME, 
-    IPC_FS_GET_TREE, 
-    IPC_FS_READ_FILE,
-    IPC_FS_WRITE_FILE,
-} from './fs-constant.js';
+import {
+  IPC_FS_RM,
+  IPC_FS_MKDIR,
+  IPC_FS_RENAME,
+  IPC_FS_GET_TREE,
+  IPC_FS_READ_FILE,
+  IPC_FS_WRITE_FILE,
+} from "./fs-constant.js";
 
 /**
  * fsIPCInit
  */
 export const fsIPCInit = () => {
-    // ipc fs rm
-    ipcMain.handle(IPC_FS_RM, (event, rmPath) => {
-        if(!rmPath) return;
+  // ipc fs rm
+  ipcMain.handle(IPC_FS_RM, (event, rmPath) => {
+    if (!rmPath) return;
 
-        return rm(rmPath);
-    });
+    return rm(rmPath);
+  });
 
-    // ipc fs mkdir
-    ipcMain.handle(IPC_FS_MKDIR, (event, dir) => {
-        if(!dir) return;
+  // ipc fs mkdir
+  ipcMain.handle(IPC_FS_MKDIR, (event, dir) => {
+    if (!dir) return;
 
-        return mkdir(dir);
-    });
+    return mkdir(dir);
+  });
 
-    // ipc fs rename
-    ipcMain.handle(IPC_FS_RENAME, (event, oldPath, newPath) => {
-        if(!oldPath || !newPath) return;
+  // ipc fs rename
+  ipcMain.handle(IPC_FS_RENAME, (event, oldPath, newPath) => {
+    if (!oldPath || !newPath) return;
 
-        return mv(oldPath, newPath);
-    });
-  
-    // ipc fs get tree
-    ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignores) => {
-        if(!dir) return;
+    return mv(oldPath, newPath);
+  });
 
-        return lstree(dir, ignores);
-    });
+  // ipc fs get tree
+  ipcMain.handle(IPC_FS_GET_TREE, (event, dir, ignores) => {
+    if (!dir) return;
 
-    // ipc fs read file
-    ipcMain.handle(IPC_FS_READ_FILE, (event, filePath) => {
-        if(!filePath) return;
+    return lstree(dir, ignores);
+  });
 
-        return readFile(filePath);
-    });
+  // ipc fs read file
+  ipcMain.handle(IPC_FS_READ_FILE, (event, filePath) => {
+    if (!filePath) return;
 
-    // ipc fs write file
-    ipcMain.handle(IPC_FS_WRITE_FILE, (event, filePath, fileData) => {
-        if(!filePath) return;
+    return readFile(filePath);
+  });
 
-        return writeFile(filePath, fileData);
-    });
+  // ipc fs write file
+  ipcMain.handle(IPC_FS_WRITE_FILE, (event, filePath, fileData) => {
+    if (!filePath) return;
+
+    return writeFile(filePath, fileData);
+  });
 };

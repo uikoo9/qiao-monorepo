@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 // compressing
-var compressing = require('compressing');
+var compressing = require("compressing");
 
 // compress types
-var compressTypes = ['tar', 'gzip', 'tgz', 'zip'];
+var compressTypes = ["tar", "gzip", "tgz", "zip"];
 
 /**
  * compress file
@@ -14,21 +14,28 @@ var compressTypes = ['tar', 'gzip', 'tgz', 'zip'];
  *  onSuccess
  *  onFail
  */
-exports.compressFile = function(compressType, sourceFile, destPath, onSuccess, onFail){
-    if(!compressTypes.includes(compressType)){
-        if(onFail) onFail(new Error('compress type only support: tar, gzip, tgz, zip'));
-        return;
-    }
+exports.compressFile = function (
+  compressType,
+  sourceFile,
+  destPath,
+  onSuccess,
+  onFail
+) {
+  if (!compressTypes.includes(compressType)) {
+    if (onFail)
+      onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    return;
+  }
 
-    var compress = compressing[compressType];
-    compress
-        .compressFile(sourceFile, destPath)
-        .then(function(){
-            if(onSuccess) onSuccess();
-        })
-        .catch(function(e){
-            if(onFail) onFail(e);
-        });
+  var compress = compressing[compressType];
+  compress
+    .compressFile(sourceFile, destPath)
+    .then(function () {
+      if (onSuccess) onSuccess();
+    })
+    .catch(function (e) {
+      if (onFail) onFail(e);
+    });
 };
 
 /**
@@ -37,14 +44,20 @@ exports.compressFile = function(compressType, sourceFile, destPath, onSuccess, o
  *  sourceFile
  *  destPath
  */
-exports.compressFileSync = function(compressType, sourceFile, destPath){
-	return new Promise(function(resolve, reject){
-        exports.compressFile(compressType, sourceFile, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.compressFileSync = function (compressType, sourceFile, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.compressFile(
+      compressType,
+      sourceFile,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };
 
 /**
@@ -55,21 +68,28 @@ exports.compressFileSync = function(compressType, sourceFile, destPath){
  *  onSuccess
  *  onFail
  */
-exports.compressFolder = function(compressType, sourceFolder, destPath, onSuccess, onFail){
-    if(!compressTypes.includes(compressType)){
-        if(onFail) onFail(new Error('compress type only support: tar, gzip, tgz, zip'));
-        return;
-    }
+exports.compressFolder = function (
+  compressType,
+  sourceFolder,
+  destPath,
+  onSuccess,
+  onFail
+) {
+  if (!compressTypes.includes(compressType)) {
+    if (onFail)
+      onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    return;
+  }
 
-    var compress = compressing[compressType];
-    compress
-        .compressDir(sourceFolder, destPath)
-        .then(function(){
-            if(onSuccess) onSuccess();
-        })
-        .catch(function(e){
-            if(onFail) onFail(e);
-        });
+  var compress = compressing[compressType];
+  compress
+    .compressDir(sourceFolder, destPath)
+    .then(function () {
+      if (onSuccess) onSuccess();
+    })
+    .catch(function (e) {
+      if (onFail) onFail(e);
+    });
 };
 
 /**
@@ -78,12 +98,18 @@ exports.compressFolder = function(compressType, sourceFolder, destPath, onSucces
  *  sourceFolder
  *  destPath
  */
-exports.compressFolderSync = function(compressType, sourceFolder, destPath){
-	return new Promise(function(resolve, reject){
-        exports.compressFolder(compressType, sourceFolder, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.compressFolderSync = function (compressType, sourceFolder, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.compressFolder(
+      compressType,
+      sourceFolder,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };

@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 // q
-const { setApplicationMenu, setAboutVersion } = require('qiao-electron');
+const { setApplicationMenu, setAboutVersion } = require("qiao-electron");
 
 // version
-const { version } = require('../../package.json');
+const { version } = require("../../package.json");
 
 // set application menu
 setApplicationMenu();

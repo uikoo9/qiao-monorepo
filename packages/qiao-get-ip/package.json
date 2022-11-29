@@ -1,37 +1,34 @@
 {
-    "name": "qiao-get-ip",
-    "version": "1.0.1",
-    "description": "get public ip on browser and nodejs",
-    "keywords": [
-        "browser",
-        "nodejs",
-        "public",
-        "ip"
-    ],
-    "author": "uikoo9 <uikoo9@qq.com>",
-    "homepage": "https://code.insistime.com/qiao-get-ip",
-    "license": "MIT",
-    "main": "index.js",
-    "module": "src/index.js",
-    "sideEffets": false,
-    "files": [
-        "src"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-    },
-    "bugs": {
-        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-    },
-    "scripts": {
-        "build": "rollup --config _config.rollup.js",
-        "eslint": "eslint . --ext .js -c _config.eslint.js",
-        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
-        "prepublish": "npm run build && npm run eslintfix"
-    },
-    "dependencies": {
-        "ip-regex": "^5.0.0",
-        "qiao-ajax": "^2.7.3"
-    }
+  "name": "qiao-get-ip",
+  "version": "1.0.1",
+  "description": "get public ip on browser and nodejs",
+  "keywords": [
+    "browser",
+    "nodejs",
+    "public",
+    "ip"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://code.insistime.com/qiao-get-ip",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  },
+  "scripts": {
+    "build": "rollup --config _config.rollup.js"
+  },
+  "dependencies": {
+    "ip-regex": "^5.0.0",
+    "qiao-ajax": "^2.7.3"
+  }
 }

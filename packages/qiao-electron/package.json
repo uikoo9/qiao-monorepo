@@ -1,36 +1,33 @@
 {
-    "name": "qiao-electron",
-    "version": "1.4.4",
-    "description": "electron tools",
-    "keywords": [
-        "electron",
-        "tools"
-    ],
-    "author": "uikoo9 <uikoo9@qq.com>",
-    "homepage": "https://code.insistime.com/qiao-electron",
-    "license": "MIT",
-    "main": "index.js",
-    "module": "src/index.js",
-    "sideEffets": false,
-    "files": [
-        "src"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
-    },
-    "bugs": {
-        "url": "https://github.com/uikoo9/qiao-monorepo/issues"
-    },
-    "scripts": {
-        "build": "rollup --config _config.rollup.js",
-        "eslint": "eslint . --ext .js -c _config.eslint.js",
-        "eslintfix": "eslint . --ext .js --fix -c _config.eslint.js",
-        "prepublish": "npm run build && npm run eslintfix"
-    },
-    "dependencies": {
-        "qiao-config": "^1.0.0",
-        "qiao-file": "^1.0.5",
-        "qiao-log": "^0.2.4"
-    }
+  "name": "qiao-electron",
+  "version": "1.4.4",
+  "description": "electron tools",
+  "keywords": [
+    "electron",
+    "tools"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://code.insistime.com/qiao-electron",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  },
+  "scripts": {
+    "build": "rollup --config _config.rollup.js"
+  },
+  "dependencies": {
+    "qiao-config": "^1.0.0",
+    "qiao-file": "^1.0.5",
+    "qiao-log": "^0.2.4"
+  }
 }

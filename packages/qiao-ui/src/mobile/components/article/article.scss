@@ -3,52 +3,52 @@
 $titleHeight: 3rem;
 $contentHeight: 1rem;
 
-.article-container{
-    width: calc(100% - 20px);
-    padding: 0 10px;
+.article-container {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 
-    .article-title{
-        @include base.width();
+  .article-title {
+    @include base.width();
 
-        height: $titleHeight;
-        line-height: $titleHeight;
-        border-bottom: base.$borderDotted;
+    height: $titleHeight;
+    line-height: $titleHeight;
+    border-bottom: base.$borderDotted;
 
-        @include base.font($size: 24px, $align: center);
-        font-weight: 600;
+    @include base.font($size: 24px, $align: center);
+    font-weight: 600;
+  }
+
+  .article-date {
+    @include base.width();
+    height: $contentHeight;
+    line-height: $contentHeight;
+
+    @include base.font($size: 12px);
+  }
+
+  .article-times {
+    @include base.width();
+
+    height: $contentHeight;
+    line-height: $contentHeight;
+    border-bottom: base.$borderDotted;
+
+    @include base.font($size: 12px);
+  }
+
+  .article-content {
+    @include base.width();
+    padding-bottom: $contentHeight;
+    border-bottom: base.$borderDotted;
+
+    @include base.font();
+
+    img {
+      max-width: 100%;
     }
-    
-    .article-date{
-        @include base.width();
-        height: $contentHeight;
-        line-height: $contentHeight;
-        
-        @include base.font($size: 12px);
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
-
-    .article-times{
-        @include base.width();
-
-        height: $contentHeight;
-        line-height: $contentHeight;
-        border-bottom: base.$borderDotted;
-
-        @include base.font($size: 12px);
-    }
-
-    .article-content{
-        @include base.width();
-        padding-bottom: $contentHeight;
-        border-bottom: base.$borderDotted;
-
-        @include base.font();
-        
-        img{
-            max-width: 100%;
-        }
-        pre{
-            white-space: pre-wrap;
-            word-wrap:break-word;
-        }
-    }
+  }
 }

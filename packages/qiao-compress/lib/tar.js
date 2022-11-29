@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 // require
-var _compress       = require('./_compress.js');
-var _uncompress     = require('./_uncompress.js');
+var _compress = require("./_compress.js");
+var _uncompress = require("./_uncompress.js");
 
 /**
  * tar file
@@ -11,12 +11,18 @@ var _uncompress     = require('./_uncompress.js');
  *  onSuccess
  *  onFail
  */
-exports.tarFile = function(sourceFile, destPath, onSuccess, onFail){
-    _compress.compressFile('tar', sourceFile, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
+exports.tarFile = function (sourceFile, destPath, onSuccess, onFail) {
+  _compress.compressFile(
+    "tar",
+    sourceFile,
+    destPath,
+    function () {
+      if (onSuccess) onSuccess();
+    },
+    function (e) {
+      if (onFail) onFail(e);
+    }
+  );
 };
 
 /**
@@ -24,14 +30,19 @@ exports.tarFile = function(sourceFile, destPath, onSuccess, onFail){
  *  sourceFile
  *  destPath
  */
-exports.tarFileSync = function(sourceFile, destPath){
-	return new Promise(function(resolve, reject){
-        exports.tarFile(sourceFile, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.tarFileSync = function (sourceFile, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.tarFile(
+      sourceFile,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };
 
 /**
@@ -41,12 +52,18 @@ exports.tarFileSync = function(sourceFile, destPath){
  *  onSuccess
  *  onFail
  */
-exports.tarFolder = function(sourceFolder, destPath, onSuccess, onFail){
-    _compress.compressFolder('tar', sourceFolder, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
+exports.tarFolder = function (sourceFolder, destPath, onSuccess, onFail) {
+  _compress.compressFolder(
+    "tar",
+    sourceFolder,
+    destPath,
+    function () {
+      if (onSuccess) onSuccess();
+    },
+    function (e) {
+      if (onFail) onFail(e);
+    }
+  );
 };
 
 /**
@@ -54,14 +71,19 @@ exports.tarFolder = function(sourceFolder, destPath, onSuccess, onFail){
  *  sourceFolder
  *  destPath
  */
-exports.tarFolderSync = function(sourceFolder, destPath){
-	return new Promise(function(resolve, reject){
-        exports.tarFolder(sourceFolder, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.tarFolderSync = function (sourceFolder, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.tarFolder(
+      sourceFolder,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };
 
 /**
@@ -71,12 +93,18 @@ exports.tarFolderSync = function(sourceFolder, destPath){
  *  onSuccess
  *  onFail
  */
-exports.untar = function(compressFile, destPath, onSuccess, onFail){
-    _uncompress.uncompress('tar', compressFile, destPath, function(){
-        if(onSuccess) onSuccess();
-    }, function(e){
-        if(onFail) onFail(e);
-    });
+exports.untar = function (compressFile, destPath, onSuccess, onFail) {
+  _uncompress.uncompress(
+    "tar",
+    compressFile,
+    destPath,
+    function () {
+      if (onSuccess) onSuccess();
+    },
+    function (e) {
+      if (onFail) onFail(e);
+    }
+  );
 };
 
 /**
@@ -84,12 +112,17 @@ exports.untar = function(compressFile, destPath, onSuccess, onFail){
  *  compressFile
  *  destPath
  */
-exports.untarSync = function(compressFile, destPath){
-	return new Promise(function(resolve, reject){
-        exports.untar(compressFile, destPath, function(){
-            resolve();
-        }, function(e){
-            reject(e);
-        });
-	});
+exports.untarSync = function (compressFile, destPath) {
+  return new Promise(function (resolve, reject) {
+    exports.untar(
+      compressFile,
+      destPath,
+      function () {
+        resolve();
+      },
+      function (e) {
+        reject(e);
+      }
+    );
+  });
 };

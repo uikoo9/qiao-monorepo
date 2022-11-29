@@ -6,35 +6,35 @@ $itemOtherHeight: 1rem;
 
 $fontWeight: 600;
 
-.info{
-    width: calc(100% - 20px);
-    padding: 10px;
+.info {
+  width: calc(100% - 20px);
+  padding: 10px;
 
-    border-bottom: base.$borderDotted;
-    
-    .item-title{
-        @include base.width();
+  border-bottom: base.$borderDotted;
 
-        line-height: $itemTitleHeight;
-        font-weight: $fontWeight;
+  .item-title {
+    @include base.width();
 
-        @include base.font($size: 16px);
-        @include base.alink();
-    }
-    .item-desc{
-        @include base.width();
+    line-height: $itemTitleHeight;
+    font-weight: $fontWeight;
 
-        line-height: $itemDescHeight;
+    @include base.font($size: 16px);
+    @include base.alink();
+  }
+  .item-desc {
+    @include base.width();
 
-        @include base.font($size: 12px, $color: #888);
-    }
-    .item-other{
-        @include base.width();
+    line-height: $itemDescHeight;
 
-        height: $itemOtherHeight;
-        line-height: $itemOtherHeight;
+    @include base.font($size: 12px, $color: #888);
+  }
+  .item-other {
+    @include base.width();
 
-        @include base.font($size: 12px);
-        @include base.alink();
-    }
+    height: $itemOtherHeight;
+    line-height: $itemOtherHeight;
+
+    @include base.font($size: 12px);
+    @include base.alink();
+  }
 }

@@ -1,29 +1,29 @@
 @use "../../../util/base";
 
 .donate {
+  @include base.width();
+
+  padding: 40px 0;
+  border-bottom: base.$borderDotted;
+
+  .donate-img {
     @include base.width();
 
-    padding: 40px 0;
-    border-bottom: base.$borderDotted;
-
-    .donate-img {
-        @include base.width();
-
-        img {
-            display: block;
-            width: 200px;
-            margin: 0 auto;
-        }
+    img {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
     }
+  }
 
-    .donate-tip {
-        @include base.width();
+  .donate-tip {
+    @include base.width();
 
-        height: 40px;
-        line-height: 40px;
+    height: 40px;
+    line-height: 40px;
 
-        padding-top: 20px;
+    padding-top: 20px;
 
-        @include base.font($size: 16px, $align: center);
-    }
+    @include base.font($size: 16px, $align: center);
+  }
 }

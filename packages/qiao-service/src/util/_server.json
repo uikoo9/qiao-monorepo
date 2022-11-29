@@ -1,13 +1,13 @@
 {
-    "host": "https://api.insistime.com/",
-    
-    "login": "ucenter/user/login",
-    "sendCode": "ucenter/code/send",
-    "register": "ucenter/user/reg",
-    "checkUser": "ucenter/user/check",
+  "host": "https://api.insistime.com/",
 
-    "ucenterMenuList": "ucenter/menu/list",
-    "ucenterMenuSave": "ucenter/menu/save",
-    "ucenterMenuDel": "ucenter/menu/del",
-    "ucenterMenuGet": "ucenter/menu/get"
+  "login": "ucenter/user/login",
+  "sendCode": "ucenter/code/send",
+  "register": "ucenter/user/reg",
+  "checkUser": "ucenter/user/check",
+
+  "ucenterMenuList": "ucenter/menu/list",
+  "ucenterMenuSave": "ucenter/menu/save",
+  "ucenterMenuDel": "ucenter/menu/del",
+  "ucenterMenuGet": "ucenter/menu/get"
 }

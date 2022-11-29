@@ -1,3 +1,3 @@
-const q = require('../index.js');
+const q = require("../index.js");
 
-q.pkg('../../');
+q.pkg("../../");

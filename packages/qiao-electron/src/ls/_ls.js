@@ -1,22 +1,22 @@
-'use strict';
+"use strict";
 
 // path
-import path from 'path';
+import path from "path";
 
 // electron
-import { app } from 'electron';
+import { app } from "electron";
 
 // c
-import q from 'qiao-config';
+import q from "qiao-config";
 
 /**
  * ls
- * @returns 
+ * @returns
  */
 export const ls = () => {
-    const userDataPath = app.getPath('userData');
-    const configPath = path.resolve(userDataPath, './electron.config');
-    const config = q(configPath);
+  const userDataPath = app.getPath("userData");
+  const configPath = path.resolve(userDataPath, "./electron.config");
+  const config = q(configPath);
 
-    return config;
+  return config;
 };

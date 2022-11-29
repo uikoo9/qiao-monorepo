@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-var q = require('../index.js');
+var q = require("../index.js");
 
-var warning = q.warning('test', {});
+var warning = q.warning("test", {});
 console.log(warning);

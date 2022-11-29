@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
 // exec
-var exec = require('child_process').exec;
+var exec = require("child_process").exec;
 
 // utile
-var util = require('./util.js');
+var util = require("./util.js");
 
 // default type
-var defaultType = 'REG_SZ';
+var defaultType = "REG_SZ";
 
 /**
  * add value
@@ -18,17 +18,21 @@ var defaultType = 'REG_SZ';
  * 		data
  * 	cb
  */
-exports.addValue = function(obj, cb){
-	if(!obj || !obj.key || !obj.name || !obj.data){
-		if(cb) cb('need key,name,data');
-		return;
-	}
+exports.addValue = function (obj, cb) {
+  if (!obj || !obj.key || !obj.name || !obj.data) {
+    if (cb) cb("need key,name,data");
+    return;
+  }
 
-	obj.type = obj.type || defaultType;
+  obj.type = obj.type || defaultType;
 
-	exec(`reg add \"${obj.key}\" /v \"${obj.name}\" /t \"${obj.type}\" /d \"${obj.data}\" /f`, { encoding: util.binaryEncoding }, function(err, stdout, stderr){
-		if(cb) cb(util.msg(err, stdout, stderr));
-	});
+  exec(
+    `reg add \"${obj.key}\" /v \"${obj.name}\" /t \"${obj.type}\" /d \"${obj.data}\" /f`,
+    { encoding: util.binaryEncoding },
+    function (err, stdout, stderr) {
+      if (cb) cb(util.msg(err, stdout, stderr));
+    }
+  );
 };
 
 /**
@@ -39,12 +43,12 @@ exports.addValue = function(obj, cb){
  * 		type
  * 		data
  */
-exports.addValueSync = function(obj){
-	return new Promise(function(resolve, reject){
-		exports.addValue(obj, function(res){
-			resolve(res);
-		});
- 	});
+exports.addValueSync = function (obj) {
+  return new Promise(function (resolve, reject) {
+    exports.addValue(obj, function (res) {
+      resolve(res);
+    });
+  });
 };
 
 /**
@@ -54,15 +58,19 @@ exports.addValueSync = function(obj){
  * 		name
  * 	cb
  */
-exports.delValue = function(obj, cb){
-	if(!obj || !obj.key || !obj.name){
-		if(cb) cb('need key,name');
-		return;
-	}
+exports.delValue = function (obj, cb) {
+  if (!obj || !obj.key || !obj.name) {
+    if (cb) cb("need key,name");
+    return;
+  }
 
-	exec(`reg delete \"${obj.key}\" /v \"${obj.name}\" /f`, { encoding: util.binaryEncoding }, function(err, stdout, stderr){
-		if(cb) cb(util.msg(err, stdout, stderr));
-	});
+  exec(
+    `reg delete \"${obj.key}\" /v \"${obj.name}\" /f`,
+    { encoding: util.binaryEncoding },
+    function (err, stdout, stderr) {
+      if (cb) cb(util.msg(err, stdout, stderr));
+    }
+  );
 };
 
 /**
@@ -71,12 +79,12 @@ exports.delValue = function(obj, cb){
  * 		key
  * 		name
  */
-exports.delValueSync = function(obj){
-	return new Promise(function(resolve, reject){
-		exports.delValue(obj, function(res){
-			resolve(res);
-		});
- 	});
+exports.delValueSync = function (obj) {
+  return new Promise(function (resolve, reject) {
+    exports.delValue(obj, function (res) {
+      resolve(res);
+    });
+  });
 };
 
 /**
@@ -84,53 +92,58 @@ exports.delValueSync = function(obj){
  * 	key
  * 	cb
  */
-exports.listValues = function(key, cb){
-	var cmdQueryAll = `reg query \"${key}\"`;
+exports.listValues = function (key, cb) {
+  var cmdQueryAll = `reg query \"${key}\"`;
 
-	exec(cmdQueryAll, { encoding: util.binaryEncoding }, function(err, stdout, stderr){
-		var res = util.msg(err, stdout, stderr);
-		var completeKey = getCompleteKey(key);
-		if(res.indexOf(completeKey) === -1){
-			if(cb) cb(res);
-			return;
-		}
-		
-		var list = [];
+  exec(
+    cmdQueryAll,
+    { encoding: util.binaryEncoding },
+    function (err, stdout, stderr) {
+      var res = util.msg(err, stdout, stderr);
+      var completeKey = getCompleteKey(key);
+      if (res.indexOf(completeKey) === -1) {
+        if (cb) cb(res);
+        return;
+      }
 
-		var ss = res.split('\r\n');
-		if(!ss || !ss.length){
-			if(cb) cb(res);
-			return;
-		}
+      var list = [];
 
-		for(var s of ss){
-			if(!s) continue;
-			if(s.indexOf(completeKey) > -1) continue;
+      var ss = res.split("\r\n");
+      if (!ss || !ss.length) {
+        if (cb) cb(res);
+        return;
+      }
 
-			var index = s.indexOf('REG_');
-			if(!index) continue;
+      for (var s of ss) {
+        if (!s) continue;
+        if (s.indexOf(completeKey) > -1) continue;
 
-			var keyName = s.substring(0, index);
-			keyName = keyName.replace(/(^\s*)|(\s*$)/g,'');
-			list.push(keyName);
-		}
+        var index = s.indexOf("REG_");
+        if (!index) continue;
 
-		if(cb) cb(null, list);
-	});
+        var keyName = s.substring(0, index);
+        keyName = keyName.replace(/(^\s*)|(\s*$)/g, "");
+        list.push(keyName);
+      }
+
+      if (cb) cb(null, list);
+    }
+  );
 };
 
 // get complete key
-function getCompleteKey(key){
-	if(key.indexOf('HKCU') === 0) return key.replace(/HKCU/g, 'HKEY_CURRENT_USER');
+function getCompleteKey(key) {
+  if (key.indexOf("HKCU") === 0)
+    return key.replace(/HKCU/g, "HKEY_CURRENT_USER");
 }
 
 /**
  * list values sync
  */
-exports.listValuesSync = function(key){
-	return new Promise(function(resolve, reject){
-		exports.listValues(key, function(err, res){
-			resolve(err ? err : res);
-		});
- 	});
+exports.listValuesSync = function (key) {
+  return new Promise(function (resolve, reject) {
+    exports.listValues(key, function (err, res) {
+      resolve(err ? err : res);
+    });
+  });
 };

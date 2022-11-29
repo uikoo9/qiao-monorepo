@@ -3,23 +3,23 @@
 $inputHeight: 50px;
 
 .input {
-    @include base.width();
+  @include base.width();
 
+  height: $inputHeight;
+  border-bottom: base.$borderSolid;
+  margin-bottom: 10px;
+
+  input {
+    width: calc(100% - 20px);
     height: $inputHeight;
-    border-bottom: base.$borderSolid;
-    margin-bottom: 10px;
+    line-height: $inputHeight;
 
-    input {
-        width: calc(100% - 20px);
-        height: $inputHeight;
-        line-height: $inputHeight;
+    margin: 0;
+    padding: 0;
+    padding: 0 10px;
+    border: none;
+    outline: none;
 
-        margin: 0;
-        padding: 0;
-        padding: 0 10px;
-        border: none;
-        outline: none;
-
-        @include base.font($size: 18px);
-    }
+    @include base.font($size: 18px);
+  }
 }

@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
 /**
  * stdout appender
  *  https://log4js-node.github.io/log4js-node/stdout.html
- * @returns 
+ * @returns
  */
-module.exports = function(){
-    return {
-        type : 'stdout'
-    };
+module.exports = function () {
+  return {
+    type: "stdout",
+  };
 };

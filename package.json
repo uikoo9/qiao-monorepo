@@ -1,27 +1,32 @@
 {
-    "name": "root",
-    "private": true,
-    "scripts": {
-        "check": "qlerna ncu ./packages",
-        "ncu": "lerna exec --ignore=qiao-cli 'ncu -u'",
-        "clean": "lerna clean -y",
-        "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
-        "dc": "qlerna dc ./packages",
-        "pkg": "qlerna pkg ./packages",
-        "dpkg": "qlerna pkg ./packages 1",
-        "ls": "lerna ls -l",
-        "show": "lerna ls --graph"
-    },
-    "devDependencies": {
-        "@rollup/plugin-json": "^5.0.1",
-        "@rollup/plugin-node-resolve": "^15.0.1",
-        "eslint": "^8.28.0",
-        "eslint-plugin-react": "^7.31.11",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "jest": "^29.3.1",
-        "jest-environment-jsdom": "^29.3.1",
-        "qiao-lerna": "^1.1.9",
-        "qiao-webpack": "^1.3.2",
-        "rollup": "^3.4.0"
-    }
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "check": "qlerna ncu ./packages",
+    "ncu": "lerna exec --ignore=qiao-cli 'ncu -u'",
+    "clean": "lerna clean -y",
+    "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
+    "build": "lerna run build --ignore=qiao-electron-demo",
+    "prettier": "prettier --write .",
+    "eslintfix": "eslint . --ext .js --fix",
+    "prepublish": "npm run build && npm run prettier && npm run eslintfix",
+    "dc": "qlerna dc ./packages",
+    "ls": "lerna ls -l",
+    "pkg": "qlerna pkg ./packages",
+    "dpkg": "qlerna pkg ./packages 1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^5.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "prettier": "^2.8.0",
+    "qiao-webpack": "^1.3.2",
+    "qiao-lerna": "^1.1.9",
+    "rollup": "^3.5.0"
+  }
 }

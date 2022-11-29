@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 // path
-var path = require('path');
+var path = require("path");
 
 // entry
 module.exports = {
-    'get': path.resolve(__dirname, '../__tests__/get.js')
+  get: path.resolve(__dirname, "../__tests__/get.js"),
 };

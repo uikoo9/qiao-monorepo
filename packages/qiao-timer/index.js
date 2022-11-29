@@ -1,1 +1,1 @@
-module.exports = require('./lib/qiao-timer.js');
+module.exports = require("./lib/qiao-timer.js");

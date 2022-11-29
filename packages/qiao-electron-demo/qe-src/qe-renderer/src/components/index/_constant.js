@@ -1,2 +1,1 @@
-export const IndexConstant =  {
-};
+export const IndexConstant = {};

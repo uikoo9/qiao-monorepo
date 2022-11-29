@@ -21,7 +21,7 @@ $txtOtherHeight: 2rem;
   }
   .txt-other {
     @include base.width();
-    
+
     height: $txtOtherHeight;
     line-height: $txtOtherHeight;
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-'use strict';
+"use strict";
 
 // qiao
 var qiao = {};
-qiao.cli = require('qiao-cli');
+qiao.cli = require("qiao-cli");
 
 // cmds
-require('./qwebpack-version.js');
-require('./qwebpack-build.js');
+require("./qwebpack-version.js");
+require("./qwebpack-build.js");
 
 // parse
 qiao.cli.cmd.parse(process.argv);

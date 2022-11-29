@@ -1,18 +1,18 @@
 /**
  * basic
  */
-export { MobileBreadcrumbs } from './basic/breadcrumbs/breadcrumbs.jsx';
+export { MobileBreadcrumbs } from "./basic/breadcrumbs/breadcrumbs.jsx";
 
 /**
-  * components
-  */
+ * components
+ */
 // index
-export { MobileHeader } from './components/header/header.jsx';
-export { MobileContent } from './components/content/content.jsx';
-export { MobileCards } from './components/cards/cards.jsx';
-export { MobileFooter } from './components/footer/footer.jsx';
- 
+export { MobileHeader } from "./components/header/header.jsx";
+export { MobileContent } from "./components/content/content.jsx";
+export { MobileCards } from "./components/cards/cards.jsx";
+export { MobileFooter } from "./components/footer/footer.jsx";
+
 // blog
-export { MobileInfo } from './components/info/info.jsx';
-export { MobileInfoList } from './components/info-list/info-list.jsx';
-export { MobileArticle } from './components/article/article.jsx';
+export { MobileInfo } from "./components/info/info.jsx";
+export { MobileInfoList } from "./components/info-list/info-list.jsx";
+export { MobileArticle } from "./components/article/article.jsx";

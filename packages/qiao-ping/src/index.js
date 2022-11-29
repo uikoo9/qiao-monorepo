@@ -1,5 +1,5 @@
 // ping
-import p from 'ping';
+import p from "ping";
 
 /**
  * ping
@@ -8,5 +8,5 @@ import p from 'ping';
  * 	return res, https://www.npmjs.com/package/ping#output-specification
  */
 export const ping = (host, config) => {
-    return p.promise.probe(host, config || {});
+  return p.promise.probe(host, config || {});
 };

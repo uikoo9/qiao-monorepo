@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 // css mini
-var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+var CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 // terser
-var TerserPlugin = require('terser-webpack-plugin');
+var TerserPlugin = require("terser-webpack-plugin");
 
 /**
  * minimizer
@@ -12,12 +12,12 @@ var TerserPlugin = require('terser-webpack-plugin');
 module.exports = [
   new CssMinimizerPlugin(),
   new TerserPlugin({
-      parallel: true,
-      extractComments: false,
-      terserOptions: {
-          format: {
-            comments: false,
-          },
+    parallel: true,
+    extractComments: false,
+    terserOptions: {
+      format: {
+        comments: false,
       },
+    },
   }),
 ];

@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
 // path
-var path = require('path');
+var path = require("path");
 
 // qrcode path
-var qrcodePath = path.resolve(__dirname, '../__tests__/qrcode.js');
+var qrcodePath = path.resolve(__dirname, "../__tests__/qrcode.js");
 
 // entry
 module.exports = {
-    qrcode: qrcodePath,
+  qrcode: qrcodePath,
 };

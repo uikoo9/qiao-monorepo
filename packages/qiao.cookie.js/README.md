@@ -4,62 +4,70 @@
 [![npm downloads](https://img.shields.io/npm/dm/qiao.cookie.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao.cookie.js)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao.cookie.js)
 
-浏览器Cookie相关操作封装，详见：[cookie文档](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
+浏览器 Cookie 相关操作封装，详见：[cookie 文档](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
 
 ## api
+
 ### cjs
+
 ```javascript
 // q
-const q = require('qiao.cookie.js');
+const q = require("qiao.cookie.js");
 
 // get
-q.get('key');
+q.get("key");
 
 // set
-q.set('key', 'value');
+q.set("key", "value");
 
 // del
-q.del('key');
+q.del("key");
 
 // has
-q.has('key');
+q.has("key");
 
 // keys
 q.keys();
 ```
 
 ### mjs
+
 ```javascript
 // q
-import { get, set, del, has, keys} from 'qiao.cookie.js';
+import { get, set, del, has, keys } from "qiao.cookie.js";
 
 // get
-get('key');
+get("key");
 
 // set
-set('key', value);
+set("key", value);
 
 // del
-del('key');
+del("key");
 
 // has
-has('key');
+has("key");
 
 // keys
 keys();
 ```
 
 ## version
+
 ### 0.0.4.20221014
+
 1. md
-   
+
 ### 0.0.3.20220712
+
 1. tree shaking
-   
+
 ### 0.0.2.20220709
+
 1. add rollup
 2. add eslint
 3. add jest
-   
+
 ### 0.0.1.20220616
+
 1. init project

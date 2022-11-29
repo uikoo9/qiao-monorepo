@@ -20,7 +20,7 @@
     "qiao-cli": "^1.0.5",
     "qiao-encode": "^1.0.0",
     "qiao-file": "^1.0.5",
-    "qiao-mysql": "^1.0.4",
+    "qiao-mysql": "^1.0.5",
     "qiao-request": "^0.4.0",
     "qiao-string": "^0.0.9",
     "qiao-zip": "^0.9.1"

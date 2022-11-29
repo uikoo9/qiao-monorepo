@@ -1,69 +1,85 @@
 // react
-import React from 'react';
+import React from "react";
 
 // log
-import { colorLog } from '../../../util/log.js';
+import { colorLog } from "../../../util/log.js";
 
 /**
  * get cols
- * @param {*} props 
+ * @param {*} props
  * @returns cols
  */
 export const getCols = (props) => {
-    colorLog('qiao-ui/pc/table: getCols');
+  colorLog("qiao-ui/pc/table: getCols");
 
-    const cols = props.cols;
-    if (!cols) return;
+  const cols = props.cols;
+  if (!cols) return;
 
-    return cols.map((col, index) => {
-        if (!col) return;
+  return cols.map((col, index) => {
+    if (!col) return;
 
-        return <th key={index}>{col}</th>;
-    });
+    return <th key={index}>{col}</th>;
+  });
 };
 
 /**
  * get rows
- * @param {*} props 
+ * @param {*} props
  * @returns rows
  */
 export const getRows = (props) => {
-    colorLog('qiao-ui/pc/table: getRows');
+  colorLog("qiao-ui/pc/table: getRows");
 
-    const rows = props.rows;
-    if (!rows) return;
+  const rows = props.rows;
+  if (!rows) return;
 
-    return rows.map((row, index) => {
-        if (!row) return;
+  return rows.map((row, index) => {
+    if (!row) return;
 
-        const rowKeys = Object.keys(row);
-        return (
-            <tr key={index}>
-                {rowKeys.map((item, j) => {
-                    // ck
-                    if (item == 'ck') {
-                        return <td key={`ck_${row.id}_${j}`}>
-                            <input
-                                type="checkbox"
-                                name={row.id}
-                                value={row.id}
-                                onChange={props.checkboxChange}
-                            />
-                        </td>;
-                    }
+    const rowKeys = Object.keys(row);
+    return (
+      <tr key={index}>
+        {rowKeys.map((item, j) => {
+          // ck
+          if (item == "ck") {
+            return (
+              <td key={`ck_${row.id}_${j}`}>
+                <input
+                  type="checkbox"
+                  name={row.id}
+                  value={row.id}
+                  onChange={props.checkboxChange}
+                />
+              </td>
+            );
+          }
 
-                    // op
-                    if (item == 'op') {
-                        return <td key={`op_${row.id}_${j}`} className="op">
-                            <div onClick={() => { props.editRow(row); }}>edit</div>
-                            <div onClick={() => { props.delRow(row.id); }}>del</div>
-                        </td>;
-                    }
+          // op
+          if (item == "op") {
+            return (
+              <td key={`op_${row.id}_${j}`} className="op">
+                <div
+                  onClick={() => {
+                    props.editRow(row);
+                  }}
+                >
+                  edit
+                </div>
+                <div
+                  onClick={() => {
+                    props.delRow(row.id);
+                  }}
+                >
+                  del
+                </div>
+              </td>
+            );
+          }
 
-                    // other
-                    return <td key={`data_${row.id}_${j}`}>{row[item]}</td>;
-                })}
-            </tr>
-        );
-    });
+          // other
+          return <td key={`data_${row.id}_${j}`}>{row[item]}</td>;
+        })}
+      </tr>
+    );
+  });
 };

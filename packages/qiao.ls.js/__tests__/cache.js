@@ -1,26 +1,26 @@
-'use strict';
+"use strict";
 
-var q = require('../index.js');
+var q = require("../index.js");
 
 // set value, get value
-test('set value, get value', function(){
-    var name    = 'cache.group';
-    var key     = 'team-123';
-    var value   = false;
+test("set value, get value", function () {
+  var name = "cache.group";
+  var key = "team-123";
+  var value = false;
 
-    q.cache(name, key, value);
+  q.cache(name, key, value);
 
-    expect(q.cache(name, key)).toStrictEqual(value);
+  expect(q.cache(name, key)).toStrictEqual(value);
 });
 
 // del value
-test('del value', function(){
-    var name    = 'cache.group';
-    var key     = 'team-123';
-    var value   = false;
+test("del value", function () {
+  var name = "cache.group";
+  var key = "team-123";
+  var value = false;
 
-    expect(q.cache(name, key)).toStrictEqual(value);
+  expect(q.cache(name, key)).toStrictEqual(value);
 
-    q.cache(name, key, null);
-    expect(q.cache(name, key)).toBeUndefined();
+  q.cache(name, key, null);
+  expect(q.cache(name, key)).toBeUndefined();
 });

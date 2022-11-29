@@ -1,21 +1,21 @@
-'use strict';
+"use strict";
 
-var q = require('../index.js');
+var q = require("../index.js");
 
-var test = async function(){
-	try{
-		// var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
-		var key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
-		var obj = {
-			key : key,
-			name: 'test'
-		};
-		
-		var res = await q.delValueSync(obj);
-		console.log(res);
-	}catch(e){
-		console.log(e);
-	}
+var test = async function () {
+  try {
+    // var key = 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run';
+    var key = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run";
+    var obj = {
+      key: key,
+      name: "test",
+    };
+
+    var res = await q.delValueSync(obj);
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 test();

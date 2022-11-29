@@ -3,12 +3,15 @@
 [https://code.insistime.com/](https://code.insistime.com/)
 
 ## lerna
-[qiao-monorepo](https://github.com/uikoo9/qiao-monorepo)使用[lerna](https://lerna.js.org/)管理npm包，建议全局安装lerna
+
+[qiao-monorepo](https://github.com/uikoo9/qiao-monorepo)使用[lerna](https://lerna.js.org/)管理 npm 包，建议全局安装 lerna
+
 ```shell
 npm i -g lerna
 ```
 
 ## use
+
 ### check
 
 通过[npm-check-updates](https://www.npmjs.com/package/npm-check-updates)检查所有包下的依赖是否有更新
@@ -27,7 +30,7 @@ npm run ncu
 
 ### clean
 
-清空所有包下的node_modules
+清空所有包下的 node_modules
 
 ```shell
 npm run clean
@@ -41,10 +44,9 @@ npm run clean
 npm run init
 ```
 
-
 ### dc
 
-列出文件夹下所有npm包上一个月的下载量
+列出文件夹下所有 npm 包上一个月的下载量
 
 ```shell
 npm run dc
@@ -52,7 +54,7 @@ npm run dc
 
 ### pkg
 
-列出所有包下的dependencies
+列出所有包下的 dependencies
 
 ```shell
 npm run pkg
@@ -60,7 +62,7 @@ npm run pkg
 
 ### dpkg
 
-列出所有包下的devDependencies
+列出所有包下的 devDependencies
 
 ```shell
 npm run dpkg

@@ -14,7 +14,7 @@ var defaultCacheGroups = require("./cache-groups.js");
 module.exports = function (isDev, cacheGroups) {
   // check
   if (isDev) return {};
-  
+
   // return
   return {
     // runtimeChunk: 'single',

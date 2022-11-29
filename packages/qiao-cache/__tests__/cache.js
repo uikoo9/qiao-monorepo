@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
-var q = require('../index.js');
+var q = require("../index.js");
 
 // set
-q.cache('test', 'hello');
+q.cache("test", "hello");
 
 // get
-var s = q.cache('test');
+var s = q.cache("test");
 console.log(s); // hello
 
 // del
-q.cache('test', null);
-console.log(q.cache('test')); // undefined
+q.cache("test", null);
+console.log(q.cache("test")); // undefined

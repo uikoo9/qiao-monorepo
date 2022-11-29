@@ -10,29 +10,29 @@
  */
 
 // qiao-console
-import { clear, writeLine } from 'qiao-console';
+import { clear, writeLine } from "qiao-console";
 
 // check dir
-import checkDir from './util/check-dir.js';
+import checkDir from "./util/check-dir.js";
 
 // handler
-import handleMultiNCU from './util/handler-ncu.js';
+import handleMultiNCU from "./util/handler-ncu.js";
 
 // line
 let line = 0;
 
 /**
  * multi ncu
- * @param {*} folderName 
+ * @param {*} folderName
  */
 export const multiNCU = async (folderName) => {
-    // clear && start
-    clear();
-    writeLine(line++, `start operating folder: ${folderName}`);
+  // clear && start
+  clear();
+  writeLine(line++, `start operating folder: ${folderName}`);
 
-    // dir
-    const subFolders = checkDir(folderName);
+  // dir
+  const subFolders = checkDir(folderName);
 
-    // parallel
-    handleMultiNCU(subFolders, line);
+  // parallel
+  handleMultiNCU(subFolders, line);
 };

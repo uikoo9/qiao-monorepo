@@ -1,67 +1,67 @@
-'use strict';
+"use strict";
 
 // webpack
-var webpack = require('webpack');
+var webpack = require("webpack");
 
 // webpack dev server
-var WebpackDevServer = require('webpack-dev-server');
+var WebpackDevServer = require("webpack-dev-server");
 
 // log util
-var logUtil = require('./log.js');
+var logUtil = require("./log.js");
 
 // webpack config
-var webpackConfig = require('../config/webpack.js');
+var webpackConfig = require("../config/webpack.js");
 
 /**
  * analyzer
  */
-exports.analyzer = function(configPath, target){
-    var configJs = webpackConfig.build(configPath, target, true);
-    if (!configJs) return;
+exports.analyzer = function (configPath, target) {
+  var configJs = webpackConfig.build(configPath, target, true);
+  if (!configJs) return;
 
-    webpackCompiler(configJs);
+  webpackCompiler(configJs);
 };
 
 /**
  * build
  */
-exports.build = function(configPath, target){
-    var configJs = webpackConfig.build(configPath, target);
-    if (!configJs) return;
+exports.build = function (configPath, target) {
+  var configJs = webpackConfig.build(configPath, target);
+  if (!configJs) return;
 
-    webpackCompiler(configJs);
+  webpackCompiler(configJs);
 };
 
 /**
  * dev
  */
-exports.dev = function(configPath, target){
-    // config js
-    var configJs = webpackConfig.dev(configPath, target);
-    if (!configJs) return;
+exports.dev = function (configPath, target) {
+  // config js
+  var configJs = webpackConfig.dev(configPath, target);
+  if (!configJs) return;
 
-    // compiler
-    var compiler = webpack(configJs);
+  // compiler
+  var compiler = webpack(configJs);
 
-    // dev server options
-    var devServerOptions = configJs.devServer;
+  // dev server options
+  var devServerOptions = configJs.devServer;
 
-    // server
-    var server = new WebpackDevServer(devServerOptions, compiler);
-    server.start();
+  // server
+  var server = new WebpackDevServer(devServerOptions, compiler);
+  server.start();
 };
 
 // webpack compiler
-function webpackCompiler(configJs){
-    var compiler = webpack(configJs);
-    compiler.run(function(err, stats){
-        var hasError = logUtil.showErr(err, stats);
-        if(hasError) return;
+function webpackCompiler(configJs) {
+  var compiler = webpack(configJs);
+  compiler.run(function (err, stats) {
+    var hasError = logUtil.showErr(err, stats);
+    if (hasError) return;
 
-        logUtil.log();
-        logUtil.suc('build success!');
-        logUtil.log();
+    logUtil.log();
+    logUtil.suc("build success!");
+    logUtil.log();
 
-        logUtil.showStats(stats);
-    });
+    logUtil.showStats(stats);
+  });
 }
