@@ -11,6 +11,7 @@ module.exports = {
     "fs",
     "path",
     "npm-check-updates",
+    "qiao-cli",
     "qiao-console",
     "qiao-file",
     "qiao-npms",

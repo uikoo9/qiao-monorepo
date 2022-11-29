@@ -5,11 +5,12 @@ var qiaoFile = require("qiao-file");
 var qiaoParallel = require("qiao-parallel");
 var qiaoNpms = require("qiao-npms");
 var npmCheckUpdates = require("npm-check-updates");
+var qiaoCli = require("qiao-cli");
 
 // qiao
 
 // line
-let line$4 = 0;
+let line$3 = 0;
 
 // sub folders
 const subFolders = [];
@@ -32,7 +33,7 @@ const lsdir = (dir) => {
 const checkDir = (folderName) => {
   // check folder name
   if (!folderName) {
-    qiaoConsole.writeLine(line$4, "need folder name");
+    qiaoConsole.writeLine(line$3, "need folder name");
     return;
   }
 
@@ -42,14 +43,14 @@ const checkDir = (folderName) => {
 
   // check dir is folder
   if (!qiaoFile.isExists(dir)) {
-    qiaoConsole.writeLine(line$4, "folder is not exists");
+    qiaoConsole.writeLine(line$3, "folder is not exists");
     return;
   }
 
   // get sub folders
   lsdir(dir);
   if (!subFolders || !subFolders.length) {
-    qiaoConsole.writeLine(line$4, "empty folder");
+    qiaoConsole.writeLine(line$3, "empty folder");
     return;
   }
 
@@ -59,14 +60,14 @@ const checkDir = (folderName) => {
 // qiao-console
 
 // line
-let line$3;
+let line$2;
 
 /**
  * set line
  * @param {*} l
  */
 const setLine = (l) => {
-  line$3 = l;
+  line$2 = l;
 };
 
 /**
@@ -75,7 +76,7 @@ const setLine = (l) => {
  * @param {*} res
  */
 const callback = (index, res) => {
-  qiaoConsole.writeLine(line$3 + index, res);
+  qiaoConsole.writeLine(line$2 + index, res);
 };
 
 /**
@@ -83,8 +84,8 @@ const callback = (index, res) => {
  * @param {*} l
  */
 const complete = (l) => {
-  qiaoConsole.writeLine(line$3 + l, "");
-  qiaoConsole.writeLine(line$3 + l + 1, "qiao-lerna end");
+  qiaoConsole.writeLine(line$2 + l, "");
+  qiaoConsole.writeLine(line$2 + l + 1, "qiao-lerna end");
 };
 
 // fs
@@ -134,7 +135,7 @@ function getPackage(p) {
  * @param {*} folderName
  * @returns
  */
-const handler$2 = async (folderName) => {
+const handler$1 = async (folderName) => {
   // pkg
   const pkgInfo = getPkgInfo(folderName, true);
   if (typeof pkgInfo == "string") return pkgInfo;
@@ -160,13 +161,13 @@ const handler$2 = async (folderName) => {
 const handleDownloadCounts = (folders, line) => {
   setLine(line);
 
-  qiaoParallel.parallelByIIFE(handler$2, folders, callback, complete);
+  qiaoParallel.parallelByIIFE(handler$1, folders, callback, complete);
 };
 
 // qiao-console
 
 // line
-let line$2 = 0;
+let line$1 = 0;
 
 /**
  * download counts
@@ -175,13 +176,13 @@ let line$2 = 0;
 const downloadCounts = (folderName) => {
   // clear && start
   qiaoConsole.clear();
-  qiaoConsole.writeLine(line$2++, `start operating folder: ${folderName}`);
+  qiaoConsole.writeLine(line$1++, `start operating folder: ${folderName}`);
 
   // dir
   const subFolders = checkDir(folderName);
 
   // handler
-  handleDownloadCounts(subFolders, line$2);
+  handleDownloadCounts(subFolders, line$1);
 };
 
 // ncu
@@ -191,7 +192,7 @@ const downloadCounts = (folderName) => {
  * @param {*} folderName
  * @returns
  */
-const handler$1 = async (folderName) => {
+const handler = async (folderName) => {
   // pkg
   const pkgInfo = getPkgInfo(folderName);
   if (typeof pkgInfo == "string") return pkgInfo;
@@ -202,12 +203,12 @@ const handler$1 = async (folderName) => {
     upgrade: false,
   });
 
-  const json = getJson$1(upgraded);
+  const json = getJson(upgraded);
   return `${pkgInfo.packageName} : ${json}`;
 };
 
 // get json
-function getJson$1(s) {
+function getJson(s) {
   try {
     return JSON.stringify(s);
   } catch (e) {
@@ -225,7 +226,7 @@ function getJson$1(s) {
 const handleMultiNCU = async (folders, line) => {
   setLine(line);
 
-  qiaoParallel.parallelByIIFE(handler$1, folders, callback, complete);
+  qiaoParallel.parallelByIIFE(handler, folders, callback, complete);
 };
 
 /**
@@ -240,7 +241,7 @@ const handleMultiNCU = async (folders, line) => {
  */
 
 // line
-let line$1 = 0;
+let line = 0;
 
 /**
  * multi ncu
@@ -249,74 +250,16 @@ let line$1 = 0;
 const multiNCU = async (folderName) => {
   // clear && start
   qiaoConsole.clear();
-  qiaoConsole.writeLine(line$1++, `start operating folder: ${folderName}`);
+  qiaoConsole.writeLine(line++, `start operating folder: ${folderName}`);
 
   // dir
   const subFolders = checkDir(folderName);
 
   // parallel
-  handleMultiNCU(subFolders, line$1);
+  handleMultiNCU(subFolders, line);
 };
 
-// pkg
-
-// is dev
-let isDev;
-
-/**
- * set is dev
- * @param {*} dev
- */
-const setIsDev = (dev) => {
-  isDev = dev;
-};
-
-/**
- * handler
- * @param {*} folderName
- * @returns
- */
-const handler = (folderName) => {
-  // pkg
-  const pkgInfo = getPkgInfo(folderName);
-  if (typeof pkgInfo == "string") return pkgInfo;
-
-  // package json
-  const packageJson = pkgInfo.packageJson;
-  const res = isDev ? packageJson.devDependencies : packageJson.dependencies;
-
-  const json = getJson(res || {});
-  return `${pkgInfo.packageName} : ${json}`;
-};
-
-// get json
-function getJson(s) {
-  try {
-    return JSON.stringify(s);
-  } catch (e) {
-    return s;
-  }
-}
-
-// qiao-parallel
-
-/**
- * handle pkg
- * @param {*} folders
- * @param {*} line
- * @param {*} isDev
- */
-const handlePkg = async (folders, line, isDev) => {
-  setLine(line);
-  setIsDev(isDev);
-
-  qiaoParallel.parallelByIIFE(handler, folders, callback, complete);
-};
-
-// qiao-console
-
-// line
-let line = 0;
+// cli
 
 /**
  * pkg
@@ -324,15 +267,25 @@ let line = 0;
  * @param {*} isDev
  */
 const pkg = async (folderName, isDev) => {
-  // clear && start
-  qiaoConsole.clear();
-  qiaoConsole.writeLine(line++, `start operating folder: ${folderName}`);
-
   // dir
   const subFolders = checkDir(folderName);
 
-  // handler
-  handlePkg(subFolders, line, isDev);
+  // check
+  if (!subFolders || !subFolders.length) return;
+
+  // for
+  subFolders.forEach((item) => {
+    const pkg = getPkgInfo(item);
+    console.log(qiaoCli.colors.white(pkg.packageName));
+
+    // package json
+    const packageJson = pkg.packageJson;
+    const json = isDev ? packageJson.devDependencies : packageJson.dependencies;
+
+    // log
+    console.log(qiaoCli.colors.grey(json || {}));
+    console.log();
+  });
 };
 
 exports.downloadCounts = downloadCounts;
