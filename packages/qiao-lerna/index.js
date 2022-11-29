@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-var qiaoConsole = require('qiao-console');
-var qiaoFile = require('qiao-file');
-var qiaoParallel = require('qiao-parallel');
-var qiaoNpms = require('qiao-npms');
-var npmCheckUpdates = require('npm-check-updates');
-var qiaoCli = require('qiao-cli');
+var qiaoConsole = require("qiao-console");
+var qiaoFile = require("qiao-file");
+var qiaoParallel = require("qiao-parallel");
+var qiaoNpms = require("qiao-npms");
+var npmCheckUpdates = require("npm-check-updates");
+var qiaoCli = require("qiao-cli");
 
 // qiao
 
@@ -38,7 +38,8 @@ const checkDir = (folderName) => {
   }
 
   // dir
-  const dir = qiaoFile.path.resolve(process.cwd(), folderName) + qiaoFile.path.sep;
+  const dir =
+    qiaoFile.path.resolve(process.cwd(), folderName) + qiaoFile.path.sep;
 
   // check dir is folder
   if (!qiaoFile.isExists(dir)) {
@@ -98,7 +99,8 @@ const complete = (l) => {
 const getPkgInfo = (dir, checkPrivate) => {
   // package file
   const packageFile = qiaoFile.path.resolve(dir, "package.json");
-  if (!qiaoFile.isExists(packageFile)) return `${dir} : package.json not exists`;
+  if (!qiaoFile.isExists(packageFile))
+    return `${dir} : package.json not exists`;
 
   // package json
   const packageJson = getPackage(packageFile);
@@ -277,8 +279,9 @@ const pkg = async (folderName, isDev) => {
     const pkg = getPkgInfo(item);
 
     // no pkg.json
-    if(typeof pkg === "string"){
+    if (typeof pkg === "string") {
       console.log(qiaoCli.colors.white(pkg));
+      console.log();
       return;
     }
 

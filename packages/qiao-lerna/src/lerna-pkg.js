@@ -25,7 +25,7 @@ export const pkg = async (folderName, isDev) => {
     const pkg = getPkgInfo(item);
 
     // no pkg.json
-    if(typeof pkg === "string"){
+    if (typeof pkg === "string") {
       console.log(colors.white(pkg));
       console.log();
       return;
