@@ -1,6 +1,6 @@
 {
   "name": "qiao-is-online",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "is online and offline to online on nodejs",
   "keywords": [
     "nodejs",
@@ -27,7 +27,7 @@
     "build": "rollup --config _config.rollup.js"
   },
   "dependencies": {
-    "offline-to-online": "^1.0.0",
-    "qiao-ping": "^1.0.1"
+    "offline-to-online": "^1.0.1",
+    "qiao-ping": "^1.0.2"
   }
 }

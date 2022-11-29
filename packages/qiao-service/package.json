@@ -1,6 +1,6 @@
 {
   "name": "qiao-service",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "author": "uikoo9 <uikoo9@qq.com>",
   "homepage": "https://code.insistime.com/qiao-service",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "build": "rollup --config _config.rollup.js"
   },
   "dependencies": {
-    "qiao-ajax": "^2.7.3",
-    "qiao-json": "^0.1.1"
+    "qiao-ajax": "^2.7.4",
+    "qiao-json": "^0.1.2"
   },
   "sideEffects": false
 }

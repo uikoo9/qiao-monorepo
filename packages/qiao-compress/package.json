@@ -1,6 +1,6 @@
 {
   "name": "qiao-compress",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "nodejs compress and uncompress tool",
   "keywords": [
     "compress",
