@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var txsms = require("qcloudsms_js");
+var txsms = require('qcloudsms_js');
 
 // txsms
 
@@ -24,35 +24,35 @@ const send = (options, callback) => {
   const appkey = options.appkey;
   const mtype = options.mtype || 0;
   const cnum = options.cnum || 86;
-  const sign = options.sign || "坚时科技";
+  const sign = options.sign || '坚时科技';
   const mobile = options.mobile;
   let msg = options.msg;
 
   // check
   if (!appid) {
-    console.log("need options.appid");
+    console.log('need options.appid');
     return;
   }
   if (!appkey) {
-    console.log("need options.appkey");
+    console.log('need options.appkey');
     return;
   }
   if (!mobile) {
-    console.log("need options.mobile");
+    console.log('need options.mobile');
     return;
   }
   if (!msg) {
-    console.log("need options.msg");
+    console.log('need options.msg');
     return;
   }
 
   // sign
-  msg = "【" + sign + "】" + msg;
+  msg = '【' + sign + '】' + msg;
 
   // sms sender
   const sms = txsms(appid, appkey);
   const sender = sms.SmsSingleSender();
-  sender.send(mtype, cnum, mobile, msg, "", "txsms", (err, req, res) => {
+  sender.send(mtype, cnum, mobile, msg, '', 'txsms', (err, req, res) => {
     // callback
     if (callback) {
       callback(err, res);
@@ -66,19 +66,19 @@ const send = (options, callback) => {
     }
 
     // check ext
-    if (!res || !res.ext || res.ext != "txsms") {
-      console.log("0000-mismatched ext！");
+    if (!res || !res.ext || res.ext != 'txsms') {
+      console.log('0000-mismatched ext！');
       return;
     }
 
     // error
     if (res.result != 0) {
-      console.log(res.result + "-" + res.errmsg);
+      console.log(res.result + '-' + res.errmsg);
       return;
     }
 
     // suc
-    console.log("ok");
+    console.log('ok');
   });
 };
 
@@ -104,19 +104,19 @@ const sendSync = (options) => {
       }
 
       // check ext
-      if (!res || !res.ext || res.ext != "txsms") {
-        resolve("0000-mismatched ext！");
+      if (!res || !res.ext || res.ext != 'txsms') {
+        resolve('0000-mismatched ext！');
         return;
       }
 
       // error
       if (res.result != 0) {
-        resolve(res.result + "-" + res.errmsg);
+        resolve(res.result + '-' + res.errmsg);
         return;
       }
 
       // suc
-      resolve("ok");
+      resolve('ok');
     });
   });
 };

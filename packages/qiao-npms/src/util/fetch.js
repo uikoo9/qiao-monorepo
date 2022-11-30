@@ -1,5 +1,5 @@
 // qiao
-import { get } from "qiao-ajax";
+import { get } from 'qiao-ajax';
 
 /**
  * get download counts
@@ -36,7 +36,7 @@ export const getLatestVersion = async (packageName) => {
   const url = `https://registry.npmjs.org/${packageName}`;
   const res = await get(url, {
     headers: {
-      Accept: "application/vnd.npm.install-v1+json",
+      Accept: 'application/vnd.npm.install-v1+json',
     },
   });
 

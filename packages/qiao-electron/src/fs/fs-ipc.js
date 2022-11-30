@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcMain } from "electron";
+import { ipcMain } from 'electron';
 
 // q
-import { mv, rm, mkdir, lstree, readFile, writeFile } from "qiao-file";
+import { mv, rm, mkdir, lstree, readFile, writeFile } from 'qiao-file';
 
 // const
 import {
@@ -14,7 +14,7 @@ import {
   IPC_FS_GET_TREE,
   IPC_FS_READ_FILE,
   IPC_FS_WRITE_FILE,
-} from "./fs-constant.js";
+} from './fs-constant.js';
 
 /**
  * fsIPCInit

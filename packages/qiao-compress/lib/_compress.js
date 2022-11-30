@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // compressing
-var compressing = require("compressing");
+var compressing = require('compressing');
 
 // compress types
-var compressTypes = ["tar", "gzip", "tgz", "zip"];
+var compressTypes = ['tar', 'gzip', 'tgz', 'zip'];
 
 /**
  * compress file
@@ -16,7 +16,7 @@ var compressTypes = ["tar", "gzip", "tgz", "zip"];
  */
 exports.compressFile = function (compressType, sourceFile, destPath, onSuccess, onFail) {
   if (!compressTypes.includes(compressType)) {
-    if (onFail) onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    if (onFail) onFail(new Error('compress type only support: tar, gzip, tgz, zip'));
     return;
   }
 
@@ -63,7 +63,7 @@ exports.compressFileSync = function (compressType, sourceFile, destPath) {
  */
 exports.compressFolder = function (compressType, sourceFolder, destPath, onSuccess, onFail) {
   if (!compressTypes.includes(compressType)) {
-    if (onFail) onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    if (onFail) onFail(new Error('compress type only support: tar, gzip, tgz, zip'));
     return;
   }
 

@@ -1,6 +1,6 @@
 // qiao
-const cli = require("qiao-cli");
-const lerna = require("../index.js");
+const cli = require('qiao-cli');
+const lerna = require('../index.js');
 
 /**
  * pkg
@@ -12,4 +12,4 @@ const pkg = (destPath, isDev) => {
 };
 
 // cmd for pkg
-cli.cmd.command("pkg <destPath> [isDev]").description("get package.json in path").action(pkg);
+cli.cmd.command('pkg <destPath> [isDev]').description('get package.json in path').action(pkg);

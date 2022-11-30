@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * webpack stats
@@ -8,13 +8,13 @@ module.exports = {
 
   // assets
   assets: true,
-  assetsSort: "!size",
+  assetsSort: '!size',
   assetsSpace: 200,
   groupAssetsByChunk: true,
 
   // chunks
   chunks: false,
-  chunksSort: "id",
+  chunksSort: 'id',
   chunkModules: false,
   chunkOrigins: false,
   chunkGroups: false,
@@ -31,7 +31,7 @@ module.exports = {
   dependentModules: false,
   modules: false,
   moduleAssets: false,
-  modulesSort: "id",
+  modulesSort: 'id',
   modulesSpace: 200,
   nestedModules: false,
   nestedModulesSpace: 200,

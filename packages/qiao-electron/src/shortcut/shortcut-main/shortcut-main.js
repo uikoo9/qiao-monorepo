@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // electron
-import { globalShortcut } from "electron";
+import { globalShortcut } from 'electron';
 
 /**
  * shortcutReg

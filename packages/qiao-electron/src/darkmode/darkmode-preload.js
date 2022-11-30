@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcRenderer } from "electron";
+import { ipcRenderer } from 'electron';
 
 // const
-import { IPC_DARKMODE_CHANGE, IPC_DARKMODE_GET } from "./darkmode-constant.js";
+import { IPC_DARKMODE_CHANGE, IPC_DARKMODE_GET } from './darkmode-constant.js';
 
 /**
  * darkModeChangeIPC

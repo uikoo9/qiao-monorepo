@@ -1,5 +1,5 @@
 // fs
-import { writeFileSync, readFileSync, accessSync } from "fs";
+import { writeFileSync, readFileSync, accessSync } from 'fs';
 
 /**
  * write file
@@ -18,9 +18,9 @@ export const writeFile = (filePath, data) => {
 export const readFile = (filePath) => {
   try {
     // not exists write file
-    if (!isExists(filePath)) writeFile(filePath, "");
+    if (!isExists(filePath)) writeFile(filePath, '');
 
-    return readFileSync(filePath, { encoding: "utf8" });
+    return readFileSync(filePath, { encoding: 'utf8' });
   } catch (e) {
     return null;
   }

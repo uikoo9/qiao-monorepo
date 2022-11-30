@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 /**
  * dev server
  */
 module.exports = {
   port: 8080,
-  static: path.resolve(__dirname, "../dist"),
+  static: path.resolve(__dirname, '../dist'),
 };

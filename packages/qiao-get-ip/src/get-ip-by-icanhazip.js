@@ -1,15 +1,15 @@
 // qiao-ajax
-import q from "qiao-ajax";
+import q from 'qiao-ajax';
 
 // ip-regex
-import i from "ip-regex";
+import i from 'ip-regex';
 
 // urls
-const hipUrl = "http://icanhazip.com/";
-const hipErr = new Error("get ip by icanhazip failed");
+const hipUrl = 'http://icanhazip.com/';
+const hipErr = new Error('get ip by icanhazip failed');
 
 // not ip
-const notIpErr = new Error("not ip");
+const notIpErr = new Error('not ip');
 
 /**
  * getIpByIcanhazip
@@ -25,7 +25,7 @@ export const getIpByIcanhazip = () => {
         }
 
         // ip
-        const ip = res.data.replace(/\n/g, "");
+        const ip = res.data.replace(/\n/g, '');
         if (!ip) return reject(hipErr);
 
         const isIp = i.v4({ exact: true }).test(ip);

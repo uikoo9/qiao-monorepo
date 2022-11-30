@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var COS = require("cos-nodejs-sdk-v5");
-var qiaoFile = require("qiao-file");
-var qiaoCli = require("qiao-cli");
+var COS = require('cos-nodejs-sdk-v5');
+var qiaoFile = require('qiao-file');
+var qiaoCli = require('qiao-cli');
 
 /**
  * upload file
@@ -63,12 +63,12 @@ const uploadFolder = (app, destFolder, sourceFolder, cb) => {
   if (!app || !app.client || !app.config) return;
 
   // time
-  console.time("total use");
+  console.time('total use');
 
   // files
-  const paths = qiaoFile.lsdir(sourceFolder + "/");
+  const paths = qiaoFile.lsdir(sourceFolder + '/');
   const files = paths.files;
-  const bar = new qiaoCli.progress("uploading files... :current/:total", {
+  const bar = new qiaoCli.progress('uploading files... :current/:total', {
     total: files.length,
   });
 
@@ -99,7 +99,7 @@ const uploadFolder = (app, destFolder, sourceFolder, cb) => {
         obj.fail = failFiles;
 
         console.log();
-        console.timeEnd("total use");
+        console.timeEnd('total use');
         console.log();
 
         if (cb) cb(obj);
@@ -136,11 +136,11 @@ const uploadFolderSync = (app, destFolder, sourceFolder) => {
  */
 const init = (config) => {
   // check
-  if (!config) throw new Error("need config params");
-  if (!config.SecretId) throw new Error("need config.SecretId params");
-  if (!config.SecretKey) throw new Error("need config.SecretKey params");
-  if (!config.Region) throw new Error("need config.Region params");
-  if (!config.Bucket) throw new Error("need config.Bucket params");
+  if (!config) throw new Error('need config params');
+  if (!config.SecretId) throw new Error('need config.SecretId params');
+  if (!config.SecretKey) throw new Error('need config.SecretKey params');
+  if (!config.Region) throw new Error('need config.Region params');
+  if (!config.Bucket) throw new Error('need config.Bucket params');
 
   // app
   const app = {};

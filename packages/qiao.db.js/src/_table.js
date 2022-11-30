@@ -1,5 +1,5 @@
 // db
-import { newDB as createDB } from "./_db.js";
+import { newDB as createDB } from './_db.js';
 
 /**
  * create table
@@ -37,7 +37,7 @@ function createNewTable(db, table) {
 
   // key
   const key = {};
-  if (table.key == "auto") {
+  if (table.key == 'auto') {
     key.autoIncrement = true;
   } else {
     key.keyPath = table.key;

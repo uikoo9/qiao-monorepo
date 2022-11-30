@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var uuid$1 = require("uuid");
-var crypto = require("crypto");
+var uuid$1 = require('uuid');
+var crypto = require('crypto');
 
 // uuid
 
@@ -20,7 +20,7 @@ const uuid = (type) => {
 
   // 3
   if (type == 3) {
-    return uuid$1.v3("insistime.com", uuid$1.v3.DNS);
+    return uuid$1.v3('insistime.com', uuid$1.v3.DNS);
   }
 
   // 4
@@ -30,7 +30,7 @@ const uuid = (type) => {
 
   // 5
   if (type == 5) {
-    return uuid$1.v5("insistime.com", uuid$1.v5.DNS);
+    return uuid$1.v5('insistime.com', uuid$1.v5.DNS);
   }
 };
 
@@ -39,7 +39,7 @@ const uuid = (type) => {
  * 	length
  */
 const randomNumber = (length) => {
-  const seed = "0123456789";
+  const seed = '0123456789';
 
   return randomSeed(seed, length || 4);
 };
@@ -49,7 +49,7 @@ const randomNumber = (length) => {
  * 	length
  */
 const randomLetterLower = (length) => {
-  const seed = "abcdefghljklmnopqrstuvwxyz";
+  const seed = 'abcdefghljklmnopqrstuvwxyz';
 
   return randomSeed(seed, length || 4);
 };
@@ -59,7 +59,7 @@ const randomLetterLower = (length) => {
  * 	length
  */
 const randomLetterUpper = (length) => {
-  const seed = "ABCDEFGHLJKLMNOPQRSTUVWXYZ";
+  const seed = 'ABCDEFGHLJKLMNOPQRSTUVWXYZ';
 
   return randomSeed(seed, length || 4);
 };
@@ -69,7 +69,7 @@ const randomLetterUpper = (length) => {
  * 	length
  */
 const randomLetterAll = (length) => {
-  const seed = "abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ";
+  const seed = 'abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ';
 
   return randomSeed(seed, length || 4);
 };
@@ -79,7 +79,7 @@ const randomLetterAll = (length) => {
  * 	length
  */
 const randomLetterNumber = (length) => {
-  const seed = "abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ0123456789";
+  const seed = 'abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ0123456789';
 
   return randomSeed(seed, length || 4);
 };
@@ -94,7 +94,7 @@ const randomSeed = (seed, len) => {
   const r = [];
   for (var i = 0; i < len; i++) r.push(randomBySeed(seed));
 
-  return r.join("");
+  return r.join('');
 };
 
 /**
@@ -124,16 +124,16 @@ const randomIn = (min, max) => {
  */
 const md5 = (data, encoding) => {
   return crypto
-    .createHash("md5")
+    .createHash('md5')
     .update(data)
-    .digest(encoding || "base64");
+    .digest(encoding || 'base64');
 };
 
 // crypto
 
 // crypt
 const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding) => {
-  if (type == "en") {
+  if (type == 'en') {
     // encrypt
     // cipher
     const cipher = crypto.createCipheriv(method, key, iv);
@@ -144,7 +144,7 @@ const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding) => {
     chunks.push(cipher.update(data, clearEncoding, cipherEncoding));
     chunks.push(cipher.final(cipherEncoding));
 
-    return chunks.join("");
+    return chunks.join('');
   } else {
     // decrypt
     // decipher
@@ -156,7 +156,7 @@ const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding) => {
     chunks.push(decipher.update(data, cipherEncoding, clearEncoding));
     chunks.push(decipher.final(clearEncoding));
 
-    return chunks.join("");
+    return chunks.join('');
   }
 };
 
@@ -174,11 +174,11 @@ const AESEncrypt = (data, key, iv, encoding) => {
   if (!data || !key || key.length != 32) return;
 
   // vars
-  const cipherIv = iv || "";
-  const clearEncoding = "utf8";
-  const cipherEncoding = encoding || "base64";
+  const cipherIv = iv || '';
+  const clearEncoding = 'utf8';
+  const cipherEncoding = encoding || 'base64';
 
-  return crypt("en", "aes-256-ecb", key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt('en', 'aes-256-ecb', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -193,11 +193,11 @@ const AESDecrypt = (data, key, iv, encoding) => {
   if (!data || !key || key.length != 32) return;
 
   // vars
-  const cipherIv = iv || "";
-  const clearEncoding = "utf8";
-  const cipherEncoding = encoding || "base64";
+  const cipherIv = iv || '';
+  const clearEncoding = 'utf8';
+  const cipherEncoding = encoding || 'base64';
 
-  return crypt("de", "aes-256-ecb", key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt('de', 'aes-256-ecb', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 // crypt
@@ -214,11 +214,11 @@ const TDESEncrypt = (data, key, iv, encoding) => {
   if (!data || !key || key.length != 24) return;
 
   // vars
-  const cipherIv = iv || "";
-  const clearEncoding = "utf8";
-  const cipherEncoding = encoding || "base64";
+  const cipherIv = iv || '';
+  const clearEncoding = 'utf8';
+  const cipherEncoding = encoding || 'base64';
 
-  return crypt("en", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt('en', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -233,11 +233,11 @@ const TDESDecrypt = (data, key, iv, encoding) => {
   if (!data || !key || key.length != 24) return;
 
   // vars
-  const cipherIv = iv || "";
-  const clearEncoding = "utf8";
-  const cipherEncoding = encoding || "base64";
+  const cipherIv = iv || '';
+  const clearEncoding = 'utf8';
+  const cipherEncoding = encoding || 'base64';
 
-  return crypt("de", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt('de', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 exports.AESDecrypt = AESDecrypt;

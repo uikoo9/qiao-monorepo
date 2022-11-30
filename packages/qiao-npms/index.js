@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var qiaoAjax = require("qiao-ajax");
-var search = require("libnpmsearch");
+var qiaoAjax = require('qiao-ajax');
+var search = require('libnpmsearch');
 
 // qiao
 
@@ -40,7 +40,7 @@ const getLatestVersion = async (packageName) => {
   const url = `https://registry.npmjs.org/${packageName}`;
   const res = await qiaoAjax.get(url, {
     headers: {
-      Accept: "application/vnd.npm.install-v1+json",
+      Accept: 'application/vnd.npm.install-v1+json',
     },
   });
 
@@ -72,7 +72,7 @@ const downloadCounts = async (packageName, type) => {
 const downloadCountsLastDay = async (packageName) => {
   if (!packageName) return;
 
-  return await getDownloadCounts(packageName, "last-day");
+  return await getDownloadCounts(packageName, 'last-day');
 };
 
 /**
@@ -82,7 +82,7 @@ const downloadCountsLastDay = async (packageName) => {
 const downloadCountsLastWeek = async (packageName) => {
   if (!packageName) return;
 
-  return await getDownloadCounts(packageName, "last-week");
+  return await getDownloadCounts(packageName, 'last-week');
 };
 
 /**
@@ -92,7 +92,7 @@ const downloadCountsLastWeek = async (packageName) => {
 const downloadCountsLastMonth = async (packageName) => {
   if (!packageName) return;
 
-  return await getDownloadCounts(packageName, "last-month");
+  return await getDownloadCounts(packageName, 'last-month');
 };
 
 // search
@@ -109,7 +109,7 @@ const searchPackages = async (packageName, options) => {
   // default options
   const defaultOptions = {
     limit: 3,
-    sortBy: "popularity",
+    sortBy: 'popularity',
   };
 
   // search
@@ -127,9 +127,9 @@ const getVersion = async (packageName) => {
   if (!packageName) return;
 
   const res = await getLatestVersion(packageName);
-  if (!res || !res["dist-tags"] || !res["dist-tags"].latest) return;
+  if (!res || !res['dist-tags'] || !res['dist-tags'].latest) return;
 
-  return res["dist-tags"].latest;
+  return res['dist-tags'].latest;
 };
 
 exports.downloadCounts = downloadCounts;

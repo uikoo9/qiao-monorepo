@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-var qiaoPing = require("qiao-ping");
-var o = require("offline-to-online");
+var qiaoPing = require('qiao-ping');
+var o = require('offline-to-online');
 
 // ping
 
 // domains
-const domains = ["tmall.com", "baidu.com", "qq.com", "taobao.com"];
+const domains = ['tmall.com', 'baidu.com', 'qq.com', 'taobao.com'];
 
 /**
  * isOnline
@@ -15,7 +15,7 @@ const domains = ["tmall.com", "baidu.com", "qq.com", "taobao.com"];
  */
 const isOnline = async (strictMode) => {
   const res = await pingDomains(domains);
-  if (!res || res.length != domains.length) throw new Error("no res");
+  if (!res || res.length != domains.length) throw new Error('no res');
 
   const tmallRes = res[0];
   const baiduRes = res[1];
@@ -23,15 +23,15 @@ const isOnline = async (strictMode) => {
   const taobaoRes = res[3];
   if (strictMode) {
     if (tmallRes.alive && baiduRes.alive && qqRes.alive && taobaoRes.alive) {
-      return "online";
+      return 'online';
     } else {
-      return "offline";
+      return 'offline';
     }
   } else {
     if (tmallRes.alive || baiduRes.alive || qqRes.alive || taobaoRes.alive) {
-      return "online";
+      return 'online';
     } else {
-      return "offline";
+      return 'offline';
     }
   }
 };

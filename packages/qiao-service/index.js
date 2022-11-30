@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
-var qiaoAjax = require("qiao-ajax");
-var qiaoJson = require("qiao-json");
+var qiaoAjax = require('qiao-ajax');
+var qiaoJson = require('qiao-json');
 
-var host = "https://api.insistime.com/";
-var login$1 = "ucenter/user/login";
-var sendCode$1 = "ucenter/code/send";
-var register$1 = "ucenter/user/reg";
-var checkUser$1 = "ucenter/user/check";
-var ucenterMenuList$1 = "ucenter/menu/list";
-var ucenterMenuSave$1 = "ucenter/menu/save";
-var ucenterMenuDel$1 = "ucenter/menu/del";
-var ucenterMenuGet$1 = "ucenter/menu/get";
+var host = 'https://api.insistime.com/';
+var login$1 = 'ucenter/user/login';
+var sendCode$1 = 'ucenter/code/send';
+var register$1 = 'ucenter/user/reg';
+var checkUser$1 = 'ucenter/user/check';
+var ucenterMenuList$1 = 'ucenter/menu/list';
+var ucenterMenuSave$1 = 'ucenter/menu/save';
+var ucenterMenuDel$1 = 'ucenter/menu/del';
+var ucenterMenuGet$1 = 'ucenter/menu/get';
 var config = {
   host: host,
   login: login$1,
@@ -42,10 +42,10 @@ const post = async (url, data) => {
  */
 const postWithToken = async (url, data) => {
   const root = global || window;
-  if (!root) return qiaoJson.danger("no window or global");
+  if (!root) return qiaoJson.danger('no window or global');
 
   const userinfo = root.insistime_userinfo;
-  if (!userinfo || !userinfo.userid || !userinfo.usertoken) return qiaoJson.danger("please login first");
+  if (!userinfo || !userinfo.userid || !userinfo.usertoken) return qiaoJson.danger('please login first');
 
   const headers = {
     userid: userinfo.userid,
@@ -79,7 +79,7 @@ async function ajax(url, data, headers) {
   if (!json) return qiaoJson.danger(`${time}ms | request fail: no data`);
 
   // danger
-  if (json.type == "danger") return qiaoJson.danger(`${time}ms | ${json.msg}`);
+  if (json.type == 'danger') return qiaoJson.danger(`${time}ms | ${json.msg}`);
 
   json.time = time;
   return json;
@@ -94,8 +94,8 @@ async function ajax(url, data, headers) {
  * @returns
  */
 const register = async (mobile, password, repassword, code) => {
-  if (!mobile || !password || !repassword || !code) return qiaoJson.danger("need mobile, code, password");
-  if (password != repassword) return qiaoJson.danger("the two password do not match");
+  if (!mobile || !password || !repassword || !code) return qiaoJson.danger('need mobile, code, password');
+  if (password != repassword) return qiaoJson.danger('the two password do not match');
 
   const url = config.host + config.register;
   const data = {
@@ -114,7 +114,7 @@ const register = async (mobile, password, repassword, code) => {
  * @returns
  */
 const login = async (mobile, password) => {
-  if (!mobile || !password) return qiaoJson.danger("need mobile and password");
+  if (!mobile || !password) return qiaoJson.danger('need mobile and password');
 
   const url = config.host + config.login;
   const data = {
@@ -131,12 +131,12 @@ const login = async (mobile, password) => {
  * @returns
  */
 const sendCode = async (mobile) => {
-  if (!mobile) return qiaoJson.danger("need mobile");
+  if (!mobile) return qiaoJson.danger('need mobile');
 
   const url = config.host + config.sendCode;
   const data = {
-    type: "reg",
-    sign: "坚时科技",
+    type: 'reg',
+    sign: '坚时科技',
     mobile: mobile,
   };
 
@@ -150,8 +150,8 @@ const sendCode = async (mobile) => {
  * @returns
  */
 const checkUser = async (userid, usertoken) => {
-  if (!userid) return qiaoJson.danger("need userid");
-  if (!usertoken) return qiaoJson.danger("need usertoken");
+  if (!userid) return qiaoJson.danger('need userid');
+  if (!usertoken) return qiaoJson.danger('need usertoken');
 
   const url = config.host + config.checkUser;
   const data = {
@@ -171,8 +171,8 @@ const checkUser = async (userid, usertoken) => {
 const ucenterMenuList = async (pagenumber, pagesize) => {
   const url = config.host + config.ucenterMenuList;
   const data = {
-    page: pagenumber || "1",
-    rows: pagesize || "10",
+    page: pagenumber || '1',
+    rows: pagesize || '10',
   };
 
   return await postWithToken(url, data);
@@ -214,7 +214,7 @@ const ucenterMenuDel = async (ids) => {
  * @returns
  */
 const ucenterMenuGet = async (id) => {
-  if (!id) return qiaoJson.danger("need id");
+  if (!id) return qiaoJson.danger('need id');
 
   const url = config.host + config.ucenterMenuGet;
   const data = { id: id };

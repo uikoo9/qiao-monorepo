@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * json
@@ -9,8 +9,8 @@
 const json = (type, msg, obj) => {
   var json = {
     success: true,
-    msg: "",
-    type: "",
+    msg: '',
+    type: '',
     obj: null,
   };
 
@@ -27,7 +27,7 @@ const json = (type, msg, obj) => {
  * 	obj
  */
 const success = (msg, obj) => {
-  return json("success", msg, obj);
+  return json('success', msg, obj);
 };
 
 /**
@@ -36,7 +36,7 @@ const success = (msg, obj) => {
  * 	obj
  */
 const info = (msg, obj) => {
-  return json("info", msg, obj);
+  return json('info', msg, obj);
 };
 
 /**
@@ -45,7 +45,7 @@ const info = (msg, obj) => {
  * 	obj
  */
 const warning = (msg, obj) => {
-  return json("warning", msg, obj);
+  return json('warning', msg, obj);
 };
 
 /**
@@ -54,7 +54,7 @@ const warning = (msg, obj) => {
  * 	obj
  */
 const danger = (msg, obj) => {
-  return json("danger", msg, obj);
+  return json('danger', msg, obj);
 };
 
 exports.danger = danger;

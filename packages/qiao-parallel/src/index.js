@@ -1,5 +1,5 @@
 // parallel
-import parallel from "./parallel.js";
+import parallel from './parallel.js';
 
 /**
  * parallel by IIFE

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var child_process = require("child_process");
+var child_process = require('child_process');
 
 /**
  * fork
@@ -11,15 +11,15 @@ var child_process = require("child_process");
  */
 exports.fork = function (jsPath, args, onMsg, onExit) {
   if (!jsPath) {
-    console.log("need fork js path");
+    console.log('need fork js path');
     return;
   }
 
   var cp = child_process.fork(jsPath, args || []);
-  cp.on("message", function (msg) {
+  cp.on('message', function (msg) {
     if (onMsg) onMsg(msg);
   });
-  cp.on("exit", function (code) {
+  cp.on('exit', function (code) {
     if (onExit) onExit(code);
   });
 
@@ -39,7 +39,7 @@ exports.send = function (msg) {
  *  on msg
  */
 exports.onMsg = function (onMsg) {
-  process.on("message", function (msg) {
+  process.on('message', function (msg) {
     if (onMsg) onMsg(msg);
   });
 };

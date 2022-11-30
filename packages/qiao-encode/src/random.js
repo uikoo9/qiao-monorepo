@@ -3,7 +3,7 @@
  * 	length
  */
 export const randomNumber = (length) => {
-  const seed = "0123456789";
+  const seed = '0123456789';
 
   return randomSeed(seed, length || 4);
 };
@@ -13,7 +13,7 @@ export const randomNumber = (length) => {
  * 	length
  */
 export const randomLetterLower = (length) => {
-  const seed = "abcdefghljklmnopqrstuvwxyz";
+  const seed = 'abcdefghljklmnopqrstuvwxyz';
 
   return randomSeed(seed, length || 4);
 };
@@ -23,7 +23,7 @@ export const randomLetterLower = (length) => {
  * 	length
  */
 export const randomLetterUpper = (length) => {
-  const seed = "ABCDEFGHLJKLMNOPQRSTUVWXYZ";
+  const seed = 'ABCDEFGHLJKLMNOPQRSTUVWXYZ';
 
   return randomSeed(seed, length || 4);
 };
@@ -33,7 +33,7 @@ export const randomLetterUpper = (length) => {
  * 	length
  */
 export const randomLetterAll = (length) => {
-  const seed = "abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ";
+  const seed = 'abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ';
 
   return randomSeed(seed, length || 4);
 };
@@ -43,7 +43,7 @@ export const randomLetterAll = (length) => {
  * 	length
  */
 export const randomLetterNumber = (length) => {
-  const seed = "abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ0123456789";
+  const seed = 'abcdefghljklmnopqrstuvwxyzABCDEFGHLJKLMNOPQRSTUVWXYZ0123456789';
 
   return randomSeed(seed, length || 4);
 };
@@ -58,7 +58,7 @@ export const randomSeed = (seed, len) => {
   const r = [];
   for (var i = 0; i < len; i++) r.push(randomBySeed(seed));
 
-  return r.join("");
+  return r.join('');
 };
 
 /**

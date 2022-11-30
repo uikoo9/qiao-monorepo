@@ -10,13 +10,13 @@
  */
 
 // qiao-console
-import { clear, writeLine } from "qiao-console";
+import { clear, writeLine } from 'qiao-console';
 
 // check dir
-import checkDir from "./util/check-dir.js";
+import checkDir from './util/check-dir.js';
 
 // handler
-import handleMultiNCU from "./util/handler-ncu.js";
+import handleMultiNCU from './util/handler-ncu.js';
 
 // line
 let line = 0;

@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // path
-const path = require("path");
+const path = require('path');
 
 // qiao-electron
-const { windowOpenByUrlAndFile } = require("qiao-electron");
+const { windowOpenByUrlAndFile } = require('qiao-electron');
 
 // const
-const { LOCAL_URL, WINDOW_INDEX_WIDTH, WINDOW_INDEX_HEIGHT, WINDOW_INDEX_COLOR } = require("../_util/constant.js");
+const { LOCAL_URL, WINDOW_INDEX_WIDTH, WINDOW_INDEX_HEIGHT, WINDOW_INDEX_COLOR } = require('../_util/constant.js');
 
 /**
  * open index window
@@ -15,9 +15,9 @@ const { LOCAL_URL, WINDOW_INDEX_WIDTH, WINDOW_INDEX_HEIGHT, WINDOW_INDEX_COLOR }
  */
 module.exports = () => {
   // urls
-  const preloadPath = path.resolve(__dirname, "./_preload.js");
+  const preloadPath = path.resolve(__dirname, './_preload.js');
   const indexUrl = `${LOCAL_URL}/index.html`;
-  const indexFilePath = path.resolve(__dirname, "../../renderer/index.html");
+  const indexFilePath = path.resolve(__dirname, '../../renderer/index.html');
 
   // options
   const options = {

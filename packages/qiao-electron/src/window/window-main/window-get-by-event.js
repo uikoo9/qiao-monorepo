@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // browser window
-import { BrowserWindow } from "electron";
+import { BrowserWindow } from 'electron';
 
 /**
  * windowGetByEvent

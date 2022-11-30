@@ -1,8 +1,8 @@
 // qiao-npms
-import { downloadCountsLastMonth } from "qiao-npms";
+import { downloadCountsLastMonth } from 'qiao-npms';
 
 // pkg
-import { getPkgInfo } from "./_pkg.js";
+import { getPkgInfo } from './_pkg.js';
 
 /**
  * handler
@@ -12,7 +12,7 @@ import { getPkgInfo } from "./_pkg.js";
 export const handler = async (folderName) => {
   // pkg
   const pkgInfo = getPkgInfo(folderName, true);
-  if (typeof pkgInfo == "string") return pkgInfo;
+  if (typeof pkgInfo == 'string') return pkgInfo;
 
   // download counts
   try {

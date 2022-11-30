@@ -1,31 +1,31 @@
-"use strict";
+'use strict';
 
 // app
-import { appIPCInit } from "./app/app-ipc.js";
+import { appIPCInit } from './app/app-ipc.js';
 
 // darkmode
-import { darkModeIPCInit } from "./darkmode/darkmode-ipc.js";
+import { darkModeIPCInit } from './darkmode/darkmode-ipc.js';
 
 // dialog
-import { dialogIPCInit } from "./dialog/dialog-ipc.js";
+import { dialogIPCInit } from './dialog/dialog-ipc.js';
 
 // fs
-import { fsIPCInit } from "./fs/fs-ipc.js";
+import { fsIPCInit } from './fs/fs-ipc.js';
 
 // log
-import { logIPCInit } from "./log/log-ipc.js";
+import { logIPCInit } from './log/log-ipc.js';
 
 // ls
-import { lsIPCInit } from "./ls/ls-ipc.js";
+import { lsIPCInit } from './ls/ls-ipc.js';
 
 // shell
-import { shellIPCInit } from "./shell/shell-ipc.js";
+import { shellIPCInit } from './shell/shell-ipc.js';
 
 // shortcut
-import { shortcutInit } from "./shortcut/shortcut-quit.js";
+import { shortcutInit } from './shortcut/shortcut-quit.js';
 
 // window
-import { windowIPCInit } from "./window/window-ipc.js";
+import { windowIPCInit } from './window/window-ipc.js';
 
 /**
  * ipcInit

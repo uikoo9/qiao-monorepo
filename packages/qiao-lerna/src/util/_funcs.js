@@ -1,5 +1,5 @@
 // qiao-console
-import { writeLine } from "qiao-console";
+import { writeLine } from 'qiao-console';
 
 // line
 let line;
@@ -26,6 +26,6 @@ export const callback = (index, res) => {
  * @param {*} l
  */
 export const complete = (l) => {
-  writeLine(line + l, "");
-  writeLine(line + l + 1, "qiao-lerna end");
+  writeLine(line + l, '');
+  writeLine(line + l + 1, 'qiao-lerna end');
 };

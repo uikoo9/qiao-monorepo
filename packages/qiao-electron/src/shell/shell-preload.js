@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcRenderer } from "electron";
+import { ipcRenderer } from 'electron';
 
 // const
-import { IPC_SHELL_OPEN_URL, IPC_SHELL_SHOW_PATH } from "./shell-constant.js";
+import { IPC_SHELL_OPEN_URL, IPC_SHELL_SHOW_PATH } from './shell-constant.js';
 
 /**
  * shellOpenUrlIPC

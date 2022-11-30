@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var o = require("offline-to-online");
+var o = require('offline-to-online');
 
 /**
  * isOnline
@@ -9,15 +9,15 @@ var o = require("offline-to-online");
  */
 const isOnline = (src) => {
   return new Promise(function (resolve, reject) {
-    if (!src) return reject(Error("need online img src"));
+    if (!src) return reject(Error('need online img src'));
 
     let img = new Image();
     img.src = `${src}?r=${Math.random()}`;
     img.onload = () => {
-      resolve("online");
+      resolve('online');
     };
     img.onerror = () => {
-      resolve("offline");
+      resolve('offline');
     };
   });
 };

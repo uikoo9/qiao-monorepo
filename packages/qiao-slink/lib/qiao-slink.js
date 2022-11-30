@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 // qs
-var qs = require("qs");
+var qs = require('qs');
 
 // qiao-ajax
-var q = require("qiao-ajax");
+var q = require('qiao-ajax');
 
 // vars
-var turl = "https://tiyee.cn/2/create_short_url";
-var noUrl = new Error("no url");
-var resErr = new Error("res error");
+var turl = 'https://tiyee.cn/2/create_short_url';
+var noUrl = new Error('no url');
+var resErr = new Error('res error');
 
 /**
  * short link
@@ -25,7 +25,7 @@ exports.shortLink = function (longLink) {
 
     // config
     var config = {
-      headers: { "content-type": "application/x-www-form-urlencoded" },
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
       data: qs.stringify(data),
     };
 

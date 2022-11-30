@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 // set value, get value
-test("set value, get value", function () {
-  var name = "cache.group";
-  var key = "team-123";
+test('set value, get value', function () {
+  var name = 'cache.group';
+  var key = 'team-123';
   var value = false;
 
   q.cache(name, key, value);
@@ -14,9 +14,9 @@ test("set value, get value", function () {
 });
 
 // del value
-test("del value", function () {
-  var name = "cache.group";
-  var key = "team-123";
+test('del value', function () {
+  var name = 'cache.group';
+  var key = 'team-123';
   var value = false;
 
   expect(q.cache(name, key)).toStrictEqual(value);

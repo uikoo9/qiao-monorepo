@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcRenderer } from "electron";
+import { ipcRenderer } from 'electron';
 
 // const
-import { IPC_LS_ALL, IPC_LS_GET, IPC_LS_SET, IPC_LS_DEL } from "./ls-constant.js";
+import { IPC_LS_ALL, IPC_LS_GET, IPC_LS_SET, IPC_LS_DEL } from './ls-constant.js';
 
 /**
  * lsAllIPC

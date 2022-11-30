@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 // vars
-var values = require("./_values.js");
-var handler = require("./_handler.js");
-var callback = require("./_callback.js");
-var complete = require("./_complete.js");
+var values = require('./_values.js');
+var handler = require('./_handler.js');
+var callback = require('./_callback.js');
+var complete = require('./_complete.js');
 
 // parallel
-var parallel = require("../index.js");
+var parallel = require('../index.js');
 
 // test
 (function () {

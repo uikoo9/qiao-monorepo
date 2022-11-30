@@ -12,7 +12,7 @@ let intervalId = null;
 export const offlineToOnlineWithSrc = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
   // check
   if (!isOnlineImgSrc) {
-    console.log("need is online img src");
+    console.log('need is online img src');
     return;
   }
 
@@ -29,11 +29,11 @@ export const offlineToOnlineWithSrc = (isOnlineImgSrc, isOnlineFunction, calllba
 export const offlineToOnline = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
   // check
   if (!isOnlineFunction) {
-    console.log("need is online function");
+    console.log('need is online function');
     return;
   }
   if (!calllback) {
-    console.log("need offline to online callback");
+    console.log('need offline to online callback');
     return;
   }
 
@@ -58,14 +58,14 @@ const isNetworkChanged = async (isOnlineImgSrc, isOnlineFunction) => {
   const online = await isOnlineFunction(isOnlineImgSrc);
 
   // offline
-  if (online == "offline") {
+  if (online == 'offline') {
     if (offlineOne) offlineTwo = true;
 
     offlineOne = true;
   }
 
   // offline to online
-  if (offlineOne && offlineTwo && online == "online") {
+  if (offlineOne && offlineTwo && online == 'online') {
     offlineOne = false;
     offlineTwo = false;
 
@@ -73,7 +73,7 @@ const isNetworkChanged = async (isOnlineImgSrc, isOnlineFunction) => {
   }
 
   // online
-  if (online == "online") {
+  if (online == 'online') {
     offlineOne = false;
     offlineTwo = false;
   }

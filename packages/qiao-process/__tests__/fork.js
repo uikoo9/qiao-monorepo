@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // q
-var q = require("../index.js");
+var q = require('../index.js');
 
 var test = function () {
-  var jsPath = path.resolve(__dirname, "./cp.js");
-  var args = ["haha"];
+  var jsPath = path.resolve(__dirname, './cp.js');
+  var args = ['haha'];
 
   var cp = q.fork(
     jsPath,
@@ -21,7 +21,7 @@ var test = function () {
     },
   );
 
-  cp.send("hello child process");
+  cp.send('hello child process');
 
   // kill cp
   setTimeout(function () {

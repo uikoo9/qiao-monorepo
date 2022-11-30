@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 var test = async function () {
   try {
-    var url = "http://icanhazip.com/";
+    var url = 'http://icanhazip.com/';
     var res = await q.get(url);
     console.log(res);
   } catch (e) {

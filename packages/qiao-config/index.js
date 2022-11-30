@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var path = require("path");
-var fs = require("fs");
+var path = require('path');
+var fs = require('fs');
 
 // fs
 
@@ -22,9 +22,9 @@ const writeFile = (filePath, data) => {
 const readFile = (filePath) => {
   try {
     // not exists write file
-    if (!isExists(filePath)) writeFile(filePath, "");
+    if (!isExists(filePath)) writeFile(filePath, '');
 
-    return fs.readFileSync(filePath, { encoding: "utf8" });
+    return fs.readFileSync(filePath, { encoding: 'utf8' });
   } catch (e) {
     return null;
   }
@@ -51,13 +51,13 @@ function isExists(filePath) {
 const clear = (filePath) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:clear, need path");
+    console.log('qiao-config:clear, need path');
     return;
   }
 
   // io
   try {
-    writeFile(filePath, "");
+    writeFile(filePath, '');
   } catch (e) {
     console.log(`qiao-config:clear, write file error ${e.message}`);
   }
@@ -71,7 +71,7 @@ const clear = (filePath) => {
 const all = (filePath) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:all, need path");
+    console.log('qiao-config:all, need path');
     return;
   }
 
@@ -96,11 +96,11 @@ const all = (filePath) => {
 const get = (filePath, key) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:get, need path");
+    console.log('qiao-config:get, need path');
     return;
   }
-  if (typeof key == "undefined") {
-    console.log("qiao-config:get, need key");
+  if (typeof key == 'undefined') {
+    console.log('qiao-config:get, need key');
     return;
   }
 
@@ -119,11 +119,11 @@ const get = (filePath, key) => {
 const set = (filePath, key, value) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:set, need path");
+    console.log('qiao-config:set, need path');
     return;
   }
-  if (typeof key == "undefined") {
-    console.log("qiao-config:set, need key");
+  if (typeof key == 'undefined') {
+    console.log('qiao-config:set, need key');
     return;
   }
 
@@ -148,11 +148,11 @@ const set = (filePath, key, value) => {
 const del = (filePath, key) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:del, need path");
+    console.log('qiao-config:del, need path');
     return;
   }
-  if (typeof key == "undefined") {
-    console.log("qiao-config:del, need key");
+  if (typeof key == 'undefined') {
+    console.log('qiao-config:del, need key');
     return;
   }
 
@@ -220,7 +220,7 @@ function configDB(filePath, key, value) {
   }
 
   // get
-  if (typeof value == "undefined") {
+  if (typeof value == 'undefined') {
     return get(filePath, key);
   }
 
@@ -235,7 +235,7 @@ function configDB(filePath, key, value) {
  */
 var index = (filePath) => {
   // path
-  const defaultPath = path.resolve(__dirname, "./config.json");
+  const defaultPath = path.resolve(__dirname, './config.json');
   const finalPath = !filePath ? defaultPath : path.resolve(process.cwd(), filePath);
 
   // db

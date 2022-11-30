@@ -18,7 +18,7 @@ export const gridInit = async (listFunc, data, pagenumber, cols) => {
   const resRows = res.obj.rows;
   const rows = resRows.map((row) => {
     // ck
-    const defaultRow = cols.includes("ck") ? { ck: true } : {};
+    const defaultRow = cols.includes('ck') ? { ck: true } : {};
     const finalRow = Object.assign(defaultRow, row);
 
     // other
@@ -30,7 +30,7 @@ export const gridInit = async (listFunc, data, pagenumber, cols) => {
     });
 
     // op
-    if (cols.includes("op")) {
+    if (cols.includes('op')) {
       finalRow.op = true;
     }
 

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 // vars
-var datefile = require("./appender-datefile.js");
-var stdout = require("./appender-stdout.js");
+var datefile = require('./appender-datefile.js');
+var stdout = require('./appender-stdout.js');
 
 /**
  * log config
@@ -18,8 +18,8 @@ module.exports = function (filename, pattern) {
     },
     categories: {
       default: {
-        level: "debug",
-        appenders: ["stdoutLog"],
+        level: 'debug',
+        appenders: ['stdoutLog'],
       },
     },
   };
@@ -32,8 +32,8 @@ module.exports = function (filename, pattern) {
       },
       categories: {
         default: {
-          level: "info",
-          appenders: ["datefileLog"],
+          level: 'info',
+          appenders: ['datefileLog'],
         },
       },
     };

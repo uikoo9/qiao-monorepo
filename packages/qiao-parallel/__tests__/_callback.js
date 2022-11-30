@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 /**
  * callback

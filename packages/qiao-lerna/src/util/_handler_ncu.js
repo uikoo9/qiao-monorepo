@@ -1,8 +1,8 @@
 // ncu
-import { run } from "npm-check-updates";
+import { run } from 'npm-check-updates';
 
 // pkg
-import { getPkgInfo } from "./_pkg.js";
+import { getPkgInfo } from './_pkg.js';
 
 /**
  * handler
@@ -12,7 +12,7 @@ import { getPkgInfo } from "./_pkg.js";
 export const handler = async (folderName) => {
   // pkg
   const pkgInfo = getPkgInfo(folderName);
-  if (typeof pkgInfo == "string") return pkgInfo;
+  if (typeof pkgInfo == 'string') return pkgInfo;
 
   // ncu
   const upgraded = await run({

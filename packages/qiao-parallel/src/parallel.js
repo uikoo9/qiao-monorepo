@@ -1,5 +1,5 @@
 // q
-import q from "qiao-process";
+import q from 'qiao-process';
 
 // count
 let count = 0;
@@ -15,12 +15,12 @@ let count = 0;
  */
 export default async function (func, values, callback, complete, jsPath) {
   // time
-  console.time("qiao-parallel");
+  console.time('qiao-parallel');
 
   // check values
   if (!values || !values.length) {
     if (complete) complete(0);
-    console.timeEnd("qiao-parallel");
+    console.timeEnd('qiao-parallel');
 
     return;
   }
@@ -69,6 +69,6 @@ function onComplete(complete, valuesLength) {
   count++;
   if (count == valuesLength) {
     if (complete) complete(valuesLength);
-    console.timeEnd("qiao-parallel");
+    console.timeEnd('qiao-parallel');
   }
 }

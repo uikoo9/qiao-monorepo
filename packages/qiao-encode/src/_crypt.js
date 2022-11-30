@@ -1,9 +1,9 @@
 // crypto
-import crypto from "crypto";
+import crypto from 'crypto';
 
 // crypt
 export const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding) => {
-  if (type == "en") {
+  if (type == 'en') {
     // encrypt
     // cipher
     const cipher = crypto.createCipheriv(method, key, iv);
@@ -14,7 +14,7 @@ export const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding
     chunks.push(cipher.update(data, clearEncoding, cipherEncoding));
     chunks.push(cipher.final(cipherEncoding));
 
-    return chunks.join("");
+    return chunks.join('');
   } else {
     // decrypt
     // decipher
@@ -26,6 +26,6 @@ export const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding
     chunks.push(decipher.update(data, cipherEncoding, clearEncoding));
     chunks.push(decipher.final(clearEncoding));
 
-    return chunks.join("");
+    return chunks.join('');
   }
 };

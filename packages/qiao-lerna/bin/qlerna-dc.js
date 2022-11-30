@@ -1,6 +1,6 @@
 // qiao
-const cli = require("qiao-cli");
-const lerna = require("../index.js");
+const cli = require('qiao-cli');
+const lerna = require('../index.js');
 
 /**
  * dc
@@ -10,4 +10,4 @@ const dc = (destPath) => {
 };
 
 // cmd for dc
-cli.cmd.command("dc <destPath>").description("download counts in path").action(dc);
+cli.cmd.command('dc <destPath>').description('download counts in path').action(dc);

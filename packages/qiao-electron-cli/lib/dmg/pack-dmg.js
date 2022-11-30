@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // appdmg
-var appDMG = require("./appdmg.js");
+var appDMG = require('./appdmg.js');
 
 // checker
-var checker = require("../_check.js");
+var checker = require('../_check.js');
 
 // util
-var util = require("../_util.js");
+var util = require('../_util.js');
 
 /**
  * pack dmg

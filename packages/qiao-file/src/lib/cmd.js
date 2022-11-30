@@ -1,8 +1,8 @@
 // fs
-import fs from "fs";
+import fs from 'fs';
 
 // util
-import { getFoldersAndFiles } from "./util.js";
+import { getFoldersAndFiles } from './util.js';
 
 /**
  * cp

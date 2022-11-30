@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * open db
@@ -109,7 +109,7 @@ function createNewTable(db, table) {
 
   // key
   const key = {};
-  if (table.key == "auto") {
+  if (table.key == 'auto') {
     key.autoIncrement = true;
   } else {
     key.keyPath = table.key;
@@ -199,7 +199,7 @@ const save = (db, tableName, key, data) => {
  */
 const del = (db, tableName, key) => {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction([tableName], "readwrite");
+    const tx = db.transaction([tableName], 'readwrite');
     const request = tx.objectStore(tableName).delete(key);
 
     request.onerror = (event) => {
@@ -219,7 +219,7 @@ const del = (db, tableName, key) => {
  */
 const clear = (db, tableName) => {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction([tableName], "readwrite");
+    const tx = db.transaction([tableName], 'readwrite');
     const request = tx.objectStore(tableName).clear();
 
     request.onerror = (event) => {
@@ -240,7 +240,7 @@ function getData(db, tableName, key, cb) {
   }
 
   // get
-  const tx = db.transaction([tableName], "readonly");
+  const tx = db.transaction([tableName], 'readonly');
   const request = tx.objectStore(tableName).get(key);
   request.onerror = () => {
     if (cb) cb(null);
@@ -252,7 +252,7 @@ function getData(db, tableName, key, cb) {
 
 // add data
 function addData(db, tableName, data, cb) {
-  const tx = db.transaction([tableName], "readwrite");
+  const tx = db.transaction([tableName], 'readwrite');
   const request = tx.objectStore(tableName).add(data);
 
   request.onerror = () => {
@@ -265,7 +265,7 @@ function addData(db, tableName, data, cb) {
 
 // put data
 function putData(db, tableName, data, cb) {
-  const tx = db.transaction([tableName], "readwrite");
+  const tx = db.transaction([tableName], 'readwrite');
   const request = tx.objectStore(tableName).put(data);
 
   request.onerror = () => {
@@ -285,7 +285,7 @@ function putData(db, tableName, data, cb) {
  */
 const getAll = (db, tableName, indexName) => {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction([tableName], "readonly");
+    const tx = db.transaction([tableName], 'readonly');
     const os = tx.objectStore(tableName);
     const index = os.index(indexName);
     const request = index.getAll();

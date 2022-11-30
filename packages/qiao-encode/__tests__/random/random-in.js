@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var q = require("../../index.js");
+var q = require('../../index.js');
 
 var min = 0;
 var max = 9;

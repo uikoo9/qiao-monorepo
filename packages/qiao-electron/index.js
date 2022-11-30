@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-var electron = require("electron");
-var qiaoFile = require("qiao-file");
-var path = require("path");
-var qiaoLog = require("qiao-log");
-var q = require("qiao-config");
+var electron = require('electron');
+var qiaoFile = require('qiao-file');
+var path = require('path');
+var qiaoLog = require('qiao-log');
+var q = require('qiao-config');
 
 /**
  * app constant
  */
-const IPC_APP_GET_VERSION = "ipc-app-get-version";
+const IPC_APP_GET_VERSION = 'ipc-app-get-version';
 
 /**
  * appIPCInit
@@ -24,15 +24,15 @@ const appIPCInit = (version) => {
 /**
  * darkmode constant
  */
-const IPC_DARKMODE_CHANGE = "ipc-darkmode-change";
-const IPC_DARKMODE_GET = "ipc-darkmode-get";
+const IPC_DARKMODE_CHANGE = 'ipc-darkmode-change';
+const IPC_DARKMODE_GET = 'ipc-darkmode-get';
 
 /**
  * darkModeIPCInit
  */
 const darkModeIPCInit = () => {
   // native theme updated
-  electron.nativeTheme.on("updated", () => {
+  electron.nativeTheme.on('updated', () => {
     const wins = electron.BrowserWindow.getAllWindows();
     for (let win of wins) {
       win.webContents.send(IPC_DARKMODE_CHANGE, electron.nativeTheme.shouldUseDarkColors);
@@ -48,9 +48,9 @@ const darkModeIPCInit = () => {
 /**
  * dialog constant
  */
-const IPC_DIALOG_OPEN_FILE = "ipc-dialog-open-file";
-const IPC_DIALOG_OPEN_FOLDER = "ipc-dialog-open-folder";
-const IPC_DIALOG_OPEN_FILE_FOLDER = "ipc-dialog-open-file-folder";
+const IPC_DIALOG_OPEN_FILE = 'ipc-dialog-open-file';
+const IPC_DIALOG_OPEN_FOLDER = 'ipc-dialog-open-folder';
+const IPC_DIALOG_OPEN_FILE_FOLDER = 'ipc-dialog-open-file-folder';
 
 /**
  * dialogOpenFile
@@ -59,7 +59,7 @@ const IPC_DIALOG_OPEN_FILE_FOLDER = "ipc-dialog-open-file-folder";
  * @returns
  */
 const dialogOpenFile = async (options) => {
-  return await openDialog(options, ["openFile"]);
+  return await openDialog(options, ['openFile']);
 };
 
 /**
@@ -69,7 +69,7 @@ const dialogOpenFile = async (options) => {
  * @returns
  */
 const dialogOpenFolder = async (options) => {
-  return await openDialog(options, ["openDirectory"]);
+  return await openDialog(options, ['openDirectory']);
 };
 
 /**
@@ -79,7 +79,7 @@ const dialogOpenFolder = async (options) => {
  * @returns
  */
 const dialogOpenFileAndFolder = async (options) => {
-  return await openDialog(options, ["openFile", "openDirectory"]);
+  return await openDialog(options, ['openFile', 'openDirectory']);
 };
 
 // openDialog
@@ -97,7 +97,7 @@ async function openDialog(options, defaultProps) {
   if (opt.files) {
     opt.filters = [
       {
-        name: "files",
+        name: 'files',
         extensions: opt.files,
       },
     ];
@@ -131,12 +131,12 @@ const dialogIPCInit = () => {
 /**
  * fs constant
  */
-const IPC_FS_RM = "ipc-fs-rm";
-const IPC_FS_MKDIR = "ipc-fs-mkdir";
-const IPC_FS_RENAME = "ipc-fs-rename";
-const IPC_FS_GET_TREE = "ipc-fs-get-tree";
-const IPC_FS_READ_FILE = "ipc-fs-read-file";
-const IPC_FS_WRITE_FILE = "ipc-fs-write-file";
+const IPC_FS_RM = 'ipc-fs-rm';
+const IPC_FS_MKDIR = 'ipc-fs-mkdir';
+const IPC_FS_RENAME = 'ipc-fs-rename';
+const IPC_FS_GET_TREE = 'ipc-fs-get-tree';
+const IPC_FS_READ_FILE = 'ipc-fs-read-file';
+const IPC_FS_WRITE_FILE = 'ipc-fs-write-file';
 
 /**
  * fsIPCInit
@@ -190,8 +190,8 @@ const fsIPCInit = () => {
  * @returns
  */
 const logInit = () => {
-  const logsPath = electron.app.getPath("logs");
-  const logPath = path.resolve(logsPath, "./electron.log");
+  const logsPath = electron.app.getPath('logs');
+  const logPath = path.resolve(logsPath, './electron.log');
 
   return qiaoLog.getLogger(logPath);
 };
@@ -199,7 +199,7 @@ const logInit = () => {
 /**
  * log constant
  */
-const IPC_LOG = "ipc-log";
+const IPC_LOG = 'ipc-log';
 
 /**
  * logIPCInit
@@ -214,10 +214,10 @@ const logIPCInit = () => {
     if (!arg || !arg.msg) return;
 
     // log
-    let type = arg.type || "info";
-    if (type == "info") Logger.info(arg.msg);
-    if (type == "warn") Logger.warn(arg.msg);
-    if (type == "error") Logger.error(arg.msg);
+    let type = arg.type || 'info';
+    if (type == 'info') Logger.info(arg.msg);
+    if (type == 'warn') Logger.warn(arg.msg);
+    if (type == 'error') Logger.error(arg.msg);
   });
 };
 
@@ -226,8 +226,8 @@ const logIPCInit = () => {
  * @returns
  */
 const ls = () => {
-  const userDataPath = electron.app.getPath("userData");
-  const configPath = path.resolve(userDataPath, "./electron.config");
+  const userDataPath = electron.app.getPath('userData');
+  const configPath = path.resolve(userDataPath, './electron.config');
   const config = q(configPath);
 
   return config;
@@ -236,10 +236,10 @@ const ls = () => {
 /**
  * ls constant
  */
-const IPC_LS_ALL = "ipc-ls-all";
-const IPC_LS_GET = "ipc-ls-get";
-const IPC_LS_SET = "ipc-ls-set";
-const IPC_LS_DEL = "ipc-ls-del";
+const IPC_LS_ALL = 'ipc-ls-all';
+const IPC_LS_GET = 'ipc-ls-get';
+const IPC_LS_SET = 'ipc-ls-set';
+const IPC_LS_DEL = 'ipc-ls-del';
 
 /**
  * lsIPCInit
@@ -282,8 +282,8 @@ const lsIPCInit = () => {
 /**
  * shell constant
  */
-const IPC_SHELL_OPEN_URL = "ipc-shell-open-url";
-const IPC_SHELL_SHOW_PATH = "ipc-shell-show-path";
+const IPC_SHELL_OPEN_URL = 'ipc-shell-open-url';
+const IPC_SHELL_SHOW_PATH = 'ipc-shell-show-path';
 
 /**
  * shellOpenURL
@@ -332,7 +332,7 @@ const shellIPCInit = () => {
  * shortcutInit
  */
 const shortcutInit = () => {
-  electron.app.on("will-quit", () => {
+  electron.app.on('will-quit', () => {
     electron.globalShortcut.unregisterAll();
   });
 };
@@ -340,7 +340,7 @@ const shortcutInit = () => {
 /**
  * window constant
  */
-const IPC_WINDOW_RESIZE_TO = "ipc-window-resize-to";
+const IPC_WINDOW_RESIZE_TO = 'ipc-window-resize-to';
 
 /**
  * windowIPCInit
@@ -507,7 +507,7 @@ const shellShowPathIPC = (path) => {
 /**
  * shortcut constant
  */
-const IPC_SHORTCUT_GLOBAL = "ipc-shortcut-global";
+const IPC_SHORTCUT_GLOBAL = 'ipc-shortcut-global';
 
 /**
  * shortcutGlobalIPC
@@ -562,7 +562,7 @@ const getPreloads = (customPreloads) => {
  * @param {*} version
  */
 const setAboutVersion = (version) => {
-  let v = version || "0.0.1";
+  let v = version || '0.0.1';
   electron.app.setAboutPanelOptions({
     applicationVersion: v,
     version: v,
@@ -576,91 +576,91 @@ const setAboutVersion = (version) => {
 const setApplicationMenu = (menus) => {
   const defaultMenus = [
     {
-      label: "app",
+      label: 'app',
       submenu: [
         {
-          label: "关于",
-          role: "about",
+          label: '关于',
+          role: 'about',
         },
         {
-          type: "separator",
+          type: 'separator',
         },
         {
-          label: "隐藏",
-          role: "hide",
+          label: '隐藏',
+          role: 'hide',
         },
         {
-          label: "隐藏其他",
-          role: "hideOthers",
+          label: '隐藏其他',
+          role: 'hideOthers',
         },
         {
-          type: "separator",
+          type: 'separator',
         },
         {
-          label: "退出",
-          role: "quit",
+          label: '退出',
+          role: 'quit',
         },
       ],
     },
     {
-      label: "编辑",
+      label: '编辑',
       submenu: [
         {
-          label: "撤销",
-          role: "undo",
+          label: '撤销',
+          role: 'undo',
         },
         {
-          label: "重做",
-          role: "redo",
+          label: '重做',
+          role: 'redo',
         },
         {
-          type: "separator",
+          type: 'separator',
         },
         {
-          label: "剪切",
-          role: "cut",
+          label: '剪切',
+          role: 'cut',
         },
         {
-          label: "复制",
-          role: "copy",
+          label: '复制',
+          role: 'copy',
         },
         {
-          label: "粘贴",
-          role: "paste",
+          label: '粘贴',
+          role: 'paste',
         },
         {
-          label: "删除",
-          role: "delete",
+          label: '删除',
+          role: 'delete',
         },
         {
-          label: "选中所有",
-          role: "selectAll",
+          label: '选中所有',
+          role: 'selectAll',
         },
       ],
     },
     {
-      label: "窗口",
+      label: '窗口',
       submenu: [
         {
-          label: "最小化",
-          role: "minimize",
+          label: '最小化',
+          role: 'minimize',
         },
         {
-          label: "关闭",
-          role: "close",
+          label: '关闭',
+          role: 'close',
         },
         {
-          label: "自动全屏",
-          role: "togglefullscreen",
+          label: '自动全屏',
+          role: 'togglefullscreen',
         },
       ],
     },
     {
-      label: "调试",
+      label: '调试',
       submenu: [
         {
-          label: "调试",
-          role: "toggleDevTools",
+          label: '调试',
+          role: 'toggleDevTools',
         },
       ],
     },
@@ -734,7 +734,7 @@ const getWindowOptions = (options, supportNode, isDev) => {
  */
 function windowOpenByFile(filePath, options, supportNode) {
   // check
-  if (!filePath) throw new Error("need filePath params");
+  if (!filePath) throw new Error('need filePath params');
 
   // opt
   const opt = getWindowOptions(options, supportNode);
@@ -744,7 +744,7 @@ function windowOpenByFile(filePath, options, supportNode) {
 
   // show false
   if (opt.show === false) {
-    win.once("ready-to-show", function () {
+    win.once('ready-to-show', function () {
       win.show();
     });
   }
@@ -765,7 +765,7 @@ function windowOpenByFile(filePath, options, supportNode) {
  */
 function windowOpenByUrl(url, options, supportNode, isDev) {
   // check
-  if (!url) throw new Error("need url params");
+  if (!url) throw new Error('need url params');
 
   // opt
   const opt = getWindowOptions(options, supportNode, isDev);
@@ -794,7 +794,7 @@ function windowOpenByUrlAndFile(urlPath, filePath, options) {
 
   // dev
   const env = process.argv && process.argv.length > 2 ? process.argv[2] : null;
-  if (env == "dev") return windowOpenByUrl(urlPath, opt, false, true);
+  if (env == 'dev') return windowOpenByUrl(urlPath, opt, false, true);
 
   // file
   opt.show = false;

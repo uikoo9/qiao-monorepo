@@ -1,5 +1,5 @@
 // data
-import { get, set, del, clear, all } from "./_data.js";
+import { get, set, del, clear, all } from './_data.js';
 
 /**
  * db
@@ -47,7 +47,7 @@ function configDB(filePath, key, value) {
   }
 
   // get
-  if (typeof value == "undefined") {
+  if (typeof value == 'undefined') {
     return get(filePath, key);
   }
 

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 // uuid v4
 console.log(q.uuid());

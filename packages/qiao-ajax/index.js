@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var axios = require("axios");
+var axios = require('axios');
 
 /**
  * axios
@@ -14,7 +14,7 @@ var axios = require("axios");
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const get = (url, config) => {
-  return req(url, "get", config);
+  return req(url, 'get', config);
 };
 
 /**
@@ -24,7 +24,7 @@ const get = (url, config) => {
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const post = (url, config) => {
-  return req(url, "post", config);
+  return req(url, 'post', config);
 };
 
 /**
@@ -34,7 +34,7 @@ const post = (url, config) => {
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const put = (url, config) => {
-  return req(url, "put", config);
+  return req(url, 'put', config);
 };
 
 /**
@@ -44,7 +44,7 @@ const put = (url, config) => {
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const patch = (url, config) => {
-  return req(url, "patch", config);
+  return req(url, 'patch', config);
 };
 
 /**
@@ -54,7 +54,7 @@ const patch = (url, config) => {
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const deleteReq = (url, config) => {
-  return req(url, "delete", config);
+  return req(url, 'delete', config);
 };
 
 /**
@@ -64,7 +64,7 @@ const deleteReq = (url, config) => {
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const head = (url, config) => {
-  return req(url, "head", config);
+  return req(url, 'head', config);
 };
 
 /**
@@ -74,7 +74,7 @@ const head = (url, config) => {
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
 const options = (url, config) => {
-  return req(url, "options", config);
+  return req(url, 'options', config);
 };
 
 /**

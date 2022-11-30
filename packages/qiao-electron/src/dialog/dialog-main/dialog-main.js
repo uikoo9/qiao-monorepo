@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // dialog open
-export * from "./dialog-open.js";
+export * from './dialog-open.js';

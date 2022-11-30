@@ -1,8 +1,8 @@
 // offline to online
-import o from "offline-to-online";
+import o from 'offline-to-online';
 
 // is online
-import { isOnline } from "./is-online.js";
+import { isOnline } from './is-online.js';
 
 /**
  * offlineToOnline

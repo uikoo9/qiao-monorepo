@@ -1,15 +1,15 @@
 // qiao-ajax
-import q from "qiao-ajax";
+import q from 'qiao-ajax';
 
 // ip-regex
-import i from "ip-regex";
+import i from 'ip-regex';
 
 // urls
-const sohuUrl = "http://txt.go.sohu.com/ip/soip";
-const sohuErr = new Error("get ip by sohu failed");
+const sohuUrl = 'http://txt.go.sohu.com/ip/soip';
+const sohuErr = new Error('get ip by sohu failed');
 
 // not ip
-const notIpErr = new Error("not ip");
+const notIpErr = new Error('not ip');
 
 /**
  * getIpBySohu

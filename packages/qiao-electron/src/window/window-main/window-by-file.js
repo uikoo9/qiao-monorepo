@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // browser window
-import { BrowserWindow } from "electron";
+import { BrowserWindow } from 'electron';
 
 // get options
-import { getWindowOptions } from "./window-options.js";
+import { getWindowOptions } from './window-options.js';
 
 /**
  * windowOpenByFile
@@ -14,7 +14,7 @@ import { getWindowOptions } from "./window-options.js";
  */
 export function windowOpenByFile(filePath, options, supportNode) {
   // check
-  if (!filePath) throw new Error("need filePath params");
+  if (!filePath) throw new Error('need filePath params');
 
   // opt
   const opt = getWindowOptions(options, supportNode);
@@ -24,7 +24,7 @@ export function windowOpenByFile(filePath, options, supportNode) {
 
   // show false
   if (opt.show === false) {
-    win.once("ready-to-show", function () {
+    win.once('ready-to-show', function () {
       win.show();
     });
   }

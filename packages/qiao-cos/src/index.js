@@ -1,9 +1,9 @@
 // cos
-import COS from "cos-nodejs-sdk-v5";
+import COS from 'cos-nodejs-sdk-v5';
 
 // upload
-import { uploadFile, uploadFileSync } from "./upload-file.js";
-import { uploadFolder, uploadFolderSync } from "./upload-folder.js";
+import { uploadFile, uploadFileSync } from './upload-file.js';
+import { uploadFolder, uploadFolderSync } from './upload-folder.js';
 
 /**
  * init app
@@ -12,11 +12,11 @@ import { uploadFolder, uploadFolderSync } from "./upload-folder.js";
  */
 const init = (config) => {
   // check
-  if (!config) throw new Error("need config params");
-  if (!config.SecretId) throw new Error("need config.SecretId params");
-  if (!config.SecretKey) throw new Error("need config.SecretKey params");
-  if (!config.Region) throw new Error("need config.Region params");
-  if (!config.Bucket) throw new Error("need config.Bucket params");
+  if (!config) throw new Error('need config params');
+  if (!config.SecretId) throw new Error('need config.SecretId params');
+  if (!config.SecretKey) throw new Error('need config.SecretKey params');
+  if (!config.Region) throw new Error('need config.Region params');
+  if (!config.Bucket) throw new Error('need config.Bucket params');
 
   // app
   const app = {};

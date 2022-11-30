@@ -1,1 +1,1 @@
-module.exports = require("./lib/qiao-oss.js");
+module.exports = require('./lib/qiao-oss.js');

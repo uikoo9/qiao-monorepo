@@ -1,5 +1,5 @@
 // fs
-import { path, isExists } from "qiao-file";
+import { path, isExists } from 'qiao-file';
 
 /**
  * get pkg info
@@ -9,7 +9,7 @@ import { path, isExists } from "qiao-file";
  */
 export const getPkgInfo = (dir, checkPrivate) => {
   // package file
-  const packageFile = path.resolve(dir, "package.json");
+  const packageFile = path.resolve(dir, 'package.json');
   if (!isExists(packageFile)) return `${dir} : package.json not exists`;
 
   // package json

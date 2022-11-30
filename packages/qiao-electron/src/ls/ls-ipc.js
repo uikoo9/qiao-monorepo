@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcMain } from "electron";
+import { ipcMain } from 'electron';
 
 // ls
-import { ls } from "./_ls.js";
+import { ls } from './_ls.js';
 
 // const
-import { IPC_LS_ALL, IPC_LS_GET, IPC_LS_SET, IPC_LS_DEL } from "./ls-constant.js";
+import { IPC_LS_ALL, IPC_LS_GET, IPC_LS_SET, IPC_LS_DEL } from './ls-constant.js';
 
 /**
  * lsIPCInit

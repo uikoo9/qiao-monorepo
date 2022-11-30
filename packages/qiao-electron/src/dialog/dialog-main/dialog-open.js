@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // electron
-import { dialog } from "electron";
+import { dialog } from 'electron';
 
 /**
  * dialogOpenFile
@@ -10,7 +10,7 @@ import { dialog } from "electron";
  * @returns
  */
 export const dialogOpenFile = async (options) => {
-  return await openDialog(options, ["openFile"]);
+  return await openDialog(options, ['openFile']);
 };
 
 /**
@@ -20,7 +20,7 @@ export const dialogOpenFile = async (options) => {
  * @returns
  */
 export const dialogOpenFolder = async (options) => {
-  return await openDialog(options, ["openDirectory"]);
+  return await openDialog(options, ['openDirectory']);
 };
 
 /**
@@ -30,7 +30,7 @@ export const dialogOpenFolder = async (options) => {
  * @returns
  */
 export const dialogOpenFileAndFolder = async (options) => {
-  return await openDialog(options, ["openFile", "openDirectory"]);
+  return await openDialog(options, ['openFile', 'openDirectory']);
 };
 
 // openDialog
@@ -48,7 +48,7 @@ async function openDialog(options, defaultProps) {
   if (opt.files) {
     opt.filters = [
       {
-        name: "files",
+        name: 'files',
         extensions: opt.files,
       },
     ];

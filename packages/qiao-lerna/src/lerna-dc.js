@@ -1,11 +1,11 @@
 // qiao-console
-import { clear, writeLine } from "qiao-console";
+import { clear, writeLine } from 'qiao-console';
 
 // check dir
-import checkDir from "./util/check-dir.js";
+import checkDir from './util/check-dir.js';
 
 // handler
-import handleDownloadCounts from "./util/handler-dc.js";
+import handleDownloadCounts from './util/handler-dc.js';
 
 // line
 let line = 0;

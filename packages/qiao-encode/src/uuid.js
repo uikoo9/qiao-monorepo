@@ -1,5 +1,5 @@
 // uuid
-import { v1 as uuidv1, v3 as uuidv3, v4 as uuidv4, v5 as uuidv5 } from "uuid";
+import { v1 as uuidv1, v3 as uuidv3, v4 as uuidv4, v5 as uuidv5 } from 'uuid';
 
 /**
  * uuid
@@ -16,7 +16,7 @@ export const uuid = (type) => {
 
   // 3
   if (type == 3) {
-    return uuidv3("insistime.com", uuidv3.DNS);
+    return uuidv3('insistime.com', uuidv3.DNS);
   }
 
   // 4
@@ -26,6 +26,6 @@ export const uuid = (type) => {
 
   // 5
   if (type == 5) {
-    return uuidv5("insistime.com", uuidv5.DNS);
+    return uuidv5('insistime.com', uuidv5.DNS);
   }
 };

@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 // vars
-var values = require("./_values.js");
-var handler = require("./_handler.js");
-var callback = require("./_callback.js");
-var complete = require("./_complete.js");
+var values = require('./_values.js');
+var handler = require('./_handler.js');
+var callback = require('./_callback.js');
+var complete = require('./_complete.js');
 
 // normal
 async function normal() {
-  console.time("qiao-parallel");
+  console.time('qiao-parallel');
 
   for (var i = 0; i < values.length; i++) {
     var value = values[i];
@@ -21,7 +21,7 @@ async function normal() {
   }
   complete(values.length);
 
-  console.timeEnd("qiao-parallel");
+  console.timeEnd('qiao-parallel');
 }
 
 // test

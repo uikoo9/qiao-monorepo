@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 // require
-var _compress = require("./_compress.js");
-var _uncompress = require("./_uncompress.js");
+var _compress = require('./_compress.js');
+var _uncompress = require('./_uncompress.js');
 
 /**
  * gzip file
@@ -13,7 +13,7 @@ var _uncompress = require("./_uncompress.js");
  */
 exports.gzipFile = function (sourceFile, destPath, onSuccess, onFail) {
   _compress.compressFile(
-    "gzip",
+    'gzip',
     sourceFile,
     destPath,
     function () {
@@ -54,7 +54,7 @@ exports.gzipFileSync = function (sourceFile, destPath) {
  */
 exports.ungzip = function (compressFile, destPath, onSuccess, onFail) {
   _uncompress.uncompress(
-    "gzip",
+    'gzip',
     compressFile,
     destPath,
     function () {

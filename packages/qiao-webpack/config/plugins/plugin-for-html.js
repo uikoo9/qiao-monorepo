@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // html webpack plugin
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /**
 https://github.com/jantimon/html-webpack-plugin#options

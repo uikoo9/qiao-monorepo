@@ -24,7 +24,7 @@ export const ls = (name, value, expires) => {
   }
 
   // get
-  if (typeof value == "undefined") {
+  if (typeof value == 'undefined') {
     return _getItem(name);
   }
 
@@ -35,7 +35,7 @@ export const ls = (name, value, expires) => {
 // set item
 function _setItem(name, value, expires) {
   if (!localStorage) {
-    console.log("unsupport localStorage");
+    console.log('unsupport localStorage');
     return;
   }
 
@@ -49,7 +49,7 @@ function _setItem(name, value, expires) {
 // get item
 function _getItem(name) {
   if (!localStorage) {
-    console.log("unsupport localStorage");
+    console.log('unsupport localStorage');
     return;
   }
 
@@ -58,7 +58,7 @@ function _getItem(name) {
   try {
     obj = JSON.parse(objStr);
   } catch (e) {
-    console.log("json parse error:");
+    console.log('json parse error:');
     console.log(e);
   }
   if (!obj) return;
@@ -74,7 +74,7 @@ function _getItem(name) {
 // remove item
 function _removeItem(name) {
   if (!localStorage) {
-    console.log("unsupport localStorage");
+    console.log('unsupport localStorage');
     return;
   }
 

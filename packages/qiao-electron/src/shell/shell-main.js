@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // electron
-import { shell } from "electron";
+import { shell } from 'electron';
 
 // q
-import { fs } from "qiao-file";
+import { fs } from 'qiao-file';
 
 /**
  * shellOpenURL

@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // browser window
-import { BrowserWindow } from "electron";
+import { BrowserWindow } from 'electron';
 
 // get options
-import { getWindowOptions } from "./window-options.js";
+import { getWindowOptions } from './window-options.js';
 
 /**
  * windowOpenByUrl
@@ -15,7 +15,7 @@ import { getWindowOptions } from "./window-options.js";
  */
 export function windowOpenByUrl(url, options, supportNode, isDev) {
   // check
-  if (!url) throw new Error("need url params");
+  if (!url) throw new Error('need url params');
 
   // opt
   const opt = getWindowOptions(options, supportNode, isDev);

@@ -1,9 +1,9 @@
 // qiao-parallel
-import { parallelByIIFE } from "qiao-parallel";
+import { parallelByIIFE } from 'qiao-parallel';
 
 // vars
-import { setLine, callback, complete } from "./_funcs.js";
-import { handler } from "./_handler_ncu.js";
+import { setLine, callback, complete } from './_funcs.js';
+import { handler } from './_handler_ncu.js';
 
 /**
  * handle multi ncu

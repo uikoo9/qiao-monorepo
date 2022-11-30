@@ -1,6 +1,6 @@
 // qiao
-import { post as ajaxPost } from "qiao-ajax";
-import { danger } from "qiao-json";
+import { post as ajaxPost } from 'qiao-ajax';
+import { danger } from 'qiao-json';
 
 /**
  * post
@@ -18,10 +18,10 @@ export const post = async (url, data) => {
  */
 export const postWithToken = async (url, data) => {
   const root = global || window;
-  if (!root) return danger("no window or global");
+  if (!root) return danger('no window or global');
 
   const userinfo = root.insistime_userinfo;
-  if (!userinfo || !userinfo.userid || !userinfo.usertoken) return danger("please login first");
+  if (!userinfo || !userinfo.userid || !userinfo.usertoken) return danger('please login first');
 
   const headers = {
     userid: userinfo.userid,
@@ -55,7 +55,7 @@ async function ajax(url, data, headers) {
   if (!json) return danger(`${time}ms | request fail: no data`);
 
   // danger
-  if (json.type == "danger") return danger(`${time}ms | ${json.msg}`);
+  if (json.type == 'danger') return danger(`${time}ms | ${json.msg}`);
 
   json.time = time;
   return json;

@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
-var client = q.client(require("./config.json"));
+var q = require('../index.js');
+var client = q.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -9,8 +9,8 @@ var client = q.client(require("./config.json"));
  */
 var test = async function () {
   try {
-    var destPath = "test/test.js";
-    var sourceFile = "d:/test.js";
+    var destPath = 'test/test.js';
+    var sourceFile = 'd:/test.js';
 
     var rs = await q.uploadFileSync(client, destPath, sourceFile);
     console.log(rs);

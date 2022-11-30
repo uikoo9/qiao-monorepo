@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // q
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 // checker
-var checker = require("./_check.js");
+var checker = require('./_check.js');
 
 /**
  * dist
@@ -35,7 +35,7 @@ module.exports = function (config) {
 
 // make electron-dist dir
 function mkDir(dir) {
-  var res = "success";
+  var res = 'success';
   try {
     // rm
     if (q.isExists(dir)) q.rm(`${dir}/`);
@@ -44,7 +44,7 @@ function mkDir(dir) {
     q.mkdir(`${dir}/`);
   } catch (e) {
     console.log(e);
-    res = "fail";
+    res = 'fail';
   }
 
   console.log(`make dir: ${dir} ${res}`);
@@ -55,12 +55,12 @@ function cpFileOrFolder(src, dest, file) {
   var srcFilePath = path.resolve(src, file);
   var destFilePath = path.resolve(dest, file);
 
-  var res = "success";
+  var res = 'success';
   try {
     q.cp(srcFilePath, destFilePath);
   } catch (e) {
     console.log(e);
-    res = "fail";
+    res = 'fail';
   }
 
   console.log(`cp: ${srcFilePath} ${res}`);

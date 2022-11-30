@@ -1,5 +1,5 @@
 // qrcode
-import qrcode from "qrcode";
+import qrcode from 'qrcode';
 
 /**
  * qrcode canvas

@@ -1,11 +1,11 @@
 // fs
-import fs from "fs";
+import fs from 'fs';
 
 // is
-import { isExists } from "./is.js";
+import { isExists } from './is.js';
 
 // util
-import { checkDir, getFileTree, getFoldersAndFiles } from "./util.js";
+import { checkDir, getFileTree, getFoldersAndFiles } from './util.js';
 
 /**
  * ls dir
@@ -42,7 +42,7 @@ export const lstree = (dir, ignores) => {
 export const mkdir = (dir) => {
   try {
     // check
-    if (!dir || !dir.endsWith("/")) return false;
+    if (!dir || !dir.endsWith('/')) return false;
 
     // is exists
     if (isExists(dir)) return true;

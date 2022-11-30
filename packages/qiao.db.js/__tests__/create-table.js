@@ -1,33 +1,33 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 var test = async function () {
-  var databaseName = "db_test";
+  var databaseName = 'db_test';
   var tables = [
     {
-      name: "t_test1",
-      key: "id",
+      name: 't_test1',
+      key: 'id',
       index: [
         {
-          name: "name",
-          index: "name",
+          name: 'name',
+          index: 'name',
           unique: false,
         },
       ],
     },
     {
-      name: "t_test2",
-      key: "auto",
+      name: 't_test2',
+      key: 'auto',
       index: [
         {
-          name: "name",
-          index: "name",
+          name: 'name',
+          index: 'name',
           unique: false,
         },
         {
-          name: "email",
-          index: ["name", "email"],
+          name: 'email',
+          index: ['name', 'email'],
           unique: true,
         },
       ],

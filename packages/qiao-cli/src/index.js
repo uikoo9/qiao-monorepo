@@ -1,14 +1,14 @@
 // colors
-import colorsFn from "colors";
+import colorsFn from 'colors';
 
 // progress
-import progressFn from "progress";
+import progressFn from 'progress';
 
 // inquirer
-import inquirer from "inquirer";
+import inquirer from 'inquirer';
 
 // commander
-import commander from "commander";
+import commander from 'commander';
 
 /**
  * colors

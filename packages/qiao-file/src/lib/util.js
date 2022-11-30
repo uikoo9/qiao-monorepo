@@ -1,11 +1,11 @@
 // fs
-import fs from "fs";
+import fs from 'fs';
 
 // path
-import path from "path";
+import path from 'path';
 
 // is exists
-import { isExists } from "./is.js";
+import { isExists } from './is.js';
 
 /**
  * get folders and files
@@ -22,7 +22,7 @@ export const getFoldersAndFiles = (fpath, folders, files) => {
         name: name,
       });
 
-      getFoldersAndFiles(fpath + name + "/", folders, files);
+      getFoldersAndFiles(fpath + name + '/', folders, files);
     } else {
       files.push({
         path: fpath,
@@ -52,7 +52,7 @@ export const getFileTree = (fpath, fileTree, ignores) => {
 
       fileTree.push(info);
 
-      getFileTree(rpath + "/", info.children, ignores);
+      getFileTree(rpath + '/', info.children, ignores);
     } else {
       let info = {};
       info.path = fpath;

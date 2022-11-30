@@ -12,5 +12,5 @@ const normalLog = (msg, color) => {
  * @param {*} msg
  */
 export const colorLog = (msg) => {
-  normalLog(msg, "color: blue");
+  normalLog(msg, 'color: blue');
 };

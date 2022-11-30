@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // config
-import config from "../util/_server.json";
+import config from '../util/_server.json';
 
 // fetch
-import { postWithToken } from "../util/_fetch.js";
+import { postWithToken } from '../util/_fetch.js';
 
 // qjson
-import { danger } from "qiao-json";
+import { danger } from 'qiao-json';
 
 /**
  * ucenterMenuList
@@ -18,8 +18,8 @@ import { danger } from "qiao-json";
 export const ucenterMenuList = async (pagenumber, pagesize) => {
   const url = config.host + config.ucenterMenuList;
   const data = {
-    page: pagenumber || "1",
-    rows: pagesize || "10",
+    page: pagenumber || '1',
+    rows: pagesize || '10',
   };
 
   return await postWithToken(url, data);
@@ -61,7 +61,7 @@ export const ucenterMenuDel = async (ids) => {
  * @returns
  */
 export const ucenterMenuGet = async (id) => {
-  if (!id) return danger("need id");
+  if (!id) return danger('need id');
 
   const url = config.host + config.ucenterMenuGet;
   const data = { id: id };

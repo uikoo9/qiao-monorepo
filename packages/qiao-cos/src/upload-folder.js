@@ -1,9 +1,9 @@
 // qiao
-import { lsdir } from "qiao-file";
-import { progress } from "qiao-cli";
+import { lsdir } from 'qiao-file';
+import { progress } from 'qiao-cli';
 
 // upload file
-import { uploadFile } from "./upload-file.js";
+import { uploadFile } from './upload-file.js';
 
 /**
  * upload folder
@@ -17,12 +17,12 @@ export const uploadFolder = (app, destFolder, sourceFolder, cb) => {
   if (!app || !app.client || !app.config) return;
 
   // time
-  console.time("total use");
+  console.time('total use');
 
   // files
-  const paths = lsdir(sourceFolder + "/");
+  const paths = lsdir(sourceFolder + '/');
   const files = paths.files;
-  const bar = new progress("uploading files... :current/:total", {
+  const bar = new progress('uploading files... :current/:total', {
     total: files.length,
   });
 
@@ -53,7 +53,7 @@ export const uploadFolder = (app, destFolder, sourceFolder, cb) => {
         obj.fail = failFiles;
 
         console.log();
-        console.timeEnd("total use");
+        console.timeEnd('total use');
         console.log();
 
         if (cb) cb(obj);

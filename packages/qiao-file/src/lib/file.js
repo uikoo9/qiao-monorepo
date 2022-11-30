@@ -1,11 +1,11 @@
 // fs
-import fs from "fs";
+import fs from 'fs';
 
 // path
-import path from "path";
+import path from 'path';
 
 // readline
-import readline from "readline";
+import readline from 'readline';
 
 /**
  * extname
@@ -28,7 +28,7 @@ export const readFile = (filePath, options) => {
 
   try {
     // opt
-    const opt = { encoding: "utf8" };
+    const opt = { encoding: 'utf8' };
     options = options || opt;
 
     return fs.readFileSync(filePath, options);
@@ -47,14 +47,14 @@ export const readFile = (filePath, options) => {
 export const readFileLineByLine = (filePath, onLine, onClose) => {
   // rl
   const rl = readline.createInterface({
-    input: fs.createReadStream(filePath, { encoding: "utf8" }),
+    input: fs.createReadStream(filePath, { encoding: 'utf8' }),
   });
 
   // on
-  rl.on("line", function (line) {
+  rl.on('line', function (line) {
     if (onLine) onLine(line);
   });
-  rl.on("close", function () {
+  rl.on('close', function () {
     if (onClose) onClose();
   });
 };
@@ -94,7 +94,7 @@ export const writeFile = (filePath, fileData, options) => {
 
   try {
     // vars
-    fileData = fileData || "";
+    fileData = fileData || '';
     options = options || {};
     fs.writeFileSync(filePath, fileData, options);
 
@@ -112,7 +112,7 @@ export const writeFile = (filePath, fileData, options) => {
  */
 export const writeFileFromLines = (filePath, lines) => {
   const f = fs.createWriteStream(filePath, {
-    flags: "a",
+    flags: 'a',
   });
 
   for (let i = 0; i < lines.length; i++) {

@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
 // require
-var _compress = require("./lib/_compress.js");
-var _uncompress = require("./lib/_uncompress.js");
-var zip = require("./lib/zip.js");
-var gzip = require("./lib/gzip.js");
-var tar = require("./lib/tar.js");
-var tgz = require("./lib/tgz.js");
+var _compress = require('./lib/_compress.js');
+var _uncompress = require('./lib/_uncompress.js');
+var zip = require('./lib/zip.js');
+var gzip = require('./lib/gzip.js');
+var tar = require('./lib/tar.js');
+var tgz = require('./lib/tgz.js');
 
 // compress file
 module.exports.compressFile = _compress.compressFile;

@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
-var fs = require("fs");
-var path = require("path");
-var readline = require("readline");
+var fs = require('fs');
+var path = require('path');
+var readline = require('readline');
 
 function _interopNamespaceDefault(e) {
   var n = Object.create(null);
   if (e) {
     Object.keys(e).forEach(function (k) {
-      if (k !== "default") {
+      if (k !== 'default') {
         var d = Object.getOwnPropertyDescriptor(e, k);
         Object.defineProperty(
           n,
@@ -65,7 +65,7 @@ const getFoldersAndFiles = (fpath, folders, files) => {
         name: name,
       });
 
-      getFoldersAndFiles(fpath + name + "/", folders, files);
+      getFoldersAndFiles(fpath + name + '/', folders, files);
     } else {
       files.push({
         path: fpath,
@@ -95,7 +95,7 @@ const getFileTree = (fpath, fileTree, ignores) => {
 
       fileTree.push(info);
 
-      getFileTree(rpath + "/", info.children, ignores);
+      getFileTree(rpath + '/', info.children, ignores);
     } else {
       let info = {};
       info.path = fpath;
@@ -242,7 +242,7 @@ const lstree = (dir, ignores) => {
 const mkdir = (dir) => {
   try {
     // check
-    if (!dir || !dir.endsWith("/")) return false;
+    if (!dir || !dir.endsWith('/')) return false;
 
     // is exists
     if (isExists(dir)) return true;
@@ -288,7 +288,7 @@ const readFile = (filePath, options) => {
 
   try {
     // opt
-    const opt = { encoding: "utf8" };
+    const opt = { encoding: 'utf8' };
     options = options || opt;
 
     return fs.readFileSync(filePath, options);
@@ -307,14 +307,14 @@ const readFile = (filePath, options) => {
 const readFileLineByLine = (filePath, onLine, onClose) => {
   // rl
   const rl = readline.createInterface({
-    input: fs.createReadStream(filePath, { encoding: "utf8" }),
+    input: fs.createReadStream(filePath, { encoding: 'utf8' }),
   });
 
   // on
-  rl.on("line", function (line) {
+  rl.on('line', function (line) {
     if (onLine) onLine(line);
   });
-  rl.on("close", function () {
+  rl.on('close', function () {
     if (onClose) onClose();
   });
 };
@@ -354,7 +354,7 @@ const writeFile = (filePath, fileData, options) => {
 
   try {
     // vars
-    fileData = fileData || "";
+    fileData = fileData || '';
     options = options || {};
     fs.writeFileSync(filePath, fileData, options);
 
@@ -372,7 +372,7 @@ const writeFile = (filePath, fileData, options) => {
  */
 const writeFileFromLines = (filePath, lines) => {
   const f = fs.createWriteStream(filePath, {
-    flags: "a",
+    flags: 'a',
   });
 
   for (let i = 0; i < lines.length; i++) {

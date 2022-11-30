@@ -1,6 +1,6 @@
 // qiao
-import { writeLine } from "qiao-console";
-import { fs, path, isExists } from "qiao-file";
+import { writeLine } from 'qiao-console';
+import { fs, path, isExists } from 'qiao-file';
 
 // line
 let line = 0;
@@ -26,7 +26,7 @@ const lsdir = (dir) => {
 const checkDir = (folderName) => {
   // check folder name
   if (!folderName) {
-    writeLine(line, "need folder name");
+    writeLine(line, 'need folder name');
     return;
   }
 
@@ -35,14 +35,14 @@ const checkDir = (folderName) => {
 
   // check dir is folder
   if (!isExists(dir)) {
-    writeLine(line, "folder is not exists");
+    writeLine(line, 'folder is not exists');
     return;
   }
 
   // get sub folders
   lsdir(dir);
   if (!subFolders || !subFolders.length) {
-    writeLine(line, "empty folder");
+    writeLine(line, 'empty folder');
     return;
   }
 

@@ -1,9 +1,9 @@
 // qiao
 var qiao = {};
-qiao.cli = require("qiao-cli");
+qiao.cli = require('qiao-cli');
 
 // stats options
-var statsOptions = require("../config/webpack-stats.js");
+var statsOptions = require('../config/webpack-stats.js');
 
 /**
  * log

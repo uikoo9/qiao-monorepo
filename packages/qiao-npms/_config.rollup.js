@@ -2,11 +2,11 @@
  * rollup.config.js
  */
 module.exports = {
-  input: "src/index.js",
+  input: 'src/index.js',
   output: {
-    file: "index.js",
-    format: "cjs",
+    file: 'index.js',
+    format: 'cjs',
   },
-  external: ["qiao-ajax", "libnpmsearch"],
+  external: ['qiao-ajax', 'libnpmsearch'],
   plugins: [],
 };

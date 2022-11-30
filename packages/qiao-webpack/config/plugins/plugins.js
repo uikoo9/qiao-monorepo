@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // html webpack plugin
-var HtmlWebpackPlugin = require("./plugin-for-html.js");
+var HtmlWebpackPlugin = require('./plugin-for-html.js');
 
 // mini css extract plugin
-var MiniCssExtractPlugin = require("./plugin-for-minicss.js");
+var MiniCssExtractPlugin = require('./plugin-for-minicss.js');
 
 // webpack bundle analyzer
-var BundleAnalyzerPlugin = require("./plugin-for-analyzer.js");
+var BundleAnalyzerPlugin = require('./plugin-for-analyzer.js');
 
 /**
  * webpack plugins
@@ -29,13 +29,13 @@ module.exports = function (isDev, plugins, isAnalyzer) {
     var plugin = plugins[i];
 
     // html
-    if (plugin.type == "html") {
+    if (plugin.type == 'html') {
       delete plugin.type;
       res.push(HtmlWebpackPlugin(plugin));
     }
 
     // css
-    if (plugin.type == "css") {
+    if (plugin.type == 'css') {
       delete plugin.type;
       res.push(MiniCssExtractPlugin(plugin));
     }

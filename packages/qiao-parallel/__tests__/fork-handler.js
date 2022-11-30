@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // handler
-var handler = require("./_handler.js");
+var handler = require('./_handler.js');
 
 // fork handler
 async function forkHandler() {

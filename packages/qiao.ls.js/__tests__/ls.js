@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 // set boolean
-test("set boolean, get boolean", function () {
-  var key = "key-boolean";
+test('set boolean, get boolean', function () {
+  var key = 'key-boolean';
   var value = true;
 
   q.ls(key, value);
@@ -12,8 +12,8 @@ test("set boolean, get boolean", function () {
 });
 
 // set number
-test("set number, get number", function () {
-  var key = "key-number";
+test('set number, get number', function () {
+  var key = 'key-number';
   var value = 1;
 
   q.ls(key, value);
@@ -21,27 +21,27 @@ test("set number, get number", function () {
 });
 
 // set string
-test("set string, get string", function () {
-  var key = "key-string";
-  var value = "string";
+test('set string, get string', function () {
+  var key = 'key-string';
+  var value = 'string';
 
   q.ls(key, value);
   expect(q.ls(key)).toStrictEqual(value);
 });
 
 // set object
-test("set object, get object", function () {
-  var key = "key-object";
-  var value = { name: "vincent" };
+test('set object, get object', function () {
+  var key = 'key-object';
+  var value = { name: 'vincent' };
 
   q.ls(key, value);
   expect(q.ls(key)).toStrictEqual(value);
 });
 
 // del
-test("del key", function () {
-  var key = "key-object";
-  var value = { name: "vincent" };
+test('del key', function () {
+  var key = 'key-object';
+  var value = { name: 'vincent' };
 
   expect(q.ls(key)).toStrictEqual(value);
 
@@ -50,10 +50,10 @@ test("del key", function () {
 });
 
 // expires
-test("expires", async function () {
+test('expires', async function () {
   // vars
-  var key = "key-expires";
-  var value = "expires";
+  var key = 'key-expires';
+  var value = 'expires';
   var expires = 3 * 1000;
   q.ls(key, value, expires);
 

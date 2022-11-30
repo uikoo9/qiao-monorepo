@@ -1,11 +1,11 @@
 // cli
-import { colors } from "qiao-cli";
+import { colors } from 'qiao-cli';
 
 // check dir
-import checkDir from "./util/check-dir.js";
+import checkDir from './util/check-dir.js';
 
 // pkg
-import { getPkgInfo } from "./util/_pkg.js";
+import { getPkgInfo } from './util/_pkg.js';
 
 /**
  * pkg
@@ -25,7 +25,7 @@ export const pkg = async (folderName, isDev) => {
     const pkg = getPkgInfo(item);
 
     // no pkg.json
-    if (typeof pkg === "string") {
+    if (typeof pkg === 'string') {
       console.log(colors.white(pkg));
       console.log();
       return;

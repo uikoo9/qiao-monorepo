@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-var q = require("qiao-ajax");
+var q = require('qiao-ajax');
 
-const word = "[a-fA-F\\d:]";
+const word = '[a-fA-F\\d:]';
 
 const boundry = (options) =>
-  options && options.includeBoundaries ? `(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))` : "";
+  options && options.includeBoundaries ? `(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))` : '';
 
-const v4 = "(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}";
+const v4 = '(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}';
 
-const v6segment = "[a-fA-F\\d]{1,4}";
+const v6segment = '[a-fA-F\\d]{1,4}';
 
 const v6 = `
 (?:
@@ -23,8 +23,8 @@ const v6 = `
 (?::(?:(?::${v6segment}){0,5}:${v4}|(?::${v6segment}){1,7}|:))             // ::2:3:4:5:6:7:8  ::2:3:4:5:6:7:8  ::8             ::1.2.3.4
 )(?:%[0-9a-zA-Z]{1,})?                                             // %eth0            %1
 `
-  .replace(/\s*\/\/.*$/gm, "")
-  .replace(/\n/g, "")
+  .replace(/\s*\/\/.*$/gm, '')
+  .replace(/\n/g, '')
   .trim();
 
 // Pre-compile only the exact regexes because adding a global flag make regexes stateful
@@ -37,22 +37,22 @@ const ipRegex = (options) =>
     ? v46Exact
     : new RegExp(
       `(?:${boundry(options)}${v4}${boundry(options)})|(?:${boundry(options)}${v6}${boundry(options)})`,
-      "g",
+      'g',
     );
 
 ipRegex.v4 = (options) =>
-  options && options.exact ? v4exact : new RegExp(`${boundry(options)}${v4}${boundry(options)}`, "g");
+  options && options.exact ? v4exact : new RegExp(`${boundry(options)}${v4}${boundry(options)}`, 'g');
 ipRegex.v6 = (options) =>
-  options && options.exact ? v6exact : new RegExp(`${boundry(options)}${v6}${boundry(options)}`, "g");
+  options && options.exact ? v6exact : new RegExp(`${boundry(options)}${v6}${boundry(options)}`, 'g');
 
 // qiao-ajax
 
 // urls
-const hipUrl = "http://icanhazip.com/";
-const hipErr = new Error("get ip by icanhazip failed");
+const hipUrl = 'http://icanhazip.com/';
+const hipErr = new Error('get ip by icanhazip failed');
 
 // not ip
-const notIpErr$1 = new Error("not ip");
+const notIpErr$1 = new Error('not ip');
 
 /**
  * getIpByIcanhazip
@@ -68,7 +68,7 @@ const getIpByIcanhazip = () => {
         }
 
         // ip
-        const ip = res.data.replace(/\n/g, "");
+        const ip = res.data.replace(/\n/g, '');
         if (!ip) return reject(hipErr);
 
         const isIp = ipRegex.v4({ exact: true }).test(ip);
@@ -83,11 +83,11 @@ const getIpByIcanhazip = () => {
 // qiao-ajax
 
 // urls
-const sohuUrl = "http://txt.go.sohu.com/ip/soip";
-const sohuErr = new Error("get ip by sohu failed");
+const sohuUrl = 'http://txt.go.sohu.com/ip/soip';
+const sohuErr = new Error('get ip by sohu failed');
 
 // not ip
-const notIpErr = new Error("not ip");
+const notIpErr = new Error('not ip');
 
 /**
  * getIpBySohu

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var p = require("ping");
+var p = require('ping');
 
 // ping
 

@@ -1,6 +1,6 @@
 // qiao
-const cli = require("qiao-cli");
-const lerna = require("../index.js");
+const cli = require('qiao-cli');
+const lerna = require('../index.js');
 
 /**
  * ncu
@@ -11,4 +11,4 @@ const ncu = (destPath) => {
 };
 
 // cmd for ncu
-cli.cmd.command("ncu <destPath>").description("multi ncu in path").action(ncu);
+cli.cmd.command('ncu <destPath>').description('multi ncu in path').action(ncu);

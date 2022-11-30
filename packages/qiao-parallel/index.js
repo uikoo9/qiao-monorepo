@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var q = require("qiao-process");
+var q = require('qiao-process');
 
 // q
 
@@ -18,12 +18,12 @@ let count = 0;
  */
 async function parallel(func, values, callback, complete, jsPath) {
   // time
-  console.time("qiao-parallel");
+  console.time('qiao-parallel');
 
   // check values
   if (!values || !values.length) {
     if (complete) complete(0);
-    console.timeEnd("qiao-parallel");
+    console.timeEnd('qiao-parallel');
 
     return;
   }
@@ -72,7 +72,7 @@ function onComplete(complete, valuesLength) {
   count++;
   if (count == valuesLength) {
     if (complete) complete(valuesLength);
-    console.timeEnd("qiao-parallel");
+    console.timeEnd('qiao-parallel');
   }
 }
 

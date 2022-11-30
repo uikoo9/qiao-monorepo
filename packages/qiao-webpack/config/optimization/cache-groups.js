@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * default cache groups
@@ -7,8 +7,8 @@ module.exports = {
   // react
   react: {
     test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/,
-    name: "react",
-    chunks: "all",
+    name: 'react',
+    chunks: 'all',
     priority: 0,
     reuseExistingChunk: true,
   },
@@ -16,17 +16,17 @@ module.exports = {
   // axios
   axios: {
     test: /[\\/]node_modules[\\/]axios[\\/]/,
-    name: "axios",
-    chunks: "all",
+    name: 'axios',
+    chunks: 'all',
     priority: -1,
     reuseExistingChunk: true,
   },
 
   // qiao
-  "qiao-ui": {
+  'qiao-ui': {
     test: /[\\/]node_modules[\\/]qiao.cookie.js|qiao-json|qiao-ajax|qiao-service|qiao-ui[\\/]/,
-    name: "qiao-ui",
-    chunks: "all",
+    name: 'qiao-ui',
+    chunks: 'all',
     priority: -21,
     reuseExistingChunk: true,
   },
@@ -34,22 +34,22 @@ module.exports = {
   // ui
   antd: {
     test: /[\\/]node_modules[\\/]antd[\\/]/,
-    name: "antd",
-    chunks: "all",
+    name: 'antd',
+    chunks: 'all',
     priority: -31,
     reuseExistingChunk: true,
   },
   bulma: {
     test: /[\\/]node_modules[\\/]bulma[\\/]/,
-    name: "bulma",
-    chunks: "all",
+    name: 'bulma',
+    chunks: 'all',
     priority: -32,
     reuseExistingChunk: true,
   },
   bootstrap: {
     test: /[\\/]node_modules[\\/]bootstrap[\\/]/,
-    name: "bootstrap",
-    chunks: "all",
+    name: 'bootstrap',
+    chunks: 'all',
     priority: -33,
     reuseExistingChunk: true,
   },
@@ -57,22 +57,22 @@ module.exports = {
   // editor
   quill: {
     test: /[\\/]node_modules[\\/]quill[\\/]/,
-    name: "quill",
-    chunks: "all",
+    name: 'quill',
+    chunks: 'all',
     priority: -41,
     reuseExistingChunk: true,
   },
   editor: {
     test: /[\\/]node_modules[\\/]@wangeditor[\\/]/,
-    name: "editor",
-    chunks: "all",
+    name: 'editor',
+    chunks: 'all',
     priority: -42,
     reuseExistingChunk: true,
   },
   prismjs: {
     test: /[\\/]node_modules[\\/]prismjs[\\/]/,
-    name: "prismjs",
-    chunks: "all",
+    name: 'prismjs',
+    chunks: 'all',
     priority: -43,
     reuseExistingChunk: true,
   },

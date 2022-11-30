@@ -7,8 +7,8 @@
 export const json = (type, msg, obj) => {
   var json = {
     success: true,
-    msg: "",
-    type: "",
+    msg: '',
+    type: '',
     obj: null,
   };
 
@@ -25,7 +25,7 @@ export const json = (type, msg, obj) => {
  * 	obj
  */
 export const success = (msg, obj) => {
-  return json("success", msg, obj);
+  return json('success', msg, obj);
 };
 
 /**
@@ -34,7 +34,7 @@ export const success = (msg, obj) => {
  * 	obj
  */
 export const info = (msg, obj) => {
-  return json("info", msg, obj);
+  return json('info', msg, obj);
 };
 
 /**
@@ -43,7 +43,7 @@ export const info = (msg, obj) => {
  * 	obj
  */
 export const warning = (msg, obj) => {
-  return json("warning", msg, obj);
+  return json('warning', msg, obj);
 };
 
 /**
@@ -52,5 +52,5 @@ export const warning = (msg, obj) => {
  * 	obj
  */
 export const danger = (msg, obj) => {
-  return json("danger", msg, obj);
+  return json('danger', msg, obj);
 };

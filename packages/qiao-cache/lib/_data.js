@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // node cache
-var NodeCache = require("node-cache");
+var NodeCache = require('node-cache');
 
 /**
  * cache

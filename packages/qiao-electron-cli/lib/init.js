@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // q
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 /**
  * init
  */
 module.exports = function (destPath) {
-  var src = path.resolve(__dirname, "../_demo");
-  var dest = path.resolve(destPath, "./electron");
+  var src = path.resolve(__dirname, '../_demo');
+  var dest = path.resolve(destPath, './electron');
 
   q.cp(src, dest);
 };

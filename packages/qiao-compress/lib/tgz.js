@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 // require
-var _compress = require("./_compress.js");
-var _uncompress = require("./_uncompress.js");
+var _compress = require('./_compress.js');
+var _uncompress = require('./_uncompress.js');
 
 /**
  * tgz file
@@ -13,7 +13,7 @@ var _uncompress = require("./_uncompress.js");
  */
 exports.tgzFile = function (sourceFile, destPath, onSuccess, onFail) {
   _compress.compressFile(
-    "tgz",
+    'tgz',
     sourceFile,
     destPath,
     function () {
@@ -54,7 +54,7 @@ exports.tgzFileSync = function (sourceFile, destPath) {
  */
 exports.tgzFolder = function (sourceFolder, destPath, onSuccess, onFail) {
   _compress.compressFolder(
-    "tgz",
+    'tgz',
     sourceFolder,
     destPath,
     function () {
@@ -95,7 +95,7 @@ exports.tgzFolderSync = function (sourceFolder, destPath) {
  */
 exports.untgz = function (compressFile, destPath, onSuccess, onFail) {
   _uncompress.uncompress(
-    "tgz",
+    'tgz',
     compressFile,
     destPath,
     function () {

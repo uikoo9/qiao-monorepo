@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * stdout appender
@@ -7,6 +7,6 @@
  */
 module.exports = function () {
   return {
-    type: "stdout",
+    type: 'stdout',
   };
 };

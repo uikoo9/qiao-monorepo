@@ -1,5 +1,5 @@
 // search
-import search from "libnpmsearch";
+import search from 'libnpmsearch';
 
 /**
  * searchPackages
@@ -13,7 +13,7 @@ export const searchPackages = async (packageName, options) => {
   // default options
   const defaultOptions = {
     limit: 3,
-    sortBy: "popularity",
+    sortBy: 'popularity',
   };
 
   // search

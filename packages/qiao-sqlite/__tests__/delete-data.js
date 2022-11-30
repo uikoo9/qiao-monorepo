@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // q
-var q = require("../index.js");
+var q = require('../index.js');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // data
-var sql = "delete from t_project where rowid=?";
+var sql = 'delete from t_project where rowid=?';
 
 // test
 async function test() {

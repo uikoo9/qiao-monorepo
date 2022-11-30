@@ -1,8 +1,8 @@
 // config
-const config = require("./config.json");
+const config = require('./config.json');
 
 // qiao-cos
-const qcos = require("../index.js")(config);
+const qcos = require('../index.js')(config);
 
 /**
  * upload folder
@@ -10,8 +10,8 @@ const qcos = require("../index.js")(config);
  */
 const test = async () => {
   try {
-    const destPath = "test";
-    const sourceFolder = "/your/folder";
+    const destPath = 'test';
+    const sourceFolder = '/your/folder';
 
     const rs = await qcos.uploadFolderSync(destPath, sourceFolder);
     console.log(rs);

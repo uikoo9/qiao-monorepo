@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 // electron
-import { BrowserWindow, nativeTheme, ipcMain } from "electron";
+import { BrowserWindow, nativeTheme, ipcMain } from 'electron';
 
 // const
-import { IPC_DARKMODE_CHANGE, IPC_DARKMODE_GET } from "./darkmode-constant.js";
+import { IPC_DARKMODE_CHANGE, IPC_DARKMODE_GET } from './darkmode-constant.js';
 
 /**
  * darkModeIPCInit
  */
 export const darkModeIPCInit = () => {
   // native theme updated
-  nativeTheme.on("updated", () => {
+  nativeTheme.on('updated', () => {
     const wins = BrowserWindow.getAllWindows();
     for (let win of wins) {
       win.webContents.send(IPC_DARKMODE_CHANGE, nativeTheme.shouldUseDarkColors);

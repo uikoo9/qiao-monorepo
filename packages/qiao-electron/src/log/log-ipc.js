@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcMain } from "electron";
+import { ipcMain } from 'electron';
 
 // log
-import { logInit } from "./_log.js";
+import { logInit } from './_log.js';
 
 // const
-import { IPC_LOG } from "./log-constant.js";
+import { IPC_LOG } from './log-constant.js';
 
 /**
  * logIPCInit
@@ -22,9 +22,9 @@ export const logIPCInit = () => {
     if (!arg || !arg.msg) return;
 
     // log
-    let type = arg.type || "info";
-    if (type == "info") Logger.info(arg.msg);
-    if (type == "warn") Logger.warn(arg.msg);
-    if (type == "error") Logger.error(arg.msg);
+    let type = arg.type || 'info';
+    if (type == 'info') Logger.info(arg.msg);
+    if (type == 'warn') Logger.warn(arg.msg);
+    if (type == 'error') Logger.error(arg.msg);
   });
 };

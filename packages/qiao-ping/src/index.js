@@ -1,5 +1,5 @@
 // ping
-import p from "ping";
+import p from 'ping';
 
 /**
  * ping

@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 // q
-var q = require("../index.js");
+var q = require('../index.js');
 
 // run
 async function test() {
-  var filePath = "./rm.js";
+  var filePath = './rm.js';
   q.readFileLineByLine(filePath, onLine, onClose);
 }
 test();
@@ -17,5 +17,5 @@ function onLine(line) {
 
 // on close
 function onClose() {
-  console.log("close");
+  console.log('close');
 }

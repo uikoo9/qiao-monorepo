@@ -1,8 +1,8 @@
 // get ip by sohu
-import { getIpBySohu } from "./get-ip-by-sohu.js";
+import { getIpBySohu } from './get-ip-by-sohu.js';
 
 // get ip by icanhazip
-import { getIpByIcanhazip } from "./get-ip-by-icanhazip.js";
+import { getIpByIcanhazip } from './get-ip-by-icanhazip.js';
 
 /**
  * getIp

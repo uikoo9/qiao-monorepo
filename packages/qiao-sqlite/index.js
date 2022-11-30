@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var sqlite3 = require("sqlite3");
+var sqlite3 = require('sqlite3');
 
 // sqlite3
 
@@ -9,7 +9,7 @@ var sqlite3 = require("sqlite3");
  * @param {*} dbName
  */
 const createDB = (dbName) => {
-  if (!dbName) throw new Error("need db name");
+  if (!dbName) throw new Error('need db name');
 
   const sqlite = sqlite3.verbose();
   return new sqlite.Database(dbName);
@@ -21,7 +21,7 @@ const createDB = (dbName) => {
  */
 const createTable = (db, sql) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     db.run(sql, (e) => {
       return e ? reject(e) : resolve();
@@ -37,7 +37,7 @@ const createTable = (db, sql) => {
  */
 const dropTable = (db, tableName) => {
   return new Promise((resolve, reject) => {
-    if (!db || !tableName) return reject(new Error("need db and tableName"));
+    if (!db || !tableName) return reject(new Error('need db and tableName'));
 
     const sql = `drop table ${tableName}`;
     db.run(sql, (e) => {
@@ -53,9 +53,9 @@ const dropTable = (db, tableName) => {
  */
 const showTables = (db) => {
   return new Promise((resolve, reject) => {
-    if (!db) return reject(new Error("need db"));
+    if (!db) return reject(new Error('need db'));
 
-    const sql = "select name from sqlite_master where type='table' order by name";
+    const sql = 'select name from sqlite_master where type=\'table\' order by name';
     db.all(sql, (e, rows) => {
       return e ? reject(e) : resolve(rows);
     });
@@ -71,7 +71,7 @@ const showTables = (db) => {
  */
 const insertData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.run(sql, _params, (e) => {
@@ -89,7 +89,7 @@ const insertData = (db, sql, params) => {
  */
 const deleteData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.run(sql, _params, (e) => {
@@ -107,7 +107,7 @@ const deleteData = (db, sql, params) => {
  */
 const modifyData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.run(sql, _params, (e) => {
@@ -125,7 +125,7 @@ const modifyData = (db, sql, params) => {
  */
 const selectData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.all(sql, _params, (err, row) => {

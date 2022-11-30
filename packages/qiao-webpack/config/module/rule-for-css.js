@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // mini css extract
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /**
  * rule for css
@@ -14,9 +14,9 @@ var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = function (isDev, cssIncludes) {
   // use
   var use = [
-    isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
-      loader: require.resolve("css-loader"),
+      loader: require.resolve('css-loader'),
       options: {
         modules: false,
       },

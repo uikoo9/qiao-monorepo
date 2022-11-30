@@ -40,7 +40,7 @@ export const writeLineXY = (x, y, msg) => {
   process.stdout.cursorTo(x, y);
   process.stdout.clearLine();
   process.stdout.write(msg);
-  process.stdout.write("\n");
+  process.stdout.write('\n');
 };
 
 /**
@@ -52,5 +52,5 @@ export const writeLine = (y, msg) => {
   process.stdout.cursorTo(0, y);
   process.stdout.clearLine();
   process.stdout.write(msg);
-  process.stdout.write("\n");
+  process.stdout.write('\n');
 };

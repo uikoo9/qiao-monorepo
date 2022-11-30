@@ -46,7 +46,7 @@ export const save = (db, tableName, key, data) => {
  */
 export const del = (db, tableName, key) => {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction([tableName], "readwrite");
+    const tx = db.transaction([tableName], 'readwrite');
     const request = tx.objectStore(tableName).delete(key);
 
     request.onerror = (event) => {
@@ -66,7 +66,7 @@ export const del = (db, tableName, key) => {
  */
 export const clear = (db, tableName) => {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction([tableName], "readwrite");
+    const tx = db.transaction([tableName], 'readwrite');
     const request = tx.objectStore(tableName).clear();
 
     request.onerror = (event) => {
@@ -87,7 +87,7 @@ function getData(db, tableName, key, cb) {
   }
 
   // get
-  const tx = db.transaction([tableName], "readonly");
+  const tx = db.transaction([tableName], 'readonly');
   const request = tx.objectStore(tableName).get(key);
   request.onerror = () => {
     if (cb) cb(null);
@@ -99,7 +99,7 @@ function getData(db, tableName, key, cb) {
 
 // add data
 function addData(db, tableName, data, cb) {
-  const tx = db.transaction([tableName], "readwrite");
+  const tx = db.transaction([tableName], 'readwrite');
   const request = tx.objectStore(tableName).add(data);
 
   request.onerror = () => {
@@ -112,7 +112,7 @@ function addData(db, tableName, data, cb) {
 
 // put data
 function putData(db, tableName, data, cb) {
-  const tx = db.transaction([tableName], "readwrite");
+  const tx = db.transaction([tableName], 'readwrite');
   const request = tx.objectStore(tableName).put(data);
 
   request.onerror = () => {

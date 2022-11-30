@@ -1,5 +1,5 @@
 // io
-import { writeFile, readFile } from "./_io.js";
+import { writeFile, readFile } from './_io.js';
 
 /**
  * clear
@@ -9,13 +9,13 @@ import { writeFile, readFile } from "./_io.js";
 export const clear = (filePath) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:clear, need path");
+    console.log('qiao-config:clear, need path');
     return;
   }
 
   // io
   try {
-    writeFile(filePath, "");
+    writeFile(filePath, '');
   } catch (e) {
     console.log(`qiao-config:clear, write file error ${e.message}`);
   }
@@ -29,7 +29,7 @@ export const clear = (filePath) => {
 export const all = (filePath) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:all, need path");
+    console.log('qiao-config:all, need path');
     return;
   }
 
@@ -54,11 +54,11 @@ export const all = (filePath) => {
 export const get = (filePath, key) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:get, need path");
+    console.log('qiao-config:get, need path');
     return;
   }
-  if (typeof key == "undefined") {
-    console.log("qiao-config:get, need key");
+  if (typeof key == 'undefined') {
+    console.log('qiao-config:get, need key');
     return;
   }
 
@@ -77,11 +77,11 @@ export const get = (filePath, key) => {
 export const set = (filePath, key, value) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:set, need path");
+    console.log('qiao-config:set, need path');
     return;
   }
-  if (typeof key == "undefined") {
-    console.log("qiao-config:set, need key");
+  if (typeof key == 'undefined') {
+    console.log('qiao-config:set, need key');
     return;
   }
 
@@ -106,11 +106,11 @@ export const set = (filePath, key, value) => {
 export const del = (filePath, key) => {
   // check
   if (!filePath) {
-    console.log("qiao-config:del, need path");
+    console.log('qiao-config:del, need path');
     return;
   }
-  if (typeof key == "undefined") {
-    console.log("qiao-config:del, need key");
+  if (typeof key == 'undefined') {
+    console.log('qiao-config:del, need key');
     return;
   }
 

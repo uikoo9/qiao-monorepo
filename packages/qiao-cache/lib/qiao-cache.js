@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 // data
-var _data = require("./_data.js");
+var _data = require('./_data.js');
 
 /**
  * node cache
@@ -20,7 +20,7 @@ exports.cache = function (key, value) {
   }
 
   // get
-  if (typeof value == "undefined") {
+  if (typeof value == 'undefined') {
     return _data.get(key);
   }
 

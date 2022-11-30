@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // dist path
-var distPath = path.resolve(__dirname, "../dist");
+var distPath = path.resolve(__dirname, '../dist');
 
 // output
 module.exports = {
-  filename: "[name].bundle.js",
+  filename: '[name].bundle.js',
   path: distPath,
   clean: true,
 };

@@ -1,11 +1,11 @@
 // path
-var path = require("path");
+var path = require('path');
 
 // webpack merge
-var merge = require("webpack-merge").merge;
+var merge = require('webpack-merge').merge;
 
 // webpack options
-var webpack_options = require("./webpack-options.js");
+var webpack_options = require('./webpack-options.js');
 
 /**
  * webpack build config
@@ -59,7 +59,7 @@ exports.dev = function (configPath, target) {
 // get qiao webpack js
 function getQiaoWebpackJs(configPath) {
   var cwd = process.cwd();
-  if (configPath.startsWith("./")) configPath = path.resolve(cwd, configPath);
+  if (configPath.startsWith('./')) configPath = path.resolve(cwd, configPath);
 
   var qiaoWebpack;
   try {

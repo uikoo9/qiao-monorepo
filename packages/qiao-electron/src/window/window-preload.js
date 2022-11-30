@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // electron
-import { ipcRenderer } from "electron";
+import { ipcRenderer } from 'electron';
 
 // const
-import { IPC_WINDOW_RESIZE_TO } from "./window-constant.js";
+import { IPC_WINDOW_RESIZE_TO } from './window-constant.js';
 
 /**
  * windowResizeIPC

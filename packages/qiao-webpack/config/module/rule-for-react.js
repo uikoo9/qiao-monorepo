@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * rule for react
@@ -6,9 +6,9 @@
  */
 module.exports = {
   test: /\.jsx$/,
-  loader: "babel-loader",
+  loader: 'babel-loader',
   // exclude : /node_modules/,
   options: {
-    presets: ["@babel/preset-react"],
+    presets: ['@babel/preset-react'],
   },
 };

@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // oss
-var co = require("co");
-var OSS = require("ali-oss");
+var co = require('co');
+var OSS = require('ali-oss');
 
 // qiao
 var qiao = {};
-qiao.cli = require("qiao-cli");
-qiao.file = require("qiao-file");
+qiao.cli = require('qiao-cli');
+qiao.file = require('qiao-file');
 
 /**
  * client
@@ -15,11 +15,11 @@ qiao.file = require("qiao-file");
  * 	config，配文件
  */
 exports.client = function (config) {
-  if (!config) throw new Error("need config params");
-  if (!config.region) throw new Error("need config.region params");
-  if (!config.accessKeyId) throw new Error("need config.accessKeyId params");
-  if (!config.accessKeySecret) throw new Error("need config.accessKeySecret params");
-  if (!config.bucket) throw new Error("need config.bucket params");
+  if (!config) throw new Error('need config params');
+  if (!config.region) throw new Error('need config.region params');
+  if (!config.accessKeyId) throw new Error('need config.accessKeyId params');
+  if (!config.accessKeySecret) throw new Error('need config.accessKeySecret params');
+  if (!config.bucket) throw new Error('need config.bucket params');
 
   return new OSS(config);
 };
@@ -85,9 +85,9 @@ exports.uploadFileSync = function (client, dest, source) {
  */
 exports.uploadFolder = function (client, destFolder, sourceFolder, cb) {
   try {
-    var paths = qiao.file.lsdir(sourceFolder + "/");
+    var paths = qiao.file.lsdir(sourceFolder + '/');
     var files = paths.files;
-    var bar = new qiao.cli.progress("uploading files... :current/:total", {
+    var bar = new qiao.cli.progress('uploading files... :current/:total', {
       total: files.length,
     });
 
@@ -95,7 +95,7 @@ exports.uploadFolder = function (client, destFolder, sourceFolder, cb) {
     var sucFiles = [];
     var failFiles = [];
     co(function* () {
-      console.time("total use");
+      console.time('total use');
 
       for (var i = 0; i < files.length; i++) {
         var file = files[i].path + files[i].name;
@@ -119,7 +119,7 @@ exports.uploadFolder = function (client, destFolder, sourceFolder, cb) {
       obj.fail = failFiles;
 
       console.log();
-      console.timeEnd("total use");
+      console.timeEnd('total use');
       console.log();
 
       if (cb) cb(null, obj);

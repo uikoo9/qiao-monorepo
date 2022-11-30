@@ -1,8 +1,8 @@
 // db
-export * from "./sqlite-db.js";
+export * from './sqlite-db.js';
 
 // table
-export * from "./sqlite-table.js";
+export * from './sqlite-table.js';
 
 // data
-export * from "./sqlite-data.js";
+export * from './sqlite-data.js';

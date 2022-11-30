@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
 // rule for css
-var ruleForCss = require("./rule-for-css.js");
+var ruleForCss = require('./rule-for-css.js');
 
 // rule for less
-var ruleForLess = require("./rule-for-less.js");
+var ruleForLess = require('./rule-for-less.js');
 
 // rule for sass
-var ruleForSass = require("./rule-for-sass.js");
+var ruleForSass = require('./rule-for-sass.js');
 
 // rule for img
-var ruleForImg = require("./rule-for-img.js");
+var ruleForImg = require('./rule-for-img.js');
 
 // rule for react
-var ruleForReact = require("./rule-for-react.js");
+var ruleForReact = require('./rule-for-react.js');
 
 /**
  * module

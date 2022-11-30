@@ -1,5 +1,5 @@
 // ls
-import { ls } from "./_ls.js";
+import { ls } from './_ls.js';
 
 // cache
 export const cache = (name, key, value, expires) => {
@@ -18,7 +18,7 @@ export const cache = (name, key, value, expires) => {
   }
 
   // get
-  if (typeof value == "undefined") {
+  if (typeof value == 'undefined') {
     return _getCache(name, key);
   }
 
@@ -29,7 +29,7 @@ export const cache = (name, key, value, expires) => {
 // set cache
 function _setCache(name, key, value, exp) {
   if (!localStorage) {
-    console.log("unsupport localStorage");
+    console.log('unsupport localStorage');
     return;
   }
 

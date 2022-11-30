@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 // require
-var _compress = require("./_compress.js");
-var _uncompress = require("./_uncompress.js");
+var _compress = require('./_compress.js');
+var _uncompress = require('./_uncompress.js');
 
 /**
  * tar file
@@ -13,7 +13,7 @@ var _uncompress = require("./_uncompress.js");
  */
 exports.tarFile = function (sourceFile, destPath, onSuccess, onFail) {
   _compress.compressFile(
-    "tar",
+    'tar',
     sourceFile,
     destPath,
     function () {
@@ -54,7 +54,7 @@ exports.tarFileSync = function (sourceFile, destPath) {
  */
 exports.tarFolder = function (sourceFolder, destPath, onSuccess, onFail) {
   _compress.compressFolder(
-    "tar",
+    'tar',
     sourceFolder,
     destPath,
     function () {
@@ -95,7 +95,7 @@ exports.tarFolderSync = function (sourceFolder, destPath) {
  */
 exports.untar = function (compressFile, destPath, onSuccess, onFail) {
   _uncompress.uncompress(
-    "tar",
+    'tar',
     compressFile,
     destPath,
     function () {

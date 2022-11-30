@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // electron pakcager
-var packager = require("electron-packager");
+var packager = require('electron-packager');
 
 // checker
-var checker = require("./_check.js");
+var checker = require('./_check.js');
 
 // util
-var util = require("./_util.js");
+var util = require('./_util.js');
 
 /**
  * pack

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var qrcode = require("qrcode");
+var qrcode = require('qrcode');
 
 // qrcode
 

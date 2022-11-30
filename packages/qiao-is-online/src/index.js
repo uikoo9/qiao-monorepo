@@ -1,5 +1,5 @@
 // is online
-export * from "./is-online.js";
+export * from './is-online.js';
 
 // offline to online
-export * from "./offline-to-online.js";
+export * from './offline-to-online.js';

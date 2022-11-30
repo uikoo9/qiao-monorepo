@@ -1,5 +1,5 @@
 // download counts
-import { getDownloadCounts } from "../util/fetch.js";
+import { getDownloadCounts } from '../util/fetch.js';
 
 /**
  * downloadCounts
@@ -20,7 +20,7 @@ export const downloadCounts = async (packageName, type) => {
 export const downloadCountsLastDay = async (packageName) => {
   if (!packageName) return;
 
-  return await getDownloadCounts(packageName, "last-day");
+  return await getDownloadCounts(packageName, 'last-day');
 };
 
 /**
@@ -30,7 +30,7 @@ export const downloadCountsLastDay = async (packageName) => {
 export const downloadCountsLastWeek = async (packageName) => {
   if (!packageName) return;
 
-  return await getDownloadCounts(packageName, "last-week");
+  return await getDownloadCounts(packageName, 'last-week');
 };
 
 /**
@@ -40,5 +40,5 @@ export const downloadCountsLastWeek = async (packageName) => {
 export const downloadCountsLastMonth = async (packageName) => {
   if (!packageName) return;
 
-  return await getDownloadCounts(packageName, "last-month");
+  return await getDownloadCounts(packageName, 'last-month');
 };

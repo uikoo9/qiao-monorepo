@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * firstLetterUpper
@@ -7,13 +7,13 @@
 exports.firstLetterUpper = function (str) {
   // check empty
   if (!str) {
-    console.log("need str");
+    console.log('need str');
     return null;
   }
 
   // check string
-  if (typeof str != "string") {
-    console.log("need string");
+  if (typeof str != 'string') {
+    console.log('need string');
     return null;
   }
 
@@ -30,13 +30,13 @@ exports.firstLetterUpper = function (str) {
 exports.firstLetterLower = function (str) {
   // check empty
   if (!str) {
-    console.log("need str");
+    console.log('need str');
     return null;
   }
 
   // check string
-  if (typeof str != "string") {
-    console.log("need string");
+  if (typeof str != 'string') {
+    console.log('need string');
     return null;
   }
 
@@ -52,12 +52,12 @@ exports.firstLetterLower = function (str) {
  */
 exports.underScoreCaseToCamelCase = function (underScoreCaseName) {
   if (!underScoreCaseName) {
-    console.log("need under score case name!");
+    console.log('need under score case name!');
     return;
   }
 
   var res = [];
-  var strs = underScoreCaseName.split("_");
+  var strs = underScoreCaseName.split('_');
   for (var i = 0; i < strs.length; i++) {
     var str = strs[i];
     var strLower = str.toLowerCase();
@@ -65,5 +65,5 @@ exports.underScoreCaseToCamelCase = function (underScoreCaseName) {
     res.push(exports.firstLetterUpper(strLower));
   }
 
-  return res.join("");
+  return res.join('');
 };

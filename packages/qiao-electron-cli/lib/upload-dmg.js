@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // path
-var path = require("path");
+var path = require('path');
 
 // q
-var q = require("qiao-cos");
+var q = require('qiao-cos');
 
 // checker
-var checker = require("./_check.js");
+var checker = require('./_check.js');
 
 /**
  * upload dmg

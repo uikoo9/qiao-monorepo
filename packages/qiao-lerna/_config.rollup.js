@@ -2,10 +2,10 @@
  * rollup.config.js
  */
 module.exports = {
-  input: "src/index.js",
+  input: 'src/index.js',
   output: {
-    file: "index.js",
-    format: "cjs",
+    file: 'index.js',
+    format: 'cjs',
   },
-  external: ["fs", "path", "npm-check-updates", "qiao-cli", "qiao-console", "qiao-file", "qiao-npms", "qiao-parallel"],
+  external: ['fs', 'path', 'npm-check-updates', 'qiao-cli', 'qiao-console', 'qiao-file', 'qiao-npms', 'qiao-parallel'],
 };

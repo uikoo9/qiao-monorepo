@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
 // webpack
-var webpack = require("webpack");
+var webpack = require('webpack');
 
 // webpack dev server
-var WebpackDevServer = require("webpack-dev-server");
+var WebpackDevServer = require('webpack-dev-server');
 
 // log util
-var logUtil = require("./log.js");
+var logUtil = require('./log.js');
 
 // webpack config
-var webpackConfig = require("../config/webpack.js");
+var webpackConfig = require('../config/webpack.js');
 
 /**
  * analyzer
@@ -59,7 +59,7 @@ function webpackCompiler(configJs) {
     if (hasError) return;
 
     logUtil.log();
-    logUtil.suc("build success!");
+    logUtil.suc('build success!');
     logUtil.log();
 
     logUtil.showStats(stats);

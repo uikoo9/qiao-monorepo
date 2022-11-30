@@ -1,5 +1,5 @@
 // crypt
-import { crypt } from "./_crypt.js";
+import { crypt } from './_crypt.js';
 
 /**
  * 3des encrypt
@@ -13,11 +13,11 @@ export const TDESEncrypt = (data, key, iv, encoding) => {
   if (!data || !key || key.length != 24) return;
 
   // vars
-  const cipherIv = iv || "";
-  const clearEncoding = "utf8";
-  const cipherEncoding = encoding || "base64";
+  const cipherIv = iv || '';
+  const clearEncoding = 'utf8';
+  const cipherEncoding = encoding || 'base64';
 
-  return crypt("en", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt('en', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -32,9 +32,9 @@ export const TDESDecrypt = (data, key, iv, encoding) => {
   if (!data || !key || key.length != 24) return;
 
   // vars
-  const cipherIv = iv || "";
-  const clearEncoding = "utf8";
-  const cipherEncoding = encoding || "base64";
+  const cipherIv = iv || '';
+  const clearEncoding = 'utf8';
+  const cipherEncoding = encoding || 'base64';
 
-  return crypt("de", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
+  return crypt('de', 'des-ede3', key, cipherIv, data, clearEncoding, cipherEncoding);
 };

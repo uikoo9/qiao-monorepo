@@ -7,7 +7,7 @@
  */
 export const insertData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.run(sql, _params, (e) => {
@@ -25,7 +25,7 @@ export const insertData = (db, sql, params) => {
  */
 export const deleteData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.run(sql, _params, (e) => {
@@ -43,7 +43,7 @@ export const deleteData = (db, sql, params) => {
  */
 export const modifyData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.run(sql, _params, (e) => {
@@ -61,7 +61,7 @@ export const modifyData = (db, sql, params) => {
  */
 export const selectData = (db, sql, params) => {
   return new Promise((resolve, reject) => {
-    if (!db || !sql) return reject(new Error("need db and sql"));
+    if (!db || !sql) return reject(new Error('need db and sql'));
 
     let _params = params || [];
     db.all(sql, _params, (err, row) => {

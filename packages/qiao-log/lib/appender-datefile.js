@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * datefile appender
@@ -9,9 +9,9 @@
  */
 module.exports = function (filename, pattern) {
   return {
-    type: "dateFile",
-    pattern: pattern || "yyyy-MM-dd-hh",
-    filename: filename || "log.log",
+    type: 'dateFile',
+    pattern: pattern || 'yyyy-MM-dd-hh',
+    filename: filename || 'log.log',
     keepFileExt: true,
   };
 };

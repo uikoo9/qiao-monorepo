@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-var qiaoConsole = require("qiao-console");
-var qiaoFile = require("qiao-file");
-var qiaoParallel = require("qiao-parallel");
-var qiaoNpms = require("qiao-npms");
-var npmCheckUpdates = require("npm-check-updates");
-var qiaoCli = require("qiao-cli");
+var qiaoConsole = require('qiao-console');
+var qiaoFile = require('qiao-file');
+var qiaoParallel = require('qiao-parallel');
+var qiaoNpms = require('qiao-npms');
+var npmCheckUpdates = require('npm-check-updates');
+var qiaoCli = require('qiao-cli');
 
 // qiao
 
@@ -33,7 +33,7 @@ const lsdir = (dir) => {
 const checkDir = (folderName) => {
   // check folder name
   if (!folderName) {
-    qiaoConsole.writeLine(line$3, "need folder name");
+    qiaoConsole.writeLine(line$3, 'need folder name');
     return;
   }
 
@@ -42,14 +42,14 @@ const checkDir = (folderName) => {
 
   // check dir is folder
   if (!qiaoFile.isExists(dir)) {
-    qiaoConsole.writeLine(line$3, "folder is not exists");
+    qiaoConsole.writeLine(line$3, 'folder is not exists');
     return;
   }
 
   // get sub folders
   lsdir(dir);
   if (!subFolders || !subFolders.length) {
-    qiaoConsole.writeLine(line$3, "empty folder");
+    qiaoConsole.writeLine(line$3, 'empty folder');
     return;
   }
 
@@ -83,8 +83,8 @@ const callback = (index, res) => {
  * @param {*} l
  */
 const complete = (l) => {
-  qiaoConsole.writeLine(line$2 + l, "");
-  qiaoConsole.writeLine(line$2 + l + 1, "qiao-lerna end");
+  qiaoConsole.writeLine(line$2 + l, '');
+  qiaoConsole.writeLine(line$2 + l + 1, 'qiao-lerna end');
 };
 
 // fs
@@ -97,7 +97,7 @@ const complete = (l) => {
  */
 const getPkgInfo = (dir, checkPrivate) => {
   // package file
-  const packageFile = qiaoFile.path.resolve(dir, "package.json");
+  const packageFile = qiaoFile.path.resolve(dir, 'package.json');
   if (!qiaoFile.isExists(packageFile)) return `${dir} : package.json not exists`;
 
   // package json
@@ -135,7 +135,7 @@ function getPackage(p) {
 const handler$1 = async (folderName) => {
   // pkg
   const pkgInfo = getPkgInfo(folderName, true);
-  if (typeof pkgInfo == "string") return pkgInfo;
+  if (typeof pkgInfo == 'string') return pkgInfo;
 
   // download counts
   try {
@@ -192,7 +192,7 @@ const downloadCounts = (folderName) => {
 const handler = async (folderName) => {
   // pkg
   const pkgInfo = getPkgInfo(folderName);
-  if (typeof pkgInfo == "string") return pkgInfo;
+  if (typeof pkgInfo == 'string') return pkgInfo;
 
   // ncu
   const upgraded = await npmCheckUpdates.run({
@@ -276,7 +276,7 @@ const pkg = async (folderName, isDev) => {
     const pkg = getPkgInfo(item);
 
     // no pkg.json
-    if (typeof pkg === "string") {
+    if (typeof pkg === 'string') {
       console.log(qiaoCli.colors.white(pkg));
       console.log();
       return;
