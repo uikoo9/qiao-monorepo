@@ -1,6 +1,6 @@
 {
   "name": "qiao-electron",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "electron tools",
   "keywords": [
     "electron",
@@ -26,8 +26,8 @@
     "build": "rollup --config _config.rollup.js"
   },
   "dependencies": {
-    "qiao-config": "^1.0.1",
-    "qiao-file": "^1.0.6",
+    "qiao-config": "^1.0.2",
+    "qiao-file": "^1.0.7",
     "qiao-log": "^0.2.5"
   }
 }

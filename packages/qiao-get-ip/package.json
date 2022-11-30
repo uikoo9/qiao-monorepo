@@ -1,6 +1,6 @@
 {
   "name": "qiao-get-ip",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "get public ip on browser and nodejs",
   "keywords": [
     "browser",
@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "ip-regex": "^5.0.0",
-    "qiao-ajax": "^2.7.4"
+    "qiao-ajax": "^2.7.5"
   }
 }
