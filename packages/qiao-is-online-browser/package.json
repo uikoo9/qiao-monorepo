@@ -1,6 +1,6 @@
 {
   "name": "qiao-is-online-browser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "is online and offline to online on browser",
   "keywords": [
     "browser",
@@ -28,7 +28,7 @@
     "build": "rollup --config _config.rollup.js"
   },
   "dependencies": {
-    "offline-to-online": "^1.0.2"
+    "offline-to-online": "^1.0.3"
   },
   "sideEffects": false
 }

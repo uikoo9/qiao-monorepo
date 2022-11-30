@@ -1,6 +1,6 @@
 {
   "name": "qiao-sms",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "nodejs tencent sms tool",
   "keywords": [
     "tencent",

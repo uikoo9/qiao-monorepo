@@ -1,6 +1,6 @@
 {
   "name": "qiao-parallel",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Execute multiple tasks in parallel",
   "keywords": [
     "execute",
@@ -32,9 +32,9 @@
     "test": "npm run test-normal && npm run test-parallel && npm run test-fork"
   },
   "devDependencies": {
-    "qiao-console": "^1.0.2"
+    "qiao-console": "^1.0.3"
   },
   "dependencies": {
-    "qiao-process": "^0.0.8"
+    "qiao-process": "^0.0.9"
   }
 }
