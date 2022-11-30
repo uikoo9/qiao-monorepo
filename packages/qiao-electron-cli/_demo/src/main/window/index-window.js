@@ -7,12 +7,7 @@ const path = require("path");
 const { windowOpenByUrlAndFile } = require("qiao-electron");
 
 // const
-const {
-  LOCAL_URL,
-  WINDOW_INDEX_WIDTH,
-  WINDOW_INDEX_HEIGHT,
-  WINDOW_INDEX_COLOR,
-} = require("../_util/constant.js");
+const { LOCAL_URL, WINDOW_INDEX_WIDTH, WINDOW_INDEX_HEIGHT, WINDOW_INDEX_COLOR } = require("../_util/constant.js");
 
 /**
  * open index window

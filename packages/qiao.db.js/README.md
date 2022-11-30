@@ -19,13 +19,13 @@ npm i qiao.db.js
 打开一个数据库
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
-  var databaseName = "db_test";
-  var tableName = "t_test1";
+  var databaseName = 'db_test';
+  var tableName = 't_test1';
 
   try {
     var db = await q.openDB(databaseName);
@@ -43,9 +43,9 @@ test();
 列出所有的本地数据库
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
   try {
@@ -64,13 +64,13 @@ test();
 删除某个数据库
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
   try {
-    var databaseName = "db_test";
+    var databaseName = 'db_test';
     await q.delDB(databaseName);
   } catch (e) {
     console.log(e);
@@ -85,36 +85,36 @@ test();
 创建一个数据库表
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
-  var databaseName = "db_test";
+  var databaseName = 'db_test';
   var tables = [
     {
-      name: "t_test1",
-      key: "id",
+      name: 't_test1',
+      key: 'id',
       index: [
         {
-          name: "name",
-          index: "name",
+          name: 'name',
+          index: 'name',
           unique: false,
         },
       ],
     },
     {
-      name: "t_test2",
-      key: "auto",
+      name: 't_test2',
+      key: 'auto',
       index: [
         {
-          name: "name",
-          index: "name",
+          name: 'name',
+          index: 'name',
           unique: false,
         },
         {
-          name: "email",
-          index: ["name", "email"],
+          name: 'email',
+          index: ['name', 'email'],
           unique: true,
         },
       ],
@@ -138,15 +138,15 @@ test();
 删除一个数据库表
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
   try {
-    var databaseName = "db_test";
+    var databaseName = 'db_test';
     var db = await q.openDB(databaseName);
-    await q.delTable(db, "t_test2");
+    await q.delTable(db, 't_test2');
   } catch (e) {
     console.log(e);
   }
@@ -160,23 +160,23 @@ test();
 保存数据
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
   try {
-    var databaseName = "db_test";
+    var databaseName = 'db_test';
     var db = await q.openDB(databaseName);
 
-    var tableName = "t_test1";
-    var data = { id: 1, name: "张三", age: 24, email: "zhangsan@example.com" };
+    var tableName = 't_test1';
+    var data = { id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' };
     await q.save(db, tableName, data.id, data);
 
-    data.name = "1";
+    data.name = '1';
     await q.save(db, tableName, data.id, data);
 
-    var data1 = { id: 2, name: "张三", age: 24, email: "zhangsan@example.com" };
+    var data1 = { id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' };
     await q.save(db, tableName, data1.id, data1);
   } catch (e) {
     console.log(e);
@@ -191,13 +191,13 @@ test();
 获取数据
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
-  var databaseName = "db_test";
-  var tableName = "t_test1";
+  var databaseName = 'db_test';
+  var tableName = 't_test1';
 
   try {
     var db = await q.openDB(databaseName);
@@ -216,13 +216,13 @@ test();
 删除数据
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
-  var databaseName = "db_test";
-  var tableName = "t_test1";
+  var databaseName = 'db_test';
+  var tableName = 't_test1';
 
   try {
     var db = await q.openDB(databaseName);
@@ -240,13 +240,13 @@ test();
 清空数据
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
-  var databaseName = "db_test";
-  var tableName = "t_test1";
+  var databaseName = 'db_test';
+  var tableName = 't_test1';
 
   try {
     var db = await q.openDB(databaseName);
@@ -264,14 +264,14 @@ test();
 按索引获取所有数据
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao.db.js");
+var q = require('qiao.db.js');
 
 var test = async function () {
-  var databaseName = "db_test";
-  var tableName = "t_test1";
-  var indexName = "name";
+  var databaseName = 'db_test';
+  var tableName = 't_test1';
+  var indexName = 'name';
 
   try {
     var db = await q.openDB(databaseName);

@@ -7,8 +7,7 @@ var q = require("../index.js");
 var db = q.createDB("./__tests__/test.db");
 
 // table
-var sql =
-  "CREATE TABLE if not exists t_project (project_name TEXT, project_appid TEXT, project_icon_url TEXT)";
+var sql = "CREATE TABLE if not exists t_project (project_name TEXT, project_appid TEXT, project_icon_url TEXT)";
 
 // test
 async function test() {

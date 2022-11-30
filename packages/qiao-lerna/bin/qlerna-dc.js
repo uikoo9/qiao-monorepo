@@ -10,7 +10,4 @@ const dc = (destPath) => {
 };
 
 // cmd for dc
-cli.cmd
-  .command("dc <destPath>")
-  .description("download counts in path")
-  .action(dc);
+cli.cmd.command("dc <destPath>").description("download counts in path").action(dc);

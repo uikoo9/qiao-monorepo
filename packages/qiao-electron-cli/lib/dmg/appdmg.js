@@ -17,9 +17,7 @@ async function build(opts) {
   };
   const specContents = JSON.stringify(spec, null, 2);
 
-  const specDir = await fs.mkdtemp(
-    path.join(os.tmpdir(), "qiao-electron-cli-")
-  );
+  const specDir = await fs.mkdtemp(path.join(os.tmpdir(), "qiao-electron-cli-"));
   const specPath = path.join(specDir, "appdmg.json");
 
   await fs.writeFile(specPath, specContents);
@@ -31,12 +29,7 @@ async function build(opts) {
     })
       .on("progress", (info) => {
         if (info.type === "step-begin") {
-          console.log(
-            "appdmg [%d/%d]: %s...",
-            info.current,
-            info.total,
-            info.title
-          );
+          console.log("appdmg [%d/%d]: %s...", info.current, info.total, info.title);
         }
       })
       .on("finish", async () => {
@@ -75,24 +68,18 @@ module.exports = async (immutableOpts) => {
   opts.appPath = path.resolve(process.cwd(), opts.appPath);
 
   if (opts.dmgPath && typeof opts.dmgPath !== "string") {
-    throw new Error(
-      `Expected opts.dmgPath to be a string but it was "${typeof opts.dmgPath}"`
-    );
+    throw new Error(`Expected opts.dmgPath to be a string but it was "${typeof opts.dmgPath}"`);
   }
 
   if (!opts.dmgPath && (!opts.out || typeof opts.out !== "string")) {
-    throw new Error(
-      "Either opts.dmgPath or opts.out must be defined as a string"
-    );
+    throw new Error("Either opts.dmgPath or opts.out must be defined as a string");
   }
 
   if (!opts.dmgPath && (!opts.name || typeof opts.name !== "string")) {
     throw new Error("opts.name must be defined as a string");
   }
 
-  opts.dmgPath = path.resolve(
-    opts.dmgPath || path.join(opts.out, `${opts.name}.dmg`)
-  );
+  opts.dmgPath = path.resolve(opts.dmgPath || path.join(opts.out, `${opts.name}.dmg`));
 
   await fs.mkdir(path.dirname(opts.dmgPath), { recursive: true });
   opts.format = opts.format || "UDZO";
@@ -118,10 +105,7 @@ module.exports = async (immutableOpts) => {
 
   if (existsSync(opts.dmgPath)) {
     if (!opts.overwrite) {
-      console.log(
-        "DMG already exists at `%s` and overwrite is false",
-        opts.dmgPath
-      );
+      console.log("DMG already exists at `%s` and overwrite is false", opts.dmgPath);
       const msg = `DMG already exists.  Run electron-installer-dmg again with \
 \`--overwrite\` or remove the file and rerun. ${opts.dmgPath}`;
       throw new Error(msg);

@@ -1,36 +1,36 @@
 // react
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 // css
-import "./login-box.scss";
+import './login-box.scss';
 
 // components
-import { Input, Button, Tips } from "../../index.js";
+import { Input, Button, Tips } from '../../index.js';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * login box
  */
 export const LoginBox = (props) => {
-  colorLog("qiao-ui/pc/login-box: render");
+  colorLog('qiao-ui/pc/login-box: render');
 
   // state
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginTips, setLoginTips] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginTips, setLoginTips] = useState('');
 
   // click login
   const clickLogin = () => {
-    colorLog("qiao-ui/pc/login-box: clickLogin");
+    colorLog('qiao-ui/pc/login-box: clickLogin');
 
     props.loginClick(username, password, setTips, props.loginSucUrl);
   };
 
   // set tips
   const setTips = (msg) => {
-    colorLog("qiao-ui/pc/login-box: setTips");
+    colorLog('qiao-ui/pc/login-box: setTips');
 
     setLoginTips(msg);
   };

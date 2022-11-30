@@ -9,10 +9,7 @@ qiao.cli = require("qiao-cli");
 qiao.qec = require("../index.js");
 
 // cmd for icon
-qiao.cli.cmd
-  .command("icon <iconPath>")
-  .description("generate electron application icon")
-  .action(icon);
+qiao.cli.cmd.command("icon <iconPath>").description("generate electron application icon").action(icon);
 
 // generate icon
 async function icon(iconPath) {

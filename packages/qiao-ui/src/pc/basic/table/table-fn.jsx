@@ -1,8 +1,8 @@
 // react
-import React from "react";
+import React from 'react';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * get cols
@@ -10,7 +10,7 @@ import { colorLog } from "../../../util/log.js";
  * @returns cols
  */
 export const getCols = (props) => {
-  colorLog("qiao-ui/pc/table: getCols");
+  colorLog('qiao-ui/pc/table: getCols');
 
   const cols = props.cols;
   if (!cols) return;
@@ -28,7 +28,7 @@ export const getCols = (props) => {
  * @returns rows
  */
 export const getRows = (props) => {
-  colorLog("qiao-ui/pc/table: getRows");
+  colorLog('qiao-ui/pc/table: getRows');
 
   const rows = props.rows;
   if (!rows) return;
@@ -41,21 +41,16 @@ export const getRows = (props) => {
       <tr key={index}>
         {rowKeys.map((item, j) => {
           // ck
-          if (item == "ck") {
+          if (item == 'ck') {
             return (
               <td key={`ck_${row.id}_${j}`}>
-                <input
-                  type="checkbox"
-                  name={row.id}
-                  value={row.id}
-                  onChange={props.checkboxChange}
-                />
+                <input type="checkbox" name={row.id} value={row.id} onChange={props.checkboxChange} />
               </td>
             );
           }
 
           // op
-          if (item == "op") {
+          if (item == 'op') {
             return (
               <td key={`op_${row.id}_${j}`} className="op">
                 <div

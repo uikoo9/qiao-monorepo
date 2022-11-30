@@ -19,7 +19,7 @@ var test = function () {
       console.log("zip file fail");
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 

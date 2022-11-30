@@ -1,20 +1,20 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./footer.scss";
+import './footer.scss';
 
 // ui
-import { Link } from "../../../index.js";
+import { Link } from '../../../index.js';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * mobile footer
  */
 export const MobileFooter = (props) => {
-  colorLog("qiao-ui/mobile/footer: render");
+  colorLog('qiao-ui/mobile/footer: render');
 
   return (
     <div className="footer">

@@ -14,25 +14,25 @@ npm i qiao-encode
 ## md5
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var data = '{"nihao":"name"}';
 var s = q.md5(data);
 console.log(s);
 
 // or use encoding, hex or base64
-var ss = q.md5(data, "hex");
+var ss = q.md5(data, 'hex');
 console.log(ss);
 ```
 
 ## uuid
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 // uuid v4
 console.log(q.uuid());
@@ -53,12 +53,12 @@ console.log(q.uuid(5));
 ## aes
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var data = '{"nihao":"name"}';
-var key = "12345612345612345612345612345611";
+var key = '12345612345612345612345612345611';
 var s = q.AESEncrypt(data, key);
 console.log(s);
 
@@ -66,8 +66,8 @@ var ss = q.AESDecrypt(s, key);
 console.log(ss);
 
 // or use iv and encoding(hex, base64)
-var iv = "";
-var encoding = "hex";
+var iv = '';
+var encoding = 'hex';
 var s1 = q.AESEncrypt(data, key, iv, encoding);
 console.log(s1);
 
@@ -78,12 +78,12 @@ console.log(ss1);
 ## 3des
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var data = '{"nihao":"name"}';
-var key = "123456123456123456112233";
+var key = '123456123456123456112233';
 var s = q.TDESEncrypt(data, key);
 console.log(s);
 
@@ -91,8 +91,8 @@ var ss = q.TDESDecrypt(s, key);
 console.log(ss);
 
 // or use iv and encoding(hex, base64)
-var iv = "";
-var encoding = "hex";
+var iv = '';
+var encoding = 'hex';
 var s1 = q.TDESEncrypt(data, key, iv, encoding);
 console.log(s1);
 
@@ -105,9 +105,9 @@ console.log(ss1);
 ### random number
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var length = 4;
 for (var i = 0; i < 10; i++) console.log(q.randomNumber(length));
@@ -116,9 +116,9 @@ for (var i = 0; i < 10; i++) console.log(q.randomNumber(length));
 ### random lower letter
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var length = 4;
 for (var i = 0; i < 10; i++) console.log(q.randomLetterLower(length));
@@ -127,9 +127,9 @@ for (var i = 0; i < 10; i++) console.log(q.randomLetterLower(length));
 ### random upper letter
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var length = 4;
 for (var i = 0; i < 10; i++) console.log(q.randomLetterUpper(length));
@@ -138,9 +138,9 @@ for (var i = 0; i < 10; i++) console.log(q.randomLetterUpper(length));
 ### random all letter
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var length = 4;
 for (var i = 0; i < 10; i++) console.log(q.randomLetterAll(length));
@@ -149,9 +149,9 @@ for (var i = 0; i < 10; i++) console.log(q.randomLetterAll(length));
 ### random all letter and number
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var length = 4;
 for (var i = 0; i < 10; i++) console.log(q.randomLetterNumber(length));
@@ -160,11 +160,11 @@ for (var i = 0; i < 10; i++) console.log(q.randomLetterNumber(length));
 ### random seed
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
-var seed = "0123456789";
+var seed = '0123456789';
 var length = 4;
 for (var i = 0; i < 10; i++) console.log(q.randomSeed(seed, length));
 ```
@@ -172,20 +172,20 @@ for (var i = 0; i < 10; i++) console.log(q.randomSeed(seed, length));
 ### random by seed
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
-var seed = "0123456789";
+var seed = '0123456789';
 for (var i = 0; i < 10; i++) console.log(q.randomBySeed(seed));
 ```
 
 ### random in
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-encode");
+var q = require('qiao-encode');
 
 var min = 0;
 var max = 9;

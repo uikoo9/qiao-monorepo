@@ -1,20 +1,20 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./info.scss";
+import './info.scss';
 
 // ui
-import { Link } from "../../../index.js";
+import { Link } from '../../../index.js';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * info
  */
 export const Info = (props) => {
-  colorLog("qiao-ui/pc/info: render");
+  colorLog('qiao-ui/pc/info: render');
 
   return (
     <div className="info">

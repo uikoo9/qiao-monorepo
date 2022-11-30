@@ -45,8 +45,7 @@ const postWithToken = async (url, data) => {
   if (!root) return qiaoJson.danger("no window or global");
 
   const userinfo = root.insistime_userinfo;
-  if (!userinfo || !userinfo.userid || !userinfo.usertoken)
-    return qiaoJson.danger("please login first");
+  if (!userinfo || !userinfo.userid || !userinfo.usertoken) return qiaoJson.danger("please login first");
 
   const headers = {
     userid: userinfo.userid,
@@ -73,8 +72,7 @@ async function ajax(url, data, headers) {
   if (!res) return qiaoJson.danger(`${time}ms | request fail`);
 
   // not 200
-  if (res.status != 200)
-    return qiaoJson.danger(`${time}ms | request fail: ${res.status}`);
+  if (res.status != 200) return qiaoJson.danger(`${time}ms | request fail: ${res.status}`);
 
   // no data
   const json = res.data;
@@ -96,10 +94,8 @@ async function ajax(url, data, headers) {
  * @returns
  */
 const register = async (mobile, password, repassword, code) => {
-  if (!mobile || !password || !repassword || !code)
-    return qiaoJson.danger("need mobile, code, password");
-  if (password != repassword)
-    return qiaoJson.danger("the two password do not match");
+  if (!mobile || !password || !repassword || !code) return qiaoJson.danger("need mobile, code, password");
+  if (password != repassword) return qiaoJson.danger("the two password do not match");
 
   const url = config.host + config.register;
   const data = {

@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var fs = require("fs");
-var req = require("./req.js");
+var fs = require('fs');
+var req = require('./req.js');
 
 /**
  * download
@@ -16,14 +16,14 @@ exports.download = function (url, path) {
         return;
       }
       if (rs.statusCode != 200) {
-        reject("status code not 200");
+        reject('status code not 200');
         return;
       }
 
       req.request(url).pipe(
-        fs.createWriteStream(path).on("finish", function () {
+        fs.createWriteStream(path).on('finish', function () {
           resolve();
-        })
+        }),
       );
     });
   });

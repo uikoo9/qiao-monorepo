@@ -1,28 +1,28 @@
 // react
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 // css
-import "./menus.scss";
+import './menus.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * menus
  */
 export const Menus = (props) => {
-  colorLog("qiao-ui/pc/menus: render");
+  colorLog('qiao-ui/pc/menus: render');
 
   // state
   const [activeUrl, setActiveUrl] = useState(null);
 
   // effect
   useEffect(() => {
-    colorLog("qiao-ui/pc/menus: useEffect");
+    colorLog('qiao-ui/pc/menus: useEffect');
 
     let aurl;
     try {
-      aurl = "#" + location.href.split("#")[1];
+      aurl = '#' + location.href.split('#')[1];
       setActiveUrl(aurl);
     } catch (e) {
       colorLog(e);
@@ -31,7 +31,7 @@ export const Menus = (props) => {
 
   // on click
   const onclick = (menu) => {
-    colorLog("qiao-ui/pc/menus: onclick");
+    colorLog('qiao-ui/pc/menus: onclick');
 
     if (!menu.url) return;
 
@@ -47,7 +47,7 @@ export const Menus = (props) => {
 
       return (
         <div
-          className={`${activeUrl == menu.url ? "menu active" : "menu"}`}
+          className={`${activeUrl == menu.url ? 'menu active' : 'menu'}`}
           key={index}
           onClick={() => {
             onclick(menu);

@@ -9,11 +9,7 @@ qiao.cli = require("qiao-cli");
 qiao.qec = require("../index.js");
 
 // cmd for uploadDmg
-qiao.cli.cmd
-  .command("uploaddmg <configPath>")
-  .alias("ud")
-  .description("upload dmg to cos")
-  .action(uploadDmg);
+qiao.cli.cmd.command("uploaddmg <configPath>").alias("ud").description("upload dmg to cos").action(uploadDmg);
 
 // upload dmg
 async function uploadDmg(configPath) {

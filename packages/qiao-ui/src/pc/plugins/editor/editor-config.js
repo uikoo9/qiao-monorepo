@@ -20,7 +20,7 @@ export const getEditorConfig = (needUploadConfig, uploadConfig) => {
   if (needUploadConfig) {
     if (!uploadConfig) {
       console.log(
-        "need upload config, see: https://www.wangeditor.com/v5/menu-config.html#%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87"
+        "need upload config, see: https://www.wangeditor.com/v5/menu-config.html#%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87",
       );
     } else {
       config.MENU_CONF.uploadImage = uploadConfig;

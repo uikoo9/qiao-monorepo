@@ -11,13 +11,13 @@
 ### isOnline
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-is-online-browser");
+var q = require('qiao-is-online-browser');
 
 var test = async function () {
   try {
-    var isOnlineImgSrc = "your online img src";
+    var isOnlineImgSrc = 'your online img src';
     var isOnline = await q.isOnline(isOnlineImgSrc);
     console.log(isOnline);
   } catch (e) {
@@ -31,21 +31,21 @@ test();
 ### offlineToOnline
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-is-online-browser");
+var q = require('qiao-is-online-browser');
 
 // is online img src
-var isOnlineImgSrc = "your online img src";
+var isOnlineImgSrc = 'your online img src';
 
 // callback
 // time, interval time, default is 3*1000ms
 q.offlineToOnline(
   isOnlineImgSrc,
   function () {
-    console.log("offline-to-online");
+    console.log('offline-to-online');
   },
-  3 * 1000
+  3 * 1000,
 );
 ```
 

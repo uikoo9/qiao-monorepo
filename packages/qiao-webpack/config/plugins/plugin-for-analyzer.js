@@ -1,8 +1,7 @@
 "use strict";
 
 // webpack bundle analyzer
-var BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+var BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 /**
  * webpack bundle analyzer

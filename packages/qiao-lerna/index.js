@@ -38,8 +38,7 @@ const checkDir = (folderName) => {
   }
 
   // dir
-  const dir =
-    qiaoFile.path.resolve(process.cwd(), folderName) + qiaoFile.path.sep;
+  const dir = qiaoFile.path.resolve(process.cwd(), folderName) + qiaoFile.path.sep;
 
   // check dir is folder
   if (!qiaoFile.isExists(dir)) {
@@ -99,8 +98,7 @@ const complete = (l) => {
 const getPkgInfo = (dir, checkPrivate) => {
   // package file
   const packageFile = qiaoFile.path.resolve(dir, "package.json");
-  if (!qiaoFile.isExists(packageFile))
-    return `${dir} : package.json not exists`;
+  if (!qiaoFile.isExists(packageFile)) return `${dir} : package.json not exists`;
 
   // package json
   const packageJson = getPackage(packageFile);
@@ -108,8 +106,7 @@ const getPkgInfo = (dir, checkPrivate) => {
 
   // package name
   const packageName = packageJson.name;
-  if (packageJson.private && checkPrivate)
-    return `${packageName} : private package`;
+  if (packageJson.private && checkPrivate) return `${packageName} : private package`;
 
   // return
   return {

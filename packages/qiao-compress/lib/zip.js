@@ -21,7 +21,7 @@ exports.zipFile = function (sourceFile, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -40,7 +40,7 @@ exports.zipFileSync = function (sourceFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };
@@ -62,7 +62,7 @@ exports.zipFolder = function (sourceFolder, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -81,7 +81,7 @@ exports.zipFolderSync = function (sourceFolder, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };
@@ -103,7 +103,7 @@ exports.unzip = function (compressFile, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -122,7 +122,7 @@ exports.unzipSync = function (compressFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };

@@ -19,7 +19,7 @@ var test = function () {
       console.log("tgz folder fail");
       console.log(`   source folder:  ${sourceFolder}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 

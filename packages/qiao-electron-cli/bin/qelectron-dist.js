@@ -9,11 +9,7 @@ qiao.cli = require("qiao-cli");
 qiao.qec = require("../index.js");
 
 // cmd for dist
-qiao.cli.cmd
-  .command("dist <configPath>")
-  .alias("d")
-  .description("dist electron application")
-  .action(dist);
+qiao.cli.cmd.command("dist <configPath>").alias("d").description("dist electron application").action(dist);
 
 // dist
 async function dist(configPath) {

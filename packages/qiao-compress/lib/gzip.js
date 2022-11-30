@@ -21,7 +21,7 @@ exports.gzipFile = function (sourceFile, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -40,7 +40,7 @@ exports.gzipFileSync = function (sourceFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };
@@ -62,7 +62,7 @@ exports.ungzip = function (compressFile, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -81,7 +81,7 @@ exports.ungzipSync = function (compressFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };

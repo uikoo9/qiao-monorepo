@@ -17,15 +17,7 @@ export const TDESEncrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "en",
-    "des-ede3",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("en", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -44,13 +36,5 @@ export const TDESDecrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "de",
-    "des-ede3",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("de", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
 };

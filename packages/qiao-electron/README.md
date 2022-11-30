@@ -147,10 +147,7 @@ const res = await window.electron.shellShowPathIPC(path);
 
 ```javascript
 // 注册全局快捷键
-const res = await window.electron.shortcutGlobalIPC(
-  shortcutKey,
-  shortcutCallbackName
-);
+const res = await window.electron.shortcutGlobalIPC(shortcutKey, shortcutCallbackName);
 ```
 
 ### windowResizeIPC

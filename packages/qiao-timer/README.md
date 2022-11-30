@@ -5,9 +5,9 @@
 ### cron
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-timer");
+var q = require('qiao-timer');
 
 var test = function () {
   var cron = q.cron;
@@ -20,12 +20,12 @@ test();
 ### job
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-timer");
+var q = require('qiao-timer');
 
 var test = function () {
-  var time = "*/1 * * * * *";
+  var time = '*/1 * * * * *';
   var tick = function () {
     console.log(new Date());
   };
@@ -40,17 +40,17 @@ test();
 ### run
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-timer");
+var q = require('qiao-timer');
 
 var test = function () {
-  var time = "*/1 * * * * *";
+  var time = '*/1 * * * * *';
   var tick = function () {
     console.log(new Date());
   };
 
-  console.log("-" + new Date());
+  console.log('-' + new Date());
   var job = q.run(time, tick);
 };
 
@@ -60,17 +60,17 @@ test();
 ### runAndInit
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-timer");
+var q = require('qiao-timer');
 
 var test = function () {
-  var time = "*/1 * * * * *";
+  var time = '*/1 * * * * *';
   var tick = function () {
     console.log(new Date());
   };
 
-  console.log("-" + new Date());
+  console.log('-' + new Date());
   var job = q.runAndInit(time, tick);
 };
 

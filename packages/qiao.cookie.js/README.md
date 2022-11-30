@@ -12,19 +12,19 @@
 
 ```javascript
 // q
-const q = require("qiao.cookie.js");
+const q = require('qiao.cookie.js');
 
 // get
-q.get("key");
+q.get('key');
 
 // set
-q.set("key", "value");
+q.set('key', 'value');
 
 // del
-q.del("key");
+q.del('key');
 
 // has
-q.has("key");
+q.has('key');
 
 // keys
 q.keys();
@@ -34,19 +34,19 @@ q.keys();
 
 ```javascript
 // q
-import { get, set, del, has, keys } from "qiao.cookie.js";
+import { get, set, del, has, keys } from 'qiao.cookie.js';
 
 // get
-get("key");
+get('key');
 
 // set
-set("key", value);
+set('key', value);
 
 // del
-del("key");
+del('key');
 
 // has
-has("key");
+has('key');
 
 // keys
 keys();

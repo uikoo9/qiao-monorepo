@@ -10,9 +10,7 @@ import db from "./db.js";
 export default (filePath) => {
   // path
   const defaultPath = path.resolve(__dirname, "./config.json");
-  const finalPath = !filePath
-    ? defaultPath
-    : path.resolve(process.cwd(), filePath);
+  const finalPath = !filePath ? defaultPath : path.resolve(process.cwd(), filePath);
 
   // db
   return db(finalPath);

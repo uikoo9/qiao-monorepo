@@ -7,14 +7,5 @@ module.exports = {
     file: "index.js",
     format: "cjs",
   },
-  external: [
-    "fs",
-    "path",
-    "npm-check-updates",
-    "qiao-cli",
-    "qiao-console",
-    "qiao-file",
-    "qiao-npms",
-    "qiao-parallel",
-  ],
+  external: ["fs", "path", "npm-check-updates", "qiao-cli", "qiao-console", "qiao-file", "qiao-npms", "qiao-parallel"],
 };

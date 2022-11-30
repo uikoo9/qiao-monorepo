@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 var test = function () {
-  var url = "http://www.baidu.com";
+  var url = 'http://www.baidu.com';
   q.post(
     {
       url: url,
       qs: {
-        test: "test",
+        test: 'test',
       },
     },
     function (err, rs, body) {
       console.log(err, body);
-    }
+    },
   );
 };
 

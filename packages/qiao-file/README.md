@@ -10,19 +10,19 @@ nodejs 下文件相关封装
 ### cp
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var folderPath = "./test/";
-  var filePath = "./qiao-file.js";
+  var folderPath = './test/';
+  var filePath = './qiao-file.js';
 
   // cp folder
-  q.cp(folderPath, "./test1");
+  q.cp(folderPath, './test1');
 
   // cp file
-  q.cp(filePath, "./1.js");
+  q.cp(filePath, './1.js');
 };
 
 test();
@@ -31,13 +31,13 @@ test();
 ### mv
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var oldPath = "./test";
-  var newPath = "./test1";
+  var oldPath = './test';
+  var newPath = './test1';
 
   var res = q.mv(oldPath, newPath);
   console.log(res);
@@ -49,13 +49,13 @@ test();
 ### rm
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var folderPath = "d:/test1/";
-  var filePath = "d:/test.png";
+  var folderPath = 'd:/test1/';
+  var filePath = 'd:/test.png';
 
   // rm folder
   q.rm(folderPath);
@@ -72,12 +72,12 @@ test();
 ### lsdir
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var foldersAndFiles = q.lsdir("z:/workspaces/qiao.plugin.coder/");
+  var foldersAndFiles = q.lsdir('z:/workspaces/qiao.plugin.coder/');
   console.log(foldersAndFiles);
 };
 
@@ -87,12 +87,12 @@ test();
 ### lstree
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var fileTree = q.lstree("./", ["node_modules"]);
+  var fileTree = q.lstree('./', ['node_modules']);
   console.log(JSON.stringify(fileTree));
 };
 
@@ -102,12 +102,12 @@ test();
 ### mkdir
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var folder = "d:/test1/test2/test3/test.js";
+  var folder = 'd:/test1/test2/test3/test.js';
 
   q.mkdir(folder);
 };
@@ -120,12 +120,12 @@ test();
 ### extname
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var filePath = "d:/test1/test2/test.js";
+  var filePath = 'd:/test1/test2/test.js';
   var s = q.extname(filePath);
 
   console.log(s);
@@ -137,12 +137,12 @@ test();
 ### readFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var filePath = "./index.js";
+  var filePath = './index.js';
   var s = q.readFile(filePath);
 
   console.log(s);
@@ -154,14 +154,14 @@ test();
 ### readFileLineByLine
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 // run
 async function test() {
-  var filePath = "./rm.js";
+  var filePath = './rm.js';
   q.readFileLineByLine(filePath, onLine, onClose);
 }
 test();
@@ -173,21 +173,21 @@ function onLine(line) {
 
 // on close
 function onClose() {
-  console.log("close");
+  console.log('close');
 }
 ```
 
 ### readFileLineByLineSync
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 // run
 async function test() {
-  var filePath = "./rm.js";
+  var filePath = './rm.js';
   var lines = await q.readFileLineByLineSync(filePath);
   console.log(lines);
 
@@ -201,13 +201,13 @@ test();
 ### writeFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var filePath = "./1.js";
-  q.writeFile(filePath, "2");
+  var filePath = './1.js';
+  q.writeFile(filePath, '2');
 };
 
 test();
@@ -216,15 +216,15 @@ test();
 ### writeFileFromLines
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 // run
 async function test() {
-  var filePath = "./rm.js";
-  var destPath = "../dist/rm.js";
+  var filePath = './rm.js';
+  var destPath = '../dist/rm.js';
   var lines = await q.readFileLineByLineSync(filePath);
   q.writeFileFromLines(destPath, lines);
 
@@ -241,12 +241,12 @@ test();
 ### isExists
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-file");
+var q = require('qiao-file');
 
 var test = function () {
-  var fpath = "z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js";
+  var fpath = 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
   var s = q.isExists(fpath);
 
   console.log(s);

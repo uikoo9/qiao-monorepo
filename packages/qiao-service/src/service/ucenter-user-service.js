@@ -18,8 +18,7 @@ import { danger } from "qiao-json";
  * @returns
  */
 export const register = async (mobile, password, repassword, code) => {
-  if (!mobile || !password || !repassword || !code)
-    return danger("need mobile, code, password");
+  if (!mobile || !password || !repassword || !code) return danger("need mobile, code, password");
   if (password != repassword) return danger("the two password do not match");
 
   const url = config.host + config.register;

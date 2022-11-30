@@ -1,1 +1,1 @@
-module.exports = require("./lib/qiao-weixin.js");
+module.exports = require('./lib/qiao-weixin.js');

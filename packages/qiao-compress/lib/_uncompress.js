@@ -14,16 +14,9 @@ var compressTypes = ["tar", "gzip", "tgz", "zip"];
  *  onSuccess
  *  onFail
  */
-exports.uncompress = function (
-  compressType,
-  compressFile,
-  destPath,
-  onSuccess,
-  onFail
-) {
+exports.uncompress = function (compressType, compressFile, destPath, onSuccess, onFail) {
   if (!compressTypes.includes(compressType)) {
-    if (onFail)
-      onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    if (onFail) onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
     return;
   }
 
@@ -55,7 +48,7 @@ exports.uncompressSync = function (compressType, compressFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };

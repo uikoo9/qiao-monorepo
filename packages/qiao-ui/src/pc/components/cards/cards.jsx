@@ -1,17 +1,17 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./cards.scss";
+import './cards.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * cards
  */
 export const Cards = (props) => {
-  colorLog("qiao-ui/pc/cards: render");
+  colorLog('qiao-ui/pc/cards: render');
 
   const cards =
     props.cards &&

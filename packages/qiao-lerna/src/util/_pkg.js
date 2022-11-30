@@ -18,8 +18,7 @@ export const getPkgInfo = (dir, checkPrivate) => {
 
   // package name
   const packageName = packageJson.name;
-  if (packageJson.private && checkPrivate)
-    return `${packageName} : private package`;
+  if (packageJson.private && checkPrivate) return `${packageName} : private package`;
 
   // return
   return {

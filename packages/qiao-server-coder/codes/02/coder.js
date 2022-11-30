@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var path = require("path");
-var qiao = require("qiao.util.all");
-qiao.coder = require("../../lib/qiao-server-coder.js");
+var path = require('path');
+var qiao = require('qiao.util.all');
+qiao.coder = require('../../lib/qiao-server-coder.js');
 
 /**
  * gen
@@ -24,44 +24,30 @@ exports.gen = async function (tableName, destFolder) {
 
 // gen controller
 function genController(destFolder, data) {
-  var controllerTemp = path.resolve(__dirname, "./server/controller.art");
+  var controllerTemp = path.resolve(__dirname, './server/controller.art');
   var controllerDest = path.resolve(
     destFolder,
-    "./server/manage-api/" +
-      data.tableName1 +
-      "/controller/" +
-      data.className1 +
-      "Controller.js"
+    './server/manage-api/' + data.tableName1 + '/controller/' + data.className1 + 'Controller.js',
   );
   qiao.coder.genFileByData(controllerTemp, data, controllerDest);
 }
 
 // gen service
 function genService(destFolder, data) {
-  var serviceTemp = path.resolve(__dirname, "./server/service.art");
+  var serviceTemp = path.resolve(__dirname, './server/service.art');
   var serviceDest = path.resolve(
     destFolder,
-    "./server/manage-api/" +
-      data.tableName1 +
-      "/service/" +
-      data.className1 +
-      "Service.js"
+    './server/manage-api/' + data.tableName1 + '/service/' + data.className1 + 'Service.js',
   );
   qiao.coder.genFileByData(serviceTemp, data, serviceDest);
 }
 
 // gen js
 function genJs(destFolder, data) {
-  var jsTemp = path.resolve(__dirname, "./webroot/js.art");
+  var jsTemp = path.resolve(__dirname, './webroot/js.art');
   var jsDest = path.resolve(
     destFolder,
-    "./webroot-dev/static/js/app/manage/" +
-      data.tableName1 +
-      "/" +
-      data.tableName1 +
-      "-" +
-      data.tableName2 +
-      ".js"
+    './webroot-dev/static/js/app/manage/' + data.tableName1 + '/' + data.tableName1 + '-' + data.tableName2 + '.js',
   );
   qiao.coder.genFileByData(jsTemp, data, jsDest);
 }

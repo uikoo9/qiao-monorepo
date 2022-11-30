@@ -5,55 +5,55 @@
 ### json
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-json");
+var q = require('qiao-json');
 
-var json = q.json("success", "test", {});
+var json = q.json('success', 'test', {});
 console.log(json);
 ```
 
 ### success
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-json");
+var q = require('qiao-json');
 
-var success = q.success("test", {});
+var success = q.success('test', {});
 console.log(success);
 ```
 
 ### info
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-json");
+var q = require('qiao-json');
 
-var info = q.info("test", {});
+var info = q.info('test', {});
 console.log(info);
 ```
 
 ### warning
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-json");
+var q = require('qiao-json');
 
-var warning = q.warning("test", {});
+var warning = q.warning('test', {});
 console.log(warning);
 ```
 
 ### danger
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-json");
+var q = require('qiao-json');
 
-var danger = q.danger("test", {});
+var danger = q.danger('test', {});
 console.log(danger);
 ```
 

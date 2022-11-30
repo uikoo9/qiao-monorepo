@@ -5,17 +5,17 @@
 ### compressFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.zip");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.zip');
 
   q.compressFile(
-    "zip",
+    'zip',
     sourceFile,
     destPath,
     function () {
@@ -27,7 +27,7 @@ var test = function () {
       console.log(`compress file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -37,17 +37,17 @@ test();
 ### compressFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.zip");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.zip');
 
   try {
-    await q.compressFileSync("zip", sourceFile, destPath);
+    await q.compressFileSync('zip', sourceFile, destPath);
     console.log(`compress file success`);
     console.log(`   source file:    ${sourceFile}`);
     console.log(`   dest path:      ${destPath}`);
@@ -64,17 +64,17 @@ test();
 ### compressFolder
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.zip");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.zip');
 
   q.compressFolder(
-    "zip",
+    'zip',
     sourceFolder,
     destPath,
     function () {
@@ -86,7 +86,7 @@ var test = function () {
       console.log(`compress folder fail`);
       console.log(`   source folder:  ${sourceFolder}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -96,17 +96,17 @@ test();
 ### compressFolderSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.zip");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.zip');
 
   try {
-    await q.compressFolder("zip", sourceFolder, destPath);
+    await q.compressFolder('zip', sourceFolder, destPath);
     console.log(`compress folder success`);
     console.log(`   source file:    ${sourceFolder}`);
     console.log(`   dest path:      ${destPath}`);
@@ -123,17 +123,17 @@ test();
 ### uncompress
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/uncompress-file.zip");
-  var destPath = path.resolve(__dirname, "../files_out/");
+  var sourceFile = path.resolve(__dirname, '../files_in/uncompress-file.zip');
+  var destPath = path.resolve(__dirname, '../files_out/');
 
   q.uncompress(
-    "zip",
+    'zip',
     sourceFile,
     destPath,
     function () {
@@ -145,7 +145,7 @@ var test = function () {
       console.log(`uncompress file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -155,17 +155,17 @@ test();
 ### uncompressSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/uncompress-file.zip");
-  var destPath = path.resolve(__dirname, "../files_out/");
+  var sourceFile = path.resolve(__dirname, '../files_in/uncompress-file.zip');
+  var destPath = path.resolve(__dirname, '../files_out/');
 
   try {
-    await q.uncompressSync("zip", sourceFile, destPath);
+    await q.uncompressSync('zip', sourceFile, destPath);
     console.log(`uncompress file success`);
     console.log(`   source file:    ${sourceFile}`);
     console.log(`   dest path:      ${destPath}`);
@@ -182,14 +182,14 @@ test();
 ### zipFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.zip");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.zip');
 
   q.zipFile(
     sourceFile,
@@ -203,7 +203,7 @@ var test = function () {
       console.log(`zip file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -213,14 +213,14 @@ test();
 ### zipFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.zip");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.zip');
 
   try {
     await q.zipFileSync(sourceFile, destPath);
@@ -240,14 +240,14 @@ test();
 ### zipFolder
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.zip");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.zip');
 
   q.zipFolder(
     sourceFolder,
@@ -261,7 +261,7 @@ var test = function () {
       console.log(`zip folder fail`);
       console.log(`   source folder:  ${sourceFolder}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -271,14 +271,14 @@ test();
 ### zipFolderSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.zip");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.zip');
 
   try {
     await q.zipFolderSync(sourceFolder, destPath);
@@ -298,14 +298,14 @@ test();
 ### unzip
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/uncompress-file.zip");
-  var destPath = path.resolve(__dirname, "../files_out/");
+  var sourceFile = path.resolve(__dirname, '../files_in/uncompress-file.zip');
+  var destPath = path.resolve(__dirname, '../files_out/');
 
   q.unzip(
     sourceFile,
@@ -319,7 +319,7 @@ var test = function () {
       console.log(`unzip file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -329,14 +329,14 @@ test();
 ### unzipSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/uncompress-file.zip");
-  var destPath = path.resolve(__dirname, "../files_out/");
+  var sourceFile = path.resolve(__dirname, '../files_in/uncompress-file.zip');
+  var destPath = path.resolve(__dirname, '../files_out/');
 
   try {
     await q.unzipSync(sourceFile, destPath);
@@ -356,14 +356,14 @@ test();
 ### gzipFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.gz");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.gz');
 
   q.gzipFile(
     sourceFile,
@@ -377,7 +377,7 @@ var test = function () {
       console.log(`gzip file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -387,14 +387,14 @@ test();
 ### gzipFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.gz");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.gz');
 
   try {
     await q.gzipFileSync(sourceFile, destPath);
@@ -414,14 +414,14 @@ test();
 ### ungzip
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/ungzip-file.gz");
-  var destPath = path.resolve(__dirname, "../files_out/ungzip-file.js");
+  var sourceFile = path.resolve(__dirname, '../files_in/ungzip-file.gz');
+  var destPath = path.resolve(__dirname, '../files_out/ungzip-file.js');
 
   q.ungzip(
     sourceFile,
@@ -435,7 +435,7 @@ var test = function () {
       console.log(`ungzip file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -445,14 +445,14 @@ test();
 ### ungzipSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/ungzip-file.gz");
-  var destPath = path.resolve(__dirname, "../files_out/ungzip-file.js");
+  var sourceFile = path.resolve(__dirname, '../files_in/ungzip-file.gz');
+  var destPath = path.resolve(__dirname, '../files_out/ungzip-file.js');
 
   try {
     await q.ungzipSync(sourceFile, destPath);
@@ -472,14 +472,14 @@ test();
 ### tarFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.tar");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.tar');
 
   q.tarFile(
     sourceFile,
@@ -493,7 +493,7 @@ var test = function () {
       console.log(`tar file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -503,14 +503,14 @@ test();
 ### tarFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.tar");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.tar');
 
   try {
     await q.tarFileSync(sourceFile, destPath);
@@ -530,14 +530,14 @@ test();
 ### tarFolder
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.tar");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.tar');
 
   q.tarFolder(
     sourceFolder,
@@ -551,7 +551,7 @@ var test = function () {
       console.log(`tar folder fail`);
       console.log(`   source folder:  ${sourceFolder}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -561,14 +561,14 @@ test();
 ### tarFolderSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.tar");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.tar');
 
   try {
     await q.tarFolderSync(sourceFolder, destPath);
@@ -588,14 +588,14 @@ test();
 ### untar
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/untar-file.tar");
-  var destPath = path.resolve(__dirname, "../files_out");
+  var sourceFile = path.resolve(__dirname, '../files_in/untar-file.tar');
+  var destPath = path.resolve(__dirname, '../files_out');
 
   q.untar(
     sourceFile,
@@ -609,7 +609,7 @@ var test = function () {
       console.log(`untar file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -619,14 +619,14 @@ test();
 ### untarSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/untar-file.tar");
-  var destPath = path.resolve(__dirname, "../files_out");
+  var sourceFile = path.resolve(__dirname, '../files_in/untar-file.tar');
+  var destPath = path.resolve(__dirname, '../files_out');
 
   try {
     await q.untarSync(sourceFile, destPath);
@@ -646,14 +646,14 @@ test();
 ### tgzFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.tgz");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.tgz');
 
   q.tgzFile(
     sourceFile,
@@ -667,7 +667,7 @@ var test = function () {
       console.log(`tgz file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -677,14 +677,14 @@ test();
 ### tgzFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/source-file.js");
-  var destPath = path.resolve(__dirname, "../files_out/source-file.tgz");
+  var sourceFile = path.resolve(__dirname, '../files_in/source-file.js');
+  var destPath = path.resolve(__dirname, '../files_out/source-file.tgz');
 
   try {
     await q.tgzFileSync(sourceFile, destPath);
@@ -704,14 +704,14 @@ test();
 ### tgzFolder
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.tgz");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.tgz');
 
   q.tgzFolder(
     sourceFolder,
@@ -725,7 +725,7 @@ var test = function () {
       console.log(`tgz folder fail`);
       console.log(`   source folder:  ${sourceFolder}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -735,14 +735,14 @@ test();
 ### tgzFolderSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFolder = path.resolve(__dirname, "../node_modules");
-  var destPath = path.resolve(__dirname, "../files_out/node_modules.tgz");
+  var sourceFolder = path.resolve(__dirname, '../node_modules');
+  var destPath = path.resolve(__dirname, '../files_out/node_modules.tgz');
 
   try {
     await q.tgzFolderSync(sourceFolder, destPath);
@@ -762,14 +762,14 @@ test();
 ### untgz
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/untgz-file.tgz");
-  var destPath = path.resolve(__dirname, "../files_out");
+  var sourceFile = path.resolve(__dirname, '../files_in/untgz-file.tgz');
+  var destPath = path.resolve(__dirname, '../files_out');
 
   q.untgz(
     sourceFile,
@@ -783,7 +783,7 @@ var test = function () {
       console.log(`untgz file fail`);
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 
@@ -793,14 +793,14 @@ test();
 ### untgzSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var path = require("path");
-var q = require("qiao-compress");
+var path = require('path');
+var q = require('qiao-compress');
 
 var test = async function () {
-  var sourceFile = path.resolve(__dirname, "../files_in/untgz-file.tgz");
-  var destPath = path.resolve(__dirname, "../files_out");
+  var sourceFile = path.resolve(__dirname, '../files_in/untgz-file.tgz');
+  var destPath = path.resolve(__dirname, '../files_out');
 
   try {
     await q.untgzSync(sourceFile, destPath);

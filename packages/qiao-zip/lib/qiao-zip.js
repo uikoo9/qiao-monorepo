@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 // require
-var fs = require("fs");
-var path = require("path");
-var admZip = require("adm-zip");
-var archiver = require("archiver");
-var iconv = require("iconv-lite");
+var fs = require('fs');
+var path = require('path');
+var admZip = require('adm-zip');
+var archiver = require('archiver');
+var iconv = require('iconv-lite');
 
 // qiao
 var qiao = {};
-qiao.file = require("qiao-file");
+qiao.file = require('qiao-file');
 
 /**
  * unzip
@@ -22,7 +22,7 @@ exports.unzip = function (zipFile, destFolder) {
   var zipEntries = zip.getEntries();
   for (var i = 0; i < zipEntries.length; i++) {
     var entry = zipEntries[i];
-    entry.entryName = iconv.decode(entry.rawEntryName, "gbk");
+    entry.entryName = iconv.decode(entry.rawEntryName, 'gbk');
   }
 
   zip.extractAllTo(destFolder, true);
@@ -39,15 +39,15 @@ exports.zipFile = function (sourceFile, destZip, cb) {
 
   // init
   var output = fs.createWriteStream(destZip);
-  var archive = archiver("zip", {
+  var archive = archiver('zip', {
     zlib: { level: 9 },
   });
 
   // on
-  output.on("close", function () {
-    cb(null, "zip file success!");
+  output.on('close', function () {
+    cb(null, 'zip file success!');
   });
-  archive.on("error", function (err) {
+  archive.on('error', function (err) {
     cb(err);
   });
 
@@ -84,15 +84,15 @@ exports.zipFolder = function (sourceFolder, destZip, cb, subdir) {
 
   // init
   var output = fs.createWriteStream(destZip);
-  var archive = archiver("zip", {
+  var archive = archiver('zip', {
     zlib: { level: 9 },
   });
 
   // on
-  output.on("close", function () {
-    cb(null, "zip folder success!");
+  output.on('close', function () {
+    cb(null, 'zip folder success!');
   });
-  archive.on("error", function (err) {
+  archive.on('error', function (err) {
     cb(err);
   });
 
@@ -118,7 +118,7 @@ exports.zipFolderSync = function (sourceFolder, destZip, subdir) {
       function (err, msg) {
         return err ? reject(err) : resolve(msg);
       },
-      subdir
+      subdir,
     );
   });
 };

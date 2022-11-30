@@ -11,9 +11,5 @@ import { IPC_SHORTCUT_GLOBAL } from "./shortcut-constant.js";
  * @returns res
  */
 export const shortcutGlobalIPC = async (shortcutKey, shortcutCallbackName) => {
-  return await ipcRenderer.invoke(
-    IPC_SHORTCUT_GLOBAL,
-    shortcutKey,
-    shortcutCallbackName
-  );
+  return await ipcRenderer.invoke(IPC_SHORTCUT_GLOBAL, shortcutKey, shortcutCallbackName);
 };

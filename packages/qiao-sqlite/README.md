@@ -12,13 +12,13 @@
 创建数据库
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 console.log(db);
 ```
 
@@ -27,17 +27,16 @@ console.log(db);
 创建表格
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // table
-var sql =
-  "CREATE TABLE if not exists t_project (project_name TEXT, project_appid TEXT, project_icon_url TEXT)";
+var sql = 'CREATE TABLE if not exists t_project (project_name TEXT, project_appid TEXT, project_icon_url TEXT)';
 
 // test
 async function test() {
@@ -57,19 +56,19 @@ test();
 删除表格
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // test
 async function test() {
   try {
     console.log(await q.showTables(db));
-    await q.dropTable(db, "t_project");
+    await q.dropTable(db, 't_project');
     console.log(await q.showTables(db));
   } catch (e) {
     console.log(e);
@@ -85,13 +84,13 @@ test();
 列出表格
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // test
 async function test() {
@@ -112,21 +111,21 @@ test();
 插入数据
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // data
-var sql = "insert into t_project values (?, ?, ?)";
+var sql = 'insert into t_project values (?, ?, ?)';
 
 // test
 async function test() {
   try {
-    await q.insertData(db, sql, ["name", "appid", "url"]);
+    await q.insertData(db, sql, ['name', 'appid', 'url']);
   } catch (e) {
     console.log(e);
   }
@@ -141,16 +140,16 @@ test();
 删除数据
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // data
-var sql = "delete from t_project where rowid=?";
+var sql = 'delete from t_project where rowid=?';
 
 // test
 async function test() {
@@ -170,21 +169,21 @@ test();
 修改数据
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // data
-var sql = "update t_project set project_name=?";
+var sql = 'update t_project set project_name=?';
 
 // test
 async function test() {
   try {
-    await q.modifyData(db, sql, ["name1"]);
+    await q.modifyData(db, sql, ['name1']);
   } catch (e) {
     console.log(e);
   }
@@ -199,16 +198,16 @@ test();
 查询数据
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-sqlite");
+var q = require('qiao-sqlite');
 
 // db
-var db = q.createDB("./__tests__/test.db");
+var db = q.createDB('./__tests__/test.db');
 
 // sql
-var sql = "SELECT rowid,* FROM t_project";
+var sql = 'SELECT rowid,* FROM t_project';
 
 // test
 async function test() {

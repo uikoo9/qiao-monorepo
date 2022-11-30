@@ -7,20 +7,20 @@ nodejs memory cache
 ### cache
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-cache");
+var q = require('qiao-cache');
 
 // set
-q.cache("test", "hello");
+q.cache('test', 'hello');
 
 // get
-var s = q.cache("test");
+var s = q.cache('test');
 console.log(s); // hello
 
 // del
-q.cache("test", null);
-console.log(q.cache("test")); // undefined
+q.cache('test', null);
+console.log(q.cache('test')); // undefined
 ```
 
 ## version

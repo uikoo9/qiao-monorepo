@@ -14,10 +14,7 @@ export const darkModeIPCInit = () => {
   nativeTheme.on("updated", () => {
     const wins = BrowserWindow.getAllWindows();
     for (let win of wins) {
-      win.webContents.send(
-        IPC_DARKMODE_CHANGE,
-        nativeTheme.shouldUseDarkColors
-      );
+      win.webContents.send(IPC_DARKMODE_CHANGE, nativeTheme.shouldUseDarkColors);
     }
   });
 

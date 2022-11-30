@@ -10,9 +10,9 @@ nodejs 检测用户是否在线，详见：[一篇文章判断用户是否在线
 ### isOnline
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-is-online");
+var q = require('qiao-is-online');
 
 var test = async function () {
   try {
@@ -33,14 +33,14 @@ test();
 ### offline to online on nodejs
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-is-online");
+var q = require('qiao-is-online');
 
 // callback
 // time, interval time, default is 3*1000ms
 q.offlineToOnline(function () {
-  console.log("offline-to-online");
+  console.log('offline-to-online');
 }, 3 * 1000);
 ```
 

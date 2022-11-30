@@ -30,8 +30,7 @@ module.exports = function (config) {
   mkDir(dist);
 
   // cp file or folder
-  for (var i = 0; i < srcFiles.length; i++)
-    cpFileOrFolder(src, dist, srcFiles[i]);
+  for (var i = 0; i < srcFiles.length; i++) cpFileOrFolder(src, dist, srcFiles[i]);
 };
 
 // make electron-dist dir

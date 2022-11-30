@@ -1,5 +1,5 @@
-var fs = require("fs");
-var archiver = require("archiver");
+var fs = require('fs');
+var archiver = require('archiver');
 
 /**
  * zip file
@@ -10,15 +10,15 @@ var archiver = require("archiver");
 function zipFile(sourceFile, destZip, cb) {
   // init
   var output = fs.createWriteStream(destZip);
-  var archive = archiver("zip", {
+  var archive = archiver('zip', {
     zlib: { level: 9 },
   });
 
   // on
-  output.on("close", function () {
-    cb(null, "zip file success!");
+  output.on('close', function () {
+    cb(null, 'zip file success!');
   });
-  archive.on("error", function (err) {
+  archive.on('error', function (err) {
     cb(err);
   });
 
@@ -32,8 +32,8 @@ function zipFile(sourceFile, destZip, cb) {
  * test
  */
 function test() {
-  var sourceFile = "./archiver.js";
-  var destZip = "./archiver.zip";
+  var sourceFile = './archiver.js';
+  var destZip = './archiver.zip';
 
   zipFile(sourceFile, destZip, function (err, msg) {
     console.log(err, msg);

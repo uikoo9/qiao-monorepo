@@ -178,15 +178,7 @@ const AESEncrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "en",
-    "aes-256-ecb",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("en", "aes-256-ecb", key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -205,15 +197,7 @@ const AESDecrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "de",
-    "aes-256-ecb",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("de", "aes-256-ecb", key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 // crypt
@@ -234,15 +218,7 @@ const TDESEncrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "en",
-    "des-ede3",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("en", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -261,15 +237,7 @@ const TDESDecrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "de",
-    "des-ede3",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("de", "des-ede3", key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 exports.AESDecrypt = AESDecrypt;

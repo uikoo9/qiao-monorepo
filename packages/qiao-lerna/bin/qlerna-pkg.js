@@ -12,7 +12,4 @@ const pkg = (destPath, isDev) => {
 };
 
 // cmd for pkg
-cli.cmd
-  .command("pkg <destPath> [isDev]")
-  .description("get package.json in path")
-  .action(pkg);
+cli.cmd.command("pkg <destPath> [isDev]").description("get package.json in path").action(pkg);

@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-var fs = require("fs");
-var template = require("art-template");
-var qiao = require("./_qiao.js");
+var fs = require('fs');
+var template = require('art-template');
+var qiao = require('./_qiao.js');
 
 /**
  * config
  */
-exports.config = require("./config.json");
+exports.config = require('./config.json');
 
 /**
  * gen data
@@ -32,7 +32,7 @@ exports.genData = async function (tableName) {
   try {
     columns = await qiao.mysql.getColumns(exports.config.db, tableName);
   } catch (e) {
-    console.log("table " + tableName + " doesn't exist!");
+    console.log('table ' + tableName + " doesn't exist!");
     return;
   }
 
@@ -68,7 +68,7 @@ exports.genData = async function (tableName) {
 
 // get table name
 function getTableName(tableName, data) {
-  var tableNames = tableName.split("_");
+  var tableNames = tableName.split('_');
 
   var tableName1 = null;
   var tableName2 = null;
@@ -78,7 +78,7 @@ function getTableName(tableName, data) {
 
     if (i > 1) tableTemp.push(tableNames[i]);
   }
-  tableName2 = tableTemp.join("-");
+  tableName2 = tableTemp.join('-');
 
   data.tableName1 = tableName1;
   data.tableName2 = tableName2;
@@ -95,19 +95,19 @@ function getTableName(tableName, data) {
 exports.genFileByData = async function (templateFile, templateData, destFile) {
   // check temp file
   if (!templateFile) {
-    console.log("need template file path!");
+    console.log('need template file path!');
     return;
   }
 
   // check temp data
   if (!templateData) {
-    console.log("need template data!");
+    console.log('need template data!');
     return;
   }
 
   // check dest file
   if (!destFile) {
-    console.log("need dest file path!");
+    console.log('need dest file path!');
     return;
   }
 

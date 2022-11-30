@@ -12,13 +12,13 @@
 获取前一天的 npm 包下载量
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-npms");
+var q = require('qiao-npms');
 
 var test = async function () {
   try {
-    var packageName = "qiao-cos";
+    var packageName = 'qiao-cos';
     var res = await q.downloadCountsLastDay(packageName);
     console.log(res);
   } catch (e) {
@@ -45,13 +45,13 @@ return
 获取前一周的 npm 包下载量
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-npms");
+var q = require('qiao-npms');
 
 var test = async function () {
   try {
-    var packageName = "qiao-cos";
+    var packageName = 'qiao-cos';
     var res = await q.downloadCountsLastWeek(packageName);
     console.log(res);
   } catch (e) {
@@ -78,13 +78,13 @@ return
 获取前一月的 npm 包下载量
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-npms");
+var q = require('qiao-npms');
 
 var test = async function () {
   try {
-    var packageName = "qiao-cos";
+    var packageName = 'qiao-cos';
     var res = await q.downloadCountsLastMonth(packageName);
     console.log(res);
   } catch (e) {
@@ -111,14 +111,14 @@ return
 获取 npm 包下载量
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-npms");
+var q = require('qiao-npms');
 
 var test = async function () {
   try {
-    var packageName = "qiao-cos";
-    var res = await q.downloadCounts(packageName, "last-day");
+    var packageName = 'qiao-cos';
+    var res = await q.downloadCounts(packageName, 'last-day');
     console.log(res);
   } catch (e) {
     console.log(e);
@@ -144,13 +144,13 @@ return
 获取 npm 包最新版本号
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-npms");
+var q = require('qiao-npms');
 
 var test = async function () {
   try {
-    var packageName = "qiao-qrcode";
+    var packageName = 'qiao-qrcode';
     var res = await q.getVersion(packageName);
     console.log(res);
   } catch (e) {
@@ -166,13 +166,13 @@ test();
 搜索 npm 包
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-npms");
+var q = require('qiao-npms');
 
 var test = async function () {
   try {
-    var packageName = "qiao-cos";
+    var packageName = 'qiao-cos';
     var res = await q.searchPackages(packageName);
     console.log(res);
   } catch (e) {

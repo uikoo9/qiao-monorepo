@@ -1,17 +1,17 @@
 // react
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 
 // ui
-import { Table, Toolbar } from "../../index.js";
+import { Table, Toolbar } from '../../index.js';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * grid
  */
 export const Grid = (props) => {
-  colorLog("qiao-ui/pc/grid: render");
+  colorLog('qiao-ui/pc/grid: render');
 
   // state
   const [cks, setCks] = useState([]);
@@ -26,13 +26,13 @@ export const Grid = (props) => {
 
   // effect
   useEffect(() => {
-    colorLog("qiao-ui/pc/grid: useEffect");
+    colorLog('qiao-ui/pc/grid: useEffect');
     reload();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // reload
   const reload = async (data, pagenumber) => {
-    colorLog("qiao-ui/pc/grid: reload");
+    colorLog('qiao-ui/pc/grid: reload');
 
     const res = await props.init(data, pagenumber);
     setCols(res.cols);
@@ -43,14 +43,14 @@ export const Grid = (props) => {
 
   // edit row
   const editRow = (row) => {
-    colorLog("qiao-ui/pc/grid: editRow");
+    colorLog('qiao-ui/pc/grid: editRow');
 
     editModalRef.current.modalShow(row);
   };
 
   // del row
   const delRow = async (id) => {
-    colorLog("qiao-ui/pc/grid: delRow");
+    colorLog('qiao-ui/pc/grid: delRow');
 
     const isSuc = await props.del(id);
     if (!isSuc) return;
@@ -61,7 +61,7 @@ export const Grid = (props) => {
 
   // toolbar
   const checkboxChange = (e) => {
-    colorLog("qiao-ui/pc/grid: checkboxChange");
+    colorLog('qiao-ui/pc/grid: checkboxChange');
 
     if (e.target.checked) {
       cks.push(e.target.value);
@@ -87,13 +87,7 @@ export const Grid = (props) => {
         pagenumber={pagenumber}
       />
 
-      <Table
-        cols={cols}
-        rows={rows}
-        editRow={editRow}
-        delRow={delRow}
-        checkboxChange={checkboxChange}
-      />
+      <Table cols={cols} rows={rows} editRow={editRow} delRow={delRow} checkboxChange={checkboxChange} />
 
       <EditModal ref={editModalRef} reload={reload} />
 

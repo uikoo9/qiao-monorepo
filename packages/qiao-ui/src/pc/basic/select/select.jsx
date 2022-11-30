@@ -1,17 +1,17 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./select.scss";
+import './select.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * select
  */
 export const Select = (props) => {
-  colorLog("qiao-ui/pc/select: render");
+  colorLog('qiao-ui/pc/select: render');
 
   // options
   const options =

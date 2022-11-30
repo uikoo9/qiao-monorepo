@@ -15,10 +15,10 @@ npm i qiao-config
 
 ```javascript
 // default
-const db = require("qiao-config")();
+const db = require('qiao-config')();
 
 // custom
-const db = require("qiao-config")("your path");
+const db = require('qiao-config')('your path');
 ```
 
 ## api

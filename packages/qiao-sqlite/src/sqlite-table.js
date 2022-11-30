@@ -38,8 +38,7 @@ export const showTables = (db) => {
   return new Promise((resolve, reject) => {
     if (!db) return reject(new Error("need db"));
 
-    const sql =
-      "select name from sqlite_master where type='table' order by name";
+    const sql = "select name from sqlite_master where type='table' order by name";
     db.all(sql, (e, rows) => {
       return e ? reject(e) : resolve(rows);
     });

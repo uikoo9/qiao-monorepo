@@ -10,10 +10,10 @@ nodejs 下 console 常见 api 封装
 ### clear
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-console
-const q = require("qiao-console");
+const q = require('qiao-console');
 
 q.clear();
 ```
@@ -21,22 +21,22 @@ q.clear();
 ### writeLine
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-console
-const q = require("qiao-console");
+const q = require('qiao-console');
 
 q.clear();
-q.writeLine(1, "hello");
+q.writeLine(1, 'hello');
 ```
 
 ### others
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-console
-const q = require("qiao-console");
+const q = require('qiao-console');
 
 // clear line
 q.clearLine();

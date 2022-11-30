@@ -13,5 +13,5 @@ q.offlineToOnline(
   function () {
     console.log("offline-to-online");
   },
-  3 * 1000
+  3 * 1000,
 );

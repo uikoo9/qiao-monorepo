@@ -16,11 +16,11 @@ npm i qiao.ls.js
 
 ```javascript
 // cjs
-const q = require("qiao.ls.js");
+const q = require('qiao.ls.js');
 q.ls;
 
 // mjs
-import { ls } from "qiao.ls.js";
+import { ls } from 'qiao.ls.js';
 ```
 
 ## api
@@ -29,29 +29,29 @@ import { ls } from "qiao.ls.js";
 
 ```javascript
 // set
-q.ls("name", "value");
+q.ls('name', 'value');
 ```
 
 ### set with expires
 
 ```javascript
 // set 10s expires
-q.ls("name", "value", 10 * 1000);
+q.ls('name', 'value', 10 * 1000);
 ```
 
 ### get
 
 ```javascript
 // get
-console.log(q.ls("name")); // value
+console.log(q.ls('name')); // value
 ```
 
 ### delete
 
 ```javascript
 // delete
-q.ls("name", null);
-console.log(q.ls("name")); // undefined
+q.ls('name', null);
+console.log(q.ls('name')); // undefined
 ```
 
 ## version

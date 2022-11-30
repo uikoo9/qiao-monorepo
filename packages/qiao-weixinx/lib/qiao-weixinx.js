@@ -1,8 +1,8 @@
 /**
  * v
  */
-exports.v = require("../package.json").version;
-console.log("======qiao-weixinx", exports.v);
+exports.v = require('../package.json').version;
+console.log('======qiao-weixinx', exports.v);
 
 /**
  * exports.ajax
@@ -13,7 +13,7 @@ console.log("======qiao-weixinx", exports.v);
 exports.ajax = function (options, suc, fail) {
   var url = options.url;
   var data = options.data || {};
-  var method = options.method || "POST";
+  var method = options.method || 'POST';
   var headers = options.headers || {};
 
   wx.request({
@@ -22,13 +22,13 @@ exports.ajax = function (options, suc, fail) {
     method: method,
     header: headers,
     success: function (res) {
-      if (typeof suc == "function") suc(res.data);
+      if (typeof suc == 'function') suc(res.data);
     },
     fail: function (res) {
-      if (typeof fail == "function") {
+      if (typeof fail == 'function') {
         fail(res.data);
       } else {
-        exports.alert("加载失败，请重试！");
+        exports.alert('加载失败，请重试！');
       }
     },
   });
@@ -36,13 +36,13 @@ exports.ajax = function (options, suc, fail) {
 
 // modal options
 var _modalOptions = {
-  title: "title",
-  content: "msg",
+  title: 'title',
+  content: 'msg',
   showCancel: true,
-  cancelText: "取消",
-  cancelColor: "#000000",
-  confirmText: "确定",
-  confirmColor: "#3CC51F",
+  cancelText: '取消',
+  cancelColor: '#000000',
+  confirmText: '确定',
+  confirmColor: '#3CC51F',
 };
 
 /**
@@ -53,11 +53,11 @@ var _modalOptions = {
 exports.alert = function (options, cb) {
   // opt
   var opt = Object.assign({}, _modalOptions);
-  opt.title = "提示";
+  opt.title = '提示';
   opt.showCancel = false;
 
   // options
-  if (typeof options == "string") {
+  if (typeof options == 'string') {
     opt.content = options;
   } else {
     Object.assign(opt, options);
@@ -65,7 +65,7 @@ exports.alert = function (options, cb) {
 
   // suc
   opt.success = function (res) {
-    if (res.confirm && typeof cb == "function") cb();
+    if (res.confirm && typeof cb == 'function') cb();
   };
 
   wx.showModal(opt);
@@ -80,10 +80,10 @@ exports.alert = function (options, cb) {
 exports.confirm = function (options, success, cancel) {
   // opt
   var opt = Object.assign({}, _modalOptions);
-  opt.title = "提示";
+  opt.title = '提示';
 
   // options
-  if (typeof options == "string") {
+  if (typeof options == 'string') {
     opt.content = options;
   } else {
     Object.assign(opt, options);
@@ -92,9 +92,9 @@ exports.confirm = function (options, success, cancel) {
   // suc
   opt.success = function (res) {
     if (res.confirm) {
-      if (typeof success == "function") success();
+      if (typeof success == 'function') success();
     } else {
-      if (typeof cancel == "function") cancel();
+      if (typeof cancel == 'function') cancel();
     }
   };
 
@@ -103,8 +103,8 @@ exports.confirm = function (options, success, cancel) {
 
 // toast options
 var _toastOptions = {
-  title: "title",
-  icon: "success", // loading,none
+  title: 'title',
+  icon: 'success', // loading,none
   duration: 2000,
   mask: true,
 };
@@ -118,7 +118,7 @@ exports.suc = function (options) {
   var opt = Object.assign({}, _toastOptions);
 
   // options
-  if (typeof options == "string") {
+  if (typeof options == 'string') {
     opt.title = options;
   } else {
     Object.assign(opt, options);
@@ -134,12 +134,12 @@ exports.suc = function (options) {
 exports.tip = function (options) {
   // opt
   var opt = Object.assign({}, _toastOptions);
-  opt.icon = "none";
+  opt.icon = 'none';
   opt.duration = 2000;
   opt.mask = true;
 
   // options
-  if (typeof options == "string") {
+  if (typeof options == 'string') {
     opt.title = options;
   } else {
     Object.assign(opt, options);
@@ -154,8 +154,8 @@ exports.tip = function (options) {
 exports.loading = function (s) {
   // opt
   var opt = Object.assign({}, _toastOptions);
-  opt.icon = "loading";
-  opt.title = s || "加载中...";
+  opt.icon = 'loading';
+  opt.title = s || '加载中...';
   opt.duration = 24 * 60 * 60 * 1000;
 
   wx.showToast(opt);
@@ -170,8 +170,8 @@ exports.hideLoading = function () {
 
 // sheet options
 var _sheetOptions = {
-  itemList: ["1"],
-  itemColor: "#000000",
+  itemList: ['1'],
+  itemColor: '#000000',
 };
 
 /**
@@ -213,14 +213,14 @@ exports.title = function (title, suc, fail) {
       if (suc) {
         suc();
       } else {
-        console.log("set title success : " + title);
+        console.log('set title success : ' + title);
       }
     },
     fail: function () {
       if (fail) {
         fail();
       } else {
-        console.log("set title fail : " + title);
+        console.log('set title fail : ' + title);
       }
     },
   });
@@ -241,14 +241,14 @@ exports.to = function (url, suc, fail) {
       if (suc) {
         suc();
       } else {
-        console.log("navigate to url success : " + url);
+        console.log('navigate to url success : ' + url);
       }
     },
     fail: function () {
       if (fail) {
         fail();
       } else {
-        console.log("navigate to url fail : " + url);
+        console.log('navigate to url fail : ' + url);
       }
     },
   });
@@ -269,14 +269,14 @@ exports.rto = function (url, suc, fail) {
       if (suc) {
         suc();
       } else {
-        console.log("redirect to url success : " + url);
+        console.log('redirect to url success : ' + url);
       }
     },
     fail: function () {
       if (fail) {
         fail();
       } else {
-        console.log("redirect to url fail : " + url);
+        console.log('redirect to url fail : ' + url);
       }
     },
   });
@@ -297,14 +297,14 @@ exports.tab = function (url, suc, fail) {
       if (suc) {
         suc();
       } else {
-        console.log("switch tab to url success : " + url);
+        console.log('switch tab to url success : ' + url);
       }
     },
     fail: function () {
       if (fail) {
         fail();
       } else {
-        console.log("switch tab to url fail : " + url);
+        console.log('switch tab to url fail : ' + url);
       }
     },
   });
@@ -374,7 +374,7 @@ exports.clear = function () {
 exports.isAndroid = function () {
   try {
     var sys = wx.getSystemInfoSync().system;
-    return sys && sys.indexOf("Android") > -1;
+    return sys && sys.indexOf('Android') > -1;
   } catch (e) {
     console.log(e);
     return false;
@@ -388,7 +388,7 @@ exports.isAndroid = function () {
 exports.isIos = function () {
   try {
     var sys = wx.getSystemInfoSync().system;
-    return sys && sys.indexOf("iOS") > -1;
+    return sys && sys.indexOf('iOS') > -1;
   } catch (e) {
     console.log(e);
     return false;
@@ -413,7 +413,7 @@ exports.net = function (cb) {
  * 获取component
  */
 exports.com = function (that, id) {
-  return that && id ? that.selectComponent("#" + id) : null;
+  return that && id ? that.selectComponent('#' + id) : null;
 };
 
 /**
@@ -432,14 +432,14 @@ exports.screen = function (value, suc, fail) {
         if (suc) {
           suc(v);
         } else {
-          console.log("get screen brightness suc:" + v);
+          console.log('get screen brightness suc:' + v);
         }
       },
       fail: function () {
         if (fail) {
           fail();
         } else {
-          console.log("get screen brightness fail");
+          console.log('get screen brightness fail');
         }
       },
     });
@@ -448,21 +448,21 @@ exports.screen = function (value, suc, fail) {
   }
 
   // set on
-  if (value == "on") {
+  if (value == 'on') {
     wx.setKeepScreenOn({
       keepScreenOn: true,
       success: function () {
         if (suc) {
           suc();
         } else {
-          console.log("set screen on suc");
+          console.log('set screen on suc');
         }
       },
       fail: function () {
         if (fail) {
           fail();
         } else {
-          console.log("set screen on fail");
+          console.log('set screen on fail');
         }
       },
     });
@@ -472,7 +472,7 @@ exports.screen = function (value, suc, fail) {
 
   // check number
   if (isNaN(value)) {
-    console.log("set screen brightness need number");
+    console.log('set screen brightness need number');
     return;
   }
 
@@ -483,14 +483,14 @@ exports.screen = function (value, suc, fail) {
       if (suc) {
         suc();
       } else {
-        console.log("set screen brightness suc");
+        console.log('set screen brightness suc');
       }
     },
     fail: function () {
       if (fail) {
         fail();
       } else {
-        console.log("set screen brightness fail");
+        console.log('set screen brightness fail');
       }
     },
   });
@@ -532,11 +532,11 @@ exports.checkAuth = function (auth, tip, success) {
           if (success) success();
         },
         fail: function (e) {
-          var msg = tip || "需要授权：" + auth;
+          var msg = tip || '需要授权：' + auth;
           exports.alert(msg, function () {
             wx.openSetting({
               fail: function () {
-                exports.tip("wx.openSetting fail");
+                exports.tip('wx.openSetting fail');
               },
             });
           });
@@ -544,7 +544,7 @@ exports.checkAuth = function (auth, tip, success) {
       });
     },
     fail: function () {
-      exports.tip("get wx setting fail");
+      exports.tip('get wx setting fail');
     },
   });
 };
@@ -584,12 +584,12 @@ exports.higherThan = function (v2) {
 
 // compare version
 function _CompareVersion(v1, v2) {
-  v1 = v1.split(".");
-  v2 = v2.split(".");
+  v1 = v1.split('.');
+  v2 = v2.split('.');
   var len = Math.max(v1.length, v2.length);
 
-  while (v1.length < len) v1.push("0");
-  while (v2.length < len) v2.push("0");
+  while (v1.length < len) v1.push('0');
+  while (v2.length < len) v2.push('0');
 
   for (var i = 0; i < len; i++) {
     var num1 = parseInt(v1[i]);

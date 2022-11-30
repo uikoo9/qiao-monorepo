@@ -1,6 +1,6 @@
-var fs = require("fs");
-var path = require("path");
-var archiver = require("archiver");
+var fs = require('fs');
+var path = require('path');
+var archiver = require('archiver');
 
 /**
  * zip folder
@@ -12,24 +12,21 @@ var archiver = require("archiver");
 function zipFolder(sourceFolder, destZip, cb, subdir) {
   // init
   var output = fs.createWriteStream(destZip);
-  var archive = archiver("zip", {
+  var archive = archiver('zip', {
     zlib: { level: 9 },
   });
 
   // on
-  output.on("close", function () {
-    cb(null, "zip folder success!");
+  output.on('close', function () {
+    cb(null, 'zip folder success!');
   });
-  archive.on("error", function (err) {
+  archive.on('error', function (err) {
     cb(err);
   });
 
   // zip
   archive.pipe(output);
-  archive.directory(
-    sourceFolder,
-    subdir ? sourceFolder.substr(path.dirname(sourceFolder).length + 1) : false
-  );
+  archive.directory(sourceFolder, subdir ? sourceFolder.substr(path.dirname(sourceFolder).length + 1) : false);
   archive.finalize();
 }
 
@@ -37,8 +34,8 @@ function zipFolder(sourceFolder, destZip, cb, subdir) {
  * test
  */
 function test() {
-  var sourceFolder = "d:/zip/demo03";
-  var destZip = "d:/zip/demo06/test.zip";
+  var sourceFolder = 'd:/zip/demo03';
+  var destZip = 'd:/zip/demo06/test.zip';
 
   zipFolder(
     sourceFolder,
@@ -46,7 +43,7 @@ function test() {
     function (err, msg) {
       console.log(err, msg);
     },
-    true
+    true,
   );
 }
 test();

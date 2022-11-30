@@ -1,25 +1,21 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./button.scss";
+import './button.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * button
  */
 export const Button = (props) => {
-  colorLog("qiao-ui/pc/button: render");
+  colorLog('qiao-ui/pc/button: render');
 
   return (
     <div className="btn">
-      <div
-        className="ctx"
-        style={{ width: props.width }}
-        onClick={props.onClick}
-      >
+      <div className="ctx" style={{ width: props.width }} onClick={props.onClick}>
         {props.text}
       </div>
     </div>

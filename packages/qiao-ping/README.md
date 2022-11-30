@@ -10,13 +10,13 @@ nodejs 下 ping 能力，详见：[一篇文章判断用户是否在线](https:/
 ### ping
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-ping");
+var q = require('qiao-ping');
 
 var test = async function () {
   try {
-    var host = "insistime.com";
+    var host = 'insistime.com';
     var res = await q.ping(host);
     console.log(res);
   } catch (e) {

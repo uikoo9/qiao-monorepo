@@ -24,7 +24,7 @@ const test = () => {
     },
     (err, res) => {
       console.log(err, res);
-    }
+    },
   );
 };
 

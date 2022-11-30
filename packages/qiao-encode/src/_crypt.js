@@ -2,15 +2,7 @@
 import crypto from "crypto";
 
 // crypt
-export const crypt = (
-  type,
-  method,
-  key,
-  iv,
-  data,
-  clearEncoding,
-  cipherEncoding
-) => {
+export const crypt = (type, method, key, iv, data, clearEncoding, cipherEncoding) => {
   if (type == "en") {
     // encrypt
     // cipher

@@ -14,7 +14,7 @@ nodejs 下并行执行任务，详见：[一篇文章了解 JS 并行任务](htt
 并行任务池
 
 ```javascript
-"use strict";
+'use strict';
 
 /**
  * values
@@ -27,10 +27,10 @@ module.exports = [100, 300, 200, 400];
 单个任务完成回调
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 /**
  * callback
@@ -47,17 +47,17 @@ module.exports = function (index, res) {
 所有任务完成回调
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 /**
  * complete
  * @param {*} l
  */
 module.exports = function (l) {
-  q.writeLine(l, "complete");
+  q.writeLine(l, 'complete');
 };
 ```
 
@@ -66,7 +66,7 @@ module.exports = function (l) {
 模拟任务代码
 
 ```javascript
-"use strict";
+'use strict';
 
 /**
  * handler
@@ -87,10 +87,10 @@ module.exports = function (timeout) {
 模拟任务代码-fork 模式
 
 ```javascript
-"use strict";
+'use strict';
 
 // handler
-var handler = require("./_handler.js");
+var handler = require('./_handler.js');
 
 // fork handler
 async function forkHandler() {
@@ -113,19 +113,19 @@ forkHandler();
 ### parallel by IIFE
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 // vars
-var values = require("./_values.js");
-var handler = require("./_handler.js");
-var callback = require("./_callback.js");
-var complete = require("./_complete.js");
+var values = require('./_values.js');
+var handler = require('./_handler.js');
+var callback = require('./_callback.js');
+var complete = require('./_complete.js');
 
 // parallel
-var parallel = require("qiao-parallel");
+var parallel = require('qiao-parallel');
 
 // test
 (function () {
@@ -138,24 +138,24 @@ var parallel = require("qiao-parallel");
 ### parallel by fork
 
 ```javascript
-"use strict";
+'use strict';
 
 // q
-var q = require("qiao-console");
+var q = require('qiao-console');
 
 // vars
-var values = require("./_values.js");
-var callback = require("./_callback.js");
-var complete = require("./_complete.js");
+var values = require('./_values.js');
+var callback = require('./_callback.js');
+var complete = require('./_complete.js');
 
 // parallel
-var parallel = require("qiao-parallel");
+var parallel = require('qiao-parallel');
 
 // test
 (function () {
   q.clear();
 
-  var jsPath = require("path").resolve(__dirname, "./fork-handler.js");
+  var jsPath = require('path').resolve(__dirname, './fork-handler.js');
   parallel.parallelByFork(jsPath, values, callback, complete);
 })();
 ```
@@ -166,7 +166,7 @@ var parallel = require("qiao-parallel");
 
 ```javascript
 // parallel
-var parallel = require("qiao-parallel");
+var parallel = require('qiao-parallel');
 
 // parallel by iife
 parallel.parallelByIIFE(handler, values, callback, complete);
@@ -179,7 +179,7 @@ parallel.parallelByFork(jsPath, values, callback, complete);
 
 ```javascript
 // parallel
-import { parallelByIIFE, parallelByFork } from "qiao-parallel";
+import { parallelByIIFE, parallelByFork } from 'qiao-parallel';
 
 // parallel by iife
 parallelByIIFE(handler, values, callback, complete);

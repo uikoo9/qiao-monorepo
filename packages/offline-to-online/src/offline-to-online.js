@@ -9,12 +9,7 @@ let intervalId = null;
  * @param {function} calllback callback function
  * @param {number} time interval time(ms), default is 3 * 1000ms
  */
-export const offlineToOnlineWithSrc = (
-  isOnlineImgSrc,
-  isOnlineFunction,
-  calllback,
-  time
-) => {
+export const offlineToOnlineWithSrc = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
   // check
   if (!isOnlineImgSrc) {
     console.log("need is online img src");
@@ -31,12 +26,7 @@ export const offlineToOnlineWithSrc = (
  * @param {function} calllback callback function
  * @param {number} time interval time(ms), default is 3 * 1000ms
  */
-export const offlineToOnline = (
-  isOnlineImgSrc,
-  isOnlineFunction,
-  calllback,
-  time
-) => {
+export const offlineToOnline = (isOnlineImgSrc, isOnlineFunction, calllback, time) => {
   // check
   if (!isOnlineFunction) {
     console.log("need is online function");
@@ -53,12 +43,7 @@ export const offlineToOnline = (
 };
 
 // start timer
-const startTimer = (
-  isOnlineImgSrc,
-  isOnlineFunction,
-  intervalCallback,
-  intervalTime
-) => {
+const startTimer = (isOnlineImgSrc, isOnlineFunction, intervalCallback, intervalTime) => {
   const time = intervalTime || 3 * 1000;
   intervalId = setInterval(async () => {
     const changed = await isNetworkChanged(isOnlineImgSrc, isOnlineFunction);

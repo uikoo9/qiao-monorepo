@@ -21,8 +21,7 @@ export const postWithToken = async (url, data) => {
   if (!root) return danger("no window or global");
 
   const userinfo = root.insistime_userinfo;
-  if (!userinfo || !userinfo.userid || !userinfo.usertoken)
-    return danger("please login first");
+  if (!userinfo || !userinfo.userid || !userinfo.usertoken) return danger("please login first");
 
   const headers = {
     userid: userinfo.userid,
@@ -49,8 +48,7 @@ async function ajax(url, data, headers) {
   if (!res) return danger(`${time}ms | request fail`);
 
   // not 200
-  if (res.status != 200)
-    return danger(`${time}ms | request fail: ${res.status}`);
+  if (res.status != 200) return danger(`${time}ms | request fail: ${res.status}`);
 
   // no data
   const json = res.data;

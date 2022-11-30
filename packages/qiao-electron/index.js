@@ -35,10 +35,7 @@ const darkModeIPCInit = () => {
   electron.nativeTheme.on("updated", () => {
     const wins = electron.BrowserWindow.getAllWindows();
     for (let win of wins) {
-      win.webContents.send(
-        IPC_DARKMODE_CHANGE,
-        electron.nativeTheme.shouldUseDarkColors
-      );
+      win.webContents.send(IPC_DARKMODE_CHANGE, electron.nativeTheme.shouldUseDarkColors);
     }
   });
 
@@ -108,9 +105,7 @@ async function openDialog(options, defaultProps) {
   }
 
   // return
-  return win
-    ? await electron.dialog.showOpenDialog(win, opt)
-    : await electron.dialog.showOpenDialog(opt);
+  return win ? await electron.dialog.showOpenDialog(win, opt) : await electron.dialog.showOpenDialog(opt);
 }
 
 /**
@@ -128,12 +123,9 @@ const dialogIPCInit = () => {
   });
 
   // ipc dialog open file and folder
-  electron.ipcMain.handle(
-    IPC_DIALOG_OPEN_FILE_FOLDER,
-    async (event, options) => {
-      return await dialogOpenFileAndFolder(options);
-    }
-  );
+  electron.ipcMain.handle(IPC_DIALOG_OPEN_FILE_FOLDER, async (event, options) => {
+    return await dialogOpenFileAndFolder(options);
+  });
 };
 
 /**
@@ -456,11 +448,7 @@ const fsReadFileIPC = async (filePath) => {
  * fsWriteFileIPC
  */
 const fsWriteFileIPC = async (filePath, fileData) => {
-  return await electron.ipcRenderer.invoke(
-    IPC_FS_WRITE_FILE,
-    filePath,
-    fileData
-  );
+  return await electron.ipcRenderer.invoke(IPC_FS_WRITE_FILE, filePath, fileData);
 };
 
 /**
@@ -526,11 +514,7 @@ const IPC_SHORTCUT_GLOBAL = "ipc-shortcut-global";
  * @returns res
  */
 const shortcutGlobalIPC = async (shortcutKey, shortcutCallbackName) => {
-  return await electron.ipcRenderer.invoke(
-    IPC_SHORTCUT_GLOBAL,
-    shortcutKey,
-    shortcutCallbackName
-  );
+  return await electron.ipcRenderer.invoke(IPC_SHORTCUT_GLOBAL, shortcutKey, shortcutCallbackName);
 };
 
 /**

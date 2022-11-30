@@ -19,10 +19,7 @@ module.exports = function (isDev, postCssConfig) {
     {
       loader: "postcss-loader",
       options: {
-        postcssOptions: Object.assign(
-          defaultPostcssConfig,
-          postCssConfig || {}
-        ),
+        postcssOptions: Object.assign(defaultPostcssConfig, postCssConfig || {}),
       },
     },
     "sass-loader",

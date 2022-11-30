@@ -19,7 +19,7 @@ var test = function () {
       console.log("untgz file fail");
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 

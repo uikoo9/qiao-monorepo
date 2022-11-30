@@ -8,9 +8,7 @@
  */
 const openDB = (databaseName, version) => {
   return new Promise((resolve, reject) => {
-    const request = version
-      ? window.indexedDB.open(databaseName, version)
-      : window.indexedDB.open(databaseName);
+    const request = version ? window.indexedDB.open(databaseName, version) : window.indexedDB.open(databaseName);
     request.onerror = (event) => {
       reject(event.target.error);
     };

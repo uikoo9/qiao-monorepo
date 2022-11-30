@@ -51,10 +51,10 @@ qcos folder|fo z:/workspaces/qiao-cos/test/config.json d:/test/cocos test9
 
 ```javascript
 // config
-const config = require("./config.json");
+const config = require('./config.json');
 
 // qiao-cos
-const qcos = require("qiao-cos")(config);
+const qcos = require('qiao-cos')(config);
 ```
 
 ### uploadFileSync
@@ -62,8 +62,8 @@ const qcos = require("qiao-cos")(config);
 同步上传文件
 
 ```javascript
-const destPath = "test/test.js";
-const sourceFile = "/your/test.js";
+const destPath = 'test/test.js';
+const sourceFile = '/your/test.js';
 
 const rs = await qcos.uploadFileSync(destPath, sourceFile);
 console.log(rs);
@@ -74,8 +74,8 @@ console.log(rs);
 同步上传文件夹
 
 ```javascript
-const destPath = "test";
-const sourceFolder = "/your/folder";
+const destPath = 'test';
+const sourceFolder = '/your/folder';
 
 const rs = await qcos.uploadFolderSync(destPath, sourceFolder);
 console.log(rs);
@@ -86,8 +86,8 @@ console.log(rs);
 异步上传文件
 
 ```javascript
-const destPath = "test/test.js";
-const sourceFile = "/your/test.js";
+const destPath = 'test/test.js';
+const sourceFile = '/your/test.js';
 
 qcos.uploadFile(destPath, sourceFile, (err, data) => {
   console.log(err, data);
@@ -99,8 +99,8 @@ qcos.uploadFile(destPath, sourceFile, (err, data) => {
 异步上传文件夹
 
 ```javascript
-const destPath = "test";
-const sourceFolder = "/your/folder";
+const destPath = 'test';
+const sourceFolder = '/your/folder';
 
 qcos.uploadFolder(destPath, sourceFolder, (rs) => {
   console.log(rs);

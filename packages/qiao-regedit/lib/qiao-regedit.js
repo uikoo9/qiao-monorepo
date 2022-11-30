@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 // exec
-var exec = require("child_process").exec;
+var exec = require('child_process').exec;
 
 // utile
-var util = require("./util.js");
+var util = require('./util.js');
 
 // default type
-var defaultType = "REG_SZ";
+var defaultType = 'REG_SZ';
 
 /**
  * add value
@@ -20,7 +20,7 @@ var defaultType = "REG_SZ";
  */
 exports.addValue = function (obj, cb) {
   if (!obj || !obj.key || !obj.name || !obj.data) {
-    if (cb) cb("need key,name,data");
+    if (cb) cb('need key,name,data');
     return;
   }
 
@@ -31,7 +31,7 @@ exports.addValue = function (obj, cb) {
     { encoding: util.binaryEncoding },
     function (err, stdout, stderr) {
       if (cb) cb(util.msg(err, stdout, stderr));
-    }
+    },
   );
 };
 
@@ -60,7 +60,7 @@ exports.addValueSync = function (obj) {
  */
 exports.delValue = function (obj, cb) {
   if (!obj || !obj.key || !obj.name) {
-    if (cb) cb("need key,name");
+    if (cb) cb('need key,name');
     return;
   }
 
@@ -69,7 +69,7 @@ exports.delValue = function (obj, cb) {
     { encoding: util.binaryEncoding },
     function (err, stdout, stderr) {
       if (cb) cb(util.msg(err, stdout, stderr));
-    }
+    },
   );
 };
 
@@ -95,46 +95,41 @@ exports.delValueSync = function (obj) {
 exports.listValues = function (key, cb) {
   var cmdQueryAll = `reg query \"${key}\"`;
 
-  exec(
-    cmdQueryAll,
-    { encoding: util.binaryEncoding },
-    function (err, stdout, stderr) {
-      var res = util.msg(err, stdout, stderr);
-      var completeKey = getCompleteKey(key);
-      if (res.indexOf(completeKey) === -1) {
-        if (cb) cb(res);
-        return;
-      }
-
-      var list = [];
-
-      var ss = res.split("\r\n");
-      if (!ss || !ss.length) {
-        if (cb) cb(res);
-        return;
-      }
-
-      for (var s of ss) {
-        if (!s) continue;
-        if (s.indexOf(completeKey) > -1) continue;
-
-        var index = s.indexOf("REG_");
-        if (!index) continue;
-
-        var keyName = s.substring(0, index);
-        keyName = keyName.replace(/(^\s*)|(\s*$)/g, "");
-        list.push(keyName);
-      }
-
-      if (cb) cb(null, list);
+  exec(cmdQueryAll, { encoding: util.binaryEncoding }, function (err, stdout, stderr) {
+    var res = util.msg(err, stdout, stderr);
+    var completeKey = getCompleteKey(key);
+    if (res.indexOf(completeKey) === -1) {
+      if (cb) cb(res);
+      return;
     }
-  );
+
+    var list = [];
+
+    var ss = res.split('\r\n');
+    if (!ss || !ss.length) {
+      if (cb) cb(res);
+      return;
+    }
+
+    for (var s of ss) {
+      if (!s) continue;
+      if (s.indexOf(completeKey) > -1) continue;
+
+      var index = s.indexOf('REG_');
+      if (!index) continue;
+
+      var keyName = s.substring(0, index);
+      keyName = keyName.replace(/(^\s*)|(\s*$)/g, '');
+      list.push(keyName);
+    }
+
+    if (cb) cb(null, list);
+  });
 };
 
 // get complete key
 function getCompleteKey(key) {
-  if (key.indexOf("HKCU") === 0)
-    return key.replace(/HKCU/g, "HKEY_CURRENT_USER");
+  if (key.indexOf('HKCU') === 0) return key.replace(/HKCU/g, 'HKEY_CURRENT_USER');
 }
 
 /**

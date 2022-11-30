@@ -236,9 +236,7 @@ function configDB(filePath, key, value) {
 var index = (filePath) => {
   // path
   const defaultPath = path.resolve(__dirname, "./config.json");
-  const finalPath = !filePath
-    ? defaultPath
-    : path.resolve(process.cwd(), filePath);
+  const finalPath = !filePath ? defaultPath : path.resolve(process.cwd(), filePath);
 
   // db
   return db(finalPath);

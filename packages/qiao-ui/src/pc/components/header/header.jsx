@@ -1,20 +1,20 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./header.scss";
+import './header.scss';
 
 // ui
-import { Link } from "../../../index.js";
+import { Link } from '../../../index.js';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * header
  */
 export const Header = (props) => {
-  colorLog("qiao-ui/pc/header: render");
+  colorLog('qiao-ui/pc/header: render');
 
   const navs =
     props.navs &&
@@ -29,7 +29,7 @@ export const Header = (props) => {
     });
 
   return (
-    <div className={props.center ? "header center" : "header"}>
+    <div className={props.center ? 'header center' : 'header'}>
       <div className="logo nav-txt">
         <Link url={props.logoUrl} txt={props.logo} />
       </div>

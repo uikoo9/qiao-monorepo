@@ -20,7 +20,7 @@ var test = function () {
       console.log("uncompress file fail");
       console.log(`   source file:    ${sourceFile}`);
       console.log(`   error:          ${e}`);
-    }
+    },
   );
 };
 

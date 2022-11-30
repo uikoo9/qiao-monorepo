@@ -32,10 +32,7 @@ module.exports = async function (config) {
 
   // other vars
   var root = process.cwd();
-  var appPath = path.resolve(
-    root,
-    `${outPath}/${appName}-darwin-${arch}/${appName}.app`
-  );
+  var appPath = path.resolve(root, `${outPath}/${appName}-darwin-${arch}/${appName}.app`);
   var dmgName = `${appName}-${appEnv}-${appVersion}-${arch}`;
   var dmgOutPath = path.resolve(root, `${outPath}/dmg`);
 

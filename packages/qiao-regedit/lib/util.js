@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 // iconv
-var iconv = require("iconv-lite");
+var iconv = require('iconv-lite');
 
 // encoding
-var encoding = "cp936";
+var encoding = 'cp936';
 
 /**
  * binary encoding
  */
-exports.binaryEncoding = "binary";
+exports.binaryEncoding = 'binary';
 
 /**
  * decode

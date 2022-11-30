@@ -9,10 +9,7 @@ qiao.cli = require("qiao-cli");
 qiao.qec = require("../index.js");
 
 // cmd for init
-qiao.cli.cmd
-  .command("init <destPath>")
-  .description("init electron application")
-  .action(init);
+qiao.cli.cmd.command("init <destPath>").description("init electron application").action(init);
 
 // init project
 async function init(destPath) {

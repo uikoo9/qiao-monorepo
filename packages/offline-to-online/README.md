@@ -20,35 +20,35 @@ npm install qiao-is-online-broswer
 ### offline to online on nodejs
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-is-online");
+var q = require('qiao-is-online');
 
 // callback
 // time, interval time, default is 3*1000ms
 q.offlineToOnline(function () {
-  console.log("offline-to-online");
+  console.log('offline-to-online');
 }, 3 * 1000);
 ```
 
 ### offline to online on browser
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-is-online-browser");
+var q = require('qiao-is-online-browser');
 
 // is online img src
-var isOnlineImgSrc = "your online img src";
+var isOnlineImgSrc = 'your online img src';
 
 // callback
 // time, interval time, default is 3*1000ms
 q.offlineToOnline(
   isOnlineImgSrc,
   function () {
-    console.log("offline-to-online");
+    console.log('offline-to-online');
   },
-  3 * 1000
+  3 * 1000,
 );
 ```
 

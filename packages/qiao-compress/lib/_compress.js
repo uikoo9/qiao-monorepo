@@ -14,16 +14,9 @@ var compressTypes = ["tar", "gzip", "tgz", "zip"];
  *  onSuccess
  *  onFail
  */
-exports.compressFile = function (
-  compressType,
-  sourceFile,
-  destPath,
-  onSuccess,
-  onFail
-) {
+exports.compressFile = function (compressType, sourceFile, destPath, onSuccess, onFail) {
   if (!compressTypes.includes(compressType)) {
-    if (onFail)
-      onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    if (onFail) onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
     return;
   }
 
@@ -55,7 +48,7 @@ exports.compressFileSync = function (compressType, sourceFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };
@@ -68,16 +61,9 @@ exports.compressFileSync = function (compressType, sourceFile, destPath) {
  *  onSuccess
  *  onFail
  */
-exports.compressFolder = function (
-  compressType,
-  sourceFolder,
-  destPath,
-  onSuccess,
-  onFail
-) {
+exports.compressFolder = function (compressType, sourceFolder, destPath, onSuccess, onFail) {
   if (!compressTypes.includes(compressType)) {
-    if (onFail)
-      onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
+    if (onFail) onFail(new Error("compress type only support: tar, gzip, tgz, zip"));
     return;
   }
 
@@ -109,7 +95,7 @@ exports.compressFolderSync = function (compressType, sourceFolder, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };

@@ -11,7 +11,7 @@
 ### ajax
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // ajax with url
 // default data {}
@@ -25,7 +25,7 @@ q.ajax(
   },
   function (data) {
     // fail
-  }
+  },
 );
 
 // ajax with url, data, method, headers
@@ -35,7 +35,7 @@ q.ajax(
     data: {
       // data
     },
-    method: "POST",
+    method: 'POST',
     headers: {
       // headers
     },
@@ -45,106 +45,106 @@ q.ajax(
   },
   function (data) {
     // fail
-  }
+  },
 );
 ```
 
 ### alert
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // alert, without callback
-q.alert("alert");
+q.alert('alert');
 
 // alert, with callback
-q.alert("alert", function () {
+q.alert('alert', function () {
   // callback for click ok
 });
 
 // custom alert, without callback
 q.alert({
-  title: "alert",
-  content: "alert",
-  confirmText: "ok",
-  confirmColor: "#3CC51F",
+  title: 'alert',
+  content: 'alert',
+  confirmText: 'ok',
+  confirmColor: '#3CC51F',
 });
 
 // custom alert, with callback
 q.alert(
   {
-    title: "alert",
-    content: "alert",
-    confirmText: "ok",
-    confirmColor: "#3CC51F",
+    title: 'alert',
+    content: 'alert',
+    confirmText: 'ok',
+    confirmColor: '#3CC51F',
   },
   function () {
     // callback for click ok
-  }
+  },
 );
 ```
 
 ### confirm
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // confirm, without callback
-q.confirm("confirm");
+q.confirm('confirm');
 
 // confirm, with callback
 q.confirm(
-  "confirm",
+  'confirm',
   function () {
     // callback for click ok
   },
   function () {
     // callback for click cancel
-  }
+  },
 );
 
 // custom confirm, without callback
 q.confirm({
-  title: "confirm",
-  content: "confirm",
+  title: 'confirm',
+  content: 'confirm',
   showCancel: true,
-  cancelText: "cancel",
-  cancelColor: "#000000",
-  confirmText: "ok",
-  confirmColor: "#3CC51F",
+  cancelText: 'cancel',
+  cancelColor: '#000000',
+  confirmText: 'ok',
+  confirmColor: '#3CC51F',
 });
 
 // custom confirm, with callback
 q.confirm(
   {
-    title: "confirm",
-    content: "confirm",
+    title: 'confirm',
+    content: 'confirm',
     showCancel: true,
-    cancelText: "cancel",
-    cancelColor: "#000000",
-    confirmText: "ok",
-    confirmColor: "#3CC51F",
+    cancelText: 'cancel',
+    cancelColor: '#000000',
+    confirmText: 'ok',
+    confirmColor: '#3CC51F',
   },
   function () {
     // callback for click ok
   },
   function () {
     // callback for click cancel
-  }
+  },
 );
 ```
 
 ### suc
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // tip for success
-q.suc("success message");
+q.suc('success message');
 
 // custom tip for success
 q.suc({
-  title: "success message",
+  title: 'success message',
   duration: 3000,
   mask: true,
 });
@@ -153,14 +153,14 @@ q.suc({
 ### tip
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // tip
-q.tip("tips");
+q.tip('tips');
 
 // custom tip
 q.tip({
-  title: "custom tip",
+  title: 'custom tip',
   duration: 3000,
   mask: true,
 });
@@ -169,19 +169,19 @@ q.tip({
 ### loading
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // default loading
 q.loading();
 
 // custom loading
-q.loading("custom loading");
+q.loading('custom loading');
 ```
 
 ### hideLoading
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // hide loading
 q.hideLoading();
@@ -190,10 +190,10 @@ q.hideLoading();
 ### sheet
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // sheet
-q.sheet(["1", "2"], function (index) {
+q.sheet(['1', '2'], function (index) {
   // index : 0,1
 });
 ```
@@ -201,7 +201,7 @@ q.sheet(["1", "2"], function (index) {
 ### title
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // set navigation bar title
 q.title(
@@ -211,14 +211,14 @@ q.title(
   },
   function () {
     // fail
-  }
+  },
 );
 ```
 
 ### to
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // navigate to
 q.to(
@@ -228,14 +228,14 @@ q.to(
   },
   function () {
     // fail
-  }
+  },
 );
 ```
 
 ### rto
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // redirect to
 q.rto(
@@ -245,14 +245,14 @@ q.rto(
   },
   function () {
     // fail
-  }
+  },
 );
 ```
 
 ### tab
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // switch tab
 q.tab(
@@ -262,14 +262,14 @@ q.tab(
   },
   function () {
     // fail
-  }
+  },
 );
 ```
 
 ### back
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // navigate back
 q.back(page);
@@ -278,7 +278,7 @@ q.back(page);
 ### set
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // set data to localstorage
 q.set(key, value);
@@ -287,7 +287,7 @@ q.set(key, value);
 ### get
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // get data from localstorage
 q.get(key);
@@ -296,7 +296,7 @@ q.get(key);
 ### del
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // del data from localstorage
 q.del(key);
@@ -305,7 +305,7 @@ q.del(key);
 ### clear
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // clear data from localstorage
 q.clear();
@@ -314,7 +314,7 @@ q.clear();
 ### isAndroid
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // is android
 var isAndroid = q.isAndroid();
@@ -324,7 +324,7 @@ console.log(isAndroid);
 ### isIos
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // is ios
 var isIos = q.isIos();
@@ -334,7 +334,7 @@ console.log(isIos);
 ### net
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // net
 q.net(function (type) {
@@ -345,7 +345,7 @@ q.net(function (type) {
 ### screen
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // get screen
 q.screen(
@@ -355,18 +355,18 @@ q.screen(
   },
   function () {
     // fail
-  }
+  },
 );
 
 // set screen keep on
 q.screen(
-  "on",
+  'on',
   function () {
     // success
   },
   function () {
     // fail
-  }
+  },
 );
 
 // set screen 0-1
@@ -377,14 +377,14 @@ q.screen(
   },
   function () {
     // fail
-  }
+  },
 );
 ```
 
 ### showImg
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // show img with url
 q.showImg(url);
@@ -396,10 +396,10 @@ q.showImg(url, urls);
 ### checkAuth
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // check auth
-q.checkAuth("scope.camera", "need camera auth", function () {
+q.checkAuth('scope.camera', 'need camera auth', function () {
   // success
 });
 ```
@@ -407,7 +407,7 @@ q.checkAuth("scope.camera", "need camera auth", function () {
 ### version
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // get weixin version
 var weixinVersion = q.version();
@@ -417,7 +417,7 @@ console.log(weixinVersion);
 ### sversion
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // get weixin sdk version
 var weixinSDKVersion = q.sversion();
@@ -427,10 +427,10 @@ console.log(weixinSDKVersion);
 ### higherThan
 
 ```javascript
-var q = require("qiao-weixinx");
+var q = require('qiao-weixinx');
 
 // compare weixin sdk version higher than
-var flag = q.higherThan("0.9.90");
+var flag = q.higherThan('0.9.90');
 console.log(flag);
 ```
 

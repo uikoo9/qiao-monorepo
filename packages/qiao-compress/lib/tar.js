@@ -21,7 +21,7 @@ exports.tarFile = function (sourceFile, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -40,7 +40,7 @@ exports.tarFileSync = function (sourceFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };
@@ -62,7 +62,7 @@ exports.tarFolder = function (sourceFolder, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -81,7 +81,7 @@ exports.tarFolderSync = function (sourceFolder, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };
@@ -103,7 +103,7 @@ exports.untar = function (compressFile, destPath, onSuccess, onFail) {
     },
     function (e) {
       if (onFail) onFail(e);
-    }
+    },
   );
 };
 
@@ -122,7 +122,7 @@ exports.untarSync = function (compressFile, destPath) {
       },
       function (e) {
         reject(e);
-      }
+      },
     );
   });
 };

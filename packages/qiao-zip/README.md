@@ -5,13 +5,13 @@
 ### unzip
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-zip");
+var q = require('qiao-zip');
 
 var test = function () {
-  var zipFile = "d:/test1.zip";
-  var destFolder = "d:/test2/";
+  var zipFile = 'd:/test1.zip';
+  var destFolder = 'd:/test2/';
 
   q.unzip(zipFile, destFolder);
 };
@@ -22,13 +22,13 @@ test();
 ### zipFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-zip");
+var q = require('qiao-zip');
 
 var test = async function () {
-  var sourceFile = "d:/test.js";
-  var destZip = "d:/test22.zip";
+  var sourceFile = 'd:/test.js';
+  var destZip = 'd:/test22.zip';
 
   try {
     var msg = await q.zipFileSync(sourceFile, destZip);
@@ -44,13 +44,13 @@ test();
 ### zipFolderSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-zip");
+var q = require('qiao-zip');
 
 var test = async function () {
-  var sourceFolder = "d:/test/";
-  var destZip = "d:/test24.zip";
+  var sourceFolder = 'd:/test/';
+  var destZip = 'd:/test24.zip';
 
   try {
     var msg = await q.zipFolderSync(sourceFolder, destZip);
@@ -66,13 +66,13 @@ test();
 ### zipFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-zip");
+var q = require('qiao-zip');
 
 var test = function () {
-  var sourceFile = "d:/test.js";
-  var destZip = "d:/test22.zip";
+  var sourceFile = 'd:/test.js';
+  var destZip = 'd:/test22.zip';
 
   q.zipFile(sourceFile, destZip, function (err, msg) {
     if (err) throw err;
@@ -87,13 +87,13 @@ test();
 ### zipFolder
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-zip");
+var q = require('qiao-zip');
 
 var test = function () {
-  var sourceFolder = "d:/test/";
-  var destZip = "d:/test23.zip";
+  var sourceFolder = 'd:/test/';
+  var destZip = 'd:/test23.zip';
 
   q.zipFolder(sourceFolder, destZip, function (err, msg) {
     if (err) throw err;

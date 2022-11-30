@@ -10,31 +10,31 @@ nodejs 下 cli 能力
 ### colors
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-cli
-const cli = require("qiao-cli");
+const cli = require('qiao-cli');
 
 // colors
-console.log(cli.colors.green("hello"));
+console.log(cli.colors.green('hello'));
 ```
 
 ### progress
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-cli
-const cli = require("qiao-cli");
+const cli = require('qiao-cli');
 
 // test
 const test = () => {
-  const bar = new cli.progress(":bar", { total: 10 });
+  const bar = new cli.progress(':bar', { total: 10 });
   const timer = setInterval(() => {
     bar.tick();
 
     if (bar.complete) {
-      console.log("\ncomplete\n");
+      console.log('\ncomplete\n');
       clearInterval(timer);
     }
   }, 100);
@@ -47,19 +47,19 @@ test();
 ### ask
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-cli
-const cli = require("qiao-cli");
+const cli = require('qiao-cli');
 
 // test
 const test = async () => {
   const questions = [
     {
-      type: "list",
-      name: "type",
-      message: "What type of code do you want to generate?",
-      choices: ["front", "server", "manage"],
+      type: 'list',
+      name: 'type',
+      message: 'What type of code do you want to generate?',
+      choices: ['front', 'server', 'manage'],
     },
   ];
 
@@ -74,18 +74,18 @@ test();
 ### cmd
 
 ```javascript
-"use strict";
+'use strict';
 
 // qiao-cli
-const cli = require("qiao-cli");
+const cli = require('qiao-cli');
 
 // cmd
 cli.cmd
-  .version("0.0.1", "-v, --version")
-  .usage("<command> [options]")
-  .description("qiao-cli is a nodejs cli tool")
-  .command("test <dir>")
-  .option("-s --ss", "ss")
+  .version('0.0.1', '-v, --version')
+  .usage('<command> [options]')
+  .description('qiao-cli is a nodejs cli tool')
+  .command('test <dir>')
+  .option('-s --ss', 'ss')
   .action((dir, options) => {
     console.log(dir, options);
   });

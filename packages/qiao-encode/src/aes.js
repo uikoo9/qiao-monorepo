@@ -17,15 +17,7 @@ export const AESEncrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "en",
-    "aes-256-ecb",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("en", "aes-256-ecb", key, cipherIv, data, clearEncoding, cipherEncoding);
 };
 
 /**
@@ -44,13 +36,5 @@ export const AESDecrypt = (data, key, iv, encoding) => {
   const clearEncoding = "utf8";
   const cipherEncoding = encoding || "base64";
 
-  return crypt(
-    "de",
-    "aes-256-ecb",
-    key,
-    cipherIv,
-    data,
-    clearEncoding,
-    cipherEncoding
-  );
+  return crypt("de", "aes-256-ecb", key, cipherIv, data, clearEncoding, cipherEncoding);
 };

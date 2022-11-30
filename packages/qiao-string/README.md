@@ -5,12 +5,12 @@
 ### firstLetterUpper
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-string");
+var q = require('qiao-string');
 
 var test = function () {
-  var str = "table";
+  var str = 'table';
   var s = q.firstLetterUpper(str);
 
   console.log(s);
@@ -22,12 +22,12 @@ test();
 ### firstLetterLower
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-string");
+var q = require('qiao-string');
 
 var test = function () {
-  var str = "Table";
+  var str = 'Table';
   var s = q.firstLetterLower(str);
 
   console.log(s);
@@ -39,12 +39,12 @@ test();
 ### underScoreCaseToCamelCase
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-string");
+var q = require('qiao-string');
 
 var test = function () {
-  var str = "share_type";
+  var str = 'share_type';
   var s = q.underScoreCaseToCamelCase(str);
 
   console.log(s);

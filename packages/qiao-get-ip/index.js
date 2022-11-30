@@ -5,12 +5,9 @@ var q = require("qiao-ajax");
 const word = "[a-fA-F\\d:]";
 
 const boundry = (options) =>
-  options && options.includeBoundaries
-    ? `(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))`
-    : "";
+  options && options.includeBoundaries ? `(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))` : "";
 
-const v4 =
-  "(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}";
+const v4 = "(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}";
 
 const v6segment = "[a-fA-F\\d]{1,4}";
 
@@ -39,20 +36,14 @@ const ipRegex = (options) =>
   options && options.exact
     ? v46Exact
     : new RegExp(
-      `(?:${boundry(options)}${v4}${boundry(options)})|(?:${boundry(
-        options
-      )}${v6}${boundry(options)})`,
-      "g"
+      `(?:${boundry(options)}${v4}${boundry(options)})|(?:${boundry(options)}${v6}${boundry(options)})`,
+      "g",
     );
 
 ipRegex.v4 = (options) =>
-  options && options.exact
-    ? v4exact
-    : new RegExp(`${boundry(options)}${v4}${boundry(options)}`, "g");
+  options && options.exact ? v4exact : new RegExp(`${boundry(options)}${v4}${boundry(options)}`, "g");
 ipRegex.v6 = (options) =>
-  options && options.exact
-    ? v6exact
-    : new RegExp(`${boundry(options)}${v6}${boundry(options)}`, "g");
+  options && options.exact ? v6exact : new RegExp(`${boundry(options)}${v6}${boundry(options)}`, "g");
 
 // qiao-ajax
 

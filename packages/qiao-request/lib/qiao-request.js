@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var req = require("./req.js");
-var download = require("./download.js");
-var imgToBase64 = require("./img-to-base64.js");
+var req = require('./req.js');
+var download = require('./download.js');
+var imgToBase64 = require('./img-to-base64.js');
 
 /**
  * req

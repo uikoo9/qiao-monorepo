@@ -7,13 +7,13 @@ short link by [tiyee.cn](https://tiyee.cn)
 ### shortLink
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-slink");
+var q = require('qiao-slink');
 
 var test = async function () {
   try {
-    var longLink = "https://baidu.com/";
+    var longLink = 'https://baidu.com/';
     var shortLink = await q.shortLink(longLink);
     console.log(shortLink);
   } catch (e) {

@@ -42,14 +42,7 @@ async function parallel(func, values, callback, complete, jsPath) {
 }
 
 // handler by IIFE
-async function handlerByIIFE(
-  index,
-  func,
-  value,
-  valuesLength,
-  callback,
-  complete
-) {
+async function handlerByIIFE(index, func, value, valuesLength, callback, complete) {
   const res = await func(value);
   onCallback(callback, index, res);
   onComplete(complete, valuesLength);
@@ -65,7 +58,7 @@ function handlerByFork(index, jsPath, value, valuesLength, callback, complete) {
     },
     function () {
       onComplete(complete, valuesLength);
-    }
+    },
   );
 }
 

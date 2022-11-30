@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 /**
  * reuqest
  */
-exports.request = require("qiao.plugin.requestfix");
+exports.request = require('qiao.plugin.requestfix');
 
 /**
  * get

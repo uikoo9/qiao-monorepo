@@ -4,10 +4,7 @@ var path = require("path");
 var q = require("../index.js");
 
 var test = async function () {
-  var sourceFile = path.resolve(
-    __dirname,
-    "../files_in/uncompress-file-中文.zip"
-  );
+  var sourceFile = path.resolve(__dirname, "../files_in/uncompress-file-中文.zip");
   var destPath = path.resolve(__dirname, "../files_out/");
 
   try {

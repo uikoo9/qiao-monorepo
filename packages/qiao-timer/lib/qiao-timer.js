@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 /**
  * cron
  */
-exports.cron = require("cron");
+exports.cron = require('cron');
 
 /**
  * job
@@ -13,11 +13,11 @@ exports.cron = require("cron");
 exports.job = function (time, tick) {
   // check
   if (!time) {
-    console.log("need time params!");
+    console.log('need time params!');
     return;
   }
   if (!tick) {
-    console.log("need tick params!");
+    console.log('need tick params!');
     return;
   }
 
@@ -33,11 +33,11 @@ exports.job = function (time, tick) {
 exports.run = function (time, tick) {
   // check
   if (!time) {
-    console.log("need time params!");
+    console.log('need time params!');
     return;
   }
   if (!tick) {
-    console.log("need tick params!");
+    console.log('need tick params!');
     return;
   }
 
@@ -57,11 +57,11 @@ exports.run = function (time, tick) {
 exports.runAndInit = function (time, tick) {
   // check
   if (!time) {
-    console.log("need time params!");
+    console.log('need time params!');
     return;
   }
   if (!tick) {
-    console.log("need tick params!");
+    console.log('need tick params!');
     return;
   }
 

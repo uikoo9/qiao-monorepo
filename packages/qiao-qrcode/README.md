@@ -19,11 +19,11 @@ npm i qiao-qrcode
 
 ```javascript
 // q
-var q = require("qiao-qrcode");
+var q = require('qiao-qrcode');
 
 // canvas
 // <div id="canvas"></div>
-q.qrcodeCanvas("canvas", "https://insistime.com/");
+q.qrcodeCanvas('canvas', 'https://insistime.com/');
 ```
 
 ### qrcodeImg
@@ -32,11 +32,11 @@ q.qrcodeCanvas("canvas", "https://insistime.com/");
 
 ```javascript
 // q
-var q = require("qiao-qrcode");
+var q = require('qiao-qrcode');
 
 // img
 // <div id="img"></div>
-q.qrcodeImg("img", "https://insistime.com/");
+q.qrcodeImg('img', 'https://insistime.com/');
 ```
 
 ### qrcodeSvg
@@ -45,11 +45,11 @@ q.qrcodeImg("img", "https://insistime.com/");
 
 ```javascript
 // q
-var q = require("qiao-qrcode");
+var q = require('qiao-qrcode');
 
 // svg
 // <div id="svg"></div>
-q.qrcodeSvg("svg", "https://insistime.com/");
+q.qrcodeSvg('svg', 'https://insistime.com/');
 ```
 
 ## version

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 var test = function () {
   var cron = q.cron;

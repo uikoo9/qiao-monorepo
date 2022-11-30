@@ -24,8 +24,7 @@ exports.checkConfig = function (config) {
   // check vars
   if (!srcPath) throw new Error("need config.srcPath params");
   if (!distPath) throw new Error("need config.distPath params");
-  if (!srcFiles || !srcFiles.length)
-    throw new Error("need config.srcFiles params");
+  if (!srcFiles || !srcFiles.length) throw new Error("need config.srcFiles params");
   if (!outPath) throw new Error("need config.outPath params");
 
   if (!arch) throw new Error("need config.arch params");
@@ -42,17 +41,13 @@ exports.checkConfig = function (config) {
  */
 exports.checkCosConfig = function (config) {
   // check config
-  if (!config || !config.cosConfig)
-    throw new Error("need config.cosConfig params");
+  if (!config || !config.cosConfig) throw new Error("need config.cosConfig params");
 
   // cos config
   var cosConfig = config.cosConfig;
-  if (!cosConfig.SecretId)
-    throw new Error("need config.cosConfig.SecretId params");
-  if (!cosConfig.SecretKey)
-    throw new Error("need config.cosConfig.SecretKey params");
+  if (!cosConfig.SecretId) throw new Error("need config.cosConfig.SecretId params");
+  if (!cosConfig.SecretKey) throw new Error("need config.cosConfig.SecretKey params");
   if (!cosConfig.Region) throw new Error("need config.cosConfig.Region params");
   if (!cosConfig.Bucket) throw new Error("need config.cosConfig.Bucket params");
-  if (!cosConfig.destPath)
-    throw new Error("need config.cosConfig.destPath params");
+  if (!cosConfig.destPath) throw new Error("need config.cosConfig.destPath params");
 };

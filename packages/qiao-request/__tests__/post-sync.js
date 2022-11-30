@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
-var q = require("../index.js");
+var q = require('../index.js');
 
 var test = async function () {
   try {
-    var url = "http://www.baidu.com";
+    var url = 'http://www.baidu.com';
     var res = await q.postSync({
       url: url,
       qs: {
-        test: "test",
+        test: 'test',
       },
     });
 

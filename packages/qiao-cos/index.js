@@ -26,7 +26,7 @@ const uploadFile = (app, dest, source, cb) => {
     },
     (err, data) => {
       if (cb) cb(err, data);
-    }
+    },
   );
 };
 

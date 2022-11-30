@@ -1,17 +1,17 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./content.scss";
+import './content.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * content
  */
 export const Content = (props) => {
-  colorLog("qiao-ui/pc/content: render");
+  colorLog('qiao-ui/pc/content: render');
 
   return (
     <div className="content">

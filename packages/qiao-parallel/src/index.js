@@ -9,12 +9,7 @@ import parallel from "./parallel.js";
  * @param {*} complete
  * @returns
  */
-export const parallelByIIFE = async function (
-  func,
-  values,
-  callback,
-  complete
-) {
+export const parallelByIIFE = async function (func, values, callback, complete) {
   parallel(func, values, callback, complete);
 };
 
@@ -25,11 +20,6 @@ export const parallelByIIFE = async function (
  * @param {*} callback
  * @param {*} complete
  */
-export const parallelByFork = async function (
-  jsPath,
-  values,
-  callback,
-  complete
-) {
+export const parallelByFork = async function (jsPath, values, callback, complete) {
   parallel(null, values, callback, complete, jsPath);
 };

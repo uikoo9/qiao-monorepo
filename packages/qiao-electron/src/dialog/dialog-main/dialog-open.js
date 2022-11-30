@@ -56,7 +56,5 @@ async function openDialog(options, defaultProps) {
   }
 
   // return
-  return win
-    ? await dialog.showOpenDialog(win, opt)
-    : await dialog.showOpenDialog(opt);
+  return win ? await dialog.showOpenDialog(win, opt) : await dialog.showOpenDialog(opt);
 }

@@ -18,7 +18,7 @@ var test = function () {
     },
     function (code) {
       console.log(`exit code: ${code}`);
-    }
+    },
   );
 
   cp.send("hello child process");

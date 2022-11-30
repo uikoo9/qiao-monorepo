@@ -77,7 +77,7 @@ export const readFileLineByLineSync = (filePath) => {
       () => {
         resolve(lines);
         lines = null;
-      }
+      },
     );
   });
 };

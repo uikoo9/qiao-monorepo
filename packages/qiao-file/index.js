@@ -20,7 +20,7 @@ function _interopNamespaceDefault(e) {
               get: function () {
                 return e[k];
               },
-            }
+            },
         );
       }
     });
@@ -193,10 +193,8 @@ const rm = (fpath) => {
     folders.reverse();
 
     // rm folder
-    for (let i = 0; i < files.length; i++)
-      fs.unlinkSync(files[i].path + files[i].name);
-    for (let i = 0; i < folders.length; i++)
-      fs.rmdirSync(folders[i].path + folders[i].name);
+    for (let i = 0; i < files.length; i++) fs.unlinkSync(files[i].path + files[i].name);
+    for (let i = 0; i < folders.length; i++) fs.rmdirSync(folders[i].path + folders[i].name);
     fs.rmdirSync(fpath);
 
     // return
@@ -339,7 +337,7 @@ const readFileLineByLineSync = (filePath) => {
       () => {
         resolve(lines);
         lines = null;
-      }
+      },
     );
   });
 };

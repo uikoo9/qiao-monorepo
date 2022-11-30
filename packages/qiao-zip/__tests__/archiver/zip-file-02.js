@@ -1,5 +1,5 @@
-var fs = require("fs");
-var archiver = require("archiver");
+var fs = require('fs');
+var archiver = require('archiver');
 
 /**
  * zip file
@@ -10,15 +10,15 @@ var archiver = require("archiver");
 function zipFile(sourceFile, destZip, cb) {
   // init
   var output = fs.createWriteStream(destZip);
-  var archive = archiver("zip", {
+  var archive = archiver('zip', {
     zlib: { level: 9 },
   });
 
   // on
-  output.on("close", function () {
-    cb(null, "zip file success!");
+  output.on('close', function () {
+    cb(null, 'zip file success!');
   });
-  archive.on("error", function (err) {
+  archive.on('error', function (err) {
     cb(err);
   });
 
@@ -31,7 +31,7 @@ function zipFile(sourceFile, destZip, cb) {
 
   // 应该像这样
   archive.file(sourceFile, {
-    name: "test.js",
+    name: 'test.js',
   });
 
   archive.finalize();
@@ -41,10 +41,8 @@ function zipFile(sourceFile, destZip, cb) {
  * test
  */
 function test() {
-  var sourceFile =
-    "/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.js";
-  var destZip =
-    "/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.zip";
+  var sourceFile = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.js';
+  var destZip = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/__tests__/archiver/archiver.zip';
 
   zipFile(sourceFile, destZip, function (err, msg) {
     console.log(err, msg);

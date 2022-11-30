@@ -16,10 +16,10 @@
 ### uploadFileSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-oss");
-var client = q.client(require("./config.json"));
+var q = require('qiao-oss');
+var client = q.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -27,8 +27,8 @@ var client = q.client(require("./config.json"));
  */
 var test = async function () {
   try {
-    var destPath = "test/test.js";
-    var sourceFile = "d:/test.js";
+    var destPath = 'test/test.js';
+    var sourceFile = 'd:/test.js';
 
     var rs = await q.uploadFileSync(client, destPath, sourceFile);
     console.log(rs);
@@ -43,10 +43,10 @@ test();
 ### uploadFolderSync
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-oss");
-var client = q.client(require("./config.json"));
+var q = require('qiao-oss');
+var client = q.client(require('./config.json'));
 
 /**
  * upload folder
@@ -54,8 +54,8 @@ var client = q.client(require("./config.json"));
  */
 var test = async function () {
   try {
-    var destPath = "test";
-    var sourceFolder = "d:/test/cocos";
+    var destPath = 'test';
+    var sourceFolder = 'd:/test/cocos';
 
     var rs = await q.uploadFolderSync(client, destPath, sourceFolder);
     console.log(rs);
@@ -70,18 +70,18 @@ test();
 ### uploadFile
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-oss");
-var client = q.client(require("./config.json"));
+var q = require('qiao-oss');
+var client = q.client(require('./config.json'));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
 var test = function () {
-  var destPath = "test/test.js";
-  var sourceFile = "d:/test.js";
+  var destPath = 'test/test.js';
+  var sourceFile = 'd:/test.js';
 
   q.uploadFile(client, destPath, sourceFile, function (err, rs) {
     if (err) throw err;
@@ -96,18 +96,18 @@ test();
 ### uploadFolder
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-oss");
-var client = q.client(require("./config.json"));
+var q = require('qiao-oss');
+var client = q.client(require('./config.json'));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
 var test = function () {
-  var destPath = "test";
-  var sourceFolder = "d:/test/cocos";
+  var destPath = 'test';
+  var sourceFolder = 'd:/test/cocos';
 
   q.uploadFolder(client, destPath, sourceFolder, function (err, rs) {
     if (err) throw err;

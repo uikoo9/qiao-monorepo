@@ -1,17 +1,17 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./input.scss";
+import './input.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * input
  */
 export const Input = (props) => {
-  colorLog("qiao-ui/pc/input: render");
+  colorLog('qiao-ui/pc/input: render');
 
   const hiddenInput = <input type={props.type} value={props.value} />;
 
@@ -27,5 +27,5 @@ export const Input = (props) => {
     </div>
   );
 
-  return props.type == "hidden" ? hiddenInput : normalInput;
+  return props.type == 'hidden' ? hiddenInput : normalInput;
 };

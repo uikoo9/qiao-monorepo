@@ -10,9 +10,9 @@
 ### getIp
 
 ```javascript
-"use strict";
+'use strict';
 
-var q = require("qiao-get-ip");
+var q = require('qiao-get-ip');
 
 var test = async function () {
   try {

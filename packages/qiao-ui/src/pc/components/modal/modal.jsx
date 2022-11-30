@@ -1,17 +1,17 @@
 // react
-import React from "react";
+import React from 'react';
 
 // css
-import "./modal.scss";
+import './modal.scss';
 
 // log
-import { colorLog } from "../../../util/log.js";
+import { colorLog } from '../../../util/log.js';
 
 /**
  * modal
  */
 export const Modal = (props) => {
-  colorLog("qiao-ui/pc/modal: render");
+  colorLog('qiao-ui/pc/modal: render');
 
   const modal = (
     <div className="modal-container">
