@@ -1,6 +1,6 @@
 {
   "name": "qiao-electron",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "electron tools",
   "keywords": [
     "electron",
@@ -28,6 +28,6 @@
   "dependencies": {
     "qiao-config": "^1.0.3",
     "qiao-file": "^1.0.8",
-    "qiao-log": "^0.2.6"
+    "qiao-log": "^1.0.0"
   }
 }
