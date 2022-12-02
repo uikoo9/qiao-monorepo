@@ -1,5 +1,3 @@
-'use strict';
-
 // path
 import path from 'path';
 
@@ -17,5 +15,11 @@ export const logInit = () => {
   const logsPath = app.getPath('logs');
   const logPath = path.resolve(logsPath, './electron.log');
 
-  return getLogger(logPath);
+  // config
+  const config = {
+    appenders: ['stdoutLog', 'datefileLog'],
+    fileName: logPath,
+  };
+
+  return getLogger(config);
 };

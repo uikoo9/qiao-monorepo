@@ -185,6 +185,8 @@ const fsIPCInit = () => {
   });
 };
 
+// path
+
 /**
  * logInit
  * @returns
@@ -193,7 +195,13 @@ const logInit = () => {
   const logsPath = electron.app.getPath('logs');
   const logPath = path.resolve(logsPath, './electron.log');
 
-  return qiaoLog.getLogger(logPath);
+  // config
+  const config = {
+    appenders: ['stdoutLog', 'datefileLog'],
+    fileName: logPath,
+  };
+
+  return qiaoLog.getLogger(config);
 };
 
 /**
