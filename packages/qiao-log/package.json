@@ -6,11 +6,21 @@
   "homepage": "https://code.insistime.com/qiao-log",
   "license": "MIT",
   "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  },
+  "scripts": {
+    "build": "rollup --config _config.rollup.js"
+  },
   "dependencies": {
     "log4js": "^6.7.1"
   }
