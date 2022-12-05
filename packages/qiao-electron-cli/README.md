@@ -84,12 +84,12 @@ module.exports = config;
 qelectron init /{youprojectpath}
 ```
 
-### icon
+### icns
 
 生成 mac 下的 icns 图标
 
 ```bash
-qelectron icon /{youprojectpath}/static/icon/pic.png
+qelectron icns /{youprojectpath}/static/icon/pic.png
 ```
 
 ### dist

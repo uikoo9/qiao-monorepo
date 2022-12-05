@@ -6,9 +6,9 @@
 exports.init = require('./lib/init.js');
 
 /**
- * icon
+ * icns
  */
-exports.icon = require('./lib/icon.js');
+exports.icns = require('./lib/icns.js');
 
 /**
  * dist
