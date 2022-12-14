@@ -5,99 +5,49 @@
 
 nodejs 下日志能力
 
-## stdout
+## logger
 
 ```javascript
-// q
-const { getLogger } = require('qiao-log');
-
-// logger
-const logger = getLogger();
-
-// log
-logger.debug('1');
+const Logger = require('qiao-log');
+const logger = Logger(options);
 ```
 
-## datefile
+## options
+
+- log4jsConfig，[log4js](https://log4js-node.github.io/log4js-node/index.html)的配置
+- intervalTime，写本地日志的间隔时间，用来限制写日志频次，单位 ms
+- logContentLength，日志内容长度，用来限制日志内容长度
 
 ```javascript
-// q
-const { getLogger } = require('qiao-log');
-
-// config
-const config = {
-  appenders: ['datefileLog'],
+const options = {
+  intervalTime: 100,
+  logContentLength: 200,
+  log4jsConfig: {
+    appenders: {
+      out: { type: 'stdout' },
+    },
+    categories: {
+      default: { appenders: ['out'], level: 'debug' },
+    },
+  },
 };
-
-// logger
-const logger = getLogger(config);
-
-// log
-logger.debug('1');
 ```
 
-## all
+## 使用 log4js 写日志
 
 ```javascript
-// q
-const { getLogger } = require('qiao-log');
-
-// config
-const config = {
-  appenders: ['stdoutLog', 'datefileLog'],
-};
-
-// logger
-const logger = getLogger(config);
-
-// log
-logger.debug('1');
-```
-
-## filepath
-
-```javascript
-// q
-const { getLogger } = require('qiao-log');
-
-// config
-const config = {
-  appenders: ['stdoutLog', 'datefileLog'],
-  fileName: '../test.log',
-};
-
-// logger
-const logger = getLogger(config);
-
-// log
-logger.debug('1');
-```
-
-## close
-
-```javascript
-// q
-const { getLogger, close } = require('qiao-log');
-
-// config
-const config = {
-  appenders: ['stdoutLog', 'datefileLog'],
-  fileName: '../test.log',
-};
-
-// logger
-const logger = getLogger(config);
-
-// log
-logger.debug('1');
-
-// close
-close(() => {
-  console.log('logger close');
-});
+logger.debug;
+logger.info;
+logger.warn;
+logger.error;
 ```
 
 ## version
+
+### 0.0.3.20221214
+
+1. interval time
+2. content length
 
 ### 0.0.2.20221202
 
