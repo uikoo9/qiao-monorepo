@@ -3,12 +3,12 @@ import log4js from 'log4js';
 
 /**
  * get logger
- * @param {*} config 
- * @returns 
+ * @param {*} config
+ * @returns
  */
 export const getLogger = (config) => {
   // check
-  if(!config || !config.appenders || !config.categories){
+  if (!config || !config.appenders || !config.categories) {
     console.log('qiao-log', 'need options.log4jsConfig');
     return;
   }

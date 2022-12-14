@@ -8,12 +8,12 @@ var log4js = require('log4js');
 
 /**
  * get logger
- * @param {*} config 
- * @returns 
+ * @param {*} config
+ * @returns
  */
 const getLogger = (config) => {
   // check
-  if(!config || !config.appenders || !config.categories){
+  if (!config || !config.appenders || !config.categories) {
     console.log('qiao-log', 'need options.log4jsConfig');
     return;
   }
@@ -63,8 +63,8 @@ const debug$1 = Debug('qiao-log');
 
 /**
  * write cache log
- * @param {*} logs 
- * @param {*} that 
+ * @param {*} logs
+ * @param {*} that
  */
 const writeCacheLog = (logs, that) => {
   debug$1('write cache log');

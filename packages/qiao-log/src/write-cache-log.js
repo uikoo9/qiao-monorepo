@@ -7,8 +7,8 @@ import { writeLocalLog } from './write-local-log.js';
 
 /**
  * write cache log
- * @param {*} logs 
- * @param {*} that 
+ * @param {*} logs
+ * @param {*} that
  */
 export const writeCacheLog = (logs, that) => {
   debug('write cache log');
