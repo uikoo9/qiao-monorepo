@@ -30,54 +30,6 @@ const getLogger = (config) => {
   return log4js.getLogger();
 };
 
-// debug
-const debug$2 = Debug('qiao-log');
-
-/**
- * write local log
- * @param {*} that
- * @param {*} type
- * @param  {...any} msg
- * @returns
- */
-const writeLocalLog = (that, type, ...msg) => {
-  debug$2('write local log');
-
-  // normal
-  if (!that.logContentLength) {
-    debug$2('write local log', 'normal');
-    that.logger[type](...msg);
-    return;
-  }
-
-  // check content length
-  debug$2('write local log', 'content length');
-  const content = [...msg].join(' ');
-  const contentLength = that.logContentLength + 34;
-  const finalContent = content.length > contentLength ? content.substring(0, contentLength) : content;
-  that.logger[type](finalContent);
-};
-
-// debug
-const debug$1 = Debug('qiao-log');
-
-/**
- * write cache log
- * @param {*} logs
- * @param {*} that
- */
-const writeCacheLog = (logs, that) => {
-  debug$1('write cache log');
-
-  Object.keys(logs).forEach((type) => {
-    logs[type].forEach((msg) => {
-      writeLocalLog(that, type, ...msg);
-    });
-
-    logs[type] = [];
-  });
-};
-
 // format
 const debug = Debug('qiao-log');
 
@@ -98,10 +50,7 @@ let intervalObj;
 var index = (options) => {
   // check
   debug('options', options);
-  if (!options) {
-    console.log('qiao-log', 'need options');
-    return;
-  }
+  if (!options) return;
 
   // logger
   const logger = getLogger(options.log4jsConfig);
@@ -114,6 +63,8 @@ var index = (options) => {
   obj.intervalTime = options.intervalTime;
   obj.logContentLength = options.logContentLength;
   obj._writeLog = writeLog;
+  obj._writeLocalLog = writeLocalLog;
+  obj._writeCacheLog = writeCacheLog;
   obj.debug = (...msg) => {
     obj._writeLog('debug', ...msg);
   };
@@ -134,7 +85,7 @@ var index = (options) => {
 function writeLog(type, ...msg) {
   // write local log
   if (!this.intervalTime) {
-    writeLocalLog(this, type, ...msg);
+    this._writeLocalLog(type, ...msg);
     return;
   }
 
@@ -146,8 +97,40 @@ function writeLog(type, ...msg) {
   if (intervalObj) return;
   debug('write log', 'set interval');
   intervalObj = setInterval(() => {
-    writeCacheLog(logs, this);
+    this._writeCacheLog();
   }, this.intervalTime);
+}
+
+// write local log
+function writeLocalLog(type, ...msg) {
+  debug('write local log');
+
+  // normal
+  if (!this.logContentLength) {
+    debug('write local log', 'normal');
+    this.logger[type](...msg);
+    return;
+  }
+
+  // check content length
+  debug('write local log', 'content length');
+  const content = msg.join(' ');
+  const contentLength = this.logContentLength + 34;
+  const finalContent = content.length > contentLength ? content.substring(0, contentLength) : content;
+  this.logger[type](finalContent);
+}
+
+// write cache log
+function writeCacheLog() {
+  debug('write cache log');
+
+  Object.keys(logs).forEach((type) => {
+    logs[type].forEach((msg) => {
+      this._writeLocalLog(type, ...msg);
+    });
+
+    if (logs[type].length) logs[type] = [];
+  });
 }
 
 module.exports = index;
