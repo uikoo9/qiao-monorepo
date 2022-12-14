@@ -36,6 +36,7 @@ export default (options) => {
 
   // logger
   const logger = getLogger(options.log4jsConfig);
+  debug('get logger', !!logger);
   if (!logger) return;
 
   // obj
@@ -74,6 +75,7 @@ function writeLog(type, ...msg) {
 
   // interval
   if (intervalObj) return;
+  debug('write log', 'set interval');
   intervalObj = setInterval(() => {
     writeCacheLog(logs, this);
   }, this.intervalTime);
