@@ -30,7 +30,7 @@
     "build": "rollup --config _config.rollup.js"
   },
   "dependencies": {
-    "npm-check-updates": "^16.4.3",
+    "npm-check-updates": "^16.6.2",
     "qiao-cli": "^1.0.8",
     "qiao-console": "^1.0.3",
     "qiao-file": "^1.0.8",

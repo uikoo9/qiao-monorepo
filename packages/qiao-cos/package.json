@@ -33,7 +33,7 @@
     "build": "rollup --config _config.rollup.js"
   },
   "dependencies": {
-    "cos-nodejs-sdk-v5": "^2.11.16",
+    "cos-nodejs-sdk-v5": "^2.11.19",
     "qiao-cli": "^1.0.8",
     "qiao-file": "^1.0.8"
   }
