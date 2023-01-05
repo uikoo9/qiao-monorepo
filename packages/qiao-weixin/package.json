@@ -1,6 +1,6 @@
 {
   "name": "qiao-weixin",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "nodejs weixin sdk",
   "keywords": [
     "weixin",

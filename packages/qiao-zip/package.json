@@ -1,6 +1,6 @@
 {
   "name": "qiao-zip",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "nodejs zip and unzip tool",
   "keywords": [
     "zip",
