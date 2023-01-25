@@ -1,42 +1,30 @@
-# qiao-ajax
+## qiao-ajax
 
 [![npm version](https://img.shields.io/npm/v/qiao-ajax.svg?style=flat-square)](https://www.npmjs.org/package/qiao-ajax)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-ajax.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-ajax)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/qiao-ajax)
 
+浏览器和 nodejs 下请求能力，基于[axios](https://axios-http.com/)
+
 ## api
 
-### get
+### req
+
+支持 get, post, put, patch, delete, head, options 等请求
 
 ```javascript
-'use strict';
-
-var q = require('qiao-ajax');
-
-var test = async function () {
-  try {
-    var url = 'http://icanhazip.com/';
-    var res = await q.get(url);
-    console.log(res);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-test();
+const { get } = require('qiao-ajax');
+const res = await get(url);
 ```
 
-### post
+### download
 
-### put
+下载文件到本地
 
-### patch
-
-### delete
-
-### head
-
-### options
+```javascript
+const { download } = require('qiao-ajax');
+await download(url, downloadPath);
+```
 
 ## version
 
