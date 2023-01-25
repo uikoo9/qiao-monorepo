@@ -1,6 +1,6 @@
 {
   "name": "qiao-lerna",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "lerna tools",
   "keywords": [
     "lerna",
@@ -34,7 +34,7 @@
     "qiao-cli": "^1.1.0",
     "qiao-console": "^1.0.3",
     "qiao-file": "^1.0.8",
-    "qiao-npms": "^1.0.9",
+    "qiao-npms": "^1.1.0",
     "qiao-parallel": "^1.0.9"
   }
 }
