@@ -1,12 +1,8 @@
-'use strict';
-
-var axios = require('axios');
-var fs = require('fs');
-
 /**
  * axios
  * 	https://www.npmjs.com/package/axios
  */
+import axios from 'axios';
 
 /**
  * get
@@ -14,7 +10,7 @@ var fs = require('fs');
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const get = (url, config) => {
+export const get = (url, config) => {
   return req(url, 'get', config);
 };
 
@@ -24,7 +20,7 @@ const get = (url, config) => {
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const post = (url, config) => {
+export const post = (url, config) => {
   return req(url, 'post', config);
 };
 
@@ -34,7 +30,7 @@ const post = (url, config) => {
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const put = (url, config) => {
+export const put = (url, config) => {
   return req(url, 'put', config);
 };
 
@@ -44,7 +40,7 @@ const put = (url, config) => {
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const patch = (url, config) => {
+export const patch = (url, config) => {
   return req(url, 'patch', config);
 };
 
@@ -54,7 +50,7 @@ const patch = (url, config) => {
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const deleteReq = (url, config) => {
+export const deleteReq = (url, config) => {
   return req(url, 'delete', config);
 };
 
@@ -64,7 +60,7 @@ const deleteReq = (url, config) => {
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const head = (url, config) => {
+export const head = (url, config) => {
   return req(url, 'head', config);
 };
 
@@ -74,7 +70,7 @@ const head = (url, config) => {
  * 	config, https://www.npmjs.com/package/axios#request-config
  * 	return res, https://www.npmjs.com/package/axios#response-schema
  */
-const options = (url, config) => {
+export const options = (url, config) => {
   return req(url, 'options', config);
 };
 
@@ -95,53 +91,3 @@ const req = (url, method, config) => {
 
   return axios.request(options);
 };
-
-// fs
-
-/**
- * download
- * @param {*} url
- * @param {*} downloadPath
- * @returns
- */
-const download = async (url, downloadPath) => {
-  // writer
-  const writer = fs.createWriteStream(downloadPath);
-
-  // get
-  const download = axios.get(url, {
-    responseType: 'stream',
-  });
-
-  // download
-  return new Promise((resolve, reject) =>
-    download
-      .then((response) => {
-        response.data.pipe(writer);
-
-        let error = null;
-        writer.on('error', (err) => {
-          error = err;
-          writer.close();
-          reject(err);
-        });
-        writer.on('close', () => {
-          if (!error) {
-            resolve();
-          }
-        });
-      })
-      .catch((error) => {
-        if (error) reject(error);
-      }),
-  );
-};
-
-exports.deleteReq = deleteReq;
-exports.download = download;
-exports.get = get;
-exports.head = head;
-exports.options = options;
-exports.patch = patch;
-exports.post = post;
-exports.put = put;
