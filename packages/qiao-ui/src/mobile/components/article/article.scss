@@ -1,6 +1,6 @@
 @use '../../../util/base';
 
-$titleHeight: 3rem;
+$titleHeight: 1.5rem;
 $contentHeight: 1rem;
 
 .article-container {
@@ -10,7 +10,7 @@ $contentHeight: 1rem;
   .article-title {
     @include base.width();
 
-    height: $titleHeight;
+    min-height: $titleHeight;
     line-height: $titleHeight;
     border-bottom: base.$borderDotted;
 
