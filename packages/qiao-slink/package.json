@@ -1,6 +1,6 @@
 {
   "name": "qiao-slink",
-  "version": "0.3.3",
+  "version": "1.0.0",
   "description": "tiyee.cn URL Shortener Node.js and Browser module",
   "keywords": [
     "short",
@@ -13,12 +13,18 @@
   "homepage": "https://code.insistime.com/qiao-slink",
   "license": "MIT",
   "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {
-    "build": "qwebpack build ./webpack/qiao.webpack.js"
+    "build": "rollup -c",
+    "test": "jest"
   },
   "dependencies": {
     "qiao-ajax": "^2.8.1",

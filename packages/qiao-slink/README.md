@@ -1,4 +1,7 @@
-# qiao-slink
+## qiao-slink
+
+[![npm version](https://img.shields.io/npm/v/qiao-slink.svg?style=flat-square)](https://www.npmjs.org/package/qiao-slink)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-slink.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-slink)
 
 short link by [tiyee.cn](https://tiyee.cn)
 
@@ -7,24 +10,14 @@ short link by [tiyee.cn](https://tiyee.cn)
 ### shortLink
 
 ```javascript
-'use strict';
-
-var q = require('qiao-slink');
-
-var test = async function () {
-  try {
-    var longLink = 'https://baidu.com/';
-    var shortLink = await q.shortLink(longLink);
-    console.log(shortLink);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-test();
+const shortLink = await shortLink(longLink);
 ```
 
 ## version
+
+## 0.0.2.20230201
+
+1. 1.0.0
 
 ### 0.0.1.20200911
 

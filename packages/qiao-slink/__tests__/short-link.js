@@ -1,15 +1,21 @@
-'use strict';
+const { shortLink } = require('../index.js');
 
-var q = require('../index.js');
+/**
+ * @jest-environment jsdom
+ */
+test('get short link on browser', async () => {
+  const res = await shortLink('https://insistime.com/');
 
-var test = async function () {
-  try {
-    var longLink = 'https://baidu.com/';
-    var shortLink = await q.shortLink(longLink);
-    console.log(shortLink);
-  } catch (e) {
-    console.log(e);
-  }
-};
+  expect(res).toBeDefined();
+  expect(res.res).toBeTruthy();
+});
 
-test();
+/**
+ * @jest-environment node
+ */
+test('get short link on nodejs', async () => {
+  const res = await shortLink('https://insistime.com/');
+
+  expect(res).toBeDefined();
+  expect(res.res).toBeTruthy();
+});

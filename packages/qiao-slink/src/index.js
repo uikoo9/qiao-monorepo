@@ -1,9 +1,8 @@
-'use strict';
-
-var qs = require('qs');
-var qiaoAjax = require('qiao-ajax');
-
 // qs
+import { stringify } from 'qs';
+
+// qiao-ajax
+import { post } from 'qiao-ajax';
 
 // vars
 const turl = 'https://tiyee.cn/2/create_short_url';
@@ -11,18 +10,18 @@ const turl = 'https://tiyee.cn/2/create_short_url';
 /**
  * short link
  */
-const shortLink = async (longLink) => {
+export const shortLink = async (longLink) => {
   if (!longLink) return msg(false, 'need long link');
 
   // config
   const config = {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    data: qs.stringify({ url: longLink }),
+    data: stringify({ url: longLink }),
   };
 
   // post
   try {
-    const res = await qiaoAjax.post(turl, config);
+    const res = await post(turl, config);
     if (!res || res.status !== 200 || !res.data) return msg(false, 'request short link errror');
 
     return msg(true, res.data.short_url);
@@ -39,5 +38,3 @@ function msg(res, msg, err) {
     err,
   };
 }
-
-exports.shortLink = shortLink;
