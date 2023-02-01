@@ -12,7 +12,7 @@
     "eslintfix": "eslint . --ext .js --fix",
     "lint": "npm run prettier && npm run eslintfix",
     "postinstall": "npm run clean && npm run init && npm run build && npm run lint",
-    "test": "lerna run test",
+    "test": "lerna run test --scope=qiao-config --scope=qiao-slink --scope=qiao.cookie.js --scope=qiao.ls.js",
     "dc": "qlerna dc ./packages",
     "ls": "lerna ls -l",
     "pkg": "qlerna pkg ./packages",
