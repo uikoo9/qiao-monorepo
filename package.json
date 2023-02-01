@@ -7,7 +7,7 @@
     "ncu": "lerna exec --ignore=qiao-cli 'ncu -u'",
     "clean": "lerna clean -y",
     "init": "lerna bootstrap --ignore=qiao-electron-demo --ignore-prepublish",
-    "build": "lerna run build --ignore=qiao-electron-demo",
+    "build": "lerna run build",
     "prettier": "prettier --write .",
     "eslintfix": "eslint . --ext .js --fix",
     "lint": "npm run prettier && npm run eslintfix",

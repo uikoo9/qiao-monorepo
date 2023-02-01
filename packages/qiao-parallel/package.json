@@ -25,7 +25,7 @@
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "scripts": {
-    "build": "rollup --config _config.rollup.js",
+    "build": "rollup -c",
     "test-normal": "node __tests__/normal.js",
     "test-parallel": "node __tests__/parallel.js",
     "test-fork": "node __tests__/fork.js",

@@ -10,7 +10,7 @@
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
   "scripts": {
-    "build": "rollup --config _config.rollup.js"
+    "build": "rollup -c"
   },
   "dependencies": {
     "qiao-ajax": "^2.8.1",

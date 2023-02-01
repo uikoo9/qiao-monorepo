@@ -25,7 +25,7 @@
   },
   "scripts": {
     "dist": "qwebpack build ./webpack/qiao.webpack.js",
-    "build": "rollup --config _config.rollup.js"
+    "build": "rollup -c"
   },
   "dependencies": {
     "offline-to-online": "^1.0.3"

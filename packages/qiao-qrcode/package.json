@@ -28,7 +28,7 @@
     "qrcode": "^1.5.1"
   },
   "scripts": {
-    "build": "rollup --config _config.rollup.js",
+    "build": "rollup -c",
     "dist": "qwebpack build ./webpack/qiao.webpack.js"
   }
 }

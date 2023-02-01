@@ -29,7 +29,7 @@
     "dev": "qwebpack dev ./webpack/qiao.webpack.js",
     "dist": "qwebpack build ./webpack/qiao.webpack.js",
     "analyzer": "qwebpack analyzer ./webpack/qiao.webpack.js",
-    "build": "rollup --config _config.rollup.js"
+    "build": "rollup -c"
   },
   "dependencies": {
     "axios": "1.2.6"

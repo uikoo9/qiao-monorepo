@@ -29,7 +29,7 @@
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "scripts": {
-    "build": "rollup --config _config.rollup.js"
+    "build": "rollup -c"
   },
   "dependencies": {
     "uuid": "^9.0.0"
