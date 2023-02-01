@@ -5,25 +5,20 @@
 
 浏览器和 ndoejs 下获取公网 ip
 
+## install
+
+```bash
+npm i qiao-get-ip
+```
+
 ## api
 
 ### getIp
 
 ```javascript
-'use strict';
+const { getIp } = require('qiao-get-ip');
 
-var q = require('qiao-get-ip');
-
-var test = async function () {
-  try {
-    var ip = await q.getIp();
-    console.log(ip);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-test();
+const ip = await getIp();
 ```
 
 ## version
