@@ -1,8 +1,21 @@
-// get ip by icanhazip
-export * from './get-ip-by-icanhazip.js';
-
 // get ip by sohu
-export * from './get-ip-by-sohu.js';
+import { getIpBySohu } from './get-ip-by-sohu.js';
 
-// get ip
-export * from './get-ip.js';
+// get ip by icanhazip
+import { getIpByIcanhazip } from './get-ip-by-icanhazip.js';
+
+/**
+ * getIp
+ * @returns
+ */
+export const getIp = async () => {
+  return new Promise((resolve, reject) => {
+    Promise.race([getIpBySohu, getIpByIcanhazip])
+      .then((value) => {
+        resolve(value);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+};

@@ -1,14 +1,17 @@
-'use strict';
+const { getIp } = require('../index.js');
 
-var q = require('../index.js');
+/**
+ * @jest-environment jsdom
+ */
+test('get ip on browser', async () => {
+  const ip = await getIp();
+  expect(ip).toBeDefined();
+});
 
-var test = async function () {
-  try {
-    var ip = await q.getIp();
-    console.log(ip);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-test();
+/**
+ * @jest-environment node
+ */
+test('get ip on nodejs', async () => {
+  const ip = await getIp();
+  expect(ip).toBeDefined();
+});

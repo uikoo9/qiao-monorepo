@@ -1,5 +1,5 @@
 // qiao-ajax
-import q from 'qiao-ajax';
+import { get } from 'qiao-ajax';
 
 // ip-regex
 import i from 'ip-regex';
@@ -17,7 +17,7 @@ const notIpErr = new Error('not ip');
  */
 export const getIpBySohu = () => {
   return new Promise(function (resolve, reject) {
-    q.get(sohuUrl)
+    get(sohuUrl)
       .then(function (res) {
         // not 200
         if (!res || res.status != 200 || !res.data) {

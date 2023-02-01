@@ -25,7 +25,8 @@
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest"
   },
   "dependencies": {
     "ip-regex": "^5.0.0",
