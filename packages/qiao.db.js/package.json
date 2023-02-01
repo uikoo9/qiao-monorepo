@@ -1,6 +1,6 @@
 {
   "name": "qiao.db.js",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "indexeddb tools",
   "keywords": [
     "indexeddb"
