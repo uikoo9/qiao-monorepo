@@ -28,8 +28,7 @@
     "build": "rollup -c",
     "test-normal": "node __tests__/normal.js",
     "test-parallel": "node __tests__/parallel.js",
-    "test-fork": "node __tests__/fork.js",
-    "test": "npm run test-normal && npm run test-parallel && npm run test-fork"
+    "test-fork": "node __tests__/fork.js"
   },
   "devDependencies": {
     "qiao-console": "^1.0.3"

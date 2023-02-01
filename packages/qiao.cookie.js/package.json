@@ -23,6 +23,6 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "test": "jest --config _config.jest.js"
+    "test": "jest"
   }
 }
