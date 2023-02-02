@@ -5,7 +5,7 @@ import { get } from 'qiao-ajax';
 import i from 'ip-regex';
 
 // urls
-const hipUrl = 'http://icanhazip.com/';
+const hipUrl = 'https://icanhazip.com/';
 const hipErr = new Error('get ip by icanhazip failed');
 
 // not ip

@@ -5,7 +5,7 @@ import { get } from 'qiao-ajax';
 import i from 'ip-regex';
 
 // urls
-const sohuUrl = 'http://txt.go.sohu.com/ip/soip';
+const sohuUrl = 'https://txt.go.sohu.com/ip/soip';
 const sohuErr = new Error('get ip by sohu failed');
 
 // not ip
