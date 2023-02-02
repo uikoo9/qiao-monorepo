@@ -17,16 +17,11 @@ const { get } = require('qiao-ajax');
 const res = await get(url);
 ```
 
-### download
-
-下载文件到本地
-
-```javascript
-const { download } = require('qiao-ajax');
-await download(url, downloadPath);
-```
-
 ## version
+
+### 0.0.8.20230202
+
+1. del downlaod
 
 ### 0.0.7.20221012
 

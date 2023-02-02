@@ -1,15 +1,19 @@
-'use strict';
+const { get } = require('../index.js');
 
-var q = require('../src/index.js');
+/**
+ * @jest-environment jsdom
+ */
+test('get on browser', async () => {
+  const res = await get('https://icanhazip.com/');
 
-var test = async function () {
-  try {
-    var url = 'http://icanhazip.com/';
-    var res = await q.get(url);
-    console.log(res);
-  } catch (e) {
-    console.log(e);
-  }
-};
+  expect(res).toBeDefined();
+});
 
-test();
+/**
+ * @jest-environment node
+ */
+test('get on nodejs', async () => {
+  const res = await get('https://icanhazip.com/');
+
+  expect(res).toBeDefined();
+});
