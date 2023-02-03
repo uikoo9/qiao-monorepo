@@ -1,21 +1,32 @@
-// get ip by sohu
-import { getIpBySohu } from './get-ip-by-sohu.js';
+// ajax
+import { post } from 'qiao-ajax';
 
-// get ip by icanhazip
-import { getIpByIcanhazip } from './get-ip-by-icanhazip.js';
+// ip-regex
+import i from 'ip-regex';
 
 /**
  * getIp
  * @returns
  */
 export const getIp = async () => {
-  return new Promise((resolve, reject) => {
-    Promise.race([getIpBySohu, getIpByIcanhazip])
-      .then((value) => {
-        resolve(value);
-      })
-      .catch((e) => {
-        reject(e);
-      });
-  });
+  // url
+  const url = 'https://insistime.com/ip';
+  const res = await post(url);
+
+  // not 200
+  if (!res || res.status != 200 || !res.data || !res.data.type || !res.data.obj || !res.data.obj.ip) {
+    console.log('get ip failed');
+    return;
+  }
+
+  // ip
+  const ip = res.data.obj.ip;
+  const isIp = i.v4({ exact: true }).test(ip);
+  if(!isIp){
+    console.log('get ip failed');
+    return;
+  }
+
+  // 
+  return ip;
 };
