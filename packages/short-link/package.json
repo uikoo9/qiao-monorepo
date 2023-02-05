@@ -1,5 +1,5 @@
 {
-  "name": "qiao-slink",
+  "name": "short-link",
   "version": "1.0.5",
   "description": "tiyee.cn URL Shortener Node.js and Browser module",
   "keywords": [
@@ -10,7 +10,7 @@
     "tiyee.cn"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://code.insistime.com/qiao-slink",
+  "homepage": "https://code.insistime.com/short-link",
   "license": "MIT",
   "main": "index.js",
   "module": "src/index.js",
