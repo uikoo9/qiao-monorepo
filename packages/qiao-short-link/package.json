@@ -29,5 +29,6 @@
   "dependencies": {
     "qiao-ajax": "^2.8.4",
     "qs": "^6.11.0"
-  }
+  },
+  "gitHead": "03a956ab21cdab4a2f1fe3d281c7c7dd15f30525"
 }
