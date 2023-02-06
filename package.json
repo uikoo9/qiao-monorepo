@@ -34,6 +34,6 @@
     "prettier": "^2.8.3",
     "qiao-lerna": "^1.3.3",
     "qiao-webpack": "^1.4.1",
-    "rollup": "^3.12.1"
+    "rollup": "^3.14.0"
   }
 }
