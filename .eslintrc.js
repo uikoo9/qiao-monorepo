@@ -5,7 +5,7 @@ module.exports = {
     es2022: true,
     jest: true,
   },
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'prettier'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
