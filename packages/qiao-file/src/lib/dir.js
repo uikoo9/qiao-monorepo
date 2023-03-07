@@ -1,6 +1,9 @@
 // fs
 import fs from 'fs';
 
+// fs
+import { readdir } from 'fs-extra';
+
 // is
 import { isExists } from './is.js';
 
@@ -63,4 +66,19 @@ export const mkdir = (dir) => {
     console.log(e);
     return false;
   }
+};
+
+/**
+ * read dir
+ * @param {*} dirPath 
+ * @returns 
+ */
+export const readDir = (dirPath) => {
+  return new Promise((resolve) => {
+    readdir(dirPath, (err, files) => {
+      if (err) return resolve();
+
+      return resolve(files);
+    });
+  });
 };

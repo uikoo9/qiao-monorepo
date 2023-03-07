@@ -268,6 +268,21 @@ const mkdir = (dir) => {
   }
 };
 
+/**
+ * read dir
+ * @param {*} dirPath 
+ * @returns 
+ */
+const readDir = (dirPath) => {
+  return new Promise((resolve) => {
+    fsExtra.readdir(dirPath, (err, files) => {
+      if (err) return resolve();
+
+      return resolve(files);
+    });
+  });
+};
+
 // path
 
 /**
@@ -355,6 +370,7 @@ exports.lsdir = lsdir;
 exports.lstree = lstree;
 exports.mkdir = mkdir;
 exports.mv = mv;
+exports.readDir = readDir;
 exports.readFile = readFile;
 exports.readFileLineByLine = readFileLineByLine;
 exports.rm = rm;

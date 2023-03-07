@@ -85,6 +85,14 @@ test();
 
 ## dir
 
+### readDir
+
+读取文件夹内容
+
+```javascript
+const res = await readDir(dirpath);
+```
+
 ### lsdir
 
 ```javascript

@@ -11,3 +11,6 @@ node_modules
 config.json
 
 *.log
+
+# 
+packages/qiao-file/__tests__/1
