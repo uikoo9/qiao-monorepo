@@ -1,29 +1,17 @@
 // fs
 import fs from 'fs';
 
+// path
+import path from 'path';
+
 // fs
 import { readdir } from 'fs-extra';
 
 // is
-import { isExists } from './is.js';
+import { isDir, isExists } from './is.js';
 
 // util
-import { checkDir, getFileTree, getFoldersAndFiles } from './util.js';
-
-/**
- * ls dir
- * 	dir : must end with /
- */
-export const lsdir = (dir) => {
-  let folders = [];
-  let files = [];
-  getFoldersAndFiles(dir, folders, files);
-
-  return {
-    folders: folders,
-    files: files,
-  };
-};
+import { checkDir, getFileTree } from './util.js';
 
 /**
  * ls tree
@@ -70,8 +58,8 @@ export const mkdir = (dir) => {
 
 /**
  * read dir
- * @param {*} dirPath 
- * @returns 
+ * @param {*} dirPath
+ * @returns
  */
 export const readDir = (dirPath) => {
   return new Promise((resolve) => {
@@ -81,4 +69,52 @@ export const readDir = (dirPath) => {
       return resolve(files);
     });
   });
+};
+
+/**
+ * get folders and files
+ * @param {*} fpath
+ * @param {*} folders
+ * @param {*} files
+ */
+export const getFoldersAndFiles = async (fpath, folders, files) => {
+  // check
+  const dirs = await readDir(fpath);
+  if (!dirs) return;
+
+  // read
+  const realPath = path.resolve(fpath);
+  for (let i = 0; i < dirs.length; i++) {
+    const dir = dirs[i];
+    const isDirRes = await isDir(dir);
+    if (isDirRes) {
+      folders.push({
+        path: realPath,
+        name: dir,
+      });
+
+      await getFoldersAndFiles(path.resolve(realPath, `./${dir}`), folders, files);
+    } else {
+      files.push({
+        path: realPath,
+        name: dir,
+      });
+    }
+  }
+};
+
+/**
+ * ls dir
+ * @param {*} dir
+ * @returns
+ */
+export const lsdir = async (dir) => {
+  let folders = [];
+  let files = [];
+  await getFoldersAndFiles(dir, folders, files);
+
+  return {
+    folders: folders,
+    files: files,
+  };
 };

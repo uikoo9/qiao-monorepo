@@ -95,17 +95,10 @@ const res = await readDir(dirpath);
 
 ### lsdir
 
+列出文件夹下所有的文件和文件夹路径
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var foldersAndFiles = q.lsdir('z:/workspaces/qiao.plugin.coder/');
-  console.log(foldersAndFiles);
-};
-
-test();
+const res = await lsdir(dirpath);
 ```
 
 ### lstree

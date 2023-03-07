@@ -1,10 +1,10 @@
-'use strict';
+// q
+const { lsdir } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('ls dir', async () => {
+  const dirpath = './';
+  const res = await lsdir(dirpath);
 
-var test = function () {
-  var foldersAndFiles = q.lsdir('./');
-  console.log(foldersAndFiles);
-};
-
-test();
+  expect(res).toBeTruthy();
+});
