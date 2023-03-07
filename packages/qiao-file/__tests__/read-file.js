@@ -1,12 +1,11 @@
-'use strict';
+// q
+const { readFile } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('read file', async () => {
+  const filePath = './index.js';
+  const res = await readFile(filePath);
+  console.log(res);
 
-var test = function () {
-  var filePath = './index.js';
-  var s = q.readFile(filePath);
-
-  console.log(s);
-};
-
-test();
+  expect(res).toBeTruthy();
+});

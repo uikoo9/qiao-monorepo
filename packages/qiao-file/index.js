@@ -257,20 +257,22 @@ const mkdir = (dir) => {
 
 /**
  * extname
- * 	filePath : file path
+ * @param {*} filePath
+ * @returns
  */
 const extname = (filePath) => {
-  if (!filePath) return null;
+  if (!filePath) return;
 
   return path.extname(filePath.toLowerCase());
 };
 
 /**
  * readFile
- * @param {*} filePath
+ * @param {*} filePath 
  * @param {*} options https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsreadfilesyncpath-options
+ * @returns 
  */
-const readFile = (filePath, options) => {
+const readFile = async (filePath, options) => {
   // check
   if (!filePath) return;
 
@@ -279,7 +281,7 @@ const readFile = (filePath, options) => {
     const opt = { encoding: 'utf8' };
     options = options || opt;
 
-    return fs.readFileSync(filePath, options);
+    return await fsExtra.readFile(filePath, options);
   } catch (e) {
     console.log(e);
     return;

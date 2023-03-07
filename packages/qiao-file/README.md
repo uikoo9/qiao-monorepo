@@ -135,36 +135,18 @@ test();
 
 ### extname
 
+获取文件的后缀
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var filePath = 'd:/test1/test2/test.js';
-  var s = q.extname(filePath);
-
-  console.log(s);
-};
-
-test();
+const res = extname(filePath);
 ```
 
 ### readFile
 
+读取文件内容
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var filePath = './index.js';
-  var s = q.readFile(filePath);
-
-  console.log(s);
-};
-
-test();
+const res = await readFile(filePath);
 ```
 
 ### readFileLineByLine
