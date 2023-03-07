@@ -1,12 +1,11 @@
-'use strict';
+// q
+const { mkdir } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('mk dir', async () => {
+  const dirpath = './__tests__/1/2/3/4';
+  const res = await mkdir(dirpath);
 
-var test = function () {
-  var folder = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-file/2/3/4/';
+  expect(res).toBeTruthy();
+});
 
-  var res = q.mkdir(folder);
-  console.log(res);
-};
-
-test();

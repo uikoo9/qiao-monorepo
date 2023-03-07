@@ -1,42 +1,23 @@
-// fs
-import fs from 'fs';
-
 // path
 import path from 'path';
 
 // fs
-import { readdir } from 'fs-extra';
+import { readdir, ensureDir } from 'fs-extra';
 
 // is
-import { isDir, isExists } from './is.js';
+import { isDir } from './is.js';
 
 /**
  * mk dir
- * 	dir : must end with /
+ * @param {*} dir
+ * @returns
  */
-export const mkdir = (dir) => {
+export const mkdir = async (dir) => {
   try {
-    // check
-    if (!dir || !dir.endsWith('/')) return false;
-
-    // is exists
-    if (isExists(dir)) return true;
-
-    // check dir
-    var dirs = [dir];
-    checkDir(dir, dirs);
-
-    // check dirs
-    if (!dirs.length) return false;
-
-    // mkdir
-    dirs.reverse();
-    for (var i = 0; i < dirs.length; i++) fs.mkdirSync(dirs[i]);
-
+    await ensureDir(dir);
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 
@@ -72,7 +53,7 @@ export const lsdir = async (dir) => {
 };
 
 // get folders and files
-export const getFoldersAndFiles = async (fpath, folders, files) => {
+async function getFoldersAndFiles(fpath, folders, files) {
   // check
   const dirs = await readDir(fpath);
   if (!dirs) return;
@@ -96,7 +77,7 @@ export const getFoldersAndFiles = async (fpath, folders, files) => {
       });
     }
   }
-};
+}
 
 /**
  * ls tree
@@ -158,17 +139,3 @@ function isFileTreeIgnore(rpath, ignores) {
 
   return ignore;
 }
-
-/**
- * check dir
- * @param {*} dir
- * @param {*} list
- */
-export const checkDir = (dir, list) => {
-  const pdir = path.dirname(dir);
-
-  if (!isExists(pdir)) {
-    list.push(pdir);
-    checkDir(pdir, list);
-  }
-};

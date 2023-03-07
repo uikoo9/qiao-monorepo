@@ -28,6 +28,79 @@ var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
 // fs
 
 /**
+ * cp
+ * @param {*} src file or folder src path
+ * @param {*} dest file or folder dest path
+ * @returns
+ */
+const cp = (src, dest) => {
+  try {
+    const stat = fs.statSync(src);
+    if (stat.isDirectory()) {
+      fs.cpSync(src, dest, { recursive: true });
+    } else {
+      fs.copyFileSync(src, dest);
+    }
+
+    return true;
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+};
+
+/**
+ * mv
+ * @param {*} oldPath
+ * @param {*} newPath
+ */
+const mv = (oldPath, newPath) => {
+  try {
+    fs.renameSync(oldPath, newPath);
+
+    return true;
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+};
+
+// /**
+//  * rm
+//  * 	fpath, file or folder path, folder must end with /
+//  */
+// export const rm = (fpath) => {
+//   try {
+//     // rm file
+//     const pathStat = fs.statSync(fpath);
+//     if (!pathStat.isDirectory()) {
+//       fs.unlinkSync(fpath);
+
+//       return true;
+//     }
+
+//     // ls dir
+//     let folders = [];
+//     let files = [];
+//     getFoldersAndFiles(fpath, folders, files);
+//     folders.reverse();
+
+//     // rm folder
+//     for (let i = 0; i < files.length; i++) fs.unlinkSync(files[i].path + files[i].name);
+//     for (let i = 0; i < folders.length; i++) fs.rmdirSync(folders[i].path + folders[i].name);
+//     fs.rmdirSync(fpath);
+
+//     // return
+//     return true;
+//   } catch (e) {
+//     console.log(e);
+//     return false;
+//   }
+// };
+
+// fs
+
+/**
  * is exists
  * @param {*} path
  * @returns
@@ -51,35 +124,19 @@ const isDir = (path) => {
   });
 };
 
-// fs
+// path
 
 /**
  * mk dir
- * 	dir : must end with /
+ * @param {*} dir
+ * @returns
  */
-const mkdir = (dir) => {
+const mkdir = async (dir) => {
   try {
-    // check
-    if (!dir || !dir.endsWith('/')) return false;
-
-    // is exists
-    if (isExists(dir)) return true;
-
-    // check dir
-    var dirs = [dir];
-    checkDir(dir, dirs);
-
-    // check dirs
-    if (!dirs.length) return false;
-
-    // mkdir
-    dirs.reverse();
-    for (var i = 0; i < dirs.length; i++) fs.mkdirSync(dirs[i]);
-
+    await fsExtra.ensureDir(dir);
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 
@@ -115,7 +172,7 @@ const lsdir = async (dir) => {
 };
 
 // get folders and files
-const getFoldersAndFiles = async (fpath, folders, files) => {
+async function getFoldersAndFiles(fpath, folders, files) {
   // check
   const dirs = await readDir(fpath);
   if (!dirs) return;
@@ -139,7 +196,7 @@ const getFoldersAndFiles = async (fpath, folders, files) => {
       });
     }
   }
-};
+}
 
 /**
  * ls tree
@@ -201,93 +258,6 @@ function isFileTreeIgnore(rpath, ignores) {
 
   return ignore;
 }
-
-/**
- * check dir
- * @param {*} dir
- * @param {*} list
- */
-const checkDir = (dir, list) => {
-  const pdir = path.dirname(dir);
-
-  if (!isExists(pdir)) {
-    list.push(pdir);
-    checkDir(pdir, list);
-  }
-};
-
-// fs
-
-/**
- * cp
- * @param {*} src file or folder src path
- * @param {*} dest file or folder dest path
- * @returns
- */
-const cp = (src, dest) => {
-  try {
-    const stat = fs.statSync(src);
-    if (stat.isDirectory()) {
-      fs.cpSync(src, dest, { recursive: true });
-    } else {
-      fs.copyFileSync(src, dest);
-    }
-
-    return true;
-  } catch (e) {
-    console.log(e);
-    return false;
-  }
-};
-
-/**
- * mv
- * @param {*} oldPath
- * @param {*} newPath
- */
-const mv = (oldPath, newPath) => {
-  try {
-    fs.renameSync(oldPath, newPath);
-
-    return true;
-  } catch (e) {
-    console.log(e);
-    return false;
-  }
-};
-
-/**
- * rm
- * 	fpath, file or folder path, folder must end with /
- */
-const rm = (fpath) => {
-  try {
-    // rm file
-    const pathStat = fs.statSync(fpath);
-    if (!pathStat.isDirectory()) {
-      fs.unlinkSync(fpath);
-
-      return true;
-    }
-
-    // ls dir
-    let folders = [];
-    let files = [];
-    getFoldersAndFiles(fpath, folders, files);
-    folders.reverse();
-
-    // rm folder
-    for (let i = 0; i < files.length; i++) fs.unlinkSync(files[i].path + files[i].name);
-    for (let i = 0; i < folders.length; i++) fs.rmdirSync(folders[i].path + folders[i].name);
-    fs.rmdirSync(fpath);
-
-    // return
-    return true;
-  } catch (e) {
-    console.log(e);
-    return false;
-  }
-};
 
 // path
 
@@ -368,10 +338,8 @@ const writeFile = async (filePath, fileData, options) => {
 
 exports.fs = fs__namespace;
 exports.path = path__namespace;
-exports.checkDir = checkDir;
 exports.cp = cp;
 exports.extname = extname;
-exports.getFoldersAndFiles = getFoldersAndFiles;
 exports.isDir = isDir;
 exports.isExists = isExists;
 exports.lsdir = lsdir;
@@ -381,5 +349,4 @@ exports.mv = mv;
 exports.readDir = readDir;
 exports.readFile = readFile;
 exports.readFileLineByLine = readFileLineByLine;
-exports.rm = rm;
 exports.writeFile = writeFile;

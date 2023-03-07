@@ -113,18 +113,10 @@ const res = await lstree(dirpath, ignores);
 
 ### mkdir
 
+创建文件夹
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var folder = 'd:/test1/test2/test3/test.js';
-
-  q.mkdir(folder);
-};
-
-test();
+const res = await mkdir(dirpath);
 ```
 
 ## file
