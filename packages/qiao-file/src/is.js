@@ -18,6 +18,7 @@ export const isExists = async (path) => {
 export const isDir = (path) => {
   return new Promise((resolve) => {
     stat(path, (err, stats) => {
+      console.log(path, err);
       if (err) return resolve(false);
 
       return resolve(stats.isDirectory());

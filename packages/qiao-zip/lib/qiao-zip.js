@@ -8,8 +8,7 @@ var archiver = require('archiver');
 var iconv = require('iconv-lite');
 
 // qiao
-var qiao = {};
-qiao.file = require('qiao-file');
+const { mkdir } = require('qiao-file');
 
 /**
  * unzip
@@ -34,8 +33,9 @@ exports.unzip = function (zipFile, destFolder) {
  * 	destZip，压缩后的zip文件
  * 	cb，回调函数
  */
-exports.zipFile = function (sourceFile, destZip, cb) {
-  if (!qiao.file.isExists(destZip)) qiao.file.mkdir(destZip);
+exports.zipFile = async function (sourceFile, destZip, cb) {
+  // mkdir
+  await mkdir(destZip);
 
   // init
   var output = fs.createWriteStream(destZip);

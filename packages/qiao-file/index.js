@@ -1,37 +1,8 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
 var fsExtra = require('fs-extra');
+var path = require('path');
 var readline = require('readline');
-
-function _interopNamespaceDefault(e) {
-  var n = Object.create(null);
-  if (e) {
-    Object.keys(e).forEach(function (k) {
-      if (k !== 'default') {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(
-          n,
-          k,
-          d.get
-            ? d
-            : {
-              enumerable: true,
-              get: function () {
-                return e[k];
-              },
-            },
-        );
-      }
-    });
-  }
-  n.default = e;
-  return Object.freeze(n);
-}
-
-var fs__namespace = /*#__PURE__*/ _interopNamespaceDefault(fs);
-var path__namespace = /*#__PURE__*/ _interopNamespaceDefault(path);
 
 // fs
 
@@ -97,6 +68,7 @@ const isExists = async (path) => {
 const isDir = (path) => {
   return new Promise((resolve) => {
     fsExtra.stat(path, (err, stats) => {
+      console.log(path, err);
       if (err) return resolve(false);
 
       return resolve(stats.isDirectory());
@@ -316,8 +288,6 @@ const writeFile = async (filePath, fileData, options) => {
   }
 };
 
-exports.fs = fs__namespace;
-exports.path = path__namespace;
 exports.cp = cp;
 exports.extname = extname;
 exports.isDir = isDir;
