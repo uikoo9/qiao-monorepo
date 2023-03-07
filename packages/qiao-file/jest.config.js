@@ -150,6 +150,7 @@ module.exports = {
     // "**/__tests__/**/*.[jt]s?(x)",
     // "**/?(*.)+(spec|test).[tj]s?(x)",
     '**/__tests__/extname.js',
+    '**/__tests__/is-dir.js',
     '**/__tests__/is-exists.js',
     '**/__tests__/read-file.js',
     '**/__tests__/write-file.js',

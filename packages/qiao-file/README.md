@@ -167,6 +167,14 @@ const res = await writeFile(filePath, 'sth');
 
 ## is
 
+### isDir
+
+判断文件路径是否为文件夹
+
+```javascript
+const res = await isDir(fpath);
+```
+
 ### isExists
 
 判断文件或者文件夹是否存在

@@ -36,6 +36,21 @@ const isExists = async (path) => {
   return await fsExtra.pathExists(path);
 };
 
+/**
+ * is dir
+ * @param {*} path
+ * @returns
+ */
+const isDir = (path) => {
+  return new Promise((resolve) => {
+    fsExtra.stat(path, (err, stats) => {
+      if (err) return resolve(false);
+
+      return resolve(stats.isDirectory());
+    });
+  });
+};
+
 // fs
 
 /**
@@ -334,6 +349,7 @@ exports.fs = fs__namespace;
 exports.path = path__namespace;
 exports.cp = cp;
 exports.extname = extname;
+exports.isDir = isDir;
 exports.isExists = isExists;
 exports.lsdir = lsdir;
 exports.lstree = lstree;
