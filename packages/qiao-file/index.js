@@ -11,10 +11,18 @@ function _interopNamespaceDefault(e) {
     Object.keys(e).forEach(function (k) {
       if (k !== 'default') {
         var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () { return e[k]; }
-        });
+        Object.defineProperty(
+          n,
+          k,
+          d.get
+            ? d
+            : {
+              enumerable: true,
+              get: function () {
+                return e[k];
+              },
+            },
+        );
       }
     });
   }
@@ -22,8 +30,8 @@ function _interopNamespaceDefault(e) {
   return Object.freeze(n);
 }
 
-var fs__namespace = /*#__PURE__*/_interopNamespaceDefault(fs);
-var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
+var fs__namespace = /*#__PURE__*/ _interopNamespaceDefault(fs);
+var path__namespace = /*#__PURE__*/ _interopNamespaceDefault(path);
 
 // fs
 
