@@ -1,12 +1,10 @@
-'use strict';
+// q
+const { extname } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('get extname', () => {
+  const filePath = 'd:/test1/test2/test.js';
+  const res = extname(filePath);
 
-var test = function () {
-  var filePath = 'd:/test1/test2/test.js';
-  var s = q.extname(filePath);
-
-  console.log(s);
-};
-
-test();
+  expect(res).toStrictEqual('.js');
+});
