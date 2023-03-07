@@ -25,23 +25,10 @@ import { isExists } from 'qiao-file';
 
 ### cp
 
+复制文件或文件夹
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var folderPath = './test/';
-  var filePath = './qiao-file.js';
-
-  // cp folder
-  q.cp(folderPath, './test1');
-
-  // cp file
-  q.cp(filePath, './1.js');
-};
-
-test();
+const res = await cp(src, dest);
 ```
 
 ### mv

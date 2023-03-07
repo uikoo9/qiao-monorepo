@@ -1,16 +1,13 @@
-'use strict';
+// q
+const { cp } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('get extname', async () => {
+  const folderPath = './src/';
+  const cpFolderRes = await cp(folderPath, './__tests__/1/src');
+  expect(cpFolderRes).toBeTruthy();
 
-var test = function () {
-  var folderPath = './__tests__/';
-  var filePath = './index.js';
-
-  // cp folder
-  q.cp(folderPath, './test1');
-
-  // cp file
-  q.cp(filePath, './1.js');
-};
-
-test();
+  const filePath = './index.js';
+  const cpFileRes = await cp(filePath, './__tests__/1/index.js');
+  expect(cpFileRes).toBeTruthy();
+});

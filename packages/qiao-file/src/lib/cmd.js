@@ -1,5 +1,6 @@
 // fs
 import fs from 'fs';
+import { copy } from 'fs-extra';
 
 /**
  * cp
@@ -7,19 +8,12 @@ import fs from 'fs';
  * @param {*} dest file or folder dest path
  * @returns
  */
-export const cp = (src, dest) => {
+export const cp = async (src, dest) => {
   try {
-    const stat = fs.statSync(src);
-    if (stat.isDirectory()) {
-      fs.cpSync(src, dest, { recursive: true });
-    } else {
-      fs.copyFileSync(src, dest);
-    }
-
+    await copy(src, dest);
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 

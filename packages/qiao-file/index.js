@@ -33,19 +33,12 @@ var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
  * @param {*} dest file or folder dest path
  * @returns
  */
-const cp = (src, dest) => {
+const cp = async (src, dest) => {
   try {
-    const stat = fs.statSync(src);
-    if (stat.isDirectory()) {
-      fs.cpSync(src, dest, { recursive: true });
-    } else {
-      fs.copyFileSync(src, dest);
-    }
-
+    await fsExtra.copy(src, dest);
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 
