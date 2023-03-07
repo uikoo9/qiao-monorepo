@@ -1,6 +1,5 @@
 // fs
-import fs from 'fs';
-import { copy } from 'fs-extra';
+import { copy, move } from 'fs-extra';
 
 /**
  * cp
@@ -22,14 +21,12 @@ export const cp = async (src, dest) => {
  * @param {*} oldPath
  * @param {*} newPath
  */
-export const mv = (oldPath, newPath) => {
+export const mv = async (oldPath, newPath) => {
   try {
-    fs.renameSync(oldPath, newPath);
-
+    await move(oldPath, newPath);
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 

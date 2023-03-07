@@ -47,14 +47,12 @@ const cp = async (src, dest) => {
  * @param {*} oldPath
  * @param {*} newPath
  */
-const mv = (oldPath, newPath) => {
+const mv = async (oldPath, newPath) => {
   try {
-    fs.renameSync(oldPath, newPath);
-
+    await fsExtra.move(oldPath, newPath);
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 

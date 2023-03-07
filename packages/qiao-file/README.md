@@ -34,19 +34,7 @@ const res = await cp(src, dest);
 ### mv
 
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var oldPath = './test';
-  var newPath = './test1';
-
-  var res = q.mv(oldPath, newPath);
-  console.log(res);
-};
-
-test();
+const res = await mv(src, dest);
 ```
 
 ### rm
