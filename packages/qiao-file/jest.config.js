@@ -153,6 +153,7 @@ module.exports = {
     '**/__tests__/is-dir.js',
     '**/__tests__/is-exists.js',
     '**/__tests__/lsdir.js',
+    '**/__tests__/lstree.js',
     '**/__tests__/read-dir.js',
     '**/__tests__/read-file.js',
     '**/__tests__/write-file.js',

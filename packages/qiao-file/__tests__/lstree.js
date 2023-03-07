@@ -1,13 +1,11 @@
-'use strict';
+// q
+const { lstree } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('ls dir', async () => {
+  const dirpath = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-file';
+  const ignores = ['node_modules', 'is-'];
+  const res = await lstree(dirpath, ignores);
 
-var test = function () {
-  var fileTree = q.lstree('/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-file/', [
-    'node_modules',
-    'is-',
-  ]);
-  console.log(JSON.stringify(fileTree));
-};
-
-test();
+  expect(res).toBeTruthy();
+});

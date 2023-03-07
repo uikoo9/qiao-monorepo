@@ -103,17 +103,12 @@ const res = await lsdir(dirpath);
 
 ### lstree
 
+列出文件夹下所有的文件和文件夹信息，以树的方式
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var fileTree = q.lstree('./', ['node_modules']);
-  console.log(JSON.stringify(fileTree));
-};
-
-test();
+const dirpath = 'xx';
+const ignores = ['node_modules', 'is-'];
+const res = await lstree(dirpath, ignores);
 ```
 
 ### mkdir
