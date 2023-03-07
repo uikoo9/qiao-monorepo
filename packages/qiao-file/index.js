@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var fsExtra = require('fs-extra');
 var readline = require('readline');
 
 function _interopNamespaceDefault(e) {
@@ -10,18 +11,10 @@ function _interopNamespaceDefault(e) {
     Object.keys(e).forEach(function (k) {
       if (k !== 'default') {
         var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(
-          n,
-          k,
-          d.get
-            ? d
-            : {
-              enumerable: true,
-              get: function () {
-                return e[k];
-              },
-            },
-        );
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
       }
     });
   }
@@ -29,23 +22,18 @@ function _interopNamespaceDefault(e) {
   return Object.freeze(n);
 }
 
-var fs__namespace = /*#__PURE__*/ _interopNamespaceDefault(fs);
-var path__namespace = /*#__PURE__*/ _interopNamespaceDefault(path);
+var fs__namespace = /*#__PURE__*/_interopNamespaceDefault(fs);
+var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
 
 // fs
 
 /**
- * isExists
- * 	fpath : file or folder path
+ * is exists
+ * @param {*} path
+ * @returns
  */
-const isExists = (fpath) => {
-  try {
-    fs.accessSync(fpath);
-
-    return true;
-  } catch (e) {
-    return false;
-  }
+const isExists = async (path) => {
+  return await fsExtra.pathExists(path);
 };
 
 // fs

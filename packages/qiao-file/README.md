@@ -1,9 +1,25 @@
-# qiao-file
+## qiao-file
 
 [![npm version](https://img.shields.io/npm/v/qiao-file.svg?style=flat-square)](https://www.npmjs.org/package/qiao-file)
 [![npm downloads](https://img.shields.io/npm/dm/qiao-file.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-file)
 
 nodejs 下文件相关封装
+
+## install
+
+```bash
+npm i qiao-file
+```
+
+## use
+
+```javascript
+// cjs
+const { isExists } = require('qiao-file');
+
+// mjs
+import { isExists } from 'qiao-file';
+```
 
 ## cmd
 
@@ -240,19 +256,10 @@ test();
 
 ### isExists
 
+判断文件或者文件夹是否存在
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var fpath = 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
-  var s = q.isExists(fpath);
-
-  console.log(s);
-};
-
-test();
+const res = await isExists(fpath);
 ```
 
 ## version

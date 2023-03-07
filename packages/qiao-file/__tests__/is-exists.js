@@ -1,12 +1,10 @@
-'use strict';
+// q
+const { isExists } = require('../index.js');
 
-var q = require('../index.js');
+// test
+test('path is exists', async () => {
+  const fpath = 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
+  const res = await isExists(fpath);
 
-var test = function () {
-  var fpath = 'z:/workspaces/qiao.plugin.coder/lib/qiao.plugin.coder.js';
-  var s = q.isExists(fpath);
-
-  console.log(s);
-};
-
-test();
+  expect(res).toBeFalsy();
+});

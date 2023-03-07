@@ -7,5 +7,5 @@ module.exports = {
     file: 'index.js',
     format: 'cjs',
   },
-  external: ['fs', 'path', 'readline'],
+  external: ['fs', 'fs-extra', 'path', 'readline'],
 };

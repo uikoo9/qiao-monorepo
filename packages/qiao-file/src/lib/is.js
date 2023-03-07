@@ -1,16 +1,11 @@
 // fs
-import fs from 'fs';
+import { pathExists } from 'fs-extra';
 
 /**
- * isExists
- * 	fpath : file or folder path
+ * is exists
+ * @param {*} path
+ * @returns
  */
-export const isExists = (fpath) => {
-  try {
-    fs.accessSync(fpath);
-
-    return true;
-  } catch (e) {
-    return false;
-  }
+export const isExists = async (path) => {
+  return await pathExists(path);
 };
