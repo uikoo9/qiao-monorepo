@@ -4,7 +4,7 @@ var q = require('../index.js');
 
 var test = function () {
   var sourceFile = '/Users/vincent/Data/projects/qiao/qiao-monorepo/packages/qiao-zip/lib/qiao-zip.js';
-  var destZip = './1.zip';
+  var destZip = './1/2/3/1.zip';
 
   console.log('zip file ' + sourceFile);
   console.log('in ' + destZip);

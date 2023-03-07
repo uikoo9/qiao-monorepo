@@ -8,7 +8,7 @@ var archiver = require('archiver');
 var iconv = require('iconv-lite');
 
 // qiao
-const { mkdir } = require('qiao-file');
+const { extname, mkdir } = require('qiao-file');
 
 /**
  * unzip
@@ -34,8 +34,15 @@ exports.unzip = function (zipFile, destFolder) {
  * 	cb，回调函数
  */
 exports.zipFile = async function (sourceFile, destZip, cb) {
+  // check ext
+  const ext = extname(destZip);
+  if (ext !== '.zip') {
+    cb(1, 'dest zip not end with .zip');
+    return;
+  }
+
   // mkdir
-  await mkdir(destZip);
+  await mkdir(path.dirname(destZip));
 
   // init
   var output = fs.createWriteStream(destZip);
@@ -79,8 +86,16 @@ exports.zipFileSync = function (sourceFile, destZip) {
  * 	cb，回调函数
  * 	subdir，是否需要包一层
  */
-exports.zipFolder = function (sourceFolder, destZip, cb, subdir) {
-  if (!qiao.file.isExists(destZip)) qiao.file.mkdir(destZip);
+exports.zipFolder = async function (sourceFolder, destZip, cb, subdir) {
+  // check ext
+  const ext = extname(destZip);
+  if (ext !== '.zip') {
+    cb(1, 'dest zip not end with .zip');
+    return;
+  }
+
+  // mkdir
+  await mkdir(path.dirname(destZip));
 
   // init
   var output = fs.createWriteStream(destZip);
