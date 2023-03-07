@@ -149,23 +149,11 @@ module.exports = {
   testMatch: [
     // "**/__tests__/**/*.[jt]s?(x)",
     // "**/?(*.)+(spec|test).[tj]s?(x)",
-    '**/__tests__/cp.js',
-    '**/__tests__/extname.js',
-    '**/__tests__/is-dir.js',
-    '**/__tests__/is-exists.js',
-    '**/__tests__/lsdir.js',
-    '**/__tests__/lstree.js',
-    '**/__tests__/mkdir.js',
-    '**/__tests__/mv.js',
-    '**/__tests__/read-dir.js',
-    '**/__tests__/read-file.js',
-    '**/__tests__/write-file.js',
+    '**/__tests__/*.js',
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  testPathIgnorePatterns: ['read-file-line-by-line.js'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

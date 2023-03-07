@@ -1,16 +1,8 @@
-'use strict';
+// q
+const { rm } = require('../index.js');
 
-var q = require('../index.js');
-
-var test = function () {
-  var folderPath = './__tests__ copy/';
-  var filePath = './index copy.js';
-
-  // rm folder
-  q.rm(folderPath);
-
-  // rm file
-  q.rm(filePath);
-};
-
-test();
+// test
+test('rm', async () => {
+  const res = await rm('./__tests__ copy');
+  expect(res).toBeTruthy();
+});

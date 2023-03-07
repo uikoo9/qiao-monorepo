@@ -56,38 +56,19 @@ const mv = async (oldPath, newPath) => {
   }
 };
 
-// /**
-//  * rm
-//  * 	fpath, file or folder path, folder must end with /
-//  */
-// export const rm = (fpath) => {
-//   try {
-//     // rm file
-//     const pathStat = fs.statSync(fpath);
-//     if (!pathStat.isDirectory()) {
-//       fs.unlinkSync(fpath);
-
-//       return true;
-//     }
-
-//     // ls dir
-//     let folders = [];
-//     let files = [];
-//     getFoldersAndFiles(fpath, folders, files);
-//     folders.reverse();
-
-//     // rm folder
-//     for (let i = 0; i < files.length; i++) fs.unlinkSync(files[i].path + files[i].name);
-//     for (let i = 0; i < folders.length; i++) fs.rmdirSync(folders[i].path + folders[i].name);
-//     fs.rmdirSync(fpath);
-
-//     // return
-//     return true;
-//   } catch (e) {
-//     console.log(e);
-//     return false;
-//   }
-// };
+/**
+ * rm
+ * @param {*} fpath
+ * @returns
+ */
+const rm = async (fpath) => {
+  try {
+    await fsExtra.remove(fpath);
+    return true;
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 // fs
 
@@ -340,4 +321,5 @@ exports.mv = mv;
 exports.readDir = readDir;
 exports.readFile = readFile;
 exports.readFileLineByLine = readFileLineByLine;
+exports.rm = rm;
 exports.writeFile = writeFile;

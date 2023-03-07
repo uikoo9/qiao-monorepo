@@ -39,23 +39,10 @@ const res = await mv(src, dest);
 
 ### rm
 
+删除文件或文件夹
+
 ```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var folderPath = 'd:/test1/';
-  var filePath = 'd:/test.png';
-
-  // rm folder
-  q.rm(folderPath);
-
-  // rm file
-  q.rm(filePath);
-};
-
-test();
+const res = await rm(path);
 ```
 
 ## dir
@@ -147,6 +134,10 @@ const res = await isExists(fpath);
 ```
 
 ## version
+
+### 0.1.6.20230307
+
+1. 2.0.0
 
 ### 0.1.5.20221008
 
