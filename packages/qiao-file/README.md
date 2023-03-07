@@ -157,63 +157,12 @@ const res = await readFile(filePath);
 readFileLineByLine(filePath, onLine, onClose);
 ```
 
-### readFileLineByLineSync
-
-```javascript
-'use strict';
-
-// q
-var q = require('qiao-file');
-
-// run
-async function test() {
-  var filePath = './rm.js';
-  var lines = await q.readFileLineByLineSync(filePath);
-  console.log(lines);
-
-  // clear
-  filePath = null;
-  lines = null;
-}
-test();
-```
-
 ### writeFile
 
-```javascript
-'use strict';
-
-var q = require('qiao-file');
-
-var test = function () {
-  var filePath = './1.js';
-  q.writeFile(filePath, '2');
-};
-
-test();
-```
-
-### writeFileFromLines
+写文件
 
 ```javascript
-'use strict';
-
-// q
-var q = require('qiao-file');
-
-// run
-async function test() {
-  var filePath = './rm.js';
-  var destPath = '../dist/rm.js';
-  var lines = await q.readFileLineByLineSync(filePath);
-  q.writeFileFromLines(destPath, lines);
-
-  // clear
-  filePath = null;
-  destPath = null;
-  lines = null;
-}
-test();
+const res = await writeFile(filePath, 'sth');
 ```
 
 ## is

@@ -253,7 +253,7 @@ const mkdir = (dir) => {
   }
 };
 
-// fs
+// path
 
 /**
  * extname
@@ -284,7 +284,6 @@ const readFile = async (filePath, options) => {
     return await fsExtra.readFile(filePath, options);
   } catch (e) {
     console.log(e);
-    return;
   }
 };
 
@@ -315,7 +314,7 @@ const readFileLineByLine = (filePath, onLine, onClose) => {
  * @param {*} fileData
  * @param {*} options https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fswritefilesyncfile-data-options
  */
-const writeFile = (filePath, fileData, options) => {
+const writeFile = async (filePath, fileData, options) => {
   // check
   if (!filePath) return;
 
@@ -323,30 +322,12 @@ const writeFile = (filePath, fileData, options) => {
     // vars
     fileData = fileData || '';
     options = options || {};
-    fs.writeFileSync(filePath, fileData, options);
+    await fsExtra.outputFile(filePath, fileData, options);
 
     return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
-};
-
-/**
- * writeFileFromLines
- * @param {*} filePath
- * @param {*} lines
- */
-const writeFileFromLines = (filePath, lines) => {
-  const f = fs.createWriteStream(filePath, {
-    flags: 'a',
-  });
-
-  for (let i = 0; i < lines.length; i++) {
-    f.write(`${lines[i]}\r\n`);
-  }
-
-  f.close();
 };
 
 exports.fs = fs__namespace;
@@ -362,4 +343,3 @@ exports.readFile = readFile;
 exports.readFileLineByLine = readFileLineByLine;
 exports.rm = rm;
 exports.writeFile = writeFile;
-exports.writeFileFromLines = writeFileFromLines;
