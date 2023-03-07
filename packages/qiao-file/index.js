@@ -268,9 +268,9 @@ const extname = (filePath) => {
 
 /**
  * readFile
- * @param {*} filePath 
+ * @param {*} filePath
  * @param {*} options https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsreadfilesyncpath-options
- * @returns 
+ * @returns
  */
 const readFile = async (filePath, options) => {
   // check
@@ -297,7 +297,7 @@ const readFile = async (filePath, options) => {
 const readFileLineByLine = (filePath, onLine, onClose) => {
   // rl
   const rl = readline.createInterface({
-    input: fs.createReadStream(filePath, { encoding: 'utf8' }),
+    input: fsExtra.createReadStream(filePath, { encoding: 'utf8' }),
   });
 
   // on
@@ -306,29 +306,6 @@ const readFileLineByLine = (filePath, onLine, onClose) => {
   });
   rl.on('close', function () {
     if (onClose) onClose();
-  });
-};
-
-/**
- * readFileLineByLineSync
- * @param {*} filePath
- * @returns
- */
-const readFileLineByLineSync = (filePath) => {
-  return new Promise((resolve) => {
-    // lines
-    let lines = [];
-
-    readFileLineByLine(
-      filePath,
-      (line) => {
-        lines.push(line);
-      },
-      () => {
-        resolve(lines);
-        lines = null;
-      },
-    );
   });
 };
 
@@ -383,7 +360,6 @@ exports.mkdir = mkdir;
 exports.mv = mv;
 exports.readFile = readFile;
 exports.readFileLineByLine = readFileLineByLine;
-exports.readFileLineByLineSync = readFileLineByLineSync;
 exports.rm = rm;
 exports.writeFile = writeFile;
 exports.writeFileFromLines = writeFileFromLines;

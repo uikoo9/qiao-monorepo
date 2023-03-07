@@ -151,28 +151,10 @@ const res = await readFile(filePath);
 
 ### readFileLineByLine
 
+按行读取文件
+
 ```javascript
-'use strict';
-
-// q
-var q = require('qiao-file');
-
-// run
-async function test() {
-  var filePath = './rm.js';
-  q.readFileLineByLine(filePath, onLine, onClose);
-}
-test();
-
-// on line
-function onLine(line) {
-  console.log(line);
-}
-
-// on close
-function onClose() {
-  console.log('close');
-}
+readFileLineByLine(filePath, onLine, onClose);
 ```
 
 ### readFileLineByLineSync

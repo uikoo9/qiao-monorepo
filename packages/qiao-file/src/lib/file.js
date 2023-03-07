@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 // fs
-import { readFile as readFileByFse } from 'fs-extra';
+import { readFile as readFileByFse, createReadStream } from 'fs-extra';
 
 // readline
 import readline from 'readline';
@@ -23,9 +23,9 @@ export const extname = (filePath) => {
 
 /**
  * readFile
- * @param {*} filePath 
+ * @param {*} filePath
  * @param {*} options https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsreadfilesyncpath-options
- * @returns 
+ * @returns
  */
 export const readFile = async (filePath, options) => {
   // check
@@ -52,7 +52,7 @@ export const readFile = async (filePath, options) => {
 export const readFileLineByLine = (filePath, onLine, onClose) => {
   // rl
   const rl = readline.createInterface({
-    input: fs.createReadStream(filePath, { encoding: 'utf8' }),
+    input: createReadStream(filePath, { encoding: 'utf8' }),
   });
 
   // on
@@ -61,29 +61,6 @@ export const readFileLineByLine = (filePath, onLine, onClose) => {
   });
   rl.on('close', function () {
     if (onClose) onClose();
-  });
-};
-
-/**
- * readFileLineByLineSync
- * @param {*} filePath
- * @returns
- */
-export const readFileLineByLineSync = (filePath) => {
-  return new Promise((resolve) => {
-    // lines
-    let lines = [];
-
-    readFileLineByLine(
-      filePath,
-      (line) => {
-        lines.push(line);
-      },
-      () => {
-        resolve(lines);
-        lines = null;
-      },
-    );
   });
 };
 

@@ -1,21 +1,22 @@
-'use strict';
-
 // q
-var q = require('../index.js');
+const { readFileLineByLine } = require('../index.js');
 
-// run
+// test
 async function test() {
-  var filePath = './rm.js';
-  q.readFileLineByLine(filePath, onLine, onClose);
+  console.log('== test read-file-line-by-line.js / begin');
+  console.log();
+  const filePath = './__tests__/rm.js';
+  readFileLineByLine(
+    filePath,
+    (line) => {
+      console.log(line);
+    },
+    () => {
+      console.log();
+      console.log('close');
+      console.log('== test read-file-line-by-line.js / end');
+      console.log();
+    },
+  );
 }
 test();
-
-// on line
-function onLine(line) {
-  console.log(line);
-}
-
-// on close
-function onClose() {
-  console.log('close');
-}
