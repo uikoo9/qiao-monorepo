@@ -11,7 +11,7 @@ import { getPkgInfo } from './_pkg.js';
  */
 export const handler = async (folderName) => {
   // pkg
-  const pkgInfo = getPkgInfo(folderName, true);
+  const pkgInfo = await getPkgInfo(folderName, true);
   if (typeof pkgInfo == 'string') return pkgInfo;
 
   // download counts
@@ -21,6 +21,6 @@ export const handler = async (folderName) => {
 
     return `${pkgInfo.packageName} : ${res.downloads}`;
   } catch (e) {
-    return `${pkgInfo.packageName} : download counts err`;
+    return `${pkgInfo.packageName} : download counts err, ${e.message}`;
   }
 };

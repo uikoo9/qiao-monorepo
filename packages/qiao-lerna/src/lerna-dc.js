@@ -14,13 +14,13 @@ let line = 0;
  * download counts
  * @param {*} folderName
  */
-export const downloadCounts = (folderName) => {
+export const downloadCounts = async (folderName) => {
   // clear && start
   clear();
   writeLine(line++, `start operating folder: ${folderName}`);
 
   // dir
-  const subFolders = checkDir(folderName);
+  const subFolders = await checkDir(folderName);
 
   // handler
   handleDownloadCounts(subFolders, line);

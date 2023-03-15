@@ -11,7 +11,7 @@ import { getPkgInfo } from './_pkg.js';
  */
 export const handler = async (folderName) => {
   // pkg
-  const pkgInfo = getPkgInfo(folderName);
+  const pkgInfo = await getPkgInfo(folderName);
   if (typeof pkgInfo == 'string') return pkgInfo;
 
   // ncu

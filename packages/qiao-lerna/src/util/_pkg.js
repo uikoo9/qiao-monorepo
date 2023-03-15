@@ -7,10 +7,11 @@ import { path, isExists } from 'qiao-file';
  * @param {*} checkPrivate
  * @returns
  */
-export const getPkgInfo = (dir, checkPrivate) => {
+export const getPkgInfo = async (dir, checkPrivate) => {
   // package file
   const packageFile = path.resolve(dir, 'package.json');
-  if (!isExists(packageFile)) return `${dir} : package.json not exists`;
+  const packageFileExists = await isExists(packageFile);
+  if (!packageFileExists) return `${dir} : package.json not exists`;
 
   // package json
   const packageJson = getPackage(packageFile);

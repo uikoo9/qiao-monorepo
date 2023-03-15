@@ -31,7 +31,7 @@ export const multiNCU = async (folderName) => {
   writeLine(line++, `start operating folder: ${folderName}`);
 
   // dir
-  const subFolders = checkDir(folderName);
+  const subFolders = await checkDir(folderName);
 
   // parallel
   handleMultiNCU(subFolders, line);

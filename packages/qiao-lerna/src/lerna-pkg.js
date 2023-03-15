@@ -14,15 +14,15 @@ import { getPkgInfo } from './util/_pkg.js';
  */
 export const pkg = async (folderName, isDev) => {
   // dir
-  const subFolders = checkDir(folderName);
+  const subFolders = await checkDir(folderName);
 
   // check
   if (!subFolders || !subFolders.length) return;
 
   // for
-  subFolders.forEach((item) => {
+  subFolders.forEach(async (item) => {
     // pkg
-    const pkg = getPkgInfo(item);
+    const pkg = await getPkgInfo(item);
 
     // no pkg.json
     if (typeof pkg === 'string') {

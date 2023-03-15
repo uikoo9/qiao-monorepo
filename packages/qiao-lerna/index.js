@@ -16,13 +16,15 @@ let line$3 = 0;
 const subFolders = [];
 
 // ls dir
-const lsdir = (dir) => {
-  qiaoFile.fs.readdirSync(dir).forEach((name) => {
-    const stat = qiaoFile.fs.statSync(dir + name);
-    if (!stat.isDirectory()) return;
+const lsdir = async (dir) => {
+  const files = await qiaoFile.readDir(dir);
+  for (let i = 0; i < files.length; i++) {
+    const subPath = qiaoFile.path.resolve(dir, files[i]);
+    const isDirRes = await qiaoFile.isDir(subPath);
+    if (!isDirRes) continue;
 
-    subFolders.push(dir + name);
-  });
+    subFolders.push(subPath);
+  }
 };
 
 /**
@@ -30,7 +32,7 @@ const lsdir = (dir) => {
  * @param {*} folderName
  * @returns
  */
-const checkDir = (folderName) => {
+const checkDir = async (folderName) => {
   // check folder name
   if (!folderName) {
     qiaoConsole.writeLine(line$3, 'need folder name');
@@ -38,16 +40,17 @@ const checkDir = (folderName) => {
   }
 
   // dir
-  const dir = qiaoFile.path.resolve(process.cwd(), folderName) + qiaoFile.path.sep;
+  const dir = qiaoFile.path.resolve(process.cwd(), folderName);
+  const dirExists = await qiaoFile.isExists(dir);
 
   // check dir is folder
-  if (!qiaoFile.isExists(dir)) {
+  if (!dirExists) {
     qiaoConsole.writeLine(line$3, 'folder is not exists');
     return;
   }
 
   // get sub folders
-  lsdir(dir);
+  await lsdir(dir);
   if (!subFolders || !subFolders.length) {
     qiaoConsole.writeLine(line$3, 'empty folder');
     return;
@@ -95,10 +98,11 @@ const complete = (l) => {
  * @param {*} checkPrivate
  * @returns
  */
-const getPkgInfo = (dir, checkPrivate) => {
+const getPkgInfo = async (dir, checkPrivate) => {
   // package file
   const packageFile = qiaoFile.path.resolve(dir, 'package.json');
-  if (!qiaoFile.isExists(packageFile)) return `${dir} : package.json not exists`;
+  const packageFileExists = await qiaoFile.isExists(packageFile);
+  if (!packageFileExists) return `${dir} : package.json not exists`;
 
   // package json
   const packageJson = getPackage(packageFile);
@@ -134,7 +138,7 @@ function getPackage(p) {
  */
 const handler$1 = async (folderName) => {
   // pkg
-  const pkgInfo = getPkgInfo(folderName, true);
+  const pkgInfo = await getPkgInfo(folderName, true);
   if (typeof pkgInfo == 'string') return pkgInfo;
 
   // download counts
@@ -144,7 +148,7 @@ const handler$1 = async (folderName) => {
 
     return `${pkgInfo.packageName} : ${res.downloads}`;
   } catch (e) {
-    return `${pkgInfo.packageName} : download counts err`;
+    return `${pkgInfo.packageName} : download counts err, ${e.message}`;
   }
 };
 
@@ -170,13 +174,13 @@ let line$1 = 0;
  * download counts
  * @param {*} folderName
  */
-const downloadCounts = (folderName) => {
+const downloadCounts = async (folderName) => {
   // clear && start
   qiaoConsole.clear();
   qiaoConsole.writeLine(line$1++, `start operating folder: ${folderName}`);
 
   // dir
-  const subFolders = checkDir(folderName);
+  const subFolders = await checkDir(folderName);
 
   // handler
   handleDownloadCounts(subFolders, line$1);
@@ -191,7 +195,7 @@ const downloadCounts = (folderName) => {
  */
 const handler = async (folderName) => {
   // pkg
-  const pkgInfo = getPkgInfo(folderName);
+  const pkgInfo = await getPkgInfo(folderName);
   if (typeof pkgInfo == 'string') return pkgInfo;
 
   // ncu
@@ -250,7 +254,7 @@ const multiNCU = async (folderName) => {
   qiaoConsole.writeLine(line++, `start operating folder: ${folderName}`);
 
   // dir
-  const subFolders = checkDir(folderName);
+  const subFolders = await checkDir(folderName);
 
   // parallel
   handleMultiNCU(subFolders, line);
@@ -265,15 +269,15 @@ const multiNCU = async (folderName) => {
  */
 const pkg = async (folderName, isDev) => {
   // dir
-  const subFolders = checkDir(folderName);
+  const subFolders = await checkDir(folderName);
 
   // check
   if (!subFolders || !subFolders.length) return;
 
   // for
-  subFolders.forEach((item) => {
+  subFolders.forEach(async (item) => {
     // pkg
-    const pkg = getPkgInfo(item);
+    const pkg = await getPkgInfo(item);
 
     // no pkg.json
     if (typeof pkg === 'string') {
