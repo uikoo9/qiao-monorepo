@@ -6,10 +6,10 @@ import { fs, path, extname, mkdir, isDir } from 'qiao-file';
 
 /**
  * zip
- * @param {*} src 
- * @param {*} dest 
- * @param {*} subdir 
- * @returns 
+ * @param {*} src
+ * @param {*} dest
+ * @param {*} subdir
+ * @returns
  */
 export const zip = async (src, dest, subdir) => {
   // check ext

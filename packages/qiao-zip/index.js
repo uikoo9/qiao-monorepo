@@ -48,10 +48,10 @@ const unzip = async (zipFile, destFolder) => {
 
 /**
  * zip
- * @param {*} src 
- * @param {*} dest 
- * @param {*} subdir 
- * @returns 
+ * @param {*} src
+ * @param {*} dest
+ * @param {*} subdir
+ * @returns
  */
 const zip = async (src, dest, subdir) => {
   // check ext

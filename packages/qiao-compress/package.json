@@ -21,6 +21,6 @@
   },
   "scripts": {},
   "dependencies": {
-    "compressing": "^1.7.0"
+    "compressing": "^1.8.0"
   }
 }
