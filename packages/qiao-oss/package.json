@@ -1,6 +1,6 @@
 {
   "name": "qiao-oss",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "ali oss upload tool on nodejs",
   "keywords": [
     "oss",
@@ -22,6 +22,6 @@
   "dependencies": {
     "ali-oss": "^6.17.1",
     "qiao-cli": "^1.1.1",
-    "qiao-file": "^1.0.9"
+    "qiao-file": "^2.0.0"
   }
 }
