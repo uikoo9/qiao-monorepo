@@ -1,18 +1,18 @@
 // qiao
-import { lsdir } from 'qiao-file';
+import { path, lsdir } from 'qiao-file';
 import { progress } from 'qiao-cli';
 
 // upload file
-import { uploadFile } from './upload-file.js';
+import { uploadFileWithCallback } from './upload-file.js';
 
 /**
  * upload folder
  * @param {*} app
  * @param {*} destFolder
  * @param {*} sourceFolder
- * @param {*} cb
+ * @returns
  */
-export const uploadFolder = async (app, destFolder, sourceFolder, cb) => {
+export const uploadFolder = async (app, destFolder, sourceFolder) => {
   // check
   if (!app || !app.client || !app.config) return;
 
@@ -32,51 +32,35 @@ export const uploadFolder = async (app, destFolder, sourceFolder, cb) => {
   const failFiles = [];
 
   // upload
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i].path + files[i].name;
-    const dest = destFolder + file.substr(sourceFolder.length);
-    uploadFile(app, dest, file, (err, data) => {
-      allFiles.push(data);
-      if (err || !data || data.statusCode != 200) {
-        failFiles.push(err || data);
-      } else {
-        sucFiles.push(data);
-      }
-
-      bar.tick();
-
-      if (bar.complete) {
-        const obj = {};
-        obj.paths = paths;
-        obj.all = allFiles;
-        obj.suc = sucFiles;
-        obj.fail = failFiles;
-
-        console.log();
-        console.timeEnd('total use');
-        console.log();
-
-        if (cb) cb(obj);
-      }
-    });
-  }
-};
-
-/**
- * upload folder sync
- * @param {*} app
- * @param {*} destFolder
- * @param {*} sourceFolder
- * @returns
- */
-export const uploadFolderSync = (app, destFolder, sourceFolder) => {
-  // check
-  if (!app || !app.client || !app.config) return;
-
-  // upload
   return new Promise((resolve) => {
-    uploadFolder(app, destFolder, sourceFolder, (rs) => {
-      return resolve(rs);
-    });
+    for (let i = 0; i < files.length; i++) {
+      const file = path.resolve(files[i].path, files[i].name);
+      const dest = destFolder + '/' + files[i].name;
+      console.log(1, file, dest);
+      uploadFileWithCallback(app, dest, file, (err, data) => {
+        allFiles.push(data);
+        if (err || !data || data.statusCode != 200) {
+          failFiles.push(err || data);
+        } else {
+          sucFiles.push(data);
+        }
+
+        bar.tick();
+
+        if (bar.complete) {
+          const obj = {};
+          obj.paths = paths;
+          obj.all = allFiles;
+          obj.suc = sucFiles;
+          obj.fail = failFiles;
+
+          console.log();
+          console.timeEnd('total use');
+          console.log();
+
+          resolve(obj);
+        }
+      });
+    }
   });
 };

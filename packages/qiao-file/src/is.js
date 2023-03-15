@@ -12,16 +12,15 @@ export const isExists = async (path) => {
 
 /**
  * is dir
- * @param {*} path
+ * @param {*} dir
  * @returns
  */
-export const isDir = (path) => {
-  return new Promise((resolve) => {
-    stat(path, (err, stats) => {
-      console.log(path, err);
-      if (err) return resolve(false);
+export const isDir = async (dir) => {
+  // check
+  const dirExists = await isExists(dir);
+  if (!dirExists) return;
 
-      return resolve(stats.isDirectory());
-    });
-  });
+  // stat
+  const statRes = await stat(dir);
+  return statRes.isDirectory();
 };

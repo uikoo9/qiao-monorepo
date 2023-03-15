@@ -18,7 +18,7 @@ const uploadFile = async (configPath, filePath, bucketPath) => {
     if (filePath.startsWith('./')) filePath = path.resolve(cwd, filePath);
 
     const app = qcos(require(configPath));
-    const rs = await app.uploadFileSync(bucketPath, filePath);
+    const rs = await app.uploadFile(bucketPath, filePath);
 
     console.log('upload file to tencent cos success!');
     console.log();

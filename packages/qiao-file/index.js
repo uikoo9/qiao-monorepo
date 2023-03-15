@@ -82,18 +82,17 @@ const isExists = async (path) => {
 
 /**
  * is dir
- * @param {*} path
+ * @param {*} dir
  * @returns
  */
-const isDir = (path) => {
-  return new Promise((resolve) => {
-    fsExtra.stat(path, (err, stats) => {
-      console.log(path, err);
-      if (err) return resolve(false);
+const isDir = async (dir) => {
+  // check
+  const dirExists = await isExists(dir);
+  if (!dirExists) return;
 
-      return resolve(stats.isDirectory());
-    });
-  });
+  // stat
+  const statRes = await fsExtra.stat(dir);
+  return statRes.isDirectory();
 };
 
 // path

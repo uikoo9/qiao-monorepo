@@ -9,10 +9,29 @@ var qiaoCli = require('qiao-cli');
  * @param {*} app
  * @param {*} dest
  * @param {*} source
+ * @returns
+ */
+const uploadFile = (app, dest, source) => {
+  // check
+  if (!app || !app.client || !app.config) return;
+
+  // upload
+  return new Promise((resolve, reject) => {
+    uploadFileWithCallback(app, dest, source, (err, data) => {
+      return err ? reject(err) : resolve(data);
+    });
+  });
+};
+
+/**
+ * upload file with callback
+ * @param {*} app
+ * @param {*} dest
+ * @param {*} source
  * @param {*} cb
  * @returns
  */
-const uploadFile = (app, dest, source, cb) => {
+const uploadFileWithCallback = (app, dest, source, cb) => {
   // check
   if (!app || !app.client || !app.config) return;
 
@@ -30,25 +49,6 @@ const uploadFile = (app, dest, source, cb) => {
   );
 };
 
-/**
- * upload file sync
- * @param {*} app
- * @param {*} dest
- * @param {*} source
- * @returns
- */
-const uploadFileSync = (app, dest, source) => {
-  // check
-  if (!app || !app.client || !app.config) return;
-
-  // upload
-  return new Promise((resolve, reject) => {
-    uploadFile(app, dest, source, (err, data) => {
-      return err ? reject(err) : resolve(data);
-    });
-  });
-};
-
 // qiao
 
 /**
@@ -56,9 +56,9 @@ const uploadFileSync = (app, dest, source) => {
  * @param {*} app
  * @param {*} destFolder
  * @param {*} sourceFolder
- * @param {*} cb
+ * @returns
  */
-const uploadFolder = (app, destFolder, sourceFolder, cb) => {
+const uploadFolder = async (app, destFolder, sourceFolder) => {
   // check
   if (!app || !app.client || !app.config) return;
 
@@ -66,7 +66,7 @@ const uploadFolder = (app, destFolder, sourceFolder, cb) => {
   console.time('total use');
 
   // files
-  const paths = qiaoFile.lsdir(sourceFolder + '/');
+  const paths = await qiaoFile.lsdir(sourceFolder);
   const files = paths.files;
   const bar = new qiaoCli.progress('uploading files... :current/:total', {
     total: files.length,
@@ -78,52 +78,36 @@ const uploadFolder = (app, destFolder, sourceFolder, cb) => {
   const failFiles = [];
 
   // upload
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i].path + files[i].name;
-    const dest = destFolder + file.substr(sourceFolder.length);
-    uploadFile(app, dest, file, (err, data) => {
-      allFiles.push(data);
-      if (err || !data || data.statusCode != 200) {
-        failFiles.push(err || data);
-      } else {
-        sucFiles.push(data);
-      }
-
-      bar.tick();
-
-      if (bar.complete) {
-        const obj = {};
-        obj.paths = paths;
-        obj.all = allFiles;
-        obj.suc = sucFiles;
-        obj.fail = failFiles;
-
-        console.log();
-        console.timeEnd('total use');
-        console.log();
-
-        if (cb) cb(obj);
-      }
-    });
-  }
-};
-
-/**
- * upload folder sync
- * @param {*} app
- * @param {*} destFolder
- * @param {*} sourceFolder
- * @returns
- */
-const uploadFolderSync = (app, destFolder, sourceFolder) => {
-  // check
-  if (!app || !app.client || !app.config) return;
-
-  // upload
   return new Promise((resolve) => {
-    uploadFolder(app, destFolder, sourceFolder, (rs) => {
-      return resolve(rs);
-    });
+    for (let i = 0; i < files.length; i++) {
+      const file = qiaoFile.path.resolve(files[i].path, files[i].name);
+      const dest = destFolder + '/' + files[i].name;
+      console.log(1, file, dest);
+      uploadFileWithCallback(app, dest, file, (err, data) => {
+        allFiles.push(data);
+        if (err || !data || data.statusCode != 200) {
+          failFiles.push(err || data);
+        } else {
+          sucFiles.push(data);
+        }
+
+        bar.tick();
+
+        if (bar.complete) {
+          const obj = {};
+          obj.paths = paths;
+          obj.all = allFiles;
+          obj.suc = sucFiles;
+          obj.fail = failFiles;
+
+          console.log();
+          console.timeEnd('total use');
+          console.log();
+
+          resolve(obj);
+        }
+      });
+    }
   });
 };
 
@@ -151,17 +135,11 @@ const init = (config) => {
   });
 
   // upload
-  app.uploadFile = (dest, source, cb) => {
-    uploadFile(app, dest, source, cb);
+  app.uploadFile = async (dest, source) => {
+    return await uploadFile(app, dest, source);
   };
-  app.uploadFileSync = async (dest, source) => {
-    return await uploadFileSync(app, dest, source);
-  };
-  app.uploadFolder = (destFolder, sourceFolder, cb) => {
-    uploadFolder(app, destFolder, sourceFolder, cb);
-  };
-  app.uploadFolderSync = async (destFolder, sourceFolder) => {
-    return await uploadFolderSync(app, destFolder, sourceFolder);
+  app.uploadFolder = async (destFolder, sourceFolder) => {
+    return await uploadFolder(app, destFolder, sourceFolder);
   };
 
   // return

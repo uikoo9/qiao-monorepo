@@ -2,8 +2,8 @@
 import COS from 'cos-nodejs-sdk-v5';
 
 // upload
-import { uploadFile, uploadFileSync } from './upload-file.js';
-import { uploadFolder, uploadFolderSync } from './upload-folder.js';
+import { uploadFile } from './upload-file.js';
+import { uploadFolder } from './upload-folder.js';
 
 /**
  * init app
@@ -27,17 +27,11 @@ const init = (config) => {
   });
 
   // upload
-  app.uploadFile = (dest, source, cb) => {
-    uploadFile(app, dest, source, cb);
+  app.uploadFile = async (dest, source) => {
+    return await uploadFile(app, dest, source);
   };
-  app.uploadFileSync = async (dest, source) => {
-    return await uploadFileSync(app, dest, source);
-  };
-  app.uploadFolder = (destFolder, sourceFolder, cb) => {
-    uploadFolder(app, destFolder, sourceFolder, cb);
-  };
-  app.uploadFolderSync = async (destFolder, sourceFolder) => {
-    return await uploadFolderSync(app, destFolder, sourceFolder);
+  app.uploadFolder = async (destFolder, sourceFolder) => {
+    return await uploadFolder(app, destFolder, sourceFolder);
   };
 
   // return

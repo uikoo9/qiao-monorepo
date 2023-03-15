@@ -3,10 +3,29 @@
  * @param {*} app
  * @param {*} dest
  * @param {*} source
+ * @returns
+ */
+export const uploadFile = (app, dest, source) => {
+  // check
+  if (!app || !app.client || !app.config) return;
+
+  // upload
+  return new Promise((resolve, reject) => {
+    uploadFileWithCallback(app, dest, source, (err, data) => {
+      return err ? reject(err) : resolve(data);
+    });
+  });
+};
+
+/**
+ * upload file with callback
+ * @param {*} app
+ * @param {*} dest
+ * @param {*} source
  * @param {*} cb
  * @returns
  */
-export const uploadFile = (app, dest, source, cb) => {
+export const uploadFileWithCallback = (app, dest, source, cb) => {
   // check
   if (!app || !app.client || !app.config) return;
 
@@ -22,23 +41,4 @@ export const uploadFile = (app, dest, source, cb) => {
       if (cb) cb(err, data);
     },
   );
-};
-
-/**
- * upload file sync
- * @param {*} app
- * @param {*} dest
- * @param {*} source
- * @returns
- */
-export const uploadFileSync = (app, dest, source) => {
-  // check
-  if (!app || !app.client || !app.config) return;
-
-  // upload
-  return new Promise((resolve, reject) => {
-    uploadFile(app, dest, source, (err, data) => {
-      return err ? reject(err) : resolve(data);
-    });
-  });
 };

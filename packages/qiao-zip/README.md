@@ -7,11 +7,15 @@ nodejs 下 zip 和 unzip 工具
 
 ## install
 
+安装
+
 ```bash
 npm i qiao-zip
 ```
 
 ## use
+
+使用
 
 ```javascript
 // cjs

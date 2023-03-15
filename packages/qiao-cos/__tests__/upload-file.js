@@ -5,15 +5,15 @@ const config = require('./config.json');
 const qcos = require('../index.js')(config);
 
 /**
- * upload folder
- * upload /your/folder folder's files to your bucket's test folder
+ * upload file demo
+ * upload /your/test.js to your bucket's test/test.js
  */
 const test = async () => {
   try {
-    const destPath = 'test';
-    const sourceFolder = '/your/folder';
+    const destPath = 'test/test.js';
+    const sourceFile = '../index.js';
 
-    const rs = await qcos.uploadFolderSync(destPath, sourceFolder);
+    const rs = await qcos.uploadFile(destPath, sourceFile);
     console.log(rs);
   } catch (e) {
     console.log(e);
