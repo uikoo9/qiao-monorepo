@@ -12,7 +12,7 @@ import { uploadFile } from './upload-file.js';
  * @param {*} sourceFolder
  * @param {*} cb
  */
-export const uploadFolder = (app, destFolder, sourceFolder, cb) => {
+export const uploadFolder = async (app, destFolder, sourceFolder, cb) => {
   // check
   if (!app || !app.client || !app.config) return;
 
@@ -20,7 +20,7 @@ export const uploadFolder = (app, destFolder, sourceFolder, cb) => {
   console.time('total use');
 
   // files
-  const paths = lsdir(sourceFolder + '/');
+  const paths = await lsdir(sourceFolder);
   const files = paths.files;
   const bar = new progress('uploading files... :current/:total', {
     total: files.length,

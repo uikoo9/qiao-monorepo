@@ -12,11 +12,18 @@
   "homepage": "https://code.insistime.com/qiao-zip",
   "license": "MIT",
   "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "rollup -c"
+  },
   "dependencies": {
     "adm-zip": "^0.5.10",
     "archiver": "^5.3.1",

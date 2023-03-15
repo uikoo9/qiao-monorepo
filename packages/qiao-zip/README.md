@@ -1,111 +1,52 @@
-# qiao-zip
+## qiao-zip
+
+[![npm version](https://img.shields.io/npm/v/qiao-zip.svg?style=flat-square)](https://www.npmjs.org/package/qiao-zip)
+[![npm downloads](https://img.shields.io/npm/dm/qiao-zip.svg?style=flat-square)](https://npm-stat.com/charts.html?package=qiao-zip)
+
+nodejs 下 zip 和 unzip 工具
+
+## install
+
+```bash
+npm i qiao-zip
+```
+
+## use
+
+```javascript
+// cjs
+const { zip, unzip } = require('qiao-zip');
+
+// mjs
+import { zip, unzip } from 'qiao-zip';
+```
 
 ## api
 
 ### unzip
 
+解压缩 zip 文件
+
 ```javascript
-'use strict';
-
-var q = require('qiao-zip');
-
-var test = function () {
-  var zipFile = 'd:/test1.zip';
-  var destFolder = 'd:/test2/';
-
-  q.unzip(zipFile, destFolder);
-};
-
-test();
+const res = await unzip(zipFile, destFolder);
 ```
 
-### zipFileSync
+### zip
+
+压缩文件或文件夹
 
 ```javascript
-'use strict';
+const res = await zip(src, dest);
 
-var q = require('qiao-zip');
-
-var test = async function () {
-  var sourceFile = 'd:/test.js';
-  var destZip = 'd:/test22.zip';
-
-  try {
-    var msg = await q.zipFileSync(sourceFile, destZip);
-    console.log(msg);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-test();
-```
-
-### zipFolderSync
-
-```javascript
-'use strict';
-
-var q = require('qiao-zip');
-
-var test = async function () {
-  var sourceFolder = 'd:/test/';
-  var destZip = 'd:/test24.zip';
-
-  try {
-    var msg = await q.zipFolderSync(sourceFolder, destZip);
-    console.log(msg);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-test();
-```
-
-### zipFile
-
-```javascript
-'use strict';
-
-var q = require('qiao-zip');
-
-var test = function () {
-  var sourceFile = 'd:/test.js';
-  var destZip = 'd:/test22.zip';
-
-  q.zipFile(sourceFile, destZip, function (err, msg) {
-    if (err) throw err;
-
-    console.log(msg);
-  });
-};
-
-test();
-```
-
-### zipFolder
-
-```javascript
-'use strict';
-
-var q = require('qiao-zip');
-
-var test = function () {
-  var sourceFolder = 'd:/test/';
-  var destZip = 'd:/test23.zip';
-
-  q.zipFolder(sourceFolder, destZip, function (err, msg) {
-    if (err) throw err;
-
-    console.log(msg);
-  });
-};
-
-test();
+// subdir，是否需要包一层
+const res = await zip(src, dest, true);
 ```
 
 ## version
+
+### 0.2.4.20230315
+
+1. 2.0.0
 
 ### 0.2.3.20220417
 

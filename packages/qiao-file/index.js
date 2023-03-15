@@ -4,6 +4,26 @@ var fsExtra = require('fs-extra');
 var path = require('path');
 var readline = require('readline');
 
+function _interopNamespaceDefault(e) {
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+
+var fsExtra__namespace = /*#__PURE__*/_interopNamespaceDefault(fsExtra);
+var path__namespace = /*#__PURE__*/_interopNamespaceDefault(path);
+
 // fs
 
 /**
@@ -288,6 +308,8 @@ const writeFile = async (filePath, fileData, options) => {
   }
 };
 
+exports.fs = fsExtra__namespace;
+exports.path = path__namespace;
 exports.cp = cp;
 exports.extname = extname;
 exports.isDir = isDir;

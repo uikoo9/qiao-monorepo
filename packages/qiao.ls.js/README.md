@@ -16,8 +16,7 @@ npm i qiao.ls.js
 
 ```javascript
 // cjs
-const q = require('qiao.ls.js');
-q.ls;
+const { ls } = require('qiao.ls.js');
 
 // mjs
 import { ls } from 'qiao.ls.js';
