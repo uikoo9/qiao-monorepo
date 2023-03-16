@@ -7,11 +7,15 @@ nodejs 下文件相关封装
 
 ## install
 
+安装
+
 ```bash
 npm i qiao-file
 ```
 
 ## use
+
+使用
 
 ```javascript
 // cjs
@@ -23,6 +27,8 @@ import { isExists } from 'qiao-file';
 
 ## cmd
 
+复制，移动，删除文件或文件夹
+
 ### cp
 
 复制文件或文件夹
@@ -32,6 +38,8 @@ const res = await cp(src, dest);
 ```
 
 ### mv
+
+移动文件或文件夹
 
 ```javascript
 const res = await mv(src, dest);
@@ -46,6 +54,16 @@ const res = await rm(path);
 ```
 
 ## dir
+
+文件夹相关操作
+
+### mkdir
+
+创建文件夹
+
+```javascript
+const res = await mkdir(dirpath);
+```
 
 ### readDir
 
@@ -73,15 +91,9 @@ const ignores = ['node_modules', 'is-'];
 const res = await lstree(dirpath, ignores);
 ```
 
-### mkdir
-
-创建文件夹
-
-```javascript
-const res = await mkdir(dirpath);
-```
-
 ## file
+
+文件相关操作
 
 ### extname
 
@@ -116,6 +128,8 @@ const res = await writeFile(filePath, 'sth');
 ```
 
 ## is
+
+文件相关判断
 
 ### isDir
 
