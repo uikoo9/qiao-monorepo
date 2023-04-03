@@ -1,5 +1,5 @@
 module.exports = {
-  files: ['!__tests__/**/*', '__tests__/ava/**/is-exists.js'],
+  files: ['!__tests__/**/*', '__tests__/ava/**/*'],
   match: [],
   failFast: true,
   failWithoutAssertions: false,

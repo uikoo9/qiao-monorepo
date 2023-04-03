@@ -8,13 +8,13 @@ const path = require('path');
 const { isExists } = require('../../index.js');
 
 // test
-test('isExists / path not exists', async (t) => {
-  const fpath = '/path/not/exists';
-  const res = await isExists(fpath);
-  t.false(res);
-});
-test('isExists / path is exists', async (t) => {
+test('path is exists', async (t) => {
   const fpath = path.resolve(__dirname, './is-exists.js');
   const res = await isExists(fpath);
   t.true(res);
+});
+test('path not exists', async (t) => {
+  const fpath = '/path/not/exists';
+  const res = await isExists(fpath);
+  t.false(res);
 });
