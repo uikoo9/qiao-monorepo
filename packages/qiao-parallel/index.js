@@ -16,7 +16,7 @@ let count = 0;
  * @param {*} jsPath
  * @returns
  */
-async function parallel(func, values, callback, complete, jsPath) {
+async function parallel (func, values, callback, complete, jsPath) {
   // time
   console.time('qiao-parallel');
 
