@@ -21,8 +21,10 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
+    "@nrwl/nx-cloud": "latest",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "ava": "^5.2.0",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react": "^7.32.2",
@@ -31,11 +33,10 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.0",
+    "nx": "15.9.2",
     "prettier": "^2.8.7",
     "qiao-lerna": "^2.0.2",
     "qiao-webpack": "^1.4.2",
-    "rollup": "^3.20.2",
-    "nx": "15.9.2",
-    "@nrwl/nx-cloud": "latest"
+    "rollup": "^3.20.2"
   }
 }
