@@ -1,15 +1,12 @@
 // ava
 const test = require('ava');
 
-// path
-const path = require('path');
-
 // q
 const { isExists } = require('../../index.js');
 
 // test
 test('path is exists', async (t) => {
-  const fpath = path.resolve(__dirname, './is-exists.js');
+  const fpath = './__tests__/ava/is-exists.js';
   const res = await isExists(fpath);
   t.true(res);
 });

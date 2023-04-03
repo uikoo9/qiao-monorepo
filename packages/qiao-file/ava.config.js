@@ -1,12 +1,10 @@
+/**
+ * ava config
+ *  https://github.com/avajs/ava/blob/main/docs/06-configuration.md
+ */
 module.exports = {
-  files: ['!__tests__/**/*', '__tests__/ava/**/*'],
-  match: [],
+  files: ['__tests__/ava/**/*'],
   failFast: true,
   failWithoutAssertions: false,
-  environmentVariables: {
-    MY_ENVIRONMENT_VARIABLE: 'some value',
-  },
-  verbose: true,
-  require: [],
-  nodeArguments: ['--trace-deprecation'],
+  concurrency: 2,
 };
