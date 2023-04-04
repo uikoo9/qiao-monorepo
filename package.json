@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "qiao-monorepo",
   "private": true,
   "scripts": {
     "prepare": "husky install",
@@ -25,6 +25,7 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "ava": "^5.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react": "^7.32.2",
@@ -32,6 +33,7 @@
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
+    "lerna": "^6.6.1",
     "lint-staged": "^13.2.0",
     "nx": "15.9.2",
     "prettier": "^2.8.7",

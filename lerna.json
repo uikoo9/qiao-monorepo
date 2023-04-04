@@ -2,6 +2,9 @@
   "packages": ["packages/*"],
   "version": "independent",
   "command": {
+    "version": {
+      "allowBranch": "master"
+    },
     "publish": {
       "allowBranch": "master",
       "message": "chore(release): publish"
