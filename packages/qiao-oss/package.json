@@ -1,6 +1,6 @@
 {
   "name": "qiao-oss",
-  "version": "0.8.9",
+  "version": "3.0.1",
   "description": "ali oss upload tool on nodejs",
   "keywords": [
     "oss",
