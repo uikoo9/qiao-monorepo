@@ -1,8 +1,11 @@
+# project
 node_modules
-dist
+package-lock.json
 
-packages/qiao-electron-demo
-
-# 
-packages/qiao-file/__tests__/1
-packages/qiao-zip/demos
+# packages
+packages/**/dist
+packages/**/index.js
+packages/**/files_in
+packages/qiao-request
+packages/qiao-weixin
+packages/qiao-weixinx

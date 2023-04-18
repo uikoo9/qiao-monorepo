@@ -1,16 +1,11 @@
+# project
 node_modules
+package-lock.json
 
-packages/qiao-compress/files_in
-packages/qiao-electron-demo
-packages/qiao-regedit
+# packages
+packages/**/dist
+packages/**/index.js
+packages/**/files_in
 packages/qiao-request
-packages/qiao-server-coder
-packages/qiao-timer
 packages/qiao-weixin
 packages/qiao-weixinx
-packages/qiao-zip
-packages/qiao.cookie.js
-
-# 
-packages/qiao-file/__tests__/1
-packages/qiao-zip/demos
