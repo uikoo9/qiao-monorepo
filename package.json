@@ -13,8 +13,8 @@
     "postinstall": "npm run clean && npm run init && npm run lint",
     "pb": "lerna publish",
     "graph": "nx graph",
-    "check": "ncu && lerna exec ncu --concurrency=1",
-    "update": "ncu -u && lerna exec 'ncu -u' --concurrency=1",
+    "check": "ncu && lerna exec ncu --concurrency=1 --ignore=qiao-oss",
+    "update": "ncu -u && lerna exec 'ncu -u' --concurrency=1 --ignore=qiao-oss",
     "pkg": "qlerna pkg ./packages",
     "dpkg": "qlerna pkg ./packages dev"
   },
@@ -37,7 +37,7 @@
     "lerna": "^6.6.1",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
-    "qiao-lerna": "^3.2.0",
+    "qiao-lerna": "^3.2.1",
     "qiao-webpack": "^3.1.8",
     "rollup": "^3.20.5"
   }
