@@ -37,8 +37,8 @@
     "lerna": "^6.6.1",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
-    "qiao-lerna": "^3.2.2",
-    "qiao-webpack": "^3.1.8",
-    "rollup": "^3.20.5"
+    "qiao-lerna": "^3.2.4",
+    "qiao-webpack": "^3.2.4",
+    "rollup": "^3.20.6"
   }
 }
