@@ -29,16 +29,16 @@
     "@commitlint/config-conventional": "^17.6.1",
     "ava": "^5.2.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "fake-indexeddb": "^4.0.1",
     "husky": "^8.0.3",
-    "jsdom": "^21.1.1",
+    "jsdom": "^22.0.0",
     "lerna": "^6.6.1",
-    "lint-staged": "^13.2.1",
-    "prettier": "^2.8.7",
-    "qiao-lerna": "^3.2.4",
-    "qiao-webpack": "^3.2.4",
-    "rollup": "^3.20.6"
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "qiao-lerna": "^3.2.7",
+    "qiao-webpack": "^3.2.7",
+    "rollup": "^3.21.3"
   }
 }
