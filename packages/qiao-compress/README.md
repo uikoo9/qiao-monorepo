@@ -816,25 +816,3 @@ var test = async function () {
 
 test();
 ```
-
-## version
-
-### 0.0.3.20220513
-
-1. lerna
-
-### 0.0.2.20200805
-
-1. compress file chinese
-2. uncompress file chinese
-3. compress folder
-4. zip and unzip
-5. gzip and ungzip
-6. tar and untar
-7. tgz and untgz
-
-### 0.0.1.20200804
-
-1. init project
-2. uncompress
-3. compress file

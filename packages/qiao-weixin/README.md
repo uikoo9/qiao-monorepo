@@ -73,28 +73,3 @@ var test = async function () {
 
 test();
 ```
-
-## version
-
-### 0.0.5.20200803
-
-1. ncu
-
-### 0.0.4.20191206
-
-1. add funding
-
-### 0.0.3.20190108
-
-1. 接口 1 生成文件
-2. 接口 1 生成 src
-3. 接口 1-3 生成文件或者返回 src
-
-### 0.0.2.20190107
-
-1. nodejs weixin sdk
-
-### 0.0.1.20190104
-
-1. init project
-2. access token
