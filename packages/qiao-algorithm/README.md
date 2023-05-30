@@ -19,8 +19,9 @@ npm i qiao-algorithm
 
 ```javascript
 // cjs
-const { ls } = require('qiao-algorithm');
-
-// mjs
-import { ls } from 'qiao-algorithm';
+const { twoSum1 } = require('qiao-algorithm');
 ```
+
+## api
+### twoSum
+[https://leetcode.cn/problems/two-sum](https://leetcode.cn/problems/two-sum)
