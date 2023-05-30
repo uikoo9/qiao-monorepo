@@ -1,0 +1,22 @@
+{
+  "name": "qiao-algorithm",
+  "version": "3.2.0",
+  "description": "algorithm",
+  "keywords": [
+    "algorithm"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://code.insistime.com/qiao-algorithm",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-web/issues"
+  },
+  "scripts": {
+    "test": "ava"
+  }
+}
