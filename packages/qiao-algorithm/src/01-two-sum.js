@@ -18,12 +18,14 @@
  * @return {number[]}
  *
  */
-exports.twoSum1 = function (nums, target) {
+export const twoSum1 = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       if (nums[i] + nums[j] === target) return [i, j];
     }
   }
+
+  return [];
 };
 
 /**
@@ -31,9 +33,8 @@ exports.twoSum1 = function (nums, target) {
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
- *
  */
-exports.twoSum2 = function (nums, target) {
+export const twoSum2 = (nums, target) => {
   let obj = {};
   for (let i = 0; i < nums.length; i++) {
     const n = nums[i];
@@ -44,16 +45,39 @@ exports.twoSum2 = function (nums, target) {
     const n = nums[i];
     const s = target - n;
     const hasS = Object.prototype.hasOwnProperty.call(obj, s);
-    if(!hasS){
+    if (!hasS) {
       continue;
-    }else{
-      if(obj[s] == i) continue;
+    } else {
+      if (obj[s] == i) continue;
     }
 
-    if(n === s){
+    if (n === s) {
       return [i, obj[s]];
     }
 
     return [obj[n], obj[s]];
   }
+
+  return [];
+};
+
+/**
+ * method 3
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+export const twoSum3 = (nums, target) => {
+  let map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const s = target - nums[i];
+
+    if (map.has(s)) {
+      return [map.get(s), i];
+    } else {
+      map.set(nums[i], i);
+    }
+  }
+
+  return [];
 };
