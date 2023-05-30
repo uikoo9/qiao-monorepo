@@ -12,11 +12,35 @@
  */
 
 /**
- * method 1
+ * twoSum
+ *  正式的解法，将target-x记录到map中，方便快速查找
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
- *
+ */
+export const twoSum = (nums, target) => {
+  let map = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    const n = nums[i];
+    const s = target - nums[i];
+
+    if (map.has(s)) {
+      return [map.get(s), i];
+    } else {
+      map.set(n, i);
+    }
+  }
+
+  return [];
+};
+
+/**
+ * method 1
+ *  这个解法比较简单
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
  */
 export const twoSum1 = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
@@ -30,6 +54,7 @@ export const twoSum1 = (nums, target) => {
 
 /**
  * method 2
+ *  这个类似map的解法，用obj实现了一下
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
@@ -56,27 +81,6 @@ export const twoSum2 = (nums, target) => {
     }
 
     return [obj[n], obj[s]];
-  }
-
-  return [];
-};
-
-/**
- * method 3
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-export const twoSum3 = (nums, target) => {
-  let map = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    const s = target - nums[i];
-
-    if (map.has(s)) {
-      return [map.get(s), i];
-    } else {
-      map.set(nums[i], i);
-    }
   }
 
   return [];
