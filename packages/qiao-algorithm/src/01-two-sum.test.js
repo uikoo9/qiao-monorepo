@@ -2,7 +2,7 @@
 const test = require('ava');
 
 // ls
-const { twoSum1, twoSum2, twoSum3 } = require('./index.js');
+const { twoSum1, twoSum2, twoSum3 } = require('../index.js');
 
 // 01 two sum
 test('01 two sum 1', (t) => {
