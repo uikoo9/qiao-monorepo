@@ -63,26 +63,17 @@ const twoSum1 = (nums, target) => {
  */
 const twoSum2 = (nums, target) => {
   let obj = {};
-  for (let i = 0; i < nums.length; i++) {
-    const n = nums[i];
-    obj[n] = i;
-  }
 
   for (let i = 0; i < nums.length; i++) {
     const n = nums[i];
     const s = target - n;
+
     const hasS = Object.prototype.hasOwnProperty.call(obj, s);
-    if (!hasS) {
-      continue;
+    if (hasS) {
+      return [obj[s], i];
     } else {
-      if (obj[s] == i) continue;
+      obj[n] = i;
     }
-
-    if (n === s) {
-      return [i, obj[s]];
-    }
-
-    return [obj[n], obj[s]];
   }
 
   return [];
