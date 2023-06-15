@@ -40,7 +40,7 @@
     "nx": "^16.3.2",
     "prettier": "^2.8.8",
     "qiao-lerna": "^3.3.5",
-    "qiao-webpack": "^3.3.4",
+    "qiao-webpack": "^3.3.6",
     "rollup": "^3.25.1"
   }
 }
