@@ -3,9 +3,8 @@ node_modules
 package-lock.json
 
 # packages
-packages/**/dist
-packages/**/index.js
-packages/**/files_in
+dist
+files_in
 packages/qiao-request
 packages/qiao-weixin
 packages/qiao-weixinx
