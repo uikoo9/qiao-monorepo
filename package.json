@@ -34,7 +34,7 @@
     "lerna": "^7.3.0",
     "lint-staged": "^14.0.1",
     "nx": "^16.9.1",
-    "qiao-lerna": "^3.6.7",
+    "qiao-lerna": "^3.6.8",
     "qiao-webpack": "^3.6.7",
     "qiao-project": "^3.6.7",
     "rollup": "^3.29.4"
