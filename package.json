@@ -33,6 +33,6 @@
     "lint-staged": "^14.0.1",
     "nx": "^16.10.0",
     "qiao-webpack": "^4.0.7",
-    "qiao-project": "^4.1.2"
+    "qiao-project": "^4.1.4"
   }
 }
