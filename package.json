@@ -21,8 +21,6 @@
     "dpkg": "qpro pkg ./packages dev"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "@commitlint/cli": "^17.7.2",
@@ -35,7 +33,6 @@
     "lint-staged": "^14.0.1",
     "nx": "^16.10.0",
     "qiao-webpack": "^4.0.7",
-    "qiao-project": "^4.0.9",
-    "rollup": "^4.0.2"
+    "qiao-project": "^4.1.2"
   }
 }

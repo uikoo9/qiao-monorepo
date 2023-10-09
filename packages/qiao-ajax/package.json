@@ -26,7 +26,7 @@
     "url": "https://github.com/uikoo9/qiao-monorepo/issues"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "qpro rollup ./rollup.config.js",
     "test": "jest"
   },
   "dependencies": {
