@@ -177,6 +177,7 @@ dist
 ## -- nodejs --
 
 ## -- qiao-monorepo --
+.nx
 dist
 jsdoc
 files_out

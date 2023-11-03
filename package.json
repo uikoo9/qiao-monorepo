@@ -23,15 +23,15 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
     "ava": "^5.3.1",
-    "fake-indexeddb": "^4.0.2",
+    "fake-indexeddb": "^5.0.1",
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
-    "lerna": "^7.3.0",
-    "lint-staged": "^14.0.1",
-    "nx": "^16.10.0",
+    "lerna": "^7.4.2",
+    "lint-staged": "^15.0.2",
+    "nx": "^17.0.2",
     "qiao-project": "^4.1.4"
   }
 }

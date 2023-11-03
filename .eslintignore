@@ -1,8 +1,11 @@
 # project
+
+.nx
 node_modules
 package-lock.json
 
 # packages
+
 dist
 files_in
 packages/qiao-request
