@@ -28,6 +28,6 @@
     "lerna": "^7.4.2",
     "lint-staged": "^15.1.0",
     "nx": "^17.1.2",
-    "qiao-project": "^4.2.6"
+    "qiao-project": "^4.3.1"
   }
 }
