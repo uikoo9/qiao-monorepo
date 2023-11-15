@@ -21,17 +21,15 @@
     "dpkg": "qpro pkg ./packages dev"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-conventional": "^18.1.0",
+    "@commitlint/cli": "^18.4.1",
+    "@commitlint/config-conventional": "^18.4.0",
     "ava": "^5.3.1",
     "fake-indexeddb": "^5.0.1",
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "lerna": "^7.4.2",
-    "lint-staged": "^15.0.2",
-    "nx": "^17.0.2",
-    "qiao-project": "^4.1.4"
+    "lint-staged": "^15.1.0",
+    "nx": "^17.1.2",
+    "qiao-project": "^4.2.6"
   }
 }
