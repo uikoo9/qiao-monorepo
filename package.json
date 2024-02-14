@@ -15,20 +15,19 @@
     "cz": "qpro commitizen",
     "pb": "lerna publish",
     "graph": "nx graph",
-    "check": "ncu && lerna exec ncu --concurrency=1",
-    "update": "ncu -u && lerna exec 'ncu -u' --concurrency=1",
+    "check": "qpro ncu && lerna exec 'qpro ncu' --concurrency=1",
+    "update": "qpro ncu u && lerna exec 'qpro ncu u' --concurrency=1",
     "pkg": "qpro pkg ./packages",
     "dpkg": "qpro pkg ./packages dev"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
-    "ava": "^6.0.1",
-    "husky": "^8.0.3",
-    "lerna": "^8.0.2",
-    "lint-staged": "^15.2.0",
-    "npm-check-updates": "^16.14.12",
-    "nx": "^17.2.8",
-    "qiao-project": "^4.3.6"
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
+    "ava": "^6.1.1",
+    "husky": "^9.0.11",
+    "lerna": "^8.1.2",
+    "lint-staged": "^15.2.2",
+    "nx": "^18.0.4",
+    "qiao-project": "^4.4.1"
   }
 }
