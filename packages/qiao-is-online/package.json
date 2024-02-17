@@ -1,0 +1,51 @@
+{
+  "name": "qiao-is-online",
+  "version": "3.1.9",
+  "description": "is online and offline to online on nodejs",
+  "keywords": [
+    "nodejs",
+    "is online",
+    "offline to online"
+  ],
+  "author": "uikoo9 <uikoo9@qq.com>",
+  "homepage": "https://code.insistime.com/qiao-is-online",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "src/index.js",
+  "sideEffets": false,
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uikoo9/qiao-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uikoo9/qiao-monorepo/issues"
+  },
+  "scripts": {
+    "build": "qpro rollup ./rollup.config.js",
+    "test": "ava"
+  },
+  "dependencies": {
+    "offline-to-online": "^3.1.9",
+    "qiao-ping": "^3.1.9"
+  },
+  "nx": {
+    "namedInputs": {
+      "default": [
+        "{projectRoot}/src/**/*"
+      ]
+    },
+    "targets": {
+      "build": {
+        "inputs": [
+          "default"
+        ],
+        "outputs": [
+          "{projectRoot}/index.js"
+        ]
+      }
+    }
+  }
+}
