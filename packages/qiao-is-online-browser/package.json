@@ -8,7 +8,7 @@
     "offline to online"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://code.insistime.com/qiao-is-online-browser",
+  "homepage": "https://code.insistime.com/#qiao-is-online-browser",
   "license": "MIT",
   "main": "index.js",
   "module": "src/index.js",
