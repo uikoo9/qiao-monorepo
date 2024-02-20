@@ -28,7 +28,7 @@
     "lerna": "^8.1.2",
     "lint-staged": "^15.2.2",
     "nx": "^18.0.4",
-    "qiao-project": "^4.4.1",
-    "qiao-webpack": "^4.4.2"
+    "qiao-project": "^4.4.5",
+    "qiao-webpack": "^4.4.5"
   }
 }
