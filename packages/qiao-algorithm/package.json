@@ -6,7 +6,7 @@
     "algorithm"
   ],
   "author": "uikoo9 <uikoo9@qq.com>",
-  "homepage": "https://code.insistime.com/#qiao-algorithm",
+  "homepage": "https://code.vincentqiao.com/#qiao-algorithm",
   "license": "MIT",
   "main": "index.js",
   "module": "src/index.js",
