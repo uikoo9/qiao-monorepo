@@ -21,8 +21,8 @@
     "dpkg": "qpro pkg ./packages dev"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "ava": "^6.1.2",
     "husky": "^9.0.11",
     "lerna": "^8.1.2",
