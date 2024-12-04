@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "build": "lerna run build",
     "prettier": "qpro prettier",
     "eslint": "qpro eslint",
@@ -24,7 +24,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "ava": "^6.1.2",
-    "husky": "^9.0.11",
+    "husky": "^9.1.7",
     "lerna": "^8.1.2",
     "lint-staged": "^15.2.2",
     "nx": "^18.0.7",
